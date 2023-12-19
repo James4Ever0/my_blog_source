@@ -1,0 +1,89 @@
+slogan: Autonomous Machines, Autonomy Society.
+
+theme: cerulean
+inverse: true
+# whether to show h2 and h3 titles in excerpts
+show_title_in_excerpt: false
+
+menu:
+  - title: Archives
+    url: archives
+    intro: "All the articles."
+    icon: "fa fa-archive"
+  - title: Categories
+    url: categories
+    intro: "All the categories."
+    icon: "fa fa-folder"
+  - title: Tags
+    url: tags
+    intro: "All the tags."
+    icon: "fa fa-tags"
+  - title: About
+    url: about
+    intro: "About me."
+    icon: "fa fa-user"
+
+links:
+  - title: Freemind
+    url: https://github.com/wzpan/freemind/
+    intro: "Freemind's Github repository."
+    icon: "fa fa-github"
+  - title: "My Github"
+    url: http://www.github.com/wzpan
+    intro: "My Github account."
+    icon: "fa fa-github"
+  - title: "My LinkedIn"
+    url: http://www.linkedin.com/in/hahack
+    intro: "My Linkin account."
+    icon: "fa fa-linkedin"
+
+widgets:
+- search
+- recent_comments
+- category
+- tagcloud
+- recent_posts
+- links
+#- rss  # uncomment this to show an RSS button in the sidebar
+
+rss: atom.xml
+fancybox: true
+favicon: favicon.png
+duoshuo_shortname: #freemindtheme
+
+# Recommended posts
+# Dependency: https://github.com/huiwang/hexo-recommended-posts
+recommended_posts:
+  enabled: false
+
+# Analytics
+google_analytics:
+  enable: false
+  siteid:
+baidu_tongji:
+  enable: false
+  siteid:
+
+# search
+# swiftype_key: ZP2ZSuHgipSZfRyU8uTR
+
+# share widgets
+bdshare: true
+jiathis: false
+
+# built-in comment system
+# let's modify this.
+comment_js:
+  type: "github"
+  user: "james4ever0"
+  repo: "my_blog"
+  client_id: ""
+  client_secret: ""
+  count: 5
+
+# If you want to use gitalk for comments, please uncomment the following, fill in the fields, and comment out the comment_js above.
+#comment_gitalk:
+#  client_id: "<client_id>"
+#  client_secret: "<client_secret>"
+#  repo: "<repo-name>"
+#  user: "<owner-username>"

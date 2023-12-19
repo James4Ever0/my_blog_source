@@ -1,0 +1,3 @@
+<% if (!page.hasOwnProperty('comment')) { page.comment = true; } %>
+
+<%- partial('_partial/article', {item: page, post: true}) %>
