@@ -24,18 +24,34 @@ menu:
     icon: "fa fa-user"
 
 links:
-  - title: Freemind
-    url: https://github.com/wzpan/freemind/
-    intro: "Freemind's Github repository."
+  - title: Project Cybergod
+    url: https://github.com/james4ever0/agi_computer_control/
+    intro: "Autonomous computer agent"
+    icon: "fa fa-github"
+  - title: Project Pyjom
+    url: https://github.com/james4ever0/pyjom/
+    intro: "Media content automation"
+    icon: "fa fa-github"
+  - title: Project Prometheus
+    url: https://github.com/james4ever0/prometheous/
+    intro: "Automated documentation, AI+IR(RAG)"
+    icon: "fa fa-github"
+  - title: Project Pyjom
+    url: https://github.com/james4ever0/pyjom/
+    intro: "Media Content Automation"
+    icon: "fa fa-github"
+  - title: "Blog Source Code"
+    url: https://github.com/james4ever0/my_blog_source/
+    intro: Source code of my blog"
     icon: "fa fa-github"
   - title: "My Github"
-    url: http://www.github.com/wzpan
-    intro: "My Github account."
+    url: http://www.github.com/james4ever0
+    intro: "My Github account"
     icon: "fa fa-github"
-  - title: "My LinkedIn"
-    url: http://www.linkedin.com/in/hahack
-    intro: "My Linkin account."
-    icon: "fa fa-linkedin"
+  # - title: "My LinkedIn"
+  #   url: http://www.linkedin.com/in/hahack
+  #   intro: "My Linkin account."
+  #   icon: "fa fa-linkedin"
 
 widgets:
 - search
