@@ -2,6 +2,7 @@ import os
 from headline_match import parse_content_metadata, modify_content_metadata
 import sys
 from beartype import beartype
+import uuid
 
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
@@ -12,6 +13,8 @@ from cache_db_context import (
     TargetGeneratorParameter,
     iterate_source_dir_and_generate_to_target_dir,
 )
+
+from custom_doc_writer import LLM, process_code_and_write_result
 
 from dateparser_utils import parse_date_with_multiple_formats
  
@@ -39,8 +42,12 @@ def load_bad_words(fname: str):
 # should change the schema according to the need, only generate what is needed the most.
 
 @beartype
-def generate_tags(existing_tags:list[str], summary:str):
-    ...
+def generate_tags(existing_tags:set[str], summary:str):
+    response = ...
+    new_tags = response["tags"]
+    recommended_tags = ...
+
+    return new_tags
 
 
 # if filename is not date, use as title
@@ -54,8 +61,22 @@ def generate_description(summary:str):
     ...
 
 @beartype
-def generate_category(existing_categories:list[str], summary:str):
-    ...
+def recommend_categories(existing_categories:set[str], summary:str, top_k:int=3):
+    # compute cosine similarity.
+    return ret
+
+@beartype
+def recommend_tags(existing_tags:set[str], summary:str, top_k:int=3):
+    return ret
+
+
+@beartype
+def generate_category(existing_categories:set[str], summary:str):
+    response = ...
+    new_category = response["category"] # use llm's categories to search for similar existing categories, ask the llm to give one final answer.
+    recommended_category = ...
+    final_category = ...
+    return final_category
 
 required_fields = ["tags", "title", "description", "category"]
 mitigation_map = {"created": "date"}
@@ -68,6 +89,8 @@ def generate_content_metadata(content: str, metadata: dict):
     changed = False
     new_metadata = metadata.copy()
     return new_metadata, changed
+
+
 @beartype
 def check_if_contains_bad_words(content: str, bad_words: list[str]):
     for word in bad_words:
