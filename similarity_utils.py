@@ -59,7 +59,7 @@ class SimilarityIndex(object):
 
     def encode_multiple(self, items: list[str]):
         embed_list = [self.encode_single(it) for it in items]
-        ret = torch.cat(embed_list, dim = 0)
+        ret = torch.cat(embed_list, dim=0)
         return ret
 
     def encode_single(self, it: str):
@@ -123,10 +123,21 @@ class SimilarityIndex(object):
         top_k=10,
         return_similarity=False,
     ):
-        query_length = 1 if isinstance(query, str) else len(query)
-        similarity = self.compute_similarity(query)
-        similarity_list = similarity.tolist()
-        top_k_indices = self.get_top_k_indices(similarity, top_k)
+        query_length, similarity_list, top_k_indices = self.get_similarity_info(
+            query, top_k
+        )
+        ret = self.prepare_search_results(
+            query_length, similarity_list, top_k_indices, return_similarity
+        )
+        return ret
+
+    def prepare_search_results(
+        self,
+        query_length: int,
+        similarity_list: list[float],
+        top_k_indices: list[int],
+        return_similarity: bool,
+    ):
         if return_similarity:
             return {
                 self.word_index[ind]: similarity_list[ind] / query_length
@@ -134,6 +145,31 @@ class SimilarityIndex(object):
             }
         else:
             return [self.word_index[ind] for ind in top_k_indices]
+
+    def can_compute_similarity(self, query: Union[str, list[str]]):
+        query_length = 1 if isinstance(query, str) else len(query)
+        can_compute = self.index_size > 0 and query_length > 0
+        return can_compute, query_length
+
+    def compute_similarity_and_get_top_k_indices(
+        self, query: Union[str, list[str]], top_k: int = 10
+    ):
+        similarity = self.compute_similarity(query)
+        similarity_list = similarity.tolist()
+        top_k_indices = self.get_top_k_indices(similarity, top_k)
+        return similarity_list, top_k_indices
+
+    def get_similarity_info(self, query: Union[str, list[str]], top_k: int = 10):
+        similarity_list = []
+        top_k_indices = []
+        can_compute, query_length = self.can_compute_similarity(query)
+        if can_compute:
+            (
+                similarity_list,
+                top_k_indices,
+            ) = self.compute_similarity_and_get_top_k_indices(query, top_k)
+
+        return query_length, similarity_list, top_k_indices
 
     @property
     def index_size(self):
