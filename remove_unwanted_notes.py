@@ -1,3 +1,4 @@
+from functools import lru_cache
 import os
 from headline_match import parse_content_metadata, modify_content_metadata
 import sys
@@ -17,7 +18,11 @@ from cache_db_context import (
     iterate_source_dir_and_generate_to_target_dir,
 )
 
-from custom_doc_writer import LLM, process_code_and_write_result
+from custom_doc_writer import (
+    LLM,
+    process_content_and_write_result,
+    assemble_prompt_components,
+)
 
 from dateparser_utils import parse_date_with_multiple_formats
 from similarity_utils import SimilarityIndex
@@ -57,14 +62,6 @@ def load_bad_words(fname: str):
 
 # if filename is not date, use as title
 # if filename is date, perform title generation
-@beartype
-def generate_title(summary: str):
-    ...
-
-
-@beartype
-def generate_description(summary: str):
-    ...
 
 
 class Categories(pydantic.BaseModel):
@@ -102,15 +99,21 @@ def call_llm_once_and_parse(init_prompt: str, prompt: str, pydantic_type: type[T
     return ret
 
 
+@lru_cache(maxsize=20)
+def cached_getsource(obj):
+    source = inspect.getsource(obj)
+    return source
+
+
 @beartype
 def generate_init_prompt_with_schema(identity: str, task: str, pydantic_schema):
-    schema_str = inspect.getsource(pydantic_schema).strip()
-    init_prompt = f"""{identity}
-{task}
+    schema_str = cached_getsource(pydantic_schema)
+    init_prompt = f"""{identity.strip()}
+{task.strip()}
 
 Respond strictly in following pydantic schema:
 ```python
-{schema_str}
+{schema_str.strip()}
 ```
 """
     return init_prompt
@@ -128,6 +131,14 @@ def generate_item_recommended_init_prompt(item_name: str, schema_class: type[T])
 You will produce recommended {item_name}."""
     init_prompt = generate_blogger_init_prompt_with_schema(task, schema_class)
     return init_prompt, schema_class
+
+
+def generate_description_recommended_init_script():
+    return generate_item_recommended_init_prompt("description", Description)
+
+
+def generate_title_recommended_init_script():
+    return generate_item_recommended_init_prompt("title", Title)
 
 
 def generate_category_recommender_init_prompt():
@@ -342,8 +353,82 @@ def generate_tags(tags_similarity_index: SimilarityIndex, summary: str, top_k: i
     return ret
 
 
+@beartype
+def generate_title(summary: str):
+    response = generate_recommended_items(
+        summary, generate_title_recommended_init_script
+    )
+    return response.title
+
+
+@beartype
+def generate_description(summary: str):
+    response = generate_recommended_items(
+        summary, generate_description_recommended_init_script
+    )
+    return response.description
+
+
+@beartype
+def generate_summary_prompt_base(word_limit: int):
+    init_prompt = f"""You are reading text from file in chunks. You would understand what the text is about and return brief summary (under {word_limit} words)."""
+    return init_prompt
+
+
+@beartype
+def generate_previous_comment_component(previous_comment: str = ""):
+    comp = (
+        f"""Previous comment:
+{previous_comment}"""
+        if previous_comment.strip()
+        else ""
+    )
+    return comp
+
+
+@beartype
+def generate_content_component(content: str, programming_language=""):
+    comp = f"""Content:
+```{programming_language}
+{content}
+```"""
+    return comp
+
+
+@beartype
+def generate_summary_prompt_generator(programming_language: str):
+    @beartype
+    def prompt_generator(content: str, location: str, previous_comment: str = ""):
+        components = [
+            generate_content_component(content, programming_language),
+            generate_previous_comment_component(previous_comment),
+        ]
+        ret = assemble_prompt_components(components)
+        return ret
+
+    return prompt_generator
+
+
+@beartype
+def generate_summary(
+    content_without_metadata: str,
+    filename: str,
+    word_limit: int = 30,
+    programming_language="markdown",
+):
+    prompt_base = generate_summary_prompt_base(word_limit)
+    prompt_generator = generate_summary_prompt_generator(programming_language)
+
+    model = LLM(prompt_base)
+    ret = process_content_and_write_result(
+        model, prompt_generator, filename, content_without_metadata
+    )
+    del model
+    return ret["summary"]
+
+
 required_fields = ["tags", "title", "description", "category"]
-mitigation_map = {"created": "date"}
+metadata_fields_mitigation_map = {"created": "date"}
 
 # need to make sure data format is correct.
 # need to parse different "created" data format.
