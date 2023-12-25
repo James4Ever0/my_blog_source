@@ -13,19 +13,20 @@ import os
 import re
 import uuid
 from functools import lru_cache
-from typing import Callable, Iterable, TypeVar, Union
+from typing import Callable, Iterable, Optional, TypeVar, Union
 
 import pydantic
 from beartype import beartype
-from cache_db_context import ( # type:ignore
+from cache_db_context import (  # type:ignore
     SourceIteratorAndTargetGeneratorParam,
     TargetGeneratorParameter,
     iterate_source_dir_and_generate_to_target_dir,
 )
-from custom_doc_writer import (# type:ignore
+from custom_doc_writer import (  # type:ignore
     assemble_prompt_components,
     llm_context,
     process_content_and_return_result,
+    assemble_prompt_components,
 )
 
 from dateparser_utils import (
@@ -144,9 +145,15 @@ def generate_blogger_init_prompt_with_schema(task: str, schema_class: type):
     return init_prompt
 
 
-def generate_item_recommended_init_prompt(item_name: str, schema_class: type[T]):
-    task = f"""You will be given an article summary.
-You will produce recommended {item_name}."""
+def generate_item_recommended_init_prompt(
+    item_name: str, schema_class: type[T], max_num: Optional[int] = None
+):
+    components = [
+        f"""You will be given an article summary.
+You will produce recommended {item_name}.""",
+        f"""You can most generate {max_num} {item_name}.""" if max_num else "",
+    ]
+    task = assemble_prompt_components(components)
     init_prompt = generate_blogger_init_prompt_with_schema(task, schema_class)
     return init_prompt, schema_class
 
@@ -159,12 +166,14 @@ def generate_title_recommended_init_script():
     return generate_item_recommended_init_prompt("title", Title)
 
 
-def generate_category_recommender_init_prompt():
-    return generate_item_recommended_init_prompt("categories", Categories)
+def generate_category_recommender_init_prompt(max_num=7):
+    return generate_item_recommended_init_prompt(
+        "categories", Categories, max_num=max_num
+    )
 
 
-def generate_tag_recommender_init_prompt():
-    return generate_item_recommended_init_prompt("tags", Tags)
+def generate_tag_recommender_init_prompt(max_num=7):
+    return generate_item_recommended_init_prompt("tags", Tags, max_num=max_num)
 
 
 @beartype
@@ -173,7 +182,7 @@ def generate_item_chooser_init_prompt(
 ):
     task = f"""You will be given an article summary, similar {item_name} in database, and your recommended {item_name}.
 You would prefer {item_name} in database if they match the summary.
-You will produce {objective} that best matches the summary."""
+You will choose {objective} that best matches the summary."""
     init_prompt = generate_blogger_init_prompt_with_schema(task, schema_class)
     return init_prompt, schema_class
 
@@ -503,6 +512,7 @@ def maybe_with_fallback(
             return obj
     return fallback()
 
+
 @beartype
 def generate_content_metadata(
     filepath: str,
@@ -609,7 +619,7 @@ def iterate_and_get_markdown_filepath_from_notedir(notes_dir: str):
 def extract_and_update_existing_tags_and_categories(
     content: str, existing_tags: set[str], existing_categories: set[str]
 ):
-    has_metadata, metadata, _ = parse_content_metadata(content)
+    has_metadata, metadata, _, _ = parse_content_metadata(content)
     if has_metadata:
         update_tags_and_categories_from_metadata(
             metadata, existing_tags, existing_categories
@@ -673,7 +683,12 @@ def process_note_content_with_similarity_indices(
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
 ):
-    has_metadata, metadata, content_without_metadata = parse_content_metadata(content)
+    (
+        has_metadata,
+        metadata,
+        content_without_metadata,
+        first_match,
+    ) = parse_content_metadata(content)
     new_metadata, changed = generate_content_metadata(
         source_path,
         content_without_metadata,
@@ -682,7 +697,7 @@ def process_note_content_with_similarity_indices(
         categories_similarity_index,
     )
     if changed:
-        return modify_content_metadata(content, has_metadata, new_metadata)
+        return modify_content_metadata(content, has_metadata, new_metadata, first_match)
     return content
 
 
