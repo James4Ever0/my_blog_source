@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 import os
 from typing import Iterable, Optional, Union, overload, Literal
 from beartype import beartype
@@ -23,16 +24,20 @@ import torch
 os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 import sentence_transformers  # i recommend you to use cpu only.
 import sentence_transformers.util
+from contextlib import contextmanager
 
-from functools import lru_cache
 
-
-@lru_cache(maxsize=1)
-def get_sentence_transformer_model():
+@contextmanager
+def sentence_transformer_context(
+    model_name="distiluse-base-multilingual-cased-v1", device="cpu", **kwargs
+):
     model = sentence_transformers.SentenceTransformer(
-        "distiluse-base-multilingual-cased-v1", device="cpu"
+        model_name, device=device, **kwargs
     )
-    return model
+    try:
+        yield model
+    finally:
+        del model
 
 
 @beartype
@@ -183,7 +188,7 @@ class SimilarityIndex(object):
         return top_k_indices
 
 
-if __name__ == "__main__":
+def test_main():
     texts = ["I love my pet dog and spend a lot of time with it.", "我爱我的宠物狗，并且经常和它在一起。"]
     tags = [
         "dogs",
@@ -200,11 +205,13 @@ if __name__ == "__main__":
         "gasoline",
     ]
 
-    sentence_transformer_model = get_sentence_transformer_model()
+    with sentence_transformer_context() as model:
+        sim_index = SimilarityIndex(model, candidates=tags)
 
-    sim_index = SimilarityIndex(sentence_transformer_model, candidates=tags)
+        for it in texts:
+            ret = sim_index.search(query=it)
+            print(it, "->", ret)
 
-    for it in texts:
-        ret = sim_index.search(query=it)
-        # ret = sim_index.search(query=it, return_similarity=True)
-        print(it, "->", ret)
+
+if __name__ == "__main__":
+    test_main()

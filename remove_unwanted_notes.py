@@ -1,11 +1,18 @@
+import argparse
+import shutil
 import sys
+
+from sentence_transformers import SentenceTransformer
 
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
 )
 from functools import lru_cache
 import os
-from headline_match import parse_content_metadata, modify_content_metadata, remove_metadata
+from headline_match import (
+    parse_content_metadata,
+    modify_content_metadata,
+)
 from beartype import beartype
 import pydantic
 import inspect
@@ -31,7 +38,7 @@ from dateparser_utils import (
     parse_date_with_multiple_formats,
     render_datetime_as_hexo_format,
 )
-from similarity_utils import SimilarityIndex
+from similarity_utils import SimilarityIndex, sentence_transformer_context
 
 UTF8 = "utf-8"
 
@@ -55,7 +62,8 @@ def load_file(fname: str):
         cnt = f.read()
     return cnt
 
-def write_file(fname: str, content:str):
+
+def write_file(fname: str, content: str):
     with open(fname, "w+", encoding=UTF8) as f:
         f.write(content)
 
@@ -698,53 +706,191 @@ def update_tags_and_categories_from_metadata(
     update_categories_set_from_metadata(metadata, categories_set)
 
 
-bad_words = load_bad_words(bad_words_path)
-
-(
-    note_paths,
-    existing_tags,
-    existing_categories,
-) = get_note_paths_without_bad_words_and_existing_tags_and_categories(
-    notes_dir, bad_words
-)
-
-tags_similarity_index = SimilarityIndex(sent_trans, existing_tags)
-categories_similarity_index = SimilarityIndex(sent_trans, existing_categories)
-
 @beartype
-def ...(source_path:str, target_path:str):
-    content = load_file(source_path)
-    has_metadata, metadata, content_without_metadata = parse_content_metadata(
-        content
-    )
+def process_note_content_with_similarity_indices(
+    content: str,
+    source_path: str,
+    tags_similarity_index: SimilarityIndex,
+    categories_similarity_index: SimilarityIndex,
+):
+    has_metadata, metadata, content_without_metadata = parse_content_metadata(content)
     new_metadata, changed = generate_content_metadata(
-        source_path, content_without_metadata, metadata, tags_similarity_index, categories_similarity_index
+        source_path,
+        content_without_metadata,
+        metadata,
+        tags_similarity_index,
+        categories_similarity_index,
     )
     if changed:
-        new_content = modify_content_metadata(content, has_metadata, new_metadata)
-    else:
-        new_content = content
+        return modify_content_metadata(content, has_metadata, new_metadata)
+    return content
+
+
+@beartype
+def process_and_write_note_with_similarity_indices(
+    source_path: str,
+    target_path: str,
+    tags_similarity_index: SimilarityIndex,
+    categories_similarity_index: SimilarityIndex,
+):
+    content = load_file(source_path)
+    new_content = process_note_content_with_similarity_indices(
+        content, source_path, tags_similarity_index, categories_similarity_index
+    )
     write_file(target_path, new_content)
 
 
 @beartype
-def ...(param:TargetGeneratorParameter):
+def get_existing_note_info_from_notes_dir_and_bad_words_path(
+    notes_dir: str, bad_words_path: str
+):
+    bad_words = load_bad_words(bad_words_path)
+    (
+        note_paths,
+        existing_tags,
+        existing_categories,
+    ) = get_note_paths_without_bad_words_and_existing_tags_and_categories(
+        notes_dir, bad_words
+    )
+    return (note_paths, existing_tags, existing_categories)
+
+
+@beartype
+def generate_processed_note_path(param: TargetGeneratorParameter):
     basename = generate_markdown_name()
     ret = os.path.join(param.target_dir_path, basename)
     return ret
 
-if __name__ == "__main__":
-    cache_dir = "cache"
-    final_dir = "source/_posts"  # clear and put transformed notes to final dir
-    notes_source_dir = "notes"
 
-    db_path = "cache_db.json"
-    bad_words_path = "bad_words.txt"
+@beartype
+def generate_process_and_write_note_method(
+    tags_similarity_index: SimilarityIndex, categories_similarity_index: SimilarityIndex
+):
+    @beartype
+    def process_and_write_note(
+        source_path: str,
+        target_path: str,
+    ):
+        return process_and_write_note_with_similarity_indices(
+            source_path,
+            target_path,
+            tags_similarity_index,
+            categories_similarity_index,
+        )
 
+    return process_and_write_note
+
+
+@beartype
+def generate_source_walker_from_note_paths(note_paths: list[str]):
+    def source_walker(dirpath: str):
+        for fpath in note_paths:
+            yield dirpath, fpath
+
+    return source_walker
+
+
+@beartype
+def prepare_note_iterator_extra_params(
+    note_paths: list[str],
+    sent_trans_model: SentenceTransformer,
+    existing_tags: set[str],
+    existing_categories: set[str],
+):
+    @beartype
+    def create_similarity_index_with_candidates(candidates: Iterable[str]):
+        return SimilarityIndex(sent_trans_model, candidates)
+
+    def get_tags_and_categories_similarity_indices():
+        tags_similarity_index = create_similarity_index_with_candidates(existing_tags)
+        categories_similarity_index = create_similarity_index_with_candidates(
+            existing_categories
+        )
+        return tags_similarity_index, categories_similarity_index
+
+    def generate_source_walker_and_target_file_generator():
+        (
+            tags_similarity_index,
+            categories_similarity_index,
+        ) = get_tags_and_categories_similarity_indices()
+
+        source_walker = generate_source_walker_from_note_paths(note_paths)
+        target_file_generator = generate_process_and_write_note_method(
+            tags_similarity_index, categories_similarity_index
+        )
+        return source_walker, target_file_generator
+
+    return generate_source_walker_and_target_file_generator()
+
+
+@beartype
+def iterate_note_paths_without_bad_words_and_write_to_cache(
+    param: SourceIteratorAndTargetGeneratorParam,
+    note_paths: list[str],
+    existing_tags: set[str],
+    existing_categories: set[str],
+) -> list[str]:
+    with sentence_transformer_context() as sent_trans_model:
+        source_walker, target_file_generator = prepare_note_iterator_extra_params(
+            note_paths, sent_trans_model, existing_tags, existing_categories
+        )
+        return iterate_source_dir_and_generate_to_target_dir(
+            param,
+            source_walker=source_walker,
+            target_path_generator=generate_processed_note_path,
+            target_file_geneator=target_file_generator,
+        )
+
+
+@beartype
+def walk_notes_source_dir_and_write_to_cache_dir(
+    param: SourceIteratorAndTargetGeneratorParam, bad_words_path: str
+):
+    (
+        note_paths,
+        existing_tags,
+        existing_categories,
+    ) = get_existing_note_info_from_notes_dir_and_bad_words_path(
+        param.source_dir_path, bad_words_path
+    )
+    return iterate_note_paths_without_bad_words_and_write_to_cache(
+        param,
+        note_paths,
+        existing_tags,
+        existing_categories,
+    )
+
+
+@beartype
+def copy_cache_to_final_dir(processed_cache_paths: list[str], final_dir: str):
+    shutil.rmtree(final_dir)
+    for path in processed_cache_paths:
+        shutil.copy(path, final_dir)
+
+
+def parse_params():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--notes-source-dir", type=str, default="notes")
+    parser.add_argument("--cache-dir", type=str, default="cache")
+    parser.add_argument("--final-dir", type=str, default="source/_posts")
+    parser.add_argument("--db-path", type=str, default="cache_db.json")
+    parser.add_argument("--bad-words-path", type=str, default="bad_words.txt")
+    args = parser.parse_args()
     param = SourceIteratorAndTargetGeneratorParam(
-        source_dir_path=notes_dir, target_dir_path=cache_dir, db_path=db_path
+        source_dir_path=args.notes_source_dir,
+        target_dir_path=args.cache_dir,
+        db_path=args.db_path,
     )
+    return param, args.bad_words_path, args.final_dir
 
-    iterate_source_dir_and_generate_to_target_dir(
-        param, source_walker=..., target_path_generator=..., target_file_geneator=...
+
+def main():
+    param, bad_words_path, final_dir = parse_params()
+    processed_cache_paths = walk_notes_source_dir_and_write_to_cache_dir(
+        param, bad_words_path
     )
+    copy_cache_to_final_dir(processed_cache_paths, final_dir)
+
+
+if __name__ == "__main__":
+    main()

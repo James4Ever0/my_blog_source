@@ -39,16 +39,19 @@ def parse_date_with_multiple_formats(
         result = parse_date_with_single_format(fmt, it)
         if result:
             return result
-    result = dateparser.parse(it, settings=settings) # type: ignore
+    result = dateparser.parse(it, settings=settings)  # type: ignore
     return result
+
 
 def format_datetime(dt: datetime, fmt: str):
     return dt.strftime(fmt)
 
-def render_datetime_as_hexo_format(dt:datetime):
+
+def render_datetime_as_hexo_format(dt: datetime):
     return format_datetime(dt, "%Y-%m-%d %H:%M:%S")
 
-if __name__ == "__main__":
+
+def test_main():
     candidates = [
         "2023-09-12T15:17:04.131Z",
         "2022-07-10T00:16:40+08:00",
@@ -69,3 +72,7 @@ if __name__ == "__main__":
             report = "Parsed: " + parse_result
         print(report)
         print("-" * 30)
+
+
+if __name__ == "__main__":
+    test_main()

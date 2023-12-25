@@ -54,7 +54,7 @@ def modify_content_metadata(markdown_content: str, has_metadata: bool, metadata:
     return result
 
 
-if __name__ == "__main__":
+def test_main():
     # Sample Markdown content
     markdown_content = """
 content
@@ -70,12 +70,14 @@ title: Sample Title
 tags: Tag1, Tag3
 ---
 """
-    has_metadata, metadata, content_without_metadata = parse_content_metadata(
-        markdown_content
-    )
+    has_metadata, _, content_without_metadata = parse_content_metadata(markdown_content)
     updated_content = modify_content_metadata(
         markdown_content, has_metadata, {"new_title": "Sample Title"}
     )
     print(updated_content)
     print("-" * 20)
     print(content_without_metadata)
+
+
+if __name__ == "__main__":
+    test_main()
