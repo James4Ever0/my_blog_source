@@ -17,15 +17,15 @@ from typing import Callable, Iterable, TypeVar, Union
 
 import pydantic
 from beartype import beartype
-from cache_db_context import (
+from cache_db_context import ( # type:ignore
     SourceIteratorAndTargetGeneratorParam,
     TargetGeneratorParameter,
     iterate_source_dir_and_generate_to_target_dir,
 )
-from custom_doc_writer import (
+from custom_doc_writer import (# type:ignore
     assemble_prompt_components,
     llm_context,
-    process_content_and_write_result,
+    process_content_and_return_result,
 )
 
 from dateparser_utils import (
@@ -438,7 +438,7 @@ def generate_summary(
     prompt_generator = generate_summary_prompt_generator(programming_language)
 
     with llm_context(prompt_base) as model:
-        ret = process_content_and_write_result(
+        ret = process_content_and_return_result(
             model, prompt_generator, filename, content_without_metadata
         )
         return ret["summary"]
@@ -503,86 +503,6 @@ def maybe_with_fallback(
             return obj
     return fallback()
 
-
-@beartype
-def build_field_generation_methods_with_summary(
-    content_without_metadata: str,
-    tags_similarity_index: SimilarityIndex,
-    categories_similarity_index: SimilarityIndex,
-    tag_top_k: int = 3,
-    category_top_k: int = 3,
-    summary_word_limit: int = 30,
-    programming_language: str = "markdown",
-):
-    summary = generate_summary(
-        content_without_metadata,
-        word_limit=summary_word_limit,
-        programming_language=programming_language,
-    )
-
-    data = {
-        "tags": lambda: generate_tags(tags_similarity_index, summary, top_k=tag_top_k),
-        "title": lambda: generate_title(summary),
-        "description": lambda: generate_description(summary),
-        "category": lambda: generate_category(
-            categories_similarity_index, summary, top_k=category_top_k
-        ),
-    }
-    return data
-
-
-@beartype
-def find_missing_fields_and_build_field_to_method(
-    filepath: str,
-    content_without_metadata: str,
-    metadata: dict,
-    tags_similarity_index: SimilarityIndex,
-    categories_similarity_index: SimilarityIndex,
-    tag_top_k: int = 3,
-    category_top_k: int = 3,
-    summary_word_limit: int = 30,
-    programming_language: str = "markdown",
-):
-    field_to_method = {
-        "date": lambda: generate_date(filepath, metadata),
-    }
-    missing_fields = [
-        field for field in required_fields if field not in new_metadata.keys()
-    ]
-    if set(missing_fields).intersection(fields_that_need_summary_to_generate):
-        field_to_method_with_summary = build_field_generation_methods_with_summary(
-            content_without_metadata,
-            tags_similarity_index,
-            categories_similarity_index,
-            tag_top_k=tag_top_k,
-            category_top_k=category_top_k,
-            summary_word_limit=summary_word_limit,
-            programming_language=programming_language,
-        )
-        field_to_method.update(field_to_method_with_summary)
-    return missing_fields, field_to_method
-
-
-@beartype
-def get_additional_metadata(
-    missing_fields: Iterable[str], field_to_method: dict[str, Callable[[], str]]
-):
-    additional_metadata = {}
-    for field in missing_fields:
-        additional_metadata[field] = field_to_method[field]()
-    return additional_metadata
-
-
-@beartype
-def generate_new_metadata(metadata: dict, additional_metadata: dict):
-    changed = False
-    new_metadata = metadata.copy()
-    if additional_metadata != {}:
-        changed = True
-        new_metadata.update(additional_metadata)
-    return new_metadata, changed
-
-
 @beartype
 def generate_content_metadata(
     filepath: str,
@@ -595,20 +515,65 @@ def generate_content_metadata(
     summary_word_limit: int = 30,
     programming_language: str = "markdown",
 ):
-    missing_fields, field_to_method = find_missing_fields_and_build_field_to_method(
-        filepath,
-        content_without_metadata,
-        metadata,
-        tags_similarity_index,
-        categories_similarity_index,
-        tag_top_k=tag_top_k,
-        category_top_k=category_top_k,
-        summary_word_limit=summary_word_limit,
-        programming_language=programming_language,
-    )
-    additional_metadata = get_additional_metadata(missing_fields, field_to_method)
-    new_metadata, changed = generate_new_metadata(metadata, additional_metadata)
-    return new_metadata, changed
+    @beartype
+    def get_additional_metadata(
+        missing_fields: Iterable[str], field_to_method: dict[str, Callable[[], str]]
+    ):
+        additional_metadata = {}
+        for field in missing_fields:
+            additional_metadata[field] = field_to_method[field]()
+        return additional_metadata
+
+    @beartype
+    def generate_new_metadata(additional_metadata: dict):
+        changed = False
+        new_metadata = metadata.copy()
+        if additional_metadata != {}:
+            changed = True
+            new_metadata.update(additional_metadata)
+        return new_metadata, changed
+
+    def build_field_generation_methods_with_summary():
+        summary = generate_summary(
+            content_without_metadata,
+            word_limit=summary_word_limit,
+            programming_language=programming_language,
+        )
+
+        data = {
+            "tags": lambda: generate_tags(
+                tags_similarity_index, summary, top_k=tag_top_k
+            ),
+            "title": lambda: generate_title(summary),
+            "description": lambda: generate_description(summary),
+            "category": lambda: generate_category(
+                categories_similarity_index, summary, top_k=category_top_k
+            ),
+        }
+        return data
+
+    def find_missing_fields_and_build_field_to_method():
+        field_to_method = {
+            "date": lambda: generate_date(filepath, metadata),
+        }
+        missing_fields = [
+            field for field in required_fields if field not in metadata.keys()
+        ]
+        if set(missing_fields).intersection(fields_that_need_summary_to_generate):
+            field_to_method_with_summary = build_field_generation_methods_with_summary()
+            field_to_method.update(field_to_method_with_summary)
+        return missing_fields, field_to_method
+
+    def get_new_metadata_and_changed_flag():
+        (
+            missing_fields,
+            field_to_method,
+        ) = find_missing_fields_and_build_field_to_method()
+        additional_metadata = get_additional_metadata(missing_fields, field_to_method)
+        new_metadata, changed = generate_new_metadata(additional_metadata)
+        return new_metadata, changed
+
+    return get_new_metadata_and_changed_flag()
 
 
 @beartype
@@ -834,6 +799,7 @@ def iterate_note_paths_without_bad_words_and_write_to_cache(
             source_walker=source_walker,
             target_path_generator=generate_processed_note_path,
             target_file_geneator=target_file_generator,
+            join_source_dir=False,
         )
 
 

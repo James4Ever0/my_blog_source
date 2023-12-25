@@ -14,3 +14,4 @@ chatgpt_api_cn@outlook.com
 553368605
 27ba5915e6
 killing everyone
+api.star-history.com
