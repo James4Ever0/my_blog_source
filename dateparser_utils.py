@@ -1,5 +1,6 @@
 # plan to use "humanize" or "arrow" package instead
 
+from typing import Iterable
 import dateparser
 
 from parse import parse, Result
@@ -32,7 +33,7 @@ def parse_date_with_single_format(input_format: str, input_date_string: str):
 
 @beartype
 def parse_date_with_multiple_formats(
-    custom_formats: list[str], it: str, settings: dict = {"STRICT_PARSING": True}
+    custom_formats: Iterable[str], it: str, settings: dict = {"STRICT_PARSING": True}
 ):
     for fmt in custom_formats:
         result = parse_date_with_single_format(fmt, it)

@@ -1,16 +1,19 @@
-from functools import lru_cache
-import os
-from headline_match import parse_content_metadata, modify_content_metadata
 import sys
-from beartype import beartype
-import pydantic
-import inspect
-import uuid
-from typing import Callable, TypeVar
 
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
 )
+from functools import lru_cache
+import os
+from headline_match import parse_content_metadata, modify_content_metadata, remove_metadata
+from beartype import beartype
+import pydantic
+import inspect
+import uuid
+from typing import Callable, Iterable, TypeVar, Union
+
+import datetime
+import re
 
 from cache_db_context import (
     SourceIteratorAndTargetGeneratorParam,
@@ -19,17 +22,26 @@ from cache_db_context import (
 )
 
 from custom_doc_writer import (
-    LLM,
+    llm_context,
     process_content_and_write_result,
     assemble_prompt_components,
 )
 
-from dateparser_utils import parse_date_with_multiple_formats
+from dateparser_utils import (
+    parse_date_with_multiple_formats,
+    render_datetime_as_hexo_format,
+)
 from similarity_utils import SimilarityIndex
 
 UTF8 = "utf-8"
 
 T = TypeVar("T")
+
+required_fields = ("tags", "title", "description", "category", "date")
+fields_that_need_summary_to_generate = ("tags", "title", "description", "category")
+date_mitigation_fields = ("created",)
+
+custom_date_formats = ("{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}",)
 
 
 def generate_markdown_name():
@@ -42,6 +54,10 @@ def load_file(fname: str):
     with open(fname, "r", encoding=UTF8) as f:
         cnt = f.read()
     return cnt
+
+def write_file(fname: str, content:str):
+    with open(fname, "w+", encoding=UTF8) as f:
+        f.write(content)
 
 
 def split_by_line(cnt: str):
@@ -86,10 +102,9 @@ class Description(pydantic.BaseModel):
 
 @beartype
 def call_llm_once(init_prompt: str, prompt: str) -> str:
-    model = LLM(init_prompt)
-    ret = model.run(prompt)
-    del model
-    return ret
+    with llm_context(init_prompt) as model:
+        ret = model.run(prompt)
+        return ret
 
 
 @beartype
@@ -412,32 +427,184 @@ def generate_summary_prompt_generator(programming_language: str):
 @beartype
 def generate_summary(
     content_without_metadata: str,
-    filename: str,
+    filename: str = "<unknown>",
     word_limit: int = 30,
     programming_language="markdown",
 ):
     prompt_base = generate_summary_prompt_base(word_limit)
     prompt_generator = generate_summary_prompt_generator(programming_language)
 
-    model = LLM(prompt_base)
-    ret = process_content_and_write_result(
-        model, prompt_generator, filename, content_without_metadata
-    )
-    del model
-    return ret["summary"]
-
-
-required_fields = ["tags", "title", "description", "category"]
-metadata_fields_mitigation_map = {"created": "date"}
-
-# need to make sure data format is correct.
-# need to parse different "created" data format.
+    with llm_context(prompt_base) as model:
+        ret = process_content_and_write_result(
+            model, prompt_generator, filename, content_without_metadata
+        )
+        return ret["summary"]
 
 
 @beartype
-def generate_content_metadata(content: str, metadata: dict):
+def get_date_obj_by_file_ctime(filepath: str):
+    creation_timestamp = os.path.getctime(filepath)
+    date_obj = datetime.datetime.fromtimestamp(creation_timestamp)
+    return date_obj
+
+
+@beartype
+def get_filename_without_extension(filepath: str):
+    base_filepath = os.path.basename(filepath)
+    filename_without_extension = re.sub(r"\.\w+$", "", base_filepath)
+    return filename_without_extension
+
+
+@beartype
+def get_date_obj_by_metadata(metadata: dict):
+    for field in date_mitigation_fields:
+        if field in metadata:
+            date_obj = parse_date_with_multiple_formats(custom_date_formats, field)
+            if date_obj:
+                return date_obj
+
+
+@beartype
+def get_date_obj_by_filepath(filepath: str):
+    filename_without_extension = get_filename_without_extension(filepath)
+    date_obj = parse_date_with_multiple_formats(
+        custom_date_formats, filename_without_extension
+    )
+    return date_obj
+
+
+@beartype
+def generate_date_obj(filepath: str, metadata: dict):
+    maybe_methods = (
+        lambda: get_date_obj_by_metadata(metadata),
+        lambda: get_date_obj_by_filepath(filepath),
+    )
+    fallback = lambda: get_date_obj_by_file_ctime(filepath)
+    return maybe_with_fallback(maybe_methods, fallback)
+
+
+@beartype
+def generate_date(filepath: str, metadata: dict):
+    date_obj = generate_date_obj(filepath, metadata)
+    ret = render_datetime_as_hexo_format(date_obj)
+    return ret
+
+
+@beartype
+def maybe_with_fallback(
+    maybe_methods: Iterable[Callable[[], Union[T, None]]], fallback: Callable[[], T]
+) -> T:
+    for it in maybe_methods:
+        obj = it()
+        if obj is not None:
+            return obj
+    return fallback()
+
+
+@beartype
+def build_field_generation_methods_with_summary(
+    content_without_metadata: str,
+    tags_similarity_index: SimilarityIndex,
+    categories_similarity_index: SimilarityIndex,
+    tag_top_k: int = 3,
+    category_top_k: int = 3,
+    summary_word_limit: int = 30,
+    programming_language: str = "markdown",
+):
+    summary = generate_summary(
+        content_without_metadata,
+        word_limit=summary_word_limit,
+        programming_language=programming_language,
+    )
+
+    data = {
+        "tags": lambda: generate_tags(tags_similarity_index, summary, top_k=tag_top_k),
+        "title": lambda: generate_title(summary),
+        "description": lambda: generate_description(summary),
+        "category": lambda: generate_category(
+            categories_similarity_index, summary, top_k=category_top_k
+        ),
+    }
+    return data
+
+
+@beartype
+def find_missing_fields_and_build_field_to_method(
+    filepath: str,
+    content_without_metadata: str,
+    metadata: dict,
+    tags_similarity_index: SimilarityIndex,
+    categories_similarity_index: SimilarityIndex,
+    tag_top_k: int = 3,
+    category_top_k: int = 3,
+    summary_word_limit: int = 30,
+    programming_language: str = "markdown",
+):
+    field_to_method = {
+        "date": lambda: generate_date(filepath, metadata),
+    }
+    missing_fields = [
+        field for field in required_fields if field not in new_metadata.keys()
+    ]
+    if set(missing_fields).intersection(fields_that_need_summary_to_generate):
+        field_to_method_with_summary = build_field_generation_methods_with_summary(
+            content_without_metadata,
+            tags_similarity_index,
+            categories_similarity_index,
+            tag_top_k=tag_top_k,
+            category_top_k=category_top_k,
+            summary_word_limit=summary_word_limit,
+            programming_language=programming_language,
+        )
+        field_to_method.update(field_to_method_with_summary)
+    return missing_fields, field_to_method
+
+
+@beartype
+def get_additional_metadata(
+    missing_fields: Iterable[str], field_to_method: dict[str, Callable[[], str]]
+):
+    additional_metadata = {}
+    for field in missing_fields:
+        additional_metadata[field] = field_to_method[field]()
+    return additional_metadata
+
+
+@beartype
+def generate_new_metadata(metadata: dict, additional_metadata: dict):
     changed = False
     new_metadata = metadata.copy()
+    if additional_metadata != {}:
+        changed = True
+        new_metadata.update(additional_metadata)
+    return new_metadata, changed
+
+
+@beartype
+def generate_content_metadata(
+    filepath: str,
+    content_without_metadata: str,
+    metadata: dict,
+    tags_similarity_index: SimilarityIndex,
+    categories_similarity_index: SimilarityIndex,
+    tag_top_k: int = 3,
+    category_top_k: int = 3,
+    summary_word_limit: int = 30,
+    programming_language: str = "markdown",
+):
+    missing_fields, field_to_method = find_missing_fields_and_build_field_to_method(
+        filepath,
+        content_without_metadata,
+        metadata,
+        tags_similarity_index,
+        categories_similarity_index,
+        tag_top_k=tag_top_k,
+        category_top_k=category_top_k,
+        summary_word_limit=summary_word_limit,
+        programming_language=programming_language,
+    )
+    additional_metadata = get_additional_metadata(missing_fields, field_to_method)
+    new_metadata, changed = generate_new_metadata(metadata, additional_metadata)
     return new_metadata, changed
 
 
@@ -470,6 +637,34 @@ def iterate_and_get_markdown_filepath_from_notedir(notes_dir: str):
             yield source_path
 
 
+@beartype
+def extract_and_update_existing_tags_and_categories(
+    content: str, existing_tags: set[str], existing_categories: set[str]
+):
+    has_metadata, metadata, _ = parse_content_metadata(content)
+    if has_metadata:
+        update_tags_and_categories_from_metadata(
+            metadata, existing_tags, existing_categories
+        )
+
+
+@beartype
+def append_note_path_without_bad_words_and_update_existing_tags_and_categories(
+    content: str,
+    bad_words: list[str],
+    note_paths: list[str],
+    filepath: str,
+    existing_tags: set[str],
+    existing_categories: set[str],
+):
+    if not check_if_contains_bad_words(content, bad_words):
+        note_paths.append(filepath)
+        extract_and_update_existing_tags_and_categories(
+            content, existing_tags, existing_categories
+        )
+
+
+@beartype
 def get_note_paths_without_bad_words_and_existing_tags_and_categories(
     notes_dir: str, bad_words: list[str]
 ):
@@ -479,13 +674,9 @@ def get_note_paths_without_bad_words_and_existing_tags_and_categories(
 
     for fpath in iterate_and_get_markdown_filepath_from_notedir(notes_dir):
         content = load_file(fpath)
-        if not check_if_contains_bad_words(content, bad_words):
-            note_paths.append(fpath)
-            has_metadata, metadata = parse_content_metadata(content)
-            if has_metadata:
-                update_tags_and_categories_from_metadata(
-                    metadata, existing_tags, existing_categories
-                )
+        append_note_path_without_bad_words_and_update_existing_tags_and_categories(
+            content, bad_words, note_paths, fpath, existing_tags, existing_categories
+        )
     return note_paths, existing_tags, existing_categories
 
 
@@ -509,30 +700,38 @@ def update_tags_and_categories_from_metadata(
 
 bad_words = load_bad_words(bad_words_path)
 
-for filename in os.listdir(notes_dir):
-    if filename.endswith(".md"):
-        source_path = os.path.join(notes_dir, filename)
-        print("processing file:", filename)
-        content = load_file(source_path)
-        if check_if_contains_bad_words(content, bad_words):
-            print("bad words detected, skipping file")
-            continue
-        has_metadata, metadata = parse_content_metadata(
-            content
-        )  # does it have metadata?
-        new_metadata, changed = generate_content_metadata(content, metadata)
-        if changed:
-            new_content = modify_content_metadata(content, has_metadata, new_metadata)
-        else:
-            # do nothing about it.
-            ...
+(
+    note_paths,
+    existing_tags,
+    existing_categories,
+) = get_note_paths_without_bad_words_and_existing_tags_and_categories(
+    notes_dir, bad_words
+)
 
-        # instance_list = filter_setextheading_in_children(md_obj)
-        # first_instance = instance_list[0]
-        # for child in first_instance.children if ['modified' in children]
-        # assert instance_count == 1, "file %s has more than one instance (%d)" % (filename, instance_count)
-        # chores to do: tagging, categorization
-        # filter unwanted content: passwords, bad articles
+tags_similarity_index = SimilarityIndex(sent_trans, existing_tags)
+categories_similarity_index = SimilarityIndex(sent_trans, existing_categories)
+
+@beartype
+def ...(source_path:str, target_path:str):
+    content = load_file(source_path)
+    has_metadata, metadata, content_without_metadata = parse_content_metadata(
+        content
+    )
+    new_metadata, changed = generate_content_metadata(
+        source_path, content_without_metadata, metadata, tags_similarity_index, categories_similarity_index
+    )
+    if changed:
+        new_content = modify_content_metadata(content, has_metadata, new_metadata)
+    else:
+        new_content = content
+    write_file(target_path, new_content)
+
+
+@beartype
+def ...(param:TargetGeneratorParameter):
+    basename = generate_markdown_name()
+    ret = os.path.join(param.target_dir_path, basename)
+    return ret
 
 if __name__ == "__main__":
     cache_dir = "cache"
@@ -544,4 +743,8 @@ if __name__ == "__main__":
 
     param = SourceIteratorAndTargetGeneratorParam(
         source_dir_path=notes_dir, target_dir_path=cache_dir, db_path=db_path
+    )
+
+    iterate_source_dir_and_generate_to_target_dir(
+        param, source_walker=..., target_path_generator=..., target_file_geneator=...
     )
