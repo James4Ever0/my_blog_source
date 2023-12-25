@@ -7,37 +7,32 @@ from sentence_transformers import SentenceTransformer
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
 )
-from functools import lru_cache
-import os
-from headline_match import (
-    parse_content_metadata,
-    modify_content_metadata,
-)
-from beartype import beartype
-import pydantic
+import datetime
 import inspect
+import os
+import re
 import uuid
+from functools import lru_cache
 from typing import Callable, Iterable, TypeVar, Union
 
-import datetime
-import re
-
+import pydantic
+from beartype import beartype
 from cache_db_context import (
     SourceIteratorAndTargetGeneratorParam,
     TargetGeneratorParameter,
     iterate_source_dir_and_generate_to_target_dir,
 )
-
 from custom_doc_writer import (
+    assemble_prompt_components,
     llm_context,
     process_content_and_write_result,
-    assemble_prompt_components,
 )
 
 from dateparser_utils import (
     parse_date_with_multiple_formats,
     render_datetime_as_hexo_format,
 )
+from headline_match import modify_content_metadata, parse_content_metadata
 from similarity_utils import SimilarityIndex, sentence_transformer_context
 
 UTF8 = "utf-8"
