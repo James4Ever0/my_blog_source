@@ -1,0 +1,26 @@
+---
+category: Captcha recognition
+created: '2022-12-05T08:59:31.966Z'
+date: '2023-12-22 23:52:59'
+description: ddddocr is a captcha recognition and resolution tool specifically designed
+  for Baidu RotNet. It can be installed from PyPi and tutorials are available to guide
+  its usage.
+modified: '2022-12-05T09:00:29.869Z'
+tags:
+- ddddocr
+- captcha recognition
+- Baidu RotNet
+- PyPi installation
+- tutorials
+- image processing
+- artificial intelligence
+title: ddddocr captcha resolve recognition
+---
+
+# ddddocr captcha resolve recognition
+
+i use rotnet for baidu rotnet captcha resolve. did it work?
+
+[ddddocr](https://pypi.org/project/ddddocr/)
+
+[tutorial](https://blog.csdn.net/jiahuiandxuehui/article/details/119089944)

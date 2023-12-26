@@ -1,0 +1,41 @@
+---
+category: book scanning
+created: '2023-03-06T03:20:34.947Z'
+date: '2023-12-22 23:52:59'
+description: This article discusses the process of batch scanning and learning books,
+  including tips on cutting, scanning, binding, and storing. It also covers recognizing
+  content using OCR and latex recognition tools, indexing, searching for content,
+  and utilizing BM25 search and visual recognition to restore the original structure
+  in markdown format. The article suggests adding organized data to ChatGPT or RETRO
+  models' pre-trained datasets.
+modified: '2023-03-06T15:23:05.130Z'
+tags:
+- book scanning
+- batch scanning
+- learning books
+- dual-sided scanner
+- book binding machine
+- OCR recognition
+- latex recognition
+title: 批量扫描书 批量学习理解全流程
+---
+
+# 批量扫描书 批量学习理解全流程
+
+## 注意事项
+
+首先如果网上有电子书，不必购买纸质书。
+
+书里面如果有二维码，附送的代码，要下载下来利用。
+
+## 切割 扫描 装订
+
+切书用重型切纸机，扫描用双面批量扫描仪，扫描完毕需要用热熔胶粘书装订机装回 用卡纸做背封 用滚筒双面胶粘封面和背封的连接处
+
+## 存储 识别 索引 搜索 理解
+
+用OCR latex识别器 图片识别器（识别并分割配图） [表格识别器](https://aistudio.baidu.com/aistudio/projectdetail/5631155?channelType=0&channel=0)（分割表格）无纸化还原文档原本结构 最好用markdown表示
+
+搜索用bm25加语义搜索 加latex识图搜索 图像识别搜索
+
+把整理好的数据加入到ChatGPT模型或者RETRO模型的预训练集中

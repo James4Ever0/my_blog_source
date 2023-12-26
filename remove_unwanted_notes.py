@@ -936,10 +936,15 @@ def walk_notes_source_dir_and_write_to_cache_dir(
         param, note_paths, existing_tags, existing_categories, sample_size=sample_size
     )
 
+@beartype
+def remove_and_create_dir(dirpath:str):
+    if os.path.exists(dirpath):
+        shutil.rmtree(dirpath)
+    os.mkdir(dirpath)
 
 @beartype
 def copy_cache_to_final_dir(processed_cache_paths: list[str], final_dir: str):
-    shutil.rmtree(final_dir)
+    remove_and_create_dir(final_dir)
     for path in processed_cache_paths:
         shutil.copy(path, final_dir)
 
