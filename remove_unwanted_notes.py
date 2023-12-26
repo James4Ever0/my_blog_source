@@ -2,6 +2,7 @@ import argparse
 import shutil
 import sys
 from sentence_transformers import SentenceTransformer
+import traceback
 
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
@@ -111,11 +112,46 @@ def call_llm_once(init_prompt: str, prompt: str) -> str:
         return ret
 
 
+from retrying import retry
+
+
 @beartype
-def call_llm_once_and_parse(init_prompt: str, prompt: str, pydantic_type: type[T]) -> T:
-    response = call_llm_once(init_prompt, prompt)
-    ret = pydantic_type.parse_raw(response)  # type: ignore
-    return ret
+def call_llm_once_and_parse(
+    init_prompt: str, prompt: str, pydantic_type: type[T], retry_times: int = 3
+) -> T:
+    def generate_fix_init_prompt():
+        identity = "You are a profession JSON response fixer. You can fix data failed to parsed as JSON."
+        task = "You will be given the erroneous response to be fixed, the error message during parsing and return fixed response according to the schema."
+        init_prompt = generate_init_prompt_with_schema(identity, task, pydantic_type)
+        return init_prompt
+    @beartype
+    def generate_fix_prompt(response:str, error:str):
+        prompt_context_dict = {
+            "Invalid Response to be fixed": response,
+            "Parsing error message": error,
+            "Hint": "Check for quote issues, like using both double quotes inslde and around the string, or invalid format according to the schema.",
+        }
+        fix_prompt = generate_json_prompt(prompt_context_dict)
+        return fix_prompt
+    @beartype
+    def fix_invalid_response(response: str, error:str):
+        fix_init_prompt = generate_fix_init_prompt()
+        fix_prompt = generate_fix_prompt(response, error)
+        fix_response = call_llm_once(fix_init_prompt, fix_prompt)
+        ret = pydantic_type.parse_raw(fix_response)  # type:ignore
+        return ret
+
+    @retry(stop_max_attempt_number=retry_times)
+    def try_once():
+        response = call_llm_once(init_prompt, prompt)
+        try:
+            ret = pydantic_type.parse_raw(response)  # type: ignore
+        except:
+            error = traceback.format_exc(limit = 1)
+            ret = fix_invalid_response(response, error)
+        return ret
+
+    return try_once()
 
 
 @lru_cache(maxsize=20)
@@ -130,7 +166,6 @@ def generate_init_prompt_with_schema(identity: str, task: str, pydantic_schema):
     init_prompt = f"""{identity.strip()}
 {task.strip()}
 
-Hint: Always use double quotes around string, and when your string contains double quotes, use single quotes in the string instead.
 Respond strictly in following pydantic schema:
 ```python
 {schema_str.strip()}
@@ -213,9 +248,12 @@ def generate_json_prompt(prompt_context_dict: dict[str, str]):
     prompt_context = generate_prompt_context_from_prompt_context_dict(
         prompt_context_dict
     )
+    # i miss ollama json format restrictions. can i have that?
     prompt = f"""{prompt_context}
 
-Response in JSON format:
+Hint: Always use double quotes around string.
+
+Response in JSON format (curly bracket key-value pairs):
 """
     return prompt
 

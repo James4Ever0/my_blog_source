@@ -53,7 +53,7 @@ def modify_content_metadata(
     metadata: dict,
     first_match: Optional[str],
 ):
-    replaced_metadata_str = yaml.safe_dump(metadata).strip()
+    replaced_metadata_str = yaml.safe_dump(metadata, allow_unicode=True).strip()
     replaced_metadata_str = f"""
 {replaced_metadata_str}
 """
