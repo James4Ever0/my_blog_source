@@ -3,6 +3,7 @@ import os
 from typing import Iterable, Optional, Union, overload, Literal
 from beartype import beartype
 import weakref
+import progressbar
 import torch
 
 # use sys.path.append to insert dependencies
@@ -63,7 +64,9 @@ class SimilarityIndex(object):
         return self._model_weakref_()
 
     def encode_multiple(self, items: list[str]):
-        embed_list = [self.encode_single(it) for it in items]
+        embed_list = []
+        for it in progressbar.progressbar(items):
+            embed_list.append(self.encode_single(it))
         ret = torch.cat(embed_list, dim=0)
         return ret
 
@@ -92,7 +95,7 @@ class SimilarityIndex(object):
                 self.update_embedding_index(embed)
 
     def insert_multiple_candidates(self, candidates: Iterable[str]):
-        for it in candidates:
+        for it in progressbar.progressbar(candidates):
             self.insert_single_candidate(it)
 
     def compute_similarity(self, it: Union[str, list[str]]):

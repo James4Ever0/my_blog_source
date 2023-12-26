@@ -1,6 +1,7 @@
 import argparse
 import shutil
 import sys
+from numpy import str0
 
 from sentence_transformers import SentenceTransformer
 
@@ -466,6 +467,7 @@ def generate_summary(
             line_limit=line_limit,
             sample_size=sample_size,
         )
+        breakpoint()
         return ret["summary"]
 
 
@@ -649,34 +651,48 @@ def extract_and_update_existing_tags_and_categories(
 
 
 @beartype
-def append_note_path_without_bad_words_and_update_existing_tags_and_categories(
-    content: str,
-    bad_words: list[str],
-    note_paths: list[str],
-    filepath: str,
-    existing_tags: set[str],
-    existing_categories: set[str],
-):
-    if not check_if_contains_bad_words(content, bad_words):
-        note_paths.append(filepath)
-        extract_and_update_existing_tags_and_categories(
-            content, existing_tags, existing_categories
-        )
-
-
-@beartype
 def get_note_paths_without_bad_words_and_existing_tags_and_categories(
-    notes_dir: str, bad_words: list[str]
+    notes_dir: str, bad_words: list[str], cache_dir: str
 ):
     note_paths: list[str] = []
     existing_tags: set[str] = set()
     existing_categories: set[str] = set()
 
-    for fpath in iterate_and_get_markdown_filepath_from_notedir(notes_dir):
-        content = load_file(fpath)
-        append_note_path_without_bad_words_and_update_existing_tags_and_categories(
-            content, bad_words, note_paths, fpath, existing_tags, existing_categories
-        )
+    @beartype
+    def check_bad_words_passed(content: str, check_bad_words: bool):
+        if check_bad_words:
+            passed = not check_if_contains_bad_words(content, bad_words)
+        else:
+            passed = True
+        return passed
+
+    @beartype
+    def append_note_path_and_update_existing_tags_and_categories(
+        content: str,
+        filepath: str,
+        check_bad_words: bool,
+    ):
+        if check_bad_words_passed(content, check_bad_words):
+            note_paths.append(filepath)
+            extract_and_update_existing_tags_and_categories(
+                content, existing_tags, existing_categories
+            )
+
+    @beartype
+    def iterate_dir_and_update_tags_and_categoiries(
+        dirpath: str, check_bad_words: bool = True
+    ):
+        for fpath in iterate_and_get_markdown_filepath_from_notedir(dirpath):
+            content = load_file(fpath)
+            append_note_path_and_update_existing_tags_and_categories(
+                content, fpath, check_bad_words
+            )
+
+    iterate_dir_and_update_tags_and_categoiries(
+        notes_dir,
+    )
+    iterate_dir_and_update_tags_and_categoiries(cache_dir, check_bad_words=False)
+
     return note_paths, existing_tags, existing_categories
 
 
@@ -704,7 +720,7 @@ def process_note_content_with_similarity_indices(
     source_path: str,
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
-    sample_size: Optional[int] = None
+    sample_size: Optional[int] = None,
 ):
     (
         has_metadata,
@@ -718,7 +734,7 @@ def process_note_content_with_similarity_indices(
         metadata,
         tags_similarity_index,
         categories_similarity_index,
-        sample_size=sample_size
+        sample_size=sample_size,
     )
     if changed:
         return modify_content_metadata(content, has_metadata, new_metadata, first_match)
@@ -731,11 +747,15 @@ def process_and_write_note_with_similarity_indices(
     target_path: str,
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
-    sample_size: Optional[int] = None
+    sample_size: Optional[int] = None,
 ):
     content = load_file(source_path)
     new_content = process_note_content_with_similarity_indices(
-        content, source_path, tags_similarity_index, categories_similarity_index, sample_size=sample_size
+        content,
+        source_path,
+        tags_similarity_index,
+        categories_similarity_index,
+        sample_size=sample_size,
     )
     write_file(target_path, new_content)
 
@@ -764,7 +784,9 @@ def generate_processed_note_path(param: TargetGeneratorParameter):
 
 @beartype
 def generate_process_and_write_note_method(
-    tags_similarity_index: SimilarityIndex, categories_similarity_index: SimilarityIndex, sample_size:Optional[int] = None
+    tags_similarity_index: SimilarityIndex,
+    categories_similarity_index: SimilarityIndex,
+    sample_size: Optional[int] = None,
 ):
     @beartype
     def process_and_write_note(
@@ -776,7 +798,7 @@ def generate_process_and_write_note_method(
             target_path,
             tags_similarity_index,
             categories_similarity_index,
-            sample_size = sample_size
+            sample_size=sample_size,
         )
 
     return process_and_write_note
@@ -797,7 +819,7 @@ def prepare_note_iterator_extra_params(
     sent_trans_model: SentenceTransformer,
     existing_tags: set[str],
     existing_categories: set[str],
-    sample_size:Optional[int] = None
+    sample_size: Optional[int] = None,
 ):
     @beartype
     def create_similarity_index_with_candidates(candidates: Iterable[str]):
@@ -831,11 +853,15 @@ def iterate_note_paths_without_bad_words_and_write_to_cache(
     note_paths: list[str],
     existing_tags: set[str],
     existing_categories: set[str],
-    sample_size:Optional[int] = None
+    sample_size: Optional[int] = None,
 ) -> list[str]:
     with sentence_transformer_context() as sent_trans_model:
         source_walker, target_file_generator = prepare_note_iterator_extra_params(
-            note_paths, sent_trans_model, existing_tags, existing_categories, sample_size=sample_size
+            note_paths,
+            sent_trans_model,
+            existing_tags,
+            existing_categories,
+            sample_size=sample_size,
         )
         return iterate_source_dir_and_generate_to_target_dir(
             param,
@@ -848,7 +874,9 @@ def iterate_note_paths_without_bad_words_and_write_to_cache(
 
 @beartype
 def walk_notes_source_dir_and_write_to_cache_dir(
-    param: SourceIteratorAndTargetGeneratorParam, bad_words_path: str, sample_size:Optional[int] = None
+    param: SourceIteratorAndTargetGeneratorParam,
+    bad_words_path: str,
+    sample_size: Optional[int] = None,
 ):
     (
         note_paths,
@@ -858,11 +886,7 @@ def walk_notes_source_dir_and_write_to_cache_dir(
         param.source_dir_path, bad_words_path
     )
     return iterate_note_paths_without_bad_words_and_write_to_cache(
-        param,
-        note_paths,
-        existing_tags,
-        existing_categories,
-        sample_size=sample_size
+        param, note_paths, existing_tags, existing_categories, sample_size=sample_size
     )
 
 
