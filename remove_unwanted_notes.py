@@ -84,7 +84,12 @@ def load_bad_words(fname: str):
 # if filename is not date, use as title
 # if filename is date, perform title generation
 
+# TODO: constraint string generation
+# validation not working. and the llm does not pay attention to the constraints by the name
+# string_without_comma_period = Annotated[str, pydantic.Field(regex=r'^[^,^.]*$')]
+# string_without_comma_period_and_space = Annotated[str, pydantic.Field(regex=r'^[^,^ ^.]*$')]
 
+# suspicious chars being used in string, like the comma
 class Categories(pydantic.BaseModel):
     categories: list[str]
 
@@ -120,14 +125,14 @@ def call_llm_once_and_parse(
     init_prompt: str, prompt: str, pydantic_type: type[T], retry_times: int = 3
 ) -> T:
     def generate_fix_init_prompt():
-        identity = "You are a profession JSON response fixer. You can fix data failed to parsed as JSON."
-        task = "You will be given the erroneous response to be fixed, the error message during parsing and return fixed response according to the schema."
-        init_prompt = generate_init_prompt_with_schema(identity, task, pydantic_type)
-        return init_prompt
+        identity = "You are a professional JSON response fixer. You can fix data failed to parsed as JSON."
+        task = "You will be given the data to be fixed, the error message during parsing the data and return fixed response according to the schema, and a few hints."
+        fix_init_prompt = generate_init_prompt_with_schema(identity, task, pydantic_type)
+        return fix_init_prompt
     @beartype
     def generate_fix_prompt(response:str, error:str):
         prompt_context_dict = {
-            "Invalid Response to be fixed": response,
+            "Invalid data to be fixed": response,
             "Parsing error message": error,
             "Hint": "Check for quote issues, like using both double quotes inslde and around the string, or invalid format according to the schema.",
         }
@@ -250,8 +255,6 @@ def generate_json_prompt(prompt_context_dict: dict[str, str]):
     )
     # i miss ollama json format restrictions. can i have that?
     prompt = f"""{prompt_context}
-
-Hint: Always use double quotes around string.
 
 Response in JSON format (curly bracket key-value pairs):
 """

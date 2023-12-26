@@ -1,0 +1,21 @@
+---
+category: Tab Management
+created: '2022-08-10T05:51:49.000Z'
+date: '2023-12-22 23:52:59'
+description: This article introduces 'Tab-Session Manager', a tool that allows users
+  to manage their browser sessions by integrating with Google account. The software
+  is capable of offline syncing without relying on Google Cloud and works on newly
+  opened tabs. However, it does not seem to integrate with existing tabs.
+modified: '2022-08-18T07:55:42.553Z'
+tags:
+- stub
+- sync
+- system manage
+title: sync tabs across different browsers
+---
+
+# sync tabs across different browsers
+
+[tab session manager](https://github.com/sienori/Tab-Session-Manager) needs google account to operate, while it can still do offline syncing without google cloud.
+
+seems that it can only hook up with newly opened tabs instead of existing ones.
