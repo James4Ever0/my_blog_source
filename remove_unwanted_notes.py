@@ -1,8 +1,6 @@
 import argparse
 import shutil
 import sys
-from numpy import str0
-
 from sentence_transformers import SentenceTransformer
 
 sys.path.append(
@@ -132,6 +130,7 @@ def generate_init_prompt_with_schema(identity: str, task: str, pydantic_schema):
     init_prompt = f"""{identity.strip()}
 {task.strip()}
 
+Hint: Always use double quotes around string, and when your string contains double quotes, use single quotes in the string instead.
 Respond strictly in following pydantic schema:
 ```python
 {schema_str.strip()}
@@ -467,7 +466,6 @@ def generate_summary(
             line_limit=line_limit,
             sample_size=sample_size,
         )
-        breakpoint()
         return ret["summary"]
 
 
@@ -532,6 +530,11 @@ def maybe_with_fallback(
 
 
 @beartype
+def replace_double_quotes_as_single_quotes(content: str):
+    return content.replace('"', "'")
+
+
+@beartype
 def generate_content_metadata(
     filepath: str,
     content_without_metadata: str,
@@ -573,6 +576,8 @@ def generate_content_metadata(
             line_limit=line_limit,
             sample_size=sample_size,
         )
+
+        summary = replace_double_quotes_as_single_quotes(summary)
 
         data = {
             "tags": lambda: generate_tags(
@@ -707,6 +712,7 @@ def update_categories_set_from_metadata(metadata: dict, categories_set: set[str]
         categories_set.add(category)
 
 
+@beartype
 def update_tags_and_categories_from_metadata(
     metadata: dict, tags_set: set[str], categories_set: set[str]
 ):
@@ -762,7 +768,7 @@ def process_and_write_note_with_similarity_indices(
 
 @beartype
 def get_existing_note_info_from_notes_dir_and_bad_words_path(
-    notes_dir: str, bad_words_path: str
+    notes_dir: str, bad_words_path: str, cache_dir: str
 ):
     bad_words = load_bad_words(bad_words_path)
     (
@@ -770,7 +776,7 @@ def get_existing_note_info_from_notes_dir_and_bad_words_path(
         existing_tags,
         existing_categories,
     ) = get_note_paths_without_bad_words_and_existing_tags_and_categories(
-        notes_dir, bad_words
+        notes_dir, bad_words, cache_dir
     )
     return (note_paths, existing_tags, existing_categories)
 
@@ -883,7 +889,7 @@ def walk_notes_source_dir_and_write_to_cache_dir(
         existing_tags,
         existing_categories,
     ) = get_existing_note_info_from_notes_dir_and_bad_words_path(
-        param.source_dir_path, bad_words_path
+        param.source_dir_path, bad_words_path, param.target_dir_path
     )
     return iterate_note_paths_without_bad_words_and_write_to_cache(
         param, note_paths, existing_tags, existing_categories, sample_size=sample_size

@@ -1,4 +1,4 @@
-------
+---
 category: Reinforcement Learning
 created: '2022-12-07T10:01:35.131Z'
 date: '2023-12-22 23:52:59'
@@ -16,7 +16,7 @@ tags:
 - stable-baselines3
 - PPO
 title: RL, trajectory prediction, model predictive control
-------
+---
 
 # RL, trajectory prediction, model predictive control
 

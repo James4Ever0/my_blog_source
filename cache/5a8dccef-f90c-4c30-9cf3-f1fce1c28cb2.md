@@ -1,4 +1,4 @@
-------
+---
 category: iOS device control
 created: '2022-02-24T13:46:29.000Z'
 date: '2023-12-22 23:52:59'
@@ -12,7 +12,7 @@ tags:
 - iOS
 - software testing
 title: IOS airtest control windows
-------
+---
 
 # IOS airtest control windows
 

@@ -1,4 +1,4 @@
-------
+---
 category: Wearable Devices
 created: '2022-06-07T03:55:41.000Z'
 date: '2023-12-22 23:52:59'
@@ -13,7 +13,7 @@ tags:
 - instant capturing
 - video capturing
 title: Hardware for fun moment capturing
-------
+---
 
 # Hardware for fun moment capturing
 

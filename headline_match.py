@@ -4,10 +4,9 @@ import yaml
 from beartype import beartype
 
 # Multiline regular expression to match the pattern
-metadata_pattern = r"""
----     # Match the opening ---
-(.*?)     # Match any characters (including newlines) zero or more times
----     # Match the closing ---
+metadata_pattern = r"""^---$
+(.*?)
+^---$
 """
 
 # Compile the regular expression
@@ -25,6 +24,7 @@ def parse_content_metadata(markdown_content: str):
     if has_metadata:
         first_match = matches[0]
         metadata = yaml.safe_load(first_match)
+        assert isinstance(metadata, dict), 'error processing metadata'
         content_without_metadata = remove_metadata(markdown_content, first_match)
     else:
         metadata = {}
@@ -54,9 +54,9 @@ def modify_content_metadata(
     first_match: Optional[str],
 ):
     replaced_metadata_str = yaml.safe_dump(metadata).strip()
-    replaced_metadata_str = f"""---
+    replaced_metadata_str = f"""
 {replaced_metadata_str}
----"""
+"""
     if has_metadata:
         result = replace_metadata(
             markdown_content, cast(str, first_match), replaced_metadata_str
@@ -82,7 +82,7 @@ title: Sample Title
 tags: Tag1, Tag3
 ---
 """
-    has_metadata, _, content_without_metadata, first_match = parse_content_metadata(
+    has_metadata, metadata, content_without_metadata, first_match = parse_content_metadata(
         markdown_content
     )
     updated_content = modify_content_metadata(
@@ -91,6 +91,8 @@ tags: Tag1, Tag3
     print(updated_content)
     print("-" * 20)
     print(content_without_metadata)
+    print("-" * 20)
+    print(metadata)
 
 
 if __name__ == "__main__":

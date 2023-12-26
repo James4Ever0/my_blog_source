@@ -1,4 +1,4 @@
-------
+---
 category: Generative Adversarial Networks (GANs)
 created: '2022-05-29T03:52:26.000Z'
 date: '2023-12-22 23:52:59'
@@ -12,7 +12,7 @@ tags:
 - music to video
 - video generator
 title: GAN Generating video Motion Driven Still Image to Video
-------
+---
 
 # GAN Generating video Motion Driven Still Image to Video
 
