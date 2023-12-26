@@ -39,12 +39,13 @@ from similarity_utils import SimilarityIndex, sentence_transformer_context
 UTF8 = "utf-8"
 
 T = TypeVar("T")
+DEFAULT_TOP_K = 7
 
-required_fields = ("tags", "title", "description", "category", "date")
-fields_that_need_summary_to_generate = ("tags", "title", "description", "category")
-date_mitigation_fields = ("created",)
+REQUIRED_FIELDS = ("tags", "title", "description", "category", "date")
+FIELDS_THAT_NEED_SUMMARY_TO_GENERATE = ("tags", "title", "description", "category")
+DATE_MITIGATION_FIELDS = ("created",)
 
-custom_date_formats = ("{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}",)
+CUSTOM_DATE_FORMATS = ("{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}",)
 
 
 def generate_markdown_name():
@@ -166,13 +167,15 @@ def generate_title_recommended_init_script():
     return generate_item_recommended_init_prompt("title", Title)
 
 
-def generate_category_recommender_init_prompt(max_num=7):
+@beartype
+def generate_category_recommender_init_prompt(max_num: int = DEFAULT_TOP_K):
     return generate_item_recommended_init_prompt(
         "categories", Categories, max_num=max_num
     )
 
 
-def generate_tag_recommender_init_prompt(max_num=7):
+@beartype
+def generate_tag_recommender_init_prompt(max_num: int = DEFAULT_TOP_K):
     return generate_item_recommended_init_prompt("tags", Tags, max_num=max_num)
 
 
@@ -346,7 +349,7 @@ def generate_item(
     summary: str,
     item_recommender: Callable[[str], list[str]],
     item_chooser: Callable[[str, list[str], list[str]], T],
-    top_k: int = 3,
+    top_k: int = DEFAULT_TOP_K,
 ) -> T:
     recommended_items = item_recommender(summary)
     similar_items = items_similarity_index.search(recommended_items, top_k=top_k)
@@ -356,7 +359,9 @@ def generate_item(
 
 @beartype
 def generate_category(
-    categories_similarity_index: SimilarityIndex, summary: str, top_k: int = 3
+    categories_similarity_index: SimilarityIndex,
+    summary: str,
+    top_k: int = DEFAULT_TOP_K,
 ):
     ret = generate_item(
         categories_similarity_index,
@@ -369,7 +374,9 @@ def generate_category(
 
 
 @beartype
-def generate_tags(tags_similarity_index: SimilarityIndex, summary: str, top_k: int = 3):
+def generate_tags(
+    tags_similarity_index: SimilarityIndex, summary: str, top_k: int = DEFAULT_TOP_K
+):
     ret = generate_item(
         tags_similarity_index,
         summary,
@@ -442,13 +449,22 @@ def generate_summary(
     filename: str = "<unknown>",
     word_limit: int = 30,
     programming_language="markdown",
+    char_limit: int = 1000,
+    line_limit: int = 15,
+    sample_size: Optional[int] = None,
 ):
     prompt_base = generate_summary_prompt_base(word_limit)
     prompt_generator = generate_summary_prompt_generator(programming_language)
 
     with llm_context(prompt_base) as model:
         ret = process_content_and_return_result(
-            model, prompt_generator, filename, content_without_metadata
+            model,
+            prompt_generator,
+            filename,
+            content_without_metadata,
+            char_limit=char_limit,
+            line_limit=line_limit,
+            sample_size=sample_size,
         )
         return ret["summary"]
 
@@ -469,9 +485,9 @@ def get_filename_without_extension(filepath: str):
 
 @beartype
 def get_date_obj_by_metadata(metadata: dict):
-    for field in date_mitigation_fields:
+    for field in DATE_MITIGATION_FIELDS:
         if field in metadata:
-            date_obj = parse_date_with_multiple_formats(custom_date_formats, field)
+            date_obj = parse_date_with_multiple_formats(CUSTOM_DATE_FORMATS, field)
             if date_obj:
                 return date_obj
 
@@ -480,7 +496,7 @@ def get_date_obj_by_metadata(metadata: dict):
 def get_date_obj_by_filepath(filepath: str):
     filename_without_extension = get_filename_without_extension(filepath)
     date_obj = parse_date_with_multiple_formats(
-        custom_date_formats, filename_without_extension
+        CUSTOM_DATE_FORMATS, filename_without_extension
     )
     return date_obj
 
@@ -520,10 +536,13 @@ def generate_content_metadata(
     metadata: dict,
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
-    tag_top_k: int = 3,
-    category_top_k: int = 3,
+    tag_top_k: int = DEFAULT_TOP_K,
+    category_top_k: int = DEFAULT_TOP_K,
     summary_word_limit: int = 30,
     programming_language: str = "markdown",
+    char_limit: int = 1000,
+    line_limit: int = 15,
+    sample_size: Optional[int] = None,
 ):
     @beartype
     def get_additional_metadata(
@@ -548,6 +567,9 @@ def generate_content_metadata(
             content_without_metadata,
             word_limit=summary_word_limit,
             programming_language=programming_language,
+            char_limit=char_limit,
+            line_limit=line_limit,
+            sample_size=sample_size,
         )
 
         data = {
@@ -567,9 +589,9 @@ def generate_content_metadata(
             "date": lambda: generate_date(filepath, metadata),
         }
         missing_fields = [
-            field for field in required_fields if field not in metadata.keys()
+            field for field in REQUIRED_FIELDS if field not in metadata.keys()
         ]
-        if set(missing_fields).intersection(fields_that_need_summary_to_generate):
+        if set(missing_fields).intersection(FIELDS_THAT_NEED_SUMMARY_TO_GENERATE):
             field_to_method_with_summary = build_field_generation_methods_with_summary()
             field_to_method.update(field_to_method_with_summary)
         return missing_fields, field_to_method
@@ -682,6 +704,7 @@ def process_note_content_with_similarity_indices(
     source_path: str,
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
+    sample_size: Optional[int] = None
 ):
     (
         has_metadata,
@@ -695,6 +718,7 @@ def process_note_content_with_similarity_indices(
         metadata,
         tags_similarity_index,
         categories_similarity_index,
+        sample_size=sample_size
     )
     if changed:
         return modify_content_metadata(content, has_metadata, new_metadata, first_match)
@@ -707,10 +731,11 @@ def process_and_write_note_with_similarity_indices(
     target_path: str,
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
+    sample_size: Optional[int] = None
 ):
     content = load_file(source_path)
     new_content = process_note_content_with_similarity_indices(
-        content, source_path, tags_similarity_index, categories_similarity_index
+        content, source_path, tags_similarity_index, categories_similarity_index, sample_size=sample_size
     )
     write_file(target_path, new_content)
 
@@ -739,7 +764,7 @@ def generate_processed_note_path(param: TargetGeneratorParameter):
 
 @beartype
 def generate_process_and_write_note_method(
-    tags_similarity_index: SimilarityIndex, categories_similarity_index: SimilarityIndex
+    tags_similarity_index: SimilarityIndex, categories_similarity_index: SimilarityIndex, sample_size:Optional[int] = None
 ):
     @beartype
     def process_and_write_note(
@@ -751,6 +776,7 @@ def generate_process_and_write_note_method(
             target_path,
             tags_similarity_index,
             categories_similarity_index,
+            sample_size = sample_size
         )
 
     return process_and_write_note
@@ -771,6 +797,7 @@ def prepare_note_iterator_extra_params(
     sent_trans_model: SentenceTransformer,
     existing_tags: set[str],
     existing_categories: set[str],
+    sample_size:Optional[int] = None
 ):
     @beartype
     def create_similarity_index_with_candidates(candidates: Iterable[str]):
@@ -791,7 +818,7 @@ def prepare_note_iterator_extra_params(
 
         source_walker = generate_source_walker_from_note_paths(note_paths)
         target_file_generator = generate_process_and_write_note_method(
-            tags_similarity_index, categories_similarity_index
+            tags_similarity_index, categories_similarity_index, sample_size=sample_size
         )
         return source_walker, target_file_generator
 
@@ -804,10 +831,11 @@ def iterate_note_paths_without_bad_words_and_write_to_cache(
     note_paths: list[str],
     existing_tags: set[str],
     existing_categories: set[str],
+    sample_size:Optional[int] = None
 ) -> list[str]:
     with sentence_transformer_context() as sent_trans_model:
         source_walker, target_file_generator = prepare_note_iterator_extra_params(
-            note_paths, sent_trans_model, existing_tags, existing_categories
+            note_paths, sent_trans_model, existing_tags, existing_categories, sample_size=sample_size
         )
         return iterate_source_dir_and_generate_to_target_dir(
             param,
@@ -820,7 +848,7 @@ def iterate_note_paths_without_bad_words_and_write_to_cache(
 
 @beartype
 def walk_notes_source_dir_and_write_to_cache_dir(
-    param: SourceIteratorAndTargetGeneratorParam, bad_words_path: str
+    param: SourceIteratorAndTargetGeneratorParam, bad_words_path: str, sample_size:Optional[int] = None
 ):
     (
         note_paths,
@@ -834,6 +862,7 @@ def walk_notes_source_dir_and_write_to_cache_dir(
         note_paths,
         existing_tags,
         existing_categories,
+        sample_size=sample_size
     )
 
 
@@ -844,26 +873,27 @@ def copy_cache_to_final_dir(processed_cache_paths: list[str], final_dir: str):
         shutil.copy(path, final_dir)
 
 
-def parse_params():
+def parse_params() -> tuple[SourceIteratorAndTargetGeneratorParam, str, str, int]:
     parser = argparse.ArgumentParser()
     parser.add_argument("--notes-source-dir", type=str, default="notes")
     parser.add_argument("--cache-dir", type=str, default="cache")
     parser.add_argument("--final-dir", type=str, default="source/_posts")
     parser.add_argument("--db-path", type=str, default="cache_db.json")
     parser.add_argument("--bad-words-path", type=str, default="bad_words.txt")
+    parser.add_argument("--sample-size", type=int, default=10)
     args = parser.parse_args()
     param = SourceIteratorAndTargetGeneratorParam(
         source_dir_path=args.notes_source_dir,
         target_dir_path=args.cache_dir,
         db_path=args.db_path,
     )
-    return param, args.bad_words_path, args.final_dir
+    return param, args.bad_words_path, args.final_dir, args.sample_size
 
 
 def main():
-    param, bad_words_path, final_dir = parse_params()
+    param, bad_words_path, final_dir, sample_size = parse_params()
     processed_cache_paths = walk_notes_source_dir_and_write_to_cache_dir(
-        param, bad_words_path
+        param, bad_words_path, sample_size=sample_size
     )
     copy_cache_to_final_dir(processed_cache_paths, final_dir)
 
