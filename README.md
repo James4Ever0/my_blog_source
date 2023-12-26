@@ -6,7 +6,7 @@ i use llm to generate metadata for my posts.
 
 here is the program in action:
 
-<video src="https://github.com/James4Ever0/my_blog_source/raw/main/demo.mp4"></video>
+[![Demo video is at: demo.mp4](https://github.com/James4Ever0/my_blog_source/raw/main/demo.png)](https://github.com/James4Ever0/my_blog_source/raw/main/demo.mp4)
 
 ## usage
 
