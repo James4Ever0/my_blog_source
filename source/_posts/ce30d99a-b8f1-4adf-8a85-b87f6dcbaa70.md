@@ -1,7 +1,7 @@
 ---
 category: Android Reverse Engineering
 created: 2022-11-03 13:24:48+08:00
-date: '2023-12-22 23:52:59'
+date: '2022-11-03 13:24:48'
 description: This article provides a comprehensive guide on Android reverse engineering
   tools, specifically focusing on IDA, Ghidra, Frida, GDA, and Flowdroid. It explains
   how to use Frida to attach an existing process and demonstrates its usage with WeChat

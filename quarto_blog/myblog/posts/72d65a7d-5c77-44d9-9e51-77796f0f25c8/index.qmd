@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["3D model", "action detection", "dancing", "MMD", "OpenMM", "pyjom", "video analysis", "video generator"], "category": "3D Avatar Creation", "date": "2023-12-22 23:52:59", "description": "This article discusses the use of MMDetection for creating 3D avatars with accurate human pose detection. It provides detailed explanations and GitHub resources to help readers implement this technique effectively.", "tags": *id001, "title": "MMDetection and MMD dancing"}
+{"categories": &id001 ["3D model", "action detection", "dancing", "MMD", "OpenMM", "pyjom", "video analysis", "video generator"], "category": "3D Avatar Creation", "date": "2022-04-21 17:58:04", "description": "This article discusses the use of MMDetection for creating 3D avatars with accurate human pose detection. It provides detailed explanations and GitHub resources to help readers implement this technique effectively.", "tags": *id001, "title": "MMDetection and MMD dancing"}
 
 ---
 

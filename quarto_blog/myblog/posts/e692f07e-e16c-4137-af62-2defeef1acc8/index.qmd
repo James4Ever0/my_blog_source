@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cheminformatics", "chemistry", "polymer"], "category": "Molecular dynamics simulations", "date": "2023-12-22 23:52:59", "description": "This article delves into the utilization of molecular dynamics simulations with tools such as pymatgen, lammps, and openFF. It discusses interatomic potentials and force field generation processes in organic chemistry. Additionally, it covers accessing density data from multiple sources.", "tags": *id001, "title": "Polymer Chemistry Mixture"}
+{"categories": &id001 ["cheminformatics", "chemistry", "polymer"], "category": "Molecular dynamics simulations", "date": "2022-01-28 23:49:12", "description": "This article delves into the utilization of molecular dynamics simulations with tools such as pymatgen, lammps, and openFF. It discusses interatomic potentials and force field generation processes in organic chemistry. Additionally, it covers accessing density data from multiple sources.", "tags": *id001, "title": "Polymer Chemistry Mixture"}
 
 ---
 

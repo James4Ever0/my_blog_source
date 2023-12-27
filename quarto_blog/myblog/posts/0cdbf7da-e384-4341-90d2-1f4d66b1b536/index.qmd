@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["backup", "stub", "time machine"], "category": "Backup software", "date": "2023-12-22 23:52:59", "description": "Linux-Timemachine is a versatile backup solution that serves as an alternative to Time Machine on Linux, Windows, and MacOS. It utilizes rsync for efficient backup support and employs hardlinks for streamlined management of backups.", "tags": *id001, "title": "Time Machine Alternative for linux/windows"}
+{"categories": &id001 ["backup", "stub", "time machine"], "category": "Backup software", "date": "2022-08-10 08:12:46", "description": "Linux-Timemachine is a versatile backup solution that serves as an alternative to Time Machine on Linux, Windows, and MacOS. It utilizes rsync for efficient backup support and employs hardlinks for streamlined management of backups.", "tags": *id001, "title": "Time Machine Alternative for linux/windows"}
 
 ---
 

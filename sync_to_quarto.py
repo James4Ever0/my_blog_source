@@ -23,7 +23,16 @@ def fix_metadata_line_wrap_in_content(content: str):
             for k in ["created", "modified"]:
                 if k in metadata.keys():
                     del metadata[k]
-            metadata["title"] = metadata['title'].replace("`", "&grave;")
+            keys = list(metadata.keys())
+            for k in keys:
+                v = metadata[k]
+                if isinstance(v, str):
+                    metadata[k] = v.replace("`", "&grave;")
+                elif isinstance(v, list):
+                    metadata[k] = [
+                        x if not isinstance(x, str) else x.replace("`", "&grave;")
+                        for x in v
+                    ]
             metadata["categories"] = metadata.get("tags", [])
             repl = yaml.safe_dump(
                 metadata,

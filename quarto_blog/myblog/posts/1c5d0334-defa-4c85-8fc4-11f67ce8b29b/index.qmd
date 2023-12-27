@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["NLP", "NLU", "pyjom", "text classification", "topic discovery"], "category": "Natural Language Processing", "date": "2023-12-22 23:52:59", "description": "The text provides resources for generating topics, discovering trends, and detecting new words using tools like BERT documentation, Chinese segment augmentation Github repositories, and a Naive Bayes classifier.", "tags": *id001, "title": "Topic Generation 话题发现 趋势发现 热点发现"}
+{"categories": &id001 ["NLP", "NLU", "pyjom", "text classification", "topic discovery"], "category": "Natural Language Processing", "date": "2022-07-13 16:25:04", "description": "The text provides resources for generating topics, discovering trends, and detecting new words using tools like BERT documentation, Chinese segment augmentation Github repositories, and a Naive Bayes classifier.", "tags": *id001, "title": "Topic Generation 话题发现 趋势发现 热点发现"}
 
 ---
 

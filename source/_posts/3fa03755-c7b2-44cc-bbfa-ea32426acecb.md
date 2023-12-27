@@ -1,7 +1,7 @@
 ---
 category: Web Application Security
 created: 2022-12-02 15:57:21+08:00
-date: '2023-12-22 23:52:59'
+date: '2022-12-02 15:57:21'
 description: Learn how to bypass Web Application Firewalls (WAFs) with the help of
   a guide available at hacken.io/discover and a tool called bapp for WAF bypass. The
   bapp tool is also available in the PortSwigger store.

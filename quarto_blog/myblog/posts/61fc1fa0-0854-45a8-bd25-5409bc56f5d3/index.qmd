@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["APFS", "file transfer", "operating systems", "Kali", "kernel module", "read-only adapter", "read and write support"], "category": "File Transfer", "date": "2023-12-22 23:52:59", "description": "This article provides details on two methods for transferring files between operating systems using APFS (Apple File System). The first option is a read-only adapter that can be used to transfer files to Kali, while the second option offers both read and write support but requires installing a kernel module.", "tags": *id001, "title": "APFS for Linux"}
+{"categories": &id001 ["APFS", "file transfer", "operating systems", "Kali", "kernel module", "read-only adapter", "read and write support"], "category": "File Transfer", "date": "2023-01-15 15:43:00", "description": "This article provides details on two methods for transferring files between operating systems using APFS (Apple File System). The first option is a read-only adapter that can be used to transfer files to Kali, while the second option offers both read and write support but requires installing a kernel module.", "tags": *id001, "title": "APFS for Linux"}
 
 ---
 

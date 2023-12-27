@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["mini-ITX computer", "Mac Studio comparison", "cost efficiency", "power consumption", "hardware options", "cooling solutions", "case design"], "category": "Mini-ITX Computers", "date": "2023-12-22 23:52:59", "description": "This article compares the cost, power consumption, and hardware options between a mini-ITX computer with high RAM capacity and Apple's Mac Studio. The discussion covers cooling solutions and case design to prevent overheating.", "tags": *id001, "title": "mini server, portable server, itx, Mac studio"}
+{"categories": &id001 ["mini-ITX computer", "Mac Studio comparison", "cost efficiency", "power consumption", "hardware options", "cooling solutions", "case design"], "category": "Mini-ITX Computers", "date": "2022-10-04 05:23:30", "description": "This article compares the cost, power consumption, and hardware options between a mini-ITX computer with high RAM capacity and Apple's Mac Studio. The discussion covers cooling solutions and case design to prevent overheating.", "tags": *id001, "title": "mini server, portable server, itx, Mac studio"}
 
 ---
 

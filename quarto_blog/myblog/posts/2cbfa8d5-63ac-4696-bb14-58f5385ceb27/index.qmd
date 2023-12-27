@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Waydroid", "Ubuntu", "Installation", "Network issues", "Firewalld", "Ufw", "Wifi switch"], "category": "Troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.", "tags": *id001, "title": "Waydroid installation steps"}
+{"categories": &id001 ["Waydroid", "Ubuntu", "Installation", "Network issues", "Firewalld", "Ufw", "Wifi switch"], "category": "Troubleshooting", "date": "2023-12-21 15:43:49", "description": "This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.", "tags": *id001, "title": "Waydroid installation steps"}
 
 ---
 

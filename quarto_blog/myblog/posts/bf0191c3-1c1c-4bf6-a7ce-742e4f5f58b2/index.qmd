@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["computer control", "hardware operations", "software tools", "CyberTron", "Larq", "USB Gadget", "OTG cables"], "category": "Software Tools", "date": "2023-12-22 23:52:59", "description": "This article explores the process of controlling computers using hardware operations and software tools. It covers various applications and methods, such as CyberTron, Larq, USB Gadget with OTG cables, Taiwan data cables, scrcpy, HID instructions, power management, Deep Freeze or Live CD mechanisms, and Python wrappers for usb-gadget.", "tags": *id001, "title": "Controlling Computers with Hardware Operations and Software Tools: A Comprehensive Guide"}
+{"categories": &id001 ["computer control", "hardware operations", "software tools", "CyberTron", "Larq", "USB Gadget", "OTG cables"], "category": "Software Tools", "date": "2023-07-27 21:14:23", "description": "This article explores the process of controlling computers using hardware operations and software tools. It covers various applications and methods, such as CyberTron, Larq, USB Gadget with OTG cables, Taiwan data cables, scrcpy, HID instructions, power management, Deep Freeze or Live CD mechanisms, and Python wrappers for usb-gadget.", "tags": *id001, "title": "Controlling Computers with Hardware Operations and Software Tools: A Comprehensive Guide"}
 
 ---
 

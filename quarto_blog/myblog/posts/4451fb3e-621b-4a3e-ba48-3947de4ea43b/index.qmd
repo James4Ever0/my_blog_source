@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["multi window manager", "productivity", "search window by name", "window manager"], "category": "Window Management", "date": "2023-12-22 23:52:59", "description": "This article provides detailed instructions on how to search and switch between windows using tools like xdotool and wmctrl for various operating systems such as Windows, macOS, and Linux. It covers the installation process via the apt package manager, making it easy for users to follow along and enhance their window management experience.", "tags": *id001, "title": "Search and switch to window by title"}
+{"categories": &id001 ["multi window manager", "productivity", "search window by name", "window manager"], "category": "Window Management", "date": "2022-07-27 02:12:56", "description": "This article provides detailed instructions on how to search and switch between windows using tools like xdotool and wmctrl for various operating systems such as Windows, macOS, and Linux. It covers the installation process via the apt package manager, making it easy for users to follow along and enhance their window management experience.", "tags": *id001, "title": "Search and switch to window by title"}
 
 ---
 

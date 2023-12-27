@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Lexar M1", "filename issues", "Rclone", "custom encoding rules", "SMB connections", "data transfer", "storage solutions"], "category": "filename issues", "date": "2023-12-22 23:52:59", "description": "This text explores the file name issues encountered with Lexar M1 and offers a solution using Rclone's custom encoding rules specifically designed for SMB connections.", "tags": *id001, "title": "filename issue on lexar m1"}
+{"categories": &id001 ["Lexar M1", "filename issues", "Rclone", "custom encoding rules", "SMB connections", "data transfer", "storage solutions"], "category": "filename issues", "date": "2023-09-10 15:32:45", "description": "This text explores the file name issues encountered with Lexar M1 and offers a solution using Rclone's custom encoding rules specifically designed for SMB connections.", "tags": *id001, "title": "filename issue on lexar m1"}
 
 ---
 

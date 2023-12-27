@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "Live Streaming", "Audience Data Utilization", "Content Classification", "Miscommunication", "Apologetic Interactions", "User Engagement"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "The article discusses AI-assisted live streaming, its capabilities in audience data utilization for content classification, and how it handles miscommunication and apologetic interactions between users.", "tags": *id001, "title": "Unlocking the Potential of AI-Assisted Live Streaming and Audience Data"}
+{"categories": &id001 ["AI", "Live Streaming", "Audience Data Utilization", "Content Classification", "Miscommunication", "Apologetic Interactions", "User Engagement"], "category": "Artificial Intelligence", "date": "2022-08-26 23:36:29", "description": "The article discusses AI-assisted live streaming, its capabilities in audience data utilization for content classification, and how it handles miscommunication and apologetic interactions between users.", "tags": *id001, "title": "Unlocking the Potential of AI-Assisted Live Streaming and Audience Data"}
 
 ---
 

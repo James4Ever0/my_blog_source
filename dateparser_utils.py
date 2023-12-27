@@ -8,6 +8,12 @@ from datetime import datetime
 from beartype import beartype
 
 
+CUSTOM_DATE_FORMATS = (
+    "{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}",
+    "{year:d}-{month:d}-{day:d} {hour:d}:{minute:d}:{second:d}+{tz_hour:d}:{tz_minute:d}",
+    "{year:d}-{month:d}-{day:d} {hour:d}:{minute:d}:{second:d}-{tz_hour:d}:{tz_minute:d}",
+)
+
 @beartype
 def convert_parse_result_to_datetime_obj(parsed: Result):
     datetime_obj = datetime(
@@ -42,11 +48,11 @@ def parse_date_with_multiple_formats(
     result = dateparser.parse(it, settings=settings)  # type: ignore
     return result
 
-
+@beartype
 def format_datetime(dt: datetime, fmt: str):
     return dt.strftime(fmt)
 
-
+@beartype
 def render_datetime_as_hexo_format(dt: datetime):
     return format_datetime(dt, "%Y-%m-%d %H:%M:%S")
 
@@ -55,16 +61,15 @@ def test_main():
     candidates = [
         "2023-09-12T15:17:04.131Z",
         "2022-07-10T00:16:40+08:00",
+        "2022-11-03 14:24:39+08:00",
         "2022-11-28-22-01-29",  # problematic.
         # "2022-11-28T22:01:29",
         "Windows 10 system debloating, windows operating system optimization, winget, windows commandline package manager",
     ]
 
-    custom_date_formats = ["{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}"]
-
     for it in candidates:
         print("parsing:", it)
-        result = parse_date_with_multiple_formats(custom_date_formats, it)
+        result = parse_date_with_multiple_formats(CUSTOM_DATE_FORMATS, it)
         if result is None:
             report = "Could not parse: " + it
         else:

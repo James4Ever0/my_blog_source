@@ -1,7 +1,7 @@
 ---
 category: Advanced AI-powered video editors
 created: '2022-12-28T12:20:53.313Z'
-date: '2023-12-22 23:52:59'
+date: '2022-12-28 12:20:53'
 description: AI tools like Animoto enable the creation of targeted audience strategies
   with human input, while advanced AI-powered video editors such as Adobe Premiere
   Pro, DaVinci Resolve, and Final Cut Pro provide personalized marketing campaigns

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Eustachian tube", "Throat mucus", "Nasal passages", "Ear earlobe", "Sore area", "Face", "Neck and jaw"], "category": "Throat Care", "date": "2023-12-22 23:52:59", "description": "This article provides a method for clearing mucus from the throat and nasal passages by using ear pressure, opening the Eustachian tube's passage, and blowing or coughing out the mucus. It also suggests pressing on any sore areas in the face, neck, or jaw to help with relief.", "tags": *id001, "title": "怎样清理嗓子 鼻腔里面的痰液"}
+{"categories": &id001 ["Eustachian tube", "Throat mucus", "Nasal passages", "Ear earlobe", "Sore area", "Face", "Neck and jaw"], "category": "Throat Care", "date": "2022-12-28 16:55:13", "description": "This article provides a method for clearing mucus from the throat and nasal passages by using ear pressure, opening the Eustachian tube's passage, and blowing or coughing out the mucus. It also suggests pressing on any sore areas in the face, neck, or jaw to help with relief.", "tags": *id001, "title": "怎样清理嗓子 鼻腔里面的痰液"}
 
 ---
 

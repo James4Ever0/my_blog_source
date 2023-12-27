@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Python", "OpenCV", "Image Resizing", "Image Cropping", "Target Size", "Conditions", "Processing"], "category": "Image Processing", "date": "2023-12-22 23:52:59", "description": "This Python code uses OpenCV to resize and crop images according to specified conditions, ultimately processing them into smaller versions.", "tags": *id001, "title": "image resize, image padding, image scanning"}
+{"categories": &id001 ["Python", "OpenCV", "Image Resizing", "Image Cropping", "Target Size", "Conditions", "Processing"], "category": "Image Processing", "date": "2022-09-18 11:44:45", "description": "This Python code uses OpenCV to resize and crop images according to specified conditions, ultimately processing them into smaller versions.", "tags": *id001, "title": "image resize, image padding, image scanning"}
 
 ---
 

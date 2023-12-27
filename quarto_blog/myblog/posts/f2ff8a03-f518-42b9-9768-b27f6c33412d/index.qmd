@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["deep_learning", "PyTorch", "watermark_detection", "CNN", "3D_convolution", "object_detection", "Pyro"], "category": "Deep Learning", "date": "2023-12-22 23:52:59", "description": "This article provides a detailed explanation of training deep learning models in PyTorch for watermark location detection using CNN and object detection with the Pyro library. The process involves implementing 3D convolution on video frames and defining layers for object detection from available Pyro resources.", "tags": *id001, "title": "pyro object detection, 3d convolution on video, remove watermark in video"}
+{"categories": &id001 ["deep_learning", "PyTorch", "watermark_detection", "CNN", "3D_convolution", "object_detection", "Pyro"], "category": "Deep Learning", "date": "2022-12-16 20:31:22", "description": "This article provides a detailed explanation of training deep learning models in PyTorch for watermark location detection using CNN and object detection with the Pyro library. The process involves implementing 3D convolution on video frames and defining layers for object detection from available Pyro resources.", "tags": *id001, "title": "pyro object detection, 3d convolution on video, remove watermark in video"}
 
 ---
 

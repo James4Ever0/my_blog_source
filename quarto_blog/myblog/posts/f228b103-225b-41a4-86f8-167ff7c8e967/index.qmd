@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["GUI", "macos", "tips", "user experience"], "category": "macOS", "date": "2023-12-22 23:52:59", "description": "This article provides instructions on utilizing the macOS command-click feature, enabling users to interact with inactive windows without accidentally activating them. This functionality is unique to macOS and not available on Linux or Windows systems.", "tags": *id001, "title": "macOS window click-through"}
+{"categories": &id001 ["GUI", "macos", "tips", "user experience"], "category": "macOS", "date": "2022-07-27 05:12:56", "description": "This article provides instructions on utilizing the macOS command-click feature, enabling users to interact with inactive windows without accidentally activating them. This functionality is unique to macOS and not available on Linux or Windows systems.", "tags": *id001, "title": "macOS window click-through"}
 
 ---
 

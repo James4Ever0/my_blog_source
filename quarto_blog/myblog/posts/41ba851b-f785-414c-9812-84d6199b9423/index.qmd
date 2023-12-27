@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Baidu", "Tieba", "app", "API", "homepage", "communities", "channels"], "category": "API", "date": "2023-12-22 23:52:59", "description": "The Baidu Tieba app API enables access to various sections such as the homepage, communities, channels, and messaging. It offers features like hot searches, recommended content, trending topics, live streaming, video section, and communication with other users.", "tags": *id001, "title": "百度贴吧app接口"}
+{"categories": &id001 ["Baidu", "Tieba", "app", "API", "homepage", "communities", "channels"], "category": "API", "date": "2022-11-08 07:30:38", "description": "The Baidu Tieba app API enables access to various sections such as the homepage, communities, channels, and messaging. It offers features like hot searches, recommended content, trending topics, live streaming, video section, and communication with other users.", "tags": *id001, "title": "百度贴吧app接口"}
 
 ---
 

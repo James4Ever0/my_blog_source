@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["information gathering", "pyjom", "scraping", "soul", "stub"], "category": "Hacking techniques", "date": "2023-12-22 23:52:59", "description": "This article provides a method to view someone's blocked Soul social media profile by using a provided link with potential expiration dates and limitations in searching or traversing the platform. It also suggests using tools like Frida or Radare2 for more freedom of access, but mentions potential risks and limitations.", "tags": *id001, "title": "Soul查看被拉黑之后对方的空间"}
+{"categories": &id001 ["information gathering", "pyjom", "scraping", "soul", "stub"], "category": "Hacking techniques", "date": "2022-08-08 12:11:00", "description": "This article provides a method to view someone's blocked Soul social media profile by using a provided link with potential expiration dates and limitations in searching or traversing the platform. It also suggests using tools like Frida or Radare2 for more freedom of access, but mentions potential risks and limitations.", "tags": *id001, "title": "Soul查看被拉黑之后对方的空间"}
 
 ---
 

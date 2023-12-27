@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["audio analysis", "beat detection", "music analysis"], "category": "Audio Recognition", "date": "2023-12-22 23:52:59", "description": "This article discusses various audio and music recognition tools like audioFlux, inaSpeechSegmenter, Mousai, Music Emotion Recognition, Picard, AcoustID, MixingBear, madmom, pyaudioanalysis, MUSIC21, urbanSound8k dataset, MeowDetector, and more. It also mentions using QQ Music's recognition engine for domestic audio identification and Premier plugins for categorizing humorous videos based on music structure.", "tags": *id001, "title": "踩点 音乐识别"}
+{"categories": &id001 ["audio analysis", "beat detection", "music analysis"], "category": "Audio Recognition", "date": "2022-05-11 03:16:00", "description": "This article discusses various audio and music recognition tools like audioFlux, inaSpeechSegmenter, Mousai, Music Emotion Recognition, Picard, AcoustID, MixingBear, madmom, pyaudioanalysis, MUSIC21, urbanSound8k dataset, MeowDetector, and more. It also mentions using QQ Music's recognition engine for domestic audio identification and Premier plugins for categorizing humorous videos based on music structure.", "tags": *id001, "title": "踩点 音乐识别"}
 
 ---
 

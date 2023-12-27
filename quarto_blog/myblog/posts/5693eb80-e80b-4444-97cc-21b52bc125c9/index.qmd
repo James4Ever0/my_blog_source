@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["temporary_file_hosting", "anonyfiles", "pomf", "uguu_api", "catbox_moe", "tmpfiles", "transfer.sh"], "category": "File Hosting Services", "date": "2023-12-22 23:52:59", "description": "This article discusses temporary file hosting services like Anonyfiles, Pomf-based temp files, Uguu API, Catbox.Moe, TmpFiles, and Transfer.sh, which offer file storage for sharing purposes, fan rewards, and screenshot capturing. The article also highlights various supporting tools such as ShareX, PyUpload, Catmoe Recommend Tools, and Uguu Tools.", "tags": *id001, "title": "临时存储文件 temp fiiles host api"}
+{"categories": &id001 ["temporary_file_hosting", "anonyfiles", "pomf", "uguu_api", "catbox_moe", "tmpfiles", "transfer.sh"], "category": "File Hosting Services", "date": "2022-10-27 05:12:07", "description": "This article discusses temporary file hosting services like Anonyfiles, Pomf-based temp files, Uguu API, Catbox.Moe, TmpFiles, and Transfer.sh, which offer file storage for sharing purposes, fan rewards, and screenshot capturing. The article also highlights various supporting tools such as ShareX, PyUpload, Catmoe Recommend Tools, and Uguu Tools.", "tags": *id001, "title": "临时存储文件 temp fiiles host api"}
 
 ---
 

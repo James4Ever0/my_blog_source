@@ -1,7 +1,7 @@
 ---
 category: Reinforcement Learning
 created: '2022-12-07T10:01:35.131Z'
-date: '2023-12-22 23:52:59'
+date: '2022-12-07 10:01:35'
 description: This article delves into Reinforcement Learning (RL), trajectory prediction,
   and model predictive control. It highlights related projects such as ddpg-usv-asmc,
   Deep-Reinforcement-Learning-Algorithms-with-PyTorch, stable-baselines3, and PPO.

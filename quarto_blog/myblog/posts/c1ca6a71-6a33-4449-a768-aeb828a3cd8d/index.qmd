@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["always online", "free internet", "internet", "network", "白嫖"], "category": "Security", "date": "2023-12-22 23:52:59", "description": "FreeFlow Help offers a secure way to stay connected using stolen credentials and RSA encryption. It collects network account details, provides an encrypted authentication interface, and employs a static page for enhanced security. The access control panel allows you to manage connections by occupying or releasing them, and it supports bypassing campus networks without requiring authentication.", "tags": *id001, "title": "免流帮 停机卡上网 持续上网"}
+{"categories": &id001 ["always online", "free internet", "internet", "network", "白嫖"], "category": "Security", "date": "2022-07-25 07:05:33", "description": "FreeFlow Help offers a secure way to stay connected using stolen credentials and RSA encryption. It collects network account details, provides an encrypted authentication interface, and employs a static page for enhanced security. The access control panel allows you to manage connections by occupying or releasing them, and it supports bypassing campus networks without requiring authentication.", "tags": *id001, "title": "免流帮 停机卡上网 持续上网"}
 
 ---
 

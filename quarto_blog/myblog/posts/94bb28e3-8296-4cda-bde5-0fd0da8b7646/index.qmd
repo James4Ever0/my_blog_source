@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["action recognization", "stub", "video analysis"], "category": "Media Filtering", "date": "2023-12-22 23:52:59", "description": "This article explores the application of fall detection technology in media filtering, specifically focusing on selecting falling videos for entertainment. The technique utilizes human pose classification to identify suitable content.", "tags": *id001, "title": "Fall detection can be used for media filtering"}
+{"categories": &id001 ["action recognization", "stub", "video analysis"], "category": "Media Filtering", "date": "2022-04-05 04:07:30", "description": "This article explores the application of fall detection technology in media filtering, specifically focusing on selecting falling videos for entertainment. The technique utilizes human pose classification to identify suitable content.", "tags": *id001, "title": "Fall detection can be used for media filtering"}
 
 ---
 

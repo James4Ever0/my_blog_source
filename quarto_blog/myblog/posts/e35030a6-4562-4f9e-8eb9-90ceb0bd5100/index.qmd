@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["dewatermark", "media sources", "object tracking", "stub"], "category": "Royalty-free video sources", "date": "2023-12-22 23:52:59", "description": "This article provides methods for obtaining royalty-free video, image, and audio sources without watermarks. It suggests using tools like 'video_spider' for downloading videos from various apps, target tracking algorithms for removing dynamic watermarks, and the 'dewatermark algorithm' for static watermarks. Additionally, it mentions using Bing wallpapers and providing scrapers for GettyImages and Visual China without watermarks.", "tags": *id001, "title": "Royalty Free Video/Picture/Audio Sources"}
+{"categories": &id001 ["dewatermark", "media sources", "object tracking", "stub"], "category": "Royalty-free video sources", "date": "2022-08-04 03:43:26", "description": "This article provides methods for obtaining royalty-free video, image, and audio sources without watermarks. It suggests using tools like 'video_spider' for downloading videos from various apps, target tracking algorithms for removing dynamic watermarks, and the 'dewatermark algorithm' for static watermarks. Additionally, it mentions using Bing wallpapers and providing scrapers for GettyImages and Visual China without watermarks.", "tags": *id001, "title": "Royalty Free Video/Picture/Audio Sources"}
 
 ---
 

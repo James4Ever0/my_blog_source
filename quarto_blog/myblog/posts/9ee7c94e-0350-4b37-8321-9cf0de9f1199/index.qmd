@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["idea", "social media", "trends"], "category": "Content Creation", "date": "2023-12-22 23:52:59", "description": "This passage explores the evolving trends in VTubers, focusing on the use of existing popular content as templates to generate similar content. The article emphasizes the importance of audience feedback and clustering viewers to understand preferences and match them with appropriate content, ultimately aiming for a blend of modern and post-modern content that appeals to the evolving audience and stays ahead of trends.", "tags": *id001, "title": "现代 后现代 Vtuber 流行趋势"}
+{"categories": &id001 ["idea", "social media", "trends"], "category": "Content Creation", "date": "2022-06-11 03:39:31", "description": "This passage explores the evolving trends in VTubers, focusing on the use of existing popular content as templates to generate similar content. The article emphasizes the importance of audience feedback and clustering viewers to understand preferences and match them with appropriate content, ultimately aiming for a blend of modern and post-modern content that appeals to the evolving audience and stays ahead of trends.", "tags": *id001, "title": "现代 后现代 Vtuber 流行趋势"}
 
 ---
 

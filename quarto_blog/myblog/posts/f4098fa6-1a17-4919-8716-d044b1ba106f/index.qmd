@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["autologin", "freelancer", "reverse engineering", "tieba"], "category": "Mitmproxy tool", "date": "2023-12-22 23:52:59", "description": "A Python script utilizes Frida and Mitmproxy to bypass SSL pinning on Baidu Tieba, automates login through QR codes, enables multi-account access, scrapes high-res images, and incorporates security measures. The Chinese platform includes a ranking system with user points, levels, and virtual currency for membership and courses.", "tags": *id001, "title": "Baidu Tieba Login (QR Code)"}
+{"categories": &id001 ["autologin", "freelancer", "reverse engineering", "tieba"], "category": "Mitmproxy tool", "date": "2021-12-19 21:56:45", "description": "A Python script utilizes Frida and Mitmproxy to bypass SSL pinning on Baidu Tieba, automates login through QR codes, enables multi-account access, scrapes high-res images, and incorporates security measures. The Chinese platform includes a ranking system with user points, levels, and virtual currency for membership and courses.", "tags": *id001, "title": "Baidu Tieba Login (QR Code)"}
 
 ---
 

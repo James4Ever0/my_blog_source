@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "classification", "information retrieval", "stub"], "category": "Dynamic Classification Systems", "date": "2023-12-22 23:52:59", "description": "This article discusses a dynamic classification system that assigns numerical values to categories and employs a retrieval-based attention network, such as the RETRO model, for regression tests in fields like the stock market or platforms like bilibili. This innovative approach offers potential benefits in various industries by enabling more accurate predictions and analysis based on real-time data.", "tags": *id001, "title": "Dynamic Classification System"}
+{"categories": &id001 ["AI", "classification", "information retrieval", "stub"], "category": "Dynamic Classification Systems", "date": "2022-01-30 18:26:56", "description": "This article discusses a dynamic classification system that assigns numerical values to categories and employs a retrieval-based attention network, such as the RETRO model, for regression tests in fields like the stock market or platforms like bilibili. This innovative approach offers potential benefits in various industries by enabling more accurate predictions and analysis based on real-time data.", "tags": *id001, "title": "Dynamic Classification System"}
 
 ---
 

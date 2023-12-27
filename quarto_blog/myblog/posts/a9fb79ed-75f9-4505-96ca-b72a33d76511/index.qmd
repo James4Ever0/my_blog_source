@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["audio source", "lyric", "music", "project", "pyjom"], "category": "Music", "date": "2023-12-22 23:52:59", "description": "The article discusses techniques for finding and extracting lyrics, detecting cat/dog videos using YOLOv7, and utilizing various APIs for music platforms like Netease Music and Spotify. The discussion also covers installing pymusic-dl, creating a redirect plugin for Tampermonkey, and searching URI in music_dl while finding cats on Weibo.", "tags": *id001, "title": "Cats video with lyrics_1"}
+{"categories": &id001 ["audio source", "lyric", "music", "project", "pyjom"], "category": "Music", "date": "2021-12-19 10:50:34", "description": "The article discusses techniques for finding and extracting lyrics, detecting cat/dog videos using YOLOv7, and utilizing various APIs for music platforms like Netease Music and Spotify. The discussion also covers installing pymusic-dl, creating a redirect plugin for Tampermonkey, and searching URI in music_dl while finding cats on Weibo.", "tags": *id001, "title": "Cats video with lyrics_1"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["anonymity", "circumvention", "free access", "internet", "onion router", "tor", "vpn"], "category": "Security", "date": "2023-12-22 23:52:59", "description": "This article discusses various methods for securing online privacy, including the use of tools such as VPNs, ShadowSocks, Tor, and obfs4 bridges to bypass restrictions and ensure secure communication.", "tags": *id001, "title": "Anonymity and open access to internet"}
+{"categories": &id001 ["anonymity", "circumvention", "free access", "internet", "onion router", "tor", "vpn"], "category": "Security", "date": "2022-04-07 11:19:58", "description": "This article discusses various methods for securing online privacy, including the use of tools such as VPNs, ShadowSocks, Tor, and obfs4 bridges to bypass restrictions and ensure secure communication.", "tags": *id001, "title": "Anonymity and open access to internet"}
 
 ---
 

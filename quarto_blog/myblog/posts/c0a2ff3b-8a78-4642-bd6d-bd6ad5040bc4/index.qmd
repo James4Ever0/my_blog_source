@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["android", "brightness", "bug", "reinstall", "system manage", "termux"], "category": "Troubleshooting", "date": "2023-12-22 23:52:59", "description": "In this article, the author provides a step-by-step guide on how to reinstall Termux and troubleshoot common issues like granting required permissions, fixing the brightness bug by uninstalling a settings app, and removing the Termux banner for a customized experience.", "tags": *id001, "title": "After Termux Reinstallation"}
+{"categories": &id001 ["android", "brightness", "bug", "reinstall", "system manage", "termux"], "category": "Troubleshooting", "date": "2021-12-20 09:04:08", "description": "In this article, the author provides a step-by-step guide on how to reinstall Termux and troubleshoot common issues like granting required permissions, fixing the brightness bug by uninstalling a settings app, and removing the Termux banner for a customized experience.", "tags": *id001, "title": "After Termux Reinstallation"}
 
 ---
 

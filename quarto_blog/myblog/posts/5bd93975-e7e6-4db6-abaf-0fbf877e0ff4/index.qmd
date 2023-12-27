@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["idea", "voice source"], "category": "Audio Processing", "date": "2023-12-22 23:52:59", "description": "This article explores the process of extracting high-quality voice recordings from professional sources such as audiobooks, radios, and movies. It delves into the techniques used to isolate and separate voices from complex audio files, discussing the tools and methods employed by experts in this field.", "tags": *id001, "title": "Extract voice from professional sources"}
+{"categories": &id001 ["idea", "voice source"], "category": "Audio Processing", "date": "2022-04-09 04:33:40", "description": "This article explores the process of extracting high-quality voice recordings from professional sources such as audiobooks, radios, and movies. It delves into the techniques used to isolate and separate voices from complex audio files, discussing the tools and methods employed by experts in this field.", "tags": *id001, "title": "Extract voice from professional sources"}
 
 ---
 

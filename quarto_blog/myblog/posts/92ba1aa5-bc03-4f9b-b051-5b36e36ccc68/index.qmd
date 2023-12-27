@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Pyrogram", "Telegram bot library", "Python programming language", "Interacting with user and bot accounts", "Telegram bots"], "category": "Python", "date": "2023-12-22 23:52:59", "description": "Pyrogram is a Telegram bot library written in Python, enabling interaction with both user and bot accounts.", "tags": *id001, "title": "telegram bot: pyrogram"}
+{"categories": &id001 ["Pyrogram", "Telegram bot library", "Python programming language", "Interacting with user and bot accounts", "Telegram bots"], "category": "Python", "date": "2022-12-18 20:01:14", "description": "Pyrogram is a Telegram bot library written in Python, enabling interaction with both user and bot accounts.", "tags": *id001, "title": "telegram bot: pyrogram"}
 
 ---
 

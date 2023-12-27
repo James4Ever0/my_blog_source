@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["short_url", "Bilibili", "TikTok", "Douyin", "QR codes", "online_tools", "social_media"], "category": "Short URL generators", "date": "2023-12-22 23:52:59", "description": "This article highlights the challenge of locating a functional short URL generator, with only Bilibili's short link being deemed usable. It also speculates that TikTok and Douyin might have similar features but are disinterested in managing them, proposing QR codes as an alternative solution.", "tags": *id001, "title": "短网址生成器"}
+{"categories": &id001 ["short_url", "Bilibili", "TikTok", "Douyin", "QR codes", "online_tools", "social_media"], "category": "Short URL generators", "date": "2022-10-21 13:43:22", "description": "This article highlights the challenge of locating a functional short URL generator, with only Bilibili's short link being deemed usable. It also speculates that TikTok and Douyin might have similar features but are disinterested in managing them, proposing QR codes as an alternative solution.", "tags": *id001, "title": "短网址生成器"}
 
 ---
 

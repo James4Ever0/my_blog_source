@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["health", "lifestyle", "rest"], "category": "Yoga", "date": "2023-12-22 23:52:59", "description": "This article emphasizes the significance of disconnecting from technology and nurturing personal development through yoga, Tai Chi, and fostering a healthy equilibrium between digital and physical engagements.", "tags": *id001, "title": "Yoga & TaiChi"}
+{"categories": &id001 ["health", "lifestyle", "rest"], "category": "Yoga", "date": "2022-01-12 23:06:34", "description": "This article emphasizes the significance of disconnecting from technology and nurturing personal development through yoga, Tai Chi, and fostering a healthy equilibrium between digital and physical engagements.", "tags": *id001, "title": "Yoga & TaiChi"}
 
 ---
 

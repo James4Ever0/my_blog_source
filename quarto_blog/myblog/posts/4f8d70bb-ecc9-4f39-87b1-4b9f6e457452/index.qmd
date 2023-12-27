@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["kotlin", "orm", "libraries", "hibernate", "room", "exposed", "ktor-exposed"], "category": "Kotlin ORM libraries", "date": "2023-12-22 23:52:59", "description": "Kotlin ORM libraries like Hibernate, Room, and Exposed offer type-safe SQL queries through Ktor-Exposed for database connections. Spring Framework in Kotlin leverages AOP for cross-cutting concerns and includes basic MVC controllers. JSP can be used with Spring Boot to create apps, handle requests, and process HTTP GETs using the @GetMapping annotation.", "tags": *id001, "title": "spring, orm, kotlin, yaml config, jsp"}
+{"categories": &id001 ["kotlin", "orm", "libraries", "hibernate", "room", "exposed", "ktor-exposed"], "category": "Kotlin ORM libraries", "date": "2022-12-22 01:46:12", "description": "Kotlin ORM libraries like Hibernate, Room, and Exposed offer type-safe SQL queries through Ktor-Exposed for database connections. Spring Framework in Kotlin leverages AOP for cross-cutting concerns and includes basic MVC controllers. JSP can be used with Spring Boot to create apps, handle requests, and process HTTP GETs using the @GetMapping annotation.", "tags": *id001, "title": "spring, orm, kotlin, yaml config, jsp"}
 
 ---
 

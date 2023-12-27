@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["summer", "air conditioning", "standing desks", "treadmills", "home appliances", "carpet cushions", "floor tiles"], "category": "Home Appliances", "date": "2023-12-22 23:52:59", "description": "This article discusses various summer cooling solutions such as air conditioning units, standing desks with treadmill features, and other home appliances like carpet cushions with built-in fans, floor tiles, humidifiers, dehumidifiers, potassium permanganate, soft to hard AC vent panels, strong adhesive tape, water-cooled air conditioners, and portable air conditioners with dual air vents.", "tags": *id001, "title": "夏天制冷装置"}
+{"categories": &id001 ["summer", "air conditioning", "standing desks", "treadmills", "home appliances", "carpet cushions", "floor tiles"], "category": "Home Appliances", "date": "2023-05-21 03:01:38", "description": "This article discusses various summer cooling solutions such as air conditioning units, standing desks with treadmill features, and other home appliances like carpet cushions with built-in fans, floor tiles, humidifiers, dehumidifiers, potassium permanganate, soft to hard AC vent panels, strong adhesive tape, water-cooled air conditioners, and portable air conditioners with dual air vents.", "tags": *id001, "title": "夏天制冷装置"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Hot Reloading", "Exception Capture", "Python Code Refactoring", "Reloading", "jurigged", "DebugPy", "Reloadium"], "category": "Hot Reloading", "date": "2023-12-22 23:52:59", "description": "This article discusses Hot Reloading and Exception Capture tools like reloading, jurigged, DebugPy, and Reloadium that assist Python developers in efficiently refactoring code by allowing them to quickly modify and test changes without requiring a program restart.", "tags": *id001, "title": "Hot Reloading, Exception Capture"}
+{"categories": &id001 ["Hot Reloading", "Exception Capture", "Python Code Refactoring", "Reloading", "jurigged", "DebugPy", "Reloadium"], "category": "Hot Reloading", "date": "2022-11-08 05:51:45", "description": "This article discusses Hot Reloading and Exception Capture tools like reloading, jurigged, DebugPy, and Reloadium that assist Python developers in efficiently refactoring code by allowing them to quickly modify and test changes without requiring a program restart.", "tags": *id001, "title": "Hot Reloading, Exception Capture"}
 
 ---
 

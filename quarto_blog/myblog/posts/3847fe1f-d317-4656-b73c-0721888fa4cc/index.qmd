@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["asm", "assembly", "hacking", "nasm", "repl", "self-learning"], "category": "Programming Languages", "date": "2023-12-22 23:52:59", "description": "This article discusses a Repl (Read-Eval-Print Loop) for Assembly code with processor flags output, developed by yrp604 and available on the GitHub repository named 'rappel'. Moreover, it introduces an msf provided Repl called 'msf-nasm_shell'.", "tags": *id001, "title": "Repl for Assembly Code"}
+{"categories": &id001 ["asm", "assembly", "hacking", "nasm", "repl", "self-learning"], "category": "Programming Languages", "date": "2022-07-13 03:09:59", "description": "This article discusses a Repl (Read-Eval-Print Loop) for Assembly code with processor flags output, developed by yrp604 and available on the GitHub repository named 'rappel'. Moreover, it introduces an msf provided Repl called 'msf-nasm_shell'.", "tags": *id001, "title": "Repl for Assembly Code"}
 
 ---
 

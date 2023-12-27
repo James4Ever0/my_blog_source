@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI platform", "PaddlePaddle", "NLP models", "BERT", "ELECTRA", "Agriculture", "Healthcare"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "PaddlePaddle is an AI platform providing optimized pre-trained NLP models like BERT and ELECTRA, applicable to diverse fields such as agriculture, healthcare, sports, machine translation, image classification, and natural language processing.", "tags": *id001, "title": "paddlepaddle applications"}
+{"categories": &id001 ["AI platform", "PaddlePaddle", "NLP models", "BERT", "ELECTRA", "Agriculture", "Healthcare"], "category": "Artificial Intelligence", "date": "2022-09-13 09:50:47", "description": "PaddlePaddle is an AI platform providing optimized pre-trained NLP models like BERT and ELECTRA, applicable to diverse fields such as agriculture, healthcare, sports, machine translation, image classification, and natural language processing.", "tags": *id001, "title": "paddlepaddle applications"}
 
 ---
 

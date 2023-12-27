@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer"], "category": "Programming", "date": "2023-12-22 23:52:59", "description": "This text outlines a programming assignment that involves developing a program called Ecosim, which requires implementing various object-oriented concepts such as inheritance, aggregation/composition, polymorphism, and encapsulation. The instructions emphasize the importance of clear documentation, utilizing git for progress tracking, and writing tests specifically for the Vector2D class.", "tags": *id001, "title": "Ecosim"}
+{"categories": &id001 ["freelancer"], "category": "Programming", "date": "2022-01-12 20:32:45", "description": "This text outlines a programming assignment that involves developing a program called Ecosim, which requires implementing various object-oriented concepts such as inheritance, aggregation/composition, polymorphism, and encapsulation. The instructions emphasize the importance of clear documentation, utilizing git for progress tracking, and writing tests specifically for the Vector2D class.", "tags": *id001, "title": "Ecosim"}
 
 ---
 

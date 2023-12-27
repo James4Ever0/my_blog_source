@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["picture generator", "stub", "text to picture", "video generator"], "category": "AI-generated Art", "date": "2023-12-22 23:52:59", "description": "AI-generated art is showcased in various styles by DiT diffusion, Scribble-diffusion, and NVIDIA's AI Paint which utilizes Imagen-Pytorch. These techniques feature diverse styles such as retro futurism, pastel punk, and cats wearing glasses. Resources for constructing prompts are available, with support provided by PaddleHub on GitHub.", "tags": *id001, "title": "disco diffusion and ai art"}
+{"categories": &id001 ["picture generator", "stub", "text to picture", "video generator"], "category": "AI-generated Art", "date": "2022-08-08 12:52:28", "description": "AI-generated art is showcased in various styles by DiT diffusion, Scribble-diffusion, and NVIDIA's AI Paint which utilizes Imagen-Pytorch. These techniques feature diverse styles such as retro futurism, pastel punk, and cats wearing glasses. Resources for constructing prompts are available, with support provided by PaddleHub on GitHub.", "tags": *id001, "title": "disco diffusion and ai art"}
 
 ---
 

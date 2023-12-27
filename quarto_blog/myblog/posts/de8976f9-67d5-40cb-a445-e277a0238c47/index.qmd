@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["model", "optimization", "trial and error"], "category": "Model Optimization", "date": "2023-12-22 23:52:59", "description": "The article explores the use of an online optimizer for creating different models and finding the best logic combination. It outlines the process of selecting and marking the best model (A), generating another model (B) using the same optimizer, and combining these into a final model (X) through iterating various situations.", "tags": *id001, "title": "Logic Optimizer for Different Models"}
+{"categories": &id001 ["model", "optimization", "trial and error"], "category": "Model Optimization", "date": "2022-03-30 18:10:00", "description": "The article explores the use of an online optimizer for creating different models and finding the best logic combination. It outlines the process of selecting and marking the best model (A), generating another model (B) using the same optimizer, and combining these into a final model (X) through iterating various situations.", "tags": *id001, "title": "Logic Optimizer for Different Models"}
 
 ---
 

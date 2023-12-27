@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["advertising", "mail sending", "SMS"], "category": "Mass Email/SMS Tools", "date": "2023-12-22 23:52:59", "description": "This article delves into email verification techniques and strategies, along with methods to send mass emails or SMS anonymously. It highlights platforms like mailcat and theHarvester for collecting emails, APIs for SMS flooding, and Telegram bots for efficient marketing.", "tags": *id001, "title": "email scraper, 自动发短信 邮件 自动接收短信 接收邮件 mail sms automatic sending ad broadcasting, email verification, sms verification, sms login, email login, temp mail, email OSINT"}
+{"categories": &id001 ["advertising", "mail sending", "SMS"], "category": "Mass Email/SMS Tools", "date": "2022-07-04 12:47:02", "description": "This article delves into email verification techniques and strategies, along with methods to send mass emails or SMS anonymously. It highlights platforms like mailcat and theHarvester for collecting emails, APIs for SMS flooding, and Telegram bots for efficient marketing.", "tags": *id001, "title": "email scraper, 自动发短信 邮件 自动接收短信 接收邮件 mail sms automatic sending ad broadcasting, email verification, sms verification, sms login, email login, temp mail, email OSINT"}
 
 ---
 

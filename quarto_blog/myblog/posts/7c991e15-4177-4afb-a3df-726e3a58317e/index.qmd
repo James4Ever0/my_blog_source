@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["activation", "mathematica", "non-free", "wolfram"], "category": "Mathematica software", "date": "2023-12-22 23:52:59", "description": "Learn how to generate a Mathematica activation code using an online code generator and your free Wolfram account. Follow the instructions to locate and edit the `mathpass` file, enabling you to successfully activate the software.", "tags": *id001, "title": "Free Mathematica Activation Method"}
+{"categories": &id001 ["activation", "mathematica", "non-free", "wolfram"], "category": "Mathematica software", "date": "2022-08-03 10:38:01", "description": "Learn how to generate a Mathematica activation code using an online code generator and your free Wolfram account. Follow the instructions to locate and edit the &grave;mathpass&grave; file, enabling you to successfully activate the software.", "tags": *id001, "title": "Free Mathematica Activation Method"}
 
 ---
 

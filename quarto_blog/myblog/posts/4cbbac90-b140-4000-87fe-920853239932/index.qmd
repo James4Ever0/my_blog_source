@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["frame_interpolation", "AnimeInterp", "NVIDIA_unsupervised_video_interpolation", "smooth_videos", "Video-Interpolation", "techniques", "video_quality"], "category": "Interpolation Techniques", "date": "2023-12-22 23:52:59", "description": "This article explores different methods of frame interpolation, a technique aimed at producing smoother videos. It discusses approaches such as AnimeInterp and NVIDIA's unsupervised video interpolation, which can help create more fluid and continuous visuals.", "tags": *id001, "title": "Mastering Frame Interpolation Techniques for Smooth Videos"}
+{"categories": &id001 ["frame_interpolation", "AnimeInterp", "NVIDIA_unsupervised_video_interpolation", "smooth_videos", "Video-Interpolation", "techniques", "video_quality"], "category": "Interpolation Techniques", "date": "2022-05-28 19:19:58", "description": "This article explores different methods of frame interpolation, a technique aimed at producing smoother videos. It discusses approaches such as AnimeInterp and NVIDIA's unsupervised video interpolation, which can help create more fluid and continuous visuals.", "tags": *id001, "title": "Mastering Frame Interpolation Techniques for Smooth Videos"}
 
 ---
 

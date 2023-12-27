@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["idea", "paraphraser", "pyjom", "stub", "text generation"], "category": "Paraphrasing", "date": "2023-12-22 23:52:59", "description": "In this text, you will learn how to leverage the original transcript and danmaku for paraphrasing purposes and generating jokes. You'll discover useful techniques and strategies that will help improve your ability to create engaging and humorous content.", "tags": *id001, "title": "Content Usage"}
+{"categories": &id001 ["idea", "paraphraser", "pyjom", "stub", "text generation"], "category": "Paraphrasing", "date": "2022-04-25 12:34:51", "description": "In this text, you will learn how to leverage the original transcript and danmaku for paraphrasing purposes and generating jokes. You'll discover useful techniques and strategies that will help improve your ability to create engaging and humorous content.", "tags": *id001, "title": "Content Usage"}
 
 ---
 

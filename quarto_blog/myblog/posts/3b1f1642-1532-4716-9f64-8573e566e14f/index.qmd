@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["speech-to-text", "conversion methods", "online tools", "offline solutions", "APIs", "open-source libraries", "multiple languages"], "category": "Speech-to-Text Conversion", "date": "2023-12-22 23:52:59", "description": "This article explores the different methods and tools available for speech-to-text conversion, including online and offline options such as APIs, open-source libraries, and software implementations. These solutions support multiple languages and translation capabilities.", "tags": *id001, "title": "语音转文字 stt speech to text"}
+{"categories": &id001 ["speech-to-text", "conversion methods", "online tools", "offline solutions", "APIs", "open-source libraries", "multiple languages"], "category": "Speech-to-Text Conversion", "date": "2022-09-17 12:42:12", "description": "This article explores the different methods and tools available for speech-to-text conversion, including online and offline options such as APIs, open-source libraries, and software implementations. These solutions support multiple languages and translation capabilities.", "tags": *id001, "title": "语音转文字 stt speech to text"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["color transfer", "image manipulation", "histogram-based style transfer", "video effects", "picture enhancement", "Python code", "image color matching"], "category": "Image Processing", "date": "2023-12-22 23:52:59", "description": "This text explains a method for color transfer between images, specifically using histogram-based style transfer to create vibrant effects in videos or pictures. It provides installation instructions and example Python code for image color matching using histogram matching.", "tags": *id001, "title": "color transfer between images, histogram based style transfer"}
+{"categories": &id001 ["color transfer", "image manipulation", "histogram-based style transfer", "video effects", "picture enhancement", "Python code", "image color matching"], "category": "Image Processing", "date": "2022-09-17 07:20:21", "description": "This text explains a method for color transfer between images, specifically using histogram-based style transfer to create vibrant effects in videos or pictures. It provides installation instructions and example Python code for image color matching using histogram matching.", "tags": *id001, "title": "color transfer between images, histogram based style transfer"}
 
 ---
 

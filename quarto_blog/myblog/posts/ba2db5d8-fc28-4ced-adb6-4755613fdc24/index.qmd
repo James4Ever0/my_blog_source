@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Captchas", "Public Automated Turing Tests", "Assess Capabilities", "Not Behaviors", "Artificial Intelligence", "Security", "Computer Science"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "Captchas, designed as public automated Turing tests, serve the purpose of evaluating capabilities rather than behaviors.", "tags": *id001, "title": "Understanding Captchas: Assessing Capabilities, Not Behaviors"}
+{"categories": &id001 ["Captchas", "Public Automated Turing Tests", "Assess Capabilities", "Not Behaviors", "Artificial Intelligence", "Security", "Computer Science"], "category": "Artificial Intelligence", "date": "2023-09-04 07:56:12", "description": "Captchas, designed as public automated Turing tests, serve the purpose of evaluating capabilities rather than behaviors.", "tags": *id001, "title": "Understanding Captchas: Assessing Capabilities, Not Behaviors"}
 
 ---
 

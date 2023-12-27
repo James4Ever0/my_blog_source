@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["export", "note", "stub"], "category": "data security", "date": "2023-12-22 23:52:59", "description": "This article provides a step-by-step guide on how to create and import backups in StandardNotes, an application designed for secure note-taking. The article emphasizes the importance of data security and offers detailed instructions on creating backups and importing them into StandardNotes. By following this guide, users can ensure their important information is safeguarded against potential data loss or unforeseen circumstances.", "tags": *id001, "title": "Create and Import Backups in StandardNotes"}
+{"categories": &id001 ["export", "note", "stub"], "category": "data security", "date": "2022-07-11 16:02:26", "description": "This article provides a step-by-step guide on how to create and import backups in StandardNotes, an application designed for secure note-taking. The article emphasizes the importance of data security and offers detailed instructions on creating backups and importing them into StandardNotes. By following this guide, users can ensure their important information is safeguarded against potential data loss or unforeseen circumstances.", "tags": *id001, "title": "Create and Import Backups in StandardNotes"}
 
 ---
 

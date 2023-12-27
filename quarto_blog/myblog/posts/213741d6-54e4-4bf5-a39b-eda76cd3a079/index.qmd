@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["browser extension", "cloud sync", "extension", "image sources", "information gathering", "search engine", "sync", "text sources", "video sources"], "category": "Manga", "date": "2023-12-22 23:52:59", "description": "This article highlights two comments, each providing a collection of URLs leading to websites offering a diverse range of resources. Comment A mainly focuses on manga, anime, and novels, while Comment B encompasses video tutorials, guides, and debugging tools related to Chinese media and technology.", "tags": *id001, "title": "Netdisk managers, Userscript and info_data collection"}
+{"categories": &id001 ["browser extension", "cloud sync", "extension", "image sources", "information gathering", "search engine", "sync", "text sources", "video sources"], "category": "Manga", "date": "2022-04-25 20:54:07", "description": "This article highlights two comments, each providing a collection of URLs leading to websites offering a diverse range of resources. Comment A mainly focuses on manga, anime, and novels, while Comment B encompasses video tutorials, guides, and debugging tools related to Chinese media and technology.", "tags": *id001, "title": "Netdisk managers, Userscript and info_data collection"}
 
 ---
 

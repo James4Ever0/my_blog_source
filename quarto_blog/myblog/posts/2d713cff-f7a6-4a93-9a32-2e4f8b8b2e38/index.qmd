@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["APIs", "Entertainment Data", "Funny Videos", "GIFs", "Memes", "Imgur", "Giphy"], "category": "APIs", "date": "2023-12-22 23:52:59", "description": "This article discusses APIs for accessing various forms of entertainment data, such as funny videos, GIFs, and memes from popular platforms like Imgur, Giphy, YouTube8M, ifunny.co, Reddit, and an ML algorithm specifically designed to identify humorous music videos.", "tags": *id001, "title": "Public APIs, GIF Websites Funny Video Sources"}
+{"categories": &id001 ["APIs", "Entertainment Data", "Funny Videos", "GIFs", "Memes", "Imgur", "Giphy"], "category": "APIs", "date": "2022-07-09 16:16:55", "description": "This article discusses APIs for accessing various forms of entertainment data, such as funny videos, GIFs, and memes from popular platforms like Imgur, Giphy, YouTube8M, ifunny.co, Reddit, and an ML algorithm specifically designed to identify humorous music videos.", "tags": *id001, "title": "Public APIs, GIF Websites Funny Video Sources"}
 
 ---
 

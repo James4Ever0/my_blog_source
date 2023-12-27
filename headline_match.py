@@ -1,7 +1,10 @@
 import re  # prefer regex over re? re.subn sucks.
-from typing import Optional, cast
+from typing import Optional, NewType, cast
 import yaml
 from beartype import beartype
+import orjson
+
+JSONDict = NewType("JSONDict", dict)
 
 # Multiline regular expression to match the pattern
 metadata_pattern = r"""^---$
@@ -16,6 +19,13 @@ metadata_regex = re.compile(
 
 
 @beartype
+def purify_dict(obj: dict) -> JSONDict:
+    bytes_repr = orjson.dumps(obj)
+    new_obj = orjson.loads(bytes_repr)
+    return new_obj
+
+
+@beartype
 def parse_content_metadata(markdown_content: str):
     # Match the pattern in the Markdown content
     matches = metadata_regex.findall(markdown_content)
@@ -23,18 +33,21 @@ def parse_content_metadata(markdown_content: str):
     first_match = None
     if has_metadata:
         first_match = matches[0]
-        metadata = yaml.safe_load(first_match)
-        assert isinstance(metadata, dict), 'error processing metadata'
+        metadata = yaml.safe_load(
+            first_match
+        )  # this could parse string as datetime object.
+        assert isinstance(metadata, dict), "error processing metadata"
         content_without_metadata = remove_metadata(markdown_content, first_match)
     else:
         metadata = {}
         content_without_metadata = markdown_content
 
-    return has_metadata, metadata, content_without_metadata, first_match
+    purified_metadata = purify_dict(metadata)
+    return has_metadata, purified_metadata, content_without_metadata, first_match
 
 
 @beartype
-def replace_metadata(source: str, first_match:str,replace_str: str,  count=1):
+def replace_metadata(source: str, first_match: str, replace_str: str, count=1):
     # ref: https://github.com/thesimj/envyaml/commit/2418c7b0857d586f04a09a48697ab7c94a605ccb
     result = source.replace(first_match, replace_str, count)
     return result
@@ -42,7 +55,7 @@ def replace_metadata(source: str, first_match:str,replace_str: str,  count=1):
 
 @beartype
 def remove_metadata(source: str, first_match: str):
-    result = replace_metadata(source,first_match, "")
+    result = replace_metadata(source, first_match, "")
     return result
 
 
@@ -82,9 +95,12 @@ title: Sample Title
 tags: Tag1, Tag3
 ---
 """
-    has_metadata, metadata, content_without_metadata, first_match = parse_content_metadata(
-        markdown_content
-    )
+    (
+        has_metadata,
+        metadata,
+        content_without_metadata,
+        first_match,
+    ) = parse_content_metadata(markdown_content)
     updated_content = modify_content_metadata(
         markdown_content, has_metadata, {"new_title": "Sample Title"}, first_match
     )

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["stub", "sync", "system manage"], "category": "Tab Management", "date": "2023-12-22 23:52:59", "description": "This article introduces 'Tab-Session Manager', a tool that allows users to manage their browser sessions by integrating with Google account. The software is capable of offline syncing without relying on Google Cloud and works on newly opened tabs. However, it does not seem to integrate with existing tabs.", "tags": *id001, "title": "sync tabs across different browsers"}
+{"categories": &id001 ["stub", "sync", "system manage"], "category": "Tab Management", "date": "2022-08-10 05:51:49", "description": "This article introduces 'Tab-Session Manager', a tool that allows users to manage their browser sessions by integrating with Google account. The software is capable of offline syncing without relying on Google Cloud and works on newly opened tabs. However, it does not seem to integrate with existing tabs.", "tags": *id001, "title": "sync tabs across different browsers"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["hugo", "blogging", "installation", "themes", "blog generator"], "category": "Tutorial", "date": "2023-12-22 23:52:59", "description": "This text serves as a comprehensive guide for installing and utilizing Hugo, a widely-used blog generator. It offers step-by-step instructions on how to download and set up the software, along with recommendations on selecting and implementing various themes to enhance your Hugo blog.", "tags": *id001, "title": "Master Hugo: A Comprehensive Guide to Installing and Theming Your Blog"}
+{"categories": &id001 ["hugo", "blogging", "installation", "themes", "blog generator"], "category": "Tutorial", "date": "2022-05-28 19:13:40", "description": "This text serves as a comprehensive guide for installing and utilizing Hugo, a widely-used blog generator. It offers step-by-step instructions on how to download and set up the software, along with recommendations on selecting and implementing various themes to enhance your Hugo blog.", "tags": *id001, "title": "Master Hugo: A Comprehensive Guide to Installing and Theming Your Blog"}
 
 ---
 

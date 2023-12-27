@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["remote control", "remote desktop"], "category": "Remote Connection", "date": "2023-12-22 23:52:59", "description": "This article discusses different remote computer connection software options including NoMachine NX, FreeNX, Moonlight, parsec, ssh-rdp, x11vnc, vncviewer, sunshine host, and openstream-server that are compatible with both Windows and Linux hosts. Additionally, it introduces a hardware solution, the KVM switch, which supports audio redirection and separate USB ports.", "tags": *id001, "title": "Worth Trying Remote Computer Connection"}
+{"categories": &id001 ["remote control", "remote desktop"], "category": "Remote Connection", "date": "2022-03-04 15:13:13", "description": "This article discusses different remote computer connection software options including NoMachine NX, FreeNX, Moonlight, parsec, ssh-rdp, x11vnc, vncviewer, sunshine host, and openstream-server that are compatible with both Windows and Linux hosts. Additionally, it introduces a hardware solution, the KVM switch, which supports audio redirection and separate USB ports.", "tags": *id001, "title": "Worth Trying Remote Computer Connection"}
 
 ---
 

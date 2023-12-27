@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["college", "schedule", "stub", "study"], "category": "Education", "date": "2023-12-22 23:52:59", "description": "The university course schedule program is designed to assist students in organizing their academic plans, retrieving relevant class and exam details, and displaying grades on a scale of 0.0 to 6.0. The program categorizes subjects into required/elective options and features status markers for absences, incompletes, or failures.", "tags": *id001, "title": "复习补考的科目 补课 课程 补习"}
+{"categories": &id001 ["college", "schedule", "stub", "study"], "category": "Education", "date": "2022-06-26 15:57:14", "description": "The university course schedule program is designed to assist students in organizing their academic plans, retrieving relevant class and exam details, and displaying grades on a scale of 0.0 to 6.0. The program categorizes subjects into required/elective options and features status markers for absences, incompletes, or failures.", "tags": *id001, "title": "复习补考的科目 补课 课程 补习"}
 
 ---
 

@@ -32,8 +32,12 @@ from custom_doc_writer import (  # type:ignore
 from dateparser_utils import (
     parse_date_with_multiple_formats,
     render_datetime_as_hexo_format,
+    CUSTOM_DATE_FORMATS,
 )
-from headline_match import modify_content_metadata, parse_content_metadata
+from headline_match import (
+    modify_content_metadata,
+    parse_content_metadata, JSONDict, purify_dict
+)
 from similarity_utils import SimilarityIndex, sentence_transformer_context
 from io_utils import load_file, write_file
 
@@ -42,16 +46,13 @@ DEFAULT_TOP_K = 7
 
 REQUIRED_FIELDS = ("tags", "title", "description", "category", "date")
 FIELDS_THAT_NEED_SUMMARY_TO_GENERATE = ("tags", "title", "description", "category")
-DATE_MITIGATION_FIELDS = ("created",)
-
-CUSTOM_DATE_FORMATS = ("{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}",)
+DATE_MITIGATION_FIELDS = ("created", "modified")
 
 
 def generate_markdown_name():
     file_id = str(uuid.uuid4())
     fname = f"{file_id}.md"
     return fname
-
 
 
 def split_by_line(cnt: str):
@@ -77,6 +78,7 @@ def load_bad_words(fname: str):
 # validation not working. and the llm does not pay attention to the constraints by the name
 # string_without_comma_period = Annotated[str, pydantic.Field(regex=r'^[^,^.]*$')]
 # string_without_comma_period_and_space = Annotated[str, pydantic.Field(regex=r'^[^,^ ^.]*$')]
+
 
 # suspicious chars being used in string, like the comma
 class Categories(pydantic.BaseModel):
@@ -116,10 +118,13 @@ def call_llm_once_and_parse(
     def generate_fix_init_prompt():
         identity = "You are a professional JSON response fixer. You can fix data failed to parsed as JSON."
         task = "You will be given the data to be fixed, the error message during parsing the data and return fixed response according to the schema, and a few hints."
-        fix_init_prompt = generate_init_prompt_with_schema(identity, task, pydantic_type)
+        fix_init_prompt = generate_init_prompt_with_schema(
+            identity, task, pydantic_type
+        )
         return fix_init_prompt
+
     @beartype
-    def generate_fix_prompt(response:str, error:str):
+    def generate_fix_prompt(response: str, error: str):
         prompt_context_dict = {
             "Invalid data to be fixed": response,
             "Parsing error message": error,
@@ -127,8 +132,9 @@ def call_llm_once_and_parse(
         }
         fix_prompt = generate_json_prompt(prompt_context_dict)
         return fix_prompt
+
     @beartype
-    def fix_invalid_response(response: str, error:str):
+    def fix_invalid_response(response: str, error: str):
         fix_init_prompt = generate_fix_init_prompt()
         fix_prompt = generate_fix_prompt(response, error)
         fix_response = call_llm_once(fix_init_prompt, fix_prompt)
@@ -141,7 +147,7 @@ def call_llm_once_and_parse(
         try:
             ret = pydantic_type.parse_raw(response)  # type: ignore
         except:
-            error = traceback.format_exc(limit = 1)
+            error = traceback.format_exc(limit=1)
             ret = fix_invalid_response(response, error)
         return ret
 
@@ -514,12 +520,16 @@ def get_filename_without_extension(filepath: str):
 
 
 @beartype
-def get_date_obj_by_metadata(metadata: dict):
+def get_date_obj_by_metadata(metadata: JSONDict):
     for field in DATE_MITIGATION_FIELDS:
-        if field in metadata:
-            date_obj = parse_date_with_multiple_formats(CUSTOM_DATE_FORMATS, field)
-            if date_obj:
-                return date_obj
+        value = metadata.get(field, None)
+        date_obj = None
+        if isinstance(value, datetime.datetime):
+            date_obj = value
+        elif isinstance(value, str):
+            date_obj = parse_date_with_multiple_formats(CUSTOM_DATE_FORMATS, value)
+        if date_obj is not None:
+            return date_obj
 
 
 @beartype
@@ -532,7 +542,7 @@ def get_date_obj_by_filepath(filepath: str):
 
 
 @beartype
-def generate_date_obj(filepath: str, metadata: dict):
+def generate_date_obj(filepath: str, metadata: JSONDict):
     maybe_methods = (
         lambda: get_date_obj_by_metadata(metadata),
         lambda: get_date_obj_by_filepath(filepath),
@@ -542,7 +552,7 @@ def generate_date_obj(filepath: str, metadata: dict):
 
 
 @beartype
-def generate_date(filepath: str, metadata: dict):
+def generate_date(filepath: str, metadata: JSONDict):
     date_obj = generate_date_obj(filepath, metadata)
     ret = render_datetime_as_hexo_format(date_obj)
     return ret
@@ -568,7 +578,7 @@ def replace_double_quotes_as_single_quotes(content: str):
 def generate_content_metadata(
     filepath: str,
     content_without_metadata: str,
-    metadata: dict,
+    metadata: JSONDict,
     tags_similarity_index: SimilarityIndex,
     categories_similarity_index: SimilarityIndex,
     tag_top_k: int = DEFAULT_TOP_K,
@@ -586,10 +596,10 @@ def generate_content_metadata(
         additional_metadata = {}
         for field in missing_fields:
             additional_metadata[field] = field_to_method[field]()
-        return additional_metadata
+        return purify_dict(additional_metadata)
 
     @beartype
-    def generate_new_metadata(additional_metadata: dict):
+    def generate_new_metadata(additional_metadata: JSONDict):
         changed = False
         new_metadata = metadata.copy()
         if additional_metadata != {}:
@@ -727,17 +737,19 @@ def get_note_paths_without_bad_words_and_existing_tags_and_categories(
     iterate_dir_and_update_tags_and_categoiries(
         notes_dir,
     )
-    iterate_dir_and_update_tags_and_categoiries(cache_dir, append_and_check_bad_words=False)
+    iterate_dir_and_update_tags_and_categoiries(
+        cache_dir, append_and_check_bad_words=False
+    )
 
     return note_paths, existing_tags, existing_categories
 
 
-def update_tags_set_from_metadata(metadata: dict, tags_set: set[str]):
+def update_tags_set_from_metadata(metadata: JSONDict, tags_set: set[str]):
     for tag in metadata.get("tags", []):
         tags_set.add(tag)
 
 
-def update_categories_set_from_metadata(metadata: dict, categories_set: set[str]):
+def update_categories_set_from_metadata(metadata: JSONDict, categories_set: set[str]):
     category = metadata.get("category", None)
     if category:
         categories_set.add(category)
@@ -745,7 +757,7 @@ def update_categories_set_from_metadata(metadata: dict, categories_set: set[str]
 
 @beartype
 def update_tags_and_categories_from_metadata(
-    metadata: dict, tags_set: set[str], categories_set: set[str]
+    metadata: JSONDict, tags_set: set[str], categories_set: set[str]
 ):
     update_tags_set_from_metadata(metadata, tags_set)
     update_categories_set_from_metadata(metadata, categories_set)
@@ -926,17 +938,41 @@ def walk_notes_source_dir_and_write_to_cache_dir(
         param, note_paths, existing_tags, existing_categories, sample_size=sample_size
     )
 
+
 @beartype
-def remove_and_create_dir(dirpath:str):
+def remove_and_create_dir(dirpath: str):
     if os.path.exists(dirpath):
         shutil.rmtree(dirpath)
     os.mkdir(dirpath)
 
+
+def fix_date_in_content(filepath: str, content: str):
+    (
+        has_metadata,
+        metadata,
+        _,
+        first_match,
+    ) = parse_content_metadata(content)
+    if has_metadata:
+        if metadata is not None:
+            date = generate_date(filepath, metadata)
+            metadata["date"] = date
+            content = modify_content_metadata(
+                content, has_metadata, metadata, first_match
+            )
+    return content
+
+
 @beartype
-def copy_cache_to_final_dir(processed_cache_paths: list[str], final_dir: str):
+def fix_date_in_cache_and_write_to_final_dir(
+    processed_cache_paths: list[str], final_dir: str
+):
     remove_and_create_dir(final_dir)
     for path in processed_cache_paths:
-        shutil.copy(path, final_dir)
+        content = load_file(path)
+        new_content = fix_date_in_content(path, content)
+        new_path = os.path.join(final_dir, os.path.basename(path))
+        write_file(new_path, new_content)
 
 
 def parse_params() -> tuple[SourceIteratorAndTargetGeneratorParam, str, str, int]:
@@ -961,7 +997,7 @@ def main():
     processed_cache_paths = walk_notes_source_dir_and_write_to_cache_dir(
         param, bad_words_path, sample_size=sample_size
     )
-    copy_cache_to_final_dir(processed_cache_paths, final_dir)
+    fix_date_in_cache_and_write_to_final_dir(processed_cache_paths, final_dir)
 
 
 if __name__ == "__main__":

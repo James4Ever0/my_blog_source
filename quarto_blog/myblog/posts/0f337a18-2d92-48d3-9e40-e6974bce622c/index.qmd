@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["backup", "macos", "stub", "time machine"], "category": "Data Backup", "date": "2023-12-22 23:52:59", "description": "In this article, the author discusses their backup plan that involves using rclone to periodically commit files to a NAS or external SSD. They also consider using an Airport Extreme router and investing in an SSD with USB-C cables for improved efficiency and convenience.", "tags": *id001, "title": "Time Machine NAS macOS"}
+{"categories": &id001 ["backup", "macos", "stub", "time machine"], "category": "Data Backup", "date": "2022-07-28 12:59:47", "description": "In this article, the author discusses their backup plan that involves using rclone to periodically commit files to a NAS or external SSD. They also consider using an Airport Extreme router and investing in an SSD with USB-C cables for improved efficiency and convenience.", "tags": *id001, "title": "Time Machine NAS macOS"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Peewee", "SQLite ORM", "Full-text search", "JSON support", "Get/update/create actions", "BaseModel boilerplate code", "Enhancements"], "category": "SQLite ORM", "date": "2023-12-22 23:52:59", "description": "Peewee is an SQLite ORM that offers advanced features like full-text search and JSON support. It also proposes enhancements for get/update/create actions and aims to simplify BaseModel boilerplate code, making it a powerful tool for database operations.", "tags": *id001, "title": "peewee related notes"}
+{"categories": &id001 ["Peewee", "SQLite ORM", "Full-text search", "JSON support", "Get/update/create actions", "BaseModel boilerplate code", "Enhancements"], "category": "SQLite ORM", "date": "2022-10-27 09:56:36", "description": "Peewee is an SQLite ORM that offers advanced features like full-text search and JSON support. It also proposes enhancements for get/update/create actions and aims to simplify BaseModel boilerplate code, making it a powerful tool for database operations.", "tags": *id001, "title": "peewee related notes"}
 
 ---
 

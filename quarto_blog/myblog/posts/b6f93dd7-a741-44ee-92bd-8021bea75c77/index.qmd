@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["video processing", "video summarization", "video understanding"], "category": "Video Analysis", "date": "2023-12-22 23:52:59", "description": "This article focuses on video analysis using popular frameworks PyTorch and Keras. It offers a range of resources to perform tasks such as classification and summarization, along with access to a pretrained model zoo for further customization. Additionally, it provides a link to a helpful video feature extractor tool.", "tags": *id001, "title": "视频分析处理 剧本生成"}
+{"categories": &id001 ["video processing", "video summarization", "video understanding"], "category": "Video Analysis", "date": "2022-05-24 13:32:27", "description": "This article focuses on video analysis using popular frameworks PyTorch and Keras. It offers a range of resources to perform tasks such as classification and summarization, along with access to a pretrained model zoo for further customization. Additionally, it provides a link to a helpful video feature extractor tool.", "tags": *id001, "title": "视频分析处理 剧本生成"}
 
 ---
 

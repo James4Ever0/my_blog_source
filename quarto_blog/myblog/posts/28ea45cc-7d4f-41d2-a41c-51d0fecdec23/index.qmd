@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["dog video", "karaoke", "lyric effects", "music video", "pets video", "project", "pyjom", "subtitle", "video effects", "video generator", "video with bgm"], "category": "Karaoke", "date": "2023-12-22 23:52:59", "description": "Explore the possibilities of custom karaoke effects in Advanced Substation Alpha (ASS) subtitle files, specifically focusing on LRC tags and time-based grouping. This resource provides a comprehensive understanding of tags used for creating various effects and showcases practical examples to enhance your project's visual appeal.", "tags": *id001, "title": "Advanced ASS subtitle Karaoke Effects"}
+{"categories": &id001 ["dog video", "karaoke", "lyric effects", "music video", "pets video", "project", "pyjom", "subtitle", "video effects", "video generator", "video with bgm"], "category": "Karaoke", "date": "2022-07-10 15:56:16", "description": "Explore the possibilities of custom karaoke effects in Advanced Substation Alpha (ASS) subtitle files, specifically focusing on LRC tags and time-based grouping. This resource provides a comprehensive understanding of tags used for creating various effects and showcases practical examples to enhance your project's visual appeal.", "tags": *id001, "title": "Advanced ASS subtitle Karaoke Effects"}
 
 ---
 

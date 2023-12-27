@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["PyPI", "pip", "package installer", "EdgeGPT", "latest versions", "permanently", "temporarily"], "category": "Python programming", "date": "2023-12-22 23:52:59", "description": "This text describes the process of setting the PyPI index for `pip`, Python's package installer, to access the latest versions of packages like `EdgeGPT`. This can be done either permanently or temporarily, ensuring you have access to the most up-to-date software.", "tags": *id001, "title": "using default pypi.org/simple index"}
+{"categories": &id001 ["PyPI", "pip", "package installer", "EdgeGPT", "latest versions", "permanently", "temporarily"], "category": "Python programming", "date": "2023-02-10 12:51:19", "description": "This text describes the process of setting the PyPI index for &grave;pip&grave;, Python's package installer, to access the latest versions of packages like &grave;EdgeGPT&grave;. This can be done either permanently or temporarily, ensuring you have access to the most up-to-date software.", "tags": *id001, "title": "using default pypi.org/simple index"}
 
 ---
 

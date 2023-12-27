@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["health", "life style", "work style"], "category": "Sleep", "date": "2023-12-22 23:52:59", "description": "This article offers insights into treating insomnia by recommending various methods, including stretching exercises, adjusting diet, and maintaining a consistent sleep schedule. Additionally, it suggests using smart home technology to simulate natural light rhythms for waking up. The text also provides information on how to control lamp intensity with Arduino.", "tags": *id001, "title": "Sleepless in Bed 失眠治疗法"}
+{"categories": &id001 ["health", "life style", "work style"], "category": "Sleep", "date": "2022-01-13 01:10:37", "description": "This article offers insights into treating insomnia by recommending various methods, including stretching exercises, adjusting diet, and maintaining a consistent sleep schedule. Additionally, it suggests using smart home technology to simulate natural light rhythms for waking up. The text also provides information on how to control lamp intensity with Arduino.", "tags": *id001, "title": "Sleepless in Bed 失眠治疗法"}
 
 ---
 

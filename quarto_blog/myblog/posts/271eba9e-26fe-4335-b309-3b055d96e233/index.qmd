@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AGI", "finance", "financial", "quantatitive trading", "schedule", "stock"], "category": "Artificial General Intelligence", "date": "2023-12-22 23:52:59", "description": "This personal study plan covers various topics including reviewing past notes, revisiting history, studying finance and quantitative trading, and exploring artificial general intelligence. Tasks involved range from completing unfinished notes to designing algorithms and executing shell commands.", "tags": *id001, "title": "self-learning schedules"}
+{"categories": &id001 ["AGI", "finance", "financial", "quantatitive trading", "schedule", "stock"], "category": "Artificial General Intelligence", "date": "2022-08-17 19:15:16", "description": "This personal study plan covers various topics including reviewing past notes, revisiting history, studying finance and quantitative trading, and exploring artificial general intelligence. Tasks involved range from completing unfinished notes to designing algorithms and executing shell commands.", "tags": *id001, "title": "self-learning schedules"}
 
 ---
 

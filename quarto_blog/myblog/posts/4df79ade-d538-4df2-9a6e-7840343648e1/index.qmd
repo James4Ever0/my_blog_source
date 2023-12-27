@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Docker", "Configuration", "Mirror", "Baidubce.com", "Pulling", "Image", "Tutorial"], "category": "Docker", "date": "2023-12-22 23:52:59", "description": "This article guides you through the process of configuring Docker to pull images from a specific mirror, such as baidubce.com, instead of the default docker.io. The article also explains that the configuration may not work until you explicitly pull from the specified mirror.", "tags": *id001, "title": "force to use docker mirror instead of pulling from docker.io"}
+{"categories": &id001 ["Docker", "Configuration", "Mirror", "Baidubce.com", "Pulling", "Image", "Tutorial"], "category": "Docker", "date": "2023-10-05 15:34:18", "description": "This article guides you through the process of configuring Docker to pull images from a specific mirror, such as baidubce.com, instead of the default docker.io. The article also explains that the configuration may not work until you explicitly pull from the specified mirror.", "tags": *id001, "title": "force to use docker mirror instead of pulling from docker.io"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["sparse matrix", "liquid state machine", "tensorly", "torch", "efficient data processing", "complex datasets", "brain neurons"], "category": "Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons", "date": "2023-12-22 23:52:59", "description": "This text explains the process of creating a sparse matrix-based liquid state machine using tensorly and torch libraries. It focuses on efficient data processing for intricate datasets such as brain neurons.", "tags": *id001, "title": "Create sparse matrix based liquid state machine"}
+{"categories": &id001 ["sparse matrix", "liquid state machine", "tensorly", "torch", "efficient data processing", "complex datasets", "brain neurons"], "category": "Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons", "date": "2023-11-14 13:58:28", "description": "This text explains the process of creating a sparse matrix-based liquid state machine using tensorly and torch libraries. It focuses on efficient data processing for intricate datasets such as brain neurons.", "tags": *id001, "title": "Create sparse matrix based liquid state machine"}
 
 ---
 

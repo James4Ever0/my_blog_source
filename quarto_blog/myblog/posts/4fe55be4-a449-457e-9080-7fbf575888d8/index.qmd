@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["image source", "information gathering", "scraping", "stub", "video generator", "video source"], "category": "Manga", "date": "2023-12-22 23:52:59", "description": "This text discusses the process of reading Manga online, focusing on the website mangareader.to and specifically mentioning Tokyo Ghoul Chapter 362.", "tags": *id001, "title": "Read Manga Online"}
+{"categories": &id001 ["image source", "information gathering", "scraping", "stub", "video generator", "video source"], "category": "Manga", "date": "2022-05-29 07:19:09", "description": "This text discusses the process of reading Manga online, focusing on the website mangareader.to and specifically mentioning Tokyo Ghoul Chapter 362.", "tags": *id001, "title": "Read Manga Online"}
 
 ---
 

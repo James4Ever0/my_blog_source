@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["special characters", "expect send", "command line", "terminal", "programming tools", "UNIX systems", "reference blog post"], "category": "Expect Send", "date": "2023-12-22 23:52:59", "description": "This article explores the use of special control characters in conjunction with 'expect send' commands, providing a deeper understanding of their functionality and purpose. For more detailed information, refer to the accompanying blog post.", "tags": *id001, "title": "expect send special control chars"}
+{"categories": &id001 ["special characters", "expect send", "command line", "terminal", "programming tools", "UNIX systems", "reference blog post"], "category": "Expect Send", "date": "2022-09-08 19:32:13", "description": "This article explores the use of special control characters in conjunction with 'expect send' commands, providing a deeper understanding of their functionality and purpose. For more detailed information, refer to the accompanying blog post.", "tags": *id001, "title": "expect send special control chars"}
 
 ---
 

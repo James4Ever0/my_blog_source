@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["chatbot", "conversation", "interaction", "pyjom", "schedule"], "category": "Optimization Techniques", "date": "2023-12-22 23:52:59", "description": "This article dives into various techniques for optimizing chatbot performance, including extending synonym dictionaries, managing training data, and utilizing GPT-2 for server optimization, feedback mechanisms, content promotion, CPU usage, backpropagation, and filters. The comments provide valuable insights on how to improve the efficiency of chatbots.", "tags": *id001, "title": "复读机 Chatbot"}
+{"categories": &id001 ["chatbot", "conversation", "interaction", "pyjom", "schedule"], "category": "Optimization Techniques", "date": "2022-07-14 15:35:31", "description": "This article dives into various techniques for optimizing chatbot performance, including extending synonym dictionaries, managing training data, and utilizing GPT-2 for server optimization, feedback mechanisms, content promotion, CPU usage, backpropagation, and filters. The comments provide valuable insights on how to improve the efficiency of chatbots.", "tags": *id001, "title": "复读机 Chatbot"}
 
 ---
 

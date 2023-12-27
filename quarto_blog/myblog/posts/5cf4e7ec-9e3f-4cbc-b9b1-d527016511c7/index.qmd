@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ideas", "social media", "人类", "随想"], "category": "Information Management", "date": "2023-12-22 23:52:59", "description": "The text explores the concept that acquiring substantial amounts of information is crucial for accomplishment in diverse domains, and highlights the distinction between strong and weak correlations.", "tags": *id001, "title": "关于人类发展规律和需求的随想"}
+{"categories": &id001 ["ideas", "social media", "人类", "随想"], "category": "Information Management", "date": "2022-08-23 06:29:24", "description": "The text explores the concept that acquiring substantial amounts of information is crucial for accomplishment in diverse domains, and highlights the distinction between strong and weak correlations.", "tags": *id001, "title": "关于人类发展规律和需求的随想"}
 
 ---
 

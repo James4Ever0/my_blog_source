@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["hacking", "host name resolve", "network", "nmap", "stub"], "category": "Networking", "date": "2023-12-22 23:52:59", "description": "This article delves into the different approaches for resolving host names, computer names, and IP addresses. It explores the utilization of tools such as NetBIOS and DHCP in this regard. Additionally, it highlights the integration of Lua with Nmap's script engine (NSE) to automate network scanning and assaults.", "tags": *id001, "title": "Resolve Host Name Computer Name From IP"}
+{"categories": &id001 ["hacking", "host name resolve", "network", "nmap", "stub"], "category": "Networking", "date": "2022-08-05 18:47:51", "description": "This article delves into the different approaches for resolving host names, computer names, and IP addresses. It explores the utilization of tools such as NetBIOS and DHCP in this regard. Additionally, it highlights the integration of Lua with Nmap's script engine (NSE) to automate network scanning and assaults.", "tags": *id001, "title": "Resolve Host Name Computer Name From IP"}
 
 ---
 

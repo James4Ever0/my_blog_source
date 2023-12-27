@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["webpage", "translator", "plugin", "browser", "software", "on-the-fly", "information"], "category": "Browser Extensions", "date": "2023-12-22 23:52:59", "description": "A webpage translator plugin for browsers or similar software that enables users to translate webpages in real-time, facilitating access to information in unfamiliar languages.", "tags": *id001, "title": "webpage translator plugin"}
+{"categories": &id001 ["webpage", "translator", "plugin", "browser", "software", "on-the-fly", "information"], "category": "Browser Extensions", "date": "2022-12-05 07:50:35", "description": "A webpage translator plugin for browsers or similar software that enables users to translate webpages in real-time, facilitating access to information in unfamiliar languages.", "tags": *id001, "title": "webpage translator plugin"}
 
 ---
 

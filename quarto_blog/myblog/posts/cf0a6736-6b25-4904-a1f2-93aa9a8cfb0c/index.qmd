@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["audio source", "bilibili", "stub", "text source", "video sources"], "category": "Video Sharing Platforms", "date": "2023-12-22 23:52:59", "description": "Overseas Bilibili is a well-known Chinese video-sharing platform, renowned for its emphasis on animated content, videos, and live broadcasts. It offers an interactive user-driven system that facilitates direct engagement between content creators and their audience via comments and live streams.", "tags": *id001, "title": "海外哔哩哔哩"}
+{"categories": &id001 ["audio source", "bilibili", "stub", "text source", "video sources"], "category": "Video Sharing Platforms", "date": "2022-05-24 05:31:41", "description": "Overseas Bilibili is a well-known Chinese video-sharing platform, renowned for its emphasis on animated content, videos, and live broadcasts. It offers an interactive user-driven system that facilitates direct engagement between content creators and their audience via comments and live streams.", "tags": *id001, "title": "海外哔哩哔哩"}
 
 ---
 

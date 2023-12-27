@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["command-line", "background jobs", "stopping processes", "listing job numbers", "killing processes", "kill command", "unix"], "category": "Process Management", "date": "2023-12-22 23:52:59", "description": "The article discusses a command-line approach to stopping background jobs by listing the running job numbers and utilizing the 'kill' command to terminate the associated processes.", "tags": *id001, "title": "stop background jobs"}
+{"categories": &id001 ["command-line", "background jobs", "stopping processes", "listing job numbers", "killing processes", "kill command", "unix"], "category": "Process Management", "date": "2023-01-10 03:00:06", "description": "The article discusses a command-line approach to stopping background jobs by listing the running job numbers and utilizing the 'kill' command to terminate the associated processes.", "tags": *id001, "title": "stop background jobs"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer"], "category": "Kafka System Design", "date": "2023-12-22 23:52:59", "description": "This article discusses designing a system using Kafka for handling and visualizing high-speed data, utilizing big data storage options like HBase or MyCat+MySQL, generating network traffic with JMeter, streaming data at 50+ RPS, and querying/presenting results. The project also involves using Python for data storage and terminal visualization tools for machine learning, as well as generating network traffic and streaming data.", "tags": *id001, "title": "Kafka Data Query"}
+{"categories": &id001 ["freelancer"], "category": "Kafka System Design", "date": "2021-12-30 10:13:26", "description": "This article discusses designing a system using Kafka for handling and visualizing high-speed data, utilizing big data storage options like HBase or MyCat+MySQL, generating network traffic with JMeter, streaming data at 50+ RPS, and querying/presenting results. The project also involves using Python for data storage and terminal visualization tools for machine learning, as well as generating network traffic and streaming data.", "tags": *id001, "title": "Kafka Data Query"}
 
 ---
 

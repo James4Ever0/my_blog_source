@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "data analysis", "financial", "forecasting", "stock market", "time series"], "category": "Time Series Analysis", "date": "2023-12-22 23:52:59", "description": "This article delves into time series analysis and introduces three projects: Bosun, a tool for time series alerting; deep-learning-time-series, an implementation of deep learning techniques for forecasting; and LSTM-Neural-Network-for-Time-Series-Prediction, a project focusing on using LSTM neural networks to predict stock market trends.", "tags": *id001, "title": "Time Series Analysis"}
+{"categories": &id001 ["AI", "data analysis", "financial", "forecasting", "stock market", "time series"], "category": "Time Series Analysis", "date": "2022-06-01 02:50:42", "description": "This article delves into time series analysis and introduces three projects: Bosun, a tool for time series alerting; deep-learning-time-series, an implementation of deep learning techniques for forecasting; and LSTM-Neural-Network-for-Time-Series-Prediction, a project focusing on using LSTM neural networks to predict stock market trends.", "tags": *id001, "title": "Time Series Analysis"}
 
 ---
 

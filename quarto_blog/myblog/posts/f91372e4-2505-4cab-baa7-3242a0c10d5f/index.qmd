@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["image sources", "rss", "subscription", "text sources"], "category": "RSS Feeds and Aggregators", "date": "2023-12-22 23:52:59", "description": "This article delves into RSS feed sources and customizable aggregators, recommending the use of social media for content dissemination. It further explores Python RSS libraries and a JavaScript readability library for image and fingerprint handling. Installation instructions using npm and pip are provided for Node.js and Python.", "tags": *id001, "title": "RSS Feeds"}
+{"categories": &id001 ["image sources", "rss", "subscription", "text sources"], "category": "RSS Feeds and Aggregators", "date": "2022-04-17 03:43:37", "description": "This article delves into RSS feed sources and customizable aggregators, recommending the use of social media for content dissemination. It further explores Python RSS libraries and a JavaScript readability library for image and fingerprint handling. Installation instructions using npm and pip are provided for Node.js and Python.", "tags": *id001, "title": "RSS Feeds"}
 
 ---
 

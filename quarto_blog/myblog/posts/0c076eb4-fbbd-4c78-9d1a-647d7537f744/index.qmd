@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Python", "Neo4j Graph Data Science", "SQLAlchemy", "Lightwood AutoML", "Peewee ORM", "Milvus Vector Databases", "Pypika"], "category": "Neo4j Graph Data Science", "date": "2023-12-22 23:52:59", "description": "Learn how to use Python for Neo4j Graph Data Science, and explore SQLAlchemy monkey patches, Lightwood AutoML framework, and Peewee ORM. Discover the documentation for Milvus vector databases, Neo4j, Pypher, neopy, pygds, Pypika for SQL query building, mindsdb_native, and mindsdb_python_sdk for native Python mindsdb usage.", "tags": *id001, "title": "neo4j, mindsdb, milvus, peewee"}
+{"categories": &id001 ["Python", "Neo4j Graph Data Science", "SQLAlchemy", "Lightwood AutoML", "Peewee ORM", "Milvus Vector Databases", "Pypika"], "category": "Neo4j Graph Data Science", "date": "2022-11-09 16:43:16", "description": "Learn how to use Python for Neo4j Graph Data Science, and explore SQLAlchemy monkey patches, Lightwood AutoML framework, and Peewee ORM. Discover the documentation for Milvus vector databases, Neo4j, Pypher, neopy, pygds, Pypika for SQL query building, mindsdb_native, and mindsdb_python_sdk for native Python mindsdb usage.", "tags": *id001, "title": "neo4j, mindsdb, milvus, peewee"}
 
 ---
 

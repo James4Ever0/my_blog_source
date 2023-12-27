@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["linux", "service", "system manage", "systemd"], "category": "System Administration", "date": "2023-12-22 23:52:59", "description": "This article provides instructions for managing systemd services and viewing logs on Linux. It includes sample configuration files for various applications such as frpc, pyjom_webdav_rclone, clash_fastgithub, tujia_scraper_qq_bot, tempthrottle, and sync_git_repos_syncdog.", "tags": *id001, "title": "systemd on linux, maintainence details"}
+{"categories": &id001 ["linux", "service", "system manage", "systemd"], "category": "System Administration", "date": "2022-08-09 05:51:57", "description": "This article provides instructions for managing systemd services and viewing logs on Linux. It includes sample configuration files for various applications such as frpc, pyjom_webdav_rclone, clash_fastgithub, tujia_scraper_qq_bot, tempthrottle, and sync_git_repos_syncdog.", "tags": *id001, "title": "systemd on linux, maintainence details"}
 
 ---
 

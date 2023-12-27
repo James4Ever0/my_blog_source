@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["live broadcast", "user experience", "Python", "QR code detection", "content filtering", "chat interactions", "reward systems", "low latency streaming", "ad management"], "category": "Live broadcasting", "date": "2023-12-22 23:52:59", "description": "This article dives into optimizing live broadcasts for an enhanced user experience. It explores the use of Python in a web browser along with various features such as QR code detection, content filtering, interactive chats, reward systems, low latency streaming, and ad management to improve the overall quality and engagement of live broadcasts.", "tags": *id001, "title": "关于做直播 about live streaming"}
+{"categories": &id001 ["live broadcast", "user experience", "Python", "QR code detection", "content filtering", "chat interactions", "reward systems", "low latency streaming", "ad management"], "category": "Live broadcasting", "date": "2022-10-21 14:09:58", "description": "This article dives into optimizing live broadcasts for an enhanced user experience. It explores the use of Python in a web browser along with various features such as QR code detection, content filtering, interactive chats, reward systems, low latency streaming, and ad management to improve the overall quality and engagement of live broadcasts.", "tags": *id001, "title": "关于做直播 about live streaming"}
 
 ---
 

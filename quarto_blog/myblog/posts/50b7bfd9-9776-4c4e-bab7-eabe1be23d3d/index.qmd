@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["RWKV", "language models", "Hugging Face", "Baize", "Dolly", "LLaMA NLP models", "download links", "installation instructions", "fine-tuned models", "Alpaca"], "category": "RWKV Language Models", "date": "2023-12-22 23:52:59", "description": "This article introduces the RWKV language models available on Hugging Face and discusses various NLP models such as Baize, Dolly, LLaMA, and Alpaca. It provides download links, installation instructions for these models, and information about fine-tuned models like Alpaca based on LLaMA.", "tags": *id001, "title": "chatgpt clones, computer automation with ai"}
+{"categories": &id001 ["RWKV", "language models", "Hugging Face", "Baize", "Dolly", "LLaMA NLP models", "download links", "installation instructions", "fine-tuned models", "Alpaca"], "category": "RWKV Language Models", "date": "2023-04-02 10:39:51", "description": "This article introduces the RWKV language models available on Hugging Face and discusses various NLP models such as Baize, Dolly, LLaMA, and Alpaca. It provides download links, installation instructions for these models, and information about fine-tuned models like Alpaca based on LLaMA.", "tags": *id001, "title": "chatgpt clones, computer automation with ai"}
 
 ---
 

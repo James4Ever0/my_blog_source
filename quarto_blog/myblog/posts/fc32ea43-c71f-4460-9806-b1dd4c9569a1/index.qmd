@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Python", "DSL tools", "TextX", "Syntax highlighting", "LSP support", "Ply", "Lex-yacc functionality", "DhParser", "Lark Parser"], "category": "Domain-specific languages (DSL)", "date": "2023-12-22 23:52:59", "description": "This article provides an overview of several Python-based domain-specific language (DSL) tools, such as TextX with syntax highlighting and LSP support, Ply offering lex-yacc functionality, DhParser, and Lark Parser. These tools are designed to help developers create and analyze DSLs efficiently within the Python ecosystem.", "tags": *id001, "title": "Python DSL"}
+{"categories": &id001 ["Python", "DSL tools", "TextX", "Syntax highlighting", "LSP support", "Ply", "Lex-yacc functionality", "DhParser", "Lark Parser"], "category": "Domain-specific languages (DSL)", "date": "2023-07-14 15:01:05", "description": "This article provides an overview of several Python-based domain-specific language (DSL) tools, such as TextX with syntax highlighting and LSP support, Ply offering lex-yacc functionality, DhParser, and Lark Parser. These tools are designed to help developers create and analyze DSLs efficiently within the Python ecosystem.", "tags": *id001, "title": "Python DSL"}
 
 ---
 

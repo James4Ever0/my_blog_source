@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["accessibility", "dogtail", "GUI automation", "GUI inspection", "inspection", "linux", "pyatspi", "RPA"], "category": "Accessibility tools", "date": "2023-12-22 23:52:59", "description": "This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME's ATK browsers.", "tags": *id001, "title": "Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y"}
+{"categories": &id001 ["accessibility", "dogtail", "GUI automation", "GUI inspection", "inspection", "linux", "pyatspi", "RPA"], "category": "Accessibility tools", "date": "2022-07-15 05:07:25", "description": "This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME's ATK browsers.", "tags": *id001, "title": "Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y"}
 
 ---
 

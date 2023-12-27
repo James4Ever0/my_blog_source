@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ffmpeg", "noise videos", "noise images", "TV noise simulation", "video generation", "image generation", "video editing"], "category": "noise_generation", "date": "2023-12-22 23:52:59", "description": "In this article, you will learn how to generate noise videos and images using the ffmpeg software. The commands demonstrated will teach you how to create a 5-second TV noise video by employing different methods.", "tags": *id001, "title": "generate noise image, noise video, noise audio with ffmpeg for test"}
+{"categories": &id001 ["ffmpeg", "noise videos", "noise images", "TV noise simulation", "video generation", "image generation", "video editing"], "category": "noise_generation", "date": "2022-11-09 16:43:31", "description": "In this article, you will learn how to generate noise videos and images using the ffmpeg software. The commands demonstrated will teach you how to create a 5-second TV noise video by employing different methods.", "tags": *id001, "title": "generate noise image, noise video, noise audio with ffmpeg for test"}
 
 ---
 

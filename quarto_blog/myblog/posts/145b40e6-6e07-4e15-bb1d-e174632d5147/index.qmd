@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cloud storage", "hardware", "remote connection", "remote control", "remote storage", "storage"], "category": "NAS", "date": "2023-12-22 23:52:59", "description": "This article provides an overview of Network Attached Storage (NAS) devices, which are designed for efficiently downloading large media files such as movies. The content also covers NAS setups and their compatibility with different platforms to optimize movie downloads.", "tags": *id001, "title": "NAS With Movie Download"}
+{"categories": &id001 ["cloud storage", "hardware", "remote connection", "remote control", "remote storage", "storage"], "category": "NAS", "date": "2022-01-11 06:20:50", "description": "This article provides an overview of Network Attached Storage (NAS) devices, which are designed for efficiently downloading large media files such as movies. The content also covers NAS setups and their compatibility with different platforms to optimize movie downloads.", "tags": *id001, "title": "NAS With Movie Download"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["hardware", "idea", "robot", "stub"], "category": "Robotics", "date": "2023-12-22 23:52:59", "description": "The article discusses innovative robots designed for recycling purposes. One robot is specialized in collecting plastic bottles, while the other retrieves coins from coin machines. These robots are aimed at promoting environmental conservation and efficiency in the recycling process.", "tags": *id001, "title": "捡塑料瓶机器人 吸硬币 回收硬币机器人"}
+{"categories": &id001 ["hardware", "idea", "robot", "stub"], "category": "Robotics", "date": "2022-06-18 05:33:56", "description": "The article discusses innovative robots designed for recycling purposes. One robot is specialized in collecting plastic bottles, while the other retrieves coins from coin machines. These robots are aimed at promoting environmental conservation and efficiency in the recycling process.", "tags": *id001, "title": "捡塑料瓶机器人 吸硬币 回收硬币机器人"}
 
 ---
 

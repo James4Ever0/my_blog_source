@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["image search", "information gathering", "scraping", "search engine", "video generator"], "category": "Image Search Tools", "date": "2023-12-22 23:52:59", "description": "This article explores various image search tools, including general and GIF searches, browser plugins, tutorials for using them effectively, meta search engines for finding specific elements like fonts or anime scenes, and how to locate these resources through image-based searches.", "tags": *id001, "title": "Similar Image Search"}
+{"categories": &id001 ["image search", "information gathering", "scraping", "search engine", "video generator"], "category": "Image Search Tools", "date": "2022-05-28 11:26:34", "description": "This article explores various image search tools, including general and GIF searches, browser plugins, tutorials for using them effectively, meta search engines for finding specific elements like fonts or anime scenes, and how to locate these resources through image-based searches.", "tags": *id001, "title": "Similar Image Search"}
 
 ---
 

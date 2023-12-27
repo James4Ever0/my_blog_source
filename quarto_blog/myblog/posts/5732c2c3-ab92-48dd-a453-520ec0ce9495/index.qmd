@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["GUI", "command-line", "tool", "conversion", "program", "interaction", "interface"], "category": "GUI Programming", "date": "2023-12-22 23:52:59", "description": "Gooey is a powerful tool that enables users to transform command-line programs into user-friendly GUI applications. By providing an intuitive graphical interface, Gooey simplifies the interaction with these programs and makes them more accessible for non-technical users.", "tags": *id001, "title": "Gooey: Argparse as GUI"}
+{"categories": &id001 ["GUI", "command-line", "tool", "conversion", "program", "interaction", "interface"], "category": "GUI Programming", "date": "2023-11-27 14:07:02", "description": "Gooey is a powerful tool that enables users to transform command-line programs into user-friendly GUI applications. By providing an intuitive graphical interface, Gooey simplifies the interaction with these programs and makes them more accessible for non-technical users.", "tags": *id001, "title": "Gooey: Argparse as GUI"}
 
 ---
 

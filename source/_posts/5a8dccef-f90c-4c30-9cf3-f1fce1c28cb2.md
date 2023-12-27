@@ -1,7 +1,7 @@
 ---
 category: iOS device control
 created: '2022-02-24T13:46:29.000Z'
-date: '2023-12-22 23:52:59'
+date: '2022-02-24 13:46:29'
 description: This article explores the process of controlling iOS devices with AirTest,
   which requires macOS for compiling IPA files and jailbroken devices. It also introduces
   iOS Tagent as a possible alternative solution and provides links to taobao-iphone-device

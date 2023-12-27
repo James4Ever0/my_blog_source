@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Log4j", "vulnerability", "exploit", "Fofa API", "searching", "querying techniques", "resources"], "category": "Cybersecurity", "date": "2023-12-22 23:52:59", "description": "This article discusses the exploitation of the Log4j vulnerability using Fofa API, offering resources for effective search and query techniques.", "tags": *id001, "title": "Exploiting Log4j Vulnerability with Fofa API: A Comprehensive Guide"}
+{"categories": &id001 ["Log4j", "vulnerability", "exploit", "Fofa API", "searching", "querying techniques", "resources"], "category": "Cybersecurity", "date": "2022-11-29 16:50:57", "description": "This article discusses the exploitation of the Log4j vulnerability using Fofa API, offering resources for effective search and query techniques.", "tags": *id001, "title": "Exploiting Log4j Vulnerability with Fofa API: A Comprehensive Guide"}
 
 ---
 

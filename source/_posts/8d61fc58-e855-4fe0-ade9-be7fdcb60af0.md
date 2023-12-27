@@ -1,7 +1,7 @@
 ---
 category: Package Managers
 created: '2022-12-13T22:20:07.404Z'
-date: '2023-12-22 23:52:59'
+date: '2022-12-13 22:20:07'
 description: The text explores package managers for less common languages, such as
   Conan, CLibs, and Vcpkg. It also delves into JVM alternatives like Kotlin, Scala,
   Groovy, and Clojure. Furthermore, it covers tools like javac doc and GraalVM's polyglot,

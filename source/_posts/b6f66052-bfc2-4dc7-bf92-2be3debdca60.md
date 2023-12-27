@@ -1,7 +1,7 @@
 ---
 category: Video Quality Assessment
 created: '2022-09-17T11:11:52.852Z'
-date: '2023-12-22 23:52:59'
+date: '2022-09-17 11:11:52'
 description: This article delves into the topic of assessing video and audio quality.
   It highlights benchmarks for evaluating quality, introduces a swift VQA tool, explores
   SSIM-based VQA methods, and presents MOSCATO, a Python package specifically designed

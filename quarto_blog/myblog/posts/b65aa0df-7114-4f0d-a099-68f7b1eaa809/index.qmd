@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer", "jobs", "stub"], "category": "Remote Jobs", "date": "2023-12-22 23:52:59", "description": "This article highlights remote job opportunities in China. It provides a GitHub repository containing a list of available positions and also includes a link to Stack Overflow for further remote job prospects.", "tags": *id001, "title": "Remote Jobs"}
+{"categories": &id001 ["freelancer", "jobs", "stub"], "category": "Remote Jobs", "date": "2022-06-09 06:42:44", "description": "This article highlights remote job opportunities in China. It provides a GitHub repository containing a list of available positions and also includes a link to Stack Overflow for further remote job prospects.", "tags": *id001, "title": "Remote Jobs"}
 
 ---
 

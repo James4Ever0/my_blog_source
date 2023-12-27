@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["hacker forums", "cybersecurity websites", "tools", "resources", "exploits", "services", "professionals"], "category": "Cybersecurity", "date": "2023-12-22 23:52:59", "description": "This article highlights various hacker forums and cybersecurity websites that offer valuable resources and tools to professionals in the field, including but not limited to: Leakbase, Breached, Xss, phrack.org, whitehats.com, nhs8.com, packetstormsecurity.com, and securityfocus.com.", "tags": *id001, "title": "hacker forums"}
+{"categories": &id001 ["hacker forums", "cybersecurity websites", "tools", "resources", "exploits", "services", "professionals"], "category": "Cybersecurity", "date": "2022-11-29 13:38:35", "description": "This article highlights various hacker forums and cybersecurity websites that offer valuable resources and tools to professionals in the field, including but not limited to: Leakbase, Breached, Xss, phrack.org, whitehats.com, nhs8.com, packetstormsecurity.com, and securityfocus.com.", "tags": *id001, "title": "hacker forums"}
 
 ---
 

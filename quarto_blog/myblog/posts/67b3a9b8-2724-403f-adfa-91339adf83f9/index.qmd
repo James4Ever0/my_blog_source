@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cybersecurity", "Security", "hacking", "Network Scanning", "webapp", "webhooks", "port scanning", "password recovery", "QualysGuard", "WebInspect", "Hashcat"], "category": "Security Tools", "date": "2023-12-22 23:52:59", "description": "This article discusses popular security tools used for various tasks such as web application scanning, port scanning, and password recovery. It provides examples of tools like QualysGuard, WebInspect, Hashcat, L0phtCrack, IKECrack, Medusa, Cain and Abel, and Zenmap, which are commonly utilized in the field of cybersecurity.", "tags": *id001, "title": "tools from breachforums"}
+{"categories": &id001 ["cybersecurity", "Security", "hacking", "Network Scanning", "webapp", "webhooks", "port scanning", "password recovery", "QualysGuard", "WebInspect", "Hashcat"], "category": "Security Tools", "date": "2022-12-07 05:26:13", "description": "This article discusses popular security tools used for various tasks such as web application scanning, port scanning, and password recovery. It provides examples of tools like QualysGuard, WebInspect, Hashcat, L0phtCrack, IKECrack, Medusa, Cain and Abel, and Zenmap, which are commonly utilized in the field of cybersecurity.", "tags": *id001, "title": "tools from breachforums"}
 
 ---
 

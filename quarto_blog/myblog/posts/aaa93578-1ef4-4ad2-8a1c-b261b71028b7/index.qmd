@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["JavaScript", "Python", "Bridge", "GUI", "Development", "NPM", "Modules"], "category": "javascript", "date": "2023-12-22 23:52:59", "description": "The JavaScript Python Bridge is a tool that bridges the gap between JavaScript and Python, enabling seamless integration between the two languages. This bridge can be installed through npm and provides functions for importing Python modules and accessing global variables in JavaScript. It opens up possibilities for GUI development using libraries like tkinter.", "tags": *id001, "title": "javascript python bridge"}
+{"categories": &id001 ["JavaScript", "Python", "Bridge", "GUI", "Development", "NPM", "Modules"], "category": "javascript", "date": "2022-09-17 07:58:20", "description": "The JavaScript Python Bridge is a tool that bridges the gap between JavaScript and Python, enabling seamless integration between the two languages. This bridge can be installed through npm and provides functions for importing Python modules and accessing global variables in JavaScript. It opens up possibilities for GUI development using libraries like tkinter.", "tags": *id001, "title": "javascript python bridge"}
 
 ---
 

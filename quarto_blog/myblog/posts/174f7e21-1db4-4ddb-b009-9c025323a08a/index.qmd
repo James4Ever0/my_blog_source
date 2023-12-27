@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Elo rating system", "Player skills evaluation", "Two-player games", "Chess", "Python code", "Rating updates", "k-factor"], "category": "Python Programming", "date": "2023-12-22 23:52:59", "description": "The Elo rating system is a widely-used method for evaluating the relative skills of players in two-player games such as chess. It assigns ratings to players and updates them based on the results of their matches. The Python code provided here demonstrates how to implement the Elo rating system, taking into account a k-factor that determines the magnitude of the change in player ratings.", "tags": *id001, "title": "elo rating system"}
+{"categories": &id001 ["Elo rating system", "Player skills evaluation", "Two-player games", "Chess", "Python code", "Rating updates", "k-factor"], "category": "Python Programming", "date": "2022-12-18 18:42:44", "description": "The Elo rating system is a widely-used method for evaluating the relative skills of players in two-player games such as chess. It assigns ratings to players and updates them based on the results of their matches. The Python code provided here demonstrates how to implement the Elo rating system, taking into account a k-factor that determines the magnitude of the change in player ratings.", "tags": *id001, "title": "elo rating system"}
 
 ---
 

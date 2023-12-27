@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["interactive_interfaces", "GUIs", "CustomTkinter", "CLI_tools", "Rich", "Textual", "command_lines"], "category": "Interactive Interfaces", "date": "2023-12-22 23:52:59", "description": "This article covers interactive interfaces, focusing on GUIs built with CustomTkinter and CLI tools such as Rich and Textual. It also provides resources for mastering command lines, XPath testing, shell commands, and implementing design patterns in Python, along with live searching techniques.", "tags": *id001, "title": "Mastering Interactive Interfaces and GUIs with Python"}
+{"categories": &id001 ["interactive_interfaces", "GUIs", "CustomTkinter", "CLI_tools", "Rich", "Textual", "command_lines"], "category": "Interactive Interfaces", "date": "2022-11-27 19:58:40", "description": "This article covers interactive interfaces, focusing on GUIs built with CustomTkinter and CLI tools such as Rich and Textual. It also provides resources for mastering command lines, XPath testing, shell commands, and implementing design patterns in Python, along with live searching techniques.", "tags": *id001, "title": "Mastering Interactive Interfaces and GUIs with Python"}
 
 ---
 

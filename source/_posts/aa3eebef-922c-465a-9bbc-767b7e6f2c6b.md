@@ -1,7 +1,7 @@
 ---
 category: Natural Language Generation
 created: '2022-12-16T13:08:20.259Z'
-date: '2023-12-22 23:52:59'
+date: '2022-12-16 13:08:20'
 description: This article discusses the use of Pyro and PyTorch for tasks such as
   text generation, object detection, and image watermark removal. The first comment
   focuses on the importance of hidden states in generating text using Pyro, while

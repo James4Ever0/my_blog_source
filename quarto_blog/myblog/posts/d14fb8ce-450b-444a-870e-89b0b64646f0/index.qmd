@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["chatbot", "conversation", "model zoo", "pyjom", "stub", "text generator", "voice chat"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "This article delves into GPT-2 and Chinese language model resources, exploring various applications such as text generation tools, sensitive content detectors, dialog generation, Twitter generators inspired by influencers, and a massive 130 billion-parameter Tsinghua University model. The article also provides links to testing addresses and repositories for further exploration.", "tags": *id001, "title": "GPT-2 以及文本生成"}
+{"categories": &id001 ["chatbot", "conversation", "model zoo", "pyjom", "stub", "text generator", "voice chat"], "category": "Artificial Intelligence", "date": "2022-05-03 18:24:18", "description": "This article delves into GPT-2 and Chinese language model resources, exploring various applications such as text generation tools, sensitive content detectors, dialog generation, Twitter generators inspired by influencers, and a massive 130 billion-parameter Tsinghua University model. The article also provides links to testing addresses and repositories for further exploration.", "tags": *id001, "title": "GPT-2 以及文本生成"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["bilibili", "courses", "life section", "training"], "category": "Bilibili", "date": "2023-12-22 23:52:59", "description": "This announcement invites participants to a bilibili 生活区up 培训, which is a training or workshop related to the platform's Life Zone and user participation program. The event aims to provide insights and opportunities for users who want to engage with the Life Zone community and learn more about the UGC (user-generated content) guidelines.", "tags": *id001, "title": "bilibili 生活区up 培训"}
+{"categories": &id001 ["bilibili", "courses", "life section", "training"], "category": "Bilibili", "date": "2022-06-09 04:23:51", "description": "This announcement invites participants to a bilibili 生活区up 培训, which is a training or workshop related to the platform's Life Zone and user participation program. The event aims to provide insights and opportunities for users who want to engage with the Life Zone community and learn more about the UGC (user-generated content) guidelines.", "tags": *id001, "title": "bilibili 生活区up 培训"}
 
 ---
 

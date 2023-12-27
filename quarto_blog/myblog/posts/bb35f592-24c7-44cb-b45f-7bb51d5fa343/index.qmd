@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["text generation", "title generation"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "This article compares different image captioning models, including GPT-3 and CLIP, for various applications like template extraction, neural title generation, reverse image search, and natural language generators. It also showcases examples from gpt3demo.com and explains how to generate stories from pictures using image transformers and GPT-2.", "tags": *id001, "title": "标题生成"}
+{"categories": &id001 ["text generation", "title generation"], "category": "Artificial Intelligence", "date": "2022-05-24 05:27:14", "description": "This article compares different image captioning models, including GPT-3 and CLIP, for various applications like template extraction, neural title generation, reverse image search, and natural language generators. It also showcases examples from gpt3demo.com and explains how to generate stories from pictures using image transformers and GPT-2.", "tags": *id001, "title": "标题生成"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["acceleration", "AI", "gpu alternative", "graphcore", "hardware"], "category": "Technology", "date": "2023-12-22 23:52:59", "description": "Graphcore's Innovative Processing Unit (IPU) is a highly efficient and faster solution compared to NVIDIA's A100. It offers full performance integration with popular frameworks such as TensorFlow, PyTorch, and PaddlePaddle. Graphcore provides open-source resources for these frameworks and features on-board RAM sharing capabilities, making it a cost-effective and quicker alternative.", "tags": *id001, "title": "Graphcore support for AI"}
+{"categories": &id001 ["acceleration", "AI", "gpu alternative", "graphcore", "hardware"], "category": "Technology", "date": "2022-04-21 03:33:07", "description": "Graphcore's Innovative Processing Unit (IPU) is a highly efficient and faster solution compared to NVIDIA's A100. It offers full performance integration with popular frameworks such as TensorFlow, PyTorch, and PaddlePaddle. Graphcore provides open-source resources for these frameworks and features on-board RAM sharing capabilities, making it a cost-effective and quicker alternative.", "tags": *id001, "title": "Graphcore support for AI"}
 
 ---
 

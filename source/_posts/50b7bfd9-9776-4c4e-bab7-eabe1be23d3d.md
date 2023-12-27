@@ -1,7 +1,7 @@
 ---
 category: RWKV Language Models
 created: '2023-04-02T10:39:51.304Z'
-date: '2023-12-22 23:52:59'
+date: '2023-04-02 10:39:51'
 description: This article introduces the RWKV language models available on Hugging
   Face and discusses various NLP models such as Baize, Dolly, LLaMA, and Alpaca. It
   provides download links, installation instructions for these models, and information

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["linux", "disks", "stability", "mount--bind", "detachment", "reattachment", "command"], "category": "Linux", "date": "2023-12-22 23:52:59", "description": "This article provides a guide on how to preserve system stability while detaching and reattaching Linux disks using the `mount --bind` command, ensuring data consistency and seamless disk management.", "tags": *id001, "title": "Maintaining Stability with Mount --Bind: Detaching and Reattaching Linux Disks"}
+{"categories": &id001 ["linux", "disks", "stability", "mount--bind", "detachment", "reattachment", "command"], "category": "Linux", "date": "2023-09-26 12:41:24", "description": "This article provides a guide on how to preserve system stability while detaching and reattaching Linux disks using the &grave;mount --bind&grave; command, ensuring data consistency and seamless disk management.", "tags": *id001, "title": "Maintaining Stability with Mount --Bind: Detaching and Reattaching Linux Disks"}
 
 ---
 

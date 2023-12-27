@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["clean trash", "python", "remove unwanted", "system  manage"], "category": "Package Management", "date": "2023-12-22 23:52:59", "description": "This article provides a detailed explanation on how to use pip-autoremove in Python. It discusses the process of removing unused package dependencies that were installed via pip, while highlighting the importance of exercising caution as these dependencies may still be utilized by other packages or your own code.", "tags": *id001, "title": "Remove Unused pip dependencies"}
+{"categories": &id001 ["clean trash", "python", "remove unwanted", "system  manage"], "category": "Package Management", "date": "2022-08-04 03:58:57", "description": "This article provides a detailed explanation on how to use pip-autoremove in Python. It discusses the process of removing unused package dependencies that were installed via pip, while highlighting the importance of exercising caution as these dependencies may still be utilized by other packages or your own code.", "tags": *id001, "title": "Remove Unused pip dependencies"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["information gathering", "popular video generator", "social media", "video generator"], "category": "Video Production", "date": "2023-12-22 23:52:59", "description": "This article delves into the world of automatic video generation, exploring various methods and tools that facilitate the creation of diverse content such as YouTube videos, short films, Twitch compilations, TikTok videos, and more. Techniques covered include using templates, images, background music (BGM), voiceovers, filtering, effects, subtitling, single video editing, and transforming text into voiceovers.", "tags": *id001, "title": "全自动电影解说软件介绍"}
+{"categories": &id001 ["information gathering", "popular video generator", "social media", "video generator"], "category": "Video Production", "date": "2022-05-31 04:12:46", "description": "This article delves into the world of automatic video generation, exploring various methods and tools that facilitate the creation of diverse content such as YouTube videos, short films, Twitch compilations, TikTok videos, and more. Techniques covered include using templates, images, background music (BGM), voiceovers, filtering, effects, subtitling, single video editing, and transforming text into voiceovers.", "tags": *id001, "title": "全自动电影解说软件介绍"}
 
 ---
 

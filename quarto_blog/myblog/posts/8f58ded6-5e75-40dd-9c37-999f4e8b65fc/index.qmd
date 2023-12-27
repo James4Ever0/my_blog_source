@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["motion driven video", "pyjom", "stub", "video generator"], "category": "Animation Tools", "date": "2023-12-22 23:52:59", "description": "Articulated Animation is a user-friendly tool that leverages real humans for speech demonstration and animation. You can find it at https://github.com/snap-research/articulated-animation.", "tags": *id001, "title": "Articulated Animation"}
+{"categories": &id001 ["motion driven video", "pyjom", "stub", "video generator"], "category": "Animation Tools", "date": "2022-04-21 17:28:01", "description": "Articulated Animation is a user-friendly tool that leverages real humans for speech demonstration and animation. You can find it at https://github.com/snap-research/articulated-animation.", "tags": *id001, "title": "Articulated Animation"}
 
 ---
 

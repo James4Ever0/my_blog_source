@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["GGML", "LoRA", "LangChain", "LLM inference", "Quantization", "Regular hardware", "Conversational LLMs"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "This article highlights the use of GGML, LoRA, and LangChain to improve LLM inference on standard hardware by overcoming storage and computation limitations. Quantization techniques are employed, and an API is implemented to retrieve tokens from a server for matching behavior. The provided reference projects focus on conversational LLMs.", "tags": *id001, "title": "ChatGPT Local Version"}
+{"categories": &id001 ["GGML", "LoRA", "LangChain", "LLM inference", "Quantization", "Regular hardware", "Conversational LLMs"], "category": "Artificial Intelligence", "date": "2023-04-02 13:28:19", "description": "This article highlights the use of GGML, LoRA, and LangChain to improve LLM inference on standard hardware by overcoming storage and computation limitations. Quantization techniques are employed, and an API is implemented to retrieve tokens from a server for matching behavior. The provided reference projects focus on conversational LLMs.", "tags": *id001, "title": "ChatGPT Local Version"}
 
 ---
 

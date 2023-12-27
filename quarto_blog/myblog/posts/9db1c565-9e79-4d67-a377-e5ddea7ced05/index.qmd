@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["driver", "hardware", "HID", "stylus", "tablet"], "category": "Troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article provides a solution to troubleshoot input issues with the libwacom library on Arch Linux ARM and Kali Linux. The article suggests modifying the xorg.conf file as referenced in a troubleshooting guide for resolution.", "tags": *id001, "title": "Letsketch libwacom"}
+{"categories": &id001 ["driver", "hardware", "HID", "stylus", "tablet"], "category": "Troubleshooting", "date": "2022-05-06 11:59:22", "description": "This article provides a solution to troubleshoot input issues with the libwacom library on Arch Linux ARM and Kali Linux. The article suggests modifying the xorg.conf file as referenced in a troubleshooting guide for resolution.", "tags": *id001, "title": "Letsketch libwacom"}
 
 ---
 

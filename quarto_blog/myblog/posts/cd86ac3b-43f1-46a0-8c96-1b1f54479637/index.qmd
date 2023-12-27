@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ddddocr", "captcha recognition", "Baidu RotNet", "PyPi installation", "tutorials", "image processing", "artificial intelligence"], "category": "Captcha recognition", "date": "2023-12-22 23:52:59", "description": "ddddocr is a captcha recognition and resolution tool specifically designed for Baidu RotNet. It can be installed from PyPi and tutorials are available to guide its usage.", "tags": *id001, "title": "ddddocr captcha resolve recognition"}
+{"categories": &id001 ["ddddocr", "captcha recognition", "Baidu RotNet", "PyPi installation", "tutorials", "image processing", "artificial intelligence"], "category": "Captcha recognition", "date": "2022-12-05 08:59:31", "description": "ddddocr is a captcha recognition and resolution tool specifically designed for Baidu RotNet. It can be installed from PyPi and tutorials are available to guide its usage.", "tags": *id001, "title": "ddddocr captcha resolve recognition"}
 
 ---
 

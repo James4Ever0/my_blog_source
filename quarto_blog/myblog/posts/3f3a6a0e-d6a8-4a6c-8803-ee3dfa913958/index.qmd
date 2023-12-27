@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["editor", "restore session", "vim"], "category": "Session Management", "date": "2023-12-22 23:52:59", "description": "This text discusses different techniques to save, restore, and manage the session states in Vim and Neovim editors. It covers various plugins for efficient session management, auto-saving workspaces, and maintaining undo history.", "tags": *id001, "title": "vim session restore"}
+{"categories": &id001 ["editor", "restore session", "vim"], "category": "Session Management", "date": "2022-08-10 07:06:39", "description": "This text discusses different techniques to save, restore, and manage the session states in Vim and Neovim editors. It covers various plugins for efficient session management, auto-saving workspaces, and maintaining undo history.", "tags": *id001, "title": "vim session restore"}
 
 ---
 

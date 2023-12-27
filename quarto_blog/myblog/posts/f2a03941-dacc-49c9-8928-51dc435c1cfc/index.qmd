@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["information gathering", "pet video", "pyjom", "scraping", "video generator", "video sources"], "category": "Social Media", "date": "2023-12-22 23:52:59", "description": "This article dives into a recent controversy surrounding Chinese celebrity Zhang Yixing and his interactions on social media. It highlights the importance of algorithm-based filtering and categorization in determining audience preferences, shedding light on the impact these systems have on the entertainment industry.", "tags": *id001, "title": "Cats video with lyrics_2"}
+{"categories": &id001 ["information gathering", "pet video", "pyjom", "scraping", "video generator", "video sources"], "category": "Social Media", "date": "2021-12-19 12:53:06", "description": "This article dives into a recent controversy surrounding Chinese celebrity Zhang Yixing and his interactions on social media. It highlights the importance of algorithm-based filtering and categorization in determining audience preferences, shedding light on the impact these systems have on the entertainment industry.", "tags": *id001, "title": "Cats video with lyrics_2"}
 
 ---
 

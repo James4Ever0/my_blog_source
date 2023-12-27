@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["idea", "paraphraser", "template based generator"], "category": "Content Creation", "date": "2023-12-22 23:52:59", "description": "The article explores different methods for content creation, such as using templates, web scraping, AI models, and Python's textrank4zh library for summarization. It also addresses the limitations of using Google's translation tool for ghostwriting due to grammar and context issues.", "tags": *id001, "title": "模板创作模式 自媒体 洗稿"}
+{"categories": &id001 ["idea", "paraphraser", "template based generator"], "category": "Content Creation", "date": "2022-07-15 05:37:00", "description": "The article explores different methods for content creation, such as using templates, web scraping, AI models, and Python's textrank4zh library for summarization. It also addresses the limitations of using Google's translation tool for ghostwriting due to grammar and context issues.", "tags": *id001, "title": "模板创作模式 自媒体 洗稿"}
 
 ---
 

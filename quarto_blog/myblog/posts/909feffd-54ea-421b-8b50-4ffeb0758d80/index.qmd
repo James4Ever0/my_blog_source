@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["sudo purge", "MacOS", "RAM issue", "disk space", "system performance"], "category": "Troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article gives detailed instructions on how to use the `sudo purge` command, which can help resolve a RAM issue on MacOS by cleaning up disk space and improving system performance. It is recommended for users who are experiencing issues related to low memory or slow system performance.", "tags": *id001, "title": "macos cleanup disk and ram"}
+{"categories": &id001 ["sudo purge", "MacOS", "RAM issue", "disk space", "system performance"], "category": "Troubleshooting", "date": "2023-02-18 14:23:43", "description": "This article gives detailed instructions on how to use the &grave;sudo purge&grave; command, which can help resolve a RAM issue on MacOS by cleaning up disk space and improving system performance. It is recommended for users who are experiencing issues related to low memory or slow system performance.", "tags": *id001, "title": "macos cleanup disk and ram"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["free internet", "hardware", "internet", "network", "stub", "system avaliability", "白嫖"], "category": "Radar systems", "date": "2023-12-22 23:52:59", "description": "A WiFi scanning radar system has been developed using a five-axis robotic arm and a custom-made antenna. The setup employs advanced algorithms and long extension cords to detect WiFi sources and their directions automatically. For optimal results, the system should be placed on a high support with no obstructions near the antenna.", "tags": *id001, "title": "蹭网WiFi天线 雷达扫描 五轴机械臂"}
+{"categories": &id001 ["free internet", "hardware", "internet", "network", "stub", "system avaliability", "白嫖"], "category": "Radar systems", "date": "2022-07-22 12:32:06", "description": "A WiFi scanning radar system has been developed using a five-axis robotic arm and a custom-made antenna. The setup employs advanced algorithms and long extension cords to detect WiFi sources and their directions automatically. For optimal results, the system should be placed on a high support with no obstructions near the antenna.", "tags": *id001, "title": "蹭网WiFi天线 雷达扫描 五轴机械臂"}
 
 ---
 

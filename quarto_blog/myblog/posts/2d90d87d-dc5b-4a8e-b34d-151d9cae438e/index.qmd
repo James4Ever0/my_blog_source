@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["pyjom", "video edit", "video generator"], "category": "Video Editing Software", "date": "2023-12-22 23:52:59", "description": "This article provides an overview of different video editors such as MoviePy, ffmpeg tools, OpenGL transitions, Remotion, Canvas2video, Videoshow, and MachineVideoEditor for deepfakes. Additionally, it covers command-line tools like Blind, JumpcutterV2, Jumpcutter, CutTheCrap, RabbitVE, and Video-CLI that offer features including removing silence and applying machine learning for editing.", "tags": *id001, "title": "Video Editors"}
+{"categories": &id001 ["pyjom", "video edit", "video generator"], "category": "Video Editing Software", "date": "2022-07-10 11:01:14", "description": "This article provides an overview of different video editors such as MoviePy, ffmpeg tools, OpenGL transitions, Remotion, Canvas2video, Videoshow, and MachineVideoEditor for deepfakes. Additionally, it covers command-line tools like Blind, JumpcutterV2, Jumpcutter, CutTheCrap, RabbitVE, and Video-CLI that offer features including removing silence and applying machine learning for editing.", "tags": *id001, "title": "Video Editors"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["popular video", "video generator"], "category": "Video Editing", "date": "2023-12-22 23:52:59", "description": "This article discusses Simple Viral Video Generators, highlighting GitHub repositories for RedditVideoMakerBot and videoWater. Additionally, it provides a website link, 51ai.top, which is related to automated marketing.", "tags": *id001, "title": "Simple Viral Video Generators"}
+{"categories": &id001 ["popular video", "video generator"], "category": "Video Editing", "date": "2022-07-10 10:57:52", "description": "This article discusses Simple Viral Video Generators, highlighting GitHub repositories for RedditVideoMakerBot and videoWater. Additionally, it provides a website link, 51ai.top, which is related to automated marketing.", "tags": *id001, "title": "Simple Viral Video Generators"}
 
 ---
 

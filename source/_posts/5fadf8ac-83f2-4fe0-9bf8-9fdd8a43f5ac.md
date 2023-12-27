@@ -1,7 +1,7 @@
 ---
 category: Generative Adversarial Networks (GANs)
 created: '2022-05-29T03:52:26.000Z'
-date: '2023-12-22 23:52:59'
+date: '2022-05-29 03:52:26'
 description: This article delves into various methods and tools, including CoNR, digan,
   MoCoGAN, TRPG Replay Generator, Montage.ai, and TikTok montages, that employ techniques
   such as GANs and thin-plate spline motion models to create videos from images or

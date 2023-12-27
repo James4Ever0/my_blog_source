@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["chatbot", "cloud", "conversation", "model zoo", "pyjom", "training data", "白嫖"], "category": "AI development", "date": "2023-12-22 23:52:59", "description": "This article delves into the world of AI chatbot development and deployment, exploring popular platforms like Heroku and Google App Engine. Additionally, it highlights useful API tools such as Hugging Face and PaddlePaddle to enhance your chatbot's functionality.", "tags": *id001, "title": "Chatbot, Self-hosted Model, Cloud Deploy, Cloud services, Free website hosting service"}
+{"categories": &id001 ["chatbot", "cloud", "conversation", "model zoo", "pyjom", "training data", "白嫖"], "category": "AI development", "date": "2022-07-14 14:19:56", "description": "This article delves into the world of AI chatbot development and deployment, exploring popular platforms like Heroku and Google App Engine. Additionally, it highlights useful API tools such as Hugging Face and PaddlePaddle to enhance your chatbot's functionality.", "tags": *id001, "title": "Chatbot, Self-hosted Model, Cloud Deploy, Cloud services, Free website hosting service"}
 
 ---
 

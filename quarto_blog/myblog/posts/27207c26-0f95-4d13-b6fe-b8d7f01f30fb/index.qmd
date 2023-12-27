@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["dance video generator", "music to video", "text to video", "video generation"], "category": "Generative Adversarial Networks (GAN)", "date": "2023-12-22 23:52:59", "description": "Researchers have developed a Text-to-Video/Music-to-Video generator GAN that creates dance animations based on music genres. This novel approach utilizes a choreography-oriented embedding framework and cross-modal transformers to build a 3D dance dataset, allowing for the generation of unique dance animations synchronized with specific musical styles.", "tags": *id001, "title": "Music to video generator GAN"}
+{"categories": &id001 ["dance video generator", "music to video", "text to video", "video generation"], "category": "Generative Adversarial Networks (GAN)", "date": "2022-05-31 12:47:47", "description": "Researchers have developed a Text-to-Video/Music-to-Video generator GAN that creates dance animations based on music genres. This novel approach utilizes a choreography-oriented embedding framework and cross-modal transformers to build a 3D dance dataset, allowing for the generation of unique dance animations synchronized with specific musical styles.", "tags": *id001, "title": "Music to video generator GAN"}
 
 ---
 

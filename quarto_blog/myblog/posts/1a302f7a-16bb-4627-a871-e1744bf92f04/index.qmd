@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["system events", "scripts", "crontab", "startup", "suspend", "shutdown", "systemd"], "category": "systemd", "date": "2023-12-22 23:52:59", "description": "This article provides a detailed explanation of how to run scripts before and after system events such as startup, suspend, and shutdown. It covers using the `@reboot` command with `crontab -e` for startup event management and explains how to write scripts in `/lib/systemd/system-*` directories for handling other system events.", "tags": *id001, "title": "Mastering System Events: Script Execution with @reboot and systemd"}
+{"categories": &id001 ["system events", "scripts", "crontab", "startup", "suspend", "shutdown", "systemd"], "category": "systemd", "date": "2023-10-10 22:49:03", "description": "This article provides a detailed explanation of how to run scripts before and after system events such as startup, suspend, and shutdown. It covers using the &grave;@reboot&grave; command with &grave;crontab -e&grave; for startup event management and explains how to write scripts in &grave;/lib/systemd/system-*&grave; directories for handling other system events.", "tags": *id001, "title": "Mastering System Events: Script Execution with @reboot and systemd"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Cybergod", "Projects", "Clones", "GitHub", "Q-Star", "QStarLearning", "open_qstar"], "category": "Cybergod Projects", "date": "2023-12-26 01:04:56", "description": "A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework.", "tags": *id001, "title": "cybergod related projects"}
+{"categories": &id001 ["Cybergod", "Projects", "Clones", "GitHub", "Q-Star", "QStarLearning", "open_qstar"], "category": "Cybergod Projects", "date": "2023-12-25 14:56:50", "description": "A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework.", "tags": *id001, "title": "cybergod related projects"}
 
 ---
 

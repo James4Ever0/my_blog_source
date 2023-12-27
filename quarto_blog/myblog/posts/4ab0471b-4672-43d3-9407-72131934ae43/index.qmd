@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "AGI", "Deep Reinforcement Learning", "Cognitive Science", "Sensor-based Learning", "GitHub", "Papers"], "category": "Artificial Intelligence", "date": "2023-12-22 23:52:59", "description": "This article explores various AI projects, including AGI, deep reinforcement learning, cognitive science, and sensor-based learning. Additionally, it provides resources such as GitHub repositories and papers to assist those interested in further understanding these cutting-edge technologies.", "tags": *id001, "title": "AGI (Artificial General Intelligence) related projects"}
+{"categories": &id001 ["AI", "AGI", "Deep Reinforcement Learning", "Cognitive Science", "Sensor-based Learning", "GitHub", "Papers"], "category": "Artificial Intelligence", "date": "2022-09-17 11:14:19", "description": "This article explores various AI projects, including AGI, deep reinforcement learning, cognitive science, and sensor-based learning. Additionally, it provides resources such as GitHub repositories and papers to assist those interested in further understanding these cutting-edge technologies.", "tags": *id001, "title": "AGI (Artificial General Intelligence) related projects"}
 
 ---
 

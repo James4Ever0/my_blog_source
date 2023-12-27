@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["stub", "system manage"], "category": "Disk Management", "date": "2023-12-22 23:52:59", "description": "This article provides an overview of popular disk usage management tools available for Linux systems, including Baobab for Gnome and Filelight for KDE. Additionally, Qdirstat is introduced as another useful option for managing disk space.", "tags": *id001, "title": "Visual Disk Usage Manager, Visual Disk Cleaner"}
+{"categories": &id001 ["stub", "system manage"], "category": "Disk Management", "date": "2022-08-17 15:57:29", "description": "This article provides an overview of popular disk usage management tools available for Linux systems, including Baobab for Gnome and Filelight for KDE. Additionally, Qdirstat is introduced as another useful option for managing disk space.", "tags": *id001, "title": "Visual Disk Usage Manager, Visual Disk Cleaner"}
 
 ---
 

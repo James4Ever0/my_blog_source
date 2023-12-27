@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["code generation", "programming assistant"], "category": "AI", "date": "2023-12-22 23:52:59", "description": "AI-based code generation tools like CodeGeeX, a free version of Copilot/Codex, are gaining attention for their features such as translation and support for VSCode plugins.", "tags": *id001, "title": "Copilot_Codex alternative"}
+{"categories": &id001 ["code generation", "programming assistant"], "category": "AI", "date": "2022-05-09 04:35:16", "description": "AI-based code generation tools like CodeGeeX, a free version of Copilot/Codex, are gaining attention for their features such as translation and support for VSCode plugins.", "tags": *id001, "title": "Copilot_Codex alternative"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Premier Pro plugin", "Python setup", "Avoiding PyInstaller", "Notetaking", "Fair compensation", "Lessons learned", "Video editing software"], "category": "Python programming", "date": "2023-12-22 23:52:59", "description": "This text discusses the valuable lessons learned while working on a Premier Pro plugin job. The author highlights the importance of correctly setting up Python using scripts, avoiding time-consuming compilers like PyInstaller, keeping detailed notes throughout the project, and ensuring fair compensation for services provided.", "tags": *id001, "title": "lessons learned from premiere pro plugin job"}
+{"categories": &id001 ["Premier Pro plugin", "Python setup", "Avoiding PyInstaller", "Notetaking", "Fair compensation", "Lessons learned", "Video editing software"], "category": "Python programming", "date": "2023-01-30 19:34:15", "description": "This text discusses the valuable lessons learned while working on a Premier Pro plugin job. The author highlights the importance of correctly setting up Python using scripts, avoiding time-consuming compilers like PyInstaller, keeping detailed notes throughout the project, and ensuring fair compensation for services provided.", "tags": *id001, "title": "lessons learned from premiere pro plugin job"}
 
 ---
 

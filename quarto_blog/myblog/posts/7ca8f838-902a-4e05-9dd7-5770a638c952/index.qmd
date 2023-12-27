@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["SEO", "stub"], "category": "seo_tools", "date": "2023-12-22 23:52:59", "description": "This text introduces a collection of SEO tools available on GitHub, including keyword selection models, tag recommenders, and research tools, aimed at assisting users in optimizing their website's search engine rankings.", "tags": *id001, "title": "SEO tools"}
+{"categories": &id001 ["SEO", "stub"], "category": "seo_tools", "date": "2022-07-18 16:48:53", "description": "This text introduces a collection of SEO tools available on GitHub, including keyword selection models, tag recommenders, and research tools, aimed at assisting users in optimizing their website's search engine rankings.", "tags": *id001, "title": "SEO tools"}
 
 ---
 

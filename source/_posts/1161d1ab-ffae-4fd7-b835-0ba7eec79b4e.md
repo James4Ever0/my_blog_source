@@ -1,7 +1,7 @@
 ---
 category: Text-to-Video Projects
 created: '2022-12-08T15:55:56.145Z'
-date: '2023-12-22 23:52:59'
+date: '2022-12-08 15:55:56'
 description: Text-to-video projects like make-a-video, Maria, OFA, GEN-2, CogVideo,
   Nuwa, MoCoGAN, tgan-pytorch, Redditube, and Ningyov employ multimodal techniques
   with distinctive features, leveraging deep learning for diverse video generation

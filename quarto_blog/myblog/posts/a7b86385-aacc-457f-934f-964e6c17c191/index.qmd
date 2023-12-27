@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["anime", "anime script", "information gathering", "movie quote", "scraping", "video generator"], "category": "Website Resources", "date": "2023-12-22 23:52:59", "description": "This summary compiles links to various websites that provide movie scripts, anime dialogs, and Japanese bangume information. Notable sites include AnimeCharactersDatabase.com, Quodb.com, SciFiScripts.com, 33.agilestudio.cn, zhaotaici.cn, and bgm.tv/subject/1982/characters. Some of the links might be broken, but Zhihu offers related information.", "tags": *id001, "title": "Movie Bangume script finder"}
+{"categories": &id001 ["anime", "anime script", "information gathering", "movie quote", "scraping", "video generator"], "category": "Website Resources", "date": "2022-05-29 07:20:13", "description": "This summary compiles links to various websites that provide movie scripts, anime dialogs, and Japanese bangume information. Notable sites include AnimeCharactersDatabase.com, Quodb.com, SciFiScripts.com, 33.agilestudio.cn, zhaotaici.cn, and bgm.tv/subject/1982/characters. Some of the links might be broken, but Zhihu offers related information.", "tags": *id001, "title": "Movie Bangume script finder"}
 
 ---
 

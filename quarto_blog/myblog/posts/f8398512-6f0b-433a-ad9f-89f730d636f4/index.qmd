@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["interval", "math", "mathematica", "sympy", "wolfram"], "category": "Interval set manipulation", "date": "2023-12-22 23:52:59", "description": "This Python script utilizes SymPy for performing various interval operations. It allows you to manage, merge, and sort sets of intervals, detect overlaps, convert continuous data into intervals, solve unions, filter short intervals, and transform interval sets into tuples. The provided functions enable you to obtain a merged interval tuple list and easily handle and manipulate interval sets.", "tags": *id001, "title": "连续区间 离散区间 从离散数据中获得离散区间 交并补"}
+{"categories": &id001 ["interval", "math", "mathematica", "sympy", "wolfram"], "category": "Interval set manipulation", "date": "2022-08-22 14:30:28", "description": "This Python script utilizes SymPy for performing various interval operations. It allows you to manage, merge, and sort sets of intervals, detect overlaps, convert continuous data into intervals, solve unions, filter short intervals, and transform interval sets into tuples. The provided functions enable you to obtain a merged interval tuple list and easily handle and manipulate interval sets.", "tags": *id001, "title": "连续区间 离散区间 从离散数据中获得离散区间 交并补"}
 
 ---
 

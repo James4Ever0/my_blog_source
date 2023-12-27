@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["puppies", "language", "cognitive limitations", "training", "evolution"], "category": "Evolution", "date": "2023-12-22 23:52:59", "description": "This article discusses the cognitive limitations of puppies that prevent them from naturally learning human languages. It also explains that evolution is a natural process that is not influenced by intention.", "tags": *id001, "title": "teach puppies to speak english (video script)"}
+{"categories": &id001 ["puppies", "language", "cognitive limitations", "training", "evolution"], "category": "Evolution", "date": "2022-12-28 18:14:43", "description": "This article discusses the cognitive limitations of puppies that prevent them from naturally learning human languages. It also explains that evolution is a natural process that is not influenced by intention.", "tags": *id001, "title": "teach puppies to speak english (video script)"}
 
 ---
 

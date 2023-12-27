@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["meta search engine", "Lazure", "comprehensive searches", "static resources", "dynamic resources", "markdown pages", "GitHub repos"], "category": "Meta Search Engines", "date": "2023-12-22 23:52:59", "description": "Lazure is a meta search engine designed to provide comprehensive searches by aggregating information from various sources, such as static pages and repositories on GitHub, as well as dynamic resources like RSS feeds and social media platforms.", "tags": *id001, "title": "lazero search tool document preparation"}
+{"categories": &id001 ["meta search engine", "Lazure", "comprehensive searches", "static resources", "dynamic resources", "markdown pages", "GitHub repos"], "category": "Meta Search Engines", "date": "2022-10-06 10:29:25", "description": "Lazure is a meta search engine designed to provide comprehensive searches by aggregating information from various sources, such as static pages and repositories on GitHub, as well as dynamic resources like RSS feeds and social media platforms.", "tags": *id001, "title": "lazero search tool document preparation"}
 
 ---
 

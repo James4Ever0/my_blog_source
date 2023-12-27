@@ -1,7 +1,7 @@
 ---
 category: Opqbot
 created: 2022-08-13 08:54:17+08:00
-date: '2023-12-22 23:52:59'
+date: '2022-08-13 08:54:17'
 description: Opqbot, a tool for logging into Gitter.im using a device JSON file, has
   been discussed in terms of compatibility and login issues. Additionally, alternative
   QQ protocol analysis tools have been mentioned as options.

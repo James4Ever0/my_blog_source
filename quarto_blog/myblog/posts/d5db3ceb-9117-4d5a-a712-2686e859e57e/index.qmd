@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["courses", "MOOC", "propagation study"], "category": "Academic Articles", "date": "2023-12-22 23:52:59", "description": "This article provides an in-depth analysis of the concept of Passive Propagation, specifically focusing on Section 2. It covers topics related to passive propagation and how they affect various systems or processes.", "tags": *id001, "title": "传播学 2"}
+{"categories": &id001 ["courses", "MOOC", "propagation study"], "category": "Academic Articles", "date": "2022-06-03 08:20:48", "description": "This article provides an in-depth analysis of the concept of Passive Propagation, specifically focusing on Section 2. It covers topics related to passive propagation and how they affect various systems or processes.", "tags": *id001, "title": "传播学 2"}
 
 ---
 

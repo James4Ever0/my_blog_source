@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cloud sync", "git manage", "repo manage", "sync", "system manage"], "category": "API", "date": "2023-12-22 23:52:59", "description": "This guide provides a detailed explanation on how to upload large repositories to GitHub or Gitee, while excluding specific file types like Xonsh and YAML. The guide also covers the process of deploying SSH keys for enhanced security, automating sync processes using Visual Studio Code, and utilizing file locks for various tasks to ensure data integrity.", "tags": *id001, "title": "github Gitee 大文件大型repo如何上传"}
+{"categories": &id001 ["cloud sync", "git manage", "repo manage", "sync", "system manage"], "category": "API", "date": "2022-07-16 10:40:40", "description": "This guide provides a detailed explanation on how to upload large repositories to GitHub or Gitee, while excluding specific file types like Xonsh and YAML. The guide also covers the process of deploying SSH keys for enhanced security, automating sync processes using Visual Studio Code, and utilizing file locks for various tasks to ensure data integrity.", "tags": *id001, "title": "github Gitee 大文件大型repo如何上传"}
 
 ---
 

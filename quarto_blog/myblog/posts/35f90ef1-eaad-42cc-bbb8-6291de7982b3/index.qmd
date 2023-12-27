@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["audio analysis", "BPM finder", "dog video", "project", "pyjom"], "category": "Music Production", "date": "2023-12-22 23:52:59", "description": "This code snippet defines a compare function that allows for cutting music segments based on lyrics and BPM (beats per minute). The function uses two variables, seg_low and seg_high, to determine the allowed segment range. Candidates are sorted by nearby lyrics and BPM, with lyrics given priority.", "tags": *id001, "title": "Cut Music Scenes With Lyrics and BPM"}
+{"categories": &id001 ["audio analysis", "BPM finder", "dog video", "project", "pyjom"], "category": "Music Production", "date": "2022-07-08 18:17:05", "description": "This code snippet defines a compare function that allows for cutting music segments based on lyrics and BPM (beats per minute). The function uses two variables, seg_low and seg_high, to determine the allowed segment range. Candidates are sorted by nearby lyrics and BPM, with lyrics given priority.", "tags": *id001, "title": "Cut Music Scenes With Lyrics and BPM"}
 
 ---
 

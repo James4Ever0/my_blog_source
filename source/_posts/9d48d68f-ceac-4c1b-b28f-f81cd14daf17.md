@@ -1,7 +1,7 @@
 ---
 category: npm
 created: '2022-12-10T13:29:15.916Z'
-date: '2023-12-22 23:52:59'
+date: '2022-12-10 13:29:15'
 description: This article provides a comprehensive guide on how to set the NODE_PATH
   environment variable for npm global package installation across different operating
   systems. It explains the process in detail for ZSH, Bash, Fish, Windows, Termux,

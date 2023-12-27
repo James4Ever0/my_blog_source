@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["host discovery", "remote control", "service", "system manage"], "category": "Troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article provides a comprehensive guide on troubleshooting Kali Linux on MacOS, covering various topics such as offline debugging, utilizing Peer-to-Peer (P2P) networks to improve connection speed, using dynamic connectors, storing Redis values, and setting the Redis working directory to optimize disk space utilization.", "tags": *id001, "title": "the kali command on macos"}
+{"categories": &id001 ["host discovery", "remote control", "service", "system manage"], "category": "Troubleshooting", "date": "2022-08-11 16:16:47", "description": "This article provides a comprehensive guide on troubleshooting Kali Linux on MacOS, covering various topics such as offline debugging, utilizing Peer-to-Peer (P2P) networks to improve connection speed, using dynamic connectors, storing Redis values, and setting the Redis working directory to optimize disk space utilization.", "tags": *id001, "title": "the kali command on macos"}
 
 ---
 

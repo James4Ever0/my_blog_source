@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "data labeling", "dataset creation", "ML", "pyjom", "supervised"], "category": "Data Annotation Tools", "date": "2023-12-22 23:52:59", "description": "This article introduces several open-source tools for image and video data labeling, such as OpenLabeler, Anno-Mage, CATMAID, and makesense.ai. Additionally, it covers 2D/3D tools that can be applied to various applications, including neural morphology and LIDAR datasets.", "tags": *id001, "title": "awesome-data-labeling"}
+{"categories": &id001 ["AI", "data labeling", "dataset creation", "ML", "pyjom", "supervised"], "category": "Data Annotation Tools", "date": "2022-08-09 17:43:49", "description": "This article introduces several open-source tools for image and video data labeling, such as OpenLabeler, Anno-Mage, CATMAID, and makesense.ai. Additionally, it covers 2D/3D tools that can be applied to various applications, including neural morphology and LIDAR datasets.", "tags": *id001, "title": "awesome-data-labeling"}
 
 ---
 

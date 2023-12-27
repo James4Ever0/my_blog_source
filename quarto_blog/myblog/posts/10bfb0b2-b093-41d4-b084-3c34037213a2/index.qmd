@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["lifestyle", "resting", "work schedule"], "category": "Health", "date": "2023-12-22 23:52:59", "description": "This guide outlines the recommended times for various internal organs to perform their detoxification and maintenance functions, such as the immune system's toxin elimination at 9-11pm, liver detoxification between 11pm and 1am, gallbladder detoxification between 1-3am, lung detoxification between 3-5am, and spinal bone blood production during midnight to 4am. The importance of maintaining a regular sleep schedule and healthy habits is emphasized.", "tags": *id001, "title": "睡觉时间 内脏工作时间"}
+{"categories": &id001 ["lifestyle", "resting", "work schedule"], "category": "Health", "date": "2022-05-19 15:19:22", "description": "This guide outlines the recommended times for various internal organs to perform their detoxification and maintenance functions, such as the immune system's toxin elimination at 9-11pm, liver detoxification between 11pm and 1am, gallbladder detoxification between 1-3am, lung detoxification between 3-5am, and spinal bone blood production during midnight to 4am. The importance of maintaining a regular sleep schedule and healthy habits is emphasized.", "tags": *id001, "title": "睡觉时间 内脏工作时间"}
 
 ---
 

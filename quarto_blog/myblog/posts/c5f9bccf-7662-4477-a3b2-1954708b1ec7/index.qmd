@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Redis", "Python script", "Redis port", "Unused local port", "Redis library", "redis-py", "finding an unused port"], "category": "Redis-py library", "date": "2023-12-22 23:52:59", "description": "The article provides a detailed explanation of a Python script designed to find an unused local port and store it in Redis. It demonstrates the implementation using redis-py and the Python Redis library, making it easy for developers to understand and utilize this method for their projects.", "tags": *id001, "title": "find an unused random local port and announce it on redis"}
+{"categories": &id001 ["Redis", "Python script", "Redis port", "Unused local port", "Redis library", "redis-py", "finding an unused port"], "category": "Redis-py library", "date": "2022-08-09 06:15:35", "description": "The article provides a detailed explanation of a Python script designed to find an unused local port and store it in Redis. It demonstrates the implementation using redis-py and the Python Redis library, making it easy for developers to understand and utilize this method for their projects.", "tags": *id001, "title": "find an unused random local port and announce it on redis"}
 
 ---
 

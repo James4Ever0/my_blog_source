@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["typing", "keyboard", "backtick", "splitable", "alternative method", "computer keyboard", "symbols"], "category": "Keyboard Shortcuts", "date": "2022-12-09 19:52:08", "description": "The text explores the challenges of typing a backtick symbol using a splitable keyboard and presents an alternative technique to efficiently input this special character.", "tags": *id001, "title": "typing backtick \"&grave;\" with my current splitable keyboard"}
+
+---
+
+------
+
+# typing backtick "`" with my current splitable keyboard
+
+it used to work with meta+esc key, but it fails sometimes.
+
+there's a universal way: shift+alt+esc
+
+type tlide "~": shift+esc
+

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["APIs", "Chinese music platforms", "Listen1", "Musicafe", "MusicGet", "GitHub", "Repositories"], "category": "Music Platforms", "date": "2023-12-22 23:52:59", "description": "The article provides a comprehensive list of APIs and repositories associated with popular Chinese music platforms like Listen1, Musicafe, MusicGet, etc. It also includes links to their respective GitHub pages for users to delve deeper into these services.", "tags": *id001, "title": "Exploring Chinese Music Platform APIs and Repositories"}
+{"categories": &id001 ["APIs", "Chinese music platforms", "Listen1", "Musicafe", "MusicGet", "GitHub", "Repositories"], "category": "Music Platforms", "date": "2022-09-13 01:23:12", "description": "The article provides a comprehensive list of APIs and repositories associated with popular Chinese music platforms like Listen1, Musicafe, MusicGet, etc. It also includes links to their respective GitHub pages for users to delve deeper into these services.", "tags": *id001, "title": "Exploring Chinese Music Platform APIs and Repositories"}
 
 ---
 

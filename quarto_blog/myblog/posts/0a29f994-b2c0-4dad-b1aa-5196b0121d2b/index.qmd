@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["anonymous", "onion router", "v2ray", "vpn"], "category": "Networking", "date": "2023-12-22 23:52:59", "description": "This proposal aims to enhance the efficiency of communication by allowing the use of multiple V2Ray clients and servers, while also utilizing a single outbound network, similar to how the onion router operates.", "tags": *id001, "title": "A good/bad proposal on v2ray"}
+{"categories": &id001 ["anonymous", "onion router", "v2ray", "vpn"], "category": "Networking", "date": "2022-08-18 11:50:18", "description": "This proposal aims to enhance the efficiency of communication by allowing the use of multiple V2Ray clients and servers, while also utilizing a single outbound network, similar to how the onion router operates.", "tags": *id001, "title": "A good/bad proposal on v2ray"}
 
 ---
 

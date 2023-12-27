@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["database", "mysql", "reference"], "category": "Database Management", "date": "2023-12-22 23:52:59", "description": "The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting/retrieving data, working with constraints, and utilizing SQL functions.", "tags": *id001, "title": "MySQL Cheatsheet"}
+{"categories": &id001 ["database", "mysql", "reference"], "category": "Database Management", "date": "2022-06-03 08:10:32", "description": "The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting/retrieving data, working with constraints, and utilizing SQL functions.", "tags": *id001, "title": "MySQL Cheatsheet"}
 
 ---
 
