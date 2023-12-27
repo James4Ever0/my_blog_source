@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["markdown", "PDF", "Python 3", "PhantomJS", "conversion", "npm", "markdown-pdf"], "category": "Markdown to PDF Conversion", "date": "2023-12-22 23:52:59", "description": "This text outlines the process of transforming Markdown files into PDFs using Python 3 and the PhantomJS library, as well as introducing an npm package called markdown-pdf that facilitates this conversion.", "tags": *id001, "title": "Markdown to PDF"}
+
+---
+
+------
+
+# Markdown to PDF
+
+[Gist](https://gist.github.com/sooop/32a0539dd352e0ff9ffe) on using python3 and PhantomJS
+
+npm package: [markdown-pdf](https://www.npmjs.com/package/markdown-pdf/)
+

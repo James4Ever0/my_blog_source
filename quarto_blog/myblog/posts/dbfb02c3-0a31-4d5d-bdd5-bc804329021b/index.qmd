@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["filesystem", "cache", "Rust", "catfs", "rclone", "remote caching", "backend"], "category": "Filesystem Cache", "date": "2023-12-22 23:52:59", "description": "This text introduces 'catfs', a filesystem cache built in Rust, and highlights that rclone, a file management tool, now supports a 'cache' backend for remote caching.", "tags": *id001, "title": "filesystem cache"}
+
+---
+
+------
+
+# filesystem cache
+
+[catfs](https://github.com/kahing/catfs) in rust
+
+rclone supports 'cache' backend for remote cache
+

@@ -1,0 +1,30 @@
+---
+{"categories": &id001 ["circumvention", "clash", "github", "network"], "category": "Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts", "date": "2023-12-22 23:52:59", "description": "This article provides detailed instructions on how to route GitHub-related domains through Fastgithub using Clash and configuring DNS settings. It covers various system-specific methods, including launchctl for macOS and systemd for Linux, as well as alternative options like monit and shell scripts.", "tags": *id001, "title": "Clash route only github related domains to fastgithub"}
+
+---
+
+------
+
+# Clash route only github related domains to fastgithub
+
+## DNS
+
+use clash official DNS settings to resolve issues related to domain resolution, especially when used as a system proxy.
+
+[documentation](https://github.com/Dreamacro/clash/wiki/configuration#dns)
+
+to persist program using platform-specific service manager like nssm on windows:
+
+## macos
+
+use launchctl(launchd) or easyd
+
+## linux
+
+create systemd
+need to change system wide proxy settings in init files
+
+or use [monit](https://mmonit.com/monit/documentation/monit.html), with control over the service itself.
+
+or shell script alike [linuxNSSM](https://github.com/guolisongIsesol/linuxNssm)
+

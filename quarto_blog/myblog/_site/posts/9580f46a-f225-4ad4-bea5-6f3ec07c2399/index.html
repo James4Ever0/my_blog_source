@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="The comments discuss efforts to circumvent DeepL API’s anti-scraping mechanisms by examining request structures and identifying consistent naming conventions. Despite these potential vulnerabilities, the commenters ultimately decide against abusing the system due to its complexity.">
+
+<title>James’s Blog - deepl免费翻译 免费白嫖</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">deepl免费翻译 免费白嫖</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">DeepL API</div>
+    <div class="quarto-category">anti-scraping measures</div>
+    <div class="quarto-category">request structure analysis</div>
+    <div class="quarto-category">naming conventions</div>
+    <div class="quarto-category">bypassing systems</div>
+    <div class="quarto-category">challenges</div>
+    <div class="quarto-category">abusing the system</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    The comments discuss efforts to circumvent DeepL API’s anti-scraping mechanisms by examining request structures and identifying consistent naming conventions. Despite these potential vulnerabilities, the commenters ultimately decide against abusing the system due to its complexity.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="deepl免费翻译-免费白嫖" class="level1">
+<h1>deepl免费翻译 免费白嫖</h1>
+<p>heroku no longer provides free tiers (dyno)</p>
+<p>change ip frequently by using proxychains and clash</p>
+<p>RELEASES STILL VISIBLE <a href="https://github.com/zu1k/removed-2022-07-12/releases/tag/0.1.2">HERE</a></p>
+<p>you can google for it. maybe the internet archive has it. <code>https://github.com/zu1k/deepl-api-rs/releases/download/0.1.2/deepl-aarch64-unknown-linux-musl-0.1.2.gz</code> <code>https://github.com/zu1k/deepl-api-rs/releases/download/0.1.2/deepl-x86_64-unknown-linux-musl-0.1.2.gz</code> for other triplets i am not so familiar so i cannot guess that out.</p>
+<p>从<a href="https://zu1k.com/posts/">zu1k的文章</a>来看 应该是搞安全的</p>
+<p>为了更准确的翻译， deepl的API是很重要的 但是这个deepl却不让免费用 网页端的js复杂的要死</p>
+<p>deepl的客户端的现在分为3类： - 免费 自动操控浏览器 - 付费 申请api - 免费 破解交互协议</p>
+<p>为了连续使用deepl以及其他可能会封ip的翻译软件 使用clash做代理是很关键的 如何找到好的代理 zu1k有<a href="https://github.com/zu1k/proxypool">proxypool</a>可以自动爬取代理 同时推荐大佬的<a href="https://github.com/Python3WebSpider/ProxyPool">proxypool</a> 据说是专业爬虫架构</p>
+<p>zu1k本人下架了deepl的docker镜像 但是release现在居然还可以下载 只不过不可以直接访问页面罢了</p>
+<p>zu1k的<a href="https://github.com/zu1k/copy-translator">copy translator</a>连接的应该就是他自己写的<a href="https://deepl.zu1k.com/translate">deepl-rust服务器</a> 只不过现在没法访问了 (话说大佬没事翻译个啥又不是看不懂 hhh) 历史的release版本中有连接本地的版本 估计也没有开源原来的docker破解deepl的二进制</p>
+<p><a href="https://deeplx.herokuapp.com/">deeplx</a>在 heroku上面运行 目前应该不能正常运行 它的ip感觉是被封了 <a href="https://github.com/devockr/deeplx">它的仓库</a>用的是现在没法访问的deepl的docker镜像</p>
+<p>有人（很可能就是zu1k）破解了deepl客户端的交互逻辑 应该是windows的deepl协议（c#好破解 没加壳） 现在可以<a href="https://mp.weixin.qq.com/s?__biz=MzI3NTEwOTA4OQ==&amp;mid=2649181781&amp;idx=1&amp;sn=3591257c389292ed139692637181e70a&amp;chksm=f31a2bdbc46da2cdf4e01b9f663eae934b53fcdb256193b8db0662a41522a31c8af6bca034d3&amp;scene=126&amp;&amp;sessionid=0">看看是如何破解的</a></p>
+<hr>
+<p>安全不仅仅是一门朴素的学问，更是一门权衡的艺术。有时一个简单的设计可以规避掉大多数攻击问题，下面分享一篇在网上看到的DeepL API的反爬设计。</p>
+<p>这篇博文本应该在去年完成 DeepL 客户端逆向的时候发布，但考虑到相关细节一旦公开，恐怕会被广泛采用而被 DeepL 官方封杀，因此迟迟未开始。前段时间我发布了 DeepL Free Api 的 Docker 镜像，也在 GitHub 上公开了相关二进制程序，就下载量来看已经有不少人在使用了，相信 DeepL 不久就会有动作，因此我认为现在已经可以公开相关细节。</p>
+<p>我逆向的是 DeepL 的 Windows 客户端，因为是 C# 开发依附于 .net，也未进行任何混淆和加壳，可以轻松逆出源码。通过前段时间与一些其他研究者交流，我认为已经有不少感兴趣的同学也进行了逆向，也许是一种默契，都害怕 DeepL 在发觉后进行修改，所以大家也都没有对外公开，目前网络中搜不到任何相关的内容。本文的目的是给相关小伙伴一点思路，不过希望大家还是不要直接公开代码，以继续欺骗 DeepL，让其相信还没有人发现他们的把戏。</p>
+<p>在我实现 DeepL Free Api 的过程中，我发现 DeepL 并没有像之前见到的一些接口设计那样，通过签名等手段来避免接口滥用，相反，他们使用了一些欺骗战术来混淆视听，从而尝试让抓包分析者放弃，本文将围绕此进行讨论。</p>
+<p>过程 进入研究生阶段，为了方便阅读论文，为自己开发了划词翻译工具，在众多翻译引擎中 DeepL 的效果尤为出色。DeepL 官方的 Api 需要绑定信用卡进行认证，但其并未在中国大陆经营业务，所以并不支持国内的信用卡。我也尝试过从淘宝购买别人用国外信用卡认证过的帐号，价格贵不说，在没有滥用的情况下，DeepL 在两个月内封禁了我的帐号，因此我决定用一些其他手段。</p>
+<p>考虑到 DeepL 有提供免费版本的翻译服务，支持 Web，Windows、Android 和 iOS 都有相应的客户端，我便想使用这些客户端使用的免费接口。不出所料，在广泛使用打包和混淆技术的当下，DeepL 的 Web 端 js 代码也不是人看的东西，但通过简单的抓包，我发现其接口参数非常清晰，根本没有额外的签名、token等认证技术，我觉得自己又行了，几行 Python 代码便完成了接口对接工作。</p>
+<p>但测试下来，我发现当修改翻译内容，有极大概率遇到 429 Too many requests，并且一旦出现 429，后续的所有请求便都是 429 了。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"jsonrpc"</span><span class="fu">:</span> <span class="st">"2.0"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"error"</span><span class="fu">:{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"code"</span><span class="fu">:</span><span class="dv">1042902</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"message"</span><span class="fu">:</span><span class="st">"Too many requests."</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>在 GitHub 搜索之后，我发现已经有前人尝试利用过 DeepL 的免费接口了，早在 2018 年他们就已经遇到了这个 429 问题，并且到现在都没有解决。</p>
+<p>我尝试转向客户端的免费接口，苹果设备可以轻松 MITM，于是我便在 iPad 上对 DeepL 客户端进行抓包，让我意想不到的是，客户端的请求竟然比 Web 端的简单不少，接口参数数量仅有必须的几个，非常有利于利用。于是我又觉得自己行了，两三行 Python 代码完成接口对接。</p>
+<p>简单测试，我又傻眼了。伪造的请求明明跟客户端发起的完全相同，但只要一更换翻译的内容，返回马上就变成 429。干！我都开始怀疑自己了。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"jsonrpc"</span><span class="fu">:</span> <span class="st">"2.0"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"method"</span><span class="fu">:</span> <span class="st">"LMT_handle_texts"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"params"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"texts"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"translate this, my friend"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"lang"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"target_lang"</span><span class="fu">:</span> <span class="st">"ZH"</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">"source_lang_user_selected"</span><span class="fu">:</span> <span class="st">"EN"</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">},</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"timestamp"</span><span class="fu">:</span> <span class="dv">1648877491942</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">12345</span><span class="fu">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>你自己看看，这个接口多么清楚明白，但怎么就伪造不了呢？</p>
+<p>我想了又想，这里面也就 id 比较可疑，因为这个参数我不知道它是怎么生成的，是随机的还是根据某种规则计算出来的，我们无从知道。但从目前结果来看，随机的 id 无法被服务器认可。</p>
+<p>当然，我也考虑过其他的服务端判断滥用的方法，例如某些 http 头、ssl 层面的方法（例如之前 Go 实现中 SSL 协商过程中加密算法的顺序等），我也想办法进行了伪造，可就是不行。疲惫了，不想搞了。</p>
+<p>第二天，突然想起他的 Windows 客户端，稍微一分析惊喜的发现是 C#，还没加壳，果断扔进 dnSpy，发现也没混淆，真是柳暗花明又一村啊。分析之后，也就一切都清楚明白了，原来 DeepL 根本一开始就在想方设法让你觉得你行啊。</p>
+<p>看前面那个接口的参数，我之所以觉得我行，就是因为这个接口它太简单了。接口的参数少，参数含义又非常明确，它并不像某些厂那样用一些不知所以然的缩写，这里的每一个参数，它的名称都在告诉我它的含义、它是干什么的以及它是怎么生成的。</p>
+<p>jsonrpc 是版本号，method 是方法，一个固定的字符串。params 里面 texts 是多段待翻译的文本，lang 里面是翻译的语言选项，是枚举类型。timestamp 是 UNIX 风格的时间戳，id 就是序号。大眼一看，这里面只有 id 是最可疑的，这也确实是我最初犯的错误。</p>
+<p>真相 现在我来告诉你，DeepL 到底是怎么认证的。（下面并不是 DeepL 客户端的代码，是我写的 Rust 利用代码，但逻辑不变）</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> gen_fake_timestamp(texts<span class="op">:</span> <span class="op">&amp;</span><span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">String</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="dt">u128</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> ts <span class="op">=</span> <span class="pp">tool::</span>get_epoch_ms()<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> i_count <span class="op">=</span> texts</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span>iter()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span>fold(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                <span class="dv">1</span><span class="op">,</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                <span class="op">|</span>s<span class="op">,</span> t<span class="op">|</span> s <span class="op">+</span> t<span class="op">.</span>text<span class="op">.</span>matches(<span class="ch">'i'</span>)<span class="op">.</span>count()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            ) <span class="kw">as</span> <span class="dt">u128</span><span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ts <span class="op">-</span> ts <span class="op">%</span> i_count <span class="op">+</span> i_count</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>哈哈！没想到吧！人家的时间戳不是真的！</p>
+<p>DeepL 先计算了文本中所有 i 的数量，然后对真正的时间戳进行一个小小的运算 ts - ts % i_count + i_count，这个运算差不多仅会改变时间戳的毫秒部分，这个改变如果用人眼来验证根本无法发现，人类看来就是一个普通的时间戳，不会在意毫秒级的差别。</p>
+<p>但是 DeepL 拿到这个修改后的时间戳，既可以与真实时间对比(误差毫秒级)，又可以通过简单的运算（是否是 i_count 的整倍数）判断是否是伪造的请求。真是精妙啊！</p>
+<p>还有更绝的！你接着看：</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> req <span class="op">=</span> req<span class="op">.</span>replace(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\"</span><span class="st">method</span><span class="sc">\"</span><span class="st">:</span><span class="sc">\"</span><span class="st">"</span><span class="op">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">self</span><span class="op">.</span>id <span class="op">+</span> <span class="dv">3</span>) <span class="op">%</span> <span class="dv">13</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span> (<span class="kw">self</span><span class="op">.</span>id <span class="op">+</span> <span class="dv">5</span>) <span class="op">%</span> <span class="dv">29</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"</span><span class="sc">\"</span><span class="st">method</span><span class="sc">\"</span><span class="st"> : </span><span class="sc">\"</span><span class="st">"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"</span><span class="sc">\"</span><span class="st">method</span><span class="sc">\"</span><span class="st">: </span><span class="sc">\"</span><span class="st">"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">},</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>怎么样？我觉得我一开始就被玩弄了，人家的 id 就是纯粹的随机数，只不过后续的请求会在第一次的随机 id 基础上加一，但是这个 id 还决定了文本中一个小小的、微不足道的空格。</p>
+<p>按照正常的思路，为了方便人类阅读和分析，拿到请求的第一时间，我都会先扔编辑器里格式化一下 Json，我怎么会想到，这恰恰会破坏掉人家用来认证的特征，因此无论我如何努力都难以发现。</p>
+<p>总结 在我以往的经验中，接口防滥用，要不就是用户专属的 token，要不就是对请求进行签名或者加密，这些对抗滥用的方法都是明面上的，就是明白告诉你我有一个签名，怎么签的，你去分析去吧，但是我代码混淆了，你看看你是要头发还是要算法。</p>
+<p>要不就是高级点的，更具技术性的，利用某些客户端特有的实现造成的特征进行认证，我印象中最深刻的就是 Go 的 SSL 协商过程中的算法顺序。这类方法要求更高的技术，当然分析起来也肯定更加困难，并且找到这样一种方法本身也不容易。</p>
+<p>从 DeepL 的方法中，我找到了另外一种思路。利用人心理的弱点，一开始让其感觉非常简单，但是无论如何都无法得到想要的结果，给分析者造成心理上的打击和自我怀疑，让其浅尝辄止自行放弃分析。同时利用人行为上的惯式，使其自行破坏掉某些关键信息，从而给分析造成难以发现的阻碍。</p>
+<p>原来，除了技术以外，还有这样一条道路啊，真是有趣！</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

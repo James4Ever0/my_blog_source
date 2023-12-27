@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article delves into the world of audio processing tools, exploring options for tasks like removing filler words, editing audio/video, enhancing guitar audio using machine learning, and creating and sharing music. Some popular tools mentioned include Cleanvoice AI, Descript, Revoldiv, AudioStellar, Beepbox, Audacity, Audiomass, and VB-Audio Virtual Apps. These tools can be used for various purposes such as recording webinars, mixing audio for broadcasting on Zoom and YouTube, and working with multiple audio sources.">
+
+<title>James’s Blog - Audio and Music Tools</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Audio and Music Tools</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">audio processing</div>
+    <div class="quarto-category">tools</div>
+    <div class="quarto-category">filler words removal</div>
+    <div class="quarto-category">editing audio/video</div>
+    <div class="quarto-category">machine learning</div>
+    <div class="quarto-category">guitar audio enhancement</div>
+    <div class="quarto-category">Cleanvoice AI</div>
+    <div class="quarto-category">Descript</div>
+    <div class="quarto-category">Revoldiv</div>
+    <div class="quarto-category">AudioStellar</div>
+    <div class="quarto-category">Beepbox</div>
+    <div class="quarto-category">Audacity</div>
+    <div class="quarto-category">Audiomass</div>
+    <div class="quarto-category">VB-Audio Virtual Apps</div>
+    <div class="quarto-category">recording webinars</div>
+    <div class="quarto-category">mixing audio for broadcasting</div>
+    <div class="quarto-category">Zoom and YouTube</div>
+    <div class="quarto-category">multiple audio sources</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article delves into the world of audio processing tools, exploring options for tasks like removing filler words, editing audio/video, enhancing guitar audio using machine learning, and creating and sharing music. Some popular tools mentioned include Cleanvoice AI, Descript, Revoldiv, AudioStellar, Beepbox, Audacity, Audiomass, and VB-Audio Virtual Apps. These tools can be used for various purposes such as recording webinars, mixing audio for broadcasting on Zoom and YouTube, and working with multiple audio sources.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="audio-and-music-tools" class="level1">
+<h1>Audio and Music Tools</h1>
+<p>Audio and music processing tools.</p>
+<p>Related links:<br>
+🔗 <a href="../../app/audio-streaming">Audio, Music, Radio, and Podcast Streaming Apps</a><br>
+🔗 <a href="../../app/audio-tool">Audio and Music Tools</a><br>
+🔗 <a href="../../app/free-audio">Free Audio and Music</a></p>
+<section id="ai-apps-for-audio" class="level2">
+<h2 class="anchored" data-anchor-id="ai-apps-for-audio">AI Apps for Audio</h2>
+<ul>
+<li><a href="https://cleanvoice.ai/">Cleanvoice AI - Get rid of filler words from your audio recordings</a></li>
+<li><a href="https://pytorchvideo.org/">PyTorchVideo · A deep learning library for video understanding research</a></li>
+<li><a href="https://www.descript.com/">Descript - All-in-one audio/video editing, as easy as a doc.</a></li>
+<li><a href="https://auphonic.com/landing">Auphonic</a></li>
+<li><a href="https://revoldiv.com/">Revoldiv</a></li>
+<li><a href="http://www.audiostellar.xyz/">AudioStellar</a></li>
+<li><a href="https://blog.zakjost.com/post/guitarml/">GuitarML - Zak Jost</a> Audio Enhancement Machine Learning</li>
+<li><a href="https://github.com/tyiannak/pyAudioAnalysis">tyiannak/pyAudioAnalysis: Python Audio Analysis Library: Feature Extraction, Classification, Segmentation and Applications</a></li>
+<li><a href="https://librosa.org/doc/latest/index.html">librosa — librosa 0.8.1 documentation</a> python package for music and audio analysis</li>
+<li><a href="https://github.com/Yaafe/Yaafe">Yaafe/Yaafe: Audio features extraction</a></li>
+<li><a href="https://news.ycombinator.com/item?id=31968456">Ask HN: AI-Generated Music? | Hacker News</a></li>
+</ul>
+<section id="ai-music-separation" class="level3">
+<h3 class="anchored" data-anchor-id="ai-music-separation">AI Music Separation</h3>
+<ul>
+<li><a href="https://source-separation.github.io/tutorial/landing.html">Open Source Tools and Data for Music Source Separation</a> License: CC-BY-NC</li>
+<li>Spleeter, open source music separation library from Deezer, from <a href="https://www.acapella-extractor.com/">Accapella</a>, <a href="https://melody.ml/">Melody</a>, <a href="https://moises.ai/">Moises</a></li>
+<li><a href="https://github.com/linuxmao-org/ISSE">ISSE</a></li>
+<li><a href="https://github.com/etzinis/sudo_rm_rf">SUDO RM RF</a> : SUccessive DOwnsampling and Resampling of Multi-Resolution Features which enables a more efficient way of separating sources from mixtures</li>
+<li><a href="https://github.com/adobe/Deep-Audio-Prior">Deep Audio</a> : Audio Source Separation Without Any Training Data</li>
+</ul>
+</section>
+<section id="ai-music-recognition" class="level3">
+<h3 class="anchored" data-anchor-id="ai-music-recognition">AI Music Recognition</h3>
+<ul>
+<li><a href="https://audiotag.info/">Audio Tag for recognize music</a></li>
+</ul>
+</section>
+</section>
+<section id="audio-creation" class="level2">
+<h2 class="anchored" data-anchor-id="audio-creation">Audio Creation</h2>
+<section id="audio-and-music-programming" class="level3">
+<h3 class="anchored" data-anchor-id="audio-and-music-programming">Audio and Music Programming</h3>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=28198641">Alda – Text-Based Programming Language for Music Composition - Hacker News</a></li>
+<li><a href="https://github.com/maximecb/noisecraft">maximecb/noisecraft: Browser-based visual programming language and platform for sound synthesis.</a></li>
+<li><a href="https://helio.fm/">helio.fm</a> libre music composition software</li>
+<li><a href="https://faust.grame.fr/">Faust Programming Language</a></li>
+</ul>
+</section>
+<section id="ai-audio-and-music-generator" class="level3">
+<h3 class="anchored" data-anchor-id="ai-audio-and-music-generator">AI Audio and Music Generator</h3>
+<ul>
+<li><a href="https://dopeloop.ai/melody-generator/">AI Melody Generator</a></li>
+<li><a href="http://typedrummer.com/">typedrummer</a></li>
+<li><a href="https://openai.com/blog/jukebox/">Jukebox</a></li>
+<li><a href="https://arxiv.org/abs/2108.12290">2108.12290 Music Composition with Deep Learning: A Review</a></li>
+</ul>
+</section>
+<section id="audio-and-music-creation-and-sharing" class="level3">
+<h3 class="anchored" data-anchor-id="audio-and-music-creation-and-sharing">Audio and Music Creation and Sharing</h3>
+<ul>
+<li><a href="https://beepbox.co/">Beepbox</a> : BeepBox is an online tool for sketching and sharing instrumental melodies.</li>
+<li><a href="https://jummbus.bitbucket.io">Jummbox</a> : Jummbox is Beepbox modification (online tool for sketching and sharing chip tune melodies).</li>
+</ul>
+</section>
+</section>
+<section id="wasm-audio-processing" class="level2">
+<h2 class="anchored" data-anchor-id="wasm-audio-processing">WASM Audio Processing</h2>
+<ul>
+<li><a href="https://ampedstudio.com/">Amped Studio</a> : audio processing, need login</li>
+<li><a href="https://soundation.com/">Soundation</a> : audio processing, need login</li>
+<li><a href="https://brionv.com/misc/ogv.js/demo/">ogv.js</a> : audio processing</li>
+<li><a href="https://www.webaudiomodules.org/">Audio Processing</a></li>
+<li><a href="https://learningsynths.ableton.com/">Learning Syhthesizer and Sound</a></li>
+<li><a href="https://petersalomonsen.com/webassemblymusic/livecodev1/?gist=ea73551e352440d5f470c6af89d7fe7c">Music Coding</a></li>
+<li><a href="https://timdaub.github.io/wasm-synth/">WASM Synth</a> WASM Music Synthesizer</li>
+</ul>
+</section>
+<section id="audio-player" class="level2">
+<h2 class="anchored" data-anchor-id="audio-player">Audio Player</h2>
+<section id="online-audio-player" class="level3">
+<h3 class="anchored" data-anchor-id="online-audio-player">Online Audio Player</h3>
+<ul>
+<li><a href="https://github.com/captbaritone/webamp">captbaritone/webamp: Winamp 2 reimplemented for the browser</a></li>
+</ul>
+</section>
+<section id="peer-to-peer-audio" class="level3">
+<h3 class="anchored" data-anchor-id="peer-to-peer-audio">Peer to Peer Audio</h3>
+<ul>
+<li><a href="https://sonobus.net/">SonoBus - peer to peer music</a></li>
+</ul>
+</section>
+</section>
+<section id="audio-editor" class="level2">
+<h2 class="anchored" data-anchor-id="audio-editor">Audio Editor</h2>
+<section id="desktop-audio-editor" class="level3">
+<h3 class="anchored" data-anchor-id="desktop-audio-editor">Desktop Audio Editor</h3>
+<ul>
+<li>Audacity, #opensource</li>
+</ul>
+</section>
+<section id="online-audio-editor" class="level3">
+<h3 class="anchored" data-anchor-id="online-audio-editor">Online Audio Editor</h3>
+<ul>
+<li><a href="https://audiomass.co/">Audiomass</a>, <a href="https://github.com/pkalogiros/audiomass">Github</a>Audio Editor</li>
+</ul>
+</section>
+</section>
+<section id="other-audio-tools" class="level2">
+<h2 class="anchored" data-anchor-id="other-audio-tools">Other Audio Tools</h2>
+<ul>
+<li><a href="https://vb-audio.com/Cable/">VB-Audio Virtual Apps</a> audio output to audio input</li>
+</ul>
+</section>
+<section id="working-with-virtual-audio-tools" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-virtual-audio-tools">Working with Virtual Audio Tools</h2>
+<section id="audio-recording---transcription" class="level3">
+<h3 class="anchored" data-anchor-id="audio-recording---transcription">Audio Recording - Transcription</h3>
+<p>Benefits/drawbacks:</p>
+<ul>
+<li>We cannot listen the audio output from playback apps</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_v_images/20211023055131420_4883.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">VAC Audio Recording</figcaption>
+</figure>
+</div>
+<p>Use cases:</p>
+<ul>
+<li>Record Zoom Webinar to Speechtexter, Google Docs etc.</li>
+</ul>
+</section>
+<section id="audio-input-mixing" class="level3">
+<h3 class="anchored" data-anchor-id="audio-input-mixing">Audio Input Mixing</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_v_images/20211023055947660_4903.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Audio Input Mixing</figcaption>
+</figure>
+</div>
+<p>Use cases:</p>
+<ul>
+<li>Record with multiphttps://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP) to Audacity</li>
+<li>Broadcast with multiple input (our voice + music from AIMP) to Zoom, Youtube etc.</li>
+</ul>
+</section>
+<section id="audio-output-mixing" class="level3">
+<h3 class="anchored" data-anchor-id="audio-output-mixing">Audio Output Mixing</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_v_images/20211023060503358_26770.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Audio Output Mixing</figcaption>
+</figure>
+</div>
+<p>Setting:</p>
+<ul>
+<li>OS Sound Setting
+<ul>
+<li>Outphttps://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine 1 VAC Microphone</li>
+</ul></li>
+<li>VAC Repeater Setting
+<ul>
+<li>Wave in: Line 1 VAC Microphone</li>
+<li>Wave out: Speaker/Headphone</li>
+<li>Start</li>
+</ul></li>
+</ul>
+<p>Use cases:</p>
+<ul>
+<li>Transcribe (and listen) Zoom Seminar to Speaker and Speechtexter, Google Docs</li>
+<li>Translate Youtube Video using Google Translate</li>
+</ul>
+</section>
+<section id="zoom-audio-recordingtranscription" class="level3">
+<h3 class="anchored" data-anchor-id="zoom-audio-recordingtranscription">Zoom Audio Recording/Transcription</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="_v_images/20211023061101034_12558.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Zoom Recording Transcription</figcaption>
+</figure>
+</div>
+</section>
+<section id="google-meet-audio-transcription" class="level3">
+<h3 class="anchored" data-anchor-id="google-meet-audio-transcription">Google Meet Audio Transcription</h3>
+<ul>
+<li>Open Google Meet, usihttps://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing default Mic</li>
+</ul>
+<p>But we cannot do both Speechtexter and Google Docs We cannot do both Speechtexter and Voice Note We can do both Google Meet and Speechtexter/VoiceNote/Dictanote We can do both Zoom and Speechtexter/VoiceNote/Dictanote</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

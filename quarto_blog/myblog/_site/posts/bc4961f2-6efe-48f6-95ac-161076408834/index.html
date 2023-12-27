@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article delves into email verification techniques and strategies, along with methods to send mass emails or SMS anonymously. It highlights platforms like mailcat and theHarvester for collecting emails, APIs for SMS flooding, and Telegram bots for efficient marketing.">
+
+<title>James’s Blog - email scraper, 自动发短信 邮件 自动接收短信 接收邮件 mail sms automatic sending ad broadcasting, email verification, sms verification, sms login, email login, temp mail, email OSINT</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">email scraper, 自动发短信 邮件 自动接收短信 接收邮件 mail sms automatic sending ad broadcasting, email verification, sms verification, sms login, email login, temp mail, email OSINT</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">advertising</div>
+    <div class="quarto-category">mail sending</div>
+    <div class="quarto-category">SMS</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article delves into email verification techniques and strategies, along with methods to send mass emails or SMS anonymously. It highlights platforms like mailcat and theHarvester for collecting emails, APIs for SMS flooding, and Telegram bots for efficient marketing.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="email-scraper-自动发短信-邮件-自动接收短信-接收邮件-mail-sms-automatic-sending-ad-broadcasting-email-verification-sms-verification-sms-login-email-login-temp-mail-email-osint" class="level1">
+<h1>email scraper, 自动发短信 邮件 自动接收短信 接收邮件 mail sms automatic sending ad broadcasting, email verification, sms verification, sms login, email login, temp mail, email OSINT</h1>
+<section id="email" class="level2">
+<h2 class="anchored" data-anchor-id="email">email</h2>
+<section id="email-osint" class="level3">
+<h3 class="anchored" data-anchor-id="email-osint">email OSINT</h3>
+<p>OSINT/recon 其实就是社工 但是一般人喜欢把社工库和社工分开 因为社工库是社工收集来的数据集合 而社工则是一个过程</p>
+<p>loading/transforming leaked txt files will be time-consuming. use pypy to speedup the process. use database specific batch processing method to import the data.</p>
+<p><a href="https://followthemoney.readthedocs.io/en/latest/fragments.html">entity fragmentation in followthmoney</a> is kind of for “entity recognition in multiple social platforms”, suitable for finding patterns/clients in large leaked databases.</p>
+<section id="email-collector" class="level4">
+<h4 class="anchored" data-anchor-id="email-collector">email collector</h4>
+<p><a href="https://github.com/iojw/socialscan">socialscan</a> Python library for accurately querying username and email usage on online platforms</p>
+<p><a href="https://github.com/s0md3v/Zen">Zen</a> collect email on github</p>
+<p><a href="https://github.com/soxoj/maigret">maigret</a> a powerful fork of <a href="https://github.com/sherlock-project/sherlock">sherlock</a> (customizable, finding accounts by username, but only <a href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">having 300+ sites</a> ) with 2000+ sites</p>
+<p><a href="https://github.com/Taonn/EmailAll">emailAll</a> collect email by passing domain</p>
+<p><a href="https://github.com/Josue87/EmailFinder">emailfinder</a> find email by domain</p>
+<p><a href="https://github.com/laramies/theHarvester">theHarvestor</a> email, subdomain and names collector</p>
+<p><a href="https://github.com/sea-god/gitscan/blob/master/gitscan.py">gitscan</a> scan for email and password (if possible) with predefined domains and rules by searching github</p>
+<p><a href="https://github.com/mxrch/ghunt">ghunt</a> needs companion browser plugin to get credentials. can collect info on given email</p>
+<p><a href="https://github.com/wuseman/EMAGNET">EMAGNET</a> collect database leaks, email and password from recent pastebin records</p>
+</section>
+<section id="leaked-email-and-data" class="level4">
+<h4 class="anchored" data-anchor-id="leaked-email-and-data">leaked email and data</h4>
+<p>occrp (anti corruption &amp; crime) aleph is a bad source for getting email (anonymous/unauthorized user can only get hundreds, having no clue what the email relates to). however, it has a tool called <a href="https://followthemoney.readthedocs.io/">follow the money</a> which works with csv files and exports cypher to neo4j</p>
+<section id="leaks-on-github" class="level5">
+<h5 class="anchored" data-anchor-id="leaks-on-github">leaks on github</h5>
+<p>search for leaked database on github</p>
+<p><a href="https://github.com/guptaofficial17/Linkedin-Leak-2021/blob/main/Leak/Leak.txt">linkedin database leak 2021</a> (hate mega since it has download quota)</p>
+</section>
+<section id="leaks-from-forums" class="level5">
+<h5 class="anchored" data-anchor-id="leaks-from-forums">leaks from forums</h5>
+<p>you typically find links to these databases on <code>anonfiles.com</code> (or else), so query like <code>site:anonfiles.com email rar</code> in duckduckgo (no DMCA censorship)</p>
+<p><a href="https://breached.vc/Announcement-Database-Index">breachedforum’s index</a> contains “credits only” threads which requires 4-8 credits to unlock. to get credits you need to create thread (which will earn 0 credit) and get 1 credit per reply. post to trivial threads like manga.</p>
+<p>in <a href="https://leakbase.cc/">leakbase</a> you earn credits and download leaked databases easier. it has <a href="https://t.me/leakbase_official">official telegram bot</a> claims to leak free databases everyday.</p>
+</section>
+<section id="telegram-bots" class="level5">
+<h5 class="anchored" data-anchor-id="telegram-bots">telegram bots</h5>
+<p>find telegram bots collection in <a href="https://www.privacys.club/">privacy.club</a> (only OSINT bots) and <a href="https://www.ff98sha.me/archives/147">here</a> (with many other bots)</p>
+<p><a href="https://t.me/bailansgbot">摆烂bot</a> 永久免费</p>
+<p><a href="https://t.me/SGKmainNEWbot?start=IVT1073A377">SGKmainNEWbot</a></p>
+<p><a href="https://t.me/sgkmainbot?start=IVT7FBE782B">sgkmainbot</a></p>
+<p>(gone?) <a href="https://t.me/FreeSGKbot?start=SGKETRAYJU">FreeSGKbot</a></p>
+<p><a href="https://t.me/s/FreeSGKbot4?before=123">FreeSGKbot4</a></p>
+<p><a href="https://t.me/KernelBugXBot">KernelBugXBot</a></p>
+</section>
+<section id="download-links" class="level5">
+<h5 class="anchored" data-anchor-id="download-links">download links</h5>
+<p>although i find many leaked databases as torrent, but those torrent search engines usually collect video/movies instead of anything related to leaked database.</p>
+<p><a href="http://4563.org/?p=201481">44.65GB QQ 微博社工库</a> or <a href="https://github.com/qq8e/qq">qq8e/qq</a> 基本上传的就是这个了 或许可以在QQ群里面找到一些别的社工库 使用这个数据库的还有 <a href="http://qb.shegongk.com/">q绑</a> (有反调试 带去水印工具 但是其实这个到处都有吧) <a href="https://privacy.aiuys.com/">aiuys’s retrofit</a> 后台是<a href="https://github.com/Chordp/privacy">privacy</a> (只是部分的可以导入 其他的自行处理)</p>
+<p>Using aMule on macOS, Kad is firewalled (2.2.1 works well <a href="http://bugs.amule.org/view.php?id=1368">said by people</a>, but I’d not use macOS), reason unclear. Maybe on Linux or Windows it will be different.</p>
+<p>Some (dead) links of other databases in ed2k emule format:</p>
+<pre><code>ed2k://|file|2010.06-江西移动全库-408万-access.7z|1329999527|5231E1EC5EE1123C6E694AD6399F9807|h=DORZC7XFNG63ZWX6C3RSN3Q7CWZXG5G4|/
+ed2k://|file|2012.01-千脑-70万-csv.rar|34017079|A30DD3EF32C03C86E71032CDCA1C5EF9|h=2Z7TKJED7P2NJCKUCINNHMWLXV3KVVS4|/
+ed2k://|file|2012.02-AcFun-15万-txt.rar|2241909|C2439FAB2BC7322273DE5D512A530A83|h=QJWQ3LWZ3UFJMPQHPD6WGXYYZHPRLQ43|/
+ed2k://|file|2012.03-圆通数据库-mssql.rar|127496748|75F92807F541FB0EBB4773BA83D5157A|h=YAOCNQEUXCNBBTIM226NNZLJA7SMMSDS|/
+ed2k://|file|2012.07-yahoo-45万-txt.bz2|6871089|8769EC2314C1AF2C98237DF58C7076D2|h=VSJ52KZ6O6JUZNZKXKT7F3LRXHBKJKMN|/
+ed2k://|file|2012.08-小米论坛-828万-mysql.rar|518891223|87704FEA5B191C21F605A0C135BAF98E|h=6UQWS3OQ4VGUXLYW2L6H6TL2GKZOJAUA|/
+ed2k://|file|2012.08-小米论坛-828万-txt.rar|361627120|2ED96D2F0E515321F67A31E84DC77B3C|h=UNNVFRMNWNP7UAIXZ6Y6AFCKOLBFJILW|/
+ed2k://|file|2013.04-DNF-700万-mysql.zip|306178725|169CE4FA4D4F467BCB7F8297CE6EE032|h=C3KZ6C637ARBAPD5UNF2YMYMT5LTS2UK|/
+ed2k://|file|2013.08-酒店开房记录-2000万-excel.rar|610164988|26F994CA1ABA72051ECE497F9AB7959A|h=EDLQDIHSRAJHB5SVNDQVMNPHOXVO3XB6|/
+ed2k://|file|2013.08-酒店开房记录-2000万-mssql.bak|8030079488|6FCCDC6DE213DC72A4EFEE19AF2FC1AC|h=5YJSQJY46OYKYMQA5P4G3DUAQGATYDFI|/
+ed2k://|file|2014.08-企业400号段数据-mssql.rar|46506453|4F44726413F3B9F9F701635FB498EAAB|h=LP47JMAJGOX233HQR2V3K673G7LE22RI|/
+ed2k://|file|2014.08-台湾某财经电视台数据库-2014-txt.zip|53519|95160AAE4A9E3074BACB04C606C0748F|h=3KQJJ4ADWKNOGNJIZIICBXQ5SLPD62R5|/
+ed2k://|file|2014.08-房产网-11万-sql.7z|6095432|D99DE175A27D179A5EB9F34D2D975FB0|h=2GN2RLDSDDVZ4POQZVIEJODQJVH2CJ4G|/
+ed2k://|file|2014.09-mail.ru邮箱地址-466万-txt.7z|30715779|5247DC686608FD2317A31E8BA67899F4|h=DFVLYBFEQQLDZSXIEOWHWY2BMA5DKDBO|/
+ed2k://|file|2014.09-yandex.ru-100万-txt.zip|16200283|80C4A344D51DBAE12F0A0D50202E9313|h=RA2KA6RRGELDAMXBAKXVFI3W7SIJ6TEE|/
+ed2k://|file|2014.12-12306-13万-txt.7z|4470710|7B25F299C7862BFA855B63B04BB00E2A|h=VURCVAXE4UVFI2TOIEC6DIZUBSYELY76|/
+ed2k://|file|2016.04-卡塔尔国家银行QNB-csv.zip|534384790|D7D81061307568AE47A3EE6C894D6C6C|h=VRQGQASTAHXFRGBZXAAIABVTFJRRIV7G|/
+ed2k://|file|2016.04-土耳其公民数据mernis-5000万-sql.gz|1555520122|22B660CB494D89FC84198A6EEA66E3B6|h=HYBIW22P3G56CUB7RR34CJVD7RKO34BS|/
+ed2k://|file|2011.03-多玩游戏网-800万-txt.rar|227441723|F8388A178222518978550D3E64B6129B|h=XMR2CYVQI3HOMKVRGUCCFGYZ3JVHKLCG|/
+ed2k://|file|2011.03-当当网买家信息-101万-Excel.zip|7822098|1F66086AE57B74D69BF75A2EF7900B2E|h=VRWZME24KH7UTIF3HPTCO5V5KNTEHUAQ|/
+ed2k://|file|2011.04-766游戏网-12万-sql.rar|5031951|BBE2D87564A2A8E4B083B57C697FD24E|h=DUFDLSY2A4F5SPZMMCN5JP7TE2HWA4EV|/
+ed2k://|file|2011.04-IS语音-969万-txt.zip|177030850|B153DDF9FE16EFFF30C589664592F85A|h=HCB5NVNHVGVGKMDCS7HXHI4MNQASG5SY|/
+ed2k://|file|2011.04-亚马逊中国买家信息-20万.zip|7570413|356D9E9C07D62243EF8A62745819E85C|h=BXLWB7OFKIFTCSCUU4Y47DHMX67GF7DO|/
+ed2k://|file|2011.04-凡客诚品买家信息-20万-Excel.zip|7784030|AEC527EA7E816DBD75FF92B0C26BC480|h=VXC2RO23H23OCZISUXTEO62RTVHGQFPZ|/
+ed2k://|file|2011.04-爱拍游戏网-1100万-txt.zip|267845795|87F9FFE887B0F53CAFD2A11205CB6C52|h=G6AQRSNJ7CHDTX5MTV6RYGB2OHYOAEXA|/
+ed2k://|file|2011.05-木蚂蚁-13万-sql.zip|8598547|680F8999D4E27174553D1C11118DF978|h=5G2YZ7Z6RAQ5M5XUNCEFNX7ZYAITMZPZ|/
+ed2k://|file|2011.07-土木在线-540万-sql.zip|645903048|4ED3B64224752DE3AB11B11D2FD9DA06|h=UL3F74NI266IR4IHI7UHDKMZRQMX3PFX|/
+ed2k://|file|2011.10-178游戏网-1000万-txt.rar|108534783|FFCD04A52339701C8CB5197BDCF9F4DC|h=C2UYTR264YXVM6NSJNUV5R2PC5VZNAYU|/
+ed2k://|file|2011.10-CSDN.NET-600万-sql.rar|109942505|A29D9468556CF73AFB48A3A8427629DC|h=VTPXT56G3BGRTHBROKQEWW6XAQTMYPLZ|/
+ed2k://|file|2011.10-嘟嘟牛-66277-txt.rar|215666725|EF7187E33A8EBD9FD806343B7B1CAA82|h=Z5YU2Z6P6GUT5DUKQ6L4X5YFMZZNZ4YZ|/
+ed2k://|file|2011.11-7k7k小游戏-2000万-txt.rar|203648704|6EB70910C1C193F5BE04610B503EF4A0|h=Y4ITT7C5Z5LOOREJPWXA25TM2NLKEEDX|/
+ed2k://|file|2011.11-人人网-500万-txt.rar|51969611|8CD19B7A2EB9F1F74CB8BFBDE7BD144D|h=SDNOOZCYR6PXZIRZTZPEICNRNZ67BQJJ|/
+ed2k://|file|2011.12-天涯社区-4000万-txt.rar|493480455|E4E0CFD85E2A783A3C3BD2539AA28FC3|h=4FB7J7QPRWRIPX7QWWTYVZCKMWDZ5VIQ|/
+ed2k://|file|2011.12-淘宝买家卖家邮箱-2500万-txt.zip|135534861|F40C3C9F32F2C30B1A2484FAB3CB1257|h=GLUDUAAYPAALG3GPHD4EHT5OB6V6WBVB|/
+ed2k://|file|2012.10-QQ精准客户名单-4500万-txt.rar|131416815|134F81AA90B27F55818E7A521D3CB35B|h=NRF2HAH2IXDT635UV6NDEGSA2HSOSSHZ|/
+ed2k://|file|2012.06-LinkedIn-16737万-txt.rar|7503170474|A50C488915FC70E1DE644AA5F3432D6F|h=E2NEXLXOOA6PONPKUGVRVIMEU54EC6P4|/
+ed2k://|file|2013.06-Myspace.com-36021万-txt.7z|12419587039|A1B14F88891885D636DE9F642A3E06DF|h=3QBXWEHRBUSUEWJOSHCF47B7HEC4Q5BM|/</code></pre>
+</section>
+</section>
+<section id="check-registration-account-with-email" class="level4">
+<h4 class="anchored" data-anchor-id="check-registration-account-with-email">check registration account with email</h4>
+<p><a href="https://github.com/CreditTone/regchecker">reg007 counterpart</a> only check if that account “exists”, but no actual account shown. <a href="https://github.com/search?p=1&amp;q=reg007.com&amp;type=Code">search for reg007 on github</a> you will get a bunch of links relating to OSINT.</p>
+<p><a href="https://github.com/megadose/holehe">holehe</a> only check if an email address is registered as account elsewhere using “forget my password” APIs.</p>
+<p><a href="https://github.com/n0tr00t/Sreg">sreg</a> is found from a collection of <a href="https://github.com/jay900323/securitytools">security tools</a>, which is a deprecated tool for getting registration status with phone/email/username on multiple chinese platforms.</p>
+</section>
+<section id="email-account-verifier" class="level4">
+<h4 class="anchored" data-anchor-id="email-account-verifier">(email) account verifier</h4>
+<p>Usually it only verify existance of given email, like <a href="https://tools.verifyemailaddress.io/">emailhippo</a> (100 requests free per day per ip), or <a href="https://github.com/WildSiphon/Mailfoguess">mailforguess</a> checking “gmail”,“laposte”,“protonmail”,“yahoo” emails</p>
+<p>Some of them verify email with password: <a href="https://github.com/MachineKillin/Email-Account-Generator-Checker/blob/main/main.py">verify email address and password with API of my.com</a></p>
+<p><a href="https://github.com/khast3x/h8mail">h8mail</a> email osint tool, can chase and link to social profile, with many API-key required free services</p>
+<p><a href="https://github.com/alpkeskin/mosint">mosint</a> automated email osint tool, requires many API keys.</p>
+<p><a href="https://github.com/megadose/ignorant">ignorant</a> checks if a phone number is used for snapchat/instagram</p>
+</section>
+</section>
+<section id="email-connectorsclient" class="level3">
+<h3 class="anchored" data-anchor-id="email-connectorsclient">email connectors/client</h3>
+<p><a href="https://github.com/ShellCode33/ProtonMail">proton mail unofficial client in python</a></p>
+</section>
+<section id="email-registration" class="level3">
+<h3 class="anchored" data-anchor-id="email-registration">email registration</h3>
+<section id="yandexmail-account-creator" class="level4">
+<h4 class="anchored" data-anchor-id="yandexmail-account-creator"><a href="https://github.com/hendrikbgr/YandexMail-Account-Creator">yandexmail account creator</a></h4>
+<p>before it was using 2captcha, now using <a href="https://5sim.net/">5sim</a> to receive sms</p>
+<p>only login such account through pop3 and imap to prevent revocation</p>
+</section>
+<section id="outlook-email-generator" class="level4">
+<h4 class="anchored" data-anchor-id="outlook-email-generator"><a href="https://github.com/MatrixTM/OutlookGen">outlook email generator</a></h4>
+<p>using 2captcha and anycaptcha for captcha solving (paid)</p>
+</section>
+<section id="protonmail-email-generator" class="level4">
+<h4 class="anchored" data-anchor-id="protonmail-email-generator"><a href="https://github.com/baum1810/protonmail-generator">protonmail email generator</a></h4>
+<p>using noptcha or <a href="https://nopecha.com/">nopecha</a> browser extension (free for 100 captcha solves per day) solving hcaptcha, recaptcha. this extension cannot be used with proxy.</p>
+</section>
+<section id="muumuu-which-reminds-me-of-someone-email-registration-using-2captcha-selenium-and-pyautogui" class="level4">
+<h4 class="anchored" data-anchor-id="muumuu-which-reminds-me-of-someone-email-registration-using-2captcha-selenium-and-pyautogui"><a href="https://github.com/KenshiroSugiyama/automation_email_create/blob/main/create.py">muumuu (which reminds me of someone) email registration using 2captcha, selenium and pyautogui</a></h4>
+<p>I place the list under <code>/root/.muumuu_emails</code></p>
+<p>the <a href="https://muumuu-mail.com/">muumuu mail</a> is programmatically connectable using account and password. seems it is using default ports for these services. <a href="pop3.muumuu-mail.com">POP3</a> is for both sending and receiving. <a href="imap4.muumuu-mail.com">IMAP</a> is for receiving. <a href="smtp.muumuu-mail.com">SMTP</a> is for sending.</p>
+<p>this guy’s code is full of hacks. seems only being able to run on his own computer and will break on slightest errors.</p>
+<p>he stored potential password combinations and also registered accounts (need testing, some may not work) on <a href="https://docs.google.com/spreadsheets/d/1GPpVKAA1okFjpifE494Ax4laHYQ5XaMvIZ6CQByPD_Y/edit#gid=0">this google doc</a>. you can download the sheet named “Sheet1” by <a href="https://docs.google.com/spreadsheets/d/1GPpVKAA1okFjpifE494Ax4laHYQ5XaMvIZ6CQByPD_Y/gviz/tq?tqx=out:csv&amp;sheet=Sheet1">this api</a>, which adds double quotes and takes more space than exported from web interfaces, method described <a href="https://chewett.co.uk/blog/2445/how-to-use-an-api-to-download-a-google-docs-sheets-spreadsheet-as-csv/">here</a>.</p>
+</section>
+</section>
+<section id="receiving-only-email-services" class="level3">
+<h3 class="anchored" data-anchor-id="receiving-only-email-services">receiving-only email services</h3>
+<section id="temp-email" class="level4">
+<h4 class="anchored" data-anchor-id="temp-email">temp email</h4>
+<p><a href="https://tempumail.com/mailbox">tempumail</a> get free temp edu email</p>
+</section>
+<section id="erine.email" class="level4">
+<h4 class="anchored" data-anchor-id="erine.email"><a href="https://erine.email">erine.email</a></h4>
+<p>email proxy for resending email to you, which I used for github registration (but with a very high block rate without proxy)</p>
+</section>
+</section>
+<section id="email-aliasing-for-sending" class="level3">
+<h3 class="anchored" data-anchor-id="email-aliasing-for-sending">email aliasing for sending</h3>
+<p>icloud’s “hide my email” service seems only provide few email aliases. but according to <a href="https://github.com/rtunazzz/hidemyemail-generator">3rd party icloud alias generator</a> (cannot be used for chinese version of icloud) you can generate at least 10 aliases. or use <a href="https://github.com/liej6799/hidemyemail-api">hidemyemail-api</a> to login with pyicloud and get aliases as API service. account registered from web without logged in any apple device (maybe virtualbox -&gt; macos has a shot?) will not have email service.</p>
+<p>to send email from alias, you can try setting “FROM” address as your alias via smtp protocol, but the credential shall stay the same. the working approach could be platform specific</p>
+<p>yahoo provides the most email alias up to 500, but 10 for send only emails. however to get one yahoo account one needs offshore phone numbers.</p>
+</section>
+<section id="email-collection-email-scraping" class="level3">
+<h3 class="anchored" data-anchor-id="email-collection-email-scraping">email collection, email scraping</h3>
+<p>searching for “site:pastebin.com <span class="citation" data-cites="yahoo.com">@yahoo.com</span>” to get some email addresses, also searching in github might help as well.</p>
+<p><a href="https://github.com/sharsil/mailcat">mailcat</a> find email address by nickname (check if deliverable?)</p>
+<p><a href="https://awesomeopensource.com/project/laramies/theHarvester">theharvestor: email harvestor</a></p>
+<p><a href="https://awesomeopensource.com/project/Taonn/EmailAll">email collector</a></p>
+<p><a href="https://awesomeopensource.com/project/bit4woo/teemo">domain and email collector</a></p>
+</section>
+<section id="email-marketing" class="level3">
+<h3 class="anchored" data-anchor-id="email-marketing">email marketing</h3>
+<p>use other’s links/contents to increase diversity and increase anonymity. put your related contents among them.</p>
+<p>email marketing is quantity over quality. know your customers’ preferences and behaviors (language, country, life schedule (by year? month? week? time in a day?)) by linking their accounts on other platforms, telemetry.</p>
+<p>email bulk senders are equipped with email templates, statistics (like opened or not, click data monitoring)</p>
+<p>vary your email style and content unless you want to get blocked/trashed by servers</p>
+<section id="email-templates" class="level4">
+<h4 class="anchored" data-anchor-id="email-templates">email templates</h4>
+<p><a href="https://github.com/premail/premail">premail</a> is an easy-to-use component-based build system for <a href="https://mjml.io/">MJML</a>, the email templating language</p>
+</section>
+</section>
+</section>
+<section id="sms" class="level2">
+<h2 class="anchored" data-anchor-id="sms">SMS</h2>
+<section id="sending-sms" class="level3">
+<h3 class="anchored" data-anchor-id="sending-sms">sending SMS</h3>
+<p>发送短信 邮件 第一步是收集目标的邮箱和手机号码 收集目标ID 可从社工库中获取 可以根据社工的metadata决定推送内容类别</p>
+<section id="sms-flooding" class="level4">
+<h4 class="anchored" data-anchor-id="sms-flooding">SMS flooding</h4>
+<p>smsboom by whalefall 远程获取的api 不知道是干啥的 有待研究 这个的原理是收集了大量发验证码到目标的手机号的api repo转移到了openethan下面 考虑破解这些网站 获取它们的短信验证所需要的credential https://github.com/WhaleFell/SMSBoom</p>
+</section>
+<section id="sending-sms-with-content" class="level4">
+<h4 class="anchored" data-anchor-id="sending-sms-with-content">sending SMS with content</h4>
+<p>send sms 1 per day per ip (you might use tor to do ip switching): https://textbelt.com/ https://github.com/HACK3RY2J/Anon-SMS https://github.com/typpo/textbelt</p>
+<p>freesms: (don’t work for my phone number as recipient though, but I found <a href="https://github.com/search?q=afreesms.com&amp;type=code">some interesting projects</a> on github relating to free SMS sending, <a href="https://github.com/seadog007/FreeSMS-OCR">some using OCR</a> to crack captcha and access API) https://www.afreesms.com/freesms/</p>
+<p>yoy might want phone number lists for sending ads via free sms providers</p>
+<p>shows [number]<span class="citation" data-cites="139.com">@139.com</span> is the only email2sms gateway in china https://email2sms.info</p>
+<p>list of email2sms providers: https://www.howtogeek.com/howto/27051/use-email-to-send-text-messages-sms-to-mobile-phones-for-free/ http://www.mutube.com/projects/open-email-to-sms/gateway-list/ http://en.wikipedia.org/wiki/List_of_carriers_providing_Email_or_Web_to_SMS</p>
+</section>
+</section>
+<section id="receiving-sms" class="level3">
+<h3 class="anchored" data-anchor-id="receiving-sms">receiving SMS</h3>
+<section id="paid-sms-receiving" class="level4">
+<h4 class="anchored" data-anchor-id="paid-sms-receiving">paid sms receiving</h4>
+<p><a href="https://5sim.net/">5sim</a> paid sms receive service worldwide</p>
+</section>
+<section id="free-sms-receiving" class="level4">
+<h4 class="anchored" data-anchor-id="free-sms-receiving">free sms receiving</h4>
+<p><a href="https://github.com/linabellbiu/sms-auto-regist">sms auto regist</a> is written in go, utilizing <code>yunjiema.top</code> for sms receiving</p>
+<p>online sms receivers are not so reliable (not even usable for yahoo registration), and those found from google searches (like <a href="https://www.freereceivesms.com/">free receive sms</a> (这个网站有反js调试 <a href="http://learnspider.evilrecluse.top/">打开debugger自动暂停执行</a>), which has simple interface for fetching data, and you can <a href="https://github.com/search?q=freereceivesms.com&amp;type=code">search this site on github</a> to get more sources and potential API adaptors like <a href="https://github.com/anroots/disposable-phonebook/blob/769bc2b23071ba4c854a00a5012cf5c2b7a2036f/dphonebook/lib/providers/free_receive_sms_com.py">disposable phonebook</a>) have chances to get registered yahoo accounts.</p>
+</section>
+</section>
+</section>
+<section id="account-registration-helpers-verification-captcha-solving-proxies" class="level2">
+<h2 class="anchored" data-anchor-id="account-registration-helpers-verification-captcha-solving-proxies">account registration helpers: verification, captcha solving, proxies</h2>
+<p><a href="https://github.com/Dionis1902/AccountGeneratorHelper">account generator helper</a> including:</p>
+<pre><code>Temp email services
+Receive SMS
+Generate data
+Proxy parser
+Captcha solving</code></pre>
+<section id="proxies" class="level3">
+<h3 class="anchored" data-anchor-id="proxies">proxies</h3>
+<p><a href="https://www.proxy-cheap.com/">Proxy-Cheap</a> pay by data amount</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article dives into various techniques for optimizing chatbot performance, including extending synonym dictionaries, managing training data, and utilizing GPT-2 for server optimization, feedback mechanisms, content promotion, CPU usage, backpropagation, and filters. The comments provide valuable insights on how to improve the efficiency of chatbots.">
+
+<title>James’s Blog - 复读机 Chatbot</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">复读机 Chatbot</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">chatbot</div>
+    <div class="quarto-category">conversation</div>
+    <div class="quarto-category">interaction</div>
+    <div class="quarto-category">pyjom</div>
+    <div class="quarto-category">schedule</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article dives into various techniques for optimizing chatbot performance, including extending synonym dictionaries, managing training data, and utilizing GPT-2 for server optimization, feedback mechanisms, content promotion, CPU usage, backpropagation, and filters. The comments provide valuable insights on how to improve the efficiency of chatbots.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="复读机-chatbot" class="level1">
+<h1>复读机 Chatbot</h1>
+<p>利用带时间戳的QQ消息 提取和天气有关的内容 根据历史天气预报推断群友位置</p>
+<p>根据聊天记录推断群友位置</p>
+<p>测试聊天机器人的方式就是对聊 测试自媒体可以用自动测试 假数据进行测试</p>
+<p>带二维码的图片 二维码对比度要低 避免被qq管家撤回</p>
+<p>classify bilibili video which users recommend, then train the model against recent chats and topics with video tags</p>
+<p>for our potential viewers, you may send them popular/hot things, place trackers (短链接统计) on those links, guess their favourites.</p>
+<p>you may fool bilibili trackers, official parameter-based trackers.</p>
+<p>对于qq上面聊骚的可以发a片给他们</p>
+<p>get bilibili user email address by asking them from chat. if they give the email address, send setu as gift (regularly?)</p>
+<p>of course you need to pass uid to us. either by parameters or by asking.</p>
+<p>建立用户画像 cache足够多的信息 总结出来足够精确的话题 标签</p>
+<p>发点啥吸引人的 提供某种服务 不然就会被踢</p>
+<p>大晚上的不要说话 大家都睡觉 说话容易被踢</p>
+<p>一般被引用的图片 发图之后被回复 图片下面比较激烈的回复代表着图片质量比较好 要取决于图片具体内容进行分类</p>
+<p>note: in order to install libraries and dependencies, you need ubuntu inside termux. create shortcuts and alias to launch ubuntu. link files and directories to ububtu proot filesystem. also never attempt to update kali since that will break shit, especially for bumping python versions.</p>
+<section id="时序数据库" class="level2">
+<h2 class="anchored" data-anchor-id="时序数据库">时序数据库</h2>
+<p><a href="https://docs.tdengine.com/develop/stream/">tdengine stream processing</a></p>
+<p><a href="https://docs.influxdata.com/influxdb/v2.3/api-guide/tutorials/python/">influxdb python client</a></p>
+</section>
+<section id="智能问答" class="level2">
+<h2 class="anchored" data-anchor-id="智能问答">智能问答</h2>
+<p><a href="https://github.com/l11x0m7/book-of-qna-code">智能问答与深度学习 附带代码</a></p>
+</section>
+<section id="近义词" class="level2">
+<h2 class="anchored" data-anchor-id="近义词">近义词</h2>
+<p><a href="https://www.tutorialspoint.com/natural_language_toolkit/natural_language_toolkit_looking_up_words_in_wordnet.htm#:~:text=To%20get%20a%20list%20of%20Synsets%2C%20we%20can,follows%20−%20from%20nltk.corpus%20import%20wordnet%20as%20wn">use wordnet to find hyponyms and antonyms</a></p>
+<p><a href="https://github.com/nltk/nltk/issues/2972">find antonyms for chinese with wordnet</a></p>
+<p><a href="https://github.com/chatopera/Synonyms">中文近义词</a> 以及<a href="https://github.com/chatopera/Synonyms/issues/5">如何扩充词库</a></p>
+</section>
+<section id="话题建模-句向量" class="level2">
+<h2 class="anchored" data-anchor-id="话题建模-句向量">话题建模 句向量</h2>
+<p><a href="https://www.qblocks.cloud/blog/best-nlp-libraries-python">10 nlp libraries</a></p>
+<p><a href="https://radimrehurek.com/gensim/models/word2vec.html">gensim word2vec</a></p>
+<p><a href="https://www.geeksforgeeks.org/python-word-embedding-using-word2vec/">word embedding using word2vec</a></p>
+<p><a href="https://www.askpython.com/python-modules/gensim-word2vec">gensym word2vec complete guide</a></p>
+<p><a href="https://www.jianshu.com/p/dbf10744bde0">go-cqhttp 自定义合并转发消息 生成不存在的合并转发消息</a></p>
+<ul class="task-list">
+<li><p><input type="checkbox">渐进式领红包 对于某个群 先是两分钟（左右）之后领一次 领不到就时间减半下一次再领 如果领到了就不减半 最快6秒领 不能再减了 防止某些群为了检测机器人而发红包</p></li>
+<li><p><input type="checkbox">处理信息不要流水线处理 放在messagepool里面 要有重要度排序 相关性排序</p></li>
+<li><p><input type="checkbox">QQ漂流瓶机器人 捡漂流瓶API</p></li>
+<li><p><input type="checkbox">改回群昵称 总有些脑瘫喜欢给我乱起名 一天检查一次 模仿其他人的群昵称 看看有没有能用的马甲</p></li>
+<li><p><input type="checkbox">mitm Chatbot</p></li>
+</ul>
+<p>chatbot frameworks:</p>
+<p><a href="https://github.com/sld/convai-bot-1337">convai-bot 1337</a> the best hybrid convai bot</p>
+<p><a href="https://github.com/ash47/OmegleMiddleMan">omeglemiddleman</a></p>
+<p><a href="https://github.com/gunthercox/ChatterBot">chatterbot</a> able to learn while having conversation</p>
+<p><a href="https://github.com/nlpia/nlpia-bot">qary: nlpia-bot</a> a hybrid framework for developing chatbot by mannings</p>
+<p><a href="https://github.com/olegberman/mitm-omegle">mitm-omegle</a> watch strangers talk</p>
+<p><a href="https://github.com/alfredfrancis/ai-chatbot-framework">ai chatbot framework</a></p>
+<ul class="task-list">
+<li><p><input type="checkbox">用sentence bert做search based dialog 替代levenshtein 最好是asymetrical semantic search</p></li>
+<li><p><input type="checkbox" checked="">有人有测试红包外挂的红包 可能有“test”、“测试”、“别抢”、“不要”之类的字眼 这种红包不要抢 抢了飞机票</p></li>
+<li><p><input type="checkbox">群聊的下一句话不一定是上一句话的回答 训练模型寻找句子相关性 计算相关度 以及句子顺序</p></li>
+<li><p><input type="checkbox" checked="">对接小冰</p></li>
+<li><p><input type="checkbox"><strong>管理员/群主在的时候 或者管理员经常出现的群里面 不要冒泡 不然容易被封</strong></p></li>
+</ul>
+<p>转发的图片 至少要在之前一小时以内或更长时间内没有被重复发送才行 同一个信息内也不能出现重复图片 否则不发送这个信息（很有可能是广告） 有二维码不发送 有网址不发送 图片里面的文字要是有广告也是不能要的 文字信息不要广告 用简单分类器</p>
+<p><a href="https://github.com/mtianyan/FunpySpiderSearchEngine">个性化搜索推荐 elasticsearch</a></p>
+<p>按照老毛的思想 要一边造谣一边辟谣 一边承认一边否定 同样的话颠三倒四可以说无数遍 也可以选择不说 这样可以和很多的类似故事杂交</p>
+<ul class="task-list">
+<li><input type="checkbox">处理私聊信息 每回复一个人就清除他的所有历史发言 每隔一段时间处理其中的一个人 不会相互挤占 只有在不闲聊的时候处理私聊信息 特定的人不能进行私聊</li>
+<li><input type="checkbox" checked="">白天聊天 收集数据 晚上离线训练 （此逻辑可以推广到任意的机器学习驱动的平台）</li>
+<li><input type="checkbox">增加训练数据的context 不要只是一问一答 总语句数量要增加</li>
+<li><input type="checkbox">占用系统显卡训练的时候 需要专门acquire一个filelock 表示大量资源被占用 系统忙</li>
+<li><input type="checkbox">选取质量好有情感的聊天样本 长短适中 不要广告不要偏激违禁词 去掉表情包 去掉链接 清洗数据 同时模型用于对话的时候不要输入输出一些违禁词 可以通过话题建模进一步细分归类对话数据之间的联系</li>
+</ul>
+<p>schedule the training on minute basis first for complete test, then schedule it on fixed time per day.</p>
+<p>for qq client: dump 500 continual sentences when adding one new while holding the filelock, do not block or stop running if GPT not responding</p>
+<p>for gpt2 server: (where to train? how to prevent maching from burning? for how long?) rename the dataset while holding the filelock always keep the latest 2 models, remove those not readable first, then delete older ones.</p>
+<p>if train on CPU, still need to limit training time, sleep while doing so. GPU for sure we need sleep during training, and do not use VRAM for other applications. - [ ] 把”汪汪”翻译成表情包 同时可以随机添加其他表情 - [x] 根据实时群聊数据训练gpt2 - [ ] 根据离线群聊数据训练gpt2</p>
+<p>自动骂人 https://github.com/liuke-wuhan/ZuAnBot</p>
+<ul class="task-list">
+<li><p><input type="checkbox">添加一个FileLock在gpt2 main server里面 不要让多个对话同时进行处理</p></li>
+<li><p><input type="checkbox">在人多的群里面少说话 具体表现为每次说话的时间间隔变长 次数变少 同时要注意 聊天内容过于严肃 专业的群尽量不要水</p></li>
+</ul>
+<p><a href="https://huggingface.co/docs/transformers/model_doc/dialogpt">dialogpt documentation</a></p>
+<p>闲聊chitchat dialog bot training framework by facebook: https://github.com/facebookresearch/ParlAI</p>
+<p>debug the consecutive group reply thresholding protocol</p>
+<p>reply according to individual description and group description</p>
+<ul class="task-list">
+<li><p><input type="checkbox">同时推广自己和别人的视频或者内容 收集推荐反馈 同时逐步减小推荐别人视频或者内容的频率</p></li>
+<li><p><input type="checkbox">推广视频的时候可以加入别人的视频高赞评论 动态的GIF 音频 或者是短视频 然后再发送xml</p></li>
+<li><p><input type="checkbox">增加复读图片的功能 增加chatlocal返回图片的功能</p></li>
+<li><p><input type="checkbox">增加反馈功能 根据发言之后群里面的回复来确定发言是否有益</p></li>
+<li><p><input type="checkbox">用txtai或者其他information retrieval (semantic search, smart search)语义查找工具来代替levenshtein的history based reply logic 查找时要包括上下文</p></li>
+<li><p><input type="checkbox">复读机不能使得死群活起来 但是主动推送可以 推送长的 自言自语的对话到群里面 不能是同一个群 主题要相关 filter out too negative ones</p></li>
+<li><p><input type="checkbox">拉人到别的群里面来 最好是多个号不共享群但是话题有交集的人</p></li>
+<li><p><input type="checkbox">add <code>involution</code> option, allow to append unqualified replies to input message, separated by space.</p></li>
+<li><p><input type="checkbox">add extend conversation option, allow to reply more than one sentence at a time (proper delay needed) -&gt; could be achieved by using GPT2 alike generation model</p></li>
+<li><p><input type="checkbox">可以给群友点赞</p></li>
+<li><p><input type="checkbox">可以发语音</p></li>
+</ul>
+<p>每次对话输入的context不能太小 不然看起来假</p>
+<ul class="task-list">
+<li><input type="checkbox">添加复读原句子的功能 触发条件为sentiment</li>
+</ul>
+<p>往群里面发b站视频广告的话 最好和群聊主题相关 和最近接收到的消息相关 同时频率不能太高 要设置全局的counter 群聊每发送一条消息trigger一次counter counter mod period == 0 的时候就执行发广告命令 同时可以考虑渲染任务 和发广告的逻辑要解耦合 同时访问一片数据 比如redis 根据最近聊到的内容制作和上传视频 不能在同一个群里面以太快的频率发送相同视频 相同的视频必须间隔一段时间再往其他群发送 最好用schedule库实现 方法内部要实现delay或者放弃schedule的效果</p>
+<p>如果群聊被踢 可以考虑换头像 换昵称 更改个人资料 然后重新申请 同样可以考虑更改b站的信息 用外网网红信息来填充自己的信息 更改资料频率和申请频率都需要控制 需要单独设置每天的quota quota保存在文件里面 申请的信息最好用ai生成 或者paraphrase一下 或者到网上搜索 收集相关内容 先训练一下 头像可以全网到处爬 可以选择二次元头像（动漫头识别）对比度高的 可以是类似头像 不能是系统默认头像不然太过无聊 可以和群聊主题相关 资料抄别人的 别的群里面的 抄该群群成员的资料 或者别的群的资料 不能是管理员资料</p>
+<ul class="task-list">
+<li><input type="checkbox">根据模板生成下一句 不要直接生成 素材可以是群公告 群主题 接收到的信息 模板生成要和新词发现结合 模板生成 paraphraser可以和chatlocal或者repeater结合</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> re</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.split(<span class="vs">r"(abc|acd)"</span>,<span class="st">"aaabcaaacdaaa"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>[<span class="st">'aa'</span>, <span class="st">'abc'</span>, <span class="st">'aa'</span>, <span class="st">'acd'</span>, <span class="st">'aaa'</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> word<span class="op">=</span><span class="st">"aaabcaaacdaaa"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> word<span class="op">=</span><span class="st">"aaabcaaacdaaa"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.escape(<span class="st">"abc"</span>)   </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">'abc'</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.escape(<span class="st">"efgh"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">'efgh'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>可以拆分句子为列表</p>
+<ul class="task-list">
+<li><input type="checkbox">去除经常生成的话语 比如你好之类的</li>
+</ul>
+<p>挑选levenshtein距离大于0（不能是它本身）的上一句，排序 选择10句 根据情绪激烈程度（正负皆可 去掉过于负面的）排序 输出第一名 选择下一句作为回答 然后记录这个回答在机器人的回答历史中</p>
+<p>句子如果是取同一个group里面的 不能太recent 起码距离要有50个句子的距离</p>
+<p>文字 图片 视频 都可以搜索百度 搜狗 中文搜索api 根据相关度和情绪来排序 （语种一致）回答文字或者多媒体</p>
+<p>拆分大句子为小句子 依次放入 注意要过滤掉广告 一般广告比较长 有链接？</p>
+<ul class="task-list">
+<li><p><input type="checkbox">输入的内容不能有违禁词否则不回答</p></li>
+<li><p><input type="checkbox">输出内容的时候不能有违禁词语 放进来的可以违禁 或者用拼音或者拆字转换这些违禁词语 保证上下文一致性 文本审查</p></li>
+</ul>
+<p>bad chinese -&gt; letter(pinyin initials) -&gt; leetspeek</p>
+<p>下一次挑选的时候自动过滤掉这些下一句在历史回答里面的句子对</p>
+<p>那个lock 要限制自身的读取/删除操作以及新消息的append操作</p>
+<ul class="task-list">
+<li><input type="checkbox">关于情绪激烈程度 如何提高生成器的情绪激烈度 做一个鉴别器 可以选择性的不去back propagate情绪不激烈的生成结果 或者直接用鉴别器筛选输入的语料</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

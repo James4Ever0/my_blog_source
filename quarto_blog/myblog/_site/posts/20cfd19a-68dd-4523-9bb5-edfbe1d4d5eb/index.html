@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This Neo4j Cypher Cheatsheet provides a comprehensive overview of essential graph query operations and advanced features, focusing on user management, transaction handling, and large dataset queries. It is specifically designed for Enterprise Edition users with role-based privilege management.">
+
+<title>Myblog - Neo4j Refcard</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Neo4j Refcard</h1>
+</div>
+
+<div>
+  <div class="description">
+    This Neo4j Cypher Cheatsheet provides a comprehensive overview of essential graph query operations and advanced features, focusing on user management, transaction handling, and large dataset queries. It is specifically designed for Enterprise Edition users with role-based privilege management.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="neo4j-refcard-cheatsheet-reference-card" class="level1">
+<h1>Neo4j Refcard Cheatsheet Reference Card</h1>
+<p><a href="https://gist.github.com/DaniSancas/1d5265fc159a95ff457b940fc5046887">gist</a></p>
+<p>Neo4j Cypher Refcard 4.4 Legend</p>
+<p>Read</p>
+<p>Write</p>
+<p>General</p>
+<p>Functions</p>
+<p>Schema</p>
+<p>Performance</p>
+<p>Multidatabase</p>
+<p>Security Syntax Read query structure</p>
+<p>[USE] [MATCH WHERE] [OPTIONAL MATCH WHERE] [WITH [ORDER BY] [SKIP] [LIMIT]] RETURN [ORDER BY] [SKIP] [LIMIT]</p>
+<p>MATCH</p>
+<p>MATCH (n:Person)-[:KNOWS]-&gt;(m:Person) WHERE n.name = ‘Alice’</p>
+<p>Node patterns can contain labels and properties.</p>
+<p>MATCH (n)–&gt;(m)</p>
+<p>Any pattern can be used in MATCH.</p>
+<p>MATCH (n {name: ‘Alice’})–&gt;(m)</p>
+<p>Patterns with node properties.</p>
+<p>MATCH p = (n)–&gt;(m)</p>
+<p>Assign a path to p.</p>
+<p>OPTIONAL MATCH (n)-[r]-&gt;(m)</p>
+<p>Optional pattern: nulls will be used for missing parts. WHERE</p>
+<p>WHERE n.property &lt;&gt; $value</p>
+<p>Use a predicate to filter. Note that WHERE is always part of a MATCH, OPTIONAL MATCH or WITH clause. Putting it after a different clause in a query will alter what it does.</p>
+<p>WHERE EXISTS { MATCH (n)–&gt;(m) WHERE n.age = m.age }</p>
+<p>Use an existential subquery to filter. Write-only query structure</p>
+<p>[USE] (CREATE | MERGE)<em> [SET|DELETE|REMOVE|FOREACH]</em> [RETURN [ORDER BY] [SKIP] [LIMIT]]</p>
+<p>Read-write query structure</p>
+<p>[USE] [MATCH WHERE] [OPTIONAL MATCH WHERE] [WITH [ORDER BY] [SKIP] [LIMIT]] (CREATE | MERGE)<em> [SET|DELETE|REMOVE|FOREACH]</em> [RETURN [ORDER BY] [SKIP] [LIMIT]]</p>
+<p>CREATE</p>
+<p>CREATE (n {name: $value})</p>
+<p>Create a node with the given properties.</p>
+<p>CREATE (n $map)</p>
+<p>Create a node with the given properties.</p>
+<p>UNWIND $listOfMaps AS properties CREATE (n) SET n = properties</p>
+<p>Create nodes with the given properties.</p>
+<p>CREATE (n)-[r:KNOWS]-&gt;(m)</p>
+<p>Create a relationship with the given type and direction; bind a variable to it.</p>
+<p>CREATE (n)-[:LOVES {since: $value}]-&gt;(m)</p>
+<p>Create a relationship with the given type, direction, and properties. SET</p>
+<p>SET n.property1 = $value1, n.property2 = $value2</p>
+<p>Update or create a property.</p>
+<p>SET n = $map</p>
+<p>Set all properties. This will remove any existing properties.</p>
+<p>SET n += $map</p>
+<p>Add and update properties, while keeping existing ones.</p>
+<p>SET n:Person</p>
+<p>Adds a label Person to a node. Import</p>
+<p>LOAD CSV FROM ‘https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv’ AS line CREATE (:Artist {name: line[1], year: toInteger(line[2])})</p>
+<p>Load data from a CSV file and create nodes.</p>
+<p>LOAD CSV WITH HEADERS FROM ‘https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv’ AS line CREATE (:Artist {name: line.Name, year: toInteger(line.Year)})</p>
+<p>Load CSV data which has headers.</p>
+<p>USING PERIODIC COMMIT 500 LOAD CSV WITH HEADERS FROM ‘https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv’ AS line CREATE (:Artist {name: line.Name, year: toInteger(line.Year)})</p>
+<p>Commit the current transaction after every 500 rows when importing large amounts of data.</p>
+<p>LOAD CSV FROM ‘https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-fieldterminator.csv’ AS line FIELDTERMINATOR ‘;’ CREATE (:Artist {name: line[1], year: toInteger(line[2])})</p>
+<p>Use a different field terminator, not the default which is a comma (with no whitespace around it).</p>
+<p>LOAD CSV FROM ‘https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv’ AS line RETURN DISTINCT file()</p>
+<p>Returns the absolute path of the file that LOAD CSV is processing, returns null if called outside of LOAD CSV context.</p>
+<p>LOAD CSV FROM ‘https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv’ AS line RETURN linenumber()</p>
+<p>Returns the line number that LOAD CSV is currently processing, returns null if called outside of LOAD CSV context. Operators</p>
+<p>General</p>
+<p>DISTINCT, ., []</p>
+<p>Mathematical</p>
+<p>+, -, *, /, %, ^</p>
+<p>Comparison</p>
+<p>=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=, IS NULL, IS NOT NULL</p>
+<p>Boolean</p>
+<p>AND, OR, XOR, NOT</p>
+<p>String</p>
+<ul>
+<li></li>
+</ul>
+<p>List</p>
+<p>+, IN, [x], [x .. y]</p>
+<p>Regular Expression</p>
+<p>=~</p>
+<p>String matching</p>
+<p>STARTS WITH, ENDS WITH, CONTAINS null</p>
+<pre><code>null is used to represent missing/undefined values.
+
+null is not equal to null. Not knowing two values does not imply that they are the same value. So the expression null = null yields null and not true. To check if an expression is null, use IS NULL.
+
+Arithmetic expressions, comparisons and function calls (except coalesce) will return null if any argument is null.
+
+An attempt to access a missing element in a list or a property that doesn’t exist yields null.
+
+In OPTIONAL MATCH clauses, nulls will be used for missing parts of the pattern.</code></pre>
+<p>Patterns</p>
+<p>(n:Person)</p>
+<p>Node with Person label.</p>
+<p>(n:Person:Swedish)</p>
+<p>Node with both Person and Swedish labels.</p>
+<p>(n:Person {name: $value})</p>
+<p>Node with the declared properties.</p>
+<p>()-[r {name: $value}]-()</p>
+<p>Matches relationships with the declared properties.</p>
+<p>(n)–&gt;(m)</p>
+<p>Relationship from n to m.</p>
+<p>(n)–(m)</p>
+<p>Relationship in any direction between n and m.</p>
+<p>(n:Person)–&gt;(m)</p>
+<p>Node n labeled Person with relationship to m.</p>
+<p>(m)&lt;-[:KNOWS]-(n)</p>
+<p>Relationship of type KNOWS from n to m.</p>
+<p>(n)-[:KNOWS|LOVES]-&gt;(m)</p>
+<p>Relationship of type KNOWS or of type LOVES from n to m.</p>
+<p>(n)-[r]-&gt;(m)</p>
+<p>Bind the relationship to variable r.</p>
+<p>(n)-[*1..5]-&gt;(m)</p>
+<p>Variable length path of between 1 and 5 relationships from n to m.</p>
+<p>(n)-[*]-&gt;(m)</p>
+<p>Variable length path of any number of relationships from n to m. (See Performance section.)</p>
+<p>(n)-[:KNOWS]-&gt;(m {property: $value})</p>
+<p>A relationship of type KNOWS from a node n to a node m with the declared property.</p>
+<p>shortestPath((n1:Person)-[*..6]-(n2:Person))</p>
+<p>Find a single shortest path.</p>
+<p>allShortestPaths((n1:Person)-[*..6]-&gt;(n2:Person))</p>
+<p>Find all shortest paths.</p>
+<p>size((n)–&gt;()–&gt;())</p>
+<p>Count the paths matching the pattern. USE</p>
+<p>USE myDatabase</p>
+<p>Select myDatabase to execute query, or query part, against.</p>
+<p>USE neo4j MATCH (n:Person)-[:KNOWS]-&gt;(m:Person) WHERE n.name = ‘Alice’</p>
+<p>MATCH query executed against neo4j database. SHOW FUNCTIONS and PROCEDURES</p>
+<p>SHOW FUNCTIONS</p>
+<p>Listing all available functions.</p>
+<p>SHOW PROCEDURES EXECUTABLE YIELD name</p>
+<p>List all procedures that can be executed by the current user and return only the name of the procedures. SHOW and TERMINATE TRANSACTIONS</p>
+<p>SHOW TRANSACTIONS</p>
+<p>Listing all available transactions.</p>
+<p>TERMINATE TRANSACTIONS ‘neo4j-transaction-42’</p>
+<p>Terminate the transaction with ID neo4j-transaction-42. Labels</p>
+<p>CREATE (n:Person {name: $value})</p>
+<p>Create a node with label and property.</p>
+<p>MERGE (n:Person {name: $value})</p>
+<p>Matches or creates unique node(s) with the label and property.</p>
+<p>SET n:Spouse:Parent:Employee</p>
+<p>Add label(s) to a node.</p>
+<p>MATCH (n:Person)</p>
+<p>Matches nodes labeled Person.</p>
+<p>MATCH (n:Person) WHERE n.name = $value</p>
+<p>Matches nodes labeled Person with the given name.</p>
+<p>WHERE (n:Person)</p>
+<p>Checks the existence of the label on the node.</p>
+<p>labels(n)</p>
+<p>Labels of the node.</p>
+<p>REMOVE n:Person</p>
+<p>Remove the label from the node. Maps</p>
+<p>{name: ‘Alice’, age: 38, address: {city: ‘London’, residential: true}}</p>
+<p>Literal maps are declared in curly braces much like property maps. Lists are supported.</p>
+<p>WITH {person: {name: ‘Anne’, age: 25}} AS p RETURN p.person.name</p>
+<p>Access the property of a nested map.</p>
+<p>MERGE (p:Person {name: $map.name}) ON CREATE SET p = $map</p>
+<p>Maps can be passed in as parameters and used either as a map or by accessing keys.</p>
+<p>MATCH (matchedNode:Person) RETURN matchedNode</p>
+<p>Nodes and relationships are returned as maps of their data.</p>
+<p>map.name, map.age, map.children[0]</p>
+<p>Map entries can be accessed by their keys. Invalid keys result in an error. Functions</p>
+<p>coalesce(n.property, $defaultValue)</p>
+<p>The first non-null expression.</p>
+<p>timestamp()</p>
+<p>Milliseconds since midnight, January 1, 1970 UTC.</p>
+<p>id(nodeOrRelationship)</p>
+<p>The internal id of the relationship or node.</p>
+<p>toInteger($expr)</p>
+<p>Converts the given input into an integer if possible; otherwise it returns null.</p>
+<p>toFloat($expr)</p>
+<p>Converts the given input into a floating point number if possible; otherwise it returns null.</p>
+<p>toBoolean($expr)</p>
+<p>Converts the given input into a boolean if possible; otherwise it returns null.</p>
+<p>keys($expr)</p>
+<p>Returns a list of string representations for the property names of a node, relationship, or map.</p>
+<p>properties($expr)</p>
+<p>Returns a map containing all the properties of a node or relationship. Spatial functions</p>
+<p>point({x: $x, y: $y})</p>
+<p>Returns a point in a 2D cartesian coordinate system.</p>
+<p>point({latitude: $y, longitude: $x})</p>
+<p>Returns a point in a 2D geographic coordinate system, with coordinates specified in decimal degrees.</p>
+<p>point({x: $x, y: $y, z: $z})</p>
+<p>Returns a point in a 3D cartesian coordinate system.</p>
+<p>point({latitude: $y, longitude: $x, height: $z})</p>
+<p>Returns a point in a 3D geographic coordinate system, with latitude and longitude in decimal degrees, and height in meters.</p>
+<p>point.distance(point({x: $x1, y: $y1}), point({x: $x2, y: $y2}))</p>
+<p>Returns a floating point number representing the linear distance between two points. The returned units will be the same as those of the point coordinates, and it will work for both 2D and 3D cartesian points.</p>
+<p>point.distance(point({latitude: $y1, longitude: $x1}), point({latitude: $y2, longitude: $x2}))</p>
+<p>Returns the geodesic distance between two points in meters. It can be used for 3D geographic points as well. Temporal functions</p>
+<p>date(“2018-04-05”)</p>
+<p>Returns a date parsed from a string.</p>
+<p>localtime(“12:45:30.25”)</p>
+<p>Returns a time with no time zone.</p>
+<p>time(“12:45:30.25+01:00”)</p>
+<p>Returns a time in a specified time zone.</p>
+<p>localdatetime(“2018-04-05T12:34:00”)</p>
+<p>Returns a datetime with no time zone.</p>
+<p>datetime(“2018-04-05T12:34:00[Europe/Berlin]”)</p>
+<p>Returns a datetime in the specified time zone.</p>
+<p>datetime({epochMillis: 3360000})</p>
+<p>Transforms 3360000 as a UNIX Epoch time into a normal datetime.</p>
+<p>date({year: $year, month: $month, day: $day})</p>
+<p>All of the temporal functions can also be called with a map of named components. This example returns a date from year, month and day components. Each function supports a different set of possible components.</p>
+<p>datetime({date: $date, time: $time})</p>
+<p>Temporal types can be created by combining other types. This example creates a datetime from a date and a time.</p>
+<p>date({date: $datetime, day: 5})</p>
+<p>Temporal types can be created by selecting from more complex types, as well as overriding individual components. This example creates a date by selecting from a datetime, as well as overriding the day component.</p>
+<p>WITH date(“2018-04-05”) AS d RETURN d.year, d.month, d.day, d.week, d.dayOfWeek</p>
+<p>Accessors allow extracting components of temporal types. Duration functions</p>
+<p>duration(“P1Y2M10DT12H45M30.25S”)</p>
+<p>Returns a duration of 1 year, 2 months, 10 days, 12 hours, 45 minutes and 30.25 seconds.</p>
+<p>duration.between(<span class="math inline">\(date1,\)</span>date2)</p>
+<p>Returns a duration between two temporal instances.</p>
+<p>WITH duration(“P1Y2M10DT12H45M”) AS d RETURN d.years, d.months, d.days, d.hours, d.minutes</p>
+<p>Returns 1 year, 14 months, 10 days, 12 hours and 765 minutes.</p>
+<p>WITH duration(“P1Y2M10DT12H45M”) AS d RETURN d.years, d.monthsOfYear, d.days, d.hours, d.minutesOfHour</p>
+<p>Returns 1 year, 2 months, 10 days, 12 hours and 45 minutes.</p>
+<p>date(“2015-01-01”) + duration(“P1Y1M1D”)</p>
+<p>Returns a date of 2016-02-02. It is also possible to subtract durations from temporal instances.</p>
+<p>duration(“PT30S”) * 10</p>
+<p>Returns a duration of 5 minutes. It is also possible to divide a duration by a number. CONSTRAINT</p>
+<p>CREATE CONSTRAINT FOR (p:Person) REQUIRE p.name IS UNIQUE</p>
+<p>Create a unique property constraint on the label Person and property name. If any other node with that label is updated or created with a name that already exists, the write operation will fail. This constraint will create an accompanying index.</p>
+<p>CREATE CONSTRAINT uniqueness FOR (p:Person) REQUIRE (p.firstname, p.age) IS UNIQUE</p>
+<p>Create a unique property constraint with the name uniqueness on the label Person and properties firstname and age. If any other node with that label is updated or created with a firstname and age combination that already exists, the write operation fails. This constraint creates an accompanying index.</p>
+<p>CREATE CONSTRAINT FOR (p:Person) REQUIRE p.surname IS UNIQUE OPTIONS {indexProvider: ‘native-btree-1.0’}</p>
+<p>Create a unique property constraint on the label Person and property surname with the index provider native-btree-1.0 for the accompanying index.</p>
+<p>CREATE CONSTRAINT FOR (p:Person) REQUIRE p.name IS NOT NULL</p>
+<p>(★) Create a node property existence constraint on the label Person and property name, throws an error if the constraint already exists. If a node with that label is created without a name, or if the name property is removed from an existing node with the Person label, the write operation will fail.</p>
+<p>CREATE CONSTRAINT node_exists IF NOT EXISTS FOR (p:Person) REQUIRE p.name IS NOT NULL</p>
+<p>(★) If a node property existence constraint on the label Person and property name or any constraint with the name node_exists already exist then nothing happens. If no such constraint exists, then it will be created.</p>
+<p>CREATE CONSTRAINT FOR ()-[l:LIKED]-() REQUIRE l.when IS NOT NULL</p>
+<p>(★) Create a relationship property existence constraint on the type LIKED and property when. If a relationship with that type is created without a when, or if the when property is removed from an existing relationship with the LIKED type, the write operation will fail.</p>
+<p>CREATE CONSTRAINT relationship_exists FOR ()-[l:LIKED]-() REQUIRE l.since IS NOT NULL</p>
+<p>(★) Create a relationship property existence constraint with the name relationship_exists on the type LIKED and property since. If a relationship with that type is created without a since, or if the since property is removed from an existing relationship with the LIKED type, the write operation will fail.</p>
+<p>SHOW UNIQUE CONSTRAINTS YIELD *</p>
+<p>List all unique constraints.</p>
+<p>CREATE CONSTRAINT FOR (p:Person) REQUIRE (p.firstname, p.surname) IS NODE KEY</p>
+<p>(★) Create a node key constraint on the label Person and properties firstname and surname. If a node with that label is created without both firstname and surname or if the combination of the two is not unique, or if the firstname and/or surname properties on an existing node with the Person label is modified to violate these constraints, the write operation fails. This constraint creates an accompanying index.</p>
+<p>CREATE CONSTRAINT node_key FOR (p:Person) REQUIRE p.firstname IS NODE KEY</p>
+<p>(★) Create a node key constraint with the name node_key on the label Person and property firstname. If a node with that label is created without the firstname property or if the value is not unique, or if the firstname property on an existing node with the Person label is modified to violate these constraints, the write operation fails. This constraint creates an accompanying index.</p>
+<p>CREATE CONSTRAINT node_key_with_config FOR (p:Person) REQUIRE (p.name, p.age) IS NODE KEY OPTIONS {indexConfig: {<code>spatial.wgs-84.min</code>: [-100.0, -100.0], <code>spatial.wgs-84.max</code>: [100.0, 100.0]}}</p>
+<p>(★) Create a node key constraint with the name node_key_with_config on the label Person, properties name and age, and given spatial.wgs-84 settings for the accompanying b-tree index. The other index settings will have their default values.</p>
+<p>DROP CONSTRAINT uniqueness</p>
+<p>Dropping the constraint with the name uniqueness, throws an error if the constraint does not exist. If the constraint has an accompanying index, that is also dropped.</p>
+<p>DROP CONSTRAINT uniqueness IF EXISTS</p>
+<p>Dropping the constraint with the name uniqueness if it exists, does nothing if it does not exist. If the constraint has an accompanying index, that is also dropped. Database management</p>
+<p>CREATE OR REPLACE DATABASE myDatabase</p>
+<p>(★) Create a database named myDatabase. If a database with that name exists, then the existing database is deleted and a new one created.</p>
+<p>ALTER DATABASE myDatabase SET ACCESS READ ONLY</p>
+<p>(★) Modify a database named myDatabase to be read-only.</p>
+<p>STOP DATABASE myDatabase</p>
+<p>(★) Stop the database myDatabase.</p>
+<p>START DATABASE myDatabase</p>
+<p>(★) Start the database myDatabase.</p>
+<p>CREATE ALIAS myAlias FOR DATABASE myDatabase</p>
+<p>(★) Create an alias myAlias for the database with name myDatabase.</p>
+<p>ALTER ALIAS myAlias SET DATABASE TARGET myDatabase</p>
+<p>(★) Alter the alias myAlias to target the database with name myDatabase.</p>
+<p>DROP ALIAS myAlias FOR DATABASE</p>
+<p>(★) Drop the database alias myAlias.</p>
+<p>SHOW DATABASES</p>
+<p>List all databases in the system and information about them.</p>
+<p>SHOW DATABASES YIELD name, currentStatus WHERE name CONTAINS ‘my’ AND currentStatus = ‘online’</p>
+<p>List information about databases, filtered by name and online status and further refined by conditions on these.</p>
+<p>SHOW DATABASE myDatabase</p>
+<p>List information about the database myDatabase.</p>
+<p>SHOW DEFAULT DATABASE</p>
+<p>List information about the default database.</p>
+<p>SHOW HOME DATABASE</p>
+<p>List information about the current users home database.</p>
+<p>DROP DATABASE myDatabase IF EXISTS</p>
+<p>(★) Delete the database myDatabase, if it exists. User management</p>
+<p>CREATE USER alice SET PASSWORD $password</p>
+<p>Create a new user and a password. This password must be changed on the first login.</p>
+<p>ALTER USER alice SET PASSWORD $password CHANGE NOT REQUIRED</p>
+<p>Set a new password for a user. This user will not be required to change this password on the next login.</p>
+<p>ALTER USER alice IF EXISTS SET PASSWORD CHANGE REQUIRED</p>
+<p>If the specified user exists, force this user to change their password on the next login.</p>
+<p>ALTER USER alice SET STATUS SUSPENDED</p>
+<p>(★) Change the user status to suspended. Use SET STATUS ACTIVE to reactivate the user.</p>
+<p>ALTER USER alice SET HOME DATABASE otherDb</p>
+<p>(★) Change the home database of user to otherDb. Use REMOVE HOME DATABASE to unset the home database for the user and fallback to the default database.</p>
+<p>ALTER CURRENT USER SET PASSWORD FROM $old TO $new</p>
+<p>Change the password of the logged-in user. The user will not be required to change this password on the next login.</p>
+<p>SHOW CURRENT USER</p>
+<p>List the currently logged-in user, their status, roles and whether they need to change their password. (★) Status and roles are Enterprise Edition only.</p>
+<p>SHOW USERS</p>
+<p>List all users in the system, their status, roles and if they need to change their password. (★) Status and roles are Enterprise Edition only.</p>
+<p>SHOW USERS YIELD user, suspended WHERE suspended = true</p>
+<p>List users in the system, filtered by their name and status and further refined by whether they are suspended. (★) Status is Enterprise Edition only.</p>
+<p>RENAME USER alice TO alice_delete</p>
+<p>Rename the user alice to alice_delete.</p>
+<p>DROP USER alice_delete</p>
+<p>Delete the user. (★) Role management</p>
+<p>CREATE ROLE my_role</p>
+<p>Create a role.</p>
+<p>CREATE ROLE my_second_role IF NOT EXISTS AS COPY OF my_role</p>
+<p>Create a role named my_second_role, unless it already exists, as a copy of the existing my_role.</p>
+<p>RENAME ROLE my_second_role TO my_other_role</p>
+<p>Rename a role named my_second_role to my_other_role.</p>
+<p>GRANT ROLE my_role, my_other_role TO alice</p>
+<p>Assign roles to a user.</p>
+<p>REVOKE ROLE my_other_role FROM alice</p>
+<p>Remove a specified role from a user.</p>
+<p>SHOW ROLES</p>
+<p>List all roles in the system.</p>
+<p>SHOW ROLES YIELD role WHERE role CONTAINS ‘my’</p>
+<p>List roles, filtered by the name of the role and further refined by whether the name contains ‘my’.</p>
+<p>SHOW POPULATED ROLES WITH USERS</p>
+<p>List all roles that are assigned to at least one user in the system, and the users assigned to those roles.</p>
+<p>DROP ROLE my_role</p>
+<p>Delete a role. (★) Graph read privileges</p>
+<p>GRANT TRAVERSE ON GRAPH * NODES * TO my_role</p>
+<p>Grant traverse privilege on all nodes and all graphs to a role.</p>
+<p>DENY READ {prop} ON GRAPH foo RELATIONSHIP Type TO my_role</p>
+<p>Deny read privilege on a specified property, on all relationships with a specified type in a specified graph, to a role.</p>
+<p>GRANT MATCH {*} ON HOME GRAPH ELEMENTS Label TO my_role</p>
+<p>Grant read privilege on all properties and traverse privilege in the home graph, to a role. Here, both privileges apply to all nodes and relationships with a specified label/type in the graph. (★) Graph write privileges</p>
+<p>GRANT CREATE ON GRAPH * NODES Label TO my_role</p>
+<p>Grant create privilege on all nodes with a specified label in all graphs to a role.</p>
+<p>DENY DELETE ON GRAPH neo4j TO my_role</p>
+<p>Deny delete privilege on all nodes and relationships in a specified graph to a role.</p>
+<p>REVOKE SET LABEL Label ON GRAPH * FROM my_role</p>
+<p>Revoke set label privilege for the specified label on all graphs to a role.</p>
+<p>GRANT REMOVE LABEL * ON GRAPH foo TO my_role</p>
+<p>Grant remove label privilege for all labels on a specified graph to a role.</p>
+<p>DENY SET PROPERTY {prop} ON GRAPH foo RELATIONSHIPS Type TO my_role</p>
+<p>Deny set property privilege on a specified property, on all relationships with a specified type in a specified graph, to a role.</p>
+<p>GRANT MERGE {<em>} ON GRAPH </em> NODES Label TO my_role</p>
+<p>Grant merge privilege on all properties, on all nodes with a specified label in all graphs, to a role.</p>
+<p>REVOKE WRITE ON GRAPH * FROM my_role</p>
+<p>Revoke write privilege on all graphs from a role.</p>
+<p>DENY ALL GRAPH PRIVILEGES ON GRAPH foo TO my_role</p>
+<p>Deny all graph privileges privilege on a specified graph to a role. (★) SHOW PRIVILEGES</p>
+<p>SHOW PRIVILEGES AS COMMANDS</p>
+<p>List all privileges in the system as Cypher commands.</p>
+<p>SHOW PRIVILEGES</p>
+<p>List all privileges in the system, and the roles that they are assigned to.</p>
+<p>SHOW PRIVILEGES YIELD role, action, access WHERE role = ‘my_role’</p>
+<p>List information about privileges, filtered by role, action and access and further refined by the name of the role.</p>
+<p>SHOW ROLE my_role PRIVILEGES AS COMMANDS</p>
+<p>List all privileges assigned to a role as Cypher commands.</p>
+<p>SHOW ROLE my_role, my_second_role PRIVILEGES AS COMMANDS</p>
+<p>List all privileges assigned to each of the multiple roles as Cypher commands.</p>
+<p>SHOW USER alice PRIVILEGES AS COMMANDS</p>
+<p>List all privileges of a user, and the role that they are assigned to as Cypher commands.</p>
+<p>SHOW USER PRIVILEGES AS COMMANDS</p>
+<p>List all privileges of the currently logged in user, and the role that they are assigned to as Cypher commands. RETURN</p>
+<p>RETURN *</p>
+<p>Return the value of all variables.</p>
+<p>RETURN n AS columnName</p>
+<p>Use alias for result column name.</p>
+<p>RETURN DISTINCT n</p>
+<p>Return unique rows.</p>
+<p>ORDER BY n.property</p>
+<p>Sort the result.</p>
+<p>ORDER BY n.property DESC</p>
+<p>Sort the result in descending order.</p>
+<p>SKIP $skipNumber</p>
+<p>Skip a number of results.</p>
+<p>LIMIT $limitNumber</p>
+<p>Limit the number of results.</p>
+<p>SKIP $skipNumber LIMIT $limitNumber</p>
+<p>Skip results at the top and limit the number of results.</p>
+<p>RETURN count(*)</p>
+<p>The number of matching rows. See Aggregating functions for more. WITH</p>
+<p>MATCH (user)-[:FRIEND]-(friend) WHERE user.name = $name WITH user, count(friend) AS friends WHERE friends &gt; 10 RETURN user</p>
+<p>The WITH syntax is similar to RETURN. It separates query parts explicitly, allowing you to declare which variables to carry over to the next part.</p>
+<p>MATCH (user)-[:FRIEND]-(friend) WITH user, count(friend) AS friends ORDER BY friends DESC SKIP 1 LIMIT 3 RETURN user</p>
+<p>ORDER BY, SKIP, and LIMIT can also be used with WITH. UNION</p>
+<p>MATCH (a)-[:KNOWS]-&gt;(b) RETURN b.name UNION MATCH (a)-[:LOVES]-&gt;(b) RETURN b.name</p>
+<p>Returns the distinct union of all query results. Result column types and names have to match.</p>
+<p>MATCH (a)-[:KNOWS]-&gt;(b) RETURN b.name UNION ALL MATCH (a)-[:LOVES]-&gt;(b) RETURN b.name</p>
+<p>Returns the union of all query results, including duplicated rows. MERGE</p>
+<p>MERGE (n:Person {name: $value}) ON CREATE SET n.created = timestamp() ON MATCH SET n.counter = coalesce(n.counter, 0) + 1, n.accessTime = timestamp()</p>
+<p>Match a pattern or create it if it does not exist. Use ON CREATE and ON MATCH for conditional updates.</p>
+<p>MATCH (a:Person {name: $value1}), (b:Person {name: $value2}) MERGE (a)-[r:LOVES]-&gt;(b)</p>
+<p>MERGE finds or creates a relationship between the nodes.</p>
+<p>MATCH (a:Person {name: $value1}) MERGE (a)-[r:KNOWS]-&gt;(b:Person {name: $value3})</p>
+<p>MERGE finds or creates paths attached to the node. DELETE</p>
+<p>DELETE n, r</p>
+<p>Delete a node and a relationship.</p>
+<p>DETACH DELETE n</p>
+<p>Delete a node and all relationships connected to it.</p>
+<p>MATCH (n) DETACH DELETE n</p>
+<p>Delete all nodes and relationships from the database. REMOVE</p>
+<p>REMOVE n:Person</p>
+<p>Remove a label from n.</p>
+<p>REMOVE n.property</p>
+<p>Remove a property. FOREACH</p>
+<p>FOREACH (r IN relationships(path) | SET r.marked = true)</p>
+<p>Execute a mutating operation for each relationship in a path.</p>
+<p>FOREACH (value IN coll | CREATE (:Person {name: value}))</p>
+<p>Execute a mutating operation for each element in a list. CALL subquery</p>
+<p>CALL { MATCH (p:Person)-[:FRIEND_OF]-&gt;(other:Person) RETURN p, other UNION MATCH (p:Child)-[:CHILD_OF]-&gt;(other:Parent) RETURN p, other }</p>
+<p>This calls a subquery with two union parts. The result of the subquery can afterwards be post-processed. CALL procedure</p>
+<p>CALL db.labels() YIELD label</p>
+<p>This shows a standalone call to the built-in procedure db.labels to list all labels used in the database. Note that required procedure arguments are given explicitly in brackets after the procedure name.</p>
+<p>CALL db.labels() YIELD *</p>
+<p>Standalone calls may use YIELD * to return all columns.</p>
+<p>CALL java.stored.procedureWithArgs</p>
+<p>Standalone calls may omit YIELD and also provide arguments implicitly via statement parameters, e.g.&nbsp;a standalone call requiring one argument input may be run by passing the parameter map {input: ‘foo’}.</p>
+<p>CALL db.labels() YIELD label RETURN count(label) AS count</p>
+<p>Calls the built-in procedure db.labels inside a larger query to count all labels used in the database. Calls inside a larger query always requires passing arguments and naming results explicitly with YIELD. Lists</p>
+<p>[‘a’, ‘b’, ‘c’] AS list</p>
+<p>Literal lists are declared in square brackets.</p>
+<p>size($list) AS len, $list[0] AS value</p>
+<p>Lists can be passed in as parameters.</p>
+<p>range($firstNum, $lastNum, $step) AS list</p>
+<p>range() creates a list of numbers (step is optional), other functions returning lists are: labels(), nodes(), relationships().</p>
+<p>MATCH p = (a)-[:KNOWS*]-&gt;() RETURN relationships(p) AS r</p>
+<p>The list of relationships comprising a variable length path can be returned using named paths and relationships().</p>
+<p>RETURN matchedNode.list[0] AS value, size(matchedNode.list) AS len</p>
+<p>Properties can be lists of strings, numbers or booleans.</p>
+<p>list[<span class="math inline">\(idx] AS value, list[\)</span>startIdx..$endIdx] AS slice</p>
+<p>List elements can be accessed with idx subscripts in square brackets. Invalid indexes return null. Slices can be retrieved with intervals from start_idx to end_idx, each of which can be omitted or negative. Out of range elements are ignored.</p>
+<p>UNWIND $names AS name MATCH (n {name: name}) RETURN avg(n.age)</p>
+<p>With UNWIND, any list can be transformed back into individual rows. The example matches all names from a list of names.</p>
+<p>MATCH (a) RETURN [(a)–&gt;(b) WHERE b.name = ‘Bob’ | b.age]</p>
+<p>Pattern comprehensions may be used to do a custom projection from a match directly into a list.</p>
+<p>MATCH (person) RETURN person { .name, .age}</p>
+<p>Map projections may be easily constructed from nodes, relationships and other map values. Predicates</p>
+<p>n.property &lt;&gt; $value</p>
+<p>Use comparison operators.</p>
+<p>toString(n.property) = $value</p>
+<p>Use functions.</p>
+<p>n.number &gt;= 1 AND n.number &lt;= 10</p>
+<p>Use boolean operators to combine predicates.</p>
+<p>1 &lt;= n.number &lt;= 10</p>
+<p>Use chained operators to combine predicates.</p>
+<p>n:Person</p>
+<p>Check for node labels.</p>
+<p>variable IS NOT NULL</p>
+<p>Check if something is not null, e.g.&nbsp;that a property exists.</p>
+<p>n.property IS NULL OR n.property = $value</p>
+<p>Either the property does not exist or the predicate is true.</p>
+<p>n.property = $value</p>
+<p>Non-existing property returns null, which is not equal to anything.</p>
+<p>n[“property”] = $value</p>
+<p>Properties may also be accessed using a dynamically computed property name.</p>
+<p>n.property STARTS WITH ‘Tim’ OR n.property ENDS WITH ‘n’ OR n.property CONTAINS ‘goodie’</p>
+<p>String matching.</p>
+<p>n.property =~ ’Tim.*’</p>
+<p>String regular expression matching.</p>
+<p>(n)-[:KNOWS]-&gt;(m)</p>
+<p>Ensure the pattern has at least one match.</p>
+<p>NOT (n)-[:KNOWS]-&gt;(m)</p>
+<p>Exclude matches to (n)-[:KNOWS]-&gt;(m) from the result.</p>
+<p>n.property IN [$value1, $value2]</p>
+<p>Check if an element exists in a list. List predicates</p>
+<p>all(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is true for all elements in the list.</p>
+<p>any(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is true for at least one element in the list.</p>
+<p>none(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is false for all elements in the list.</p>
+<p>single(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is true for exactly one element in the list. CASE</p>
+<p>CASE n.eyes WHEN ‘blue’ THEN 1 WHEN ‘brown’ THEN 2 ELSE 3 END</p>
+<p>Return THEN value from the matching WHEN value. The ELSE value is optional, and substituted for null if missing.</p>
+<p>CASE WHEN n.eyes = ‘blue’ THEN 1 WHEN n.age &lt; 40 THEN 2 ELSE 3 END</p>
+<p>Return THEN value from the first WHEN predicate evaluating to true. Predicates are evaluated in order. List expressions</p>
+<p>size($list)</p>
+<p>Number of elements in the list.</p>
+<p>reverse($list)</p>
+<p>Reverse the order of the elements in the list.</p>
+<p>head($list)</p>
+<p>Get the first element of the list. Return null for an empty list. Eqivalent to the list indexing $list[0].</p>
+<p>last($list)</p>
+<p>Get the last element of the list. Return null for an empty list. Eqivalent to the list indexing $list[-1].</p>
+<p>tail($list)</p>
+<p>Get all elements except for the first element. Return [] for an empty list. Eqivalent to the list slice $list[1..]. Out-of-bound slices are truncated to an empty list [].</p>
+<p>[x IN list | x.prop]</p>
+<p>A list of the value of the expression for each element in the original list.</p>
+<p>[x IN list WHERE x.prop &lt;&gt; $value]</p>
+<p>A filtered list of the elements where the predicate is true.</p>
+<p>[x IN list WHERE x.prop &lt;&gt; $value | x.prop]</p>
+<p>A list comprehension that filters a list and extracts the value of the expression for each element in that list.</p>
+<p>reduce(s = ““, x IN list | s + x.prop)</p>
+<p>Evaluate expression for each element in the list, accumulate the results. Path functions</p>
+<p>length(path)</p>
+<p>The number of relationships in the path.</p>
+<p>nodes(path)</p>
+<p>The nodes in the path as a list.</p>
+<p>relationships(path)</p>
+<p>The relationships in the path as a list.</p>
+<p>[x IN nodes(path) | x.prop]</p>
+<p>Extract properties from the nodes in a path. Mathematical functions</p>
+<p>abs($expr)</p>
+<p>The absolute value.</p>
+<p>rand()</p>
+<p>Returns a random number in the range from 0 (inclusive) to 1 (exclusive), [0,1). Returns a new value for each call. Also useful for selecting a subset or random ordering.</p>
+<p>round($expr)</p>
+<p>Round to the nearest integer; ceil() and floor() find the next integer up or down.</p>
+<p>sqrt($expr)</p>
+<p>The square root.</p>
+<p>sign($expr)</p>
+<p>0 if zero, -1 if negative, 1 if positive.</p>
+<p>sin($expr)</p>
+<p>Trigonometric functions also include cos(), tan(), cot(), asin(), acos(), atan(), atan2(), and haversin(). All arguments for the trigonometric functions should be in radians, if not otherwise specified.</p>
+<p>degrees(<span class="math inline">\(expr), radians(\)</span>expr), pi()</p>
+<p>Converts radians into degrees; use radians() for the reverse, and pi() for π.</p>
+<p>log10(<span class="math inline">\(expr), log(\)</span>expr), exp($expr), e()</p>
+<p>Logarithm base 10, natural logarithm, e to the power of the parameter, and the value of e. String functions</p>
+<p>toString($expression)</p>
+<p>String representation of the expression.</p>
+<p>replace($original, $search, $replacement)</p>
+<p>Replace all occurrences of search with replacement. All arguments must be expressions.</p>
+<p>substring($original, $begin, $subLength)</p>
+<p>Get part of a string. The subLength argument is optional.</p>
+<p>left($original, <span class="math inline">\(subLength),  right(\)</span>original, $subLength)</p>
+<p>The first part of a string. The last part of the string.</p>
+<p>trim(<span class="math inline">\(original), lTrim(\)</span>original), rTrim($original)</p>
+<p>Trim all whitespace, or on the left or right side.</p>
+<p>toUpper(<span class="math inline">\(original), toLower(\)</span>original)</p>
+<p>UPPERCASE and lowercase.</p>
+<p>split($original, $delimiter)</p>
+<p>Split a string into a list of strings.</p>
+<p>reverse($original)</p>
+<p>Reverse a string.</p>
+<p>size($string)</p>
+<p>Calculate the number of characters in the string. Relationship functions</p>
+<p>type(a_relationship)</p>
+<p>String representation of the relationship type.</p>
+<p>startNode(a_relationship)</p>
+<p>Start node of the relationship.</p>
+<p>endNode(a_relationship)</p>
+<p>End node of the relationship.</p>
+<p>id(a_relationship)</p>
+<p>The internal id of the relationship. Aggregating functions</p>
+<p>count(*)</p>
+<p>The number of matching rows.</p>
+<p>count(variable)</p>
+<p>The number of non-null values.</p>
+<p>count(DISTINCT variable)</p>
+<p>All aggregating functions also take the DISTINCT operator, which removes duplicates from the values.</p>
+<p>collect(n.property)</p>
+<p>List from the values, ignores null.</p>
+<p>sum(n.property)</p>
+<p>Sum numerical values. Similar functions are avg(), min(), max().</p>
+<p>percentileDisc(n.property, $percentile)</p>
+<p>Discrete percentile. Continuous percentile is percentileCont(). The percentile argument is from 0.0 to 1.0.</p>
+<p>stDev(n.property)</p>
+<p>Standard deviation for a sample of a population. For an entire population use stDevP(). INDEX</p>
+<p>CREATE INDEX FOR (p:Person) ON (p.name)</p>
+<p>Create a b-tree index on nodes with label Person and property name.</p>
+<p>CREATE INDEX index_name FOR ()-[k:KNOWS]-() ON (k.since)</p>
+<p>Create a b-tree index with the name index_name on relationships with type KNOWS and property since.</p>
+<p>CREATE INDEX FOR (p:Person) ON (p.surname) OPTIONS {indexProvider: ‘native-btree-1.0’, indexConfig: {<code>spatial.cartesian.min</code>: [-100.0, -100.0], <code>spatial.cartesian.max</code>: [100.0, 100.0]}}</p>
+<p>Create a b-tree index on nodes with label Person and property surname with the index provider native-btree-1.0 and given spatial.cartesian settings. The other index settings will have their default values.</p>
+<p>CREATE INDEX FOR (p:Person) ON (p.name, p.age)</p>
+<p>Create a composite b-tree index on nodes with label Person and the properties name and age, throws an error if the index already exist.</p>
+<p>CREATE INDEX IF NOT EXISTS FOR (p:Person) ON (p.name, p.age)</p>
+<p>Create a composite b-tree index on nodes with label Person and the properties name and age if it does not already exist, does nothing if it did exist.</p>
+<p>CREATE LOOKUP INDEX lookup_index_name FOR (n) ON EACH labels(n)</p>
+<p>Create a token lookup index with the name lookup_index_name on nodes with any label.</p>
+<p>CREATE LOOKUP INDEX FOR ()-[r]-() ON EACH type(r)</p>
+<p>Create a token lookup index on relationships with any relationship type.</p>
+<p>CREATE FULLTEXT INDEX node_fulltext_index_name FOR (n:Friend) ON EACH [n.name] OPTIONS {indexConfig: {<code>fulltext.analyzer</code>: ‘swedish’}}</p>
+<p>Create a fulltext index on nodes with the name node_fulltext_index_name and analyzer swedish. Fulltext indexes on nodes can only be used by from the procedure db.index.fulltext.queryNodes. The other index settings will have their default values.</p>
+<p>CREATE FULLTEXT INDEX rel_fulltext_index_name FOR ()-[r:HAS_PET|BROUGHT_PET]-() ON EACH [r.since, r.price]</p>
+<p>Create a fulltext index on relationships with the name rel_fulltext_index_name. Fulltext indexes on relationships can only be used by from the procedure db.index.fulltext.queryRelationships.</p>
+<p>CREATE TEXT INDEX FOR (f:Friend) ON (f.email)</p>
+<p>Create a text index on nodes with label Friend and property email.</p>
+<p>CREATE TEXT INDEX text_index_name FOR ()-[h:HAS_PET]-() ON (h.favoriteToy)</p>
+<p>Create a text index with the name text_index_name on relationships with type HAS_PET and property favoriteToy.</p>
+<p>SHOW INDEXES</p>
+<p>List all indexes.</p>
+<p>MATCH (n:Person) WHERE n.name = $value</p>
+<p>An BTREE index can be automatically used for the equality comparison. Note that for example toLower(n.name) = $value will not use an index.</p>
+<p>MATCH (n:Person) WHERE n.name = “Alice”</p>
+<p>An TEXT index can be automatically used for the equality comparison when comparing to a string. Note that for example toLower(n.name) = “string” does not use an index.</p>
+<p>MATCH (n:Person) WHERE n.name &lt; “Bob”</p>
+<p>An index can automatically be used for range predicates. Note that a TEXT index is only used if the predicate compares the property with a string.</p>
+<p>MATCH (n:Person) WHERE n.name IN [$value]</p>
+<p>An index can automatically be used for the IN list checks.</p>
+<p>MATCH (n:Person) WHERE n.name IN [‘Bob’, ‘Alice’]</p>
+<p>An TEXT index can automatically be used for the IN list checks when all elements in the list are strings.</p>
+<p>MATCH (n:Person) WHERE n.name = $value and n.age = $value2</p>
+<p>A composite index can be automatically used for equality comparison of both properties. Note that there needs to be predicates on all properties of the composite index for it to be used.</p>
+<p>MATCH (n:Person) USING INDEX n:Person(name) WHERE n.name = $value</p>
+<p>Index usage can be enforced when Cypher uses a suboptimal index, or more than one index should be used.</p>
+<p>DROP INDEX index_name</p>
+<p>Drop the index named index_name, throws an error if the index does not exist.</p>
+<p>DROP INDEX index_name IF EXISTS</p>
+<p>Drop the index named index_name if it exists, does nothing if it does not exist. Performance</p>
+<pre><code>Use parameters instead of literals when possible. This allows Cypher to re-use your queries instead of having to parse and build new execution plans.
+
+Always set an upper limit for your variable length patterns. It’s possible to have a query go wild and touch all nodes in a graph by mistake.
+
+Return only the data you need. Avoid returning whole nodes and relationships — instead, pick the data you need and return only that.
+
+Use PROFILE / EXPLAIN to analyze the performance of your queries. See Query Tuning for more information on these and other topics, such as planner hints.</code></pre>
+<p>(★) Database privileges</p>
+<p>GRANT ACCESS ON DATABASE * TO my_role</p>
+<p>Grant privilege to access and run queries against all databases to a role.</p>
+<p>GRANT START ON DATABASE * TO my_role</p>
+<p>Grant privilege to start all databases to a role.</p>
+<p>GRANT STOP ON DATABASE * TO my_role</p>
+<p>Grant privilege to stop all databases to a role.</p>
+<p>GRANT CREATE INDEX ON DATABASE foo TO my_role</p>
+<p>Grant privilege to create indexes on a specified database to a role.</p>
+<p>GRANT DROP INDEX ON DATABASE foo TO my_role</p>
+<p>Grant privilege to drop indexes on a specified database to a role.</p>
+<p>GRANT SHOW INDEX ON DATABASE * TO my_role</p>
+<p>Grant privilege to show indexes on all databases to a role.</p>
+<p>DENY INDEX MANAGEMENT ON DATABASE bar TO my_role</p>
+<p>Deny privilege to create and drop indexes on a specified database to a role.</p>
+<p>GRANT CREATE CONSTRAINT ON DATABASE * TO my_role</p>
+<p>Grant privilege to create constraints on all databases to a role.</p>
+<p>DENY DROP CONSTRAINT ON DATABASE * TO my_role</p>
+<p>Deny privilege to drop constraints on all databases to a role.</p>
+<p>DENY SHOW CONSTRAINT ON DATABASE foo TO my_role</p>
+<p>Deny privilege to show constraints on a specified database to a role.</p>
+<p>REVOKE CONSTRAINT ON DATABASE * FROM my_role</p>
+<p>Revoke granted and denied privileges to create and drop constraints on all databases from a role.</p>
+<p>GRANT CREATE NEW LABELS ON DATABASE * TO my_role</p>
+<p>Grant privilege to create new labels on all databases to a role.</p>
+<p>DENY CREATE NEW TYPES ON DATABASE foo TO my_role</p>
+<p>Deny privilege to create new relationship types on a specified database to a role.</p>
+<p>REVOKE GRANT CREATE NEW PROPERTY NAMES ON DATABASE bar FROM my_role</p>
+<p>Revoke the grant privilege to create new property names on a specified database from a role.</p>
+<p>GRANT NAME MANAGEMENT ON HOME DATABASE TO my_role</p>
+<p>Grant privilege to create labels, relationship types, and property names on the home database to a role.</p>
+<p>GRANT ALL ON DATABASE baz TO my_role</p>
+<p>Grant privilege to access, create and drop indexes and constraints, create new labels, types and property names on a specified database to a role.</p>
+<p>GRANT SHOW TRANSACTION (*) ON DATABASE foo TO my_role</p>
+<p>Grant privilege to list transactions and queries from all users on a specified database to a role.</p>
+<p>DENY TERMINATE TRANSACTION (user1, user2) ON DATABASES * TO my_role</p>
+<p>Deny privilege to kill transactions and queries from user1 and user2 on all databases to a role.</p>
+<p>REVOKE GRANT TRANSACTION MANAGEMENT ON HOME DATABASE FROM my_role</p>
+<p>Revoke the granted privilege to list and kill transactions and queries from all users on the home database from a role. (★) Role management privileges</p>
+<p>GRANT CREATE ROLE ON DBMS TO my_role</p>
+<p>Grant the privilege to create roles to a role.</p>
+<p>GRANT RENAME ROLE ON DBMS TO my_role</p>
+<p>Grant the privilege to rename roles to a role.</p>
+<p>GRANT DROP ROLE ON DBMS TO my_role</p>
+<p>Grant the privilege to delete roles to a role.</p>
+<p>DENY ASSIGN ROLE ON DBMS TO my_role</p>
+<p>Deny the privilege to assign roles to users to a role.</p>
+<p>DENY REMOVE ROLE ON DBMS TO my_role</p>
+<p>Deny the privilege to remove roles from users to a role.</p>
+<p>REVOKE DENY SHOW ROLE ON DBMS FROM my_role</p>
+<p>Revoke the denied privilege to show roles from a role.</p>
+<p>GRANT ROLE MANAGEMENT ON DBMS TO my_role</p>
+<p>Grant all privileges to manage roles to a role. (★) User management privileges</p>
+<p>GRANT CREATE USER ON DBMS TO my_role</p>
+<p>Grant the privilege to create users to a role.</p>
+<p>GRANT RENAME USER ON DBMS TO my_role</p>
+<p>Grant the privilege to rename users to a role.</p>
+<p>DENY ALTER USER ON DBMS TO my_role</p>
+<p>Deny the privilege to alter users to a role.</p>
+<p>REVOKE SET PASSWORDS ON DBMS FROM my_role</p>
+<p>Revoke the granted and denied privileges to alter users’ passwords from a role.</p>
+<p>REVOKE GRANT SET USER STATUS ON DBMS FROM my_role</p>
+<p>Revoke the granted privilege to alter the account status of users from a role.</p>
+<p>GRANT SET USER HOME DATABASE ON DBMS TO my_role</p>
+<p>Grant the privilege alter the home database of users to a role.</p>
+<p>GRANT DROP USER ON DBMS TO my_role</p>
+<p>Grant the privilege to delete users to a role.</p>
+<p>REVOKE DENY SHOW USER ON DBMS FROM my_role</p>
+<p>Revoke the denied privilege to show users from a role.</p>
+<p>GRANT USER MANAGEMENT ON DBMS TO my_role</p>
+<p>Grant all privileges to manage users to a role. (★) Database management privileges</p>
+<p>GRANT CREATE DATABASE ON DBMS TO my_role</p>
+<p>Grant the privilege to create databases and aliases to a role.</p>
+<p>REVOKE DENY DROP DATABASE ON DBMS FROM my_role</p>
+<p>Revoke the denied privilege to delete databases and aliases from a role.</p>
+<p>REVOKE GRANT ALTER DATABASE ON DBMS FROM my_role</p>
+<p>Revoke the granted privilege to alter databases and aliases from a role.</p>
+<p>GRANT SET DATABASE ACCESS ON DBMS TO my_role</p>
+<p>Granted privilege to set database access mode to a role.</p>
+<p>DENY DATABASE MANAGEMENT ON DBMS TO my_role</p>
+<p>Deny all privileges to manage databases and aliases to a role. (★) Privilege management privileges</p>
+<p>GRANT SHOW PRIVILEGE ON DBMS TO my_role</p>
+<p>Grant the privilege to show privileges to a role.</p>
+<p>DENY ASSIGN PRIVILEGE ON DBMS TO my_role</p>
+<p>Deny the privilege to assign privileges to roles to a role.</p>
+<p>REVOKE GRANT REMOVE PRIVILEGE ON DBMS FROM my_role</p>
+<p>Revoke the granted privilege to remove privileges from roles from a role.</p>
+<p>REVOKE PRIVILEGE MANAGEMENT ON DBMS FROM my_role</p>
+<p>Revoke all granted and denied privileges for manage privileges from a role. (★) DBMS privileges</p>
+<p>GRANT ALL ON DBMS TO my_role</p>
+<p>Grant privilege to perform all role, user, database, alias, privilege, procedure, function, and impersonation management to a role.</p>
+<p>DENY IMPERSONATE (alice) ON DBMS TO my_role</p>
+<p>Deny privilege to impersonate the specified user to a role.</p>
+<p>(★) Functionality available in Neo4j Enterprise Edition.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

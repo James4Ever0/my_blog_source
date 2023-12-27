@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["AI", "API", "online services", "sougou", "stub", "白嫖"], "category": "AI", "date": "2023-12-22 23:52:59", "description": "This article delves into the advanced AI capabilities of Sogou Input Method, highlighting its features such as AI images, writing assistance, engaging conversations, translation services, and error proofreading.", "tags": *id001, "title": "搜狗输入法AI功能"}
+
+---
+
+------
+
+# 搜狗输入法AI功能
+
+AI配图 AI帮写 趣聊 翻译 校对
+

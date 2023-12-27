@@ -1,0 +1,21 @@
+---
+{"categories": &id001 ["AI", "Tools Collections", "Futurepedia", "Creatives", "Futuretools", "Zhihu", "Getinference"], "category": "AI tools collections", "date": "2023-12-22 23:52:59", "description": "This article highlights various AI tools collections, including Futurepedia, Creatives, and Futuretools. It also refers to a Zhihu post and Getinference.", "tags": *id001, "title": "AI tools collections"}
+
+---
+
+------
+
+# AI tools collections
+
+## tool repository
+
+i was informed by a post on zhihu.
+
+[futurepedia](https://www.futurepedia.io/)
+
+[creatives](https://www.creaitives.com/tools)
+
+[futuretools](https://www.futuretools.io/)
+
+[getinference](https://airadar.getinference.com/)
+

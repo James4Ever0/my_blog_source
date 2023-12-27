@@ -35,8 +35,7 @@ from dateparser_utils import (
 )
 from headline_match import modify_content_metadata, parse_content_metadata
 from similarity_utils import SimilarityIndex, sentence_transformer_context
-
-UTF8 = "utf-8"
+from io_utils import load_file, write_file
 
 T = TypeVar("T")
 DEFAULT_TOP_K = 7
@@ -53,16 +52,6 @@ def generate_markdown_name():
     fname = f"{file_id}.md"
     return fname
 
-
-def load_file(fname: str):
-    with open(fname, "r", encoding=UTF8) as f:
-        cnt = f.read()
-    return cnt
-
-
-def write_file(fname: str, content: str):
-    with open(fname, "w+", encoding=UTF8) as f:
-        f.write(content)
 
 
 def split_by_line(cnt: str):
@@ -716,28 +705,29 @@ def get_note_paths_without_bad_words_and_existing_tags_and_categories(
     def append_note_path_and_update_existing_tags_and_categories(
         content: str,
         filepath: str,
-        check_bad_words: bool,
+        append_and_check_bad_words: bool,
     ):
-        if check_bad_words_passed(content, check_bad_words):
-            note_paths.append(filepath)
+        if check_bad_words_passed(content, append_and_check_bad_words):
+            if append_and_check_bad_words:
+                note_paths.append(filepath)
             extract_and_update_existing_tags_and_categories(
                 content, existing_tags, existing_categories
             )
 
     @beartype
     def iterate_dir_and_update_tags_and_categoiries(
-        dirpath: str, check_bad_words: bool = True
+        dirpath: str, append_and_check_bad_words: bool = True
     ):
         for fpath in iterate_and_get_markdown_filepath_from_notedir(dirpath):
             content = load_file(fpath)
             append_note_path_and_update_existing_tags_and_categories(
-                content, fpath, check_bad_words
+                content, fpath, append_and_check_bad_words
             )
 
     iterate_dir_and_update_tags_and_categoiries(
         notes_dir,
     )
-    iterate_dir_and_update_tags_and_categoiries(cache_dir, check_bad_words=False)
+    iterate_dir_and_update_tags_and_categoiries(cache_dir, append_and_check_bad_words=False)
 
     return note_paths, existing_tags, existing_categories
 

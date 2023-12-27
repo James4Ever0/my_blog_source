@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["Autocad", "DWG to DXF conversion", "ODA File Converter", "LibreDWG", "Text extraction", "FreeCAD", "Command-line usage"], "category": "DWG to DXF conversion", "date": "2023-12-22 23:52:59", "description": "This text offers step-by-step guidance on how to convert Autocad DWG files into DXF format utilizing the ODA File Converter tool and retrieve text from DWG files with LibreDWG. It also provides an example of command-line usage and a link to FreeCAD for further exploration.", "tags": *id001, "title": "autocad dwg to dxf, extract text from dwg files"}
+
+---
+
+------
+
+# autocad dwg to dxf, extract text from dwg files
+
+use [oda_file_converter](https://www.opendesign.com/guestfiles/oda_file_converter) to convert dwt to dxf, when running it, its ui will pop up. [example commandline usage](https://github.com/oddworldng/dwg_to_dxf/blob/master/dwg_to_dxf.py)
+
+[libredwg](https://libreplanet.org/wiki/Group:LibreDWG) powers dwg2dxf
+
+freecad
+

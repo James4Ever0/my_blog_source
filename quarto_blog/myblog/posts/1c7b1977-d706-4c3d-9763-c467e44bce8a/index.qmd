@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["space-saving", "cold-weather", "bed", "keyboard", "blankets", "pillows", "comfort"], "category": "Ergonomics", "date": "2023-12-22 23:52:59", "description": "This text presents a practical solution for typing comfortably on a keyboard while using thick blankets in cold weather. By placing two pillows on either side of the legs, it helps create enough space to type without being restricted by the blanket's pressure on hands and feet.", "tags": *id001, "title": "床上用键盘的技巧：垫枕头"}
+
+---
+
+------
+
+# 床上用键盘的技巧：垫枕头
+
+通过在腿的两侧添加两个枕头 成功解决因为天气寒冷被子加厚导致被子压手 没有空间在键盘上面打字的问题 一定程度上也解决了被子压脚的问题
+

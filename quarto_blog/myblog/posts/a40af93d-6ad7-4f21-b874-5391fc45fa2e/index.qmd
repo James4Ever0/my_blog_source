@@ -1,0 +1,80 @@
+---
+{"categories": &id001 ["linux", "hard disk detection", "reset-usb.sh script", "USB controllers", "Kali Linux", "improvements", "sub-scripts"], "category": "Linux", "date": "2023-12-22 23:52:59", "description": "The reset-usb.sh script is a solution to hard disk detection issues in Linux, specifically addressing USB controller problems. It works by utilizing sub-scripts and a for loop to unbind and rebind the controllers, with suggested enhancements for Kali Linux.", "tags": *id001, "title": "reset usb"}
+
+---
+
+------
+
+# reset usb
+
+the same for `/sys/bus/usb/drivers/*`.
+
+----
+in case kali failed to detect presence of hard disks, shall you pop up a dialog for us to decide whether to reset to usb or not.
+
+## reset-usb.sh
+
+```bash
+#!/bin/bash
+reset-ahci-controllers.sh
+reset-xhci-controllers.sh
+```
+
+## reset-ahci-controllers.sh
+
+```bash
+#!/bin/bash
+
+# this freaking works.
+
+# Script to reset all local xHCI (USB) controllers
+# Based on: http://billauer.co.il/blog/2013/02/usb-reset-ehci-uhci-linux/
+
+if [[ ${EUID} != 0 ]]; then
+	echo This must be run as root!
+	exit 1
+fi
+
+for xhci in /sys/bus/pci/drivers/ahci; do
+	if ! cd ${xhci}; then
+		echo "Weird error. Failed to change directory to ${xhci}."
+	exit 1
+	fi
+	echo "Resetting devices from ${xhci}..."
+	for i in ????:??:??.?; do
+		echo -n "${i}" > unbind
+		echo -n "${i}" > bind
+	done
+done
+
+```
+
+## reset-xhci-controllers.sh
+
+```bash
+#!/bin/bash
+
+# this freaking works.
+
+# Script to reset all local xHCI (USB) controllers
+# Based on: http://billauer.co.il/blog/2013/02/usb-reset-ehci-uhci-linux/
+
+if [[ ${EUID} != 0 ]]; then
+	echo This must be run as root!
+	exit 1
+fi
+
+for xhci in /sys/bus/pci/drivers/?hci_hcd; do
+	if ! cd ${xhci}; then
+		echo "Weird error. Failed to change directory to ${xhci}."
+	exit 1
+	fi
+	echo "Resetting devices from ${xhci}..."
+	for i in ????:??:??.?; do
+		echo -n "${i}" > unbind
+		echo -n "${i}" > bind
+	done
+done
+
+```
+

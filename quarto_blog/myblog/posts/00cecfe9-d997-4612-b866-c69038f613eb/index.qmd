@@ -1,0 +1,23 @@
+---
+{"categories": &id001 ["command-line", "JSON filtering", "HTML formatting", "jq", "jqterm", "htmlq", "pup"], "category": "Command-line Tools", "date": "2023-12-22 23:52:59", "description": "This text discusses command-line tools for filtering and formatting JSON/HTML, including jq, jqterm, htmlq, and pup. These tools are essential for hackers to efficiently manipulate data, search, and extract information using regular expressions and filters.", "tags": *id001, "title": "Mastering Command-Line Tools for JSON/HTML Filtering and Formatting"}
+
+---
+
+------
+
+# commandline json/html filter and formatters
+
+for hackers, filtering matters.
+
+[jq](https://stedolan.github.io/jq/)
+
+[jqterm](https://jqterm.com/?query=.) online jq repl
+
+[htmlq](https://github.com/mgdm/htmlq) is for querying html with selectors, extracting text from html
+
+[pup](https://github.com/ericchiang/pup) download from [release](https://github.com/EricChiang/pup/releases/tag/v0.4.0)
+
+one must collect a handful set of regular expression/filters to do hacking
+
+searching, regex, two most important things for hackers. it's not about blindly collecting data. it's power and knowledge.
+

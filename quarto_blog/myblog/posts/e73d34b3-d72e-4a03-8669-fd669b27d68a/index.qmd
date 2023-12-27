@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["cookie", "credential", "information gathering", "playwright", "scraping", "stub", "tips"], "category": "Playwright", "date": "2023-12-22 23:52:59", "description": "This blog post delves into Playwright's handling of request headers and cookies, with a focus on the context.cookies() method as an effective solution for addressing cookie-related challenges.", "tags": *id001, "title": "playwright intercept request header cookie"}
+
+---
+
+------
+
+# playwright intercept request header cookie
+
+cookie not found on request event handler. 
+
+cookie can be obtained via context.cookies()
+
+router
+

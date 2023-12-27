@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["bilibili", "website customization", "dark reader", "filter mode toggles", "appearance modification", "tools for website modification", "user solutions"], "category": "Web Customization", "date": "2023-12-22 23:52:59", "description": "This user discusses various ways to customize or modify the appearance of a website called \"bilibili\" using tools like Dark Reader and filter mode toggles.", "tags": *id001, "title": "bilibili dark reader mod"}
+
+---
+
+------
+
+# bilibili dark reader mod
+
+maybe toggle the filter mode triggers will help?
+
+or stylus? other modding tools?
+

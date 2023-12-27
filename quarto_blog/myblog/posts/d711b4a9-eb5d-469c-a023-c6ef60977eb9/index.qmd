@@ -1,0 +1,18 @@
+---
+{"categories": &id001 ["freelancer", "information gathering", "movie scraping"], "category": "Movies", "date": "2023-12-22 23:52:59", "description": "The text is a collection of movie links from the website 'cokemv.me'. The URLs provided lead to individual movie pages and search results.", "tags": *id001, "title": "Movie Scraping 2"}
+
+---
+
+------
+
+# Movie Scraping 2
+
+with douban link fetched from search, with id
+
+https://cokemv.me/voddetail/39184.html
+https://cokemv.me/
+
+https://cokemv.me/vodshow/5-----------2021.html
+
+https://cokemv.me/vodshow/2--------2---2022.html
+

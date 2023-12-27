@@ -1,0 +1,20 @@
+---
+{"categories": &id001 ["code analysis", "hacking", "source code understanding"], "category": "Code Auditing", "date": "2023-12-22 23:52:59", "description": "This content explores semantic search tools for auditing source code in languages like Go and Haskell, providing examples of Sourcegraph and SonarQube.", "tags": *id001, "title": "Source code semantic search tool"}
+
+---
+
+------
+
+# Source code semantic search tool audit tool
+
+can be used to analysis bilibili source code or large code base
+
+sourcegraph/sourcegraph:
+in go
+
+github/semantic:
+in haskell
+
+sonarqube:
+code audit tool
+

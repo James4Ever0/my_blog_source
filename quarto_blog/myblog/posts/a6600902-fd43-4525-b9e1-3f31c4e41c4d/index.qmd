@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["bilibili", "courses", "resources", "stub"], "category": "Bilibili", "date": "2023-12-22 23:52:59", "description": "This article provides information and links about the 'bilibili up主启航计划', a program on the video-sharing platform bilibili. It covers various aspects of the program, including its objectives, eligibility criteria, benefits, and resources for potential participants.", "tags": *id001, "title": "bilibili up主启航计划"}
+
+---
+
+------
+
+# bilibili up主启航计划
+
+现在看来b站应该是有专人在负责讲解同一套课程了 我现在还在收到b站的培训通知短信
+
+应该把相关的链接 信息收集在这里
+

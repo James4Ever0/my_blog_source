@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["Audio-Visual", "Active Speaker Detection", "Leaderboard", "SPL+", "Speech Recognition", "Advancements in Technology", "Identifying Speakers"], "category": "Speaker Detection", "date": "2023-12-22 23:52:59", "description": "This article explores the advancements in audio-visual active speaker detection technology, discussing recent developments and potential references to a leaderboard and SPL+. The article delves into the identification of speakers within an audiovisual context and how these technologies are evolving.", "tags": *id001, "title": "audio-visual active speaker detection"}
+
+---
+
+------
+
+# audio-visual active speaker detection
+
+[leaderboard](https://paperswithcode.com/sota/audio-visual-active-speaker-detection-on-ava)
+
+[spell+](https://paperswithcode.com/sota/audio-visual-active-speaker-detection-on-ava)
+

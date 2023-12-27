@@ -1,0 +1,23 @@
+---
+{"categories": &id001 ["bypassing internet restrictions", "YouTube video downloaders", "web scraping", "Binder alternative to Google Colab", "Continuous Integration services", "GitHub CI", "CircleCI and Azure Pipelines"], "category": "Web Scraping", "date": "2023-12-22 23:52:59", "description": "This article delves into techniques for circumventing internet limitations, obtaining YouTube video downloads, and web scraping from restricted sites. It suggests employing platforms like Binder as replacements to Google Colab, while also examining an assortment of Continuous Integration (CI) services offered by GitHub and other providers including CircleCI and Azure Pipelines. The article emphasizes the significance of accessing results promptly through coding.", "tags": *id001, "title": "gfw circumvention, download youtube videos, scrape banned websites"}
+
+---
+
+------
+
+# gfw circumvention, download youtube videos, scrape banned websites
+
+[binder](https://mybinder.org/) as colab alternative
+
+apart from kaggle, you can also use github actions, devops and more, if only we can get the results in time with code.
+
+[github integrated ci platforms](https://github.com/marketplace?category=continuous-integration)
+
+[cirrus graphql spec](https://github.com/cirruslabs/cirrus-ci-web/blob/master/schema.gql) with artifact info
+
+[github actions api: download artifact](https://docs.github.com/en/rest/actions/artifacts#download-an-artifact)
+
+[circleci: artifact](https://circleci.com/docs/api/v1/index.html#artifacts)
+
+[azure pipelines: artifacts](https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/artifacts?view=azure-devops-rest-6.0)
+

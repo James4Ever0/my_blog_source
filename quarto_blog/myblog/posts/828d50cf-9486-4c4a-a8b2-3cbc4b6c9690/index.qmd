@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["commandline", "emergency", "kali", "linux", "remedy", "system manage"], "category": "Linux", "date": "2023-12-22 23:52:59", "description": "This text provides a solution for accessing the Linux command line (tty) when Xorg fails. It describes how to boot into the command line by entering '3' after the longest line of boot commands, and suggests using SSH to collect logs even if there are interface issues.", "tags": *id001, "title": "Boot into Linux commandline (tty)"}
+
+---
+
+------
+
+# Boot into Linux commandline (tty)
+
+when xorg fails, one must use commandline to debug problems.
+
+put '3' after the longest line of boot commands.
+
+use ssh to collect logs even if the main interface is stuck somehow (like libinput faliure)
+
+reference:
+
+https://www.linuxandubuntu.com/home/how-to-boot-into-linux-command-line/amp
+

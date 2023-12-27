@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["stock_selection", "WenCai XuanGǔ", "Python", "API", "finance", "investment", "platform"], "category": "Stock Selection", "date": "2023-12-22 23:52:59", "description": "Introducing '问财选股' (WenCai XuanGǔ), a stock selection platform with an official website and API tutorial. It also has a Python implementation called 'pywencai', providing users with tools for making informed investment decisions.", "tags": *id001, "title": "Discover '问财选股': The Comprehensive Stock Selection Platform and Python Implementation"}
+
+---
+
+------
+
+# 问财选股
+
+[官网](http://www.iwencai.com/unifiedmobile/#/home/index)
+
+[问财api教程](https://zhuanlan.zhihu.com/p/539403282?utm_id=0)
+
+[pywencai](https://github.com/zsrl/pywencai)
+

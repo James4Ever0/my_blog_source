@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["image segmentation", "stub", "video analysis", "video processing", "video segmentation", "video understanding"], "category": "NeuralDiff", "date": "2023-12-22 23:52:59", "description": "NeuralDiff is a Pytorch-based solution designed to differentiate between actors and objects in 3D videos captured from an egocentric viewpoint. This implementation leverages advanced neural network techniques to accurately identify and categorize the elements present within such videos.", "tags": *id001, "title": "Neuraldiff: discriminate actor and objects in video"}
+
+---
+
+------
+
+# Neuraldiff: discriminate actor and objects in video
+
+Neuraldiff:
+ https://github.com/dichotomies/NeuralDiff?ref=pythonawesome.com
+https://pythonawesome.com/official-pytorch-implementation-of-neuraldiff-segmenting-3d-objects-that-move-in-egocentric-videos/
+

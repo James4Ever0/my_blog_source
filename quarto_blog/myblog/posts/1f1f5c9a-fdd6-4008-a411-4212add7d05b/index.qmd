@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["software viruses", "encrypted porn/copyrighted material sharing", "cryptocurrency mining through GitHub", "money laundering", "GitHub automation with Terraform", "detecting malicious activities", "online security"], "category": "Software Security", "date": "2023-12-22 23:52:59", "description": "This text highlights various methods for carrying out malicious activities online, including planting viruses in software, sharing encrypted adult content and copyrighted material, and mining cryptocurrency through GitHub. The importance of money laundering to avoid detection is stressed, and the use of Terraform for automating GitHub tasks is suggested.", "tags": *id001, "title": "badass tricks, earning plans"}
+
+---
+
+------
+
+# badass tricks, earning plans
+
+you talk about planting virus in software when people need it, also sharing some encrypted porn/copyrighted material to users, or mining crypto through github ci, exploits. when doing so, make sure the money is **laundried**, either through transfer between multiple crypto accounts or some professional agencies.
+
+for github jobs, you may use [terraform](https://registry.terraform.io/search/modules?q=github) since it has some github automation tools
+

@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["emotion", "ideas", "social media"], "category": "Emotion Manipulation", "date": "2023-12-22 23:52:59", "description": "The article explores the manipulation of emotions through different means like graphics, motion, text, and voice. It proposes using random swaps, funny images, specialized model training with grouped content, and a database for synchronization. Emotion analysis can be done using emotional/keyword frequency indicators, feature extraction, and video expression acceleration.", "tags": *id001, "title": "Emotion manipulation"}
+
+---
+
+------
+
+# Emotion manipulation
+
+Predict emotion by means of graphics, motion, text, voice and swap context to achieve desirable effects.
+Add random swap and funny pictures in addition to simple dictation.
+You may group different kinds of content for specialized model training.
+Syncing is hard. With database, it's not.
+
+Analyze the conversation with emotional/keyword frequency indicator, do some feature extraction.
+Accelerate part of the video to be more expressive
+
+[emotion recognization multi modal](https://github.com/maelfabien/Multimodal-Emotion-Recognition)
+

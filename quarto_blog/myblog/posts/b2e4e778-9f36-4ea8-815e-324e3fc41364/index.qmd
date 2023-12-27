@@ -1,0 +1,12 @@
+---
+{"categories": &id001 ["crop the crap", "picture in picture", "video analysis"], "category": "Fake Content Detection", "date": "2023-12-22 23:52:59", "description": "This article delves into the difficulties of detecting picture-in-picture (PiP) videos, a common technique used in generating fake content. It highlights a Chinese patent related to PiP detection and an international research paper that explores this topic.", "tags": *id001, "title": "video picture in picture detection"}
+
+---
+
+------
+
+# video picture in picture detection
+
+视频画中画是流行的伪原创方法 但是检测很难 同时加大了二次利用的难度（或许可以再加一层画中画？？）
+目前找到了一个国内画中画检测专利，以及国外画中画检测论文
+

@@ -1,0 +1,9 @@
+---
+{"categories": &id001 ["rectangle packing", "polygon decomposition", "computer graphics", "robotics", "manufacturing optimization", "geometry algorithms", "applied mathematics"], "category": "Geometry", "date": "2023-12-22 23:52:59", "description": "This article explores the concepts of rectangle packing and polygon to rectangle decomposition. Rectangle packing involves fitting rectangles into a given space, while polygon decomposition focuses on breaking down a polygon into rectangles. These techniques can be applied in various fields like computer graphics, robotics, and manufacturing optimization.", "tags": *id001, "title": "rectangle packing, polygon to rectangle decomposition"}
+
+---
+
+------
+
+# rectangle packing, polygon to rectangle decomposition
+

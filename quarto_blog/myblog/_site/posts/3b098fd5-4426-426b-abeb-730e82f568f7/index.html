@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article provides a comprehensive Redis Cheatsheet that covers fundamental Redis commands, essential operations, advanced features like batch operations, hashes, counters, and list manipulation. It also includes settings for performance and memory optimization, database management tools, replication setup, performance testing, monitoring slow queries, and managing multiple databases using Twemproxy or Codis.">
+
+<title>James’s Blog - Redis Cheatsheet</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Redis Cheatsheet</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">cheatsheet</div>
+    <div class="quarto-category">database</div>
+    <div class="quarto-category">redis</div>
+    <div class="quarto-category">reference</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article provides a comprehensive Redis Cheatsheet that covers fundamental Redis commands, essential operations, advanced features like batch operations, hashes, counters, and list manipulation. It also includes settings for performance and memory optimization, database management tools, replication setup, performance testing, monitoring slow queries, and managing multiple databases using Twemproxy or Codis.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="redis-cheatsheet" class="level1">
+<h1>Redis Cheatsheet</h1>
+<p>Redis Cheat Sheet</p>
+<p>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins. Accessing Redis CLI</p>
+<p>First thing to know is that you can use “telnet” (usually on Redis default port 6379)</p>
+<p>telnet localhost 6379</p>
+<p>or the Redis CLI client</p>
+<p>redis-cli</p>
+<p>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history. CLI Queries</p>
+<p>Here is a short list of some basic data extraction commands: Type Syntax and Explanation Tracing monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C. Slow Queries slowlog get 25 Print top 25 slow queries slowlog len slowlog reset Search / List All Keys keys &lt;pattern Use with care when on production! keys myprefix<em> keys </em>pattern<em> keys </em>mysuffix keys [a-c]* Use grep like expressions Generic Key Handling del <key> Delete key dump <key> Serialize key exists <key> Check for key expire <key> <seconds> Set key TTL Working with scalar types get <key> set <key> <value> setnx <key> <value> Set key value only if key does not exist Batch commands: mget <key> <key> … mset <key> <value> <key> <value> Working with counters incr <key> decr <key> Redis Lists lrange <key> <start> <stop> Accessing lists lrange mylist 0 -1 Output all elements lindex mylist 5 Get 5th element llen mylist Get list length</stop></start></key></key></key></value></key></value></key></key></key></value></key></value></key></key></seconds></key></key></key></key></p>
+<pre><code>lpush mylist "value" Push “value” to list
+lpush mylist 5 Push number 5 to list
+rpush mylist "value" Push “value” to beginning (unshift)
+ 
+lpushx mylist 6 Only push if mylist exists
+rpushx mylist 7
+ 
+lpop mylist Remove+return value from list
+rpop mylist Remove+return value from start (shift)
+ 
+lrem mylist 1 "value" Remove ‘value’ count times
+lset mylist 2 6 Set 3rd element to value 6
+ltrim &lt;key&gt; &lt;start&gt; &lt;stop&gt;</code></pre>
+<p>Working with Redis Hashes hexists myhash field1 Check if hash key exists</p>
+<pre><code>hget myhash field1 Get key value
+hdel myhash field2 Delete key
+hset myhash field1 "value" Set key with “value”
+hsetnx myhash field1 "value"
+ 
+hgetall myhash Get all hash content
+hkeys myhash List all keys
+hlen myhash List number of keys
+ 
+Batch commands:
+hmget &lt;key&gt; &lt;key&gt; ... Get multiple keys
+hmset &lt;key&gt; &lt;value&gt; &lt;key&gt; &lt;value&gt; ... Set multiple keys
+ 
+Counter commands
+hincrby myhash field1 1
+hincrby myhash field1 5
+hincrby myhash field1 -1
+ 
+hincrbrfloat myhash field2 1.123445</code></pre>
+<p>CLI Scripting</p>
+<p>For scripting just pass commands to “redis-cli”. For example:</p>
+<p>$ redis-cli INFO | grep connected connected_clients:2 connected_slaves:0 $</p>
+<p>Server Statistics</p>
+<p>The statistics command is “INFO” and will give you an output as following.</p>
+<p>$ redis-cli INFO redis_version:2.2.12 redis_git_sha1:00000000 redis_git_dirty:0 arch_bits:64 multiplexing_api:epoll process_id:8353 uptime_in_seconds:2592232 uptime_in_days:30 lru_clock:809325 used_cpu_sys:199.20 used_cpu_user:309.26 used_cpu_sys_children:12.04 used_cpu_user_children:1.47 connected_clients:2 # &lt;—- connection count connected_slaves:0 client_longest_output_list:0 client_biggest_input_buf:0 blocked_clients:0 used_memory:6596112 used_memory_human:6.29M # &lt;—- memory usage used_memory_rss:17571840 mem_fragmentation_ratio:2.66 use_tcmalloc:0 loading:0 aof_enabled:0 changes_since_last_save:0 bgsave_in_progress:0 last_save_time:1371241671 bgrewriteaof_in_progress:0 total_connections_received:118 total_commands_processed:1091 expired_keys:441 evicted_keys:0 keyspace_hits:6 keyspace_misses:1070 hash_max_zipmap_entries:512 hash_max_zipmap_value:64 pubsub_channels:0 pubsub_patterns:0 vm_enabled:0 role:master # &lt;—- master/slave in replication setup db0:keys=91,expires=88</p>
+<p>Changing Runtime Configuration</p>
+<p>The command</p>
+<p>CONFIG GET *</p>
+<p>gives you a list of all active configuration variables you can change. The output might look like this:</p>
+<p>redis 127.0.0.1:6379&gt; CONFIG GET * 1) “dir” 2) “/var/lib/redis” 3) “dbfilename” 4) “dump.rdb” 5) “requirepass” 6) (nil) 7) “masterauth” 8) (nil) 9) “maxmemory” 10) “0” 11) “maxmemory-policy” 12) “volatile-lru” 13) “maxmemory-samples” 14) “3” 15) “timeout” 16) “300” 17) “appendonly” 18) “no” 19) “no-appendfsync-on-rewrite” 20) “no” 21) “appendfsync” 22) “everysec” # &lt;—- how often fsync() is called 23) “save” 24) “900 1 300 10 60 10000” # &lt;—- how often Redis dumps in background 25) “slave-serve-stale-data” 26) “yes” 27) “hash-max-zipmap-entries” 28) “512” 29) “hash-max-zipmap-value” 30) “64” 31) “list-max-ziplist-entries” 32) “512” 33) “list-max-ziplist-value” 34) “64” 35) “set-max-intset-entries” 36) “512” 37) “slowlog-log-slower-than” 38) “10000” 39) “slowlog-max-len” 40) “64”</p>
+<p>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:</p>
+<p>CONFIG SET timeout 900</p>
+<p>Such a change will be effective instantly. When changing values consider also updating the redis configuration file. Databases Multiple Databases</p>
+<p>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing</p>
+<p>redis 127.0.0.1:6379&gt; SELECT 1 OK redis 127.0.0.1:6379[1]&gt;</p>
+<p>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:</p>
+<p>$ redis-cli INFO | grep ^db db0:keys=91,expires=88 db1:keys=1,expires=0</p>
+<p>Dropping Databases</p>
+<p>To drop the currently selected database run</p>
+<p>FLUSHDB</p>
+<p>to drop all databases at once run</p>
+<p>FLUSHALL</p>
+<p>Replication Checking for Replication</p>
+<p>To see if the instance is a replication slave or master issue</p>
+<p>redis 127.0.0.1:6379&gt; INFO […] role:master</p>
+<p>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this</p>
+<p>slave0:ip=127.0.0.1,port=6380,state=online,offset=281,lag=0</p>
+<p>Setting up Replication</p>
+<p>If you quickly need to set up replication just issue</p>
+<p>SLAVEOF <ip> <port></port></ip></p>
+<p>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g.&nbsp;not on Debian). To revert the slave setting run</p>
+<p>SLAVEOF NO ONE</p>
+<p>Performance Testing Benchmark</p>
+<p>Install the Redis tools and run the provided benchmarking tool</p>
+<p>redis-benchmark -h <host> [-p <port>]</port></host></p>
+<p>If you are migrating from/to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol. Debugging Latency</p>
+<p>First measure system latency on your Redis server with</p>
+<p>redis-cli –intrinsic-latency 100</p>
+<p>and then sample from your Redis clients with</p>
+<p>redis-cli –latency -h <host> -p <port></port></host></p>
+<p>If you have problems with high latency check if transparent huge pages are disabled. Disable it with</p>
+<p>echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled</p>
+<p>Dump Database Backup</p>
+<p>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:</p>
+<p>BGSAVE</p>
+<p>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”. Listing Connections</p>
+<p>Starting with version 2.4 you can list connections with</p>
+<p>CLIENT LIST</p>
+<p>and you can terminate connections with</p>
+<p>CLIENT KILL <ip>:<port></port></ip></p>
+<p>Monitoring Traffic</p>
+<p>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.</p>
+<p>redis 127.0.0.1:6379&gt; MONITOR OK 1371241093.375324 “monitor” 1371241109.735725 “keys” “*” 1371241152.344504 “set” “testkey” “1” 1371241165.169184 “get” “testkey”</p>
+<p>additionally use “SLOWLOG” to track the slowest queries in an interval. For example</p>
+<p>SLOWLOG RESET # wait for some time SLOWLOG GET 25</p>
+<p>and get the 25 slowest command during this time. Sharding with proxies</p>
+<p>There are two major proxy solutions</p>
+<pre><code>Twemproxy (aka nutcracker, by Twitter)
+Codis</code></pre>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

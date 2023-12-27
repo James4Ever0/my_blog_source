@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["android", "emulator", "stub"], "category": "Android emulators", "date": "2023-12-22 23:52:59", "description": "This article focuses on Android emulators, WayDroid and anbox. It explores the various methods to run Android apps on non-Android platforms.", "tags": *id001, "title": "Android Emulators"}
+
+---
+
+------
+
+# Android Emulators
+
+WayDroid
+
+anbox?
+

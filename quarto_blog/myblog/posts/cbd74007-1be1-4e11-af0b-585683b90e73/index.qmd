@@ -1,0 +1,29 @@
+---
+{"categories": &id001 ["find file", "locate file", "macos", "tips"], "category": "Software Troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article compares two methods for fixing and updating the locate command in MacOS. Comment A utilizes a launch daemon and terminal commands, while Comment B suggests repairing it using `mdfind` terminal commands.", "tags": *id001, "title": "MacOS locate fix and alternative"}
+
+---
+
+------
+
+# MacOS locate fix and alternative
+
+## the fix
+
+to enable the service:
+```bash
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+```
+to update locate db:
+```bash
+sudo /usr/libexec/locate.updatedb
+```
+or, more conveniently:
+```bash
+sudo ln -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb
+sudo updatedb
+```
+
+## alternative
+
+use `mdfind`
+

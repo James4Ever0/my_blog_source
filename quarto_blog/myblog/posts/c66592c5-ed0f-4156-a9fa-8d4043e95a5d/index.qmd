@@ -1,0 +1,18 @@
+---
+{"categories": &id001 ["Deep Audio Prior", "DAP", "Audio watermarks", "FFmpeg", "Sound separation", "Watermarker removal", "Music sounds"], "category": "Audio Processing", "date": "2023-12-22 23:52:59", "description": "This article explains a technique to remove audio watermarks from recordings using Deep Audio Prior (DAP) and FFmpeg. DAP separates the sounds with watermarkers, creating individual music sounds and the corresponding watermarker, allowing for easy removal of the watermark.", "tags": *id001, "title": "audio watermark removal"}
+
+---
+
+------
+
+# audio watermark removal
+
+[deep audio prior](https://github.com/adobe/Deep-Audio-Prior)
+Audio Source Separation Without Any Training Data.
+
+DAP can also be successfully applied to address audio watermarker removal with co-separation. Given 3 sounds with audio watermarkers, our cosep model can generate 3 individual music sounds and the corresponding watermarker.
+
+audio watermark may exists in sub or ultra frequencies. use ffmpeg to remove it
+
+process audio with some equalizer
+

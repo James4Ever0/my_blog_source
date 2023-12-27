@@ -1,0 +1,24 @@
+---
+{"categories": &id001 ["daily scanning", "computing power", "vulnerabilities", "cybersecurity", "search engines", "exploits", "hacking", "security", "vulnerability", "sandbox environment", "code repository"], "category": "Hacking", "date": "2023-12-22 23:52:59", "description": "This article delves into daily scanning, a technique that leverages free computing power by identifying and exploiting vulnerabilities in smaller websites. It provides insights on utilizing tools, setting up a secure environment, creating a code repository, and employing search engines for acquiring information and links. The endgame involves infecting sites with viruses or conducting AI experiments.", "tags": *id001, "title": "日站之随想"}
+
+---
+
+------
+
+# 日站之随想
+
+## 为什么要日站
+因为自己电脑算力有限 要探索高级人工智能 要运行某些赚钱程序 必须免费白嫖别人的算力
+
+## 日哪些站
+到百度 各大搜索引擎找目标站点 扫描漏洞 不要打大站 先从小站打起走 往全自动化方向打起走
+
+## 怎么日站
+在一个沙箱下面日站 不要在root权限下面日
+利用工具 目标站点IP 端口就直接填到工具里面就行 一边学工具一边日站
+需要一个repo专门放有关的代码 同时可以同步到每个设备
+需要一个可以搜索全文的搜索引擎 搜集我们已有的md文件 提取里面的链接 然后继续clone github的文件 继续搜集md文件 继续寻找链接
+
+## 日站之后干什么
+放传染性病毒 放挖币病毒 或者执行agi实验
+

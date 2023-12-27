@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["buffering", "hardware", "instant capturing", "video capturing"], "category": "Wearable Devices", "date": "2023-12-22 23:52:59", "description": "This device allows you to capture fun moments by using a head-mounted coaxial camera and long-range microphone. It offers buffered recording mode, separate buttons for recording and saving, is implemented with Micropython, has a large battery, and is designed for enjoyment.", "tags": *id001, "title": "Hardware for fun moment capturing"}
+
+---
+
+------
+
+# Hardware for fun moment capturing
+
+A head-mounted coaxis camera, coaxis long-range microphone, buffered record mode, two separate buttons for recording and saving, implementation in micropython. large battery.
+

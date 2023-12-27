@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article explores semantic search techniques using Python libraries, examines command line tools for platforms like Slashdot and SourceForge, delves into AI-assisted search libraries, and provides a curated list of search engines from medevel.com/os.">
+
+<title>James’s Blog - commandline search engine bridger</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">commandline search engine bridger</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">semantic search</div>
+    <div class="quarto-category">Python libraries</div>
+    <div class="quarto-category">command line tools</div>
+    <div class="quarto-category">Slashdot</div>
+    <div class="quarto-category">SourceForge</div>
+    <div class="quarto-category">AI-assisted search</div>
+    <div class="quarto-category">medevel.com</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article explores semantic search techniques using Python libraries, examines command line tools for platforms like Slashdot and SourceForge, delves into AI-assisted search libraries, and provides a curated list of search engines from medevel.com/os.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="commandline-search-engine-bridger" class="level1">
+<h1>commandline search engine bridger</h1>
+<section id="search-commands-on-commandline" class="level2">
+<h2 class="anchored" data-anchor-id="search-commands-on-commandline">search commands on commandline</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> <span class="at">-k</span> <span class="op">&lt;</span>keywords<span class="op">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> search <span class="op">&lt;</span>keywords<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> search <span class="op">&lt;</span>keywords<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> search <span class="op">&lt;</span>keywords<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">searchsploit</span> <span class="op">&lt;</span>keywords<span class="op">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">msfconsole</span> <span class="at">-x</span> <span class="st">"search &lt;keywords&gt;; exit"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="nosqlnosqlite-key-value-json-like-document-store-databases-sqlite-high-level-wrappers" class="level2">
+<h2 class="anchored" data-anchor-id="nosqlnosqlite-key-value-json-like-document-store-databases-sqlite-high-level-wrappers">nosql/nosqlite key-value json like document store databases, sqlite high level wrappers</h2>
+<p><a href="https://github.com/coleifer/">this guy</a> makes database related libraries.</p>
+<hr>
+<p><a href="https://lsm-db.readthedocs.io/en/latest/">lsm-db</a> fast key-value store using sqlite 4</p>
+<p><a href="https://github.com/coleifer/unqlite-python">unqlite</a> Python bindings for the UnQLite embedded NoSQL database</p>
+<p><a href="https://github.com/msiemens/tinydb">tinydb</a> json-oriented, mongo alike database, which is a in-memory database</p>
+<p><a href="https://github.com/JonathanVusich/litedb">litedb</a> NoSQL Python database written for ease of use/performance.</p>
+<p><a href="https://github.com/dariubs/pylite">pylite</a> sqlite3 lightweight wrapper</p>
+</section>
+<section id="reason-to-develop-this" class="level2">
+<h2 class="anchored" data-anchor-id="reason-to-develop-this">reason to develop this</h2>
+<p>you are short of brain power. short of time to perspect and investigate.</p>
+<p>many platforms now have recommendation engines, but they do not have powerful semantic search tools. what a pity. maybe i am interested in some ‘unseen’ stuff, but i want to get the thing that i currently need! fail to do so will limit my productivity.</p>
+</section>
+<section id="sentence-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="sentence-embeddings">sentence embeddings</h2>
+<p>difference between ‘symmetric’ and ‘asymmetric’ retrieval questions from sbert.net:</p>
+<p>symmetric means similar, asymmetric usually means question to answer.</p>
+<p><a href="https://www.analyticsvidhya.com/blog/2020/08/top-4-sentence-embedding-techniques-using-python/">top 4 sentence embedding techniques using python</a></p>
+<p><a href="https://github.com/prabha88978/Sentence-To-Vector">sentence to vector</a></p>
+<p>tutorial: <a href="https://www.baeldung.com/cs/sentence-vectors-word2vec">sentence vector word2vec</a></p>
+<p><a href="https://github.com/stanleyfok/sentence2vec">sentence2vec based on word2vec</a></p>
+</section>
+<section id="similarity-search-and-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="similarity-search-and-clustering">similarity search and clustering</h2>
+<p>facebook <a href="https://github.com/facebookresearch/faiss/watchers">faiss</a></p>
+<p><a href="https://github.com/nmslib/hnswlib">hnswlib</a> Header-only C++/python library for fast approximate nearest neighbors</p>
+<p>spotify <a href="https://github.com/spotify/annoy">annoy</a> Approximate Nearest Neighbors in C++/Python optimized for memory usage and loading/saving to disk</p>
+</section>
+<section id="problems" class="level2">
+<h2 class="anchored" data-anchor-id="problems">problems</h2>
+<ul class="task-list">
+<li><p><input type="checkbox">enable copy/pasting/selection in console</p></li>
+<li><p><input type="checkbox">make reversible/auto-cleanup feature when copy and pasting</p></li>
+<li><p><input type="checkbox" checked="">reverse stemming and keywords highlighting</p></li>
+<li><p><input type="checkbox">memory efficient embedding querying/storage via sql or binary format</p></li>
+</ul>
+<p>txtai store to sqlite: <a href="https://github.com/neuml/txtai/blob/master/examples/03_Build_an_Embeddings_index_from_a_data_source.ipynb">Build an Embeddings index from a data source</a></p>
+<ul class="task-list">
+<li><input type="checkbox">make “complete” excerpt by looking ahead and backward to find the closest sentence start/stop and/or use gpt completion method instead? still need punctual or sentence start/stop index identification.</li>
+</ul>
+</section>
+<section id="offline" class="level2">
+<h2 class="anchored" data-anchor-id="offline">offline</h2>
+<section id="terminal-interface-builder" class="level3">
+<h3 class="anchored" data-anchor-id="terminal-interface-builder">terminal interface builder</h3>
+<p><a href="https://pypi.org/project/rich/">rich</a> and <a href="https://python.plainenglish.io/build-your-own-search-engine-in-python-part-1-2-the-engine-3b060e49eb84">tutorial</a></p>
+<p><a href="https://github.com/Textualize/textual">textual</a></p>
+<p><a href="https://github.com/urwid/urwid">urwid</a></p>
+<p><a href="https://plie.readthedocs.io/en/master/renderer.html">plie</a></p>
+</section>
+<section id="ai-assisted-search-engine-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="ai-assisted-search-engine-libraries">ai assisted search engine libraries</h3>
+<p><a href="https://github.com/jina-ai/jina">jina-ai</a> and docarray</p>
+<p><a href="https://github.com/neuml/txtai">txtai</a></p>
+<p><a href="https://github.com/typesense/typesense">typesense</a></p>
+<p><a href="https://github.com/zinclabs/zinc">zinc</a> search</p>
+<p><a href="https://pypi.org/project/fuzzy-search/">fuzzy search</a></p>
+<p><a href="https://pypi.org/project/Fuzzy/">fuzzy</a> phonic toolkit</p>
+</section>
+<section id="traditional-search-engine-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="traditional-search-engine-libraries">traditional search engine libraries</h3>
+<p><a href="https://github.com/luceneplusplus/LucenePlusPlus">luceneplusplus</a> lucene in c++</p>
+<p><a href="https://github.com/pythonql/pythonql">pythonql</a> as extension of python syntax, able to search data in python data structure.</p>
+<p><a href="https://github.com/stedolan/jq">jq</a> and <a href="https://pypi.org/project/pyjq/">pyjq</a> as json search engine, <a href="https://jqterm.com/?query=.">jqterm</a> as jq repl</p>
+<p><a href="https://github.com/wader/fq">fq</a> jq for binary formats</p>
+<p><a href="https://medevel.com/os-fulltext-search-solutions/">a curated search engine list</a></p>
+<p><a href="https://scout.readthedocs.io/en/latest/server.html">scout</a> sqlite based full text search</p>
+<p><a href="https://pypi.org/project/Whoosh/">whoosh</a> with bm25 support</p>
+<p><a href="https://github.com/bartdegoede/python-searchengine">python-searchengine</a> and <a href="https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/">the tutorial</a></p>
+</section>
+</section>
+<section id="online" class="level2">
+<h2 class="anchored" data-anchor-id="online">online</h2>
+<p><a href="https://github.com/kisom/surfraw">surfraw</a>, or just <a href="https://github.com/zquestz/s">s</a>, is for some common parameter prefixes for searching on common websites. will open GUI browser or cli browser if configured with one.</p>
+<p>surfraw supported:</p>
+<pre><code>W               -- Activate Surfraw defined web-browser
+acronym         -- Look for acronyms definitions (www.acronymfinder.com)
+ads             -- Search SAO/NASA Astrophysics Data System
+alioth          -- Search Alioth (alioth.debian.org)
+amazon          -- Search the amazon.com bookstore
+archpkg         -- Search Arch Linux Packages (www.archlinux.org/packages/)
+archwiki        -- Search the Arch Linux Wiki
+arxiv           -- Search arXiv E-Print Archive for articles
+ask             -- Question the web using Ask Jeeves (www.ask.com)
+aur             -- Search aur.archlinux.org for PKGBUILDs
+austlii         -- Search Australian Law docs (www.austlii.edu.au)
+bbcnews         -- Search BBC News (news.bbc.co.uk)
+bing            -- Search the web using Microsoft's Bing (www.bing.com)
+bookfinder      -- Search for books using www.bookfinder.com
+bugmenot        -- Bypass compulsory web registration with bugmenot.com
+bugzilla        -- Search for bugs on Bugzilla bugtrackers
+cablesearch     -- search for leaked diplomatic communications
+cia             -- Search CIA documents at www.cia.gov
+cisco           -- Search Cisco documentation (www.cisco.com)
+cite            -- Search computer science papers (citeseerx.ist.psu.edu)
+cliki           -- Search the common lisp wiki
+cnn             -- Search on CNN (cnn.com)
+comlaw          -- Search Australian Law using Comlaw (www.comlaw.gov.au)
+commandlinefu   -- Search on www.commandlinefu.com
+ctan            -- Search the Comprehensive TeX Archive Network (ctan.org)
+currency        -- Convert currencies with the Universal Currency Converter (www.xe.net/ucc)
+cve             -- Search for CAN assignments in CVE
+debbugs         -- Search the debian BTS (bugs.debian.org)
+debcodesearch   -- Search debian source code
+debcontents     -- Search contents of debian/ubuntu packages (packages.debian.org/packages.ubuntu.com)
+deblists        -- Search debian mailing lists (lists.debian.org/search.html)
+deblogs         -- Show changelogs for a package in Debian main (changelogs.debian.net)
+debpackages     -- Search debian/ubuntu packages (packages.debian.org/packages.ubuntu.com)
+debpkghome      -- Visit the home page for a Debian package
+debpts          -- Search the Debian Package Tracking System (packages.qa.debian.org)
+debsec          -- Search the Debian Security Tracker for CVE ids or package names
+debvcsbrowse    -- Browse the VCS repository for a Debian package
+debwiki         -- Search the Debian Wikis (wiki.debian.org &amp; women.debian.org/wiki)
+deja            -- Search usenet using Google Groups (groups.google.com)
+deli            -- Search Delicious bookmarks
+discogs         -- Search the Discogs database of music information (www.discogs.com)
+dmoz            -- Search the Open Directory Project web directory (dmoz.org)
+duckduckgo      -- Securely search the web using duckduckgo (www.duckduckgo.com)
+ebay            -- Search the Ebay auction site
+etym            -- Look up word origins at www.etymonline.com
+excite          -- Search on Excite (www.excite.com)
+f5              -- Search F5 related information (www.f5.com)
+finkpkg         -- Search Fink packages (pdb.finkproject.org)
+foldoc          -- The Free On-Line Dictionary Of Computing (foldoc.org)
+freebsd         -- Search FreeBSD related information (www.freebsd.org)
+freedb          -- Search for cd track listings in FreeDB (www.freedb.org)
+freshmeat       -- Search Freshmeat (www.freshmeat.net)
+fsfdir          -- Search the FSF/UNESCO Free Software Directory (directory.fsf.org)
+gcache          -- Search the web using Google cache (www.google.com)
+genbugs         -- Search the Gentoo bug tracker (bugs.gentoo.org)
+genportage      -- Search gentoo-portage.com for packages
+github          -- Search GitHub (https://github.com)
+gmane           -- Search mailing list with gmane (gmane.org)
+google          -- Search the web using Google (www.google.com)
+gutenberg       -- Search for books on Project Gutenberg (gutenberg.org)
+imdb            -- Search the Internet Movie Database (www.imdb.com)
+ixquick         -- Search the web using ixquick [HTTPS] (www.ixquick.com)
+jamendo         -- Search Jamendo: free music with Creative Commons licenses (www.jamendo.com)
+javasun         -- Search Java API docs (java.sun.com)
+jquery          -- Search the jQuery documentation (api.jquery.com)
+l1sp            -- Search lisp documentation
+lastfm          -- Search last.fm
+leodict         -- Search Leo's German &lt;-&gt; English dictionary (dict.leo.org)
+lsm             -- Search the Linux Software Map
+macports        -- Search macports packages (macports.org)
+mathworld       -- Search Wolfram MathWorld
+mdn             -- Search the mozilla developer network (developer.mozilla.org)
+mininova        -- Search the mininova bittorent source.
+musicbrainz     -- Search MusicBrainz (musicbrainz.org)
+mysqldoc        -- Search mysql documentation (dev.mysql.com)
+netbsd          -- Search NetBSD related information (www.netbsd.org)
+nlab            -- Search the nLab wiki (http://ncatlab.org)
+ntrs            -- Search the NASA Technical Report Server
+openbsd         -- Search OpenBSD related information (www.openbsd.org)
+openports       -- search openports for OpenBSD packages
+opensearch      -- Search an OpenSearch-enabled website
+oraclesearch    -- Search an OpenSearch-enabled website
+pasearch        -- Search the unofficial Penny Arcade archives (pipefour.org/pa)
+pgdoc           -- Search postgres documentation (www.pgdoc.com)
+pgpkeys         -- Search the PGP key database
+phpdoc          -- Search php documentation (php.net)
+pin             -- Search Pinboard bookmarks (http://pinboard.in)
+piratebay       -- Search The Pirate Bay (http://thepiratebay.org)
+priberam        -- Look up word in Priberam online dictionary (www.priberam.pt/dlpo)
+pubmed          -- Search medical/molbio databases (www.ncbi.nlm.nih.gov)
+rae             -- Busca en el diccionario de la Real Academia de la Lengua Española (Spanish Dictionary)
+rfc             -- Search RFCs (internet standards documents)
+rhyme           -- Search for rhymes et al using Lycos Rhyme (rhyme.lycos.com)
+rpmsearch       -- Search for RPMs in various distros
+scholar         -- Search Google Scholar (scholar.google.com)
+scicom          -- Search Scientific Commons
+scirus          -- Search for science using Scirus (scirus.com)
+scpan           -- Search the Comprehensive Perl Archive Network (search.cpan.org)
+searx           -- Search using searx metasearch engine instances (searx.me)
+slashdot        -- Search stories on Slashdot (www.slashdot.org)
+slinuxdoc       -- Search entries in LDP (www.linuxdoc.org)
+sourceforge     -- Search SourceForge (www.sourceforge.net)
+springer        -- Search Springer for Books and Articles
+stack           -- Search Stack Overflow
+stockquote      -- Get a single stock quote (multiple providers)
+thesaurus       -- Look up word in Merriam-Webster's Thesaurus (www.m-w.com)
+translate       -- Translate human languages
+urban           -- Search urbandictionary.com for a definition
+w3css           -- Validate a CSS URL with the w3c CSS validator (jigsaw.w3.org/css-validator)
+w3html          -- Validate a web page URL with the w3c validator (validator.w3.org)
+w3link          -- Check web page links with the w3c linkchecker (validator.w3.org/checklink)
+w3rdf           -- Validate a RDF URL with the w3c RDF validator (validator.w3.org)
+wayback         -- Search The Internet Archive's Wayback Machine for a URL (archive.org)
+webster         -- Look up word in Merriam-Webster's Dictionary (www.m-w.com)
+wetandwild      -- Real time weather information (many sources)
+wikipedia       -- Search the free encyclopedia wikipedia
+woffle          -- Search the web using Woffle (localhost:8080)
+wolfram         -- Ask questions of the computational knowledge engine
+worldwidescience -- Search for science with www.worldwidescience.org
+yacy            -- Search YaCy P2P search, including ScienceNet
+yahoo           -- Search Yahoo categories (www.yahoo.com)
+yandex          -- Search the web using Yandex (yandex.ru)
+youtube         -- Search YouTube (www.youtube.com)
+yubnub          -- Use the social command-line for the web (yubnub.org)</code></pre>
+<p>S supported:</p>
+<pre><code>    500px
+    8tracks
+    aliexpress
+    allocine
+    amazon
+    archpkg
+    archwiki
+    ardmediathek
+    arstechnica
+    arxiv
+    atmospherejs
+    aur
+    baidu
+    bandcamp
+    bgr
+    bigbasket
+    bing
+    brave
+    buzzfeed
+    cnn
+    codepen
+    coursera
+    cplusplus
+    cppreference
+    crates
+    crunchyroll
+    debianpkg
+    dict
+    digg
+    diigo
+    dockerhub
+    dribbble
+    duckduckgo
+    dumpert
+    ecosia
+    engadget
+    explainshell
+    facebook
+    flickr
+    flipkart
+    foursquare
+    freebsdman
+    freshports
+    gibiru
+    giphy
+    gist
+    github
+    gmail
+    go
+    godoc
+    goodreads
+    google
+    googledocs
+    googleplus
+    hackernews
+    idealo
+    ietf
+    ifttt
+    imdb
+    imgur
+    inbox
+    instagram
+    kaufda
+    kickasstorrents
+    libgen
+    linkedin
+    lmgtfy
+    macports
+    magnetdl
+    mdn
+    medium
+    metacpan
+    msdn
+    naver
+    netflix
+    nhaccuatui
+    npm
+    npmsearch
+    npr
+    nvd
+    openbsdman
+    overstock
+    packagist
+    presearch
+    phandroid
+    php
+    pinterest
+    postgresql
+    python
+    quora
+    qwant
+    reddit
+    regex
+    rottentomatoes
+    rubygems
+    shodan
+    soundcloud
+    spotify
+    stackoverflow
+    steam
+    taobao
+    thepiratebay
+    theregister
+    torrentz
+    twitchtv
+    twitter
+    ultimateguitar
+    unity3d
+    upcloud
+    vimeo
+    wikipedia
+    wolframalpha
+    yahoo
+    yandex
+    youtube
+    zdf
+    zhihu
+</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

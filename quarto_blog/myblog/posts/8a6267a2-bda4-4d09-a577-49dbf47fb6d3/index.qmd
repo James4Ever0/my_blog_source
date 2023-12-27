@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["Python", "pylint", "unspecified exceptions", "error handling", "microservices", "logging", "best practices"], "category": "Python Tools", "date": "2023-12-22 23:52:59", "description": "This text provides guidance on utilizing the Python utility 'pylint' to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management.", "tags": *id001, "title": "Exception Phobia in Python"}
+
+---
+
+------
+
+# Exception Phobia in Python
+
+```bash
+pylint --enable=unspecified-exception your_python_file.py
+```
+
+However it is recommend to build microservices and log failures
+

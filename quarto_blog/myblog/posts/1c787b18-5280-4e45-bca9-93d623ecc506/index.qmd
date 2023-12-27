@@ -1,0 +1,10 @@
+---
+{"categories": &id001 ["courses", "MOOC", "propagation study"], "category": "Propagation Science", "date": "2023-12-22 23:52:59", "description": "This article, titled '传播学 1' in Chinese, is believed to be the first installment of a series on propagation science or theory. It delves into the fundamental principles and concepts governing this field, providing readers with an in-depth understanding of its core foundations.", "tags": *id001, "title": "传播学"}
+
+---
+
+------
+
+# 传播学 1
+
+

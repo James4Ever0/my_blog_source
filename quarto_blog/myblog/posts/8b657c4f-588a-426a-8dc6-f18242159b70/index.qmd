@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["WeChat Pay", "Alipay", "payment systems", "sending money", "receiving money", "QR codes", "mobile payments"], "category": "Payment Systems", "date": "2023-12-22 23:52:59", "description": "WeChat Pay and Alipay are popular payment systems in China that facilitate sending and receiving money, as well as scanning and generating QR codes for transactions.", "tags": *id001, "title": "Understanding WeChat Pay and Alipay: The Popular Payment Systems in China"}
+
+---
+
+------
+
+# 微信支付 支付宝 中转系统
+
+既可以收款也可以付款的库 可以扫描别人的二维码付款 可以生成二维码检测别人是否付款
+

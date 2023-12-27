@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["quantum computer", "open source software", "hardware project", "CAD", "3D printing", "PCB manufacturing", "profitable project"], "category": "Quantum Computing", "date": "2023-12-22 23:52:59", "description": "This article explores the idea of building a quantum computer at home using open-source software and hardware, along with skills such as CAD, 3D printing, and PCB manufacturing. However, it encourages readers to consider alternative projects with more potential for profit.", "tags": *id001, "title": "make a quantum computer at home"}
+
+---
+
+------
+
+# make a quantum computer at home
+
+the idea is generally good, by using open source software/hardware, or just write quantum programs without building it. in the process you will learn how to use CAD, 3D printers, CNC, pcb manufactory and more. though you should start building something more profitable instead of this quantum stuff.
+
+https://www.illinoisscience.org/2019/04/diy-guide-building-a-quantum-computer/
+ 
+https://media.ccc.de/v/36c3-10808-build_you_own_quantum_computer_home_-_99_of_discount_-_hacker_style#t=3298
+ 
+https://www.dhruvonmath.com/2020/07/19/quantum-computers/
+ 
+https://hackaday.com/2019/12/30/36c3-build-your-own-quantum-computer-at-home/
+

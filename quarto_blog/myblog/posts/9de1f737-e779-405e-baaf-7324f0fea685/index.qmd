@@ -1,0 +1,17 @@
+---
+{"categories": &id001 ["react native", "cross-platform development", "mobile apps", "desktop apps", "development tools", "NativeScript", "Kivy", "Roboto"], "category": "Cross-Platform Apps", "date": "2023-12-22 23:52:59", "description": "React Native is a popular tool for creating cross-platform mobile and desktop apps, offering real-time feedback to developers as they make changes. Similar tools in the market include NativeScript, Kivy, and Roboto.", "tags": *id001, "title": "React Native"}
+
+---
+
+------
+
+# React Native
+
+**The key is to see immediate response directly after changes**
+
+React Native is a tool helping to build cross-platform mobile/desktop apps.
+
+NativeScript is something alike.
+
+Kivy Roboto
+

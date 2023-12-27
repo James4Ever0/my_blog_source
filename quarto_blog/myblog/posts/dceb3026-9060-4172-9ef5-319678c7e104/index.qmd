@@ -1,0 +1,24 @@
+---
+{"categories": &id001 ["credential", "remote control", "stub", "test", "VNC"], "category": "Kali Linux", "date": "2023-12-22 23:52:59", "description": "This article provides detailed instructions on how to install and run x11vnc on a Kali Linux system. However, it also recommends using Nomachine instead due to its NX-based foundation. The article includes a password and various example command lines for proper execution.", "tags": *id001, "title": "x11vnc test on kali"}
+
+---
+
+------
+
+# x11vnc test on kali
+
+better use nomachine instead, which is based on nx
+
+password: 472831
+
+commands:
+```bash
+# necessary env for gui target, though may not suitable for xvfb
+export XAUTHORITY=/root/.Xauthority
+export DISPLAY=:1
+# kill previous running x11vnc, if exists
+joker list | grep x11vnc | awk '{print $1}' | xargs -iabc kill -s KILL abc
+# launch new vnc
+joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd
+```
+

@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["SQL injection", "ASMX URL", "Xiàngfāng Jiaodǎo Xìtǐng", "cyber attack", "school vulnerability", "retaliation", "web security"], "category": "SQL Injection Attacks", "date": "2023-12-22 23:52:59", "description": "This article discusses a SQL injection attack on the '正方教务系统' (Xiàngfāng Jiaodǎo Xìtǐng) using an ASMX URL. The text proposes utilizing this vulnerability as a means of retaliation against a school.", "tags": *id001, "title": "正方教务系统sql注入"}
+
+---
+
+------
+
+# 正方教务系统sql注入
+
+[通过url遍历得到asmx结尾的url进行注入](https://cn-sec.com/archives/76623.html) 如果你要进行报复学校这个看起来很不错
+

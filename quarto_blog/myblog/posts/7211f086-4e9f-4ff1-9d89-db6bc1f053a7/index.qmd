@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["CACANi software", "Themida unpacker", "unlicense", "manual unpacking", "dissatisfaction", "software review", "tedious process"], "category": "CACANi Software", "date": "2023-12-22 23:52:59", "description": "A user shares their disappointment with the CACANi software and looks for ways to unpack Themida or obtain an unlicense. They explain that manually unpacking Themida is a cumbersome task.", "tags": *id001, "title": "themida unpacker"}
+
+---
+
+------
+
+# themida unpacker
+
+still don't forgive that damn [cacani](https://cacani.sg/) software ([manual](https://cacani.sg/CACANi_manual.pdf?v=1c2903397d88)), and i still don't find a clue for creating animation with cacani automatically.
+
+search for "themida unpacker" or "unlicense" in bing or github. saying manually unpacking themida is always a pain in the ass.
+

@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["scribe.rip", "Medium articles", "unblocked version", "Sourcehunt", "alternative hosting", "trending", "most read"], "category": "Unblocked content", "date": "2023-12-22 23:52:59", "description": "Scribe.rip is a website that offers an unblocked version of restricted Medium articles without additional features like 'trending', 'user homepage', or 'most read' sections. Instead of using `medium.com` links, it recommends replacing them with `scribe.rip`. The source code for hosting your own Scribe instance is also available on Sourcehunt.", "tags": *id001, "title": "Medium Subscription Bypass"}
+
+---
+
+------
+
+# Medium Subscription Bypass
+
+this site only unblock "restricted" articles. it does not offer "trending" "user homepage" "most read" "recommendation" things which you can get from official medium website.
+
+map `*.medium.com/[URL]` to `scribe.rip/[URL]`
+
+or try to host `scribe.rip` yourself.
+
+[source code](https://git.sr.ht/~edwardloveall/scribe) hosted on [sourcehunt](https://sr.ht).
+
+[alternative scribe instances](https://git.sr.ht/~edwardloveall/scribe/tree/main/item/docs/instances.md) seems all blocked (in mainland)
+

@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["music generation", "sound effects", "stub", "VST"], "category": "Sound Effects", "date": "2023-12-22 23:52:59", "description": "The article discusses a project called 'Sound Effects', which is associated with Spotify's pedalboard feature. This project offers support for VST plugins and allows users to create custom sound effects, enhancing their music listening experience.", "tags": *id001, "title": "Sound Effects"}
+
+---
+
+------
+
+# Sound Effects
+
+spotify/pedalboard
+
+support vst plugins, create sound effects
+

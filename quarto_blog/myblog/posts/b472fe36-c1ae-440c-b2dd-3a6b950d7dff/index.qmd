@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["export", "github", "history"], "category": "Data Capture", "date": "2023-12-22 23:52:59", "description": "This article explains a method for capturing Github data by utilizing proxies and VPNs, along with tools like mitmproxy, pcapdroid, and gh_stars_export to handle accounts requiring cookies or credentials.", "tags": *id001, "title": "Github Bookmarks from James4deutschland"}
+
+---
+
+------
+
+# Github Bookmarks from James4deutschland 2022/6/1
+
+consider using proxy and vpn to do the capturing. mitmproxy and pcapdroid.
+
+for accounts with cookies or credentials, you can use custom tool like gh_stars_export.
+

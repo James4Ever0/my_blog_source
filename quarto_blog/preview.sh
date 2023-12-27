@@ -1,1 +1,1 @@
-quarto preview myblog
+quarto preview myblog --log-level info --log preview.log

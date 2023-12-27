@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article dives into optimizing live broadcasts for an enhanced user experience. It explores the use of Python in a web browser along with various features such as QR code detection, content filtering, interactive chats, reward systems, low latency streaming, and ad management to improve the overall quality and engagement of live broadcasts.">
+
+<title>Myblog - 关于做直播 about live streaming</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">关于做直播 about live streaming</h1>
+</div>
+
+<div>
+  <div class="description">
+    This article dives into optimizing live broadcasts for an enhanced user experience. It explores the use of Python in a web browser along with various features such as QR code detection, content filtering, interactive chats, reward systems, low latency streaming, and ad management to improve the overall quality and engagement of live broadcasts.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="关于做直播-about-live-streaming" class="level1">
+<h1>关于做直播 about live streaming</h1>
+<section id="run-python-in-browser" class="level2">
+<h2 class="anchored" data-anchor-id="run-python-in-browser">run python in browser</h2>
+<p><a href="https://python-in-browser.com/">pyodide</a></p>
+<p><a href="https://coderoasis.com/run-python-in-the-web-browser/">pyscript</a></p>
+<p><a href="http://skulpt.org/">skulpt</a></p>
+</section>
+<section id="pass-parameter-via-url" class="level2">
+<h2 class="anchored" data-anchor-id="pass-parameter-via-url">pass parameter via url</h2>
+<p><a href="https://programming.bogdanbucur.eu/how-to-get-the-url-anchor-with-javascript/">get url anchor text</a></p>
+<p>you can still use query string when visiting github.io</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">getQueryStringValues</span>(key) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> arrParamValues <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> url <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="at">location</span><span class="op">.</span><span class="at">href</span><span class="op">.</span><span class="fu">slice</span>(<span class="bu">window</span><span class="op">.</span><span class="at">location</span><span class="op">.</span><span class="at">href</span><span class="op">.</span><span class="fu">indexOf</span>(<span class="st">'?'</span>) <span class="op">+</span> <span class="dv">1</span>)<span class="op">.</span><span class="fu">split</span>(<span class="st">'&amp;'</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> url<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> arrParamInfo <span class="op">=</span> url[i]<span class="op">.</span><span class="fu">split</span>(<span class="st">'='</span>)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (arrParamInfo[<span class="dv">0</span>] <span class="op">==</span> key <span class="op">||</span> arrParamInfo[<span class="dv">0</span>] <span class="op">==</span> key<span class="op">+</span><span class="st">'[]'</span>) {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            arrParamValues<span class="op">.</span><span class="fu">push</span>(<span class="pp">decodeURIComponent</span>(arrParamInfo[<span class="dv">1</span>]))<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (arrParamValues<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> (arrParamValues<span class="op">.</span><span class="at">length</span> <span class="op">==</span> <span class="dv">1</span> <span class="op">?</span> arrParamValues[<span class="dv">0</span>] <span class="op">:</span> arrParamValues) <span class="op">:</span> <span class="kw">null</span>)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="保存粉丝cookie-避免接入xpay之后反复输入地址" class="level2">
+<h2 class="anchored" data-anchor-id="保存粉丝cookie-避免接入xpay之后反复输入地址">保存粉丝cookie 避免接入xpay之后反复输入地址</h2>
+<p><a href="https://www.tutorialspoint.com/How-to-set-a-cookie-and-get-a-cookie-with-JavaScript">set and get a cookie with javascript</a></p>
+</section>
+<section id="付钱兑换礼物" class="level2">
+<h2 class="anchored" data-anchor-id="付钱兑换礼物">付钱兑换礼物</h2>
+<p>要能够有效识别付钱的对象 用浏览器的cookie 送达目标地址</p>
+<p>过滤人名</p>
+<p>过滤群聊里面的广告内容 色情 暴恐 声音不对劲要去掉 合适的BGM</p>
+<p>直播上传带宽要保证 延迟要低</p>
+<p>“聚合直播”</p>
+<p>做直播最重要的就是互动性</p>
+<p>你可以直播群友聊天的画面 要去掉含有个人隐私的头像或照片 信息 QQ Email 要过滤掉nsfw的内容 操作qq机器人来和群友说话 或者让送礼物最多的人获得发言权 排行榜最上面的人获得发言权 群聊也不一定要单一 多个群一起弄 甚至多个社交软件一起弄 群聊私聊一起用</p>
+<p>你也可以参考其他的主播 看看他们是怎么做的</p>
+<p>可以通过分析评论 切换直播主题 切换直播画面</p>
+</section>
+<section id="免签支付-获取订单号-给粉丝发福利-vip" class="level2">
+<h2 class="anchored" data-anchor-id="免签支付-获取订单号-给粉丝发福利-vip">免签支付 获取订单号 给粉丝发福利 VIP</h2>
+<p><a href="https://github.com/SocialSisterYi/bilibili-API-collect/blob/be65d5f05b8024acf2b34c583a5d66144ec3c141/electric/WeChat&amp;Alipay.md">b站充电API</a></p>
+<p>https://www.yunmianqian.com https://github.com/assimon/easymqpay https://github.com/szvone/vmqphp https://github.com/wxs2/xposed-pay</p>
+<p>https://github.com/szvone/vmqApk</p>
+<p><a href="https://github.com/zwc456baby/vmqApk">vmqapk 最新修改版</a></p>
+<p><a href="https://github.com/Exrick/xpay">xpay</a> 这个东西需要人工监听 跪了</p>
+</section>
+<section id="随想-8" class="level2">
+<h2 class="anchored" data-anchor-id="随想-8">随想 8</h2>
+<p>视频广告</p>
+<p>Yukio 21:46:07 应该来个淡入淡出之类的</p>
+<p>Yukio 21:46:25 还有一个试看结束的提示</p>
+<p>Yukio 21:46:37 试看开始之前的提示</p>
+<p>播放视频内容也要有提示 开头和结尾要给人知道这个截取的片段是干什么的</p>
+</section>
+<section id="随想-7" class="level2">
+<h2 class="anchored" data-anchor-id="随想-7">随想 7</h2>
+<p>Yukio 01:56:43 付了款 留下联系方式 给你发福利</p>
+<p>Yukio 01:57:16 但是万一有些人滥用呢</p>
+<p>Yukio 01:57:36 发一些奇奇怪怪的联系方式或者邮箱</p>
+<p>Yukio 01:57:55 给我发些什么监察委员会的邮箱</p>
+<p>Yukio 01:58:32 我可以增加一个取消订阅按钮 让这些人取消订阅 别找我麻烦</p>
+<p>Yukio 02:01:28 或者我把文件上传到一次性的文件分享页面</p>
+<p>Yukio 02:01:38 过几个小时自动取消分享</p>
+</section>
+<section id="随想-6" class="level2">
+<h2 class="anchored" data-anchor-id="随想-6">随想 6</h2>
+<p>Yukio 01:06:16 这个我直播间可以根据uid和活跃等级</p>
+<p>Yukio 01:06:24 持久化你的活跃度</p>
+<p>Yukio 01:06:34 充钱也可以升级</p>
+<p>Yukio 01:06:44 送我礼物</p>
+<p>Yukio 01:07:21 如果是直接wx转钱给我 这个估计得给我发交易单号 私信发我才能兑换呢</p>
+<p>Yukio 01:07:31 至于怎么找这个交易单号</p>
+<p>Yukio 01:07:34 emm</p>
+<p>Yukio 01:08:36 我想想</p>
+<p>Yukio 01:09:28 这个估计得对接第四方交易接口 或者我看看现成的实现</p>
+<p>Yukio 01:10:32 同时 给我的视频留言 发弹幕也可以刷活跃度</p>
+<p>Yukio 01:10:42 刷直播间给你显示的活跃度</p>
+<p>Yukio 01:12:39 如果给我充钱 我会发你涩图 冲的多发的多</p>
+<p>Yukio 01:12:50 至于怎么发</p>
+<p>Yukio 01:12:59 发你邮箱 你留下邮箱地址我发你</p>
+<p>Yukio 01:15:57 不需要涩图也可以个性化定制</p>
+<p>Yukio 01:16:19 如果给我充钱 一段时间内不会有给我打钱的二维码</p>
+<p>Yukio 01:16:40 不给我充 不给我私信 我就一直发给我打钱的二维码</p>
+<p>Yukio 01:17:37 如果给我充钱 可以绑定相关QQ账号 邮箱账号 或者什么其他的社交账号 每个平台只能绑一个账号</p>
+<p>Yukio 01:18:14 绑了之后 给钱 一段时间我的内容没有打钱二维码 私信的话</p>
+<p>你主动加我为好友才行</p>
+</section>
+<section id="随想-5" class="level2">
+<h2 class="anchored" data-anchor-id="随想-5">随想 5</h2>
+<p>Yukio 23:05:52 为了检测这种二维码</p>
+<p>Yukio 23:06:30 同时有一些不是很好检测的文字 水印</p>
+<p>Yukio 23:06:44 也需要image local contrast enhancement</p>
+<p>Yukio 23:25:11 随机切割句子 分批发送</p>
+<p>Yukio 23:25:16 这样我的机器人更像人</p>
+<p>image enhancement for optical character recognition</p>
+<p>image enhancement for watermark removal</p>
+</section>
+<section id="随想-4" class="level2">
+<h2 class="anchored" data-anchor-id="随想-4">随想 4</h2>
+<p>Yukio 21:00:32 nsfw没必要每一帧都加</p>
+<p>Yukio 21:00:38 可以跳着加</p>
+<p>Yukio 21:00:52 然后把出问题的帧的周围全部ban掉</p>
+<p>Yukio 21:01:07 但是除了画面</p>
+<p>Yukio 21:01:16 声音娇喘的也得去掉</p>
+<p>Yukio 21:01:24 这个娇喘</p>
+<p>Yukio 21:01:41 用个声音分类器</p>
+<p>Yukio 21:01:51 用狗叫分类器改一下就好了</p>
+<p>Yukio 21:02:12 除了娇喘</p>
+<p>Yukio 21:02:20 还得弄语音识别</p>
+<p>Yukio 21:02:35 防止某些狗叫言论污染直播间</p>
+</section>
+<section id="随想-3" class="level2">
+<h2 class="anchored" data-anchor-id="随想-3">随想 3</h2>
+<p>直播的通知 当直播的主题变化的时候 把广告发到不同的群 不同的观众那里</p>
+</section>
+<section id="随想-2" class="level2">
+<h2 class="anchored" data-anchor-id="随想-2">随想 2</h2>
+<p>不和谐的 包括有链接的内容 有二维码的内容 有联系方式的内容 加标点符号的广告内容 重复发送的内容</p>
+<p>Yukio 14:26:10 可以看到其实判别不和谐言论很难</p>
+<p>Yukio 14:26:23 所以可以用谐音字 拼音判断</p>
+<p>Yukio 14:26:51 加上不信任期 一旦出现不和谐言论 一段时间内不用这个群聊</p>
+<p>Yukio 14:27:15 以及繁体字转简体字</p>
+</section>
+<section id="随想-1" class="level2">
+<h2 class="anchored" data-anchor-id="随想-1">随想 1</h2>
+<p>Yukio 22:29:44 我直播群友聊天咋样？</p>
+<p>Yukio 22:30:07 我直播群友聊天 然后给我留言的人 有机会把消息发到群里面来</p>
+<p>Yukio 22:30:30 其中送礼物送的最多的发消息发进来的概率最大</p>
+<p>Yukio 22:31:49 不仅如此 我还多个群聚合聊天 多社交软件 多语言聚合聊天</p>
+<p>Yukio 22:32:06 我还可以自由切换话题 自动翻译</p>
+<p>Yukio 22:32:36 也就是说如果你和外国人聊天 你说中文变英文</p>
+<p>Yukio 22:32:46 别人说英文变中文</p>
+<p>黑暗骑士 22:33:20 直播看你装奈子</p>
+<p>Yukio 22:33:33 nsfw不能直播</p>
+<p>Yukio 22:33:45 直播最重要的是互动啊</p>
+<p>Yukio 22:33:51 播其他的也行</p>
+<p>Yukio 22:34:06 但是装柰子 也得sfw</p>
+<p>Yukio 22:34:19 所以有可能需要打码</p>
+<p>Yukio 22:34:29 检测出来nsfw区域 自动打码</p>
+<p>Yukio 22:34:36 或者全屏打码</p>
+<p>Yukio 22:35:07 你说什么 我可以给你在线搜索视频给你看</p>
+<p>Yukio 22:35:49 你不说话的时候我就挑热门视频和热门直播转发</p>
+<p>Yukio 22:36:15 根据进来的观众们的历史观看记录和历史发言来播视频</p>
+<p>Yukio 22:42:38 这个换台的话 本人三分钟可以撤销两次</p>
+<p>Yukio 22:43:09 而其他人在本人获得换台权利之后 三分钟之后才能继续排队</p>
+<p>Yukio 22:43:23 早就不招了</p>
+<p>Yukio 22:44:29 你建的话 我有过滤器啊</p>
+<p>Yukio 22:44:32 你可以建</p>
+<p>Yukio 22:44:57 但是要是有关键字 我这边不会播你的</p>
+<p>Yukio 22:45:08 而且头像和昵称</p>
+<p>Yukio 22:45:13 不会有</p>
+<p>Yukio 22:46:05 如果sfw</p>
+<p>Yukio 22:46:14 那么就是不够涩</p>
+<p>Yukio 22:46:18 也不会有问题</p>
+<p>Yukio 22:46:40 再说了</p>
+<p>Yukio 22:46:51 让别人跟你聊天不是好事么</p>
+<p>Yukio 22:47:16 取决于涩涩的程度</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

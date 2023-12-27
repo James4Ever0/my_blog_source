@@ -1,0 +1,36 @@
+---
+{"categories": &id001 ["dancing", "motion driven video", "stub", "video generator"], "category": "AI", "date": "2023-12-22 23:52:59", "description": "The project, available on GitHub, is a creative application of AI that converts static images into dance videos. It comes with MMD format conversion tools and an online demo for users to experience the transformation. Additionally, it includes video examples showcasing its capabilities, and utilizes the CoNR group chat for collaboration and updates.", "tags": *id001, "title": "Jiggy boring still image to funny dance video 跳舞 舞蹈"}
+
+---
+
+------
+
+# Jiggy boring still image to funny dance video
+
+最新版代码:
+https://github.com/transpchan/Live3D-v2
+MMD 格式转换工具：
+https://github.com/KurisuMakise004/MMD2UDP
+官网：https://transpchan.github.io/live3d/
+Colab:https://colab.research.google.com/github/transpchan/Live3D-v2/blob/main/notebook.ipynb
+CoNR群：362985749
+
+【[ai绘画]仅用4张图片合成一段舞蹈视频-哔哩哔哩】 https://b23.tv/NaF20nA
+
+用到的资料和项目地址
+BV19V4y1x7bJ
+GitHub：https://github.com/megvii-research/CoNR
+GitHub：https://github.com/KurisuMakise004/MMD2UDP
+配音：基于VITS的弥希miki音声：BV1vW4y1e7bn
+bgm：风神少女
+视频如果有什么不对的地方，欢迎指出(*^▽^*)
+侵删
+
+still image to dancing
+
+everybody dance now:
+https://github.com/carolineec/EverybodyDanceNow
+
+edn pytorch implenentation:
+https://github.com/Lotayou/everybody_dance_now_pytorch
+

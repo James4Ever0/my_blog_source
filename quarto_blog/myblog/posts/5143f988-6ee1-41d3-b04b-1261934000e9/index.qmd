@@ -1,0 +1,21 @@
+---
+{"categories": &id001 ["AI", "image generation", "text to image", "video generator", "video source"], "category": "Image Generation", "date": "2023-12-22 23:52:59", "description": "This article highlights several open-source projects that enable image generation from text using models similar to DALL-E. Mentioned projects include DALLE-pytorch, dalle_mini, dalle-flow by Jina AI (a human-in-the-loop multi-prompt tool), and a playground for experimentation called dalle-playground.", "tags": *id001, "title": "DALL_E Text to Image"}
+
+---
+
+------
+
+# DALL_E Text to Image
+
+open sourced text to image:
+https://github.com/lucidrains/DALLE-pytorch
+
+dalle_mini:
+https://github.com/borisdayma/dalle-mini
+
+jina ai human in the loop multi prompt text to image dalle-flow:
+https://github.com/jina-ai/dalle-flow
+
+dalle playground:
+https://github.com/saharmor/dalle-playground
+

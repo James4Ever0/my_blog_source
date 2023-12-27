@@ -1,0 +1,309 @@
+---
+{"categories": &id001 ["interval", "math", "mathematica", "sympy", "wolfram"], "category": "Interval set manipulation", "date": "2023-12-22 23:52:59", "description": "This Python script utilizes SymPy for performing various interval operations. It allows you to manage, merge, and sort sets of intervals, detect overlaps, convert continuous data into intervals, solve unions, filter short intervals, and transform interval sets into tuples. The provided functions enable you to obtain a merged interval tuple list and easily handle and manipulate interval sets.", "tags": *id001, "title": "连续区间 离散区间 从离散数据中获得离散区间 交并补"}
+
+---
+
+------
+
+# 连续区间 离散区间 从离散数据中获得离散区间 交并补
+
+离散区间的获得可以用边界条件判定 即最近n个连续的概率大于多少 容忍值为多少 最近n个小于多少直接作为结束边界的条件 也可以用convolution Gaussian blur
+
+离散区间交并补可以转化为连续区间交并补 更简单省事
+
+如果要做下面的运算 建议用第三方库 比如wolfram swi-prolog的clpr sympy
+
+连续区间交并补 先排序 设置首末端的操作 然后进行相应区间选取 进行下一步操作直到结束 输出总的结果
+
+## combining similar/nearby bounding boxes, suppressing near duplicate bounding boxes over short time
+
+[see here](./textbook!.md)
+
+you can merge a group of things, then analyze them over time using object tracker, tweening them.
+
+## Discrete Interval Set Union Solvers
+
+you may want to filter out short intervals. mind the lopen/ropen interval after intersection or difference operation.
+
+you may also want to quantize these intervals, set them to nearest possible points. 用到某采样率 还是根本不用吧 就是属于那个区间的离散点上面执行相应的操作变化 但是那个区间如何划分 怎么把离散点归类到不同区间里面 完全是其他的逻辑需要做的事情 一般同类别的区间不能相交 但是之后再考虑吧 怎么用呢 所有的全部弄到一个列表里面 还是选取最小的那个来用？
+
+category with different groups -> subcategories
+
+first the sample set:
+```bash
+import sympy
+
+# make sure every subset is ordered.
+mSet = [(1.0,1.1,1.2),(2.4,2.5,2.6)]
+mSet2 = [(0.9,1.05,1.15),(2.45,2.55,2.65,2.75)]
+
+# convert to intervals first please?
+mSetIntervals = [(x[0],x[-1]) for x in mSet]
+mSet2Intervals = [(x[0],x[-1]) for x in mSet2]
+
+# additional check: these intervals cannot overlap!
+def checkOverlap(intervalTupleList):
+  unionInterval = sympy.EmptySet # shall be empty here.
+  for start, end in intervalTupleList:
+    newInterval = sympy.Interval(start,end)
+    isOverlapped = (sympy.EmptySet == unionInterval.intersect(newInterval))
+    if isOverlapped:
+      print("INTERVAL", newInterval, "OVERLAPPED!")
+      return isOverlapped
+    unionInterval += newInterval
+  return False
+
+assert not checkOverlap(mSetIntervals)
+assert not checkOverlap(mSet2Intervals)
+
+```
+then pool and sort all the boundaries of converted intervals:
+```bash
+mPoints = mSetIntervalBoundaries + mSet2IntervalBoundaries
+mPoints = list(set(mPoints))
+mPoints.sort()
+```
+### with sympy
+```bash
+# all the same
+```
+### with less sympy
+```bash
+# all the same
+```
+
+## Continual Interval Set Union Solvers
+
+you must be able to explicitly point out different group index of different category. maybe you can just do it in all-new subcategories?
+
+### less exponential solution here?
+```bash
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# basically the same example.
+# assume no overlapping here.
+import sympy
+
+def unionToTupleList(myUnion):
+  unionBoundaries = list(myUnion.boundary)
+  unionBoundaries.sort()
+  leftBoundaries = unionBoundaries[::2]
+  rightBoundaries = unionBoundaries[1::2]
+  return list(zip(leftBoundaries, rightBoundaries))
+
+def tupleSetToUncertain(mSet):
+  mUncertain = None
+  for start, end in mSet:
+    if mUncertain is None:
+      mUncertain = sympy.Interval(start,end)
+    else:
+      mUncertain += sympy.Interval(start,end)
+  typeUncertain = type(mUncertain)
+  return mUncertain, typeUncertain
+
+def mergeOverlappedInIntervalTupleList(intervalTupleList):
+  mUncertain, _ = tupleSetToUncertain(intervalTupleList)
+  mUncertainBoundaryList = list(mUncertain.boundary)
+  mUncertainBoundaryList.sort()
+  mergedIntervalTupleList = list(zip(mUncertainBoundaryList[::2], mUncertainBoundaryList[1::2]))
+  return mergedIntervalTupleList
+
+mSet = mergeOverlappedInIntervalTupleList([(0,1), (2,3)])
+mSet2 = mergeOverlappedInIntervalTupleList([(0.5,1.5),(1.6,2.5)])
+
+print("MSET", mSet)
+print("MSET2", mSet2)
+
+mSetCandidates = [mSet, mSet2]
+mSetUnified = [x for y in mSetCandidates for x in y]
+leftBoundaryList = set([x[0] for x in mSetUnified])
+rightBoundaryList = set([x[1] for x in mSetUnified])
+# they may freaking overlap.
+# if want nearby-merge strategy, simply just expand all intervals, merge them with union and shrink the individual intervals inside union respectively.
+
+markers = {"enter":{k:[] for k in leftBoundaryList}, "exit":{k:[] for k in rightBoundaryList}}
+
+for index, mSetCandidate in enumerate(mSetCandidates):
+  leftBoundaryListOfCandidate = [x[0] for x in mSetCandidate]
+  rightBoundaryListOfCandidate = [x[1] for x in mSetCandidate]
+  for leftBoundaryOfCandidate in leftBoundaryListOfCandidate:
+    markers["enter"][leftBoundaryOfCandidate].append(index) # remap this thing!
+  for rightBoundaryOfCandidate in rightBoundaryListOfCandidate:
+    markers["exit"][rightBoundaryOfCandidate].append(index) # remap this thing!
+  
+# now, iterate through the boundaries of mSetUnified.
+unifiedBoundaryList = leftBoundaryList.union(rightBoundaryList) # call me a set instead of a list please? now we must sort this thing
+unifiedBoundaryList = list(unifiedBoundaryList)
+unifiedBoundaryList.sort()
+
+unifiedBoundaryMarks = {}
+finalMappings = {}
+# print("MARKERS", markers)
+# breakpoint()
+for index, boundary in enumerate(unifiedBoundaryList):
+  previousMark = unifiedBoundaryMarks.get(index-1, [])
+  enterList = markers["enter"].get(boundary,[])
+  exitList = markers["exit"].get(boundary,[])
+  currentMark = set(previousMark + enterList).difference(set(exitList))
+  currentMark = list(currentMark)
+  unifiedBoundaryMarks.update({index:currentMark})
+  # now, handle the change? or not?
+  # let's just deal those empty ones, shall we?
+  if previousMark == []: # inside it is empty range.
+  # elif currentMark == []:
+    if index == 0: continue # just the start, no need to note this down.
+    else:
+      finalMappings.update({"empty":finalMappings.get("empty",[])+[(unifiedBoundaryList[index-1], boundary)]})
+    # the end of previous mark! this interval belongs to previousMark
+  else:
+    key = previousMark.copy()
+    key.sort()
+    key = tuple(key)
+    finalMappings.update({key:finalMappings.get(key,[])+[(unifiedBoundaryList[index-1], boundary)]})
+    # also the end of previous mark! belongs to previousMark.
+
+### NOW THE FINAL OUTPUT ###
+finalCats = {}
+for key, value in finalMappings.items():
+  # value is an array containing subInterval tuples.
+  value = mergeOverlappedInIntervalTupleList(value)
+  finalCats.update({key: value})
+
+print("______________FINAL CATS______________")
+print(finalCats)
+```
+
+### sympy solution
+sympy seems to provide support for discrete and continuous interval? will that save any damn time anyway? i'm afraid no? maybe there's a way!
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sympy
+
+def unionToTupleList(myUnion):
+  #  seriously wrong. this will fuck up.
+  unionBoundaries = list(myUnion.boundary)
+  unionBoundaries.sort()
+  leftBoundaries = unionBoundaries[::2]
+  rightBoundaries = unionBoundaries[1::2]
+  return list(zip(leftBoundaries, rightBoundaries))
+
+def tupleSetToUncertain(mSet):
+  mUncertain = None
+  for start, end in mSet:
+    if mUncertain is None:
+      mUncertain = sympy.Interval(start,end)
+    else:
+      mUncertain += sympy.Interval(start,end)
+  typeUncertain = type(mUncertain)
+  return mUncertain, typeUncertain
+
+# borrowed from above code.
+def mergeOverlappedInIntervalTupleList(intervalTupleList):
+  mUncertain, _ = tupleSetToUncertain(intervalTupleList)
+  mUncertainBoundaryList = list(mUncertain.boundary)
+  mUncertainBoundaryList.sort()
+  #  print(mUncertain)
+  #  print(mUncertainBoundaryList)
+  mergedIntervalTupleList = list(zip(mUncertainBoundaryList[::2], mUncertainBoundaryList[1::2]))
+  # print(mergedIntervalTupleList)
+  return mergedIntervalTupleList
+
+mSet = [(0,1), (2,3)]
+mUncertain, typeUncertain = tupleSetToUncertain(mSet)
+unrolledMSet = list(mUncertain.boundary)
+# can be either sympy.sets.sets.Interval of sympy.sets.sets.Union
+
+mSet2 = [(0.5,1.5),(1.6,2.5)]
+mUncertain2, typeUncertain2 = tupleSetToUncertain(mSet2)
+unrolledMSet2 = list(mUncertain2.boundary)
+
+print("MSET", mSet)
+print("MSET2", mSet2)
+
+############################################################
+
+# hypothetical mSet2 and mUncertain2! please complete the hypothetical shit and make it runnable!
+
+def checkCommon(subInterval, masterInterval):
+  return subInterval == sympy.Intersection(subInterval, masterInterval)
+
+mUncertains = [mUncertain, mUncertain2]
+subIntervals = list(set(unrolledMSet2 + unrolledMSet))
+subIntervals.sort()
+
+subIntervals = zip(subIntervals[:-1], subIntervals[1:])
+subIntervals = list(subIntervals)
+#  breakpoint()
+# for subIntervals, it's still not real interval but tuple at above line.
+
+reversedCats = {}
+
+import functools
+subIntervalUnion = functools.reduce(lambda a,b: a+b, mUncertains)
+
+for subIntervalIndex, (start, end) in enumerate(subIntervals):
+  subIntervalCandidate = sympy.Interval(start, end)
+
+  reverseIndex = [] # there must be at least one such index.
+  for index, uncertainCandidate in enumerate(mUncertains):
+    if checkCommon(subIntervalCandidate, uncertainCandidate):
+      reverseIndex.append(index) # this is the index of the in-common set of the original set list
+  reversedCats.update({subIntervalIndex:reverseIndex}) # need to sort and index? or not to sort because this is already done?
+
+normalCats = {}
+for k,v in reversedCats.items():
+  v.sort()
+  v = tuple(v)
+  normalCats.update({v:normalCats.get(v, [])+[k]})
+# we only get interval, not the actural union period!
+# how to get interval elements out of union structure for hell sake?
+
+finalCats = {}
+for k,v in normalCats.items():
+  # now k is the original set index list, representing belonging of the below union.
+  #  print(subIntervals)
+  #  print(index)
+  #  print(v)
+  #  breakpoint()
+  mFinalUnionCandidate = [subIntervals[index] for index in v]
+
+  ## REPLACED ##
+  # mFinalUnionCandidate, _ = tupleSetToUncertain(mFinalUnionCandidate)
+
+  ##### union to tuple list, could be replaced #####
+  #mFinalUnionCandidateBoundaryList = list(mFinalUnionCandidate.boundary)
+  #left_bounds, right_bounds = mFinalUnionCandidateBoundaryList[0::2],mFinalUnionCandidateBoundaryList[1::2] # check it dammit! not sure how to step the list properly?
+  #mFinalIntervalListCandidate = list(zip(left_bounds, right_bounds))
+
+  # mFinalIntervalListCandidate = unionToTupleList(mFinalUnionCandidate)
+  ##### union to tuple list, could be replaced #####
+  ## REPLACED ##
+  # print("M_FINAL_UNION_CANDIDATE",mFinalUnionCandidate)
+
+  mFinalIntervalListCandidate = mergeOverlappedInIntervalTupleList(mFinalUnionCandidate)
+  # print("M_FINAL_INTERVAL_LIST_CANDIDATE", mFinalIntervalListCandidate)
+
+  # breakpoint()
+  finalCats.update({k:mFinalIntervalListCandidate.copy()})
+# this whole calculation could just be exponential. goddamn it?
+# before that, we need to get the "empty" out. but is that really necessary? i think it is, as an important feature.
+#  subIntervalsStart, subIntervalsEnd = subIntervals[0][0], subIntervals[-1][-1]
+#
+#  relativeCompleteInterval = sympy.Interval(subIntervalsStart, subIntervalsEnd)
+#
+# subIntervalUnion
+#  emptyIntervalUnion = relativeCompleteInterval - subIntervalUnion # really uncertain if it is just a union or not.
+#  emptyIntervalTupleList = unionToTupleList(emptyIntervalUnion)
+#
+#  finalCats.update({"empty":emptyIntervalTupleList})
+finalCats.update({"empty":finalCats[()]})
+del finalCats[()]
+
+print("_____FINAL CATS_____")
+print(finalCats)
+
+```
+

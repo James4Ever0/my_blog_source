@@ -1,0 +1,25 @@
+---
+{"categories": &id001 ["chinese", "IME", "input method", "NLP", "pinyin"], "category": "Chinese Input Methods", "date": "2023-12-22 23:52:59", "description": "This article presents a variety of Python-based Chinese input tools such as LoginputEngine, Pinyin2Hanzi, python-pinyin, pyim Tsinghua dict (Emacs), and IMEWLCConverter. These resources aid in the conversion between Chinese characters and pinyin, facilitating Chinese text input.", "tags": *id001, "title": "Chinese Input Method or Engine"}
+
+---
+
+------
+
+# Chinese Input Method/Engine
+
+using python:
+https://github.com/R0uter/LoginputEngine
+
+pinyin2hanzi:
+https://github.com/letiantian/Pinyin2Hanzi
+
+Python chinese to pinyin:
+https://github.com/mozillazg/python-pinyin
+
+pyim tsinghua dict(for emacs):
+https://github.com/redguardtoo/pyim-tsinghua-dict
+
+chinese input method dict converter: 
+https://github.com/studyzy/imewlconverter
+
+

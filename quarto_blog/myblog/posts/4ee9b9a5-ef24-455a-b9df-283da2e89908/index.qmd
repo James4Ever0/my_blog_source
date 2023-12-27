@@ -1,0 +1,20 @@
+---
+{"categories": &id001 ["animation", "attention", "crop the crap", "cut the crap", "easing", "focus on object", "intermediate", "pyjom", "stub", "tweening"], "category": "Video Manipulation", "date": "2023-12-22 23:52:59", "description": "This text explores the concept of focusing and zooming on objects within a video using pytweening, an easing/tweening function collection. The portal-zoomer tool is introduced for cropping videos to include only human regions. It also suggests that other libraries such as ffmpeg or vidpy/mltframework may have similar functionalities.", "tags": *id001, "title": "tweening for object focus, zoom to object, zoom to video ROI"}
+
+---
+
+------
+
+# tweening for object focus, zoom to object, zoom to video ROI
+
+focus on person only, crop video and leave only human region untouched:
+https://github.com/ConceptCodes/portal-zoomer
+
+focus/zoom on given object using [pytweening, a easing/tweening function collection](https://pypi.org/project/pytweening/).
+
+to tell you, pytweening is initially developed for pyautogui (by the same author at least), probably for evading AI detection, passing captcha or somehow, but it could also be used in animation rendering.
+
+or just use ffmpeg. you need to handcraft those formulas anyway.
+
+does vidpy/mltframework and some other libs supports that? requires investigation.
+

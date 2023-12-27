@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["Github", "spider collections", "web scraping tools", "learnspider", "Zhihu.com", "resource limitations", "recommendations"], "category": "Web Scraping", "date": "2023-12-22 23:52:59", "description": "This article discusses different spider collections and web scraping tools found on Github. It points out the drawbacks of certain existing resources and suggests a particular one (learnspider) for practical use. Additionally, it introduces another collection specifically designed for Zhihu.com.", "tags": *id001, "title": "spider, web scraping, captcha bypass"}
+
+---
+
+------
+
+# spider, web scraping, captcha bypass
+
+there are multiple spider collections on github, most of them are rudimentary and project specific, may not always suit your needs.
+
+[learnspider](http://learnspider.evilrecluse.top/) in which you can find simple captcha js code and many antimeasure of scrapers for practice. for solutions: [learning_spider](https://github.com/RecluseXU/learning_spider)
+
+[spider collections](https://github.com/srx-2000/spider_collection) covers zhihu.com
+

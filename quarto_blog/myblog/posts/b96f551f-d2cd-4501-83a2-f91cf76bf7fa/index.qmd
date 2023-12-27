@@ -1,0 +1,17 @@
+---
+{"categories": &id001 ["freelancer"], "category": "Library Management", "date": "2023-12-22 23:52:59", "description": "A Library System with a database is being discussed in this article. The system currently lacks specific data, and an entity-relation diagram is provided to help understand the structure of the system. Contact information is also included for those who require further assistance or have any questions.", "tags": *id001, "title": "Library System"}
+
+---
+
+------
+
+# Library System
+
+https://blog.csdn.net/cnmlgbnbcs/article/details/110643393?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164327697216780255279283%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%25
+
+with database. without specific data.
+
+with entity-relation diagram
+
+3302162875@qq.com
+

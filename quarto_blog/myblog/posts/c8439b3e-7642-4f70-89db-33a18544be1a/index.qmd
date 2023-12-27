@@ -1,0 +1,17 @@
+---
+{"categories": &id001 ["polygons", "rectangles", "conversion tools", "rectirization", "extractrect", "rectlinear polygon decomposition", "image processing"], "category": "Rectangularization Methods", "date": "2023-12-22 23:52:59", "description": "This article explores the techniques of transforming polygons into rectangles using tools like rectirization, extractrect, and rectlinear polygon decomposition. These methods are useful in various applications such as computer vision, robotics, and digital mapping.", "tags": *id001, "title": "rectangle related calculation"}
+
+---
+
+------
+
+# rectangle related calculation
+
+better make polygon into blocks first (pixelize) and then decompose it into rectangles
+
+[rectirization](https://github.com/shininglion/rectirization) A polygon to rectangle conversion tool, written in cpp
+
+[extractrect](https://github.com/pogam/ExtractRect) find the largest rectangle inscribed in a non-convex polygon
+
+[decompose rectlinear polygon](https://github.com/mikolalysenko/rectangle-decomposition) in nodejs
+

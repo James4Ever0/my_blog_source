@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="PaddlePaddle is an AI platform providing optimized pre-trained NLP models like BERT and ELECTRA, applicable to diverse fields such as agriculture, healthcare, sports, machine translation, image classification, and natural language processing.">
+
+<title>Myblog - paddlepaddle applications</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">paddlepaddle applications</h1>
+</div>
+
+<div>
+  <div class="description">
+    PaddlePaddle is an AI platform providing optimized pre-trained NLP models like BERT and ELECTRA, applicable to diverse fields such as agriculture, healthcare, sports, machine translation, image classification, and natural language processing.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="paddlepaddle-applications" class="level1">
+<h1>paddlepaddle applications</h1>
+<section id="tips" class="level2">
+<h2 class="anchored" data-anchor-id="tips">tips</h2>
+<p>you can find solutions from kaggle notebooks or aistudio notebooks. you may consider to query them conveniently in one api.</p>
+</section>
+<section id="repo-location-all-source-code-can-be-found-there" class="level2">
+<h2 class="anchored" data-anchor-id="repo-location-all-source-code-can-be-found-there">repo location (all source code can be found there)</h2>
+<p><a href="https://ghproxy.com/https://github.com/PaddlePaddle/awesome-DeepLearning/archive/refs/heads/master.zip">archive zip</a></p>
+<p><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">git repo</a></p>
+</section>
+<section id="全新发布" class="level2">
+<h2 class="anchored" data-anchor-id="全新发布">🎉全新发布</h2>
+</section>
+<section id="月31日晚830飞桨产业实践范例直播课程继续开讲" class="level2">
+<h2 class="anchored" data-anchor-id="月31日晚830飞桨产业实践范例直播课程继续开讲"><strong>3月31日晚8:30</strong>，飞桨产业实践范例直播课程继续开讲！！！</h2>
+<p>国内众多行业都在基于人工智能技术推进行业变革与创新，积极探寻有效、有价值的应用场景进行商业化落地。百度飞桨结合实际经验，选取了几个经典的场景，提供了从数据准备、模型训练优化，到模型部署的全流程可复用方案，降低产业落地门槛,让大家在真实数据环境下深入地了解这些案例，获取产业实现方案。</p>
+<p><strong>3月31日晚8:30，飞桨官方将推出 火灾烟雾检测 产业实践范例直播：</strong></p>
+<ul>
+<li><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Fire_and_Smoke_Detection">火灾烟雾检测</a></li>
+</ul>
+<p><strong>此外，还有交通、能源、金融、通信、互联网、零售及教育等等各个行业的精彩范例，大家拭目以待～</strong></p>
+<p>欢迎报名直播课加入交流群，如需更多技术交流与合作可扫描下面二维码：</p>
+<hr>
+<p><strong>往期案例直播回放：</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>案例</th>
+<th>直播回放</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Figure_Skating">花样滑冰</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2251581</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/MultimodalVideoTag">多模态视频打标签</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2251583</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Football_Action">视频精彩时刻剪辑</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2257667</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/ruoclio/awesome-DeepLearning/tree/my_branch/Paddle_Industry_Practice_Sample_Library/Electromobile_In_Elevator_Detection">电瓶车进电梯检测</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2273969</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Abnormal_Action_Detection">异常行为识别</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2273989</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Multi-Class_Vehicle_Tracking">多类别车辆跟踪</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2274692</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/blob/master/Paddle_Industry_Practice_Sample_Library/Electricity_Meter_Recognition/Electricity%20meter%20recognition.md">多类别电表读数识别落地方案</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2309177</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Tower_Recognition">多类别通信塔识别</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2377623</td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/blob/master/Paddle_Industry_Practice_Sample_Library/smart_driving_tasks/3619480.md">基于车载影像的驾驶环境感知</a></td>
+<td>https://aistudio.baidu.com/aistudio/education/lessonvideo/2376819</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="一项目简介" class="level1">
+<h1>一、项目简介</h1>
+<p>本项目是<a href="https://www.paddlepaddle.org.cn/?fr=paddleEdu_github">飞桨官方</a>出品的一站式深度学习在线百科，飞桨致力于让深度学习技术的创新与应用更简单，更多飞桨内容欢迎访问<a href="https://www.paddlepaddle.org.cn/?fr=paddleEdu_github">飞桨官网</a>。本项目内容涵盖：</p>
+<p>📒课程类：<a href="https://aistudio.baidu.com/aistudio/course/introduce/1297"><strong>零基础实践深度学习</strong></a>、<strong>产业实践深度学习</strong>、<strong><a href="https://aistudio.baidu.com/aistudio/education/group/info/24322">特色课程</a>、飞桨套件课程汇总资料</strong></p>
+<p>📒书籍类：<strong>《动手学深度学习》paddle版</strong></p>
+<p>📒宝典类：<a href="https://paddlepedia.readthedocs.io/en/latest/index.html"><strong>深度学习百问</strong></a>、<strong>面试宝典</strong></p>
+<p>📒案例类：<strong><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library">飞桨产业实践范例库</a></strong>（包含智慧城市：<a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Fire_and_Smoke_Detection">火灾烟雾检测</a>、 <a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Hemtle%20Detection">安全帽检测</a> ；智能制造：<a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/paddlex_steel_defect_seg-master">钢材缺陷检测</a> 、 <a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/robot_grab">机械手抓取</a>；互联网：<a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library/Report_Recognition_and_Analysis">财报识别与关键字段抽取</a> 等。</p>
+<p>从理论到实践，从科研到产业应用，各类学习材料一应俱全，旨在帮助开发者高效地学习和掌握深度学习知识，快速成为AI跨界人才。</p>
+<center>
+<img src="./docs/images/cover/repo_cover1.png" width="60%">
+</center>
+<ul>
+<li><strong>内容全面</strong>：无论您是深度学习初学者，还是资深用户，都可以在本项目中快速获取到需要的学习材料。</li>
+<li><strong>形式丰富</strong>：材料形式多样，包括可在线运行的notebook、视频、书籍、B站直播等，满足您随时随地学习的需求。</li>
+<li><strong>实时更新</strong>：本项目中涉及到的代码均匹配Paddle最新发布版本，开发者可以实时学习最新的深度学习任务实现方案。</li>
+<li><strong>前沿分享</strong>：定期分享顶会最新论文解读和代码复现，开发者可以实时掌握最新的深度学习算法。</li>
+</ul>
+<section id="如果本项目对您有帮助欢迎点击网页右上方进行star" class="level4">
+<h4 class="anchored" data-anchor-id="如果本项目对您有帮助欢迎点击网页右上方进行star"><span id="0">如果本项目对您有帮助，欢迎点击网页右上方进行star❤️</span></h4>
+<hr>
+</section>
+<section id="我是高校用户" class="level2">
+<h2 class="anchored" data-anchor-id="我是高校用户">👨‍🏫我是高校用户</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>我希望：</th>
+<th>我可以学习：</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>入门深度学习</td>
+<td>零基础实践深度学习<a href="#1">:arrow_heading_down:</a>、深度学习百问<a href="#2">:arrow_heading_down:</a>、动手学深度学习paddle版<a href="#dive">:arrow_heading_down:</a></td>
+</tr>
+<tr class="even">
+<td>进阶深度学习</td>
+<td>产业实践深度学习、深度学习百问<a href="#2">:arrow_heading_down:</a>、面试宝典<a href="#6">:arrow_heading_down:</a></td>
+</tr>
+<tr class="odd">
+<td>趣味深度学习</td>
+<td>特色课程<a href="#3">:arrow_heading_down:</a>、<a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library">飞桨产业实践范例库</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="我是企业用户" class="level2">
+<h2 class="anchored" data-anchor-id="我是企业用户">👷‍♂️我是企业用户</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>我希望：</th>
+<th>我可以学习：</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>入门深度学习</td>
+<td>零基础实践深度学习<a href="#1">:arrow_heading_down:</a>、深度学习百问<a href="#2">:arrow_heading_down:</a>、动手学深度学习paddle版<a href="#dive">:arrow_heading_down:</a></td>
+</tr>
+<tr class="even">
+<td>进阶深度学习</td>
+<td>产业实践深度学习、特色课程<a href="#3">:arrow_heading_down:</a>、面试宝典<a href="#6">:arrow_heading_down:</a></td>
+</tr>
+<tr class="odd">
+<td>实践深度学习</td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/Paddle_Industry_Practice_Sample_Library">飞桨产业实践范例库</a>、飞桨各产品课程<a href="#fj">:arrow_heading_down:</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="二项目内容" class="level1">
+<h1>二、项目内容</h1>
+</section>
+<section id="课程类" class="level1">
+<h1>👉课程类</h1>
+<section id="零基础实践深度学习" class="level2">
+<h2 class="anchored" data-anchor-id="零基础实践深度学习"><span id="1"> 零基础实践深度学习</span></h2>
+<ul>
+<li><p><strong>AI Studio在线课程：<a href="https://aistudio.baidu.com/aistudio/course/introduce/1297">《零基础实践深度学习》</a></strong>：理论和代码结合、实践与平台结合，包含20小时视频课程，由百度杰出架构师、飞桨产品负责人和资深研发人员共同打造。</p></li>
+<li><p><strong>《零基础实践深度学习》书籍</strong>：本课程配套书籍，由清华出版社2020年底发行，京东/当当等电商均有销售。</p></li>
+</ul>
+</section>
+<section id="特色课---transformer系列" class="level2">
+<h2 class="anchored" data-anchor-id="特色课---transformer系列"><span id="3">特色课 - Transformer系列</span></h2>
+<p>飞桨教育官方出品的Transformer系列内容解读可以参考以下两个平台。</p>
+<ul>
+<li><p>Transformer原理和实践系列课：https://aistudio.baidu.com/aistudio/education/group/info/24683</p></li>
+<li><p>飞桨教育官方账号：https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>领域</th>
+<th><strong>章节名称</strong></th>
+<th>课程简介</th>
+<th>notebook链接</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NLP</td>
+<td>经典的预训练语言模型(上)-预训练模型发展历史</td>
+<td>介绍预训练语言模型的发展历史，word2vec，elmo，bert，gpt，bert一些拓展。</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2287294">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td>经典的预训练模型(上)-ELMo</td>
+<td>全面详细的介绍ELMo模型结构，优缺点等。</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2287335">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td>经典的预训练模型(上)-Transformer</td>
+<td>讲解Transformer的基本原理，包括Embedding，self-attention，encoder，decoder，复杂度计算，共享机制等内容。</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2287386">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td>经典的预训练模型(下)-GPT</td>
+<td>全面详细的介绍GPT的原理，预训练和finetune模式，GPT模型结构，优缺点等。</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2295114">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td>经典的预训练模型(下)-BERT</td>
+<td>全面详细的介绍BERT的基本原理，预训练任务和fine tune的方式，BERT本身的模型结构，优缺点等。</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2297740">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td>预训练模型之自然语言理解-RoBERTa</td>
+<td>讲解预训练模型在自然语言理解方面的改进–RoBERTa</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2299099">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td>预训练模型之自然语言理解-ERNIE</td>
+<td>讲解预训练模型之自然语言理解的改进：ERNIE</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2299380">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td>预训练模型之自然语言理解-KBERT</td>
+<td>讲解预训练模型之自然语言理解的改进：KBERT</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2307309">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td>预训练模型之自然语言理解-THU-ERNIE</td>
+<td>讲解预训练模型之自然语言理解的改进：THU-ERNIE</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2307342">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td>预训练模型之长序列建模-Transformer-XL</td>
+<td>讲解预训练模型之长序列建模的改进：Transformer-XL</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2307389">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td>预训练模型之长序列建模-XLNet</td>
+<td>讲解自然语言理解之长序列建模的改进：XLNet</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2307494">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td>预训练模型之长序列建模-Longformer</td>
+<td>讲解预训练模型之长序列建模的改进：Longformer</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2307544">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>模型优化</td>
+<td>预训练模型-高效结构</td>
+<td>基于ELECTRA的标点符号预测</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2294324">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>模型优化</td>
+<td>预训练模型-蒸馏</td>
+<td>预训练模型蒸馏算法：Patient-KD、DistilBERT、TinyBERT、DynaBERT模型详解，以及使用DynaBERT策略对TinyBERT进行模型蒸馏</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2258091">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>CV</td>
+<td>图像领域的Transformer-Vit,DeiT</td>
+<td>详细讲解ViT 以及 DeiT原理</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2299267">notebook链接</a></td>
+</tr>
+<tr class="even">
+<td>CV</td>
+<td>图像领域的Transformer-Swin Transformer</td>
+<td>详细讲解Swin Transformer原理</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2292148">notebook链接</a></td>
+</tr>
+<tr class="odd">
+<td>CV</td>
+<td>CV领域的Transformer模型DETR在目标检测任务中的应用</td>
+<td>详细讲解DETR原理及代码解析</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2290729">notebook链接</a></td>
+</tr>
+</tbody>
+</table>
+<p>返回<a href="#0">:arrow_heading_up:</a></p>
+<hr>
+</section>
+</section>
+<section id="书籍类" class="level1">
+<h1>👉书籍类</h1>
+<section id="动手学深度学习paddle版" class="level2">
+<h2 class="anchored" data-anchor-id="动手学深度学习paddle版"><span id="dive">《动手学深度学习》paddle版</span></h2>
+<p>本项目将《<a href="http://zh.d2l.ai/">动手学深度学习</a>》原书中MXNet代码实现改为PaddlePaddle实现。原书作者：阿斯顿·张、李沐、扎卡里 C. 立顿、亚历山大 J. 斯莫拉以及其他社区贡献者，GitHub地址：https://github.com/d2l-ai/d2l-zh。</p>
+<p>本项目面向对深度学习感兴趣，尤其是想使用PaddlePaddle进行深度学习的童鞋。本项目并不要求你有任何深度学习或者机器学习的背景知识，你只需了解基础的数学和编程，如基础的线性代数、微分和概率，以及基础的Python编程。</p>
+<p>返回<a href="#0">:arrow_heading_up:</a></p>
+<hr>
+</section>
+</section>
+<section id="宝典类" class="level1">
+<h1>👉宝典类</h1>
+<section id="深度学习百问" class="level2">
+<h2 class="anchored" data-anchor-id="深度学习百问"><span id="2">深度学习百问</span></h2>
+<p>深度学习百问内容包含深度学习基础篇、深度学习进阶篇、深度学习应用篇、强化学习篇以及面试宝典，详细信息请参阅<a href="https://paddlepedia.readthedocs.io/en/latest/index.html">Paddle知识点文档平台</a>。</p>
+<ul>
+<li><p><strong>深度学习基础篇</strong></p>
+<ol type="1">
+<li><p><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/deep_learning/index.html#">深度学习</a></p></li>
+<li><p><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/CNN/index.html">卷积神经网络</a></p></li>
+<li><p><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/sequence_model/index.html">序列模型</a></p></li>
+</ol></li>
+<li><p><strong>深度学习进阶篇</strong></p>
+<ol type="1">
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/pretrain_model/index.html">预训练模型</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/generative_adversarial_network/index.html">对抗神经网络</a></li>
+</ol></li>
+<li><p><strong>深度学习应用篇</strong></p>
+<ol type="1">
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/computer_vision/index.html">计算机视觉</a><br>
+</li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/natural_language_processing/index.html">自然语言处理</a><br>
+</li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/recommendation_system/index.html">推荐系统</a></li>
+</ol></li>
+<li><p><strong>产业实践篇</strong></p>
+<ol type="1">
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/model_compress/index.html">模型压缩</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/model_deployment/index.html">模型部署</a></li>
+</ol></li>
+<li><p><strong>强化学习篇</strong></p>
+<ol type="1">
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/reinforcement_learning/index.html">强化学习</a></li>
+</ol></li>
+<li><p><span id="6"><strong>面试宝典</strong></span></p>
+<ol type="1">
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html">深度学习基础常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id2">卷积模型常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id3">预训练模型常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id4">对抗神经网络常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id5">计算机视觉常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id6">自然语言处理常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id7">推荐系统常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id8">模型压缩常见面试题</a></li>
+<li><a href="https://paddlepedia.readthedocs.io/en/latest/tutorials/interview_questions/interview_questions.html#id9">强化学习常见面试题</a></li>
+</ol></li>
+</ul>
+<p>返回<a href="#0">:arrow_heading_up:</a></p>
+<hr>
+</section>
+</section>
+<section id="案例类" class="level1">
+<h1>👉案例类</h1>
+<section id="飞桨应用案例集" class="level2">
+<h2 class="anchored" data-anchor-id="飞桨应用案例集"><span id="5">飞桨应用案例集</span></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>领域</th>
+<th>产业案例</th>
+<th>来源</th>
+<th>更多内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>智能工业</strong></td>
+<td><a href="https://paddlex.readthedocs.io/zh_CN/develop/examples/meter_reader.html">厂区传统仪表统计监测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智能工业</strong></td>
+<td><a href="https://www.paddlepaddle.org.cn/support/news?action=detail&amp;id=2104">新能源汽车锂电池隔膜质检</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智能工业</strong></td>
+<td><a href="https://paddlex.readthedocs.io/zh_CN/develop/examples/industrial_quality_inspection/README.html">天池铝材表面缺陷检测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智能工业</strong></td>
+<td><a href="https://github.com/PaddleCV-FAQ/PaddleDetection-FAQ/blob/main/Lite%E9%83%A8%E7%BD%B2/yolov3_for_raspi.md">安全帽检测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧城市</strong></td>
+<td><a href="https://www.paddlepaddle.org.cn/support/news?action=detail&amp;id=2103">高尔夫球场遥感监测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧城市</strong></td>
+<td><a href="https://paddlex.readthedocs.io/zh_CN/develop/examples/multi-channel_remote_sensing/README.html">积雪语义分割</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧城市</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/267322?channelType=0&amp;channel=0">戴口罩的人脸识别</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧交通</strong></td>
+<td><a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/configs/vehicle/README_cn.md">车道线分割和红绿灯安全检测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧交通</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1922155?channelType=0&amp;channel=0">【PaddleDetection2.0专项】PP-YOLOv2</a></td>
+<td>飞桨PaddleDet</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/330600">更多paddleDet案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧交通</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/464339?channelType=0&amp;channel=0">PaddleX助力无人驾驶（基于YOLOv3的车辆检测和车道线分割）</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/67156">BIT可达鸭</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧交通</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/596152?channelType=0&amp;channel=0">eblite_标志物检测</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/59591">TobeWell</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧交通</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/739559?channelType=0&amp;channel=0">PaddleOCR: 车牌识别</a></td>
+<td>飞桨开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/180581">寂寞你快进去</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧农林</strong></td>
+<td><a href="https://mp.weixin.qq.com/s/JlDVmYlhN7sF0hpRlncDNw">耕地地块识别</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧农林</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/439888">AI识虫</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧农林</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/708923?channelType=0&amp;channel=0">更快更强！ 高效快速的PP-YOLO实战演练</a></td>
+<td>飞桨PaddleDet</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/330600">更多paddleDet案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧农林</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/439888?channelType=0&amp;channel=0">PaddleX快速上手-Faster RCNN目标检测</a></td>
+<td>飞桨PaddleX</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/189619">更多PaddleX案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧农林</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/289616?channelType=0&amp;channel=0">AI识虫检测分享</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/110992">aaaLKgo</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧农林</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1968964?channelType=0&amp;channel=0">基于PaddleX实现森林火灾监测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧医疗</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1434738?channelType=0&amp;channel=0">医学常见中草药分类</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧医疗</strong></td>
+<td><a href="https://www.paddlepaddle.org.cn/tutorials/projectdetail/1630501">眼疾识别</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧医疗</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/250994?channelType=0&amp;channel=0">基于Paddle的肝脏CT影像分割</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/33061">代码生成器</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>智慧医疗</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/289819?channelType=0&amp;channel=0">PaddleHub 肺炎CT影像分析</a></td>
+<td>飞桨PaddleHub</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/79927">更多PaddleHub案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>智慧医疗</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/457185?channelType=0&amp;channel=0">基于飞桨PGL的高致病性传染病的传播趋势预测基线系统</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2071768">人摔倒检测</a></td>
+<td>开发者<a href="https://github.com/Niki173">Niki_173</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/474269">该开发者更多案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://github.com/PaddlePaddle/PaddleVideo/tree/application/FootballAction">足球比赛动作定位</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://github.com/PaddlePaddle/PARL/tree/develop/examples/tutorials/homework/lesson5/ddpg_quadrotor">基于强化学习的飞行器仿真</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2247755">基于ERNIE-Gram实现语义匹配</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1968542?channelType=0&amp;channel=0">『NLP打卡营』实践课5：文本情感分析</a></td>
+<td>飞桨PaddleNLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/574995">更多飞桨PaddleNLP案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1468469?channelType=0&amp;channel=0">『NLP经典项目集』03：利用情感分析选择年夜饭</a></td>
+<td>飞桨PaddleNLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/574995">更多飞桨PaddleNLP案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/121630?channelType=0&amp;channel=0">分类任务：如何在客服对话中，识别客户情绪的好坏</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/34238">中大bbking</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1329361?channelType=0&amp;channel=0">『NLP打卡营』实践课3：使用预训练模型实现快递单信息抽取</a></td>
+<td>飞桨PaddleNLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/574995">更多飞桨PaddleNLP案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/746002?channelType=0&amp;channel=0">发愁七夕文案？PaddleHub情话生成送给你 (文内含七夕抽奖)</a></td>
+<td>飞桨PaddleHub</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/79927">更多PaddleHub案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2240725">基于PaddleDetection的PCB瑕疵检测</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1411754?channelType=0&amp;channel=0">基于百度飞桨的单/多镜头行人追踪（非官方Baseline）</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/67156">BIT可达鸭</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1059610?channelType=0&amp;channel=0">PaddleLite树莓派从0到1：安全帽检测小车部署（一）</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/90149">深渊上的炕</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/920753?channelType=0&amp;channel=0">PaddleX、PP-Yolo：手把手教你训练、加密、部署目标检测模型</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/90149">深渊上的炕</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2280562">中文语音识别</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/507159?channelType=0&amp;channel=0">PaddleHub一键OCR中文识别(超轻量8.1M模型，火爆)</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&amp;channel=0">老北京城影像修复</a></td>
+<td>飞桨PaddleGAN</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/52570">更多PaddleGAN案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1463208?channelType=0&amp;channel=0">飞桨创意之星 宋代诗人念诗的秘密——PaddleGAN实现精准唇形合成</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1100507?channelType=0&amp;channel=0">通过OCR实现验证码识别</a></td>
+<td>飞桨官方</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/507159?channelType=0&amp;channel=0">PaddleHub一键OCR中文识别（超轻量8.1M模型，火爆）</a></td>
+<td>飞桨PaddleHub</td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/79927">更多PaddleHub案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1674328?channelType=0&amp;channel=0">全流程，从零搞懂基于PaddlePaddle的图像分割</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/129509">nanting03</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2183242?channelType=0&amp;channel=0">负荷预测0.1</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/29822">gaomaosheng0</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>其他</strong></td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/764130?channelType=0&amp;channel=0">AI 实现皮影戏，传承正在消失的艺术</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/331031">Zohar</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td><strong>其他</strong></td>
+<td>『<a href="https://aistudio.baidu.com/aistudio/projectdetail/1487972?channelType=0&amp;channel=0">深度学习7日打卡营』人脸关键点检测</a></td>
+<td>开发者<a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/157251">TC.Long</a></td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td><strong>强化学习</strong></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/examples/DDPG%20for%20Stock%20Trading">DDPG算法应用于股票量化交易</a></td>
+<td>开发者</td>
+<td><a href="https://www.paddlepaddle.org.cn/customercase?fr=paddleEdu_github">更多飞桨案例</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="飞桨学术案例集" class="level2">
+<h2 class="anchored" data-anchor-id="飞桨学术案例集"><span id="5">飞桨学术案例集</span></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>技术方向</th>
+<th>学术案例</th>
+<th>来源</th>
+<th>更多内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>机器学习</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/78918?channelType=0&amp;channel=0">鸢尾花分类</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>前馈神经网络</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/79112?channelType=0&amp;channel=0">波士顿房价预测</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/47528">开发者AIStudioHelper</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/325575?channelType=0&amp;channel=0">手写数字识别</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/78960?channelType=0&amp;channel=0">猫狗分类</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2369842">图像分类网络VGG在多表情识别任务中的应用</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/530098">开发者之雍Jerry</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/56779?channelType=0&amp;channel=0">图像分类-ResNet</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/39">开发者笨笨</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/169410?channelType=0&amp;channel=0">用PaddlePaddle实现图像分类-SE_ResNeXt</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2293050">深入理解图像分类中的Transformer-Vit,DeiT</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2280436">Swin Transformer</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2342018?channelType=0&amp;channel=0">小样本学习(Few-Shot Learning)</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/746341">开发者DeepGeGe</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像分割</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/122273?channelType=0&amp;channel=0">经典实例分割模型Mask RCNN</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像分割</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/226703?channelType=0&amp;channel=0">PaddleSeg_DeepLabv3+</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/96056">飞桨PaddleSeg</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像分割</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/124366?channelType=0&amp;channel=0">基于PaddlePaddle的语义分割DeepLabV3+实现</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像检测</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/78972?channelType=0&amp;channel=0">深度学习进阶-目标检测</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>图像检测</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2240328">一文详解yolov3目标检测算法</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/96069">开发者AIStudio96069</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>图像检测</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2290729">CV领域的Transformer模型DETR在目标检测任务中的应用</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>视频分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2280460">TSN视频分类</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>视频分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2311166?contributionType=1">Paddle2.1实现视频理解经典模型 — TSM</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>视频分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2313514">基于Attention和Bi-LSTM实现视频分类</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>视频分类</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2291410">CV领域的Transformer模型TimeSformer实视频理解</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>GAN</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/551962?channelType=0&amp;channel=0">一文搞懂生成对抗网络之经典GAN（动态图、VisualDL2.0）</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/76563">开发者FutureSI</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>GAN</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/169439?channelType=0&amp;channel=0">基于PaddlePaddle的StarGAN,AttGAN,STGAN算法</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>OCR</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/190025?channelType=0&amp;channel=0">文字识别-CRNN</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/34706">开发者哦吼</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2345396">基于ERNIE实现9项GLUE任务</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2333184">NLP领域的XLNet模型在情感分析中的应用</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2333137">NLP领域中的ERNIE模型在阅读理解中的应用</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2311092">NLP领域的ELECTRA在符号预测上的应用</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2311016">NLP领域的Transformer在机器翻译上的应用</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2271498">【Paddle打比赛】讯飞赛题—中文问题相似度挑战赛0.9+Baseline</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/122282?channelType=0&amp;channel=0">用PaddlePaddle实现BERT</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>多模态</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2332016?channelType=0&amp;channel=0">【Paddle CLIP】你写啥他画啥，一个专属于你的小画家</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/940489">PaddleFleet</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>强化学习</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/637951?channelType=0&amp;channel=0">从代码到论文理解并复现MADDPG算法(PARL)</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/147378">开发者Mr.郑先生_</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>推荐</td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning/tree/master/examples/DeepFM%20for%20CTR%20Prediction">基于DeepFM 模型的点击率预估</a></td>
+<td><a href="https://github.com/PaddlePaddle/awesome-DeepLearning">PaddleEdu</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="even">
+<td>推荐</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2324144">基于DSSM的电影推荐</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">AIStudio官方</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+<tr class="odd">
+<td>知识蒸馏</td>
+<td><a href="https://github.com/PaddlePaddle/PaddleClas/blob/release/2.2/docs/zh_CN/advanced_tutorials/distillation/distillation.md">基于CIFAR100的SSLD蒸馏实验</a></td>
+<td><a href="https://github.com/PaddlePaddle/PaddleClas">PaddleClas</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">更多飞桨案例</a></td>
+</tr>
+</tbody>
+</table>
+<p>返回<a href="#0">:arrow_heading_up:</a></p>
+<hr>
+</section>
+</section>
+<section id="竞赛类" class="level1">
+<h1>👉竞赛类</h1>
+<table class="table">
+<thead>
+<tr class="header">
+<th>领域</th>
+<th>竞赛案例</th>
+<th>来源</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>机器学习</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2466206">【Paddle打比赛】个贷违约预测Baseline+ 0.607</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/169515">开发者w5688414</a></td>
+<td>DataFountain个贷违约预测，参考官方的baseline并用paddle进行改进</td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2271498">【Paddle打比赛】讯飞赛题—中文问题相似度挑战赛0.9+Baseline</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/908086">PaddleEdu</a></td>
+<td>中文问题相似度挑战赛paddle版本Baseline，基于paddlenlp通过预训练模型的微调完成问题相似度评定任务</td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/294224?channelType=0&amp;channel=0">基于PaddleHub的疫情期间网民情绪识别</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/82456">开发者CChan</a></td>
+<td>本项目为疫情期间网民情绪识别比赛的解决方案。使用了PaddleHub和ERNIE实现对疫情期间微博文本的情绪识别。</td>
+</tr>
+<tr class="even">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2417709">【Paddle打比赛】产品评论观点提取竞赛baseline</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/169515">开发者w5688414</a></td>
+<td>DataFountain基于BERT的产品评论观点提取竞赛baseline，增加了优化方法</td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2423977">【Paddle打比赛】剧本角色情感识别baseline-精度0.676</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/169515">开发者w5688414</a></td>
+<td>剧本角色情感识别baseline，使用bert模型</td>
+</tr>
+<tr class="even">
+<td>语音</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2793102?contributionType=1">【Paddle打比赛】语音合成</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/812202">开发者XYZ_916</a></td>
+<td>2021 新网银行智能语音大赛baseline。截止2021.11.17，该方案在总分榜第一，作品榜第二</td>
+</tr>
+<tr class="odd">
+<td>CV</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/229728?channelType=0&amp;channel=0">中文场景文字识别挑战赛baseline</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/7">小度AIStudio</a></td>
+<td>中文场景文字识别挑战赛的baseline项目, 用于参赛选手借鉴参考</td>
+</tr>
+<tr class="even">
+<td>CV</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2606211">【Paddle打比赛】手写字体OCR识别竞赛baseline</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/532066">开发者Pink peach</a></td>
+<td>2021世界人工智能创新大赛，手写字体OCR识别竞赛baseline</td>
+</tr>
+<tr class="odd">
+<td>CV</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/1090790?channelType=0&amp;channel=0">2020 CCF BDCI: 遥感影像地块分割baseline</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/349179">开发者lxastro</a></td>
+<td>2020 CCF BDCI: 遥感影像地块分割的baseline模型库，包括baseline模型的训练方法和比赛的评测脚本。</td>
+</tr>
+<tr class="even">
+<td>CV</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2210815">第三届中国AI+创新创业大赛：半监督学习目标定位竞赛第1名方案</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/635490">开发者张牙舞爪</a></td>
+<td>半监督学习目标定位竞赛第一名方案分享 A榜得分0.81425 B榜得分0.80428</td>
+</tr>
+<tr class="odd">
+<td>数据挖掘</td>
+<td><a href="https://aistudio.baidu.com/aistudio/projectdetail/2712180">【Padddle打比赛】心电图智能诊断竞赛Baseline-0.6765</a></td>
+<td><a href="https://aistudio.baidu.com/aistudio/personalcenter/thirdview/169515">开发者w5688414</a></td>
+<td>AIWIN 心电图智能诊断竞赛</td>
+</tr>
+</tbody>
+</table>
+<p>返回​<a href="#0">:arrow_heading_up:</a></p>
+</section>
+<section id="汇总" class="level1">
+<h1>👉汇总</h1>
+<section id="飞桨各产品学习资料汇总" class="level2">
+<h2 class="anchored" data-anchor-id="飞桨各产品学习资料汇总"><span id="fj">飞桨各产品学习资料汇总</span></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>产品</th>
+<th>视频课程</th>
+<th>学习文档</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PaddleGAN</td>
+<td><a href="https://aistudio.baidu.com/aistudio/course/introduce/16651">生成对抗网络七日打卡营</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PaddleOCR</td>
+<td><a href="https://www.bilibili.com/video/BV1uX4y1K7PW">OCR自动标注小工具讲解</a>、<a href="https://www.bilibili.com/video/BV1p54y1y7CM">3.5M超轻量实用OCR模型解读</a>、<a href="https://www.bilibili.com/video/BV1Zz4y1C7MW">OCR应用与部署实战</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PaddleClas</td>
+<td><a href="https://aistudio.baidu.com/aistudio/course/introduce/24519">PaddleClas系列直播课</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PaddleDetection</td>
+<td><a href="https://aistudio.baidu.com/aistudio/course/introduce/1617">目标检测7日打卡营</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PaddleX</td>
+<td><a href="https://www.bilibili.com/video/BV1M44y1r7s6">PaddleX实例分割任务详解</a>、<a href="https://www.bilibili.com/video/BV1HB4y1A73b">PaddleX目标检测任务详解</a>、<a href="https://www.bilibili.com/video/BV1qQ4y1Z7co">PaddleX语义分割任务详解</a>、<a href="https://www.bilibili.com/video/BV1nK411F7J9">PaddleX图像分类任务详解</a>、<a href="https://www.bilibili.com/video/BV1bz4y1C7wr">PaddleX客户端操作指南</a>、<a href="https://www.bilibili.com/video/BV17i4y1b7TZ">飞桨全流程开发工具PaddleX</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span id="hub">PaddleHub</span></td>
+<td><a href="https://www.bilibili.com/video/BV1YK411V71d">手把手教你转换PaddleHub模型教程</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span id="vdl">VDL</span></td>
+<td><a href="https://www.bilibili.com/video/BV1uy4y137iH">可视化分析工具助力AI算法快速开发</a>、<a href="https://www.bilibili.com/video/BV1iD4y1o7Pf">深度学习算法可视化调优实战演示</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>高层API</td>
+<td><a href="https://aistudio.baidu.com/aistudio/course/introduce/6771">高层API助你快速上手深度学习</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span id="nlp">PaddleNLP</span></td>
+<td><a href="https://www.bilibili.com/video/BV1fB4y1M7A3">基于深度学习的自然语言处理</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>返回​<a href="#0">:arrow_heading_up:</a></p>
+</section>
+</section>
+<section id="三技术交流" class="level1">
+<h1>三、技术交流</h1>
+<p>非常感谢您使用本项目。您在使用过程中有任何建议或意见，可以在 <strong><a href="https://github.com/PaddlePaddle/tutorials/issues">Issue</a></strong> 上反馈给我们，也可以通过扫描下方的二维码联系我们，飞桨的开发人员非常高兴能够帮助到您，并与您进行更深入的交流和技术探讨。</p>
+</section>
+<section id="四许可证书" class="level1">
+<h1>四、许可证书</h1>
+<p>本项目的发布受<a href="https://www.apache.org/licenses/LICENSE-2.0.txt">Apache 2.0 license</a>许可认证。</p>
+</section>
+<section id="五贡献内容" class="level1">
+<h1>五、贡献内容</h1>
+<p>本项目的不断成熟离不开各位开发者的贡献，如果您对深度学习知识分享感兴趣，非常欢迎您能贡献给我们，让更多的开发者受益。</p>
+<p>本项目欢迎任何贡献和建议，大多数贡献都需要你同意参与者许可协议（CLA）来声明你有权并实际上授权我们可以使用你的贡献。</p>
+<section id="代码贡献规范" class="level3">
+<h3 class="anchored" data-anchor-id="代码贡献规范">代码贡献规范</h3>
+<blockquote class="blockquote">
+<p>pip install pre-commit</p>
+<p>pre-commit install</p>
+</blockquote>
+<p>添加修改的代码后，对修改的文件进行代码规范，pre-commit 会自动调整代码格式，执行一次即可，后续commit不需要再执行。提交pr流程，详见：<a href="./examples/awesome-DeepLearning_pr_procedure.md">awesome-DeepLearning 提交 pull request 流程</a>。</p>
+</section>
+<section id="贡献者" class="level3">
+<h3 class="anchored" data-anchor-id="贡献者">贡献者</h3>
+<p>以下是awesome-DeepLearning贡献者列表： <a href="https://youngzhou1999.github.io/cv/">yang zhou</a>，<a href="https://github.com/Niki173">Niki_173</a>，<a href="https://github.com/Twelveeee">Twelveeee</a>，<a href="https://github.com/buriedms">buriedms</a>，<a href="https://github.com/AqourAreA">AqourAreA</a>，<a href="https://github.com/zhangjin12138">zhangjin12138</a>，<a href="https://github.com/rerny">rerny</a>，<a href="https://www.zhihu.com/people/LiuCongNLP">LiuCongNLP</a>，<a href="https://github.com/LemonCherryFu">LemonCherryFu</a>, <a href="https://github.com/lutianhao">lutianhao</a></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article delves into the integration of generative question-answering and reinforcement learning in language models. It highlights projects such as OpenAI, CarperAI, Rallio67’s dataset, KoboldAI, OPT, GPT-Neo, Sentence Transformers, ChatGPT deployment, and various marketing/customer service applications.">
+
+<title>James’s Blog - chatgpt</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">chatgpt</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">generative_question_answering</div>
+    <div class="quarto-category">reinforcement_learning_language_models</div>
+    <div class="quarto-category">openai</div>
+    <div class="quarto-category">carperai</div>
+    <div class="quarto-category">rallio67s_dataset</div>
+    <div class="quarto-category">koboldai</div>
+    <div class="quarto-category">opt</div>
+    <div class="quarto-category">gpt_neo</div>
+    <div class="quarto-category">sentence_transformers</div>
+    <div class="quarto-category">chatgpt_deployment</div>
+    <div class="quarto-category">marketing_customer_service</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article delves into the integration of generative question-answering and reinforcement learning in language models. It highlights projects such as OpenAI, CarperAI, Rallio67’s dataset, KoboldAI, OPT, GPT-Neo, Sentence Transformers, ChatGPT deployment, and various marketing/customer service applications.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="chatgpt" class="level1">
+<h1>chatgpt</h1>
+<p>GPT4 is out.</p>
+<hr>
+<p><a href="https://www.ooopn.com/tool/chatgpt/">三个国内镜像站</a>：</p>
+<p>https://chat.forchange.cn https://aigcfun.com https://ai.askai.top</p>
+<hr>
+<p>besides from decent processors, RAM and optimized runtime, in order to load LLMs fast, one would store the model weights on SSDs.</p>
+<hr>
+<p>now <a href="https://github.com/hpcaitech/ColossalAI">colossalai</a> supports chatgpt training with a single gpu, using open-source code</p>
+<p>check <a href="https://app.humata.ai">humata</a> for paper QA and information extraction/language understanding from PDF files</p>
+<hr>
+<p>the syntax of chatgpt’s response is obviously markdown.</p>
+<p>in order to be unblocked by chatgpt just because we are using static ip of corp’s wifi, we can connect through our phone’s hotspot.</p>
+<p>Microsoft’s <a href="https://bing.com/chat">EdgeGPT</a> needs you to open in Edge browser and join the waitlist of <a href="https://bing.com/new">new Bing</a>, having 3rd party API <a href="https://github.com/acheong08/EdgeGPT">here</a></p>
+<p><a href="http://getmerlin.in/">Merlin</a> is an extension based on ChatGPT which is avaliable for free and all countries, with 11 queries for free each day. Pro subscriptions incoming.</p>
+<p>Rallio67 builds <a href="https://github.com/Rallio67/language-model-agents">dataset for RLHF</a> and has released <a href="https://huggingface.co/Rallio67">multiple chatgpt-like models</a> on huggingface. namely, <a href="https://huggingface.co/Rallio67/joi_20B_instruct_alpha">joi</a>, <a href="https://huggingface.co/Rallio67/chip_20B_instruct_alpha">chip</a> and <a href="https://huggingface.co/Rallio67/rosey_12B_instruct_alpha">rosey</a>, all based on <a href="https://huggingface.co/EleutherAI/pythia-12b">pythia</a> or neox-20b. laion people tend to share loads to CPU in order to run these huge models properly.</p>
+<p><a href="https://github.com/KoboldAI/KoboldAI-Client">KoboldAI</a> considered <a href="https://huggingface.co/facebook/opt-2.7b">OPT</a> and <a href="https://huggingface.co/EleutherAI/gpt-neo-2.7B">GPT-Neo</a> as generic LMs. special models like NSFW shits may serve some purposes better.</p>
+<p><a href="https://alternativeto.net/software/chatgpt/">many alternatives</a>, but many are specialized in marketing and content generation, some are chatgpt replica, like <a href="https://app.writesonic.com/">chatsonic</a> (with google knowledge) and <a href="https://you.com/search?q=who+are+you&amp;fromSearchBar=true&amp;tbm=youchat">youchat</a> (from <a href="https://you.com/">you.com</a> (awesome!))</p>
+<p>open assistant now has a <a href="https://open-assistant.io/dashboard">data collection website</a>, in which you can only perform tasks given and earn points (working for free? nah?)</p>
+<p>it is adviced to run this chatgpt program with libraries instead of manually, to prevent issues.</p>
+<p>my account has been banned from trying chatgpt. though it is not going to be free forever, you need to <a href="https://github.com/golfzert/chatgpt-chinese-prompt-hack">moderate your input</a> (multi-language support, not only english but chinese) using some api to prevent similar incidents. also some topics outside of blacklist are banned intentionally so you need to check if the model is really producing the answer. if not you should avoid or change the way of asking it.</p>
+<p>moderation via <a href="https://platform.openai.com/docs/api-reference/moderations">official openai api</a>, <a href="https://developers.perspectiveapi.com/s/?language=en_US">perspective api</a> (free), or via some projects like <a href="https://github.com/fcakyon/content-moderation-deep-learning">content moderation deeplearning</a>, <a href="https://github.com/NanoNets/bert-text-moderation">bert text moderation</a>, <a href="https://huggingface.co/Hate-speech-CNERG/bert-base-uncased-hatexplain">bert-base-uncased-hatexplain</a>, <a href="https://huggingface.co/unitary/toxic-bert">toxic-bert</a>, <a href="https://github.com/surge-ai/copilot-toxicity/blob/main/copilot-toxicity.ipynb">copilot-toxicity</a> and <a href="https://huggingface.co/Andrazp/multilingual-hate-speech-robacofi">multilingual-hate-speech-robacofi</a>, train on datasets like <a href="https://huggingface.co/datasets/SetFit/hate_speech_offensive">hate_speech_offensive</a>, <a href="https://github.com/surge-ai/toxicity">toxicity</a> (by surge-ai, a dataset labelling workforce) and <a href="https://huggingface.co/datasets/vidhur2k/multilingual-hate-speech/">multilingual-hate-speech</a></p>
+<p>from my point of view, this is a service you cannot replicate at home, either requires smaller models with different architecture, or requires crowd-sourced computational power.</p>
+<p>saying chatgpt is powered by <a href="https://www.ray.io">ray</a>, increasing parallelism.</p>
+<p>bigscience <a href="https://colab.research.google.com/drive/1Ervk6HPNS6AYVr3xVdQnY5a-TjjmLCdQ?usp=sharing#scrollTo=VsXHWJLuowcn">petals colab</a> and <a href="https://github.com/bigscience-workshop/petals">petals repo</a></p>
+<p><a href="https://discord.gg/xBPBXfcFHd">discord chatroom</a> for reproducing chatgpt</p>
+<p>since many different models are derived from the original pretrained language model, <a href="https://opendelta.readthedocs.io/en/latest/">opendelta</a> can save disk space by freezing main parameters, only tuning few of them.</p>
+<p>this gpt seems really good. currently only api access.</p>
+<p>but it is provided by openai which is no longer so “open” in the sense of “open-source”.</p>
+<p><a href="https://stability.ai/">stability.ai</a> is providing alternative open-source implementations of SOTA AI algorithms, which includes <a href="https://carper.ai/">carper.ai</a>, <a href="https://www.eleuther.ai/">eleuther.ai</a>, dreamstudio, <a href="https://github.com/Harmonai-org/">harmonai</a> (audio), <a href="https://laion.ai">laion.ai</a> (datasets and projects)</p>
+<section id="viable-approaches-to-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="viable-approaches-to-chatgpt">viable approaches to chatgpt</h2>
+<p>according to my point of view, chatgpt is just specialized on chat, or socialized in other words.</p>
+<p>the elo rating system is the key to facebook social network, many zero-sum games. basically it is some revolution rating system. to do such rating system effectively one shall use along with classifiers and embeddings.</p>
+<p>according to the training process of instructgpt and webgpt, we know that gpt has learned more by interacting with people (multiple QA), doing self-examination (learning a reward model) and performing actions (searching and quoting on web).</p>
+<section id="rlhf" class="level3">
+<h3 class="anchored" data-anchor-id="rlhf">RLHF</h3>
+<section id="chainer-prompt-engineering" class="level4">
+<h4 class="anchored" data-anchor-id="chainer-prompt-engineering">chainer, prompt engineering</h4>
+<p><a href="https://github.com/f/awesome-chatgpt-prompts">awesome chatgpt prompts</a></p>
+<p><a href="https://langchain.readthedocs.io/">langchain</a> extending llm by advanced prompts, llm wrappers actions, databases and memories</p>
+</section>
+<section id="rl-algorithms-tools-for-providing-feedback" class="level4">
+<h4 class="anchored" data-anchor-id="rl-algorithms-tools-for-providing-feedback">RL algorithms, tools for providing feedback</h4>
+<p><a href="https://github.com/andy-yangz/Awesome-RLHF">Awesome-RLHF</a> paper and code about RLHF</p>
+<p><a href="https://github.com/openai/baselines">openai baselines</a></p>
+<p><a href="https://github.com/DLR-RM/stable-baselines3">stable-baselines 3</a></p>
+<p><a href="https://huggingface.co/blog/setfit">SetFit</a> Efficient few-shot learning with Sentence Transformers, used by <a href="https://github.com/grantCelley/FewShotRLGPT">FewShotRLGPT</a> (no updates till now?)</p>
+</section>
+<section id="rlhf-models" class="level4">
+<h4 class="anchored" data-anchor-id="rlhf-models">RLHF models</h4>
+<section id="non-language-models" class="level5">
+<h5 class="anchored" data-anchor-id="non-language-models">non-language models</h5>
+<p><a href="https://github.com/anshradh/image_to_text_rlhf">image_to_text_rlhf</a></p>
+<p><a href="https://github.com/CarperAI/Algorithm-Distillation-RLHF">algorithm-distillation-rlhf</a></p>
+</section>
+<section id="language-models" class="level5">
+<h5 class="anchored" data-anchor-id="language-models">language models</h5>
+<p><a href="https://github.com/BlinkDL/ChatRWKV">chatrwkv</a> pure rnn language model, with chinese support</p>
+<p><a href="https://github.com/conceptofmind/LaMDA-rlhf-pytorch">lamda-rlhf-chatgpt</a></p>
+<p><a href="https://huggingface.co/facebook/blenderbot-3B">blenderbot2</a> a bot which can search internet, blenderbot3 is US only. install <a href="https://github.com/facebookresearch/ParlAI">ParlAI</a> then clone <a href="https://github.com/JulesGM/ParlAI_SearchEngine">ParlAI_SearchEngine</a>. <a href="https://dev.to/naruaika/how-i-managed-to-run-blenderbot-20-1jac">tutorial</a></p>
+<p><a href="https://github.com/clue-ai/PromptCLUE">promptCLUE</a> based on T5, created by <a href="https://www.clueai.cn/doc">clueai</a>, trained on <a href="https://github.com/CLUEbenchmark/pCLUE">pCLUE</a></p>
+<p><a href="https://github.com/LAION-AI/Open-Assistant">openassistant</a></p>
+<p><a href="https://huggingface.co/mrsteyk/openchatgpt-neox-125m">openchatgpt-neox-125m</a> trained on chatgpt prompts, can be tested <a href="https://huggingface.co/spaces/mrsteyk/mrsteyk-openchatgpt-neox-125m">here</a>, trained from <a href="https://huggingface.co/EleutherAI/pythia-6.7b-deduped">pythia</a></p>
+<p><a href="https://github.com/theblackcat102/copycat">copycat</a> chatgpt replicate</p>
+<p><a href="https://github.com/lucidrains/medical-chatgpt">medicine-chatgpt</a> shit sick of COVID-19</p>
+<p><a href="https://www.github.com/jordan-schneider/baby-rlhf/">baby-rlhf</a> both cartpole and languge model</p>
+<p><a href="https://github.com/ckkissane/rlhf-shakespeare">rlhf-shapespeare</a></p>
+<p><a href="https://github.com/voidful/TextRL">textrl</a> 100+stars</p>
+<p><a href="https://github.com/lucidrains/PaLM-rlhf-pytorch">PaLM-RLHF</a> claims <a href="https://github.com/lucidrains/RETRO-pytorch">RETRO</a> will be integrated soon?</p>
+<p><a href="https://github.com/allenai/RL4LMs">RL4LMs</a> with multiple rl methods</p>
+<p><a href="https://github.com/thomfoster/minRLHF">minRLHF</a></p>
+<p><a href="https://github.com/mukulpatnaik/webgpt-cli/blob/main/webgpt.py">webgpt-cli</a> interface openai api to browse web and answer questions</p>
+<p><a href="https://github.com/openai/lm-human-preferences">lm-human-preferences</a> by openai</p>
+<p><a href="https://github.com/TheExGenesis/rlhf-magic">rlhf-magic</a> using <a href="https://github.com/CarperAI/trlx">trlx</a> (supports GPT3-like models) which has PPO and <a href="https://github.com/Sea-Snell/Implicit-Language-Q-Learning">ILQL</a> (as trainable model)</p>
+<p><a href="https://github.com/lvwerra/trl">trl</a> only has PPO on GPT2</p>
+<p><a href="https://github.com/yizhongw/Tk-Instruct">Tk-Instruct</a> T5 trained on natural instruct dataset. is it trained on RLHF systems?</p>
+</section>
+</section>
+</section>
+<section id="datasets" class="level3">
+<h3 class="anchored" data-anchor-id="datasets">datasets</h3>
+<p><a href="https://rootsignals.ai/W/all">whisperhub</a> collection of chatgpt prompts by plugin</p>
+<p><a href="https://github.com/anthropics/hh-rlhf">hh-rlhf</a></p>
+<p><a href="https://github.com/openai/following-instructions-human-feedback">instructgpt samples</a></p>
+<p><a href="https://github.com/allenai/natural-instructions">natural instructions</a></p>
+</section>
+<section id="dataset-building-tools" class="level3">
+<h3 class="anchored" data-anchor-id="dataset-building-tools">dataset building tools</h3>
+<p><a href="https://github.com/SurfaceData/open-chatgpt-prompt-collective">open-chatgpt-prompt-collective</a></p>
+<p><a href="https://github.com/Toloka/crowd-kit">crowd-kit</a> purify noisy data</p>
+<p><a href="https://github.com/bigscience-workshop/promptsource">promptsource</a></p>
+</section>
+<section id="reward-models" class="level3">
+<h3 class="anchored" data-anchor-id="reward-models">reward models</h3>
+<p><a href="https://github.com/martiansideofthemoon/rankgen">rankgen</a> scores model generations given a prefix (or prompt)</p>
+<p><a href="https://huggingface.co/theblackcat102/electra-large-webgpt-rm">electra-webgpt-rm</a> and <a href="https://huggingface.co/theblackcat102/electra-large-reward-model">electra-large-reward-model</a> is based on <a href="https://huggingface.co/google/electra-small-discriminator">electra</a> discriminator</p>
+</section>
+<section id="gpt3-like-models" class="level3">
+<h3 class="anchored" data-anchor-id="gpt3-like-models">GPT3-like models</h3>
+<p><a href="https://huggingface.co/facebook/galactica-1.3b">galactica</a> is opt trained on scientific data</p>
+<p><a href="https://huggingface.co/bigscience/bloomz">bloomz</a> and <a href="https://huggingface.co/bigscience/mt0-large">mt0</a> trained on <a href="https://huggingface.co/datasets/bigscience/xP3">xP3</a> (multilingual prompts and code)</p>
+<p><a href="https://huggingface.co/bigscience/T0pp">T0PP</a> T0 optimized for zero-shot prompts, despite much smaller than GPT-3</p>
+<p><a href="https://github.com/lucidrains/RETRO-pytorch">RETRO</a> another model with GPT-3 capabilities with fewer parameters?</p>
+<p>gpt3 is gpt2 with <a href="https://github.com/openai/sparse_attention">sparse attension</a>, which enables it to generate long sequence</p>
+<p><a href="https://github.com/XiangLi1999/Diffusion-LM">Diffusion-LM</a></p>
+<p><a href="https://github.com/lucidrains/PaLM-pytorch">PaLM</a></p>
+<p><a href="https://github.com/facebookresearch/metaseq">metaseq</a> provides OPT, which is basically GPT3</p>
+<p><a href="https://huggingface.co/togethercomputer/GPT-JT-6B-v1">GPT-JT</a> altered in many ways, trained on natural instructions <a href="https://huggingface.co/spaces/togethercomputer/GPT-JT">huggingface space</a></p>
+<p><a href="https://huggingface.co/EleutherAI/gpt-neo-125M">GPT-Neo</a></p>
+<p><a href="https://huggingface.co/docs/transformers/model_doc/gptj">GPT-J</a></p>
+<p><a href="https://github.com/EleutherAI/gpt-neox">GPT-NeoX</a></p>
+<p><a href="https://huggingface.co/bigscience/bloom">Bloom</a> large language model by bigscience</p>
+</section>
+<section id="autonomous-learning" class="level3">
+<h3 class="anchored" data-anchor-id="autonomous-learning">autonomous learning</h3>
+<p><a href="https://autonomous-learning-library.readthedocs.io/en/stable/">autonomous-learning-library doc</a> and <a href="https://github.com/cpnota/autonomous-learning-library">repo</a></p>
+<p><a href="https://github.com/Gu-X">Gu-X</a> doing god-knows-what experiments</p>
+</section>
+</section>
+<section id="analysis-about-how-to-make-such-model" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-about-how-to-make-such-model">analysis about how to make such model</h2>
+<p>gpt3 is capable of imitation (cause it is unsupervised.)</p>
+<p>but! if you want to get things done (when you really need it!), you better want some aligned AI.</p>
+<p>two similar models by openai: <a href="https://openai.com/blog/webgpt/#samples">webgpt</a> and instructgpt</p>
+<section id="about-instructgpt" class="level3">
+<h3 class="anchored" data-anchor-id="about-instructgpt">about instructgpt</h3>
+<p>it is first fine-tuned on supervised datasets, then train some reward model, then use the reward model to handle prompts and do reinforcement learning with PPO.</p>
+</section>
+<section id="details-on-webgpt-environment" class="level3">
+<h3 class="anchored" data-anchor-id="details-on-webgpt-environment">details on webgpt environment</h3>
+<p>guess: create states by performing actions, then generate templates to allow model filling blanks.</p>
+<pre><code>Our text-based web-browsing environment is written mostly in Python with some JavaScript. For a
+high-level overview, see Section 2. Further details are as follows:
+
+• When a search is performed, we send the query to the Microsoft Bing Web Search API, and
+convert this to a simplified web page of results.
+
+• When a link to a new page is clicked, we call a Node.js script that fetches the HTML of the
+web page and simplifies it using Mozilla’s Readability.js.
+
+• We remove any search results or links to reddit.com or quora.com, to prevent the model
+copying answers from those sites.
+
+• We take the simplified HTML and convert links to the special format
+【&lt;link ID&gt;†&lt;link text&gt;†&lt;destination domain&gt;】, or
+【&lt;link ID&gt;†&lt;link text&gt;】 if the destination and source domains are the same. Here,
+the link ID is the index of the link on the page, which is also used for the link-clicking
+command. We use special characters such as 【 and 】 because they are rare and encoded
+in the same few ways by the tokenizer, and if they appear in the page text then we replace
+them by similar alternatives.
+
+• We convert superscripts and subscripts to text using ^ and _, and convert images to the
+special format [Image: &lt;alt text&gt;], or [Image] if there is no alt text.
+
+• We convert the remaining HTML to text using html2text.
+
+• For text-based content types other than HTML, we use the raw text. For PDFs, we convert
+them to text using pdfminer.six. For all other content types, and for errors and timeouts, we
+use an error message.
+
+• We censor any pages that contain a 10-gram overlap with the question (or reference answer,
+if provided) to prevent the model from cheating, and use an error message instead.
+
+• We convert the title of the page to text using the format &lt;page title&gt; (&lt;page domain&gt;).
+For search results pages, we use Search results for: &lt;query&gt;.
+
+• When a find in page or quote action is performed, we compare the text from the command
+against the page text with any links stripped (i.e., including only the text from each link).
+We also ignore case. For quoting, we also ignore whitespace, and allow the abbreviated
+format &lt;start text&gt;━&lt;end text&gt; to save tokens.
+
+• During browsing, the state of the browser is converted to text as shown in Figure 1(b).
+For the answering phase (the last step of the episode), we convert the question to
+text using the format &lt;question&gt;■, and follow this by each of the collected quotes
+in the format [&lt;quote number&gt;] &lt;quote page title&gt; (&lt;quote page domain&gt;)
+&lt;double new line&gt;&lt;quote extract&gt;■.</code></pre>
+</section>
+</section>
+<section id="projects-related-to-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="projects-related-to-chatgpt">projects related to chatgpt</h2>
+<section id="voice-assistants" class="level3">
+<h3 class="anchored" data-anchor-id="voice-assistants">voice assistants</h3>
+<p><a href="https://github.com/tiansztiansz/voice-assistant">voice assistant</a> in cpp</p>
+<p><a href="https://github.com/cjyaddone/ChatWaifu">ChatWaifu</a> with anime voice, <a href="https://github.com/cjyaddone/ChatWaifuL2D">ChatWaifu with live2d</a></p>
+</section>
+<section id="hacking" class="level3">
+<h3 class="anchored" data-anchor-id="hacking">hacking</h3>
+<p><a href="https://github.com/daveshap/LongtermChatExternalSources">give longterm memory and external resources to gpt3</a></p>
+<p><a href="https://github.com/TheAppleTucker/backend-GPT">write backend logic with gpt</a></p>
+<p><a href="https://github.com/NoDataFound/hackGPT">hackgpt</a> exploit vulnerabilities</p>
+<p><a href="https://github.com/ke0z/VulChatGPT">vulchatgpt</a> ida plugin for reverse engineering</p>
+<p><a href="https://github.com/cedrickchee/chatgpt-universe">chatgpt-universe</a> things related to chatgpt</p>
+<p><a href="https://www.bilibili.com/video/BV1Gv4y1z7tN/">galgame using chatgpt</a></p>
+<p>记笔记 12.27更新了一个更精简的应用 强烈建议部署到服务器上 huggingface参考：https://huggingface.co/spaces/Mahiruoshi/Lovelive-Nijigasaku-Chat-iSTFT-GPT3 GitHub：https://github.com/Paraworks/vits_with_chatgpt-gpt3 地址：https://drive.google.com/drive/folders/1vtootVMQ7wTOQwd15nJe6akzJUYNOw4d?usp=share_link 你可以先尝试在服务器上部署，之后可以直接解压进文件夹后运行exe（mac、安卓端需要用renpy自行编译） 去https://beta.openai.com/account/api-keys获取api-key 参数照着敲就好了 人物id通常是从0开始的数字，我的模型最大到12 api部署方法：把inference_api.py放入你的vits目录下，进入文件修改config和checkpoint.pth的路径，比起应用程序来说十分简单，可以自行设计。码龄三个月写出的的雪山代码警告 —————————————————————————————————————————————————— Chatgpt部署方法已于12.26更新（视频后部分） vits参考：https://github.com/CjangCjengh/vits 服务器端建议用ISTFT VITS：https://github.com/innnky/MB-iSTFT-VITS model库：https://github.com/CjangCjengh/TTSModels 也可以用我的https://huggingface.co/spaces/Mahiruoshi/MIT-VITS-Nijigaku CHATGPT参考：https://github.com/rawandahmad698/PyChatGPT 示例视频（纯服务器api，gpt3）https://www.bilibili.com/video/BV1hP4y1B7wH/?spm_id_from=333.999.0.0&amp;vd_source=7e8cf9f5c840ec4789ccb5657b2f0512 穗乃果配音来自缪斯的模型﻿<span class="citation" data-cites="Freeze_Phoenix">@Freeze_Phoenix</span> gpt3加载参考﻿<span class="citation" data-cites="ぶらぶら散策中">@ぶらぶら散策中</span></p>
+<p><a href="https://github.com/jqueryscript/ChatGPT">chatgpt use cases curated list</a></p>
+<p><a href="https://github.com/mahaloz/DAILA">DAILA</a> use chatgpt to identify function calls in decompiler</p>
+<p><a href="https://github.com/cedrickchee/awesome-transformer-nlp/blob/f2dbb46a382a30dd3d23d88c1b8d826ba5c34aab/README.md">awesome transformer language models</a> a huge collection on transformer based LMs, huge models by megacorps, with some introduction and analogy on chatgpt</p>
+<p><a href="https://github.com/huggingface/blog">huggingface blog</a> on <a href="https://github.com/huggingface/blog/blob/dfbaec824b313f88581c761bc10c8943226970be/rlhf.md">RLHF</a> containing similar projects and source code</p>
+<p>bilibili sends me lots of videos (and articles) on hacking and ai (including chatgpt) via its android app. recommend you to scrape this source and collect transcription and screenshots for searching and content generation.</p>
+<p>b站有做免杀 绕过杀软的</p>
+<p><a href="https://bilibili.com/video/BV1B14y1K7AP">chatgpt原理解析</a></p>
+<p>chatgpt对接搜索引擎</p>
+<p>下载链接: github: https://github.com/josStorer/chat-gpt-search-engine-extension/releases/ 百度网盘: https://pan.baidu.com/s/1MnFJTDIatyIIPr5kUMWsAw?pwd=1111&nbsp; 提取码：1111</p>
+<p>原项目: https://github.com/wong2/chat-gpt-google-extension 我创建的fork, 添加了多个搜索引擎支持的版本: https://github.com/josStorer/chat-gpt-search-engine-extension PR: https://github.com/wong2/chat-gpt-google-extension/pull/31</p>
+<p>已修复先前百度需要手动刷新的问题</p>
+</section>
+</section>
+<section id="access-via-api" class="level2">
+<h2 class="anchored" data-anchor-id="access-via-api">access via api</h2>
+<p>https://github.com/altryne/chatGPT-telegram-bot</p>
+<p>https://github.com/taranjeet/chatgpt-api</p>
+<p>https://github.com/acheong08/ChatGPT</p>
+<p>https://github.com/vincelwt/chatgpt-mac</p>
+<p>https://github.com/transitive-bullshit/chatgpt-api</p>
+<p>https://github.com/rawandahmad698/PyChatGPT</p>
+</section>
+<section id="models-like-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="models-like-chatgpt">models like chatgpt</h2>
+<p><a href="https://yjernite.github.io/lfqa.html">lfqa</a> retrival based generative QA</p>
+<p><a href="https://github.com/openai/lm-human-preferences">lm-human-preferences</a> by openai</p>
+<p><a href="https://github.com/lvwerra/trl">trl</a> Train transformer language models with reinforcement learning based on gpt2</p>
+<p><a href="https://github.com/CarperAI/trlx">trlx</a> A repo for distributed training of language models with Reinforcement Learning via Human Feedback (RLHF) by CarperAI</p>
+<p><a href="https://github.com/allenai/RL4LMs">RL4LMs</a> A modular RL library to fine-tune language models to human preferences</p>
+<p><a href="https://github.com/lucidrains/PaLM-rlhf-pytorch">PaLM-rlhf-pytorch</a> saying this is basically chatgpt with palm</p>
+<p><a href="https://github.com/lucidrains/g-mlp-gpt">gpt-gmlp</a> saying this design integrates gpt with gmlps so will use less ram and can be trained on a single gpu</p>
+<p><a href="https://github.com/James4Ever0/webgpt-cli">WebGPT</a></p>
+<p><a href="https://github.com/yizhongw/Tk-Instruct">tk-instruct</a> with <a href="https://huggingface.co/models?search=allenai/tk-instruct">all models</a> by allenai can be <a href="https://huggingface.co/allenai/mtk-instruct-11b-def-pos">multilingual</a>, trained on <a href="https://instructions.apps.allenai.org/">natural instructions</a></p>
+<p>there’s a ghosted repo named <a href="https://github.com/mariusmcl/instructgpt-pytorch">instructgpt-pytorch</a> found in bing but no cache preserved, also an empty repo called <a href="https://github.com/flippe3/InstructFNet">InstructFNet</a> wtf?</p>
+<p><a href="https://github.com/nicolas-lair/AidMe">AidMe</a> Code and experiment of the article AidMe User-in-the-loop Adaptative Intent Detecttion for Instructable Digital Assistant</p>
+<p><a href="https://github.com/CarperAI/cheese">cheese</a> Used for adaptive human in the loop evaluation of language and embedding models.</p>
+<p><a href="https://github.com/AndRossi/Kelpie">Kelpie</a> Explainable AI framework for interpreting Link Predictions on Knowledge Graphs</p>
+<p><a href="https://github.com/archiki/GrIPS">GrIPS</a> Gradient-free, Edit-based Instruction Search for Prompting Large Language Models</p>
+<p><a href="https://github.com/CarperAI/squeakily">queakily</a> nlp datasets cleaner</p>
+<p>gpt-j</p>
+<p>super big bilingual model <a href="https://github.com/THUDM/GLM-130B">GLM-130B</a></p>
+<p><a href="https://github.com/JingfengYang/Multi-modal-Deep-Learning">multi-modal deeplearning</a> paper collections</p>
+<p><a href="https://huggingface.co/docs/transformers/model_doc/bloom">bloom</a> a huge model like gpt-3</p>
+<p>notice, gpt-2 is somehow inferior to gpt-3 since it has smaller model parameters</p>
+<p><a href="https://github.com/bme-chatbots/dialogue-generation">dialogue-generation</a> Generating responses with pretrained XLNet and GPT-2 in PyTorch.</p>
+<p><a href="https://github.com/illidanlab/personaGPT">personaGPT</a> Implementation of PersonaGPT Dialog Model</p>
+<p><a href="https://github.com/microsoft/DialoGPT">DialoGPT</a> Large-scale pretraining for dialogue</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

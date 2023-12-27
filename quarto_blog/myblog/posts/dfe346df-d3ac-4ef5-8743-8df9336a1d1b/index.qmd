@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["Python", "retry libraries", "automation", "temporary issues", "error handling"], "category": "Retry Libraries", "date": "2023-12-22 23:52:59", "description": "This text introduces three Python retry libraries - retrying, retry, and retry2. These libraries simplify the process of automatically retrying operations that may fail due to transient issues or errors, making it easier for developers to handle such scenarios efficiently.", "tags": *id001, "title": "python retry libraries"}
+
+---
+
+------
+
+# python retry libraries
+
+[retrying](https://github.com/rholder/retrying)
+
+[retry](https://pypi.org/project/retry/)
+
+[retry2](https://pypi.org/project/retry2/)
+

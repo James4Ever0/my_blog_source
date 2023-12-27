@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["coding assist", "document provider", "reference", "search engine"], "category": "Software Troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article discusses the problem of not being able to run Apple Doc Helper or a binary after uninstalling Xcode, which impacts using dash documentation on non-MacOS platforms. It suggests Zeal as an alternative solution.", "tags": *id001, "title": "dash api docset reference search"}
+
+---
+
+------
+
+# dash api docset reference search
+
+on non-macos platforms, use zeal instead.
+
+the core problem is that after uninstallation of xcode, one cannot launch the `Apple Doc Helper` or some binary afterwards inside the Apple docset under dash documentation folder. the docset can be copied to this folder automatically by dash but without xcode it cannot be opened.
+

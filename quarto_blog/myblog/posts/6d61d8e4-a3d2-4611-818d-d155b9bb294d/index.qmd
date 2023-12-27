@@ -1,0 +1,26 @@
+---
+{"categories": &id001 ["leaderboards", "paperswithcode.com", "Kaggle", "task categorization", "scrapers", "aistudio.baidu.com", "time-saving"], "category": "Machine Learning", "date": "2023-12-22 23:52:59", "description": "Leaderboards on platforms like paperswithcode.com, Kaggle, and aistudio.baidu.com offer various tasks with best models for each task, but basic task categorization can take time. These platforms provide helpful categories before searching or needing them.", "tags": *id001, "title": "leaderboards, paperswithcode.com"}
+
+---
+
+------
+
+# leaderboards, paperswithcode.com
+
+provide tasks and give the best model for given task
+
+i'm afraid paperswithcode.com takes huge amount of time for one to categorize and classify. better **get basic task categories out** before you need/search it.
+
+## scrapers
+
+[kaggle leaderboard](https://github.com/smbdsbrain/kaggle-leaderboard)
+[kaggle leaderboard scraper](https://github.com/cyansoul/kaggle-leaderboard-scraper)
+
+## platforms
+
+aistudio.baidu.com
+paperswithcode.com
+kaggle.com
+
+## tasks
+

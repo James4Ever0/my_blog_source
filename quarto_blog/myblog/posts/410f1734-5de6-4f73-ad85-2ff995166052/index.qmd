@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["Discord", "Cybergod", "Invitation Link", "Agicomputercontrol", "Repository", "Integration"], "category": "Discord Channels", "date": "2023-12-22 23:52:59", "description": "This text discusses a Discord channel named 'Cybergod' which can be joined using the invitation link https://discord.gg/y9BrdMfA. It is set to be integrated into an agi-computer-control repository, suggesting collaboration and communication among its members.", "tags": *id001, "title": "Cybergod discord channel"}
+
+---
+
+------
+
+# Cybergod discord channel
+
+join at: https://discord.gg/y9BrdMfA
+
+i plan to intergrate it to my agi-computer-control repo.
+

@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["GUI", "command-line", "tool", "conversion", "program", "interaction", "interface"], "category": "GUI Programming", "date": "2023-12-22 23:52:59", "description": "Gooey is a powerful tool that enables users to transform command-line programs into user-friendly GUI applications. By providing an intuitive graphical interface, Gooey simplifies the interaction with these programs and makes them more accessible for non-technical users.", "tags": *id001, "title": "Gooey: Argparse as GUI"}
+
+---
+
+------
+
+# Gooey: Argparse as GUI
+
+Directly convert commandline programs as GUI programs.
+
+This goofy name "[Gooey](https://github.com/chriskiehl/Gooey)" is so strange that even ChatGPT and search engine like Bing have both failed to retrieve.
+
+Yet we manage to recover it from our legacy codebase `AGI/AutoUP/generator/transcribe` by  `rg -g *.cmd pyinstaller36` and `find . | rg time | rg tracker`.
+
+Is this fate? 
+
+Is this the end, or the new beginning?
+

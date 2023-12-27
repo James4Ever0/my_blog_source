@@ -1,0 +1,40 @@
+---
+{"categories": &id001 ["macos", "terminal", "trash", "cli", "trash-cli", "cmdutils", "cmd-recycle"], "category": "Trash Management", "date": "2023-12-22 23:52:59", "description": "Learn how to empty the trash on MacOS using a terminal and discover an alternative cross-platform CLI tool called 'trash-cli' for managing your personal recycle bin. Additionally, explore other related tools such as cmdutils, cmd-recycle, and nircmd for Windows.", "tags": *id001, "title": "recycle bin, trash can cli alternative"}
+
+---
+
+------
+
+# recycle bin, trash can cli alternative
+
+[trash-cli](https://github.com/sindresorhus/trash) (with [python binding](https://github.com/sindresorhus/trash-cli)) may work cross-platform, but manage its own recycle bin instead of the system if using windows or macos.
+
+[empty-trash-cli](https://github.com/sindresorhus/empty-trash-cli)
+
+## windows
+
+[cmdutils](http://www.maddogsw.com/cmdutils/) which has `recycle` and `bin` commands
+
+[cmd-recycle](https://github.com/kizzx2/cmd-recycle/)
+
+[nircmd](http://www.nirsoft.net/utils/nircmd.html)
+
+```cmd
+nircmd moverecyclebin *.tmp
+```
+
+## macos
+
+do this manually:
+
+```bash
+# i don't trust this.
+#rm -rf ~/.Trash/*
+
+osascript -e 'tell app "Finder" to empty' 
+```
+
+[trash](https://hasseg.org/trash/)
+
+rmtrash in [nightproductions's cli tools](http://www.nightproductions.net/cli.htm)
+

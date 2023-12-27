@@ -1,0 +1,24 @@
+---
+{"categories": &id001 ["Recaptcha", "Solving Services", "Proxy Providers", "Cheap Proxy", "Botright", "Anycaptcha.com"], "category": "Recaptcha Solving Solutions", "date": "2023-12-22 23:52:59", "description": "This article discusses recaptcha solving services and proxy providers, offering suggestions for a low-cost proxy service (proxy-cheap) and various recaptcha solving options including free libraries like Botright and paid solutions such as Anycaptcha.com.", "tags": *id001, "title": "recaptcha solving, proxy providers"}
+
+---
+
+------
+
+# recaptcha solving, proxy providers
+
+## proxy service
+
+[proxy-cheap](https://www.proxy-cheap.com/)
+
+## recaptcha solving service
+
+### free libraries
+
+[botright](https://github.com/Vinyzu/Botright) can solve recaptcha, hcaptcha, geetest. it shall be used with playwright. [doc](https://botright.readthedocs.io/en/latest/)
+
+### paid services
+
+[anycaptcha.com](https://anycaptcha.com/) is an AI captcha solving service
+
+

@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["video compression", "video phash", "deduplication", "frame extraction", "extending video length", "audio altering", "background music"], "category": "Video Compression", "date": "2023-12-22 23:52:59", "description": "This article discusses a method called 'video phash' or 'video deduplication' for compressing videos. The technique involves extracting one frame from every few frames, lengthening the video and modifying the audio while adding background music. It also recommends not to directly copy videos, change their order, remove watermarks, and extract subtitles by combining content from various sources.", "tags": *id001, "title": "video phash, video deduplication"}
+
+---
+
+------
+
+# video phash, video deduplication
+
+视频降重
+
+每隔几帧抽一帧 视频延长 音频变调 加上背景音乐
+
+当然不要完全抄人家的 该打乱顺序就打乱 去水印 提取字幕 然后多抄几部视频
+

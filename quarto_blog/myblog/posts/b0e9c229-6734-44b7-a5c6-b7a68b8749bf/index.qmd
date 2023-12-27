@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["AI", "Project Development", "Freelance Jobs", "Data Collection", "Machine Learning", "Quote Generation", "Question-Answering System"], "category": "Machine Learning", "date": "2023-12-22 23:52:59", "description": "This article discusses the development of an AI-driven project designed to automate responses to freelance job offers, gather data from multiple platforms, and train a machine learning model for crafting personalized quotes. The goal is to create a pay-per-answer question-answering system specifically tailored for the paper writing industry.", "tags": *id001, "title": "Automating Freelance Job Offers: AI-Powered System for Paper Writing Industry"}
+
+---
+
+------
+
+# 论文代写 作业代写转为AI自动运作项目
+
+收集各大兼职网站 QQ接单群 闲鱼的项目描述 人工标注项目报价费用 训练实现自动报价抽成机器人
+
+根据项目描述和大量公开数据 进行开放式问答 训练并应用于论文实现代写方面的付费问答机器人
+

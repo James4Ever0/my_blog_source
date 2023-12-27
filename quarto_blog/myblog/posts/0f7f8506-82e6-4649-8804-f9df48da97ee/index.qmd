@@ -1,0 +1,22 @@
+---
+{"categories": &id001 ["object tracking", "OpenCV algorithms", "Meanshift", "CAMshift", "Optical Flow", "identifying objects", "avoiding duplicate processes"], "category": "Video Object Tracking", "date": "2023-12-22 23:52:59", "description": "This text discusses object tracking in video using OpenCV algorithms such as Meanshift, CAMshift, and Optical Flow. It emphasizes identifying the object first before starting tracking and avoiding duplicate processes when detection overlaps with an existing object.", "tags": *id001, "title": "object tracking, video"}
+
+---
+
+------
+
+# object tracking, video
+
+identify the object first, then do tracking.
+
+if detection overlaps with object, then do not launch new tracking process.
+
+[OpenCV Meanshift Algorithm for Object Tracking](https://mpolinowski.github.io/docs/IoT-and-Machine-Learning/ML/2021-12-08--opencv-meanshift-tracking/2021-12-08/)
+
+[OpenCV CAMshift Algorithm for Object Tracking](https://mpolinowski.github.io/docs/IoT-and-Machine-Learning/ML/2021-12-09--opencv-camshift-tracking/2021-12-09/)
+
+
+[OpenCV Optical Flow Algorithm for Object Tracking](https://mpolinowski.github.io/docs/IoT-and-Machine-Learning/ML/2021-12-10--opencv-optical-flow-tracking/2021-12-10)
+
+[OpenCV Object Detection and Tracking](https://mpolinowski.github.io/docs/IoT-and-Machine-Learning/ML/2021-12-07--opencv-detection-and-tracking/2021-12-07)
+

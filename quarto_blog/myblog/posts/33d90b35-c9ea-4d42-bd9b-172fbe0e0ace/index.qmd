@@ -1,0 +1,29 @@
+---
+{"categories": &id001 ["AI", "Designing AI Systems", "Distance-based Agents", "LangChain", "Autogen", "Agency", "Self-Improvement"], "category": "AI System Design Guidelines", "date": "2023-12-22 23:52:59", "description": "This text provides guidelines for designing AI systems, advocating for an agent-based approach rather than a role-based one. It highlights the usage of tools like LangChain, Autogen, Agently, and ModelScope-Agent, as well as emphasizing the importance of thinking like an expert, setting example goals, and allowing the AI to self-improve.", "tags": *id001, "title": "guidelines on designing ai systems"}
+
+---
+
+------
+
+# guidelines on designing ai systems
+
+shall we design the agent system based on 'distance' instead of 'role'? in that case, only words that make sense and continue more often will appear together, and vice versa.
+
+------
+
+multi-agent orchestration: 
+
+[langchain](https://github.com/langchain-ai/langchain)
+
+[autogen](https://github.com/microsoft/autogen)
+
+[agently](https://github.com/Maplemx/Agently)
+
+[ModelScope-Agent](https://github.com/modelscope/modelscope-agent)
+
+------
+
+you must think like an expert and show some example or direction as reasonable goals if you want it to perform specific task.
+
+you must give it enough degree of freedom if you want it to self-improve and become conscious.
+

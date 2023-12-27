@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["ideas", "social media", "人类", "随想"], "category": "Information Management", "date": "2023-12-22 23:52:59", "description": "The text explores the concept that acquiring substantial amounts of information is crucial for accomplishment in diverse domains, and highlights the distinction between strong and weak correlations.", "tags": *id001, "title": "关于人类发展规律和需求的随想"}
+
+---
+
+------
+
+# 关于人类发展规律和需求的随想
+
+人需要获得海量信息然后才能在某些领域取得成就 这个相互关系有强相关和弱相关的范畴
+

@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["Python", "Pypy", "Performance", "Speed", "Compilation", "Codon", "Static Executables"], "category": "Python Performance", "date": "2023-12-22 23:52:59", "description": "This article explores the advancements in Python performance, specifically mentioning Pypy's remarkable speed and how Codon leverages Python syntax to generate static executables.", "tags": *id001, "title": "faster python"}
+
+---
+
+------
+
+# faster python
+
+latest python has better performance.
+
+pypy is fast.
+
+[codon](https://docs.exaloop.io/codon/) is using python syntax to compile python into static executable.
+

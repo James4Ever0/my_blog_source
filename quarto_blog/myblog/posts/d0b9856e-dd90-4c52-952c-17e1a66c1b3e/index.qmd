@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["ruby", "python", "interoperability", "tools", "rb_call", "puby", "language"], "category": "Programming Languages", "date": "2023-12-22 23:52:59", "description": "This article discusses two tools, rb_call and puby, which enable Python programs to call Ruby functions and leverage Ruby libraries. These tools promote seamless interaction between Python and Ruby, enhancing the interoperability between the two languages.", "tags": *id001, "title": "call ruby from python"}
+
+---
+
+------
+
+# call ruby from python
+
+[rb_call](https://github.com/yohm/rb_call)
+
+[puby](https://github.com/tomjnixon/puby)
+

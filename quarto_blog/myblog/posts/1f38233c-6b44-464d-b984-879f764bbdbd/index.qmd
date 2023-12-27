@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["idea", "stub", "tieba"], "category": "Social Media Transformation", "date": "2023-12-22 23:52:59", "description": "This article delves into the transformation of Baidu Tieba, a popular Chinese online bulletin board community, and highlights the importance of using registered accounts to pin posts. It provides insights into the changes made to the platform and their impact on user engagement and overall experience.", "tags": *id001, "title": "百度贴吧转化笔记"}
+
+---
+
+------
+
+# 百度贴吧转化笔记
+
+只看楼主 获取主要信息
+
+有人用贴吧注册的账号来顶贴
+

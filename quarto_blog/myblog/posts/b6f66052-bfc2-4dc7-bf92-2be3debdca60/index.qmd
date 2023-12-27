@@ -1,0 +1,21 @@
+---
+{"categories": &id001 ["video_quality", "audio_quality", "benchmarks", "VQA", "SSIM", "MOSCATO", "Python_package"], "category": "Video Quality Assessment", "date": "2023-12-22 23:52:59", "description": "This article delves into the topic of assessing video and audio quality. It highlights benchmarks for evaluating quality, introduces a swift VQA tool, explores SSIM-based VQA methods, and presents MOSCATO, a Python package specifically designed to evaluate audio quality.", "tags": *id001, "title": "video quality assessment, audio quality assessment"}
+
+---
+
+------
+
+# video quality assessment, audio quality assessment
+
+## video
+
+paperswithcode [benchmark](https://paperswithcode.com/task/video-quality-assessment)
+
+[fast-vqa](https://github.com/timothyhtimothy/fast-vqa)
+
+[ssim based vqs](https://github.com/kahkeng/vqats)
+
+## audio
+
+[mosquito](https://pypi.org/project/mosqito/)
+

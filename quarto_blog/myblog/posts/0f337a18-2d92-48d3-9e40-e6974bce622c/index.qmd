@@ -1,0 +1,37 @@
+---
+{"categories": &id001 ["backup", "macos", "stub", "time machine"], "category": "Data Backup", "date": "2023-12-22 23:52:59", "description": "In this article, the author discusses their backup plan that involves using rclone to periodically commit files to a NAS or external SSD. They also consider using an Airport Extreme router and investing in an SSD with USB-C cables for improved efficiency and convenience.", "tags": *id001, "title": "Time Machine NAS macOS"}
+
+---
+
+------
+
+# Time Machine NAS macOS
+
+use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSD
+
+buy airport extreme as wireless router and backup device
+
+----
+
+when in doubt, delete files under GUI instead of terminal
+
+check out commands for moving files into trash bin instead of direct removal on different OSes
+
+----
+
+my data under `~/works` is lost. fuck.
+
+buy me some ssd 512GB at least to do time machine backup.
+
+buy m.2 ssd to reduce the size.
+
+use usb-c cables to prevent inconvenience.
+
+----
+
+the filesystem will be formatted as APFS.
+
+need a dedicated usb storage for it.
+
+do not know if it is incremental backup.
+

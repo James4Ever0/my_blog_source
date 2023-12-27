@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting/retrieving data, working with constraints, and utilizing SQL functions.">
+
+<title>Myblog - MySQL Cheatsheet</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MySQL Cheatsheet</h1>
+</div>
+
+<div>
+  <div class="description">
+    The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting/retrieving data, working with constraints, and utilizing SQL functions.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="mysql-cheatsheet" class="level1">
+<h1>MySQL Cheatsheet</h1>
+<p>MySQL Reference Card Version: 0.1 Author: ProgM4c</p>
+<p>Attribute Types</p>
+<p>Numbers Name Coded on Name Coded on TINYINT 1 byte FLOAT(W, D) 4 bytes SMALLINT 2 bytes DOUBLE(W, D) 8 bytes MEDIUMINT 3 bytes W: width(number of digits with the ‘.’) D: number of decimals INT 4 bytes</p>
+<p>BIGINT 8 bytes</p>
+<p>Parameters: • UNSIGNED • ZEROFILL</p>
+<p>Coded on: • SIGNED : • UNSIGNED:</p>
+<p>Strings (between ’ ’) Name Size CHAR(M) String with fixed size, 1 &lt;= M &lt;= 255 VARCHAR(M) String with variable size, 1 &lt;= M &lt;= 255 TINYTEXT Max length = 255 TEXT Max length = 65535 MEDIUMTEXT Max length = 16777215 LONGTEXT Max length = 4294967295 DECIMAL(M, D) Simulate a floating point number in a string format</p>
+<p>Date and Time Name Format DATE AAAA-MM-JJ DATETIME AAAA-MM-JJ HH:MM:SS TIMESTAMP AAAAMMJJHHMMSS TIMESTAMP(M) First M characters of a TIMESTAMP TIME HH:MM:SS YEAR AAAA</p>
+<p>ENUM: take one value in the defined list (can be NULL) syntax: attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}</p>
+<p>Database queries</p>
+<p>create a database CREATE DATABASE [IF NOT EXISTS] <db_name>;</db_name></p>
+<p>delete a database DROP DATABSE [IF EXISTS] <db_name>;</db_name></p>
+<p>rename a database ALTER DATABASE <db_name> RENAME <db_new_name>;</db_new_name></db_name></p>
+<p>list databases SHOW DATABASES;</p>
+<p>select a database USE <db_name>;</db_name></p>
+<p>Table queries</p>
+<p>show a table SHOW TABLES;</p>
+<p>rename a table ALTER TABLE <table_name> RENAME <new_name>;</new_name></table_name></p>
+describe a table DESCRIBE
+
+<p>;</p><p>delete a table DROP TABLE <table_name>;</table_name></p><p>type of constraints • NOT NULL • UNIQUE • PRIMARY KEY = NOT NULL + UNIQUE • FOREIGN KEY • CHECK • DEFAULT • AUTO_INCREMENT</p><p>create a table CREATE TABLE <table_name> ( <attr1> <datatype1>(size) <constraints>, <attr1> <datatype1>(size) <constraints>, … PRIMARY KEY(<pk>) );</pk></constraints></datatype1></attr1></constraints></datatype1></attr1></table_name></p><p>add / delete a constraints ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …) ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];</const_name></const_name></table_name></attr1></const_name></table_name></p><p>Modify table structure</p><p>add / delete attribute ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>]; ALTER TABLE <table_name> DROP <attr> ;</attr></table_name></other_attr></type></attr></table_name></p><p>add / delete default value to an column ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};</default_value></attr></table_name></p><p>change definition of an attribute without/with renaming it ALTER TABLE <table_name> MODIFY <attr_name> <new_type>; ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>; Inserting data INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);</val2></val1></col2></col1></table_name></new_type></attr_new_name></attr_name></table_name></new_type></attr_name></table_name></p><p>Modifying data UPDATE <table_name> SET <field1> = <val1>, <field2> = <val2>, … WHERE <condition>;</condition></val2></field2></val1></field1></table_name></p><p>Deleting data DELETE FROM <table_name> WHERE <condition>;</condition></table_name></p><p>Retrieving data Select statement SELECT [ DISTINCT ] attributs [ INTO OUTFILE fichier ] [ FROM relation ] [ WHERE condition ] [ GROUP BY attributs [ ASC | DESC ] ] [ HAVING condition ] [ ORDER BY attributs ] [ LIMIT [a,] b ]</p><section id="operators-in-a-where-clause" class="level1">
+<h1>operators in a where clause</h1>
+<p>Equal &lt;&gt; Not equal.&nbsp;Note:&nbsp;In some versions of SQL this operator may be written as != &gt; Greater than &lt; Less than &gt;= Greater than or equal &lt;= Less than or equal BETWEEN Between an inclusive range LIKE Search for a pattern (‘%’ any sequence of characters ’_’ any character) [NOT] IN To specify multiple possible values for a column IS [NOT] NULL To check if the value of a column is NULL or not AND OR NOT Filter records based on more than once condition</p>
+Sub-requests SELECT * FROM
+
+</section><table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+WHERE prix &gt; (SELECT MIN(prix) FROM tab2) SELECT * FROM
+
+<table></table>
+WHERE nom NOT IN (SELECT nom FROM tab2) SELECT * FROM
+
+<table></table>
+WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs) SELECT * FROM
+
+<table></table><p>WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)</p>
+SQL aliases on column / table SELECT <column> AS <col_alias> FROM
+
+</col_alias></column><table>
+</table>
+(alias a result) SELECT <column> FROM
+
+</column><table></table><p>AS <new_name> (alias a table name)</new_name></p><p>SQL functions AVG() - (moyenne) COUNT() - (nombre d’élément) MAX() - (maximum) MIN() - (minimum) SUM() - (somme)</p><p>UCASE() LCASE() LEN() NOW() FORMAT()</p><table>
+
+
+
+
+
+
+
+ <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+ <!-- /content -->
+
+
+
+</table></section></main></div></body></html>

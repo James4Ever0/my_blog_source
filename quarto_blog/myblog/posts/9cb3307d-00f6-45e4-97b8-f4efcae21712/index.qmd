@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["FastGithub", "acceleration", "GitHub", "StackOverflow", "project", "technology", "development"], "category": "GitHub", "date": "2023-12-22 23:52:59", "description": "This article discusses FastGithub, a project aimed at accelerating GitHub and StackOverflow. By using the provided URL, users can explore the benefits and features of this innovative tool.", "tags": *id001, "title": "Unlocking Speed: FastGithub - Accelerating Github and StackOverflow"}
+
+---
+
+------
+
+# Github and Stackoverflow acceleration
+
+https://github.com/dotnetcore/FastGithub
+

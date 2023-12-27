@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article compares various energy system simulation tools, discussing their capabilities in areas such as Modelica simulations with JModelica, Scilab, and Scicos; power system analysis with PyPSA, PowerGAMA, psst, GridLAB-D, OpenDSS, MATPower, AMS, Julia, and OpenAI Gym; optimization and energy market participation with Andes, DPSim, Calliope, TESPy, and Xcos. The article provides insight into the strengths and weaknesses of each tool, helping readers make informed decisions when selecting a suitable simulation tool for their needs.">
+
+<title>James’s Blog - 能源优化配置（购置，设计）计算投资收益 自动控制（能源调度）预测</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">能源优化配置（购置，设计）计算投资收益 自动控制（能源调度）预测</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">energy_system_simulation</div>
+    <div class="quarto-category">JModelica</div>
+    <div class="quarto-category">Scilab</div>
+    <div class="quarto-category">Scicos</div>
+    <div class="quarto-category">Modelica_simulations</div>
+    <div class="quarto-category">PyPSA</div>
+    <div class="quarto-category">PowerGAMA</div>
+    <div class="quarto-category">psst</div>
+    <div class="quarto-category">GridLAB-D</div>
+    <div class="quarto-category">OpenDSS</div>
+    <div class="quarto-category">MATPower</div>
+    <div class="quarto-category">AMS</div>
+    <div class="quarto-category">Julia</div>
+    <div class="quarto-category">OpenAI_Gym</div>
+    <div class="quarto-category">Andes</div>
+    <div class="quarto-category">DPSim</div>
+    <div class="quarto-category">Calliope</div>
+    <div class="quarto-category">TESPy</div>
+    <div class="quarto-category">Xcos</div>
+    <div class="quarto-category">power_system_analysis</div>
+    <div class="quarto-category">energy_market_participation</div>
+    <div class="quarto-category">optimization</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article compares various energy system simulation tools, discussing their capabilities in areas such as Modelica simulations with JModelica, Scilab, and Scicos; power system analysis with PyPSA, PowerGAMA, psst, GridLAB-D, OpenDSS, MATPower, AMS, Julia, and OpenAI Gym; optimization and energy market participation with Andes, DPSim, Calliope, TESPy, and Xcos. The article provides insight into the strengths and weaknesses of each tool, helping readers make informed decisions when selecting a suitable simulation tool for their needs.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="能源优化配置购置设计计算投资收益-自动控制能源调度预测" class="level1">
+<h1>能源优化配置（购置，设计）计算投资收益 自动控制（能源调度）预测</h1>
+<p>to speed up <code>numpy</code> performance, either use multicore enabled BLAS library, intel MKL or use <code>cupy</code> (ROCm ready)</p>
+<p>to check if <code>numpy</code> is not using multicore, run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>size <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.random.random_sample((size, size))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.random.random_sample((size, size))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> np.dot(a,b) <span class="co"># run for a long time</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>use <code>scipy.optimize</code></p>
+<hr>
+<p><a href="https://bbs.kanxue.com/thread-263466.htm">gurobi v9.0 cracked keygen</a></p>
+<p><a href="https://www.7xdown.com/downinfo/128184.html">gurobi v9.0 破解版和使用教程</a></p>
+<hr>
+<p>operations research (OR) is somehow related to machine learning and artificial intelligence. there’s <a href="https://books.google.co.jp/books?id=EgIRGHCrK6IC&amp;pg=PA507&amp;hl=ja&amp;source=gbs_selected_pages&amp;cad=2#v=onepage&amp;q&amp;f=false">a book</a> for reference. however, a solid solver is the backbone of energy system optimization.</p>
+<p>technical terms for operations research:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>full name</th>
+<th>abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LP</td>
+<td>Linear Programming</td>
+</tr>
+<tr class="even">
+<td>MIP</td>
+<td>Mixed Integer Programming</td>
+</tr>
+<tr class="odd">
+<td>NLP</td>
+<td>Non-linear Programming</td>
+</tr>
+<tr class="even">
+<td>MILP</td>
+<td>Mixed Integer Linear Programming</td>
+</tr>
+<tr class="odd">
+<td>MINLP</td>
+<td>Mixed Integer Non-linear Programming</td>
+</tr>
+</tbody>
+</table>
+<p>technical terms for integrated systems:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>中文</th>
+<th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>燃气轮机</td>
+<td>Gas Turbine</td>
+</tr>
+<tr class="even">
+<td>离心泵</td>
+<td>Centrifugal Pumps</td>
+</tr>
+<tr class="odd">
+<td>柔性负荷</td>
+<td>Flexible Loads</td>
+</tr>
+<tr class="even">
+<td>供水管道</td>
+<td>Water Pipelines</td>
+</tr>
+<tr class="odd">
+<td>外部电源</td>
+<td>External Power Sources</td>
+</tr>
+<tr class="even">
+<td>电源传输线</td>
+<td>Power Transmission Lines</td>
+</tr>
+<tr class="odd">
+<td>吸收式制冷机</td>
+<td>Absorption Refrigerators</td>
+</tr>
+<tr class="even">
+<td>燃气锅炉</td>
+<td>Gas Boilers</td>
+</tr>
+<tr class="odd">
+<td>制冷制热设备</td>
+<td>Cooling and Heating Equipment</td>
+</tr>
+<tr class="even">
+<td>储能设备</td>
+<td>Energy Storage Equipment</td>
+</tr>
+<tr class="odd">
+<td>热力传输设备</td>
+<td>Thermal Transmission Equipment</td>
+</tr>
+<tr class="even">
+<td>电力传输设备</td>
+<td>Power Transmission Equipment</td>
+</tr>
+<tr class="odd">
+<td>电源设备</td>
+<td>Power Supply Equipment</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/James4Ever0/-">paid IES simulation &amp; optimization code collection</a> by 研学社, use for searching the names elseware to get for free</p>
+<p><a href="https://pyvisa.readthedocs.io/en/latest/">pyVISA</a> is a Python package that enables you to control all kinds of measurement devices independently of the interface (e.g.&nbsp;GPIB, RS232, USB, Ethernet). VISA is a protocol (almost) shared by all modern hardware connection standards</p>
+<p><a href="https://wiki.openmod-initiative.org/wiki/Open_Models">a list of energy models</a> including “domenestic hot water” on <a href="https://wiki.openmod-initiative.org/">openmod.org</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Open_energy_system_models">Open Energy System Models</a> on wikipedia, including Electricity sector models and Energy system models</p>
+<p>multiple SciML and neural network related differential equation projects were found on <a href="https://github.com/topics/ode">github topic ODE</a></p>
+<p>图书： <a href="http://product.dangdang.com/11214945401.html">能源互联系统的最优控制与安全运行</a> 涉及到综合能源系统稳态与暂态建模</p>
+<p>推荐购买图书 <a href="https://item.jd.com/10043809469333.html">未来能源技术丛书 综合能源系统建模 从入门到实践</a> 有多系统耦合调优的代码实践 mentioned <a href="https://www.ibm.com/in-en/analytics/cplex-optimizer">CPLEX</a> solver from IBM</p>
+<p><a href="https://ai4energy.github.io">Ai4Energy</a> (浙江大学的项目) and <a href="https://ai4energy.github.io/enpo811203/">智慧能源系统导论—综合能源系统建模、仿真、优化与控制课程</a></p>
+<p>wikipedia maintains <a href="https://en.wikipedia.org/wiki/List_of_optimization_software">a list of mathematical optimization software</a> including modeling tools and various solvers</p>
+<p>a huge collection of up-to-date tools called <a href="https://opensustain.tech">open sustainable technology</a> by <a href="https://github.com/protontypes">protontypes</a> has been found.</p>
+<p>in order to execute control in real time, either FPGA or RTOS like <a href="https://www.opal-rt.com/software-rt-lab/">RT-Lab</a> is used (maybe not needed?)</p>
+<p>in simulation, unlike real-world systems, can be quite “chess-like”. you can pause the system, revert the operation, revert the time, in order to manually control all components to guide the system to optimal.</p>
+<p>微电网 (microgrid) 耦合优化调度 综合能源系统 优化调度 电气热耦合</p>
+<p>CCHP: Combined Cooling, Heat and Power</p>
+<p>weibull distribution</p>
+<p>differential equations: ODE (Ordinary Differential Equation), SDE (Stochastic Differential Equation), DDE (Delay Differential Equation), DAE (Differential Algebraic Equation)</p>
+<p>what they are talking is SCADA: supervisory control and data acquisition. <a href="https://www.plm.automation.siemens.com/global/en/products/simcenter/scadas.html">SCADAS</a> by siemens is for signal processing and recording. is it the system used in the current project? nope. is SCADAS similar to SCADA? yes.</p>
+<section id="tutorials-and-code" class="level2">
+<h2 class="anchored" data-anchor-id="tutorials-and-code">tutorials and code</h2>
+<p>综合能源系统分析的统一能路理论系列：</p>
+<p><a href="http://www.csee.org.cn/pic/u/cms/www/202004/15103508ye08.pdf">综合能源系统分析的统一能路理论(一)：气路</a></p>
+<p><a href="http://www.csee.org.cn/pic/u/cms/www/202009/03102946i4o1.pdf">综合能源系统分析的统一能路理论(二)：水路与热路</a></p>
+<p><a href="http://www.csee.org.cn/pic/u/cms/www/202103/18155154440w.pdf">综合能源系统分析的统一能路理论(三)：《稳态与动态潮流计算》</a> &amp;<a href="https://github.com/James4Ever0/EnergyCircuitTheory-EnergyFlowCalculation">Python代码</a> &amp; <a href="https://blog.csdn.net/2201_75454341/article/details/128507493">讲解</a> （研学社？卖能管系统调优的代码）</p>
+<p><a href="https://github.com/AsprinChina/ECM_based_OEF">Data and codes</a> for <a href="https://arxiv.org/pdf/2206.12799.pdf">energy circuit method-based optimal energy flow</a></p>
+<p><a href="https://github.com/AsprinChina/L2RPN_NIPS_2020_a_PPO_Solution">reinforcement learning (PPO)</a> for <a href="https://competitions.codalab.org/competitions/25426">NeurIPS Competition 2020: Learning to Run a Power Network (L2RPN)</a></p>
+<hr>
+<p><a href="http://html.rhhz.net/dlgcjs/HTML/210401359.html">基于改进DaNN的综合能源系统多能负荷预测</a>, <a href="https://github.com/fungtion/DANN">DaNN</a> (Domain Adversarial Neural Network, Unsupervised Domain Adaptation by Backpropagation (for digital twins?)) or <a href="https://github.com/erlendd/ddan">DDAN</a> (Deep Domain Adaptation Networks)</p>
+<p><a href="https://zhuanlan.zhihu.com/p/453462699">综合能源系统（冷、热、电 (CCHP)）案例/论文/数据整理分享</a></p>
+<hr>
+<p>王子豪提供的<a href="https://www.zhihu.com/column/c_1503759101419581440">综合能源系统优化运行专题</a>：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/507741917">Section 1: 开篇：综合能源系统基本模型和gurobi基本语法</a> <a href="https://zhuanlan.zhihu.com/p/508723898">Section 2: 综合能源系统目标函数建立</a> <a href="https://zhuanlan.zhihu.com/p/509793378">Section 3: 综合能源系统最优电力潮流（OPF）模型建立与Gurobi实现</a> <a href="https://zhuanlan.zhihu.com/p/526306638">Section 4: 综合能源系统最优热力潮流（OTF）模型建立与Gurobi实现</a> Code: <a href="https://gitee.com/jiaran-jintianchishenme/iesoptimization">IESOptimization</a> <a href="https://zhuanlan.zhihu.com/p/598538540">Section 5: 综合能源系统多时刻优化模型建立与求解</a></p>
+</section>
+<section id="tools" class="level2">
+<h2 class="anchored" data-anchor-id="tools">tools</h2>
+<section id="mac-m1-compatibility-on-windows-software" class="level3">
+<h3 class="anchored" data-anchor-id="mac-m1-compatibility-on-windows-software">mac m1 compatibility on windows software</h3>
+<p>install by <code>brew install wine-stable</code> (version &gt;= 6.0.2)</p>
+<p>then run <code>wine64</code></p>
+</section>
+<section id="python-doc-generation" class="level3">
+<h3 class="anchored" data-anchor-id="python-doc-generation">python doc generation</h3>
+<section id="pydoc" class="level4">
+<h4 class="anchored" data-anchor-id="pydoc">pydoc</h4>
+<p>start server using:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pydoc <span class="at">-p</span> <span class="op">&lt;</span>port<span class="op">&gt;</span> <span class="op">&lt;</span>module_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pdoc3" class="level4">
+<h4 class="anchored" data-anchor-id="pdoc3"><a href="https://pdoc3.github.io/pdoc/">pdoc3</a></h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install pdoc3</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdoc</span> <span class="at">--html</span> <span class="op">&lt;</span>module_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="docstring" class="level4">
+<h4 class="anchored" data-anchor-id="docstring">docstring</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> myClass:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">  myClass doc</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    init doc</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="controlling-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="controlling-monitoring">controlling &amp; monitoring</h3>
+<p><a href="https://www.openmuc.org/">OpenMUC</a> is some advanced software only SCADA bridging system, with analysing but no simulation!</p>
+<p><a href="https://openems.github.io/openems.io/openems/latest/gettingstarted.html">OpenEMS</a> is for monitoring, controlling and simulation based on historical data (not digital twin!)</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//github.com/myems/myems">myEMS</a>用于能源管理项目的设备管理、数据采集、处理、分析、可视化和报表。</p>
+</section>
+<section id="optimization" class="level3">
+<h3 class="anchored" data-anchor-id="optimization">optimization</h3>
+<p>solvers:</p>
+<p><a href="https://www.gnu.org/software/glpk/">glpk</a>: gnu linear programming kit (LP/MIP problems), can bridge with gnu mathprog language (GMPL, subset of AMPL)</p>
+<p>on <a href="https://github.com/topics/blackbox-optimization">blackbox optimization</a> there are:</p>
+<ul>
+<li><a href="https://github.com/SimonBlanke/Gradient-Free-Optimizers">Gradient Free Optimizers</a> like: meta-heuristic, simulated-annealing, hill-climbing, particle-swarm-optimization, evolution-strategies, blackbox-optimization, gradient-free-optimization, tree-of-parzen-estimator and many more</li>
+<li><a href="https://github.com/google/vizier">vizier</a> by google for blackbox and hyperparameter optimization</li>
+<li><a href="https://github.com/parmoo/parmoo">parmoo</a> for parallel multiobjective simulation optimization</li>
+</ul>
+<hr>
+<p><a href="https://github.com/anassinator/ilqr">ilqr</a>: Iterative Linear Quadratic Regulator with auto-differentiatiable dynamics models</p>
+<p><a href="https://github.com/idaholab/raven">RAVEN</a> is a flexible and multi-purpose probabilistic risk analysis, validation and uncertainty quantification, parameter optimization, model reduction and data knowledge-discovering framework.</p>
+<p>RAVEN includes the following major capabilities:</p>
+<ul>
+<li>Sampling of codes for uncertainty quantification and reliability analyses</li>
+<li>Generation and use of reduced-order models (also known as surrogate)</li>
+<li>Data post-processing (time dependent and steady state)</li>
+<li>Time dependent and steady state, statistical estimation and sensitivity analysis (mean, variance, sensitivity coefficients, etc.).</li>
+</ul>
+<p>The RAVEN statistical analysis framework can be employed for several types of applications:</p>
+<ul>
+<li>Uncertainty Quantification</li>
+<li>Sensitivity Analysis / Regression Analysis</li>
+<li>Probabilistic Risk and Reliability Analysis (PRA)</li>
+<li>Data Mining Analysis</li>
+<li>Model Optimization</li>
+</ul>
+<hr>
+<p><a href="https://vsa-fine.readthedocs.io/en/master/gettingStartedDoc.html">VSA-FINE</a>: generating energy system optimization models, using <a href="https://github.com/FZJ-IEK3-VSA/tsam">tsam</a> (for Time series aggregation, Pareto-Optimal Temporal Aggregation of Energy System Models) and pyomo, compatible for both commercial solvers and open-source solvers.</p>
+<p>optimization using <a href="https://coin-or.github.io/pulp/">PuLP</a> (by coin-or)</p>
+<p><a href="https://docs.python-mip.com/en/latest/intro.html">python-mip</a> (install by <code>pip install mip</code>) provides tools for modeling and solving Mixed-Integer Linear Programming Problems.</p>
+<p><a href="https://gekko.readthedocs.io/en/latest/">GEKKO</a> is a Python package for machine learning and optimization of mixed-integer and differential algebraic equations. Modes of operation include parameter regression, data reconciliation, real-time optimization, dynamic simulation, and nonlinear predictive control. (<a href="https://apmonitor.com/wiki/index.php/Main/Control">MPC</a>? see <a href="https://github.com/APMonitor/apm_python">APM Python with Demo Applications on GitHub</a>)</p>
+<p><a href="https://pypi.org/project/numdifftools/">numdifftools</a> Solves automatic numerical differentiation problems in one or more variables (Jacobian?)</p>
+<p><a href="https://neos-server.org/neos/">NEOS</a> is a free service for numerical optimization, which almost only accepts GAMS/AMPL/SMPS code.</p>
+<p><a href="http://ceres-solver.org/">Ceres Solver</a> is for non-linear least squares (curve fitting, can be done in <a href="https://lmfit.github.io/lmfit-py/">lmfit-py</a> and <a href="https://pythonnumericalmethods.berkeley.edu/notebooks/chapter16.05-Least-Square-Regression-for-Nonlinear-Functions.html">scipy.optimize.curve_fit</a> (from <a href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">python numerical methods</a>, a tutorial on numerical processing)) and can be accelerated by multiprocessing or CUDA</p>
+<p><a href="https://www.coin-or.org/projects/">COIN-OR projects</a> (many things!) are usually solver and optimization related. <a href="https://www.pyomo.org/">Pyomo</a> (a collection of Python software packages for formulating optimization models, similar to <a href="https://linopy.readthedocs.io/">linopy</a> (only for labeled data, linear optimization)) is part of the project.</p>
+<p><a href="https://opensolver.org/">OpenSolvers</a> is for microsoft excel and uses linear solvers like <a href="https://github.com/coin-or/Cbc">COIN-OR CBC</a> (on which mentioned a lot of modeling languages/tools it supports) and non-linear solvers like <a href="https://projects.coin-or.org/Bonmin">Bonmin</a> (Basic Open-source Nonlinear Mixed INteger programming) and <a href="https://projects.coin-or.org/Couenne">Couenne</a> (Convex Over and Under ENvelopes for Nonlinear Estimation) powered by IPOPT. <a href="https://opensolver.org/guide-to-solvers/">details</a> on solvers</p>
+<p><a href="https://blog.csdn.net/weixin_39628380/article/details/111077636">Pareto optimization</a> using:</p>
+<ul>
+<li><a href="https://pymoo.org/">pymmo</a> is for multi-objective optimization. usage in <a href="https://blog.csdn.net/weixin_40531919/article/details/118522239">NSGA2</a></li>
+<li><a href="http://www.pyomo.org/">pyomo</a> is a Python-based, open-source optimization modeling language with a diverse set of optimization capabilities.</li>
+<li><a href="https://github.com/jMetal/jMetalPy">jMetalPy</a> and <a href="https://blog.csdn.net/qq_33177268/article/details/127662015">introduction</a></li>
+<li><a href="https://blog.csdn.net/weixin_39707536/article/details/110763585">NSGA3</a></li>
+<li><a href="https://blog.csdn.net/kobeyu652453/article/details/128531031">partical group</a> and <a href="https://zhuanlan.zhihu.com/p/584190186">intro in python</a></li>
+</ul>
+<p><a href="https://github.com/isl-org/MultiObjectiveOptimization">Code</a> for <a href="https://arxiv.org/abs/1810.04650">NIPS 2018: Multi-Task Learning as Multi-Objective Optimization</a>, an exact algorithm for multi-objective optimization of deep networks with negligible computational overhead.</p>
+<section id="machine-learning-neural-networks" class="level4">
+<h4 class="anchored" data-anchor-id="machine-learning-neural-networks">machine learning &amp; neural networks</h4>
+<p><a href="https://github.com/FluxML/Flux.jl/">flux.jl</a> is machine/deep learning in julia, with GPU support. <a href="https://github.com/FluxML/model-zoo/">model zoo</a> (examples) and <a href="http://fluxml.ai/Flux.jl/stable/">doc</a>. <a href="https://github.com/SciML/DiffEqFlux.jl/">DiffEqFlux.jl</a> can add differential equation layers to neural networks, details <a href="https://julialang.org/blog/2019/01/fluxdiffeq/">here</a></p>
+<p><a href="https://github.com/alan-turing-institute/MLJ.jl">MLJ.jl</a>: non-DNN machine learning framework</p>
+<p><a href="https://facebook.github.io/prophet/">facebook prophet</a></p>
+<p><a href="https://github.com/luke14free/pm-prophet">pymc based prophet</a></p>
+<p><a href="https://nupic.docs.numenta.org/1.0.3/api/algorithms/encoders.html">numenta nupic sparse encoding</a></p>
+<p>pyro <a href="https://docs.pyro.ai/en/stable/contrib.forecast.html">forcasting</a> and <a href="https://docs.pyro.ai/en/stable/contrib.timeseries.html">time series</a></p>
+<p>uber <a href="https://github.com/uber/orbit">orbit</a> (A Python package for Bayesian forecasting with object-oriented design and probabilistic models under the hood) and <a href="https://orbit-ml.readthedocs.io/en/stable/">doc</a></p>
+</section>
+<section id="reinforcement-learning" class="level4">
+<h4 class="anchored" data-anchor-id="reinforcement-learning">reinforcement learning</h4>
+<p><a href="https://github.com/yushinliu/Adaptive-Dynamic-programming">sample code</a> and <a href="https://www.cnblogs.com/kzin/p/15175375.html">intro</a> for adaptive dynamic programming(ADP)</p>
+<p><a href="https://www.microsoft.com/en-us/ai/ai-lab-machine-teaching">microsoft machine teaching</a> is like automl for reinforcement learning (autorl), based on <a href="https://preview.bons.ai/">bonsai</a> (on [github[(https://github.com/BonsaiAI)) (<a href="https://learn.microsoft.com/en-us/bonsai/">doc</a>) is a low-code platform for autonomous AI systems (bonsai BRAIN is close-sourced), <a href="https://github.com/BonsaiAI/bonsaiai.github.io">doc</a> before acquiantaince. <a href="https://github.com/BonsaiAI/bonsaiai.github.io/blob/website/source/includes/getting-started/_quick-start.html.md">mentioned</a> “optimize HVAC (heating, ventilation, and air conditioning) with EnergyPlus and <a href="https://github.com/lbl-srg/bcvtb">BCVTB</a> (Building Controls Virtual Test Bed)”. specify enviorments, rewards and targets with Inkling (declarative)</p>
+<p><a href="https://github.com/openai/baselines">openai baselines</a></p>
+<p><a href="https://github.com/DLR-RM/stable-baselines3">stable baselines3</a></p>
+<p><a href="https://github.com/microsoft/autorl-research">autorl-research</a> by microsoft</p>
+<p><a href="https://github.com/cpnota/autonomous-learning-library">autonomous learning library</a> for pytorch, building deep reinforcement learning agents</p>
+<p><a href="https://github.com/google/brain_autorl">brain autorl</a> by google</p>
+<p><a href="https://github.com/brownirl/rlang">rlang</a>: a declarative language for expressing partial world knowledge to RL agents and decision process. <a href="http://rlang.ai/">doc</a></p>
+</section>
+</section>
+<section id="nlp" class="level3">
+<h3 class="anchored" data-anchor-id="nlp">NLP</h3>
+<p><a href="https://github.com/lucidrains/RETRO-pytorch">RETRO-pytorch</a> without weights</p>
+<p><a href="https://langchain.readthedocs.io/en/latest/index.html">LangChain</a>: combine LLMs with other sources of computation or knowledge.</p>
+<p>ELIF <a href="https://yjernite.github.io/lfqa.html">LFQA retrieval based</a></p>
+<p><a href="https://github.com/deepset-ai/haystack">haystack</a> (+ LLM = ChatGPT?)</p>
+<p><a href="https://chat.openai.com/chat">chatgpt</a> (which is currently way too busy?)</p>
+<p><a href="https://github.com/lucidrains/PaLM-rlhf-pytorch">PaLM-RLHF</a></p>
+<p><a href="https://github.com/LAION-AI/Open-Assistant">Open-Assistant</a></p>
+<p><a href="https://github.com/MarkPKCollier/NeuralTuringMachine">NTM (neural turing machine)</a> (best?) for translation, question answering, planning and decision-making. <a href="https://github.com/tensorflow/tensorflow/releases/tag/v1.14.0">tensorflow 1.14.0</a> includes it into <code>tf.contrib</code> which also has <code>timeseries</code> module.</p>
+</section>
+<section id="model-predictive-control" class="level3">
+<h3 class="anchored" data-anchor-id="model-predictive-control">model predictive control</h3>
+<p>MPC is mentioned along with PID (Proportional Integral Derivative) found in libraries like <a href="https://pypi.org/project/simple-pid/">simple-pid</a>, <a href="https://pypi.org/project/pypid/">pypid</a> and <a href="https://pypi.org/project/control/">control</a>.</p>
+<p><a href="https://github.com/homangab/gradcem">gradcem</a>: Model-Predictive Control via Cross-Entropy and Gradient-Based Optimization</p>
+<p><a href="https://www.do-mpc.com/en/latest/">do-mpc</a> (in python) is a comprehensive open-source toolbox for robust model predictive control (MPC) and moving horizon estimation (MHE).</p>
+<p><a href="https://locuslab.github.io/mpc.pytorch/">mpc-pytorch</a> is a fast PyTorch library for solving the non-convex control problem</p>
+</section>
+<section id="modeling-simulation" class="level3">
+<h3 class="anchored" data-anchor-id="modeling-simulation">modeling &amp; simulation</h3>
+<p>for interfaces i’d like jupyter. does julia/modelica/octave support jupyter?</p>
+<p><a href="https://github.com/ibell/thermalcorr">thermalcorr</a>: (c++) A collection of thermohydraulic correlations for thermal systems and heat exchangers</p>
+<p><a href="https://github.com/neuraloperator/neuraloperator">neural operator</a> for PDE/ODE neural network approximation (speedup solving) and <a href="https://neuraloperator.github.io/neuraloperator/dev/user_guide/neural_operators.html">doc</a></p>
+<p><a href="https://pypi.org/project/hydraulic/">hydraulic</a>: A python package to compute pressure, flows and temperatures in hydraulic circuits</p>
+<p><a href="https://pypi.org/project/fluids/">fluids</a>: is open-source software for engineers and technicians working in the fields of chemical, mechanical, or civil engineering. It includes modules for piping, fittings, pumps, tanks, compressible flow, open-channel flow, atmospheric properties, solar properties, particle size distributions, two phase flow, friction factors, control valves, orifice plates and other flow meters, ejectors, relief valves, and more.</p>
+<p><a href="https://github.com/intelligent-environments-lab/CityLearn">CityLearn</a>: reinforcement learning environment for controlling the storage of domestic hot water (DHW), chilled water (for sensible cooling and dehumidification) hot water (for sensible heating) and electricity, also including models of air-to-water heat pumps, electric heaters, solar photovoltaic arrays, and the pre-computed energy loads of the buildings, which include space cooling, dehumidification, appliances, DHW, and solar generation.</p>
+<p><a href="https://github.com/dpinney/omf">OMF</a>: The Open Modeling Framework for smart grid cost-benefit analysis.</p>
+<p><a href="https://github.com/GMLC-TDC/HELICS">HELICS</a> is a co-simulation framework, designed to bring together domain-specific modeling tools so they interact during run time. <a href="https://github.com/GMLC-TDC/HELICS-Examples">usage examples</a> and <a href="https://docs.helics.org/en/latest/">doc</a></p>
+<p><a href="https://www.energyexemplar.com">PLEXOS</a> by Energy Exemplar is the only solution available today that unifies market simulations across the electric, water, and gas industries.</p>
+<p><a href="https://github.com/BBISSlab/DistributedEnergyGen">Distributed Energy Generation Model</a></p>
+<p><a href="https://github.com/OpenHybridSim/OpenHybridSim-code">OpenHybridSim</a> is the first-ever, open source tool for EMT and phasor domain hybrid simulation.</p>
+<p><a href="https://github.com/upb-lea/openmodelica-microgrid-gym">openmodelica-microgrid-gym</a>: An OpenAI Gym Environment for Microgrids (and reinforcement learning)</p>
+<p><a href="https://github.com/SciML/ModelingToolkitStandardLibrary.jl">ModelingToolkitStandardLibrary.jl</a>: A standard library of components to model the world and beyond</p>
+<p><a href="https://github.com/ucuapps/modelicagym">ModelicaGym</a>: Modelica models integration with Open AI Gym</p>
+<p><a href="https://github.com/cuihantao/andes">andes</a>: Python toolbox / library for power system transient dynamics simulation with symbolic modeling and numerical analysis</p>
+<p><a href="https://github.com/sogno-platform/dpsim">DPSim</a>: Real-time power system simulator including powerflow, (dynamic) phasors and EMT. <a href="https://sogno.energy/dpsim-docs/">doc</a></p>
+<p><a href="https://github.com/calliope-project/calliope">calliope</a>: A multi-scale energy systems modelling framework</p>
+<p>Thermal Engineering Systems in Python (<a href="(https://github.com/oemof/tespy)">TESPy</a>). This package provides a powerful simulation toolkit for thermal engineering plants such as power plants, district heating systems or heat pumps.</p>
+<p><a href="https://github.com/AIRicky/Energy-Hub-Market-Operation">Energy-Hub-Market-Operation</a>: Participation of an Energy Hub in Electricity and Heat Distribution Markets using MPEC (mathematic program with equilibrium constraints)</p>
+<p><a href="https://github.com/OSeMOSYS/OSeMOSYS_Pyomo/blob/833c69920bf9be2f15d9d0bf277d9d581c2e49cb/osemosys.py">OSeMOSYS in Pyomo</a> (likely to be a large regional energy simulation)</p>
+<p><a href="https://github.com/mx-e/microgrid_optimizer">microgrid optimizer</a> for system of hot water, thermal and electricity (CHP) optimization using MILP</p>
+<p><a href="https://github.com/amilanpathirana/EMTsimulation">EMTSimulation</a> (python) <a href="https://github.com/xtsun98/combined-heat-and-power-system-probabilistic-production-simulation">combined-heat-and-power-system-probabilistic-production-simulation</a>: (in matlab) a fast algorithm for economic and adequacy evaluation of electricity-heating systems</p>
+<p><a href="https://github.com/fwitte/chp_orc">CHP_ORC</a>: Combined heat and power orc cycle using geothermal heat source</p>
+<p><a href="https://github.com/OR-polimi/cchp-minlp">CCHP-MINLP</a>: MINLP instances for short-term planning problem of combined heat and power (CHP) systems</p>
+<p><a href="https://github.com/AbhijeetSinghAccount/Combined-cooling-and-heat-Power-CCHP-Plant-">Combined-cooling-and-heat-Power-CCHP-Plant</a> written in GAMS, with <a href="https://github.com/AbhijeetSinghAccount/Combined-cooling-and-heat-Power-CCHP-Plant-/raw/master/Abhijeet%20Singh(1301CH01)%20btp%20report.pdf">a report</a></p>
+<p><a href="https://kitefast.readthedocs.io/en/kitefast/">OpenFAST/kitefast</a> for wind turbine simulation</p>
+<p><a href="http://fmi-standard.org">fmi</a> (functional mock-up interface) is an open model exchange format that able to run on multiple languages, proposed by modelica. <a href="https://fmi-standard.org/tools/">tools support this standard</a> are usually for modeling and simulation, and are able to communicate with each other using this protocol.</p>
+<p><a href="http://www.trnsys.com/index.html">TRNSYS</a>(Transient System Simulation Program, paid, not open source)最早是由美国威斯康星大学和Solar Energy 实验室开发的。容易与MATLAB、python、C++进行调用和编程。主要进行建筑负荷模拟相对于DEST来说较为复杂。可进行太阳能（光热、光电）、地源热泵、风电、光电、氢能、三联供、综合能源、全生命周期经济性系统模拟分析</p>
+<p><a href="https://github.com/JoElfner/multisim">multisim</a> includes models like pipes, heat exchanger, thermal storage and controllers like PID, Bang–bang controller, Two sensor controller and Model predictive controller.</p>
+<p><a href="https://github.com/building-energy/IES_analysis_notebooks">IES analysis notebooks</a>: Jupyter notebooks which analyse IES simulation results</p>
+<p>Tools for Energy Model Optimization and Analysis (<a href="https://temoacloud.com/">TEMOA</a>) is an open source modeling framework for conducting energy system analysis. The energy system is described algebraically as a network of linked processes that convert a raw energy commodity (e.g., coal, oil, biomass, uranium) into an end-use demand (e.g., lighting, transport, water heating, conditioned air), doc is <a href="https://temoacloud.com/temoaproject/Documentation.html">here</a></p>
+<p><a href="https://github.com/BBISSlab/DistributedEnergyGen">Distributed Energy Generation Model</a>: Code for “Natural Gas Combined Cycle Power Plants Have Lower Environmental Impact than Conventional Combined Heat and Power for Commercial Buildings, Environmental Science &amp; Technology”</p>
+<p><a href="https://github.com/flixOpt/flixOpt">flixOpt</a>: vector based energy and material flow optimization framework in python</p>
+<p><a href="https://github.com/PouyaREZ/Wastewater_Energy_Optimization">Wastewater_Energy_Optimization</a>: Supplementary files for “Integrated Design and Optimization of Water-Energy Nexus: Combining Wastewater Treatment and Energy System”</p>
+<p><a href="https://github.com/PouyaREZ/GAN_GA_ICML">GAN_GA_ICML</a> containing files to replicate experiments and results from “Using C-GANs to Boost High-dimensional Nonlinear Optimization for Sustainability Targets”</p>
+<p><a href="https://github.com/open-ideas/IDEAS">IDEAS</a> (Modelica library allowing simultaneous transient simulation of thermal and electrical systems at both building and feeder level.</p>
+<p><a href="https://github.com/Grand2015/IESLAB">IESLAB</a> for burst and leakage simulation/detection with SCADA data</p>
+<p><a href="https://github.com/rte-france/Grid2Op">Grid2Op</a>: a testbed platform to model sequential decision making in power systems (for Reinforcement Learning?), with <a href="https://github.com/BDonnot/lightsim2grid">lightsim2grid</a> which implements a c++ backend targeting the Grid2Op (speedup simulation). <a href="https://grid2op.readthedocs.io/en/latest/">doc</a></p>
+<p><a href="https://github.com/AsprinChina/EnergyCircuitTheory-EnergyFlowCalculation">EnergyCircuitTheory-EnergyFlowCalculation</a>: 数值实验代码 for 《综合能源系统分析的统一能路理论(三)：稳态与动态潮流计算》</p>
+<p>The Framework for Optimization of ResourCes and Economics (<a href="https://ies.inl.gov/SitePages/FORCE.aspx">FORCE</a>) is a collection of software tools developed under the Integrated Energy Systems (IES) program to enable analysis of technical and economic viability of myriad IES configurations. Each of these tools is openly available and free to use.</p>
+<p><a href="https://github.com/idaholab/HERON">HERON</a>: Holistic Energy Resource Optimization Network (HERON, for Technoeconomic Assessments and Synthetic History Generation) is a modeling toolset and plugin for RAVEN to accelerate stochastic technoeconomic assessment of the economic viability of various grid-energy system configurations, especially with application to electrical grids and integrated energy systems (IES).</p>
+<p><a href="https://github.com/ORNL-Modelica/TRANSFORM-Library">TRANSFORM-Library</a>: A Modelica based library for modeling thermal hydraulic energy systems and other multi-physics systems</p>
+<p><a href="https://github.com/kevinrussellmoy/smart-rl-mg">smart-rl-mg</a>: Reinforcement Learning + Microgrids for OpenDSS</p>
+<p><a href="https://github.com/idaholab/HYBRID">HYBRID</a> (requires DYMOLA? just a Modelica runtime?) is a modeling toolset to assess the integration and economic viability of Integrated Energy Systems (IES) , including Modeling and Experimental Validation of Latent Heat Thermal Energy Storage System. Related to <a href="https://github.com/susantoj/CENTAUR">CENTAUR</a> which has a GUI interface (very abstract), can be used for the design and simulation of hybrid solar PV-battery-diesel microgrids , similar to (only simulation, not optimization) HYBRID2 and HOMER (Hybrid Optimization Model for Multiple Energy Resources, with <a href="https://github.com/MatthewSteen/homer">a data processing script</a> found somewhere)</p>
+<p>in <a href="https://python-control.readthedocs.io/en/latest/intro.html">python-control</a> (optional dependency of <a href="https://github.com/python-control/Slycot">slycot</a> for MIMO) there is an example of <a href="https://python-control.readthedocs.io/en/latest/mpc_aircraft.html">model predictive control for aircraft model</a></p>
+<p><a href="https://www.enq.ufrgs.br/trac/alsoc/wiki/EMSO">EMSO</a> is the acronym for Environment for Modeling, Simulation, and Optimization. can customize model using EMSO modeling language. it is about chemistry rather than CCHP according to its modeling library <a href="https://www.enq.ufrgs.br/trac/alsoc/wiki/EML">EML</a></p>
+<p><a href="https://openmodelica.org/">OpenModelica</a> is an open-source Modelica-based1 modeling and simulation environment intended for industrial and academic usage.</p>
+<p><a href="https://www.scilab.org/fr/scilab/gallery/xcos">Xcos</a> by SciLab is a graphical editor to design hybrid dynamical systems models. Models (in modelica) can be designed, loaded, saved, compiled and simulated. All Xcos standard blocks grouped by categories (signal processing, electrical, hydraulics, derivative, integral, etc.).</p>
+<p><a href="https://github.com/JModelica/JModelica">JModelica</a> is an extensible Modelica-based open-source platform for optimization, simulation, and analysis of complex dynamic systems. The main objective of the project is to create an industrially viable open-source platform for simulation and optimization of Modelica models.</p>
+<p><a href="http://www.scilab.org/">Scilab</a> (by Dassault Systems) is a scientific software package for numerical computations providing a powerful open computing environment for engineering and scientific applications. Scilab is an open source software and includes hundreds of mathematical functions with the possibility to add interactively programs from various languages (C, C++, Fortran…).</p>
+<p><a href="http://www.scicos.org/">Scicos</a> is a graphical dynamical system modeler and simulator developed in the Metalau project at INRIA, Paris-Rocquencourt center. With Scicos, user can create block diagrams to model and simulate the dynamics of hybrid dynamical systems and compile models into executable code.</p>
+<p><a href="https://github.com/spyder-ide/spyder">Spyder</a> is a free open-source Python development environment providing MATLAB-like features in a simple and light-weighted software.</p>
+<p><a href="https://github.com/edxu96/StaticDESim">StaticDESim</a>: Simulation and optimisation of integrated energy system in steady state written in MATLAB, with models like Micro Gas Turbine (MGT), Aqueous Lithium-Bromine Single-Effect Absorption Chiller (AC_ALB), R123 Organic Recycle Cycle (ORC_R123), Heat Pump (HP) and R134a Vapour Compression Chiller (VCC_R134a)</p>
+<p><a href="https://github.com/modelica-3rdparty/OpenHydraulics">OpenHydraulics</a>: A free Modelica package providing components describing 1-dimensional fluid flow in hydraulic circuits.</p>
+<p><a href="https://github.com/RWTH-EBC/pyDMPC">pyDMPC</a>: A Python tool for distributed model-based predictive control of energy suppy chains</p>
+<p><a href="https://github.com/ai4energy/Ai4EMetaPSE.jl">Ai4EMetaPSE</a> by Ai4Energy: 采用基于方程的面向对象建模，基于微分代数方程（DAE），对能源系统组件进行建模，用以对能源系统进行稳态、动态仿真。能够处理连续时间及离散事件问题。</p>
+<p><a href="https://github.com/ai4energy/Ai4ELab">Ai4ELab</a> is a Virtual Simulation Lab of Ai4Energy deployed with docker. can use with <a href="https://github.com/SciML/ModelingToolkit.jl">ModelingToolkit.jl</a>. <a href="https://ai4energy.github.io/Ai4ELab/dev/">doc</a></p>
+<p><a href="https://github.com/simupy/simupy">simupy</a>: a ramework for modeling and simulating dynamical systems</p>
+<p><a href="https://github.com/modelica/ModelicaStandardLibrary">Modelica Standard Library</a> includes models for mechanical (1D/3D), electrical (analog, digital, machines), magnetic, thermal, fluid, control systems and hierarchical state machines, similar to <a href="https://github.com/SciML/ModelingToolkitStandardLibrary.jl">Modeling Toolkit Standard Library</a> from SciML</p>
+<p><a href="https://github.com/OR-polimi/cchp-minlp">cchp-minlp</a> models including heat pump, gas turbine, auxiliary boilers, written in GAMS and AMPL</p>
+<p><a href="https://pymgrid.readthedocs.io/en/latest/index.html">pymgrid</a> only provides models related to electricity.</p>
+<p><a href="https://github.com/oemof/oemof">oemof</a>: Open Energy Modelling Framework - Python toolbox for energy system modelling and optimization, with <a href="https://github.com/oemof/oemof-thermal">thermal simulation</a> support. <a href="https://oemof.org/">doc</a></p>
+<p><a href="https://github.com/fraukewiese/renpass">renpass</a>: Renewable Energy Pathways Simulation System (written in R)</p>
+<p><a href="https://docs.messageix.org/en/stable/framework.html">MESSAGEix</a> is a framework written in GAMS that can be used to develop and run many different models, each describing a different energy system.</p>
+<p><a href="https://adamgreenhall.github.io/minpower/">Minpower</a> is an open source toolkit for students and researchers in power systems.</p>
+<p><a href="https://www.gnu.org/software/gsl/">GNU Scientific Library</a> (better on linux!) capabilities:</p>
+<pre><code>Complex Numbers
+Roots of Polynomials
+Special Functions
+Vectors and Matrices
+Permutations
+Sorting
+BLAS Support
+Linear Algebra
+Eigensystems
+Fast Fourier Transforms
+Quadrature
+Random Numbers
+Quasi-Random Sequences
+Random Distributions
+Statistics
+Histograms
+N-Tuples
+Monte Carlo Integration
+Simulated Annealing
+Differential Equations
+Interpolation
+Numerical Differentiation
+Chebyshev Approximation
+Series Acceleration
+Discrete Hankel Transforms
+Root-Finding
+Minimization
+Least-Squares Fitting
+Physical Constants
+IEEE Floating-Point
+Discrete Wavelet Transforms
+Basis splines
+Running Statistics
+Sparse Matrices and Linear Algebra</code></pre>
+<hr>
+<p><a href="https://ampl.com/ce/">AMPL community edition</a> must connect to internet for license validation. trial commercial solvers for 30 days.</p>
+<p><a href="https://github.com/coin-or/Cmpl">CMPL</a> by coin-or is highly optimized for multiprocessing. can bridge to python via <a href="https://github.com/MikeSteglich/pyCmpl3">pyCMPL3</a>.</p>
+<p><a href="https://www.minizinc.org/">MiniZinc</a>: open-source constraint modeling language.</p>
+<p><a href="https://github.com/IntegrCiTy/PandaThermal">PandaThermal</a>: District heating and cooling network design and simulation tool, largely inspired by PandaPower</p>
+<p><a href="https://github.com/SciML">SciML</a> is Scientific Computing + Machine Learning Toolbox. It has the best performant <a href="https://github.com/SciML/DifferentialEquations.jl">DifferentialEquations.jl</a> (can run on CUDA with ease, connect to neural networks) and <a href="https://github.com/SciML/NeuralPDE.jl">NeuralPDE.jl</a> for Physics-Informed Neural Networks (PINN) and Deep BSDE Solvers of Differential Equations for Scientific Machine Learning (SciML) accelerated simulation, easily bridging to Python. In its tutorial we can learn <a href="https://docs.sciml.ai/Overview/stable/getting_started/first_simulation/">differential equation modeling/simulation</a>.</p>
+<p><a href="https://github.com/lanl-ansi/PowerModelsDistribution.jl">PowerModelDistribution.jl</a> is an extension package of <a href="https://github.com/lanl-ansi/PowerModels.jl">PowerModels.jl</a> for Steady-State Power Distribution Network Optimization.</p>
+<p><a href="https://github.com/NREL-SIIP/PowerSimulations.jl">PowerSimulations.jl</a> is a Julia package for power system modeling and simulation of Power Systems operations.</p>
+<p><a href="https://github.com/etsap-TIMES/TIMES_model">TIMES</a> model: The Integrated MARKAL-EFOM System, written in <a href="https://www.gams.com">GAMS</a> (General Algebraic Modelling System, a modeling language, paid, similar to <a href="https://dyna.readthedocs.io/en/latest/spec/">Dyna</a> (a declarative modeling language like prolog, in <a href="https://dyna2gams.github.io/tutorial.html">dyna2gams</a> it can refine parameters on observation) with lots of <a href="https://www.gams.com/latest/docs/S_MAIN.html">solvers</a>), able to model CHS systems and predict financial costs said in its <a href="https://iea-etsap.org/docs/Documentation_for_the_TIMES_Model-Part-II_July-2016.pdf">documendation</a>, is a technology rich, bottom-up model generator, which uses linear-programming to produce a least-cost energy system, optimized according to a number of user constraints, over medium to long-term time horizons.</p>
+<hr>
+<p>julia relates quite a bit to power and energy simulations. is it performance related?</p>
+<p>type <code>]</code> in julia’s REPL to get Pkg interface.</p>
+<hr>
+<p><a href="https://modelica.org/modelicalanguage">Modelica</a> is a language for modeling of cyber-physical systems, supporting acausal connection of components governed by mathematical equations to facilitate modeling from first principles, used in CATIA Systems, Dymola, JModelica.org, LMS AMESim, MapleSim, Modelon Impact, MWorks, OpenModelica (<a href="https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/ompython.html">for python</a> you need this: <a href="https://github.com/PySimulator/PySimulator">PySimulator</a>), SimulationX, and Wolfram SystemModeler (and <a href="https://modelica.org/tools.html">more tools</a>.</p>
+<p><a href="https://github.com/OpenIPSL/OpenIPSL">OpenIPSL</a> is a library of power system component models written in the Modelica language that can be used for power system dynamic analysis, such as phasor time-domain simulations.</p>
+<p><a href="https://github.com/changgang/steps">STEPS</a> &amp; <a href="https://pypi.org/project/stepspy/">stepspy</a>: Simulation Toolkit for Electrical Power Systems. <a href="https://github.com/changgang/steps/wiki/">doc</a></p>
+<p><a href="https://github.com/e2nIEE/pandapower">pandapower</a>: (lacks storage unit models) Convenient Power System Modelling and Analysis based on PYPOWER and pandas. <a href="https://www.pandapower.org/">official site</a></p>
+<p>in <a href="https://arxiv.org/pdf/1709.06743.pdf">pandapower’s paper</a> there are lots of open source tools for electric power systems optimization mentioned:</p>
+<p><a href="https://matpower.org/">MATPOWER</a> (with <a href="https://matpower.org/download/optional-solvers/">optional solvers</a>, must be obtained separately) is a widely used power system analysis tool for matlab and octave that solves power flow and optimal power flow problems and also includes an optimal scheduling tool for market simulations.</p>
+<p>There are ports of the original MATLAB based code to other languages, most notably Pythons <a href="https://pypi.org/project/PYPOWER/">PYPOWER</a> <a href="https://pypi.org/project/pypower-dynamics/">pypower-dynamics</a> extends PYPOWER for dynamic analysis of electric power systems.</p>
+<p><a href="https://gridcal.readthedocs.io/en/latest/">GridCal</a> (abbriviation for grid calculator) includes power flow, time-series and short circuit calculation methods and comes with a comprehensive graphical user interface.</p>
+<p>The simulation and optimization library <a href="https://pypsa.org">PyPSA</a> (Python for power system analysis) is aimed at time-series simulation of security-constrained linear optimal power flow and investment optimization.</p>
+<p><a href="https://pypi.org/project/powergama/">PowerGAMA</a> ( Python-based lightweight simulation tool for high level analyses of renewable energy integration in large power systems) and <a href="https://psst.readthedocs.io/">psst</a> (power system simulation toolbox) are also aimed at market optimization in electric networks.</p>
+<p><a href="https://www.gridlabd.org/">GridLAB-D</a> is an advanced tool for static simulations using agent based simulation models, based on C/C++ with integration of SCADA controls, metering and market models.</p>
+<hr>
+<p><a href="https://sourceforge.net/projects/electricdss/">OpenDSS</a> is a electrical power system simulation tool primarily for utility power distribution systems, written in a Delphi.</p>
+<p><a href="https://matpower.org/">MATPower</a>: free, open-source tools for electric power system simulation and optimization</p>
+<p><a href="https://energyplus.net/">energyplus</a> (open source, based on <a href="https://www.doe2.com/">DOE2</a>, a building energy analysis program that can predict the energy use and cost) is a whole building energy simulation program that engineers, architects, and researchers use to model both energy consumption—for heating, cooling, ventilation, lighting and plug and process loads—and water use in buildings.</p>
+<p><a href="https://github.com/lbl-srg/bcvtb">bcvtb</a> is a software environment that allows users to couple different simulation programs for co-simulation, and to couple simulation programs with actual hardware. For example, the BCVTB allows to simulate a building in EnergyPlus and the HVAC and control system in Modelica, while exchanging data between the software as they simulate.</p>
+<p><a href="https://www.wolfram.com/">wolfram mathematica</a> and <a href="https://www.wolfram.com/system-modeler/modeling-tools-comparison/">System Modeler</a></p>
+<p><a href="https://maplesoft.com/">maple</a> and <a href="https://maplesoft.com/productsf/maplesim/">MapleSim</a></p>
+<p><a href="https://www.mathworks.com/products/matlab.html">matlab</a> (can be cuda accelerated (jacket?)) and <a href="https://www.mathworks.com/products/simulink.html">simulink</a></p>
+<p><a href="https://octave.org/index">gnu octave</a> (used by cloudpss?)</p>
+<p><a href="https://www.sagemath.org/">sagemath</a></p>
+<p><a href="https://root.cern/manual/math/">root</a></p>
+<section id="computational-fluid-dynamics-really" class="level4">
+<h4 class="anchored" data-anchor-id="computational-fluid-dynamics-really">computational fluid dynamics (really?)</h4>
+<p><a href="https://openfoam.org/">openFOAM</a> (free CFD (computational fluid dynamics) software) and <a href="https://openfoam.org/resources/">documentation</a></p>
+<p><a href="https://cn.bing.com/search?q=site%3Agithub.com+computational+fluid+dynamics&amp;form=CHRDEF&amp;sp=-1&amp;pq=&amp;sc=0-0&amp;qs=n&amp;sk=&amp;cvid=72F0CB0544F54D0F918837310C11BFE5&amp;ghsh=0&amp;ghacc=0&amp;ghpl=">CFD in github</a></p>
+<p><a href="https://cn.bing.com/search?q=site%3Agithub.com+computational+fluid+dynamics+machine+learning&amp;form=CHRDEF&amp;sp=-1&amp;pq=site%3Agithub.com+computational+fluid+dynamics+machine+learning&amp;sc=0-61&amp;qs=n&amp;sk=&amp;cvid=4B6BFD8AB31045B4BAC92201D3C20CD2&amp;ghsh=0&amp;ghacc=0&amp;ghpl=">CFD machine learning in github</a></p>
+<p><a href="https://github.com/ikespand/awesome-machine-learning-fluid-mechanics">awesome CFD machine learning</a>: a curated list of machine learning papers, codes, libraries, and databases applied to fluid mechanics.</p>
+</section>
+<section id="finite-element-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="finite-element-analysis">finite element analysis</h4>
+<p><a href="https://blogmech.com/finite-element-analysis-softwares-list-open-source">FEA (finite element analysis) open source software list</a></p>
+</section>
+</section>
+</section>
+<section id="cloudpss" class="level2">
+<h2 class="anchored" data-anchor-id="cloudpss">cloudpss</h2>
+<p>this thing is developed by <a href="http://www.tsinghua-eiri.org/">tsinghua-eiri</a></p>
+<p><a href="https://www.semanticscholar.org/search?q=cloudpss&amp;sort=relevance">multiple papers related to cloudpss</a> were found on semanticscholar. maybe we just want the ieslab part?</p>
+<p>in its paper the computation graph is acyclic.</p>
+<p><a href="https://pypi.org/project/cloudpss">cloudpss python sdk</a>是基于CloudPSS-API封装的模型及软件开发套件。用户可通过编写Python、Matlab等脚本构建自定义模型，或是调用CloudPSS平台中的模型修改、仿真计算功能，实现诸如自动修改模型、批量仿真计算、自动化生成报告等复杂且繁琐的功能。用户也可在其自己的应用程序中调用CloudPSS仿真引擎，实现仿真驱动的高级分析应用。</p>
+<p>main structure:</p>
+<ul>
+<li>SimStudio: 轻松组织和管理能源电力系统数字孪生仿真模型 in SimStudio it has “octave” keyword. does that mean it is using GNU octave? yes! but octave does not have Simulink-like functionalities. see <a href="https://gnu-octave.github.io/packages/">octave packages</a> for more. use Xcos instead? in order to read code in modules like <code>https://cloudpss.net/model/CloudPSS/HeatPump</code>(右键点击元件，选择打开模块) you have to obtain sufficient permission.</li>
+</ul>
+<p>will raise error if we wire electricity to water pipelines. it is not so easy to wire these things. better do it with port routing.</p>
+<p><a href="https://docs.cloudpss.net/components">components list</a>:</p>
+
+<table data-source-line="8">
+<thead>
+<tr>
+<th style="text-align: left; background: rgb(67, 67, 67) !important;">
+Classification
+</th>
+<th style="text-align: left; background: rgb(67, 67, 67) !important;">
+Components
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Measurements
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Oscilloscope Group, Output channel
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Electrical-Basic Passive Components
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Ground, Resistor, Inductor, Capacitor, Single-phase Fault Resistor, Three-phase Fault Resistor, Single-phase Transformer
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Electrical-Basic Source Components
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+DC Current Source, DC Voltage Source, Single-phase AC Voltage Source, Controlled Current Source, Controlled Voltage Source, Controlled AC Voltage Source (VF), Controlled AC Voltage Source (VP)
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Electrical-Power Electronic Switches
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Diode, Thyristor, IGBT
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Electrical-Three-phase Components
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Shunt Capacitor/Reactor, Fixed Load, Line Cluster, Three-phase Transmission Line, Three-phase AC Bus, Three-phase AC Voltage Source, Three-phase Two-winding Transformer, Three-phase Three-winding Transformer, Synchronous Generator
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Electrical-Fast Power Electronic Modules
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Half Bridge Submodule, Six-pulse Thyristor Bridge
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Electrical-Renewable Energy Components
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Photovoltaic Source, Lead-acid Battery
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Measure Components
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Branch Voltage Meter, Voltage Meter, Current Meter, RMS Meter, Three-phase Power Meter, Phase Locked Loop, FFT
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Control-Basic Components
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+M script, Constant, Time, Simulation Time Step, Non Connection (NC), Loop Break Node, Channel Merge, Channel DeMerge
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Control-Basic Math Functions
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Adder/Subtractor, Multiplier, Divider, Absolute Value, Sign Function, Round Function, Trigonometric Function, Power Function, Exponential Function, Logarithm Function, Maximum/Minimum Function, Maximum/Minimum in One Cycle
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Control-Linear Transfer Functions
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Gain, Integrator, Derivative, PI Controller, Zero-point, Real Pole, Differential Pole, Lead Lag Pole, Second Order Complex Pole, Nth Transfer Function
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Control-Nonlinear Functions
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Hard Limiter, Delay, Angle Resolver, Piecewise Linear Function, Nonlinear Function
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Control-Analog Signal
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Comparator, Hysteresis Comparator, Zero Detector, Sampler, Sample and Hold
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Control-Digital Signal
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Logic Gate, Binary Delay, Monostable MultiVibrator, Flip Flop, Selector, Edge Detector
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Control-Coordinate Transformation
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Park Transformation, Clark Transformation, dq-αβ Coordinates Transformation, Polar/Rectangular Coordinate Converter
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Control-Singal Generator
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Triangular Generator, Squar Generator, Sine Generator, Adjustable FPM Sine Generator, Single-impulse Generator, Impulse Generator, Step Generator, Ramp Generator, Surge Gennerator, Drop Generator, Random Number Generator
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Control-HVDC Control
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Phase Locked Oscillator, Nearest Level Modulation (NLM), SST Fire Pulse Generator
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+Control-AC system Control
+</td>
+<td style="text-align: left; background: rgb(47, 47, 47) !important;">
+ST5B、Hydro Governor、 Hydro Turbine
+</td>
+</tr>
+<tr>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Heat-Basic Components
+</td>
+<td style="text-align: left; background: rgb(43, 43, 43) !important;">
+Pipeline, Heat Source, Bulding (Load), Connection Point, Relay Pump
+</td>
+</tr>
+</tbody>
+
+</table>
+<ul>
+<li><p>IESLab (Integrated Energy System): 综合能源系统规划设计云平台 a place where you can import weather, energy prices, device parameters and loads data, design the IES system by hand (how components connects), determine the best products to purchase based on different criterions and assess it by net profit, environmental effects and energy efficiency.</p></li>
+<li><p>FuncStudio: 助力能源电力系统数字孪生云边融合业务定制 <a href="https://downloads.cloudpss.net/XStudio/FuncStudio/CloudPSS%20FuncStudio%20Setup%203.3.1.exe">install locally</a> (windows only?) or download binary file of “header only” functions?</p></li>
+<li><p>AppStudio: 快捷构建能源电力系统数字孪生应用 low-code frontend design interface.</p></li>
+</ul>
+<p>the platform uses code generator to make the simulation fast.</p>
+<p>something like <a href="https://www.plm.automation.siemens.com/global/zh/products/simulation-test/system-simulation.html">siemens simcenter</a> is also cloud based. <a href="https://app.collimator.ai/">collimator</a> is self-labeled as better simulink alternative with ai and python code blocks inside. it also suggests <a href="https://www.collimator.ai/post/model-based-development">model based development</a> (and a hell lots of blogs) for a general guideline on simulation and optimized control systems.</p>
+<p>found tsinghua’s <a href="https://tsinghua.cloudpss.net/">cloudpss</a> (linked to localhost?) from <a href="https://github.com/Allen-Sunboy/Allen-Sunboy">Allen-Sunboy</a>, along with <a href="https://github.com/Allen-Sunboy/Allen-Sunboy/blob/dab633eeee10f8a80910b4f88bcf8f2747b8f790/url.md">all rare urls</a> exclusive to elites (social networks?)</p>
+<p>cloudpss is utilizing alibaba’s cloud computing. the simulation uses computing graph and cuda acceleration (diffcult to deploy?), suggested simulink and <a href="https://www.pscad.com/">PSCAD</a> (<a href="https://github.com/NREL/PyPSCAD">PyPSCAD</a> does similar things, but far from complete) (with IncrediBuild-XGE for multi-core acceleration) for simulation. in the <a href="https://www.sciencedirect.com/science/article/pii/S2352484720317297">paper</a> it describes itself as “power system simulator” and “electromagnetic transient simulator” (HVDC: high voltage direct current, highly efficient for transmitting large amounts of electricity over long distances)</p>
+<hr>
+<p>项目仿照<a href="https://cloudpss.net/">cloudpss</a>进行编写</p>
+<p>专注于复杂交直流电网、配电网、微电网、独立电力系统的精确电磁暂态建模及覆盖多时间尺度物理过程仿真</p>
+<p>本平台支持包括配电系统、供暖制冷系统、蒸汽供热系统及烟气余热回收系统在内的多能源系统耦合网络的建模仿真计算。与传统的综合能源系统仿真工具不同，平台集成了20余种常见的综合能源系统设备模型，允许用户灵活搭建任意能量梯级利用形式的综合能源系统，拓扑结构不受约束，同时支持并网系统、孤网系统的仿真计算，从而有效拓展了适用场景。</p>
+</section>
+<section id="系统架构" class="level2">
+<h2 class="anchored" data-anchor-id="系统架构">系统架构</h2>
+<p>系统具体设计参考文档。</p>
+<p>综合能源系统特指在规划、建设和运行等过程中，通过对能源的产生、传输与分配（能源网络）、转换、存储、消费等环节进行有机协调与优化后，形成的能源产供销一体化系统。</p>
+<p>本平台包含两大子系统，分别为设计规划系统和运行调度系统。</p>
+<p>涉及到数据，计算，仿真的模块：</p>
+<section id="系统能量流拓扑" class="level3">
+<h3 class="anchored" data-anchor-id="系统能量流拓扑">系统能量流拓扑</h3>
+<section id="基础数据" class="level4">
+<h4 class="anchored" data-anchor-id="基础数据">基础数据</h4>
+<section id="环境信息库" class="level5">
+<h5 class="anchored" data-anchor-id="环境信息库">环境信息库</h5>
+<p>包含：地理位置、气象数据（风、光、温度）以及规范中的一些设计表格，与地理位置关联的相关设备。</p>
+
+<table>
+<tbody><tr>
+<td>
+<b>输入</b>
+</td>
+<td>
+地理位置（地名或者坐标），气象数据（默认已选择的地理坐标），可以从文件导入或者历史数据库导入
+</td>
+</tr>
+
+</tbody></table>
+</section>
+<section id="设备信息库" class="level5">
+<h5 class="anchored" data-anchor-id="设备信息库">设备信息库</h5>
+<p>包含：发电、制冷制热、储能设备、配电传输、供热传输五个分类。不低于25种设备。还包含市政资源（市政天然气、市政电网、市政蒸汽、市政热水）。</p>
+<p>需要考虑设备效率、设备寿命、网络损耗。包含建设费用等虚拟模型（电缆、管道、基建等）。</p>
+
+<table>
+<tbody><tr>
+<td>
+<b>输入</b>
+</td>
+<td>
+输入相应设备相应属性值，或者从典型库导入相应设备信息（生产厂商 设备型号 额定功率 运行约束 经济性参数）
+</td>
+</tr>
+
+</tbody></table>
+</section>
+<section id="负荷信息库" class="level5">
+<h5 class="anchored" data-anchor-id="负荷信息库">负荷信息库</h5>
+<p>包含：蒸汽负荷、采暖负荷、制冷负荷、电负荷</p>
+<p>输入形式：</p>
+<ul>
+<li><p>负荷指标 • 采暖、制冷、电负荷有其特殊场景，属性面板有额外参数： • 模型：粗略模型（每月平均值数据） 或者详细模型（每个小时）</p></li>
+<li><p>负荷参数：是否包含工作日和非工作日、具体时间段、建筑类型、面积</p></li>
+<li><p>负荷曲线：更直观的对负情况进行展示</p></li>
+</ul>
+</section>
+<section id="能源信息库" class="level5">
+<h5 class="anchored" data-anchor-id="能源信息库">能源信息库</h5>
+<p>包含：电、热、冷、气的价格信息</p>
+<p>输入形式：</p>
+<p>定价规则或者曲线描述</p>
+<p>电价格分为：</p>
+<ul>
+<li>常数电价</li>
+<li>分时电价</li>
+<li>阶梯电价</li>
+<li>分时阶梯</li>
+</ul>
+<p>热和冷的价格分为：</p>
+<ul>
+<li>面积</li>
+<li>热量</li>
+</ul>
+<p>气的价格随当地行情</p>
+</section>
+</section>
+<section id="设计规划" class="level4">
+<h4 class="anchored" data-anchor-id="设计规划">设计规划</h4>
+<p>根据已经设定的能源类型、负荷需求、建设规模、资金来源进行方案优化，得到设备的容量配置及各种设备的设备成本、工程初始投资、运行费用及各种设备的出力情况，以及经济指标、环保指标，并输出相应报告</p>
+</section>
+<section id="仿真计算" class="level4">
+<h4 class="anchored" data-anchor-id="仿真计算">仿真计算</h4>
+<p>根据已经设定的基本数据进行仿真计算，并输出设备的出力曲线及相应的经济指标、环保指标的报告（除了不需要输出容量配置之外，其余的输出项与设计规划一样）</p>
+</section>
+</section>
+<section id="能源汇总" class="level3">
+<h3 class="anchored" data-anchor-id="能源汇总">能源汇总</h3>
+<section id="能源运行实时数据看板" class="level4">
+<h4 class="anchored" data-anchor-id="能源运行实时数据看板">能源运行实时数据看板</h4>
+<p>汇总当前各设备运行时的能源生产与消耗汇总，并以图表的形式展示</p>
+</section>
+</section>
+<section id="运行调度" class="level3">
+<h3 class="anchored" data-anchor-id="运行调度">运行调度</h3>
+<section id="方案列表" class="level4">
+<h4 class="anchored" data-anchor-id="方案列表">方案列表</h4>
+<p>对已经规划的方案进行展示</p>
+</section>
+<section id="运行日志" class="level4">
+<h4 class="anchored" data-anchor-id="运行日志">运行日志</h4>
+<p>对已经运行的方案进行日志记录</p>
+</section>
+</section>
+<section id="系统结构拓扑" class="level3">
+<h3 class="anchored" data-anchor-id="系统结构拓扑">系统结构拓扑</h3>
+<section id="基础数据-1" class="level4">
+<h4 class="anchored" data-anchor-id="基础数据-1">基础数据</h4>
+<ul>
+<li>环境数据</li>
+<li>设备数据</li>
+<li>负荷信息库</li>
+<li>能源信息库</li>
+</ul>
+</section>
+<section id="仿真模拟" class="level4">
+<h4 class="anchored" data-anchor-id="仿真模拟">仿真模拟</h4>
+<p>根据已经设计的运行方案进行带拓扑结构的仿真模拟</p>
+</section>
+<section id="调度优化" class="level4">
+<h4 class="anchored" data-anchor-id="调度优化">调度优化</h4>
+<p>一种算法策略，对具体的综合能源系统进行协调优化计算（可以结合实时数据），并实时输出优化结果，下发指令给控制系统。</p>
+</section>
+</section>
+<section id="能源监测" class="level3">
+<h3 class="anchored" data-anchor-id="能源监测">能源监测</h3>
+<section id="实时数据" class="level4">
+<h4 class="anchored" data-anchor-id="实时数据">实时数据</h4>
+<p>以图表的形式展示能源生产和消耗数据、告警数据</p>
+</section>
+<section id="历史数据" class="level4">
+<h4 class="anchored" data-anchor-id="历史数据">历史数据</h4>
+<p>选择历史某段时间，查询当时的能源消耗和生产数据</p>
+</section>
+<section id="能源设备监控" class="level4">
+<h4 class="anchored" data-anchor-id="能源设备监控">能源设备监控</h4>
+<p>实时显示所有设备的运行状态、生产消耗数据、告警信息</p>
+</section>
+<section id="告警中心" class="level4">
+<h4 class="anchored" data-anchor-id="告警中心">告警中心</h4>
+<p>显示今日所有告警的设备信息</p>
+</section>
+</section>
+<section id="数据分析" class="level3">
+<h3 class="anchored" data-anchor-id="数据分析">数据分析</h3>
+<section id="能效评估" class="level4">
+<h4 class="anchored" data-anchor-id="能效评估">能效评估</h4>
+<p>对电、气、冷、热进行能效评估展示</p>
+</section>
+<section id="能源明细" class="level4">
+<h4 class="anchored" data-anchor-id="能源明细">能源明细</h4>
+<p>展示产量明细和消耗明细</p>
+</section>
+<section id="排放明细" class="level4">
+<h4 class="anchored" data-anchor-id="排放明细">排放明细</h4>
+<p>展示排放明细数据</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

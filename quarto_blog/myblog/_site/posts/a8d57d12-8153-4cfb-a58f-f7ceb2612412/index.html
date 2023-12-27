@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article delves into the development of anime-style avatars, emphasizing the significance of 3D models, Linux compatibility, and face tracking tools. It explores various techniques such as moeflow, AniSeg, NextHuman Beta0.9, FaceRig, Style GAN, Python, and facial landmark detection for creating digital people and animating them. Furthermore, it discusses applications like Animoji, VTuber talking heads, and live streaming in the context of this avatar development.">
+
+<title>James’s Blog - 哔哩哔哩 直播姬 2d模型 3d模型</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">James’s Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">哔哩哔哩 直播姬 2d模型 3d模型</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">anime character segmentation</div>
+    <div class="quarto-category">animoji</div>
+    <div class="quarto-category">avatarkit</div>
+    <div class="quarto-category">image segmentation</div>
+    <div class="quarto-category">pyjom</div>
+    <div class="quarto-category">talking head</div>
+    <div class="quarto-category">video driven model</div>
+    <div class="quarto-category">video generator</div>
+    <div class="quarto-category">vtuber</div>
+    <div class="quarto-category">waifu segmentation</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This article delves into the development of anime-style avatars, emphasizing the significance of 3D models, Linux compatibility, and face tracking tools. It explores various techniques such as moeflow, AniSeg, NextHuman Beta0.9, FaceRig, Style GAN, Python, and facial landmark detection for creating digital people and animating them. Furthermore, it discusses applications like Animoji, VTuber talking heads, and live streaming in the context of this avatar development.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="哔哩哔哩-直播姬-2d模型-3d模型" class="level1">
+<h1>哔哩哔哩 直播姬 2d模型 3d模型</h1>
+<section id="d-pose-tracker" class="level2">
+<h2 class="anchored" data-anchor-id="d-pose-tracker"><a href="https://github.com/digital-standard/ThreeDPoseTracker">3d pose tracker</a></h2>
+<p>rendered on unity. needs GPU.</p>
+</section>
+<section id="sysmocap" class="level2">
+<h2 class="anchored" data-anchor-id="sysmocap"><a href="https://github.com/xianfei/SysMocap">Sysmocap</a></h2>
+<p><strong>WHAT I WANT FOR</strong> (or nearly) requires real 3d models, written in javascript</p>
+<p>cannot output video?</p>
+<p>A cross-platform real-time video-driven motion capture and 3D virtual character rendering system for VTuber/Live/AR/VR.</p>
+<p>Does not require a discrete graphics card and runs smoothly even on eight-year-old computers</p>
+</section>
+<section id="vtuber-python-unity" class="level2">
+<h2 class="anchored" data-anchor-id="vtuber-python-unity"><a href="https://github.com/mmmmmm44/VTuber-Python-Unity">Vtuber python unity</a></h2>
+<p>search for “vtuber” along with “motion capture” you will get many head-only trackers and renderers for windows but not linux, also some “broadcast templates/frameworks”. many support one single image (anime head + remove background) as input instead of 2d/3d models</p>
+<p>face tracking only, showing face, mouth and eyes, head directions, bind to live2d models</p>
+</section>
+<section id="虚拟数字人-metahuman" class="level2">
+<h2 class="anchored" data-anchor-id="虚拟数字人-metahuman">虚拟数字人 metahuman</h2>
+<p>NextHuman Beta0.9上线公测，5分钟高品质讲解，带你进入数字人“零门槛”创作新时代，体验直通车 -&gt; https://nexthuman.cn 免费版是Windows上面跑的 需要高端1070显卡</p>
+</section>
+<section id="anime-character-segmentation" class="level2">
+<h2 class="anchored" data-anchor-id="anime-character-segmentation">anime character segmentation</h2>
+<p>to remove false positives, make sure we have anime face in view, otherwise mark it as a false positive.</p>
+<p>you can use anime character recognition like <a href="https://github.com/freedomofkeima/MoeFlow">moeflow</a> or <a href="https://github.com/nagadomi/lbpcascade_animeface">opencv anime face detector</a> <strong>along with</strong> some <a href="http://phash.org/">phash</a> or perceptual hash library to group similar characters, compare perceptual image similarity and line them up in a series.</p>
+<p><a href="https://github.com/jerryli27/AniSeg">aniseg, able to segment anime character and head, using mask-rcnn</a></p>
+<p><a href="https://github.com/zymk9/Yet-Another-Anime-Segmenter">yet another anime character segmentation model using solov2 and condinst</a></p>
+<p><a href="https://github.com/Neihtq/waifu-segmentation">waifu segmentation</a></p>
+<p><a href="https://github.com/SkyTNT/anime-segmentation">high accuracy anime character segmentation</a></p>
+<p>自动画漫画 画几笔就成某个人像 动漫头像 https://menyifang.github.io/projects/DCTNet/DCTNet.html</p>
+<p>自动捏脸 gan给人脸戴口罩 https://github.com/futscdav/Chunkmogrify</p>
+</section>
+<section id="selfie-to-anime-picture-to-anime-photos" class="level2">
+<h2 class="anchored" data-anchor-id="selfie-to-anime-picture-to-anime-photos">selfie to anime, picture to anime photos</h2>
+<p><a href="https://github.com/XingruiWang/Animefy">selfie2anime with trained models</a></p>
+<p>##原神mmd下载模型</p>
+<p>模之屋（需要注册）： https://www.aplaybox.com/u/680828836</p>
+<p>夕蓝资源网（可直接下载） 也有其他的3d模型可以下载： https://www.seoliye.com/tags/53.html</p>
+</section>
+<section id="use-voice-to-power-up-static-images" class="level2">
+<h2 class="anchored" data-anchor-id="use-voice-to-power-up-static-images">use voice to power up static images</h2>
+<p><a href="https://github.com/AnimatePortrait/AnimatePortrait">voice powered animated cartoon figure</a></p>
+</section>
+<section id="jeeliz-some-web-deep-learning-runtime-like-tensorflow.js-powered" class="level2">
+<h2 class="anchored" data-anchor-id="jeeliz-some-web-deep-learning-runtime-like-tensorflow.js-powered">jeeliz (some web deep learning runtime, like tensorflow.js) powered</h2>
+<p><a href="https://github.com/jeeliz/jeelizWeboji">weboji, highly similar to animoji, with three.js and cute fox avatar</a> <a href="https://github.com/jeeliz/jeelizFaceFilter">face filter, alter the face like putting glass, minor changes to avoid privacy/copyright concerns?</a></p>
+</section>
+<section id="openface" class="level2">
+<h2 class="anchored" data-anchor-id="openface">openface</h2>
+<p><a href="https://github.com/TadasBaltrusaitis/OpenFace">facial features extraction</a></p>
+</section>
+<section id="facerig" class="level2">
+<h2 class="anchored" data-anchor-id="facerig">facerig</h2>
+<p>facerig location: <code>/Software/Program Files (x86)/FaceRig</code></p>
+<p>i’ve seen python code inside facerig. facerig does not offer head-only rendering, but that could be changed i suppose?</p>
+</section>
+<section id="avatarify-python" class="level2">
+<h2 class="anchored" data-anchor-id="avatarify-python">avatarify python</h2>
+<p><a href="https://github.com/alievk/avatarify-python">infinite avatars by using style gan, first order motion model</a> <a href="https://pypi.org/project/python-avatars/">create static portrait avatar (svg?)</a></p>
+</section>
+<section id="animoji-from-apple" class="level2">
+<h2 class="anchored" data-anchor-id="animoji-from-apple">animoji from apple</h2>
+<p><a href="https://github.com/thevarunsharma/Animoji-Animate">facial landmark detection in python, animoji-animate</a> <a href="https://github.com/efremidze/Animoji">animoji apple private framework</a> 实际上这个就是之前看到的会动的狗屎的视频来源</p>
+</section>
+<section id="d模型-皮套-可动-虚拟vtuber-talking-head" class="level2">
+<h2 class="anchored" data-anchor-id="d模型-皮套-可动-虚拟vtuber-talking-head">2d模型 皮套 可动 虚拟Vtuber talking head</h2>
+<p>https://github.com/yuyuyzl/EasyVtuber https://github.com/pkhungurn/talking-head-anime-3-demo https://github.com/GunwooHan/EasyVtuber</p>
+</section>
+<section id="b站官方" class="level2">
+<h2 class="anchored" data-anchor-id="b站官方">b站官方</h2>
+<p>直播姬现在支持2d面部捕捉 3d模型动作捕捉</p>
+<p>直播姬版本有windows macos(m1) Android版本</p>
+<p>2d模型是live2d的模型</p>
+<p>有待研究</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

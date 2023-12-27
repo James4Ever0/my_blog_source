@@ -1,0 +1,18 @@
+---
+{"categories": &id001 ["facial", "facial recognization", "image recognization"], "category": "GitHub", "date": "2023-12-22 23:52:59", "description": "The text discusses various GitHub repositories focused on face recognition technology, offering different implementations and resources for creating facial recognition systems using diverse programming languages and frameworks.", "tags": *id001, "title": "人脸识别 Face Recognition"}
+
+---
+
+------
+
+# 人脸识别 Face Recognition
+
+https://github.com/ZhaoJ9014/face.evoLVe
+https://github.com/timesler/facenet-pytorch
+https://github.com/JDAI-CV/FaceX-Zoo
+https://github.com/justadudewhohacks/face-api.js
+https://github.com/cmusatyalab/openface
+https://github.com/davidsandberg/facenet
+https://github.com/ageitgey/face_recognition
+https://github.com/jerry1900/faceRecognition
+

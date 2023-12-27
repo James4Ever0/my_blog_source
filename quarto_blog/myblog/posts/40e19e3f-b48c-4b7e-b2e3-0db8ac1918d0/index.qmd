@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["RSA", "public key generation", "Git repo sync", "deploying public keys", "duplicate prevention"], "category": "Security", "date": "2023-12-22 23:52:59", "description": "This article explains the process of generating a new public key using an RSA private key. It is important when deploying public keys to avoid duplicates, particularly when utilizing the Git repo sync tool.", "tags": *id001, "title": "generate publickey again with rsa private key"}
+
+---
+
+------
+
+# generate publickey again with rsa private key
+
+not possible. use personal access token as password instead.
+
+cause the deploy public key does not allow duplicate public key, causing trouble for us to use the git repo sync tool.
+
+```bash
+PRIVATE_KEY_PATH=/Users/jamesbrown/.notable/id_rsa_original_backup
+PUBKEY_PATH=/Users/jamesbrown/.notable/id_rsa.pub2
+ssh-keygen -y -f $PRIVATE_KEY_PATH > $PUBKEY_PATH
+```
+

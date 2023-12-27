@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="The university course schedule program is designed to assist students in organizing their academic plans, retrieving relevant class and exam details, and displaying grades on a scale of 0.0 to 6.0. The program categorizes subjects into required/elective options and features status markers for absences, incompletes, or failures.">
+
+<title>Myblog - 复习补考的科目 补课 课程 补习</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">复习补考的科目 补课 课程 补习</h1>
+</div>
+
+<div>
+  <div class="description">
+    The university course schedule program is designed to assist students in organizing their academic plans, retrieving relevant class and exam details, and displaying grades on a scale of 0.0 to 6.0. The program categorizes subjects into required/elective options and features status markers for absences, incompletes, or failures.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="复习补考的科目-补课-课程-补习" class="level1">
+<h1>复习补考的科目 补课 课程 补习</h1>
+<section id="自建搜题库-搜索公式的引擎-给学生提供服务" class="level2">
+<h2 class="anchored" data-anchor-id="自建搜题库-搜索公式的引擎-给学生提供服务">自建搜题库 搜索公式的引擎 给学生提供服务</h2>
+</section>
+<section id="破解学校系统-往学校的系统和服务器上面放病毒-让所有访问的人挖矿-让服务器挖矿" class="level2">
+<h2 class="anchored" data-anchor-id="破解学校系统-往学校的系统和服务器上面放病毒-让所有访问的人挖矿-让服务器挖矿">破解学校系统 往学校的系统和服务器上面放病毒 让所有访问的人挖矿 让服务器挖矿</h2>
+</section>
+<section id="自动提醒上课" class="level2">
+<h2 class="anchored" data-anchor-id="自动提醒上课">自动提醒上课</h2>
+<p>如果新添加或者复读某些课程 课表会发生变化</p>
+<p>所有的课程念一遍了之后 这个程序可以完全离线运行</p>
+</section>
+<section id="网课找答案" class="level2">
+<h2 class="anchored" data-anchor-id="网课找答案">网课找答案</h2>
+<p><a href="https://vip.studypro.club/2021/2021%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6mooc-%E5%BE%AE%E6%9C%BA%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%E5%B9%BF%E4%B8%9C%E8%B4%A2%E7%BB%8F%E5%A4%A7%E5%AD%A6-%E6%9C%80%E6%96%B0%E4%B8%AD%E5%9B%BD/">微型计算机基础 第一单元测验答案</a></p>
+<p><a href="https://vip.studypro.club">通用网课找答案</a> 根据网课名字找答案 可以和百度一起用</p>
+</section>
+<section id="慕课堂课程码-雨课堂课程码" class="level2">
+<h2 class="anchored" data-anchor-id="慕课堂课程码-雨课堂课程码">慕课堂课程码 雨课堂课程码</h2>
+<p>微信扫描二维码添加慕课课堂（网页版本） 微信点击进入慕课堂 慕课堂需要课程码添加</p>
+<p><a href="https://www.icourse163.org/course/NJUPT-1206367801">微型计算机与接口技术</a> 慕课堂 8X5MLW 这门课程说是在网页上面做题 可以在这里<strong>收集课件</strong> 雨课堂 5JGDZ</p>
+</section>
+<section id="tools-for-table-coversion" class="level2">
+<h2 class="anchored" data-anchor-id="tools-for-table-coversion">tools for table coversion</h2>
+<p><a href="https://github.com/johnbeech/html-table-to-markdown-converter">html table to markdown</a> not work so well</p>
+<p><a href="https://github.com/tomroy/mdtable2csv">markdown to csv</a></p>
+</section>
+<section id="作息时间表" class="level2">
+<h2 class="anchored" data-anchor-id="作息时间表">作息时间表</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>课程编号</th>
+<th>课程时间</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>预备铃</td>
+<td>7:50</td>
+</tr>
+<tr class="even">
+<td>第1节</td>
+<td>8:00—8:45</td>
+</tr>
+<tr class="odd">
+<td>第2节</td>
+<td>8:50—9:35</td>
+</tr>
+<tr class="even">
+<td>第3节</td>
+<td>9:50—10:35</td>
+</tr>
+<tr class="odd">
+<td>第4节</td>
+<td>10:40—11:25</td>
+</tr>
+<tr class="even">
+<td>第5节</td>
+<td>11:30—12:15</td>
+</tr>
+<tr class="odd">
+<td>预备铃</td>
+<td>13:35</td>
+</tr>
+<tr class="even">
+<td>第6节</td>
+<td>13:45—14:30</td>
+</tr>
+<tr class="odd">
+<td>第7节</td>
+<td>14:35—15:20</td>
+</tr>
+<tr class="even">
+<td>第8节</td>
+<td>15:35—16:20</td>
+</tr>
+<tr class="odd">
+<td>第9节</td>
+<td>16:25—17:10</td>
+</tr>
+<tr class="even">
+<td>第10节</td>
+<td>18:30—19:15</td>
+</tr>
+<tr class="odd">
+<td>第11节</td>
+<td>19:25—20:10</td>
+</tr>
+<tr class="even">
+<td>第12节</td>
+<td>20:20—21:05</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="第一学期-课表" class="level2">
+<h2 class="anchored" data-anchor-id="第一学期-课表">2022-2023 第一学期 课表</h2>
+<p>need improvement.</p>
+</section>
+<section id="inspiration" class="level2">
+<h2 class="anchored" data-anchor-id="inspiration">inspiration</h2>
+<p><a href="https://www.bilibili.com/video/BV1eU4y1L7fQ">苹果前首席设计师对大学生讲的话</a>: willing to learn is far more important than being correct. opinion is not idea.</p>
+</section>
+<section id="策略" class="level2">
+<h2 class="anchored" data-anchor-id="策略">策略</h2>
+<p>do not pretent to cooperate. we are alone. always.</p>
+<ul class="task-list">
+<li><input type="checkbox" checked="">8月19号 13:20分开始不听课 执行我们的计划（应该是<a href="./pyjom schedules.md">pyjom的渲染框架测试</a>）直到晚上11点整</li>
+</ul>
+<p>我觉得这帮人就压根没想把我讲懂 这帮人只是想一味的做重复计算 不注重实际 说白了就是穷鬼 穷逼 一天到晚不想赚钱就想念经 不告诉我怎么赚钱 我听个屁</p>
+<p>课可听可不听 可以完全不听 题随便做一做 爱做完做不完完全不管 都是装样子 必须把所有时间拿出来执行我们的pyjom计划以及其他在schedule上面的计划</p>
+<p>能抄就抄 不抄也无所谓 都是拿钱做烂事的人 我本来就不需要学这些破烂玩意 能赚钱就行学那么多找死么 只要我们把计划实施完成 这些烂人拿我们一点办法没有</p>
+</section>
+<section id="目前全部的内容-不知道需不需要学-看看下学期转专业成功了没" class="level2">
+<h2 class="anchored" data-anchor-id="目前全部的内容-不知道需不需要学-看看下学期转专业成功了没">目前全部的内容 不知道需不需要学 看看下学期转专业成功了没</h2>
+<p>B0300311S 高级语言程序设计A 3.0 必修 45 B0400032S 数字电路与逻辑设计B 3.0 必修 旷考 B0600311S 大学物理(上) 4.0 必修 37 B0600411S 制图基础及计算机绘图 2.0 必修 40 B0900241C 形势与政策 IV 0.0 必修 旷考 B0900241C 形势与政策 IV 0.0 必修 旷考 B1900011C 金工实习 1.0 必修 旷考 B0400101S 模拟电子线路B 4.0 必修 24 B0600321S 大学物理(下) 3.0 必修 23 B0601341S 高等数学A（Ⅰ）下 6.0 必修 34 B0900013S 思想道德修养与法律基础 2.0 必修 旷考 B2000021C 计算机应用基础能力考核 0.0 必修 旷考 B0364071C 程序设计(上机) 2 必修 不及格 B0800042S 大学英语Ⅳ 3.0 必修 56 B0400032S 数字电路与逻辑设计B 3.0 必修 30 B0403032S 应用光学(双语) 2.5 必修 旷考 B0403171S 光电信息物理基础 3.5 必修 29 B0601331S 高等数学A（Ⅰ）上 6.0 必修 43 B0800042S 大学英语Ⅳ 3.0 限选 旷考 B1100081S 电工电子基础实验A 4.0 必修 旷考 B1100081S 电工电子基础实验A 4.0 必修 旷考 B0800032S 大学英语Ⅲ 3.0 必修 旷考 B0403171S 光电信息物理基础 3.5 必修 旷考 B0900034S 中国近现代史纲要 3.0 必修 52 B0462021C 认识实习 0.5 必修 旷考 B0600381S 物理实验（下） 1.5 必修 旷考 B0900231C 形势与政策 III 0.0 必修 旷考 B0200032S 信号与系统B 3.0 必修 34 B0400012S 电路分析基础B 3.0 必修 旷考 B0402221S 电磁场理论与光波导技术 3.0 必修 27 B0600031S 线性代数与解析几何 3 必修 43 B0600071S 概率统计和随机过程 4.0 必修 32 B0600121S 高等数学A（上） 5.0 必修 36 B0600371S 物理实验（上） 1.5 必修 27 B0962051C 思修实践 1.0 必修 旷考 B1163011C 电装实习 1.0 必修 旷考 ⏎</p>
+</section>
+<section id="已经复习了的-不知道能不能过" class="level2">
+<h2 class="anchored" data-anchor-id="已经复习了的-不知道能不能过">已经复习了的 不知道能不能过</h2>
+<p>高级语言程序设计A B0300311S 数字电路与逻辑设计B B0400032S 程序设计(上机) B0364071C 大学英语Ⅳ B0800042S 大学英语Ⅲ B0800032S</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

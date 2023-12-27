@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["bug", "gnome", "issue", "linux", "nautilus", "tips"], "category": "Software troubleshooting", "date": "2023-12-22 23:52:59", "description": "This article offers a solution to the problem of Nautilus file manager hanging during search operations. The proposed fix involves deleting the '~/.cache/tracker' folder, which should resolve the issue.", "tags": *id001, "title": "Nautilus Hangs When Searching"}
+
+---
+
+------
+
+# Nautilus Hangs When Searching
+
+delete ~/.cache/tracker
+

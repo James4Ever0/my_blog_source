@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["PyYAML", "YAML", "Special Token", "Errors", "Conversion", "Documentation"], "category": "Troubleshooting", "date": "2023-12-22 23:52:59", "description": "The YAML special token '!<str>' can cause errors in PyYaml. To avoid these issues, it is recommended to convert the token to '!!str' and revert the change when writing back. For more information, consult the full documentation available at pyyaml.org/wiki/PyYAMLDocumentation.", "tags": *id001, "title": "yaml special token cause error to pyyaml"}
+
+---
+
+------
+
+# yaml special token cause error to pyyaml
+
+special token like `!<str>` need to be converted to `!!str`, while writing back we just do it in reverse.
+
+full reference of pyyaml is [here](https://pyyaml.org/wiki/PyYAMLDocumentation)
+

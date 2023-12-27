@@ -1,0 +1,31 @@
+---
+{"categories": &id001 ["speeding up website browsing", "website parsing and scraping", "elinks/lynx", "Python", "open-source tools", "NewsCrawl", "General News Extractor"], "category": "Web Scraping", "date": "2023-12-22 23:52:59", "description": "This article explores ways to improve the speed of website browsing, parsing, and scraping using elinks/lynx and Python. It introduces open-source tools like NewsCrawl for sentiment analysis and General News Extractor for news content extraction. Additionally, it covers customizing headless puppeteer/phantomjs and utilizing readability and jsdom to enhance the process.", "tags": *id001, "title": "elinks/lynx with python: how to speed up headless website browsing/parsing/scraping with cookies"}
+
+---
+
+------
+
+# elinks/lynx with python: how to speed up headless website browsing/parsing/scraping with cookies
+
+[newscrawl](https://github.com/casual-silva/NewsCrawl) 狠心开源企业级舆情新闻爬虫项目：支持任意数量爬虫一键运行、爬虫定时任务、爬虫批量删除；爬虫一键部署；爬虫监控可视化; 配置集群爬虫分配策略；👉 现成的docker一键部署文档已为大家踩坑
+
+[general news extractor](https://github.com/GeneralNewsExtractor/GeneralNewsExtractor/) for extracting main content of news, articles
+
+```bash
+pip3 install gne
+```
+
+first of all, set it up with a **normal** user agent
+
+even better, we can chain it with some customized headless puppeteer/phantomjs (do not load video data), dump the dom when ready, and use elinks/lynx to analyze the dom tree.
+
+to test if the recommendation bar shows up:
+`https://v.qq.com/x/page/m0847y71q98.html`
+
+to make web page more readable:
+https://github.com/luin/readability
+
+load webpage headlessly:
+https://github.com/jsdom/jsdom
+https://github.com/ryanpetrello/python-zombie
+

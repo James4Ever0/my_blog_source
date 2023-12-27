@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["entrepreneurship", "ideas"], "category": "Politics and Capitalism", "date": "2023-12-22 23:52:59", "description": "This text explores capital, politics, control, and management themes through concepts like unfulfillable promises, self-contradictions, lying, reversal of intentions, virtualization, and ideologization.", "tags": *id001, "title": "资本 政治 商业 统治 管理 原理"}
+
+---
+
+------
+
+# 资本 政治 商业 统治 管理 原理
+
+画大饼（永远兑现不了的承诺 只兑现一点点）
+自相矛盾（给一个有争议的话题 或者让人群分化 对立）
+撒谎（一切都按照别人的愿望回答 然而不去实现 不去操作 反向实现 反向操作 或者虚拟化 电子化 意识形态化）
+

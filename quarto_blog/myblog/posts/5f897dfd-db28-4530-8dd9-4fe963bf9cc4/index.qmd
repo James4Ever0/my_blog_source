@@ -1,0 +1,19 @@
+---
+{"categories": &id001 ["Qzone automation", "Modules and tools", "Replacing qzone module", "Logging in via QR code", "Uploading files with Playwright", "AnimeAPI for shuoshuo", "Automating activities"], "category": "Automation", "date": "2023-12-22 23:52:59", "description": "This article explores different methods for automating Qzone activities using various modules and tools. It covers replacing the qzone module, logging in via QR code, uploading files with Playwright, and utilizing the AnimeAPI for more than just sending shuoshuo.", "tags": *id001, "title": "qzone send shuoshuo"}
+
+---
+
+------
+
+# qzone send shuoshuo
+
+[opqbot qzone module replacement](https://github.com/RockChinQ/OpenCamwall/blob/master/pkg/qzone/model.py)
+
+[animeapi](https://github.com/James4Ever0/AnimeAPI) more than just sending shuoshuo
+
+[login via qrcode](https://github.com/YukariChiba/QZone-Bot/blob/master/tokens.py)
+
+[playwright upload file](https://www.programsbuzz.com/article/playwright-upload-file#:~:text=Uploading%20a%20file%20using%20playwright%20is%20easy%20now,files%20can%20also%20be%20passed%20in%20the%20array.)
+
+有很多上传接口 都可以这样自动化 因为这些接口可能会变化 自己写成playwright脚本是最省事的方案
+

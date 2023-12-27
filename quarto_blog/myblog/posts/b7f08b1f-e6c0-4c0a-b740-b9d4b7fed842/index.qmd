@@ -1,0 +1,41 @@
+---
+{"categories": &id001 ["AI", "Libraries", "Tools", "Recommendation systems", "Surprise", "LightFM", "Time series forecasting", "Prophet", "Subword embeddings", "Bpemb", "XGBoost", "Chakin", "H2O AutoML", "Awesome H2O", "Numenta's Nupic doc", "DESlib", "TFlearn"], "category": "AI Libraries", "date": "2022-11-28 22:01:29", "description": "This article highlights popular AI libraries and tools for different tasks, such as recommendation systems (Surprise, LightFM), time series forecasting (Prophet), subword embeddings (Bpemb), and more including XGBoost, Chakin, H2O AutoML, Awesome H2O, Numenta's Nupic doc, DESlib, and TFlearn. Each library is explained in detail to help readers understand their features and capabilities.", "tags": *id001, "title": "Exploring Popular AI Libraries and Tools for Various Tasks"}
+
+---
+
+------
+
+# popular AI libraries
+
+thers's something missing in the agi field.
+
+[xgboost binary classification](https://xgboost.readthedocs.io/en/stable/get_started.html)
+
+[awesome embedding models](https://github.com/Hironsan/awesome-embedding-models)
+
+[chakin: simple downloader for embedding models](https://github.com/chakki-works/chakin)
+
+[bpemb: pretrained subword embeddings for many languages](https://github.com/bheinzerling/bpemb)
+
+[prophet python tutorial time series forcast](https://facebook.github.io/prophet/docs/quick_start.html#python-api)
+
+[tflearn: high level wrappers for tensorflow](http://tflearn.org)
+
+[h2o automl docs](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html)
+
+[awesome h2o](https://github.com/h2oai/awesome-h2o) for h2o beginners
+
+[numenta nupic doc](http://nupic.docs.numenta.org/stable/index.html)
+
+[deslib](https://github.com/Menelau/DESlib) dynamic classifier and ensemble library
+
+## recommendation system
+
+[crab](https://github.com/muricoca/crab)
+
+[surprise](https://github.com/NicolasHug/Surprise)
+
+[python recsys](https://github.com/ocelma/python-recsys) recommendation system
+
+[lightfm](https://github.com/lyst/lightfm) recsys
+

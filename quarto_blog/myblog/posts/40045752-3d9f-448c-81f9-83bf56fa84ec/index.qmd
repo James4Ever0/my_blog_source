@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["deeplearning", "datasets", "classification", "evaluation", "audio", "video", "machinelearning"], "category": "Machine Learning", "date": "2023-12-22 23:52:59", "description": "This article discusses a range of datasets suitable for deep learning, classification, and evaluation tasks. It highlights a collection of 100 audio and video datasets, a website specifically dedicated to video datasets, as well as the YouTube-8m dataset. These resources are valuable for AI projects involving data analysis and machine learning duties.", "tags": *id001, "title": "Unlocking the Power of AI: Exploring Deep Learning Datasets and Resources"}
+
+---
+
+------
+
+# datasets for deeplearning, classification and evaluation
+
+[100 audio and video datasets](https://www.twine.net/blog/100-audio-and-video-datasets/)
+
+[video datasets](http://videodatasets.org)
+
+youtube8m
+

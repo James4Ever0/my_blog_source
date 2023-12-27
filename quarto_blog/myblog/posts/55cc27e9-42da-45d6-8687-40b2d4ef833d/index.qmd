@@ -1,0 +1,13 @@
+---
+{"categories": &id001 ["stub", "text to video", "video generator"], "category": "JavaScript", "date": "2023-12-22 23:52:59", "description": "TypeMonkey is a JavaScript-based solution that serves as an alternative to OSS (Open Scripting Standard), enabling users to modify existing code on web pages. It can be explored at nostarsnow.github.io/2019/01/20/typemonkey, and the project's code is available on GitHub at github.com/nostarsnow/typeMonkey.js.", "tags": *id001, "title": "TypeMonkey 字说 OSS alternative"}
+
+---
+
+------
+
+# TypeMonkey 字说 OSS alternative
+
+javascript version in web:
+https://nostarsnow.github.io/2019/01/20/typemonkey/
+https://github.com/nostarsnow/typeMonkey.js
+

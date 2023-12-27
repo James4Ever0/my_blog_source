@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article discusses the development of a Kotlin Spring Boot application with properties files and annotations, utilizing microservices, Spring Cloud integrations for service discovery and circuit breaking, and RabbitMQ communication through amqp-client library. The article also compares frameworks based on performance and maintenance ease, recommending Gradle as a package builder for Kotlin applications.">
+
+<title>Myblog - spring cloud, spring boot, rabbitmq in kotlin</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">spring cloud, spring boot, rabbitmq in kotlin</h1>
+</div>
+
+<div>
+  <div class="description">
+    This article discusses the development of a Kotlin Spring Boot application with properties files and annotations, utilizing microservices, Spring Cloud integrations for service discovery and circuit breaking, and RabbitMQ communication through amqp-client library. The article also compares frameworks based on performance and maintenance ease, recommending Gradle as a package builder for Kotlin applications.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="spring-cloud-spring-boot-rabbitmq-in-kotlin" class="level1">
+<h1>spring cloud, spring boot, rabbitmq in kotlin</h1>
+<section id="what-is-spring-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-spring-cloud">what is spring cloud</h2>
+<p>Spring Cloud is a set of tools for building microservices-based applications that use Spring Framework, a popular Java-based application development framework. It provides a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
+<p>Spring Cloud provides a number of tools for building microservices, including:</p>
+<p>Service discovery: Spring Cloud provides a service registry and a load balancer for discovering and routing to service instances.</p>
+<p>Circuit breaker: Spring Cloud provides a circuit breaker pattern implementation that can help prevent cascading failures in distributed systems.</p>
+<p>Configuration management: Spring Cloud provides a centralized configuration server for storing and managing application configuration data.</p>
+<p>API gateway: Spring Cloud provides an API gateway that can route requests to the appropriate service, perform authentication and authorization, and provide other security features.</p>
+<p>Distributed tracing: Spring Cloud provides support for distributed tracing, which can help you understand the flow of requests through your system and identify performance issues.</p>
+<p>Spring Cloud is built on top of Spring Boot, which makes it easy to get started with microservices development using the Spring Framework. It is also fully integrated with the rest of the Spring ecosystem, including Spring Data, Spring Security, and Spring Cloud Stream.</p>
+</section>
+<section id="use-spring-cloud-in-kotlin" class="level2">
+<h2 class="anchored" data-anchor-id="use-spring-cloud-in-kotlin">use spring cloud in kotlin</h2>
+<p>Spring Cloud can be used with Kotlin, a statically-typed programming language that is fully interoperable with Java and runs on the Java Virtual Machine (JVM). To use Spring Cloud with Kotlin, you can follow these steps:</p>
+<p>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud, such as the spring-cloud-starter-netflix-eureka-client for service discovery or the spring-cloud-starter-netflix-ribbon for load balancing.</p>
+<p>Configure your application: You can use the <span class="citation" data-cites="SpringBootApplication">@SpringBootApplication</span> annotation to enable auto-configuration and component scanning in your Kotlin application. You can also use the application.properties file or the application.yml file to configure your application’s properties.</p>
+<p>Create a Spring Boot application class: You can create a Kotlin class with the <span class="citation" data-cites="SpringBootApplication">@SpringBootApplication</span> annotation and the main function to bootstrap your application. This class will serve as the entry point to your application.</p>
+<p>Define your microservices: You can define your microservices as Kotlin classes annotated with <span class="citation" data-cites="RestController">@RestController</span> and <span class="citation" data-cites="RequestMapping">@RequestMapping</span>. These classes will handle incoming HTTP requests and return responses to the client.</p>
+<p>Use Spring Cloud features: You can use the various features of Spring Cloud, such as service discovery, circuit breaking, configuration management, and distributed tracing, in your Kotlin application by using the appropriate annotations and components provided by Spring Cloud.</p>
+<p>Here is an example of a simple Kotlin application using Spring Cloud:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">cloud</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">discovery</span><span class="op">.</span><span class="im">EnableDiscoveryClient</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">@EnableDiscoveryClient</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyApplication</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> main<span class="op">(</span><span class="va">args</span><span class="op">:</span> <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    SpringApplication<span class="op">.</span>run<span class="op">(</span>MyApplication<span class="op">::</span><span class="kw">class</span>.java, *args)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This application uses the <span class="citation" data-cites="EnableDiscoveryClient">@EnableDiscoveryClient</span> annotation to enable service discovery using Spring Cloud Netflix Eureka. You can then use other Spring Cloud features, such as circuit breaking or configuration management, by including the necessary dependencies and using the appropriate annotations and components.</p>
+</section>
+<section id="write-spring-eureka-client-in-kotlin-to-connect-to-eureka-server" class="level2">
+<h2 class="anchored" data-anchor-id="write-spring-eureka-client-in-kotlin-to-connect-to-eureka-server">write spring eureka client in kotlin to connect to eureka server</h2>
+<p>Here is an example of how you can write a Spring Cloud Eureka client in Kotlin to connect to a Eureka server:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">cloud</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">discovery</span><span class="op">.</span><span class="im">EnableDiscoveryClient</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">@EnableDiscoveryClient</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EurekaClientApplication</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> main<span class="op">(</span><span class="va">args</span><span class="op">:</span> <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    SpringApplication<span class="op">.</span>run<span class="op">(</span>EurekaClientApplication<span class="op">::</span><span class="kw">class</span>.java, *args)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This application uses the <span class="citation" data-cites="EnableDiscoveryClient">@EnableDiscoveryClient</span> annotation to enable service discovery using Spring Cloud Netflix Eureka. The <span class="citation" data-cites="SpringBootApplication">@SpringBootApplication</span> annotation enables auto-configuration and component scanning in the application.</p>
+<p>To connect to the Eureka server, you will need to provide the URL of the Eureka server in the application.properties or application.yml file. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eureka</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">client</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">serviceUrl</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">defaultZone</span><span class="kw">:</span><span class="at"> http://localhost:8761/eureka/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can then use the <span class="citation" data-cites="Value">@Value</span> annotation to inject the Eureka server URL into your Kotlin code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Value</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RestController</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EurekaClientController <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Value</span><span class="op">(</span><span class="st">"</span><span class="sc">\$</span><span class="st">{eureka.client.serviceUrl.defaultZone}"</span><span class="op">)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    lateinit <span class="kw">var</span> <span class="va">eurekaServerUrl</span><span class="op">:</span> <span class="kw">String</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">"/eureka-server-url"</span><span class="op">)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">getEurekaServerUrl</span><span class="op">():</span> <span class="dt">String</span> <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> eurekaServerUrl</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This controller has a getEurekaServerUrl method that returns the URL of the Eureka server. You can then make a GET request to /eureka-server-url to get the Eureka server URL.</p>
+<p>You can also use the DiscoveryClient interface provided by Spring Cloud to interact with the Eureka server and perform operations such as registering a service or discovering service instances.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">beans</span><span class="op">.</span><span class="im">factory</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">Autowired</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">cloud</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">discovery</span><span class="op">.</span><span class="im">DiscoveryClient</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RestController</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EurekaClientController <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Autowired</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    lateinit <span class="kw">var</span> <span class="va">discoveryClient</span><span class="op">:</span> DiscoveryClient</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">"/service-instances"</span><span class="op">)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">getServiceInstances</span><span class="op">():</span> <span class="dt">List</span><span class="op">&lt;</span><span class="dt">String</span><span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> discoveryClient<span class="op">.</span>services</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This controller has a getServiceInstances method that returns a list of all the service instances registered with the Eureka server. You can then make a GET request to /service-instances to get the list of service instances.</p>
+</section>
+<section id="run-eureka-server-kotlin" class="level2">
+<h2 class="anchored" data-anchor-id="run-eureka-server-kotlin">run eureka server kotlin</h2>
+<p>To run a Eureka server in Kotlin, you can follow these steps:</p>
+<p>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud Eureka Server, such as the spring-cloud-starter-netflix-eureka-server dependency.</p>
+<p>Configure your application: You can use the application.properties file or the application.yml file to configure your Eureka server. For example, you can set the server.port property to specify the port on which the Eureka server will run, and the eureka.client.register-with-eureka and eureka.client.fetch-registry properties to enable or disable the registration and fetching of registry information for the Eureka server.</p>
+<p>Create a Spring Boot application class: You can create a Kotlin class with the <span class="citation" data-cites="SpringBootApplication">@SpringBootApplication</span> annotation and the main function to bootstrap your application. This class will serve as the entry point to your Eureka server.</p>
+<p>Enable Eureka server: You can use the <span class="citation" data-cites="EnableEurekaServer">@EnableEurekaServer</span> annotation to enable the Eureka server in your application.</p>
+<p>Here is an example of a simple Kotlin application that runs a Eureka server:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">SpringApplication</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">boot</span><span class="op">.</span><span class="im">autoconfigure</span><span class="op">.</span><span class="im">SpringBootApplication</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">cloud</span><span class="op">.</span><span class="im">netflix</span><span class="op">.</span><span class="im">eureka</span><span class="op">.</span><span class="im">server</span><span class="op">.</span><span class="im">EnableEurekaServer</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">@SpringBootApplication</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">@EnableEurekaServer</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EurekaServerApplication</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> main<span class="op">(</span><span class="va">args</span><span class="op">:</span> <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    SpringApplication<span class="op">.</span>run<span class="op">(</span>EurekaServerApplication<span class="op">::</span><span class="kw">class</span>.java, *args)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This application uses the <span class="citation" data-cites="EnableEurekaServer">@EnableEurekaServer</span> annotation to enable the Eureka server and the <span class="citation" data-cites="SpringBootApplication">@SpringBootApplication</span> annotation to enable auto-configuration and component scanning.</p>
+<p>To start the Eureka server, you can run the main function of the EurekaServerApplication class. The Eureka server will start up on the port specified in the application.properties or application.yml file (by default, it will run on port 8761). You can then access the Eureka server dashboard at http://localhost:8761.</p>
+</section>
+<section id="spring-cloud-alternative-in-kotlin" class="level2">
+<h2 class="anchored" data-anchor-id="spring-cloud-alternative-in-kotlin">spring cloud alternative in kotlin</h2>
+<p>There are a number of alternatives to Spring Cloud that you can use in Kotlin to build distributed systems and microservices-based applications. Some options include:</p>
+<p>Micronaut: Micronaut is a modern, lightweight, and fast microservices framework for the JVM. It provides features such as service discovery, configuration management, and distributed tracing, and is fully compatible with Kotlin.</p>
+<p>Quarkus: Quarkus is a Kubernetes-native Java framework that is optimized for low memory footprint and fast startup time. It provides a number of features for building microservices, including service discovery, configuration management, and security. Quarkus is fully compatible with Kotlin and can be used to build cloud-native applications.</p>
+<p>Vert.x: Vert.x is a reactive, non-blocking, event-driven Java framework that is designed for building distributed systems and microservices. It provides features such as service discovery, load balancing, and distributed tracing, and is fully compatible with Kotlin.</p>
+<p>Helidon: Helidon is a lightweight, cloud-native Java framework that is designed for building microservices and reactive applications. It provides features such as service discovery, configuration management, and security, and is fully compatible with Kotlin.</p>
+<p>Eclipse MicroProfile: Eclipse MicroProfile is an open-source specification for building microservices-based applications. It provides a number of features for building distributed systems, including service discovery, configuration management, and security, and is fully compatible with Kotlin.</p>
+<p>You can choose the appropriate microservices framework based on your requirements and preferences. All of these frameworks provide support for building microservices in Kotlin and offer a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
+</section>
+<section id="which-one-requires-least-code" class="level2">
+<h2 class="anchored" data-anchor-id="which-one-requires-least-code">which one requires least code</h2>
+<p>It is difficult to say which microservices framework requires the least amount of code, as it depends on the specific requirements of your application and the features you need to implement. Some frameworks, such as Micronaut and Quarkus, are designed to be lightweight and fast, and may require less code to implement certain features compared to other frameworks. However, this may come at the cost of flexibility or a larger learning curve.</p>
+<p>It is important to evaluate the different microservices frameworks based on your specific requirements and choose the one that best fits your needs. You should consider factors such as the performance and scalability requirements of your application, the features and capabilities of the framework, and the level of support and documentation available.</p>
+<p>It is also worth noting that writing less code does not necessarily mean that your application will be easier to maintain or more efficient. In some cases, using a more feature-rich framework that requires more code may result in a more maintainable and scalable application in the long run.</p>
+</section>
+<section id="recommend-compatible-package-buildermanager-for-kotlin-but-simpler-than-maven" class="level2">
+<h2 class="anchored" data-anchor-id="recommend-compatible-package-buildermanager-for-kotlin-but-simpler-than-maven">recommend compatible package builder/manager for kotlin but simpler than maven</h2>
+<p>If you are looking for a package builder and manager for Kotlin that is simpler than Maven, you may want to consider Gradle. Gradle is an open-source build automation tool that is designed to be flexible, efficient, and easy to use. It is fully compatible with Kotlin and can be used to build, test, and publish Kotlin applications.</p>
+<p>Some of the benefits of using Gradle for Kotlin projects include:</p>
+<p>Concise and expressive build scripts: Gradle build scripts are written in a domain-specific language (DSL) that is designed to be concise and expressive. This makes it easier to understand and maintain build scripts, compared to Maven’s XML-based syntax.</p>
+<p>Support for multiple languages: Gradle supports building projects in multiple languages, including Kotlin, Java, and C/C++. This makes it a good choice for multi-language projects.</p>
+<p>Rich plugin ecosystem: Gradle has a rich plugin ecosystem that provides a wide range of functionality, including support for testing, code analysis, and publishing. This makes it easy to extend and customize your build process.</p>
+<p>Fast and incremental builds: Gradle uses a caching mechanism and an incremental build approach to make builds faster and more efficient. This can be especially useful for larger projects.</p>
+<p>To get started with Gradle for Kotlin, you can create a new Kotlin project using the kotlin-gradle-plugin, and define your dependencies in the build.gradle file. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.</p>
+<p>Here is an example of a simple build.gradle file for a Kotlin project using Gradle:</p>
+<pre><code>plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+}
+
+group = 'com.example'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+}
+
+tasks.withType&lt;Test&gt; {
+    useJUnitPlatform()
+}</code></pre>
+<p>This build.gradle file defines the kotlin-jvm plugin, the group and version of the project, the dependencies of the project, and the test task. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.</p>
+</section>
+<section id="use-rabbitmq-client-in-kotlin" class="level2">
+<h2 class="anchored" data-anchor-id="use-rabbitmq-client-in-kotlin">use rabbitmq client in kotlin</h2>
+<p>To use RabbitMQ, a message broker that supports a number of messaging protocols, in Kotlin, you can use the amqp-client library, which is a Java client library for RabbitMQ.</p>
+<p>To get started with the amqp-client library in Kotlin, you can include the amqp-client dependency in your project. For example, if you are using Maven, you can add the following dependency to your pom.xml file:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">dependency</span>&gt;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">groupId</span>&gt;com.rabbitmq&lt;/<span class="kw">groupId</span>&gt;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">artifactId</span>&gt;amqp-client&lt;/<span class="kw">artifactId</span>&gt;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">version</span>&gt;5.11.0&lt;/<span class="kw">version</span>&gt;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">dependency</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you are using Gradle, you can add the following dependency to your build.gradle file:</p>
+<pre><code>dependencies {
+  implementation 'com.rabbitmq:amqp-client:5.11.0'
+}</code></pre>
+<p>Once you have included the amqp-client dependency in your project, you can use the classes and interfaces provided by the library to connect to a RabbitMQ server and perform operations such as sending and receiving messages.</p>
+<p>Here is an example of how you can use the amqp-client library in Kotlin to send a message to a RabbitMQ server:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">ConnectionFactory</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">Connection</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">Channel</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">main</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">factory</span> <span class="op">=</span> ConnectionFactory<span class="op">()</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    factory<span class="op">.</span>host <span class="op">=</span> <span class="st">"localhost"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">connection</span><span class="op">:</span> Connection <span class="op">=</span> factory<span class="op">.</span>newConnection<span class="op">()</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">channel</span><span class="op">:</span> Channel <span class="op">=</span> connection<span class="op">.</span>createChannel<span class="op">()</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">exchangeName</span> <span class="op">=</span> <span class="st">"my_exchange"</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">routingKey</span> <span class="op">=</span> <span class="st">"my_routing_key"</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">message</span> <span class="op">=</span> <span class="st">"Hello, RabbitMQ!"</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    channel<span class="op">.</span>basicPublish<span class="op">(</span>exchangeName<span class="op">,</span> routingKey<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> message<span class="op">.</span>toByteArray<span class="op">())</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    println<span class="op">(</span><span class="st">" [x] Sent '</span><span class="ss">$message</span><span class="st">'"</span><span class="op">)</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    channel<span class="op">.</span>close<span class="op">()</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    connection<span class="op">.</span>close<span class="op">()</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example connects to a RabbitMQ server running on localhost, creates a channel, and uses the basicPublish method to send a message to the server with a specified exchange name and routing key.</p>
+<p>You can also use the amqp-client library in Kotlin to receive messages from a RabbitMQ server. Here is an example of how you can use the amqp-client library in Kotlin to receive messages from a RabbitMQ server:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">ConnectionFactory</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">Connection</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">Channel</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">DeliverCallback</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">main</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">factory</span> <span class="op">=</span> ConnectionFactory<span class="op">()</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    factory<span class="op">.</span>host <span class="op">=</span> <span class="st">"localhost"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">connection</span><span class="op">:</span> Connection <span class="op">=</span> factory<span class="op">.</span>newConnection<span class="op">()</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">channel</span><span class="op">:</span> Channel <span class="op">=</span> connection<span class="op">.</span>createChannel<span class="op">()</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">queueName</span> <span class="op">=</span> <span class="st">"my_queue"</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    channel<span class="op">.</span>queueDeclare<span class="op">(</span>queueName<span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">deliverCallback</span> <span class="op">=</span> DeliverCallback <span class="op">{</span> _<span class="op">,</span> delivery <span class="op">-&gt;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">val</span> <span class="va">message</span> <span class="op">=</span> <span class="kw">String</span><span class="op">(</span>delivery<span class="op">.</span>body<span class="op">,</span> Charsets<span class="op">.</span>UTF_8<span class="op">)</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        println<span class="op">(</span><span class="st">" [x] Received '</span><span class="ss">$message</span><span class="st">'"</span><span class="op">)</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    channel<span class="op">.</span>basicConsume<span class="op">(</span>queueName<span class="op">,</span> <span class="kw">true</span><span class="op">,</span> deliverCallback<span class="op">,</span> _ <span class="op">-&gt;</span> <span class="op">{})</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code creates a queue and sets up a DeliverCallback to handle incoming messages. The basicConsume method is used to start consuming messages from the queue. When a message is received, the DeliverCallback is invoked and the message is printed to the console.</p>
+<p>You can find more information about using the amqp-client library in Kotlin to interact with a RabbitMQ server in the RabbitMQ documentation and the amqp-client library documentation.</p>
+<p>set the delivery mode to persistent To set the delivery mode of a message to persistent when using the amqp-client library in Kotlin, you can use the basicPublish method and set the deliveryMode property of the BasicProperties object that you pass as the third argument.</p>
+<p>Here is an example of how you can set the delivery mode of a message to persistent when using the amqp-client library in Kotlin:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">ConnectionFactory</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">Connection</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">Channel</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">com</span><span class="op">.</span><span class="im">rabbitmq</span><span class="op">.</span><span class="im">client</span><span class="op">.</span><span class="im">BasicProperties</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> <span class="fu">main</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">factory</span> <span class="op">=</span> ConnectionFactory<span class="op">()</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    factory<span class="op">.</span>host <span class="op">=</span> <span class="st">"localhost"</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">connection</span><span class="op">:</span> Connection <span class="op">=</span> factory<span class="op">.</span>newConnection<span class="op">()</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">channel</span><span class="op">:</span> Channel <span class="op">=</span> connection<span class="op">.</span>createChannel<span class="op">()</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">exchangeName</span> <span class="op">=</span> <span class="st">"my_exchange"</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">routingKey</span> <span class="op">=</span> <span class="st">"my_routing_key"</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">message</span> <span class="op">=</span> <span class="st">"Hello, RabbitMQ!"</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">val</span> <span class="va">properties</span> <span class="op">=</span> BasicProperties<span class="op">.</span>builder<span class="op">()</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>deliveryMode<span class="op">(</span><span class="dv">2</span><span class="op">)</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span>build<span class="op">()</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    channel<span class="op">.</span>basicPublish<span class="op">(</span>exchangeName<span class="op">,</span> routingKey<span class="op">,</span> properties<span class="op">,</span> message<span class="op">.</span>toByteArray<span class="op">())</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    println<span class="op">(</span><span class="st">" [x] Sent '</span><span class="ss">$message</span><span class="st">'"</span><span class="op">)</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    channel<span class="op">.</span>close<span class="op">()</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    connection<span class="op">.</span>close<span class="op">()</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the BasicProperties.builder method is used to create a BasicProperties object with the deliveryMode property set to 2 (indicating persistent delivery). This object is then passed as the third argument to the basicPublish method.</p>
+<p>You can find more information about the BasicProperties class and the different delivery modes in the amqp-client library documentation.</p>
+</section>
+<section id="write-spring-boot-hello-world-with-kotlin" class="level2">
+<h2 class="anchored" data-anchor-id="write-spring-boot-hello-world-with-kotlin">write spring boot hello world with kotlin</h2>
+<p>To write a “Hello, World!” program in Spring Boot using Kotlin, you can follow these steps:</p>
+<p>Create a new Spring Boot project using the Spring Initializr. You can do this by visiting https://start.spring.io/ and selecting “Kotlin” as the programming language. Select the “Web” dependency, and then click on “Generate” to download the project as a ZIP file.</p>
+<p>Extract the ZIP file and open the project in your preferred development environment.</p>
+<p>In the src/main/kotlin directory, create a new Kotlin file called HelloController.kt. This file will contain a simple controller that will handle HTTP requests to the root path of the application.</p>
+<p>In HelloController.kt, define a controller class and annotate it with <span class="citation" data-cites="RestController">@RestController</span>. This will enable the class to handle HTTP requests and return responses to the client.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">RestController</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HelloController <span class="op">{</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Inside the HelloController class, define a method that will handle HTTP GET requests to the root path of the application. Annotate this method with <span class="citation" data-cites="GetMapping">@GetMapping</span>(“/”).</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode kotlin code-with-copy"><code class="sourceCode kotlin"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">org</span><span class="op">.</span><span class="im">springframework</span><span class="op">.</span><span class="im">web</span><span class="op">.</span><span class="im">bind</span><span class="op">.</span><span class="im">annotation</span><span class="op">.</span><span class="im">GetMapping</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">@RestController</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HelloController <span class="op">{</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@GetMapping</span><span class="op">(</span><span class="st">"/"</span><span class="op">)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fun</span> <span class="fu">sayHello</span><span class="op">():</span> <span class="dt">String</span> <span class="op">{</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="st">"Hello, World!"</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run the Spring Boot application by running the main method in the Application class. You should now be able to visit http://localhost:8080/ in your web browser and see the message “Hello, World!” displayed. That’s it! You have now written a simple “Hello, World!” program in Spring Boot using Kotlin.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,27 @@
+---
+{"categories": &id001 ["Neo4j", "graph database", "systemd service", "Linux", "installation guide", "configuration file", "tutorial"], "category": "Installation", "date": "2023-12-22 23:52:59", "description": "This instruction offers a configuration file to simplify the installation and management of Neo4j, a graph database, as a systemd service on Linux-based systems.", "tags": *id001, "title": "install neo4j as systemd service"}
+
+---
+
+------
+
+# install neo4j as systemd service
+
+save this under `/lib/systemd/system/neo4j.service`
+
+```config
+[Unit]
+Description=Neo4j Graph Database
+Documentation=http://docs.neo4j.org
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/neo4j console
+ExecStop=/usr/bin/neo4j stop
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+```
+

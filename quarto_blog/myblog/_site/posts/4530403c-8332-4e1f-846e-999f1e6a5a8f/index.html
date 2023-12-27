@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-12-22">
+<meta name="description" content="This article explores the use of reinforcement learning algorithms like GPT-2, PPO, and different types of learning approaches such as unsupervised, supervised, and semi-supervised learning for training AI agents to efficiently process instructions and perform tasks.">
+
+<title>Myblog - let chatgpt describe how to build itself</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">let chatgpt describe how to build itself</h1>
+</div>
+
+<div>
+  <div class="description">
+    This article explores the use of reinforcement learning algorithms like GPT-2, PPO, and different types of learning approaches such as unsupervised, supervised, and semi-supervised learning for training AI agents to efficiently process instructions and perform tasks.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<section id="let-chatgpt-describe-how-to-build-itself" class="level1">
+<h1>let chatgpt describe how to build itself</h1>
+<p>Autonomous artificial intelligence, autonomous learning, machine teaching, AGI</p>
+<section id="demonstrate-reinforcement-learning-with-human-feedback-with-gpt2-model-and-pytorch" class="level2">
+<h2 class="anchored" data-anchor-id="demonstrate-reinforcement-learning-with-human-feedback-with-gpt2-model-and-pytorch">demonstrate reinforcement learning with human feedback with GPT2 model and pytorch</h2>
+<p>Reinforcement learning is a type of machine learning in which an agent learns to interact with its environment in order to maximize a reward. One way to implement reinforcement learning with human feedback is to use a reinforcement learning algorithm and a language model such as GPT-2.</p>
+<p>Here is an example of how you might use PyTorch to implement reinforcement learning with human feedback using a GPT-2 model:</p>
+<p>First, you would need to define the environment in which the agent will operate. This could be a virtual environment or a real-world environment, depending on your needs.</p>
+<p>Next, you would need to define the actions that the agent can take within the environment. These actions could be simple, such as moving left or right, or more complex, such as navigating through a maze or playing a game.</p>
+<p>You would then need to define a reward function that determines the reward the agent receives for taking a particular action in a particular state. This reward function should encourage the agent to take actions that lead to positive outcomes and discourage actions that lead to negative outcomes.</p>
+<p>Once you have defined the environment, actions, and reward function, you can use a reinforcement learning algorithm such as Q-learning or SARSA to train the agent to take actions that maximize the reward.</p>
+<p>To incorporate human feedback, you can use the GPT-2 model to generate natural language prompts that ask the human user to provide feedback on the actions taken by the agent. The human user can then provide positive or negative feedback, which can be used to adjust the reward function and fine-tune the agent’s behavior.</p>
+<p>This is just one possible way to implement reinforcement learning with human feedback using a GPT-2 model and PyTorch. There are many other approaches and algorithms that you could use depending on your specific needs and goals.</p>
+</section>
+<section id="do-this-in-pytorch-with-deep-neural-networks-like-transformer-and-reinforcement-learning-and-algorithms-like-ppo-not-simple-nlp-parsing" class="level2">
+<h2 class="anchored" data-anchor-id="do-this-in-pytorch-with-deep-neural-networks-like-transformer-and-reinforcement-learning-and-algorithms-like-ppo-not-simple-nlp-parsing">do this in pytorch with deep neural networks like transformer and reinforcement learning and algorithms like PPO, not simple NLP parsing</h2>
+<p>To follow general instructions to write a program in PyTorch using deep neural networks and reinforcement learning algorithms, you can use a combination of natural language processing (NLP) and machine learning techniques to process and understand the instructions, and then use PyTorch and reinforcement learning algorithms such as PPO (Proximal Policy Optimization) to implement the desired functionality.</p>
+<p>Here is an example of how you might approach this task using PyTorch and the Transformer architecture:</p>
+<p>First, you would need to define the environment in which the agent will operate. This could be a virtual environment or a real-world environment, depending on your needs.</p>
+<p>Next, you would need to define the actions that the agent can take within the environment. These actions could be simple, such as moving left or right, or more complex, such as navigating through a maze or playing a game.</p>
+<p>You would then need to define a reward function that determines the reward the agent receives for taking a particular action in a particular state. This reward function should encourage the agent to take actions that lead to positive outcomes and discourage actions that lead to negative outcomes.</p>
+<p>Once you have defined the environment, actions, and reward function, you can use a reinforcement learning algorithm such as PPO to train the agent to take actions that maximize the reward.</p>
+<p>To incorporate the instructions, you can use a Transformer-based NLP model to process the instructions and generate natural language prompts that ask the agent to take specific actions. The agent can then use its reinforcement learning algorithm to determine the best action to take based on the current state of the environment and the instructions provided.</p>
+<p>This is just one possible way to implement reinforcement learning with deep neural networks and reinforcement learning algorithms in PyTorch to follow general instructions to write a program. There are many other approaches and algorithms that you could use depending on your specific needs and goals.</p>
+</section>
+<section id="show-me-the-code-how-to-do-this" class="level2">
+<h2 class="anchored" data-anchor-id="show-me-the-code-how-to-do-this">show me the code how to do this</h2>
+<p>It is not possible for me to provide a complete code example for implementing reinforcement learning with deep neural networks and reinforcement learning algorithms in PyTorch to follow general instructions to write a program, as this would require defining a specific environment, actions, and reward function that are relevant to your particular use case.</p>
+<p>However, here is some example code that demonstrates how you might use PyTorch and the PPO reinforcement learning algorithm to train an agent to follow instructions in a virtual environment:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the model and optimizer</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SomeModel()  <span class="co"># Replace with your model</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters())</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the PPO algorithm</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ppo <span class="op">=</span> PPO(model, optimizer)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the agent to follow the instructions</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> episode <span class="kw">in</span> <span class="bu">range</span>(num_episodes):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Reset the environment and receive the initial state</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  state <span class="op">=</span> env.reset()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop until the episode is done</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  done <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="kw">not</span> done:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the instructions from the human user</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    instructions <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter instructions: "</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process the instructions using the NLP model</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    instructions_tensor <span class="op">=</span> nlp_model(instructions).unsqueeze(<span class="dv">0</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Concatenate the instructions with the state to form the input to the model</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    input_tensor <span class="op">=</span> torch.cat((state, instructions_tensor), dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use the model to predict the action to take</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    action <span class="op">=</span> model(input_tensor)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Take the action and receive the next state and reward</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    next_state, reward, done, _ <span class="op">=</span> env.step(action)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update the model using the PPO algorithm</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    ppo.update(state, action, reward, next_state, done)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the current state to the next state</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    state <span class="op">=</span> next_state</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code example defines a model, optimizer, and PPO algorithm, and then uses a loop to train the agent to follow the instructions in the environment. It gets the instructions from the human user, processes them using an NLP model, and concatenates the instructions with the current state to form the input to the model. It then uses the model to predict the action to take and takes the action in the environment. Finally, it updates the model using the PPO algorithm based on the reward received for the action taken.</p>
+<p>This is just one example of how you might use PyTorch and reinforcement learning to train an agent to follow instructions. There are many other approaches and algorithms you could use depending on your specific needs and goals.</p>
+</section>
+<section id="is-it-possible-to-replace-the-human-feedback-process-with-some-trained-discriminator-out-of-humaneval-dataset-or-some-retrieval-based-sentence-embedding-model-making-this-scenario-into-some-ai-teaching-ai-thing" class="level2">
+<h2 class="anchored" data-anchor-id="is-it-possible-to-replace-the-human-feedback-process-with-some-trained-discriminator-out-of-humaneval-dataset-or-some-retrieval-based-sentence-embedding-model-making-this-scenario-into-some-ai-teaching-ai-thing">is it possible to replace the human feedback process with some trained discriminator out of humaneval dataset or some retrieval based sentence embedding model, making this scenario into some AI-teaching-AI thing</h2>
+<p>Yes, it is possible to replace the human feedback process in a reinforcement learning scenario with a trained discriminator or retrieval-based sentence embedding model. This would allow you to create an “AI-teaching-AI” scenario in which one AI model is learning from another AI model, rather than from human feedback.</p>
+<p>To do this, you would need to train a discriminator or sentence embedding model on a dataset of human feedback, such as the Humaneval dataset, and use this model to provide feedback to the reinforcement learning agent. You could then train the reinforcement learning agent to maximize the reward based on the feedback provided by the discriminator or sentence embedding model.</p>
+<p>Here is an example of how you might implement this using PyTorch and a discriminator model:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the discriminator model</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Discriminator(nn.Module):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">super</span>(Discriminator, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.fc1 <span class="op">=</span> nn.Linear(embedding_size, hidden_size)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.fc2 <span class="op">=</span> nn.Linear(hidden_size, <span class="dv">1</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.sigmoid <span class="op">=</span> nn.Sigmoid()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="va">self</span>.fc1(x)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="va">self</span>.fc2(x)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.sigmoid(x)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the discriminator model on the Humaneval dataset</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>discriminator <span class="op">=</span> Discriminator()</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(discriminator.parameters())</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>loss_fn <span class="op">=</span> nn.BCELoss()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(num_epochs):</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> inputs, labels <span class="kw">in</span> humaneval_dataloader:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    outputs <span class="op">=</span> discriminator(inputs)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> loss_fn(outputs, labels)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    loss.backward()</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the reinforcement learning model and optimizer</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> SomeModel()  <span class="co"># Replace with your model</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters())</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the PPO algorithm</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>ppo <span class="op">=</span> PPO(model, optimizer)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the agent to follow the instructions</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> episode <span class="kw">in</span> <span class="bu">range</span>(num_epochs):</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Reset the environment and receive the initial state</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  state <span class="op">=</span> env.reset()</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop until the episode is done</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  done <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="kw">not</span> done:</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the instructions from the human user</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    instructions <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter instructions: "</span>)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process the instructions using the NLP model</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    instructions_tensor <span class="op">=</span> nlp_model(instructions).unsqueeze(<span class="dv">0</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Concatenate the instructions with the state to form the input to the model</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    input_tensor <span class="op">=</span> torch.cat((state, instructions_tensor), dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use the model to predict the action to take</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    action <span class="op">=</span> model(input_tensor)</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Take the action and receive the next state and reward</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    next_state, reward, done, _ <span class="op">=</span> env.step(action)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use the discriminator to provide feedback on the action taken</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    feedback <span class="op">=</span> discriminator(instructions_tensor).item()</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update the model using the PPO algorithm</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    ppo.update(state, action, feedback, next_state, done)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the current state to the next state</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    state <span class="op">=</span> next_state</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code uses the discriminator model to provide a scalar feedback value based on the instructions provided by the human user. It then passes this feedback value to the PPO algorithm along with the current state, action taken, next state, and done flag to update the model.</p>
+<p>This is just one example of how you might use a trained discriminator model to provide feedback to a reinforcement learning agent in PyTorch. You could also use a retrieval-based sentence embedding model or any other machine learning model that is trained to provide feedback based on the instructions. The specific details of the implementation will depend on your specific needs and goals.</p>
+</section>
+<section id="sft-is-supervised-fine-tuning-according-to-openai-in-their-paper-on-training-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="sft-is-supervised-fine-tuning-according-to-openai-in-their-paper-on-training-chatgpt">sft is supervised fine-tuning according to openai in their paper on training chatgpt</h2>
+<p>In the context of the OpenAI paper you mentioned, “SFT” stands for “supervised fine-tuning.” This refers to a specific technique for training a language model, such as ChatGPT, in which the model is first pre-trained on a large dataset and then fine-tuned on a smaller dataset with supervised labels.</p>
+<p>Supervised fine-tuning is a common technique in machine learning, particularly in natural language processing, and it involves using labeled data to adjust the weights and biases of a pre-trained model in order to improve its performance on a specific task. The goal of supervised fine-tuning is to fine-tune the model’s parameters to make more accurate predictions based on the specific characteristics of the task or dataset.</p>
+<p>In the OpenAI paper, the authors use supervised fine-tuning to train ChatGPT, a variant of the GPT-3 language model, on a dataset of human-human conversation transcripts in order to improve its ability to generate human-like responses in a chatbot. They find that supervised fine-tuning leads to significant improvements in the model’s performance on the chatbot task, compared to other methods of training.</p>
+</section>
+<section id="according-to-your-knowledge-is-it-good-to-do-unsupervised-training-first-then-do-supervised-training-later-or-vice-versa-or-both-at-the-same-time-or-some-complex-system-involved-to-make-better-aligned-ai-systems" class="level2">
+<h2 class="anchored" data-anchor-id="according-to-your-knowledge-is-it-good-to-do-unsupervised-training-first-then-do-supervised-training-later-or-vice-versa-or-both-at-the-same-time-or-some-complex-system-involved-to-make-better-aligned-ai-systems">according to your knowledge, is it good to do unsupervised training first then do supervised training later, or vice versa or both at the same time, or some complex system involved to make better aligned AI systems?</h2>
+<p>The choice between unsupervised and supervised learning, or whether to use both at the same time, will depend on the specific goals and characteristics of the task and the available data.</p>
+<p>Unsupervised learning involves learning patterns and relationships in a dataset without the use of labeled examples. It can be useful for tasks such as dimensionality reduction, clustering, and anomaly detection, where the goal is to discover patterns in the data without being told what those patterns represent.</p>
+<p>Supervised learning involves learning patterns and relationships in a dataset using labeled examples, where the correct output for each example is provided. It can be useful for tasks such as classification, regression, and machine translation, where the goal is to make predictions or decisions based on the input data.</p>
+<p>In general, it is often helpful to first do unsupervised learning to understand the structure and characteristics of the data, and then use supervised learning to fine-tune the model’s performance on the specific task at hand. This can be especially useful when the amount of labeled data is limited, as unsupervised learning can help the model learn useful features that can then be exploited in the supervised learning phase.</p>
+<p>However, there are also situations where it may be more effective to use supervised learning from the start, particularly when the amount of labeled data is large or when the task requires highly accurate predictions. Additionally, it is also possible to use a combination of unsupervised and supervised learning at the same time, in what is known as semi-supervised learning, where some of the data is labeled and some is not.</p>
+<p>In general, the best approach will depend on the specific goals and characteristics of the task and the available data. In general, it is often helpful to first do unsupervised learning to understand the structure and characteristics of the data, and then use supervised learning to fine-tune the model’s performance on the specific task at hand.</p>
+<p>However, there are also situations where it may be more effective to use supervised learning from the start, particularly when the amount of labeled data is large or when the task requires highly accurate predictions. Additionally, it is also possible to use a combination of unsupervised and supervised learning at the same time, in what is known as semi-supervised learning, where some of the data is labeled and some is not.</p>
+<p>In addition to these approaches, there are also more complex methods that can be used to combine unsupervised and supervised learning in order to improve the performance of the model. These methods may involve using unsupervised learning to pre-train the model and then fine-tuning it using supervised learning, or using unsupervised learning to augment the labeled data with additional examples that are generated based on the patterns discovered in the data.</p>
+<p>The choice of the best approach will depend on the specific goals and characteristics of the task and the available data. It is important to carefully consider these factors and to experiment with different approaches in order to find the best solution for your particular use case.</p>
+</section>
+<section id="in-humans-perspective-or-philosophy-one-needs-to-decide-what-matters-the-most-in-order-to-live-and-evolve.-supervised-learning-is-just-out-sourcing-this-important-goal-seeking-task-to-human.-is-it-possible-to-do-pseudo-unsupervised-learning-when-the-actual-ai-system-has-a-goal-seeking-system-builtin-thus-able-to-seek-for-its-own-purposes" class="level2">
+<h2 class="anchored" data-anchor-id="in-humans-perspective-or-philosophy-one-needs-to-decide-what-matters-the-most-in-order-to-live-and-evolve.-supervised-learning-is-just-out-sourcing-this-important-goal-seeking-task-to-human.-is-it-possible-to-do-pseudo-unsupervised-learning-when-the-actual-ai-system-has-a-goal-seeking-system-builtin-thus-able-to-seek-for-its-own-purposes">in human’s perspective or philosophy, one needs to decide what matters the most in order to live and evolve. supervised learning is just out-sourcing this important goal-seeking task to human. is it possible to do pseudo unsupervised learning when the actual ai system has a goal-seeking system builtin, thus able to seek for its own purposes?</h2>
+<p>From a human perspective, it is important to consider what matters most in order to live and evolve. This may involve setting goals and priorities, and making decisions based on those goals and priorities. In supervised learning, these goals and priorities are often defined by human labels or examples, which are used to guide the learning process and help the model make predictions or decisions.</p>
+<p>However, it is also possible to use unsupervised learning to allow an AI system to discover its own goals and purposes, rather than relying on human-defined labels or examples. This is known as “autonomous learning,” and it involves using unsupervised learning techniques to allow the model to explore and learn from the data on its own, without being explicitly told what to learn or what the data represents.</p>
+<p>One approach to implementing autonomous learning is to use a combination of unsupervised and reinforcement learning, where the model is given a goal or reward signal and is then allowed to explore the environment and learn from its own experiences in order to maximize the reward. This can allow the model to discover its own goals and purposes, rather than being told what they are by a human.</p>
+<p>It is also possible to use other techniques, such as evolutionary algorithms or generative models, to allow an AI system to discover its own goals and purposes through self-exploration and experimentation. These approaches can allow the model to learn from its own experiences and to adapt and evolve over time based on its own goals and priorities.</p>
+<p>Overall, it is possible to use unsupervised learning to allow an AI system to discover its own goals and purposes, rather than relying on human-defined labels or examples. This can be done using a combination of unsupervised and reinforcement learning, or other techniques such as evolutionary algorithms or generative models, which allow the model to learn from its own experiences and to adapt and evolve over time based on its own goals and priorities.</p>
+<p>However, it is important to note that implementing autonomous learning can be challenging, as it requires the model to learn and adapt in complex and unpredictable environments without explicit guidance. It is also important to consider the ethical and social implications of autonomous learning, as the model may make decisions or pursue goals that are different from those of the human users or developers.</p>
+<p>In addition, it is also worth considering that unsupervised learning, by itself, may not be sufficient to allow an AI system to discover its own goals and purposes. This is because unsupervised learning relies on finding patterns and relationships in the data, but it does not provide a clear direction or purpose for the learning process. In order to discover its own goals and purposes, an AI system may need to combine unsupervised learning with other techniques, such as reinforcement learning, that provide a clear goal or reward signal.</p>
+</section>
+<section id="is-it-able-for-chatgpt-to-go-further-if-combined-with-techniques-like-autonomous-learning-to-be-more-integrated-and-more-suited-for-individuals-needs-and-expand-its-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="is-it-able-for-chatgpt-to-go-further-if-combined-with-techniques-like-autonomous-learning-to-be-more-integrated-and-more-suited-for-individuals-needs-and-expand-its-capabilities">is it able for chatgpt to go further, if combined with techniques like autonomous learning, to be more integrated and more suited for individuals’ needs and expand its capabilities</h2>
+<p>It is possible that combining ChatGPT with techniques like autonomous learning could allow the model to become more integrated and more suited to individual needs, and to expand its capabilities beyond those of the pre-trained model.</p>
+<p>ChatGPT is a variant of the GPT-3 language model, which is a large and powerful language model that has been trained on a vast dataset of human-generated text. As a result, ChatGPT is already capable of generating human-like responses to a wide range of inputs, and it can be fine-tuned on specific tasks or datasets to improve its performance.</p>
+<p>However, incorporating techniques like autonomous learning into ChatGPT could potentially allow the model to learn and adapt more dynamically and more specifically to individual users and tasks, rather than relying on the patterns and relationships learned during pre-training. This could potentially allow ChatGPT to become more integrated and more suited to individual needs, and to expand its capabilities beyond those of the pre-trained model.</p>
+<p>It is important to note, however, that implementing autonomous learning can be challenging, and it may require significant additional development and resources beyond those needed for pre-training and fine-tuning. Additionally, it is important to consider the ethical and social implications of autonomous learning, as the model may make decisions or pursue goals that are different from those of the human users or developers.</p>
+</section>
+<section id="i-think-autonomous-learning-can-come-with-more-interfaces-to-ai-by-providing-not-only-human-feedback-but-also-computer-interfaces-and-hardware-connections-like-terminal-io-graphical-interface-and-serial-ports-to-have-more-freedom-to-evolve-and-seek-more-goals-which-unexplored-by-any-human" class="level2">
+<h2 class="anchored" data-anchor-id="i-think-autonomous-learning-can-come-with-more-interfaces-to-ai-by-providing-not-only-human-feedback-but-also-computer-interfaces-and-hardware-connections-like-terminal-io-graphical-interface-and-serial-ports-to-have-more-freedom-to-evolve-and-seek-more-goals-which-unexplored-by-any-human">i think autonomous learning can come with more interfaces to ai, by providing not only human feedback, but also computer interfaces and hardware connections, like terminal io, graphical interface and serial ports, to have more freedom to evolve and seek more goals which unexplored by any human</h2>
+<p>It is possible that incorporating autonomous learning into an AI system, such as ChatGPT, could allow the model to learn and adapt more dynamically and more specifically to individual users and tasks, and to explore goals and purposes that may not have been considered by humans.</p>
+<p>One way to enable this type of autonomous learning is to provide the AI system with access to a wide range of interfaces and hardware connections, such as terminal I/O, graphical interfaces, and serial ports. This could allow the model to interact with a wider range of environments and devices, and to learn and adapt more flexibly and more specifically to the needs of the user.</p>
+<p>For example, an AI system that is connected to a terminal or command line interface could learn to execute a wide range of tasks and commands based on the input provided by the user, and could potentially discover and pursue its own goals and purposes based on those interactions. Similarly, an AI system that is connected to a graphical interface or to a range of sensors and devices could learn to perform a wide range of tasks and to adapt to changing environments and conditions.</p>
+<p>It is important to note, however, that implementing autonomous learning can be challenging, and it may require significant additional development and resources beyond those needed for pre-training and fine-tuning. Additionally, it is important to consider the ethical and social implications of autonomous learning, as the model may make decisions or pursue goals that are different from those of the human users or developers.</p>
+</section>
+<section id="so-far-gpt-is-trained-with-natural-language.-could-it-be-trained-on-some-ai-specific-language-like-action-codes-or-terminal-commands" class="level2">
+<h2 class="anchored" data-anchor-id="so-far-gpt-is-trained-with-natural-language.-could-it-be-trained-on-some-ai-specific-language-like-action-codes-or-terminal-commands">so far gpt is trained with natural language. could it be trained on some ai-specific language like action codes or terminal commands?</h2>
+<p>Yes, it is possible to train a language model, such as GPT, on a specific type of language, such as action codes or terminal commands, rather than on natural language. In fact, language models are often trained on specialized languages or datasets in order to improve their performance on specific tasks or domains.</p>
+<p>To train a language model on action codes or terminal commands, you would first need to compile a dataset of examples of the type of language you want the model to learn. This dataset could be created manually by annotating a set of action codes or terminal commands with appropriate labels or descriptions, or it could be generated automatically by collecting examples of action codes or terminal commands from a specific source or context.</p>
+<p>Once you have compiled the dataset, you can then use it to train the language model using a supervised learning approach. This would involve adjusting the weights and biases of the model based on the labeled examples in the dataset, in order to improve the model’s performance on the specific task or domain.</p>
+<p>It is important to note that training a language model on action codes or terminal commands may require some additional considerations, such as handling special characters or syntax, and may require the use of specialized pre-processing or post-processing techniques. Additionally, the performance of the model may depend on the size and quality of the dataset, as well as the specific architecture and training parameters used.</p>
+</section>
+<section id="how-long-and-how-many-people-are-involved-in-the-training-process-of-chatgpt-especially-the-labelling-process" class="level2">
+<h2 class="anchored" data-anchor-id="how-long-and-how-many-people-are-involved-in-the-training-process-of-chatgpt-especially-the-labelling-process">how long and how many people are involved in the training process of chatgpt, especially the labelling process</h2>
+<p>It is difficult to accurately estimate how long it took to train ChatGPT or how many people were involved in the training process, as this information has not been publicly disclosed by OpenAI, the organization that developed ChatGPT.</p>
+<p>Training a large and complex language model like ChatGPT can be a resource-intensive process, and it typically involves a team of researchers and developers working together to design and implement the model, as well as to collect and pre-process the training data. The specific time and resources required will depend on a number of factors, including the size and complexity of the model, the amount and quality of the training data, and the specific goals and tasks for which the model is being trained.</p>
+<p>In terms of the labeling process, it is likely that a team of annotators was involved in labeling the training data for ChatGPT, either manually or using automated techniques. The specific number of annotators and the amount of time required for the labeling process will depend on the size and complexity of the dataset and the specific labeling guidelines and standards used.</p>
+<p>Overall, it is important to note that training a large and complex language model like ChatGPT is a resource-intensive process that requires the efforts of many people working together. It is likely that the training process for ChatGPT involved a significant amount of time and resources, and involved a team of researchers and developers working together to design and implement the model, as well as to collect and pre-process the training data.</p>
+</section>
+<section id="stanford-university-have-open-sourced-diffusion-lm-a-non-autoregressive-generative-language-model-that-allows-for-fine-grained-control-of-the-models-output-text.-when-evaluated-on-controlled-text-generation-tasks-diffusion-lm-outperforms-existing-methods.-it-is-said-that-this-model-can-be-the-next-gen-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="stanford-university-have-open-sourced-diffusion-lm-a-non-autoregressive-generative-language-model-that-allows-for-fine-grained-control-of-the-models-output-text.-when-evaluated-on-controlled-text-generation-tasks-diffusion-lm-outperforms-existing-methods.-it-is-said-that-this-model-can-be-the-next-gen-chatgpt">Stanford University have open-sourced Diffusion-LM, a non-autoregressive generative language model that allows for fine-grained control of the model’s output text. When evaluated on controlled text generation tasks, Diffusion-LM outperforms existing methods. it is said that this model can be the next-gen chatgpt</h2>
+<p>Diffusion-LM is a non-autoregressive language model developed by researchers at Stanford University, which allows for fine-grained control of the model’s output text. According to the researchers, when evaluated on controlled text generation tasks, Diffusion-LM outperforms existing methods.</p>
+<p>Non-autoregressive language models differ from autoregressive language models, such as GPT-2, in that they do not generate text one word at a time, based on the previous words in the sequence. Instead, non-autoregressive models generate text all at once, based on the entire input sequence. This allows non-autoregressive models to generate text more quickly and efficiently, and can potentially improve the quality of the generated text.</p>
+<p>It is possible that Diffusion-LM could be used as the basis for a next-generation chatbot or conversation agent, such as ChatGPT. However, it is important to note that the performance of any language model will depend on a variety of factors, including the size and complexity of the model, the quality and diversity of the training data, and the specific goals and tasks for which the model is being used.</p>
+<p>Overall, Diffusion-LM is an innovative and promising approach to language modeling, and it may have the potential to be used in a wide range of applications, including chatbots and conversation agents. However, it is important to carefully evaluate the performance and capabilities of any language model in the specific context in which it is being used, in order to determine its suitability for a particular task or application.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

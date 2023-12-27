@@ -1,0 +1,18 @@
+---
+{"categories": &id001 ["python", "windows", "encoding", "utf-8", "-X utf8=1", "sys.flags.utf8_mode", "solution"], "category": "Python programming", "date": "2023-12-22 23:52:59", "description": "The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the `-X utf8=1` flag or setting `sys.flags.utf8_mode`. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.", "tags": *id001, "title": "python encoding issue"}
+
+---
+
+------
+
+# python encoding issue
+
+windows has encoding issue on python intepreter.
+
+run like this:
+```bash
+python -X utf8=1 <args>
+# flag: sys.flags.utf8_mode
+```
+
+

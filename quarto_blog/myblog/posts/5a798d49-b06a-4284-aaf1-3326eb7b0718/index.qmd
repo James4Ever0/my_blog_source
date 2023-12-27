@@ -1,0 +1,11 @@
+---
+{"categories": &id001 ["avoiding", "slashes", "note", "names", "syncing", "program", "issues"], "category": "Note Syncing", "date": "2023-12-22 23:52:59", "description": "This article provides tips on how to avoid slashes in note names to prevent syncing program issues. By following these guidelines, users can ensure that their notes are properly synced across different devices and platforms without encountering any problems.", "tags": *id001, "title": "notable tips"}
+
+---
+
+------
+
+# notable tips
+
+do not use slash in note names, which might cause issues for our syncing program.
+

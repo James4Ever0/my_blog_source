@@ -1,0 +1,12 @@
+---
+{"categories": &id001 ["story-dalle", "AI technology", "Story generation", "Image generation", "GitHub link", "Code snippet", "Continuation"], "category": "Story-Dalle", "date": "2023-12-22 23:52:59", "description": "This article discusses a story continuation tool called 'story-dalle', which uses AI technology to generate both the story and its accompanying image simultaneously. The code for this innovative application can be found on the provided GitHub link.", "tags": *id001, "title": "story continuation, story-dalle able to generate story and image at the same time"}
+
+---
+
+------
+
+# story continuation, story-dalle able to generate story and image at the same time
+
+
+[story-dalle](https://github.com/adymaharana/storydalle) code
+

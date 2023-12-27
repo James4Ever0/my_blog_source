@@ -1,0 +1,16 @@
+---
+{"categories": &id001 ["Open-source", "Chinese font", "LxgwWenKai", "GitHub", "Klee One font", "Font design", "Typography"], "category": "Open-source Chinese Fonts", "date": "2023-12-22 23:52:59", "description": "LxgwWenKai is an open-source Chinese font inspired by the Klee One font, available on GitHub. It features a clean and modern appearance that is suitable for various design projects.", "tags": *id001, "title": "Introducing the Open-Source Chinese Font 'LxgwWenKai' Based on Klee One"}
+
+---
+
+------
+
+# 中文字体 open source chinese fonts
+
+百度输入法造字？
+
+https://github.com/lxgw/LxgwWenKai/
+一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。
+
+感觉挺好看
+

@@ -1,0 +1,15 @@
+---
+{"categories": &id001 ["keyboard", "typing", "backtick", "meta", "escape", "universal", "method"], "category": "Keyboard Shortcuts", "date": "2023-12-22 23:52:59", "description": "This text discusses the process of typing the backtick character using a splitable keyboard, with a suggestion to use the meta+esc combination. However, it mentions that this method may sometimes fail. Additionally, it provides an alternative universal method for typing a tilde '~' which is by using shift+esc.", "tags": *id001, "title": "typing backtick \"&grave;\" with my current splitable keyboard"}
+
+---
+
+------
+
+# typing backtick "`" with my current splitable keyboard
+
+it used to work with meta+esc key, but it fails sometimes.
+
+there's a universal way: shift+alt+esc
+
+type tlide "~": shift+esc
+

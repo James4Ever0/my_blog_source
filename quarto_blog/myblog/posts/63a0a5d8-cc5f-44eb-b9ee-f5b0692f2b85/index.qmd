@@ -1,0 +1,42 @@
+---
+{"categories": &id001 ["Kali Linux", "Chromebook", "TTYD", "X11VNC", "Novnc", "Clipboard Sharing", "Command Line"], "category": "Kali Linux", "date": "2023-12-22 23:52:59", "description": "This tutorial provides step-by-step instructions for accessing Kali Linux on Chromebook using ttyd, x11vnc, and novnc. It includes detailed setup procedures for each tool, demonstrates novnc's clipboard sharing feature, and offers the necessary commands to help users make the most of their experience.", "tags": *id001, "title": "access kali on chromebook or anywhere"}
+
+---
+
+------
+
+# access kali on chromebook or anywhere
+
+## setup tty
+
+i don't think this will work on android, but let's see?
+
+```bash
+ttyd -p <port> -c <username>:<password> <shell_path>
+# don't specify interface since that will screw things up
+```
+
+## setup x11vnc and novnc
+
+notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu,
+
+in reference of [kali official](https://kali.org/general-use/novnc-kali-in-browser)
+
+x11vnc is mirroring the current x11 session. i set it without password.
+
+```bash
+#retrieved from fish history
+x11vnc -threads -forever
+```
+
+then launch novnc server
+```bash
+novnc  --vnc localhost:5900 --listen 10020
+```
+
+use this url to access from chromebook:
+```
+http://<kali_ip>:10020/vnc.html?host=<kali_ip>&port=10020
+```
+
+
