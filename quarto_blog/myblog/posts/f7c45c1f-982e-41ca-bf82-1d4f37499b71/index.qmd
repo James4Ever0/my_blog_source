@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# pyjom producer
-
 video and audio needs to be analysised separately.
-
 audio can be processed by chunks, splited tracks, while video can be itered frame by frame.
-

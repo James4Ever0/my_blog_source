@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-17">
 <meta name="description" content="In this article, the author compares MindsDB and Pomegranate. MindsDB is a platform that specializes in machine learning using time series data processing with hidden Markov models. On the other hand, Pomegranate is a Python library that provides probability models like mixture and hidden Markov models for univariate and multivariate distributions.">
 
-<title>James’s Blog - mindsdb, in-database machine learning, hidden markov model for time series processing, output a label as such for each element in the time series</title>
+<title>James’ Blog - mindsdb, in-database machine learning, hidden markov model for time series processing, output a label as such for each element in the time series</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,40 +179,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="mindsdb-in-database-machine-learning-hidden-markov-model-for-time-series-processing-output-a-label-as-such-for-each-element-in-the-time-series" class="level1">
-<h1>mindsdb, in-database machine learning, hidden markov model for time series processing, output a label as such for each element in the time series</h1>
 <section id="mindsdb" class="level2">
 <h2 class="anchored" data-anchor-id="mindsdb">MindsDB</h2>
-<p><a href="https://docs.mindsdb.com/">documentation</a></p>
-<p><a href="https://cloud.mindsdb.com/editor">cloud mindsdb editor</a></p>
-<p>warning: this thing could break your dependencies. better use docker instead.</p>
+<p><a href="https://docs.mindsdb.com/">documentation</a> <a href="https://cloud.mindsdb.com/editor">cloud mindsdb editor</a> warning: this thing could break your dependencies. better use docker instead.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull mindsdb/mindsdb</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pip3 install mindsdb</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="hmmlearn-unsupervised" class="level2">
 <h2 class="anchored" data-anchor-id="hmmlearn-unsupervised">HMMLearn (unsupervised)</h2>
-<p>most useful feature: training and inferring the hidden states</p>
-</section>
-<section id="supervised-hmm-learning" class="level2">
-<h2 class="anchored" data-anchor-id="supervised-hmm-learning">supervised hmm learning</h2>
-<section id="seqlearn" class="level3">
-<h3 class="anchored" data-anchor-id="seqlearn">seqlearn</h3>
-</section>
-<section id="pomegranate-both-supervised-and-unsupervised" class="level3">
-<h3 class="anchored" data-anchor-id="pomegranate-both-supervised-and-unsupervised">pomegranate (both supervised and unsupervised)</h3>
-<p><a href="https://pomegranate.readthedocs.io">documentation</a></p>
-<p>All models that support labeled data support <a href="https://pomegranate.readthedocs.io/en/latest/semisupervised.html">semi-supervised learning</a>, including naive Bayes classifiers, general Bayes classifiers, and hidden Markov models.</p>
-<p>While <a href="https://pomegranate.readthedocs.io/en/latest/Distributions.html#">probability Distributions</a> are frequently used as components of more complex models such as mixtures and hidden Markov models, they can also be used by themselves. Many data science tasks require fitting a distribution to data or generating samples under a distribution. pomegranate has a large library of both univariate and multivariate distributions which can be used with an intuitive interface.</p>
-<p><a href="https://pomegranate.readthedocs.io/en/latest/GeneralMixtureModel.html">General Mixture Models</a> (GMMs) are an unsupervised probabilistic model composed of multiple distributions (commonly referred to as components) and corresponding weights. This allows you to model more complex distributions corresponding to a singular underlying phenomena. For a full tutorial on what a mixture model is and how to use them, see the above tutorial.</p>
-<p><a href="https://pomegranate.readthedocs.io/en/latest/HiddenMarkovModel.html">Hidden Markov Models</a></p>
-<p><a href="https://pomegranate.readthedocs.io/en/latest/NaiveBayes.html">Bayes Classifiers and Naive Bayes</a></p>
-<p><a href="https://pomegranate.readthedocs.io/en/latest/MarkovChain.html">Markov Chains</a></p>
-<p><a href="https://pomegranate.readthedocs.io/en/latest/BayesianNetwork.html">Bayesian Networks</a></p>
-<p><a href="https://pomegranate.readthedocs.io/en/latest/MarkovNetwork.html">Markov Networks</a></p>
+<p>most useful feature: training and inferring the hidden states ## supervised hmm learning ### seqlearn ### pomegranate (both supervised and unsupervised) <a href="https://pomegranate.readthedocs.io">documentation</a> All models that support labeled data support <a href="https://pomegranate.readthedocs.io/en/latest/semisupervised.html">semi-supervised learning</a>, including naive Bayes classifiers, general Bayes classifiers, and hidden Markov models. While <a href="https://pomegranate.readthedocs.io/en/latest/Distributions.html#">probability Distributions</a> are frequently used as components of more complex models such as mixtures and hidden Markov models, they can also be used by themselves. Many data science tasks require fitting a distribution to data or generating samples under a distribution. pomegranate has a large library of both univariate and multivariate distributions which can be used with an intuitive interface. <a href="https://pomegranate.readthedocs.io/en/latest/GeneralMixtureModel.html">General Mixture Models</a> (GMMs) are an unsupervised probabilistic model composed of multiple distributions (commonly referred to as components) and corresponding weights. This allows you to model more complex distributions corresponding to a singular underlying phenomena. For a full tutorial on what a mixture model is and how to use them, see the above tutorial. <a href="https://pomegranate.readthedocs.io/en/latest/HiddenMarkovModel.html">Hidden Markov Models</a> <a href="https://pomegranate.readthedocs.io/en/latest/NaiveBayes.html">Bayes Classifiers and Naive Bayes</a> <a href="https://pomegranate.readthedocs.io/en/latest/MarkovChain.html">Markov Chains</a> <a href="https://pomegranate.readthedocs.io/en/latest/BayesianNetwork.html">Bayesian Networks</a> <a href="https://pomegranate.readthedocs.io/en/latest/MarkovNetwork.html">Markov Networks</a></p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -4,15 +4,11 @@
 ---
 
 ------
-
 # pyjom dev schedules
-
 ## 整活
 - [ ] 应 急 诈 骗 食 品 (派蒙加Rick Ashley 如何混合？）
-
 ## recommendation
 - [ ] use txtai to do NLU and recommend things to people
-
 ## topic discovery/acquiring
 ### trending topics
 - [ ] baidu search trending
@@ -33,7 +29,6 @@
 - [ ] tencent qq customized (can associate with mail)
 - [ ] wechat customized
 - [ ] bilibili per user customized
-
 ## dog/cat video generation
 ### make render engine runnable
 issues:
@@ -44,11 +39,9 @@ it was the speed calculation error.
 ```bash
 pip3 install pyloudnorm
 ```
-
 ```python
 import soundfile as sf
 import pyloudnorm as pyln
-
 data, rate = sf.read("0055014.wav") # load audio (with shape (samples, channels))
 print(data.shape)
 meter = pyln.Meter(rate) # create BS.1770 meter
@@ -73,7 +66,6 @@ print(loudness)
 - [x] make ass with karaoke effect with lrc files
 - [x] make lyrics sync logic fluent, according to what have learned from karaoke effects
 - [ ] make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?
-
 ## text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)
 ### generator models subarchitecture (subcategories of template based generators)
 #### flipcard
@@ -89,19 +81,14 @@ ________________________
 - [ ] paraphrase the script
 - [ ] cut the crap and understand each clip's meaning
 ________________________
-
 ### process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects
 ________________________
-
 ### process the audio clips, like changing voice, adding sound effects, separating audio/music tracks, ducking
 ________________________
-
 ### index, retrieve and align video and audio content according to our collected database
 ________________________
-
 ### retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation
 ________________________
-
 ## qq managing
 - [ ] mitm chats in friends
 - [ ] mitm chats in groups
@@ -109,16 +96,13 @@ ________________________
 - [ ] source and send pictures to chat
 - [ ] reduce posting frequency by group size and feedback
 - [ ] post relative video link relative to group topic
-
 ## personal info collecting and email/sms bulk sending
 - [ ] avoid mail being trashed or turned into junk
 - [ ] collect and make mail templates for mail posting
-
 ## voice changer
 - [ ] vst based voice changer
 - [ ] train or find a decent voice generator 御姐音语料库 小受音语料库
 请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢
-
 ## 直播 live streaming
 - [ ] source the video
 如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频
@@ -126,4 +110,3 @@ ________________________
 - [ ] source the audio
 - [ ] automatic interactions
 - [ ] handle the vtuber model's actions
-

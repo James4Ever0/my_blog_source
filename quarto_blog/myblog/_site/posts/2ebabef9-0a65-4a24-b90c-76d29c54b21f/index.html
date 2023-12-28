@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-06-03">
 <meta name="description" content="This article explains the use of Neo4j for indexing, querying relationships, and creating recommendation systems using customer ratings and cosine similarity calculations. The comments provide code examples, update node properties, and cover static/dynamic value access in maps and lists for sorting and filtering items by topics or properties.">
 
-<title>James’s Blog - Neo4j learning notes</title>
+<title>James’ Blog - Neo4j learning notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -147,35 +142,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="neo4j-learning-notes" class="level1">
-<h1>Neo4j learning notes</h1>
-<p><a href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once</p>
-<p>to query undirected relationships: match () – (p) return p</p>
-<p>create fulltext index create fulltext index lucene for (n:Person) on each [n.title, n.description] call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score</p>
-<p>calculate customer rating cosine similarity for recommendation: https://neo4j.com/graphgists/northwind-recommendation-engine match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer) with sum(r1.score<em>r2.score) as dot_product, sqrt(reduce(x=0, a in r1.score | x+a^2)) as r1_length, sqrt(reduce(y=0, b in r2.score | y+b^2)) as r2_length merge (c1)-[s:similarity}]-(c2) set s += {score:dot_product/(r1_length</em>r2_length)</p>
-<p>use collect to turn maps into lists: match (p) return collect(p.names)</p>
-<p>exist subquery: match (n:Person) where exists { match (n) –(t:Tech) where size((t)-[:likes]-(:Person)) &gt;2 } return n.name</p>
-<p>list comprehension: return [x in range(0,10) where x%3 = 0| x/2] as list return [x in range(0,10) where not x in range(4,10) |x ] as list</p>
-<p>to use conditional matches or regular expressions: match () – (p) where p.name in [“helen”] or p.name =~ “.<em>chinese.</em>” return p</p>
-<p>create index on properties: create index for (n:Category) on (n.categoryName)</p>
-<p>asterisks:</p>
-<p>load csv: load csv with headers from “http://localhost/person.csv” as line call {with line merge (n:person {id: toInteger(line.id)}) set n.name = line.name } in transactions of 2 rows</p>
-<p>count nodes: match (n) return count(n)</p>
-<p>match relationship patterns: match (n) -[:friend|hater*3]-&gt;(p) return p limit 20</p>
-<p>node can have multiple labels, while relationship can only have one type, both specified after the colon.</p>
-<p>simple case expression: match(n) return case n.eyes when “blue” then 1 when “brown” then 2 else 3 end as result</p>
-<p>generic case expression match (n) return case when n.eyes = “blue” then 1 when n.age &gt; 40 then 2 else 3 // if without else then return null end as result</p>
-<p>inequality symbol: &lt;&gt;</p>
-<p>mutating updating node properties: match(n) set n+={name:“helen”} // if using = the properties will be totally replaced instead of update. return n.name</p>
-<p>merge can only ensure the existance of one node or pattern at a time, no comma</p>
-<p>plus can concatenate strings</p>
-<p>tenporal dataformat can be used as numbers to compute.</p>
-<p>Map operators . for static value access by key, [] for dynamic value access by key</p>
-<p>List operators + for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically</p>
-<p>recommendation steps: first find targets by meta relatonships next sort recommendation by frequency, ratings or occurance third filter items by topics or properties</p>
+<p><a href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once to query undirected relationships: match () – (p) return p create fulltext index create fulltext index lucene for (n:Person) on each [n.title, n.description] call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score calculate customer rating cosine similarity for recommendation: https://neo4j.com/graphgists/northwind-recommendation-engine match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer) with sum(r1.score<em>r2.score) as dot_product, sqrt(reduce(x=0, a in r1.score | x+a^2)) as r1_length, sqrt(reduce(y=0, b in r2.score | y+b^2)) as r2_length merge (c1)-[s:similarity}]-(c2) set s += {score:dot_product/(r1_length</em>r2_length) use collect to turn maps into lists: match (p) return collect(p.names) exist subquery: match (n:Person) where exists { match (n) –(t:Tech) where size((t)-[:likes]-(:Person)) &gt;2 } return n.name list comprehension: return [x in range(0,10) where x%3 = 0| x/2] as list return [x in range(0,10) where not x in range(4,10) |x ] as list to use conditional matches or regular expressions: match () – (p) where p.name in [“helen”] or p.name =~ “.<em>chinese.</em>” return p create index on properties: create index for (n:Category) on (n.categoryName) asterisks: load csv: load csv with headers from “http://localhost/person.csv” as line call {with line merge (n:person {id: toInteger(line.id)}) set n.name = line.name } in transactions of 2 rows count nodes: match (n) return count(n) match relationship patterns: match (n) -[:friend|hater*3]-&gt;(p) return p limit 20 node can have multiple labels, while relationship can only have one type, both specified after the colon. simple case expression: match(n) return case n.eyes when “blue” then 1 when “brown” then 2 else 3 end as result generic case expression match (n) return case when n.eyes = “blue” then 1 when n.age &gt; 40 then 2 else 3 // if without else then return null end as result inequality symbol: &lt;&gt; mutating updating node properties: match(n) set n+={name:“helen”} // if using = the properties will be totally replaced instead of update. return n.name merge can only ensure the existance of one node or pattern at a time, no comma plus can concatenate strings tenporal dataformat can be used as numbers to compute. Map operators . for static value access by key, [] for dynamic value access by key List operators + for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically recommendation steps: first find targets by meta relatonships next sort recommendation by frequency, ratings or occurance third filter items by topics or properties</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

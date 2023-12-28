@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-26">
 <meta name="description" content="This article explores semantic search techniques using Python libraries, examines command line tools for platforms like Slashdot and SourceForge, delves into AI-assisted search libraries, and provides a curated list of search engines from medevel.com/os.">
 
-<title>James’s Blog - commandline search engine bridger</title>
+<title>James’ Blog - commandline search engine bridger</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,8 +179,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="commandline-search-engine-bridger" class="level1">
-<h1>commandline search engine bridger</h1>
 <section id="search-commands-on-commandline" class="level2">
 <h2 class="anchored" data-anchor-id="search-commands-on-commandline">search commands on commandline</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> <span class="at">-k</span> <span class="op">&lt;</span>keywords<span class="op">&gt;</span></span>
@@ -197,81 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="nosqlnosqlite-key-value-json-like-document-store-databases-sqlite-high-level-wrappers" class="level2">
 <h2 class="anchored" data-anchor-id="nosqlnosqlite-key-value-json-like-document-store-databases-sqlite-high-level-wrappers">nosql/nosqlite key-value json like document store databases, sqlite high level wrappers</h2>
-<p><a href="https://github.com/coleifer/">this guy</a> makes database related libraries.</p>
-<hr>
-<p><a href="https://lsm-db.readthedocs.io/en/latest/">lsm-db</a> fast key-value store using sqlite 4</p>
-<p><a href="https://github.com/coleifer/unqlite-python">unqlite</a> Python bindings for the UnQLite embedded NoSQL database</p>
-<p><a href="https://github.com/msiemens/tinydb">tinydb</a> json-oriented, mongo alike database, which is a in-memory database</p>
-<p><a href="https://github.com/JonathanVusich/litedb">litedb</a> NoSQL Python database written for ease of use/performance.</p>
-<p><a href="https://github.com/dariubs/pylite">pylite</a> sqlite3 lightweight wrapper</p>
-</section>
-<section id="reason-to-develop-this" class="level2">
-<h2 class="anchored" data-anchor-id="reason-to-develop-this">reason to develop this</h2>
-<p>you are short of brain power. short of time to perspect and investigate.</p>
-<p>many platforms now have recommendation engines, but they do not have powerful semantic search tools. what a pity. maybe i am interested in some ‘unseen’ stuff, but i want to get the thing that i currently need! fail to do so will limit my productivity.</p>
-</section>
-<section id="sentence-embeddings" class="level2">
-<h2 class="anchored" data-anchor-id="sentence-embeddings">sentence embeddings</h2>
-<p>difference between ‘symmetric’ and ‘asymmetric’ retrieval questions from sbert.net:</p>
-<p>symmetric means similar, asymmetric usually means question to answer.</p>
-<p><a href="https://www.analyticsvidhya.com/blog/2020/08/top-4-sentence-embedding-techniques-using-python/">top 4 sentence embedding techniques using python</a></p>
-<p><a href="https://github.com/prabha88978/Sentence-To-Vector">sentence to vector</a></p>
-<p>tutorial: <a href="https://www.baeldung.com/cs/sentence-vectors-word2vec">sentence vector word2vec</a></p>
-<p><a href="https://github.com/stanleyfok/sentence2vec">sentence2vec based on word2vec</a></p>
-</section>
-<section id="similarity-search-and-clustering" class="level2">
-<h2 class="anchored" data-anchor-id="similarity-search-and-clustering">similarity search and clustering</h2>
-<p>facebook <a href="https://github.com/facebookresearch/faiss/watchers">faiss</a></p>
-<p><a href="https://github.com/nmslib/hnswlib">hnswlib</a> Header-only C++/python library for fast approximate nearest neighbors</p>
-<p>spotify <a href="https://github.com/spotify/annoy">annoy</a> Approximate Nearest Neighbors in C++/Python optimized for memory usage and loading/saving to disk</p>
-</section>
-<section id="problems" class="level2">
-<h2 class="anchored" data-anchor-id="problems">problems</h2>
-<ul class="task-list">
-<li><p><input type="checkbox">enable copy/pasting/selection in console</p></li>
-<li><p><input type="checkbox">make reversible/auto-cleanup feature when copy and pasting</p></li>
-<li><p><input type="checkbox" checked="">reverse stemming and keywords highlighting</p></li>
-<li><p><input type="checkbox">memory efficient embedding querying/storage via sql or binary format</p></li>
-</ul>
-<p>txtai store to sqlite: <a href="https://github.com/neuml/txtai/blob/master/examples/03_Build_an_Embeddings_index_from_a_data_source.ipynb">Build an Embeddings index from a data source</a></p>
-<ul class="task-list">
-<li><input type="checkbox">make “complete” excerpt by looking ahead and backward to find the closest sentence start/stop and/or use gpt completion method instead? still need punctual or sentence start/stop index identification.</li>
-</ul>
-</section>
-<section id="offline" class="level2">
-<h2 class="anchored" data-anchor-id="offline">offline</h2>
-<section id="terminal-interface-builder" class="level3">
-<h3 class="anchored" data-anchor-id="terminal-interface-builder">terminal interface builder</h3>
-<p><a href="https://pypi.org/project/rich/">rich</a> and <a href="https://python.plainenglish.io/build-your-own-search-engine-in-python-part-1-2-the-engine-3b060e49eb84">tutorial</a></p>
-<p><a href="https://github.com/Textualize/textual">textual</a></p>
-<p><a href="https://github.com/urwid/urwid">urwid</a></p>
-<p><a href="https://plie.readthedocs.io/en/master/renderer.html">plie</a></p>
-</section>
-<section id="ai-assisted-search-engine-libraries" class="level3">
-<h3 class="anchored" data-anchor-id="ai-assisted-search-engine-libraries">ai assisted search engine libraries</h3>
-<p><a href="https://github.com/jina-ai/jina">jina-ai</a> and docarray</p>
-<p><a href="https://github.com/neuml/txtai">txtai</a></p>
-<p><a href="https://github.com/typesense/typesense">typesense</a></p>
-<p><a href="https://github.com/zinclabs/zinc">zinc</a> search</p>
-<p><a href="https://pypi.org/project/fuzzy-search/">fuzzy search</a></p>
-<p><a href="https://pypi.org/project/Fuzzy/">fuzzy</a> phonic toolkit</p>
-</section>
-<section id="traditional-search-engine-libraries" class="level3">
-<h3 class="anchored" data-anchor-id="traditional-search-engine-libraries">traditional search engine libraries</h3>
-<p><a href="https://github.com/luceneplusplus/LucenePlusPlus">luceneplusplus</a> lucene in c++</p>
-<p><a href="https://github.com/pythonql/pythonql">pythonql</a> as extension of python syntax, able to search data in python data structure.</p>
-<p><a href="https://github.com/stedolan/jq">jq</a> and <a href="https://pypi.org/project/pyjq/">pyjq</a> as json search engine, <a href="https://jqterm.com/?query=.">jqterm</a> as jq repl</p>
-<p><a href="https://github.com/wader/fq">fq</a> jq for binary formats</p>
-<p><a href="https://medevel.com/os-fulltext-search-solutions/">a curated search engine list</a></p>
-<p><a href="https://scout.readthedocs.io/en/latest/server.html">scout</a> sqlite based full text search</p>
-<p><a href="https://pypi.org/project/Whoosh/">whoosh</a> with bm25 support</p>
-<p><a href="https://github.com/bartdegoede/python-searchengine">python-searchengine</a> and <a href="https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/">the tutorial</a></p>
-</section>
-</section>
-<section id="online" class="level2">
-<h2 class="anchored" data-anchor-id="online">online</h2>
-<p><a href="https://github.com/kisom/surfraw">surfraw</a>, or just <a href="https://github.com/zquestz/s">s</a>, is for some common parameter prefixes for searching on common websites. will open GUI browser or cli browser if configured with one.</p>
-<p>surfraw supported:</p>
+<p><a href="https://github.com/coleifer/">this guy</a> makes database related libraries. ________________________________________ <a href="https://lsm-db.readthedocs.io/en/latest/">lsm-db</a> fast key-value store using sqlite 4 <a href="https://github.com/coleifer/unqlite-python">unqlite</a> Python bindings for the UnQLite embedded NoSQL database <a href="https://github.com/msiemens/tinydb">tinydb</a> json-oriented, mongo alike database, which is a in-memory database <a href="https://github.com/JonathanVusich/litedb">litedb</a> NoSQL Python database written for ease of use/performance. <a href="https://github.com/dariubs/pylite">pylite</a> sqlite3 lightweight wrapper ## reason to develop this you are short of brain power. short of time to perspect and investigate. many platforms now have recommendation engines, but they do not have powerful semantic search tools. what a pity. maybe i am interested in some ‘unseen’ stuff, but i want to get the thing that i currently need! fail to do so will limit my productivity. ## sentence embeddings difference between ‘symmetric’ and ‘asymmetric’ retrieval questions from sbert.net: symmetric means similar, asymmetric usually means question to answer. <a href="https://www.analyticsvidhya.com/blog/2020/08/top-4-sentence-embedding-techniques-using-python/">top 4 sentence embedding techniques using python</a> <a href="https://github.com/prabha88978/Sentence-To-Vector">sentence to vector</a> tutorial: <a href="https://www.baeldung.com/cs/sentence-vectors-word2vec">sentence vector word2vec</a> <a href="https://github.com/stanleyfok/sentence2vec">sentence2vec based on word2vec</a> ## similarity search and clustering facebook <a href="https://github.com/facebookresearch/faiss/watchers">faiss</a> <a href="https://github.com/nmslib/hnswlib">hnswlib</a> Header-only C++/python library for fast approximate nearest neighbors spotify <a href="https://github.com/spotify/annoy">annoy</a> Approximate Nearest Neighbors in C++/Python optimized for memory usage and loading/saving to disk ## problems - [ ] enable copy/pasting/selection in console - [ ] make reversible/auto-cleanup feature when copy and pasting - [x] reverse stemming and keywords highlighting - [ ] memory efficient embedding querying/storage via sql or binary format txtai store to sqlite: <a href="https://github.com/neuml/txtai/blob/master/examples/03_Build_an_Embeddings_index_from_a_data_source.ipynb">Build an Embeddings index from a data source</a> - [ ] make “complete” excerpt by looking ahead and backward to find the closest sentence start/stop and/or use gpt completion method instead? still need punctual or sentence start/stop index identification. ## offline ### terminal interface builder <a href="https://pypi.org/project/rich/">rich</a> and <a href="https://python.plainenglish.io/build-your-own-search-engine-in-python-part-1-2-the-engine-3b060e49eb84">tutorial</a> <a href="https://github.com/Textualize/textual">textual</a> <a href="https://github.com/urwid/urwid">urwid</a> <a href="https://plie.readthedocs.io/en/master/renderer.html">plie</a> ### ai assisted search engine libraries <a href="https://github.com/jina-ai/jina">jina-ai</a> and docarray <a href="https://github.com/neuml/txtai">txtai</a> <a href="https://github.com/typesense/typesense">typesense</a> <a href="https://github.com/zinclabs/zinc">zinc</a> search <a href="https://pypi.org/project/fuzzy-search/">fuzzy search</a> <a href="https://pypi.org/project/Fuzzy/">fuzzy</a> phonic toolkit ### traditional search engine libraries <a href="https://github.com/luceneplusplus/LucenePlusPlus">luceneplusplus</a> lucene in c++ <a href="https://github.com/pythonql/pythonql">pythonql</a> as extension of python syntax, able to search data in python data structure. <a href="https://github.com/stedolan/jq">jq</a> and <a href="https://pypi.org/project/pyjq/">pyjq</a> as json search engine, <a href="https://jqterm.com/?query=.">jqterm</a> as jq repl <a href="https://github.com/wader/fq">fq</a> jq for binary formats <a href="https://medevel.com/os-fulltext-search-solutions/">a curated search engine list</a> <a href="https://scout.readthedocs.io/en/latest/server.html">scout</a> sqlite based full text search <a href="https://pypi.org/project/Whoosh/">whoosh</a> with bm25 support <a href="https://github.com/bartdegoede/python-searchengine">python-searchengine</a> and <a href="https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/">the tutorial</a> ## online <a href="https://github.com/kisom/surfraw">surfraw</a>, or just <a href="https://github.com/zquestz/s">s</a>, is for some common parameter prefixes for searching on common websites. will open GUI browser or cli browser if configured with one. surfraw supported:</p>
 <pre><code>W               -- Activate Surfraw defined web-browser
 acronym         -- Look for acronyms definitions (www.acronymfinder.com)
 ads             -- Search SAO/NASA Astrophysics Data System
@@ -397,127 +316,125 @@ yandex          -- Search the web using Yandex (yandex.ru)
 youtube         -- Search YouTube (www.youtube.com)
 yubnub          -- Use the social command-line for the web (yubnub.org)</code></pre>
 <p>S supported:</p>
-<pre><code>    500px
-    8tracks
-    aliexpress
-    allocine
-    amazon
-    archpkg
-    archwiki
-    ardmediathek
-    arstechnica
-    arxiv
-    atmospherejs
-    aur
-    baidu
-    bandcamp
-    bgr
-    bigbasket
-    bing
-    brave
-    buzzfeed
-    cnn
-    codepen
-    coursera
-    cplusplus
-    cppreference
-    crates
-    crunchyroll
-    debianpkg
-    dict
-    digg
-    diigo
-    dockerhub
-    dribbble
-    duckduckgo
-    dumpert
-    ecosia
-    engadget
-    explainshell
-    facebook
-    flickr
-    flipkart
-    foursquare
-    freebsdman
-    freshports
-    gibiru
-    giphy
-    gist
-    github
-    gmail
-    go
-    godoc
-    goodreads
-    google
-    googledocs
-    googleplus
-    hackernews
-    idealo
-    ietf
-    ifttt
-    imdb
-    imgur
-    inbox
-    instagram
-    kaufda
-    kickasstorrents
-    libgen
-    linkedin
-    lmgtfy
-    macports
-    magnetdl
-    mdn
-    medium
-    metacpan
-    msdn
-    naver
-    netflix
-    nhaccuatui
-    npm
-    npmsearch
-    npr
-    nvd
-    openbsdman
-    overstock
-    packagist
-    presearch
-    phandroid
-    php
-    pinterest
-    postgresql
-    python
-    quora
-    qwant
-    reddit
-    regex
-    rottentomatoes
-    rubygems
-    shodan
-    soundcloud
-    spotify
-    stackoverflow
-    steam
-    taobao
-    thepiratebay
-    theregister
-    torrentz
-    twitchtv
-    twitter
-    ultimateguitar
-    unity3d
-    upcloud
-    vimeo
-    wikipedia
-    wolframalpha
-    yahoo
-    yandex
-    youtube
-    zdf
-    zhihu
-</code></pre>
+<pre><code>500px
+8tracks
+aliexpress
+allocine
+amazon
+archpkg
+archwiki
+ardmediathek
+arstechnica
+arxiv
+atmospherejs
+aur
+baidu
+bandcamp
+bgr
+bigbasket
+bing
+brave
+buzzfeed
+cnn
+codepen
+coursera
+cplusplus
+cppreference
+crates
+crunchyroll
+debianpkg
+dict
+digg
+diigo
+dockerhub
+dribbble
+duckduckgo
+dumpert
+ecosia
+engadget
+explainshell
+facebook
+flickr
+flipkart
+foursquare
+freebsdman
+freshports
+gibiru
+giphy
+gist
+github
+gmail
+go
+godoc
+goodreads
+google
+googledocs
+googleplus
+hackernews
+idealo
+ietf
+ifttt
+imdb
+imgur
+inbox
+instagram
+kaufda
+kickasstorrents
+libgen
+linkedin
+lmgtfy
+macports
+magnetdl
+mdn
+medium
+metacpan
+msdn
+naver
+netflix
+nhaccuatui
+npm
+npmsearch
+npr
+nvd
+openbsdman
+overstock
+packagist
+presearch
+phandroid
+php
+pinterest
+postgresql
+python
+quora
+qwant
+reddit
+regex
+rottentomatoes
+rubygems
+shodan
+soundcloud
+spotify
+stackoverflow
+steam
+taobao
+thepiratebay
+theregister
+torrentz
+twitchtv
+twitter
+ultimateguitar
+unity3d
+upcloud
+vimeo
+wikipedia
+wolframalpha
+yahoo
+yandex
+youtube
+zdf
+zhihu</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

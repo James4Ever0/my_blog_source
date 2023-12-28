@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-11">
 <meta name="description" content="This article delves into the practicalities of using Docker, addressing various tasks like logging into MySQL, configuring databases, managing volumes, optimizing pip URLs, exporting/importing containers, tweaking port mappings, creating custom networks, assigning IPs, and troubleshooting container communication problems. Comments A and B provide valuable insights and tips for efficient Docker usage.">
 
-<title>James’s Blog - docker usage issues</title>
+<title>James’ Blog - docker usage issues</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,35 +179,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="docker-usage-issues" class="level1">
-<h1>docker usage issues</h1>
 <p>login mysql with empty password then execute command to make it remotely available:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mysql</span> <span class="at">-uroot</span> <span class="at">--password</span><span class="op">=</span> <span class="at">-e</span> <span class="st">"grant all privileges on *.* to root@'%' identified by '' with grant option; commit;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>create volume and attach volume to container, since containers will be reset after system restarts.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume create <span class="op">&lt;</span>volume_name<span class="op">&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">-d</span> <span class="at">--rm</span> <span class="at">-v</span> <span class="op">&lt;</span>volume_name<span class="op">&gt;</span>:<span class="op">&lt;</span>container_mountpoint<span class="op">&gt;</span> --name <span class="op">&lt;</span>container_name<span class="op">&gt;</span> <span class="op">&lt;</span>image_name<span class="op">&gt;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> volume inspect <span class="op">&lt;</span>volume_name<span class="op">&gt;</span> # get info on created volume</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>when using mindsdb, it sucks because having bad pypi mirrors.</p>
-<p>set pip index url globally:</p>
+<p>when using mindsdb, it sucks because having bad pypi mirrors. set pip index url globally:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or pass it as environment variable:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-it</span> <span class="at">-d</span> <span class="at">-e</span> PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple <span class="at">-n</span> <span class="op">&lt;</span>container_name<span class="op">&gt;</span> <span class="op">&lt;</span>image_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>if you want to save container states into images, use <code>docker commit &lt;container_name&gt; &lt;image_name&gt;[:image_tag]</code></p>
-<p>Keep in mind that the <code>docker commit</code> command only saves the changes made to a container’s file system. It does not save any changes made to the container’s settings or network configurations. To save all changes made to a container, including settings and network configurations, you can use the <code>docker export</code> and <code>docker import</code> commands instead.</p>
-<p>when exporting ports, if not specifying host ip, you cannot reach the service inside the container. do this instead: <code>docker run -p 0.0.0.0:&lt;host_port&gt;:&lt;container_port&gt; &lt;rest_commands&gt;</code></p>
-<p>it seems to be the proxy (fastgithub). disable http proxy so we can connect to container again, or use clash to make rules to let “localhost” or subnet requests passing through.</p>
-<p>if you want to change ip routings or some other configurations passed when <code>docker run</code>, you need to change the file called <code>hostconfig.json</code> located in <code>/var/lib/docker/containers/&lt;container_id&gt;</code> with <code>PortBindings</code> sections. you stop the container first. find and change the config file then start it. <a href="https://ahelpme.com/software/docker/docker-change-the-port-mapping-of-an-existing-container/#:~:text=Here%20is%20the%20whole%20procedure%3A%201%20Stop%20the,Docker%20container%20service.%205%20Start%20the%20docker%20container.">tutorial</a></p>
-<p>seems not working. fuck.</p>
-<pre><code>
-"PortBindings": {
-    "80/tcp": [
-        {
-            "HostPort": "8080"
-        }
-    ],
+<p>if you want to save container states into images, use <code>docker commit &lt;container_name&gt; &lt;image_name&gt;[:image_tag]</code> Keep in mind that the <code>docker commit</code> command only saves the changes made to a container’s file system. It does not save any changes made to the container’s settings or network configurations. To save all changes made to a container, including settings and network configurations, you can use the <code>docker export</code> and <code>docker import</code> commands instead. when exporting ports, if not specifying host ip, you cannot reach the service inside the container. do this instead: <code>docker run -p 0.0.0.0:&lt;host_port&gt;:&lt;container_port&gt; &lt;rest_commands&gt;</code> it seems to be the proxy (fastgithub). disable http proxy so we can connect to container again, or use clash to make rules to let “localhost” or subnet requests passing through. if you want to change ip routings or some other configurations passed when <code>docker run</code>, you need to change the file called <code>hostconfig.json</code> located in <code>/var/lib/docker/containers/&lt;container_id&gt;</code> with <code>PortBindings</code> sections. you stop the container first. find and change the config file then start it. <a href="https://ahelpme.com/software/docker/docker-change-the-port-mapping-of-an-existing-container/#:~:text=Here%20is%20the%20whole%20procedure%3A%201%20Stop%20the,Docker%20container%20service.%205%20Start%20the%20docker%20container.">tutorial</a> seems not working. fuck.</p>
+<pre><code>"PortBindings": {
+"80/tcp": [
+{
+"HostPort": "8080"
+}
+],
 }</code></pre>
-<p>containers can only contact each other if they share the same network. better give unique ip for each container within same network. it can also use container name as host name instead of static ip. <a href="https://maximorlov.com/4-reasons-why-your-docker-containers-cant-talk-to-each-other/">tutorial</a></p>
-<p>create a network (not overlapping with anything shown in <code>ifconfig</code>, notice the subnet mask):</p>
+<p>containers can only contact each other if they share the same network. better give unique ip for each container within same network. it can also use container name as host name instead of static ip. <a href="https://maximorlov.com/4-reasons-why-your-docker-containers-cant-talk-to-each-other/">tutorial</a> create a network (not overlapping with anything shown in <code>ifconfig</code>, notice the subnet mask):</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> network create <span class="at">--subnet</span><span class="op">=</span>172.18.0.0/16 <span class="op">&lt;</span>network_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>start container with given network (again not overlapping with addresses in <code>ifconfig</code>, not the starting address):</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-d</span> <span class="at">-it</span> <span class="at">--net</span> <span class="op">&lt;</span>network_name<span class="op">&gt;</span> --ip <span class="op">&lt;</span>ipaddress<span class="op">&gt;</span> --name <span class="op">&lt;</span>container_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -221,7 +206,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>now you might can talk to the container without port mappings.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

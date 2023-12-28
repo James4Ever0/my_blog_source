@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-10">
 <meta name="description" content="Explore the possibilities of custom karaoke effects in Advanced Substation Alpha (ASS) subtitle files, specifically focusing on LRC tags and time-based grouping. This resource provides a comprehensive understanding of tags used for creating various effects and showcases practical examples to enhance your project’s visual appeal.">
 
-<title>James’s Blog - Advanced ASS subtitle Karaoke Effects</title>
+<title>James’ Blog - Advanced ASS subtitle Karaoke Effects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -190,30 +185,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="advanced-ass-subtitle-karaoke-effects" class="level1">
 <h1>Advanced ASS Subtitle Karaoke Effects</h1>
-<p><a href="https://github.com/arch1t3cht/Aegisub-Scripts/blob/c3cb38ccdea000c708c3abbd2912da2134e61e23/doc/templaters.md">library collection and guide on how to create karakoe effects programmatically</a></p>
-<section id="lrc-files" class="level2">
-<h2 class="anchored" data-anchor-id="lrc-files">lrc files</h2>
-<p>crop music that does not sing too early? maybe no need.</p>
-<p>we need to sort them out by time! prevent serious issues.</p>
-<p>skip empty lines?</p>
-<p>lrc files only have start time but no end time. we group parallel lyrics by time, if they are close enough we make it into a group.</p>
-<p>groups act as time separators. no two group share the same time. <strong>also group have maximum span time, minimum span time calculated by content</strong>, and group should always in bound.</p>
-<p><strong>should apply the same min-max rule when selecting my video clips</strong></p>
-<p><a href="https://web.archive.org/web/20200722050630/http://docs.aegisub.org/3.2/ASS_Tags/">all ass file tags, for custom karaoke effects creation</a></p>
-<p>my karaoke effect:</p>
+<p><a href="https://github.com/arch1t3cht/Aegisub-Scripts/blob/c3cb38ccdea000c708c3abbd2912da2134e61e23/doc/templaters.md">library collection and guide on how to create karakoe effects programmatically</a> ## lrc files crop music that does not sing too early? maybe no need. we need to sort them out by time! prevent serious issues. skip empty lines? lrc files only have start time but no end time. we group parallel lyrics by time, if they are close enough we make it into a group. groups act as time separators. no two group share the same time. <strong>also group have maximum span time, minimum span time calculated by content</strong>, and group should always in bound. <strong>should apply the same min-max rule when selecting my video clips</strong> <a href="https://web.archive.org/web/20200722050630/http://docs.aegisub.org/3.2/ASS_Tags/">all ass file tags, for custom karaoke effects creation</a> my karaoke effect:</p>
 <pre><code>{\k-50\K400}
 {\k-&lt;initial offset&gt;\K&lt;total duration&gt;}</code></pre>
 <p>play ass file with mpv on demo video, full screen, no audio:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">rootpath</span><span class="op">=</span>/Users/jamesbrown/desktop/works/pyjom_remote/</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mpv</span> <span class="at">--fs</span> <span class="at">--no-audio</span> <span class="at">--sub-file</span><span class="op">=</span><span class="st">"</span><span class="va">$rootpath</span><span class="st">/tests/karaoke_effects/pyonfx_test/examples/2 - Beginner/Output.ass"</span> <span class="st">"</span><span class="va">$rootpath</span><span class="st">/samples/video/karaoke_effects_source.mp4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>create karaoke effects https://github.com/Kagu-chan/FXSpindle</p>
-<p>karaoke effects https://github.com/Youka/NyuFX <a href="https://github.com/CoffeeStraw/PyonFX">pyonfx code</a> recommend to use effect <code>2 beginners -&gt; 3 variants</code> in examples, while <code>3 advanced -&gt; 2 testing pixels</code> as reference (more advanced but incomplete, and might be very intensive) <a href="https://pyonfx.readthedocs.io/en/latest/quick%20start.html#starting-out">pyonfx documentation</a> https://github.com/logarrhythmic/karaOK</p>
-<p>aegisub and its plugins https://github.com/Myaamori/aegisub-cli https://github.com/qwe7989199/Lyric-Importer-for-Aegisub https://github.com/qwe7989199/aegisub_scripts https://github.com/lyger/Aegisub_automation_scripts http://www.aegisub.org/</p>
-<p>eyecandy create karaoke ass files: https://github.com/Alquimista/Eyecandy-py</p>
-<p>create karaoke effects subtitle with lrc file, support chinese https://github.com/DYY-Studio/lrc2ass_py3</p>
+<p>create karaoke effects https://github.com/Kagu-chan/FXSpindle karaoke effects https://github.com/Youka/NyuFX <a href="https://github.com/CoffeeStraw/PyonFX">pyonfx code</a> recommend to use effect <code>2 beginners -&gt; 3 variants</code> in examples, while <code>3 advanced -&gt; 2 testing pixels</code> as reference (more advanced but incomplete, and might be very intensive) <a href="https://pyonfx.readthedocs.io/en/latest/quick%20start.html#starting-out">pyonfx documentation</a> https://github.com/logarrhythmic/karaOK aegisub and its plugins https://github.com/Myaamori/aegisub-cli https://github.com/qwe7989199/Lyric-Importer-for-Aegisub https://github.com/qwe7989199/aegisub_scripts https://github.com/lyger/Aegisub_automation_scripts http://www.aegisub.org/ eyecandy create karaoke ass files: https://github.com/Alquimista/Eyecandy-py create karaoke effects subtitle with lrc file, support chinese https://github.com/DYY-Studio/lrc2ass_py3</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

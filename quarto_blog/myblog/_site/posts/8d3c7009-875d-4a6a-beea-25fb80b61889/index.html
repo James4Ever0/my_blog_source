@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-21">
 <meta name="description" content="GitFS is a powerful tool that allows users to mount Git/GitHub repos as read-write user filesystems using FUSE. This innovative approach offers advantages over traditional cloud-based Git IDEs, while also providing customization resources for popular platforms such as VSCode Insider and SpaceVim. Users can enjoy the benefits of a fully searchable Git history combined with the convenience of a local filesystem, making it an essential tool for efficient code management.">
 
-<title>James’s Blog - Cloud based Github Web IDE, VSCode auto commit and lightweight terminal IDE</title>
+<title>James’ Blog - Cloud based Github Web IDE, VSCode auto commit and lightweight terminal IDE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -147,28 +142,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="cloud-based-github-web-ide-vscode-auto-commit-and-lightweight-terminal-ide" class="level1">
-<h1>Cloud based Github Web IDE, VSCode auto commit and lightweight terminal IDE</h1>
-<p>solved by gitfs</p>
-<p>libgit2 sucks.</p>
-<p><a href="https://github.com/presslabs/gitfs">most stars</a> this gitfs is actually a searchable git history filesystem.</p>
-<p><a href="https://github.com/semk/GitFS">tested</a></p>
-<p><a href="https://gitee.com/wuyu15255872976/gitee-python-client/tree/master/gitee_client/apis">gitee python api, first step is to get access token by login</a></p>
-<p><a href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">gitee apis</a></p>
-<p>can we mount git/github repo as user filesystem(fuse)?</p>
-<p>usually read-only github/git filesystems, but this one is different. <a href="https://github.com/danishprakash/githubfs">it</a> is backed by <a href="https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository">writable github apis</a> and is written in python, with <a href="https://github.com/terencehonles/fusepy">python implementation of fuse</a> which is updated <a href="https://github.com/fusepy/fusepy">here</a>. this pygithub has trending api(maybe?) which is useful for social engineering or propaganda.</p>
-<p>we could also implement a watchdog like system to check against the files using pygithub.</p>
-<p>cloud based github ide includes gitpod.io, github.dev, pythonanywhere but these are with serious limitations, most importantly without autocommit or too restricted to write code.</p>
-<p>browse github repo as remote filesystem(vscode insider): https://marketplace.visualstudio.com/items?itemName=github.remotehub</p>
-<p>the vscode desktop is too resource heavy. though we have found <a href="https://marketplace.visualstudio.com/items?itemName=emjio.git-auto-commit">a plugin to auto commit</a> that also has <a href="https://github.com/emjio/git-auto-commit">a github repo</a> to git repo(only for vscode insider):</p>
-<p>spacevim with <a href="https://github.com/jordst/colorscheme">custom color theme</a> and nerdfont installed.</p>
-<p><a href="https://spacevim.org/documentation/">spacevim documentation</a></p>
-<p><a href="https://vim.fandom.com/wiki">vim wiki by fandom</a></p>
-<p>run multiple vim commands at once:</p>
+<p>solved by gitfs libgit2 sucks. <a href="https://github.com/presslabs/gitfs">most stars</a> this gitfs is actually a searchable git history filesystem. <a href="https://github.com/semk/GitFS">tested</a> <a href="https://gitee.com/wuyu15255872976/gitee-python-client/tree/master/gitee_client/apis">gitee python api, first step is to get access token by login</a> <a href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">gitee apis</a> can we mount git/github repo as user filesystem(fuse)? usually read-only github/git filesystems, but this one is different. <a href="https://github.com/danishprakash/githubfs">it</a> is backed by <a href="https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository">writable github apis</a> and is written in python, with <a href="https://github.com/terencehonles/fusepy">python implementation of fuse</a> which is updated <a href="https://github.com/fusepy/fusepy">here</a>. this pygithub has trending api(maybe?) which is useful for social engineering or propaganda. we could also implement a watchdog like system to check against the files using pygithub. cloud based github ide includes gitpod.io, github.dev, pythonanywhere but these are with serious limitations, most importantly without autocommit or too restricted to write code. browse github repo as remote filesystem(vscode insider): https://marketplace.visualstudio.com/items?itemName=github.remotehub the vscode desktop is too resource heavy. though we have found <a href="https://marketplace.visualstudio.com/items?itemName=emjio.git-auto-commit">a plugin to auto commit</a> that also has <a href="https://github.com/emjio/git-auto-commit">a github repo</a> to git repo(only for vscode insider): spacevim with <a href="https://github.com/jordst/colorscheme">custom color theme</a> and nerdfont installed. <a href="https://spacevim.org/documentation/">spacevim documentation</a> <a href="https://vim.fandom.com/wiki">vim wiki by fandom</a> run multiple vim commands at once:</p>
 <pre class="vimscript"><code>:cd / | NERDTree</code></pre>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -4,9 +4,5 @@
 ---
 
 ------
-
-# Fall detection can be used for media filtering
-
 we can select falling videos collection for fun.
 it is based on human pose classification.
-

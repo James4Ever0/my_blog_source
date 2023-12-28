@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-05">
 <meta name="description" content="This article provides a detailed guide on how to resize VMDK files in Oracle VirtualBox on Windows 7 using either command prompt or GParted Live CD. The process involves downloading the GParted ISO, creating a new virtual machine, resizing partitions, and applying changes.">
 
-<title>James’s Blog - how to extend vmdk in oracle virtualbox</title>
+<title>James’ Blog - how to extend vmdk in oracle virtualbox</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -149,44 +144,7 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="how-to-extendresize-vmdk-in-oracle-virtualbox" class="level1">
 <h1>how to extend/resize vmdk in oracle virtualbox</h1>
-<p>win 7 扩容: 开始菜单 计算机 右键 管理 存储 磁盘管理</p>
-<p>original article: https://www.patricia-anong.com/blog/2017/11/1/extend-vmdk-on-virtualbox</p>
-<p>When I first started using Oracle VirtualBox, I would mostly stick with the default options when creating a virtual machine. I soon realized, that wouldn’t work for RDBMS installations, and although I would just add new virtual disk drives, I started to have unused or 100% full disks on some VMs. Rather than delete the VM, I decided to learn how to extend the existing disks, the steps are listed below:</p>
-<p>Note: The Oracle Virtualbox Hypervisor is installed on a Windows OS</p>
-<p>Open a command prompt:</p>
-<p>Change directories to the VirtualBox Installation</p>
-<p>cd C:Files</p>
-<p>List the info on the disk you want to resize</p>
-<p>VBoxManage showhdinfo “C:VMs0.vmdk”</p>
-<p>Run the command to resize:</p>
-<p>VBoxManage modifyhd “C:VMs0.vmdk” –resize 50000</p>
-<p>6.png If you receive the error below, then you will have to create a new disk, clone the data on the existing disk to the new disk and then delete the original disk:</p>
-<p>7.png Create a new VMDK “dynamic” disk</p>
-<p>VBoxManage createhd –filename “C:VMs11.vmdk” –size 50000</p>
-<p>Clone old disk to the newly created disk VBoxManage clonehd “C:VMs0.vmdk” –existing “C:VMs11.vmdk”</p>
-<p>Release the old disk</p>
-<p>Go to Virtualbox Media Manager —&gt; Select D0.vmdk —&gt; Click the “Release” option.</p>
-<p>Note: DO NOT DELETE IT YET</p>
-<p>Add the new disk to the Virtual Machine</p>
-<p>Open the Machine folder and check the permission of the created hard disk. If it doesn’t have the proper permission then it gives error while attaching to the machine</p>
-<p>Open the Settings of the Virtual Machine —-&gt; Storage —&gt; Add Hardisk —–&gt; Select the hard disk that was just created.</p>
-<p>Make sure to remove all disks, then add the new one first to be /dev/sda.</p>
-<p>You’re not done yet! If you start the VM now, the disk space will not be present since it has not yet been presented and allocated to your Linux Server.</p>
-<p>To allocate the new disk, you will need to use GParted - a GUI for editing disk partitions.</p>
-<p>To download GParted, go to http://gparted.sourceforge.net/livecd.php to download the ISO file named GParted Live CD (Be sure to get the current version based on the architecture of your OS e.g.&nbsp;32-bit vs 64-bit).</p>
-<p>Create a new virtual machine for the GParted ISO on a Linux OS. Select Do not add a Hard Drive and ignore the warning.</p>
-<p>Select the GParted VM, go to Settings —–&gt; Storage —–&gt; Controller: IDE Controller —–&gt; Add a new CD/DVD. Add the GParted ISO file as the first item under Controller: IDE section and delete any additional empty disk slots. Add the disk that you wish to resize( C:VMs11.vmdk) under the Controller: SATA Controller section —–&gt; OK.</p>
-<p>Start the GParted VM —-&gt; GParted Live. Do not change any of the default settings. Press the power button on the GParted VM to start it.</p>
-<p>Now, you should have made a backup of your vdi at this point. If you haven’t go back and do that – so many things can go wrong here and you are on your own!</p>
-<p>If it is any partition other than /dev/sda1 you can right-click the partition you wish to resize and choose Resize/Move.</p>
-<p>IF YOU PREFER TO CREATE A NEW PARTITION WITH THE ADDITIONAL DISK SPACE YOU NEED TO CREATE A PARTITION: Device —-&gt; Create Partition Table</p>
-<p>It should be back to main screen, click on New —-&gt; Add (it should have selected all the free space - 20000MiB) —-&gt; Add</p>
-<p>You should see it now listed as New partition #1 not unallocated anymore.</p>
-<p>Click on Apply at the top of the GUI, then confirm again by clicking Apply. Click Close. You should now see the disk listed as /dev/sda# with 20Gb.</p>
-<p>Exit the GParted VM.</p>
-<p>Log on to the VM for the disk you just resized and everything should be functional and the /dev/sda drive should show the new size of 50Gb.</p>
-<p>Delete the Original Disk Drive</p>
-<p>Click the Remove option - this allows you to keep the HDD without deleting it from the system if you choose.</p>
+<p>win 7 扩容: 开始菜单 计算机 右键 管理 存储 磁盘管理 original article: https://www.patricia-anong.com/blog/2017/11/1/extend-vmdk-on-virtualbox When I first started using Oracle VirtualBox, I would mostly stick with the default options when creating a virtual machine. I soon realized, that wouldn’t work for RDBMS installations, and although I would just add new virtual disk drives, I started to have unused or 100% full disks on some VMs. Rather than delete the VM, I decided to learn how to extend the existing disks, the steps are listed below: Note: The Oracle Virtualbox Hypervisor is installed on a Windows OS Open a command prompt: Change directories to the VirtualBox Installation cd C:Files List the info on the disk you want to resize VBoxManage showhdinfo “C:VMs0.vmdk” Run the command to resize: VBoxManage modifyhd “C:VMs0.vmdk” –resize 50000 6.png If you receive the error below, then you will have to create a new disk, clone the data on the existing disk to the new disk and then delete the original disk: 7.png Create a new VMDK “dynamic” disk VBoxManage createhd –filename “C:VMs11.vmdk” –size 50000 Clone old disk to the newly created disk VBoxManage clonehd “C:VMs0.vmdk” –existing “C:VMs11.vmdk” Release the old disk Go to Virtualbox Media Manager —&gt; Select D0.vmdk —&gt; Click the “Release” option. Note: DO NOT DELETE IT YET Add the new disk to the Virtual Machine Open the Machine folder and check the permission of the created hard disk. If it doesn’t have the proper permission then it gives error while attaching to the machine Open the Settings of the Virtual Machine —-&gt; Storage —&gt; Add Hardisk —–&gt; Select the hard disk that was just created. Make sure to remove all disks, then add the new one first to be /dev/sda. You’re not done yet! If you start the VM now, the disk space will not be present since it has not yet been presented and allocated to your Linux Server. To allocate the new disk, you will need to use GParted - a GUI for editing disk partitions. To download GParted, go to http://gparted.sourceforge.net/livecd.php to download the ISO file named GParted Live CD (Be sure to get the current version based on the architecture of your OS e.g.&nbsp;32-bit vs 64-bit). Create a new virtual machine for the GParted ISO on a Linux OS. Select Do not add a Hard Drive and ignore the warning. Select the GParted VM, go to Settings —–&gt; Storage —–&gt; Controller: IDE Controller —–&gt; Add a new CD/DVD. Add the GParted ISO file as the first item under Controller: IDE section and delete any additional empty disk slots. Add the disk that you wish to resize( C:VMs11.vmdk) under the Controller: SATA Controller section —–&gt; OK. Start the GParted VM —-&gt; GParted Live. Do not change any of the default settings. Press the power button on the GParted VM to start it. Now, you should have made a backup of your vdi at this point. If you haven’t go back and do that – so many things can go wrong here and you are on your own! If it is any partition other than /dev/sda1 you can right-click the partition you wish to resize and choose Resize/Move. IF YOU PREFER TO CREATE A NEW PARTITION WITH THE ADDITIONAL DISK SPACE YOU NEED TO CREATE A PARTITION: Device —-&gt; Create Partition Table It should be back to main screen, click on New —-&gt; Add (it should have selected all the free space - 20000MiB) —-&gt; Add You should see it now listed as New partition #1 not unallocated anymore. Click on Apply at the top of the GUI, then confirm again by clicking Apply. Click Close. You should now see the disk listed as /dev/sda# with 20Gb. Exit the GParted VM. Log on to the VM for the disk you just resized and everything should be functional and the /dev/sda drive should show the new size of 50Gb. Delete the Original Disk Drive Click the Remove option - this allows you to keep the HDD without deleting it from the system if you choose.</p>
 
 
 </section>

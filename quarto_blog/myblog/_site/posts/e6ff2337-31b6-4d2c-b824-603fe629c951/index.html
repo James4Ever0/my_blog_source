@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-11-04">
 <meta name="description" content="This article explores Android packet capture methods, including disabling SSL pinning and utilizing tools like Frida scripts, JustTrustMe Xposed, SSLUnpinning Xposed, apk-mitm, or PCAPdroid-API. Additionally, it provides step-by-step instructions for setting up an HTTP proxy via ADB.">
 
-<title>James’s Blog - android packet capture</title>
+<title>James’ Blog - android packet capture</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -187,26 +182,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="android-packet-capture" class="level1">
-<h1>android packet capture</h1>
 <section id="disable-ssl-pinning" class="level2">
 <h2 class="anchored" data-anchor-id="disable-ssl-pinning">disable ssl pinning</h2>
-<p>use frida scripts specific to applications</p>
-<p>justtrustme xposed</p>
-<p>sslunpinning xposed</p>
-<p><a href="https://github.com/shroudedcode/apk-mitm">apk-mitm</a> by repacking apk and resigning</p>
-</section>
-<section id="capture-packet-routing" class="level2">
-<h2 class="anchored" data-anchor-id="capture-packet-routing">capture, packet routing</h2>
-<p>recommend to use: <a href="https://github.com/James4Ever0/PCAPdroid-API">PCAPdroid-API</a></p>
-<p><a href="https://github.com/emanuele-f/PCAPdroid/blob/master/docs/app_api.md">PCAPdroid API reference</a></p>
+<p>use frida scripts specific to applications justtrustme xposed sslunpinning xposed <a href="https://github.com/shroudedcode/apk-mitm">apk-mitm</a> by repacking apk and resigning ## capture, packet routing recommend to use: <a href="https://github.com/James4Ever0/PCAPdroid-API">PCAPdroid-API</a> <a href="https://github.com/emanuele-f/PCAPdroid/blob/master/docs/app_api.md">PCAPdroid API reference</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">adb</span> shell am start <span class="at">-e</span> action start <span class="at">-e</span> pcap_dump_mode udp_exporter <span class="at">-e</span> collector_ip_address 127.0.0.1 <span class="at">-e</span> collector_port 5123 <span class="at">-e</span> app_filter com.tencent.mobileqq <span class="at">-n</span> com.emanuelef.remote_capture.debug/com.emanuelef.remote_capture.activities.CaptureCtrl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>setting up http proxy via adb:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this does not ensure that the target app is captured.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">adb</span> shell settings put global http_proxy <span class="op">&lt;</span>address<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

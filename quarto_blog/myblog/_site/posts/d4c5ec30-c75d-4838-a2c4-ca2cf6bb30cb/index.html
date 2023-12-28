@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-11-29">
 <meta name="description" content="This article discusses the exploitation of the Log4j vulnerability using Fofa API, offering resources for effective search and query techniques.">
 
-<title>James’s Blog - Exploiting Log4j Vulnerability with Fofa API: A Comprehensive Guide</title>
+<title>James’ Blog - Exploiting Log4j Vulnerability with Fofa API: A Comprehensive Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -152,22 +147,7 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="my-fruitful-heist-attempt-with-fofa" class="level1">
 <h1>My fruitful heist attempt with fofa</h1>
-<p>Fofa api requires membership. I don’t want to enroll.</p>
-<p>You first test on your vulnerable machine/app, develop scanner, exploiter and listener, then mass exploit to millions.</p>
-<p>All recorded here: <code>hack_all_the_thing/tests/get_log4j_vuln</code></p>
-<p><a href="https://www.zoomeye.org/searchResult?q=log4j2&amp;page=2&amp;pageSize=20">zoomeye search for log4j</a></p>
-<p><a href="https://www.seebug.org">seebug</a></p>
-<p><a href="https://www.shodan.io/search?query=log4j2">shodan query for log4j2 (or anything)</a></p>
-<p><a href="https://blog.csdn.net/sinat_36001828/article/details/117729361?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.wap_relevant.none-task-blog-2~default~CTRLIST~Rate-2-117729361-blog-121949437.wap_blog_relevant_default&amp;depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~CTRLIST~Rate-2-117729361-blog-121949437.wap_blog_relevant_default">狮子鱼团购 fofa查询漏洞</a></p>
-<p><a href="https://hackertarget.com/sqlmap-post-request-injection/">Sqlmap post data inject</a></p>
-<p>To generate password dictionary without oom: <code>itertools.product(chrs, repeat=r)</code></p>
-<p><a href="https://fofa.info/result?qbase64=YXBwPSJMb2c0ajIi&amp;page=2&amp;page_size=10">search log4j2 in browser after login</a></p>
-<p><a href="https://fofa.info/hosts/121.199.46.85">info page of my first target</a> (login first!)</p>
-<p><a href="https://zhuanlan.zhihu.com/p/460403187?utm_id=0">fofa usage examples</a></p>
-<p><a href="http://121.199.46.85:8888/admin/mylogin">My first target login page</a></p>
-<p><a href="https://zww.gzjd.gov.cn/spa/spa/sdms?code=_PX5ips91MzPkvJJg--sfxzDdwAh0BDrBYbxPVSDXb8&amp;state=STATE">gov site?</a></p>
-<p><a href="https://gitee.com/xiaobingby/bing-upms/tree/master/src/test/java/com/xiaobingby">Bing-upms</a> the system used by my first target</p>
-<p><a href="https://github.com/topics/password-dictionaries">password dictionary topic in github</a></p>
+<p>Fofa api requires membership. I don’t want to enroll. You first test on your vulnerable machine/app, develop scanner, exploiter and listener, then mass exploit to millions. All recorded here: <code>hack_all_the_thing/tests/get_log4j_vuln</code> <a href="https://www.zoomeye.org/searchResult?q=log4j2&amp;page=2&amp;pageSize=20">zoomeye search for log4j</a> <a href="https://www.seebug.org">seebug</a> <a href="https://www.shodan.io/search?query=log4j2">shodan query for log4j2 (or anything)</a> <a href="https://blog.csdn.net/sinat_36001828/article/details/117729361?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.wap_relevant.none-task-blog-2~default~CTRLIST~Rate-2-117729361-blog-121949437.wap_blog_relevant_default&amp;depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~CTRLIST~Rate-2-117729361-blog-121949437.wap_blog_relevant_default">狮子鱼团购 fofa查询漏洞</a> <a href="https://hackertarget.com/sqlmap-post-request-injection/">Sqlmap post data inject</a> To generate password dictionary without oom: <code>itertools.product(chrs, repeat=r)</code> <a href="https://fofa.info/result?qbase64=YXBwPSJMb2c0ajIi&amp;page=2&amp;page_size=10">search log4j2 in browser after login</a> <a href="https://fofa.info/hosts/121.199.46.85">info page of my first target</a> (login first!) <a href="https://zhuanlan.zhihu.com/p/460403187?utm_id=0">fofa usage examples</a> <a href="http://121.199.46.85:8888/admin/mylogin">My first target login page</a> <a href="https://zww.gzjd.gov.cn/spa/spa/sdms?code=_PX5ips91MzPkvJJg--sfxzDdwAh0BDrBYbxPVSDXb8&amp;state=STATE">gov site?</a> <a href="https://gitee.com/xiaobingby/bing-upms/tree/master/src/test/java/com/xiaobingby">Bing-upms</a> the system used by my first target <a href="https://github.com/topics/password-dictionaries">password dictionary topic in github</a></p>
 
 
 </section>

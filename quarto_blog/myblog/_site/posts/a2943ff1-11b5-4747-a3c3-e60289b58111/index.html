@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-04-02">
 <meta name="description" content="This article delves into the integration of FastAPI, Celery, and task queues with web sockets. It covers various topics like resolving Jinja2 whitespace issues, working with uvicorn import, utilizing openapi.json client code generation for documentation purposes, adding metadata to enhance docs, and sharing locks across multiple processes. Additionally, it provides useful resources for advanced usage.">
 
-<title>James’s Blog - fastapi, celery, task queue, websocket</title>
+<title>James’ Blog - fastapi, celery, task queue, websocket</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -149,34 +144,24 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<hr>
-<section id="fastapi-celery-task-queue-websocket" class="level1">
-<h1>fastapi, celery, task queue, websocket</h1>
-<p>enable render option <code>trim_blocks</code> and <code>lstrip_blocks</code> with <code>jinja2</code> to avoid whitespace and indentation nightmare.</p>
-<hr>
-<p>always remember to import <code>uvicorn</code> if you want to run without the <code>uvicorn</code> executable</p>
-<hr>
-<p>generate <a href="https://fastapi.tiangolo.com/advanced/generate-clients/">nodejs client</a> from <code>openapi.json</code></p>
-<p><a href="https://pypi.org/project/fastapi-code-generator/">fastapi-code-generator</a> to generate python code</p>
-<hr>
-<p>create doc inside code: <a href="https://fastapi.tiangolo.com/tutorial/metadata/">adding metadata</a></p>
-<hr>
-<p>to share lock across process, use <a href="https://pypi.org/project/python-redis-lock/">redis lock</a> or filelock.</p>
-<p>to share lock across forked process in the same worker, use <code>multiprocessing.Lock()</code></p>
-<hr>
-<p>fastapi can generate openapi json and doc page</p>
-<p>websockets are async. will it block the server?</p>
-<p><a href="https://fastapi.tiangolo.com/zh/advanced/websockets/">using websocket in fastapi</a></p>
-<p><a href="https://medium.com/pythonistas/a-complete-guide-to-production-ready-celery-configuration-5777780b3166#:~:text=The%20task%20can%20catch%20this%20to%20clean%20up,try%3A%20return%20do_work%20%28%29%20except%20SoftTimeLimitExceeded%3A%20cleanup_in_a_hurry%20%28%29">celery advance usage</a></p>
-<p><a href="https://derlin.github.io/introduction-to-fastapi-and-celery/03-celery/#:~:text=Celery%20doesn%27t%20provide%20an%20obvious%20way%20to%20limit,is%20already%20running%2C%20he%20should%20get%20an%20error.">celery and fastapi</a></p>
-<p>happen to found akismet (proprietary wordpress spam protection). oss alternatives are:</p>
-<ul>
-<li><a href="https://github.com/ThioJoe/YT-Spammer-Purge">Youtube Spammer Purge</a></li>
-<li><a href="https://github.com/thegulshankumar/forget-spam-comment/">forget spam comment</a> (js plugin for wordpress)</li>
-</ul>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>enable render option <code>trim_blocks</code> and <code>lstrip_blocks</code> with <code>jinja2</code> to avoid whitespace and indentation nightmare.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>always remember to import <code>uvicorn</code> if you want to run without the <code>uvicorn</code> executable</td>
+</tr>
+</tbody>
+</table>
+<p>generate <a href="https://fastapi.tiangolo.com/advanced/generate-clients/">nodejs client</a> from <code>openapi.json</code> <a href="https://pypi.org/project/fastapi-code-generator/">fastapi-code-generator</a> to generate python code —- create doc inside code: <a href="https://fastapi.tiangolo.com/tutorial/metadata/">adding metadata</a> —- to share lock across process, use <a href="https://pypi.org/project/python-redis-lock/">redis lock</a> or filelock. to share lock across forked process in the same worker, use <code>multiprocessing.Lock()</code> —- fastapi can generate openapi json and doc page websockets are async. will it block the server? <a href="https://fastapi.tiangolo.com/zh/advanced/websockets/">using websocket in fastapi</a> <a href="https://medium.com/pythonistas/a-complete-guide-to-production-ready-celery-configuration-5777780b3166#:~:text=The%20task%20can%20catch%20this%20to%20clean%20up,try%3A%20return%20do_work%20%28%29%20except%20SoftTimeLimitExceeded%3A%20cleanup_in_a_hurry%20%28%29">celery advance usage</a> <a href="https://derlin.github.io/introduction-to-fastapi-and-celery/03-celery/#:~:text=Celery%20doesn%27t%20provide%20an%20obvious%20way%20to%20limit,is%20already%20running%2C%20he%20should%20get%20an%20error.">celery and fastapi</a> happen to found akismet (proprietary wordpress spam protection). oss alternatives are: - <a href="https://github.com/ThioJoe/YT-Spammer-Purge">Youtube Spammer Purge</a> - <a href="https://github.com/thegulshankumar/forget-spam-comment/">forget spam comment</a> (js plugin for wordpress)</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

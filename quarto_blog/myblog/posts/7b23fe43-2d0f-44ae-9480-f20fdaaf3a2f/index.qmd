@@ -4,11 +4,5 @@
 ---
 
 ------
-
-# Image classification, cloth Classification
-
 [vit-pytorch](https://github.com/lucidrains/vit-pytorch) state of the art image classifier with multiple attention heads
-
 [feed forward neural network](https://github.com/arnab39/Cloth_Classification_DeepLearning)
-
-

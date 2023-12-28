@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# Nautilus Hangs When Searching
-
 delete ~/.cache/tracker
-

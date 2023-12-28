@@ -4,14 +4,7 @@
 ---
 
 ------
-
-# rectangle related calculation
-
 better make polygon into blocks first (pixelize) and then decompose it into rectangles
-
 [rectirization](https://github.com/shininglion/rectirization) A polygon to rectangle conversion tool, written in cpp
-
 [extractrect](https://github.com/pogam/ExtractRect) find the largest rectangle inscribed in a non-convex polygon
-
 [decompose rectlinear polygon](https://github.com/mikolalysenko/rectangle-decomposition) in nodejs
-

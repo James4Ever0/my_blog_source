@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-10-04">
 <meta name="description" content="This article discusses various tools for monitoring CPU and GPU temperatures across different platforms. The tools mentioned include Archey4, Osx-core-temp, Apple_sensors, Smctemp, Coretemp, and Psensor.">
 
-<title>James’s Blog - cpu/gpu temperature monitor</title>
+<title>James’ Blog - cpu/gpu temperature monitor</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,27 +179,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="cpugpu-temperature-monitor" class="level1">
-<h1>cpu/gpu temperature monitor</h1>
-<p>we’ve got <a href="https://github.com/HorlogeSkynet/archey4">archey4</a>, a cross-platform sysinfo gather tool, with info on temperature monitor tools</p>
-<section id="macos" class="level2">
-<h2 class="anchored" data-anchor-id="macos">macos</h2>
-<p><a href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs</p>
-<p><a href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs</p>
-<p>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
+<p>we’ve got <a href="https://github.com/HorlogeSkynet/archey4">archey4</a>, a cross-platform sysinfo gather tool, with info on temperature monitor tools ## macos <a href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs <a href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">smctemp</span> <span class="at">-c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="windows" class="level2">
 <h2 class="anchored" data-anchor-id="windows">windows</h2>
-<p><a href="https://www.alcpu.com/CoreTemp/">coretemp</a></p>
-</section>
-<section id="linux" class="level2">
-<h2 class="anchored" data-anchor-id="linux">linux</h2>
-<p><a href="https://github.com/chinf/psensor">psensor</a></p>
+<p><a href="https://www.alcpu.com/CoreTemp/">coretemp</a> ## linux <a href="https://github.com/chinf/psensor">psensor</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-04-04">
 <meta name="description" content="RSIBreak is a smartwatch app designed to prevent RSI injuries. It is compatible with WearOS and Apple alternatives, offering customization options such as 3D printed cases from Shapeways or DIY solutions on macOS. Additionally, alternatives like BreakTimer are available for various platforms.">
 
-<title>James’s Blog - RSIBreak, Break Reminder</title>
+<title>James’ Blog - RSIBreak, Break Reminder</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -183,29 +178,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<hr>
-<section id="rsibreak-break-reminder" class="level1">
-<h1>RSIBreak, Break Reminder</h1>
-<section id="smart-watch" class="level2">
-<h2 class="anchored" data-anchor-id="smart-watch">Smart Watch</h2>
-<p>do not mix the water with the watch. you have been warned.</p>
-<hr>
-<p>Prefer WearOS watches like LG W100. Found 3D printable case on Shapeways but not downloadable. Shapeways provides service for printing. Shapeways builds ShapeJS which can construct 3D models with code.</p>
-<hr>
-<p>Use Pixle2Mesh++ to recover 3D meshes from multiple images (dumped at <code>~/Desktop/works/shapeways_reconstruct_from_image_lg_w100</code>)of different viewpoints. Determine the size of the mesh after measurement or learning specs.</p>
-<hr>
-<p>if you want iwatch instead, remember to buy some apple gift cards for buying watchos apps. remember to ask for battery life since older watches tend to die halfway in a day. buy iphone 6s and newer models with ios 14 and newer os to manage and install apps on iwatch. no need for 3d modeling since plenty tough-tested cases around.</p>
-</section>
-<section id="diy" class="level2">
-<h2 class="anchored" data-anchor-id="diy">DIY</h2>
-<p>if you want to do it on your own, you have to know how to send notifications on different operating systems.</p>
-<hr>
-<p>on macOS:</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>## Smart Watch do not mix the water with the watch. you have been warned.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Prefer WearOS watches like LG W100. Found 3D printable case on Shapeways but not downloadable. Shapeways provides service for printing. Shapeways builds ShapeJS which can construct 3D models with code.</td>
+</tr>
+</tbody>
+</table>
+<section id="use-pixle2mesh-to-recover-3d-meshes-from-multiple-images-dumped-at-desktopworksshapeways_reconstruct_from_image_lg_w100of-different-viewpoints.-determine-the-size-of-the-mesh-after-measurement-or-learning-specs." class="level2">
+<h2 class="anchored" data-anchor-id="use-pixle2mesh-to-recover-3d-meshes-from-multiple-images-dumped-at-desktopworksshapeways_reconstruct_from_image_lg_w100of-different-viewpoints.-determine-the-size-of-the-mesh-after-measurement-or-learning-specs.">Use Pixle2Mesh++ to recover 3D meshes from multiple images (dumped at <code>~/Desktop/works/shapeways_reconstruct_from_image_lg_w100</code>)of different viewpoints. Determine the size of the mesh after measurement or learning specs.</h2>
+<p>if you want iwatch instead, remember to buy some apple gift cards for buying watchos apps. remember to ask for battery life since older watches tend to die halfway in a day. buy iphone 6s and newer models with ios 14 and newer os to manage and install apps on iwatch. no need for 3d modeling since plenty tough-tested cases around. ## DIY if you want to do it on your own, you have to know how to send notifications on different operating systems. —- on macOS:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">osascript</span> <span class="at">-e</span> <span class="st">'display notification "This message should be showing on the notification" with title "Coding Tips"'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://github.com/julienXX/terminal-notifier">terminal-notifier</a> (brew installable)</p>
-<p><a href="https://github.com/vjeantet/alerter">alerter</a></p>
-<hr>
-<p>on linux:</p>
+<p><a href="https://github.com/julienXX/terminal-notifier">terminal-notifier</a> (brew installable) <a href="https://github.com/vjeantet/alerter">alerter</a> —- on linux:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">notify-send</span> <span class="st">"Dinner ready!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>using <code>remind</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">remind</span> <span class="st">"I'm still here"</span> now</span>
@@ -216,18 +208,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <p>on windows:</p>
 <pre class="cmd"><code>msg /SERVER:DestinationPC * /TIME:60 “This is the message to be sent to a PC named DestinationPC and closes in 60 seconds."</code></pre>
-<p><a href="https://github.com/Fonata/notify-send-for-Windows">notify-send-for-Windows</a> (needs AHK)</p>
-<p><a href="https://superuser.com/questions/1179758/how-can-i-send-a-notification-to-a-windows-10-computer-from-the-command-line">tutorial</a></p>
-</section>
-<section id="break-reminder-tools" class="level2">
-<h2 class="anchored" data-anchor-id="break-reminder-tools">break reminder tools</h2>
-<p><a href="https://userbase.kde.org/RSIBreak">RSIBreak</a> is for linux, and it does not work well.</p>
-<p><a href="https://github.com/hovancik/stretchly">stretchly</a> has <a href="https://web.stretchly.net">an online version</a>. on macOS make sure your browser is allowed to post notifications.</p>
-<p>“Drink.” on mac app store is a water drinking reminder for macOS.</p>
-<p><a href="https://breaktimer.app/">BreakTimer</a> has windows, macOS and linux version. on linux you better use snap or appimage version.</p>
+<p><a href="https://github.com/Fonata/notify-send-for-Windows">notify-send-for-Windows</a> (needs AHK) <a href="https://superuser.com/questions/1179758/how-can-i-send-a-notification-to-a-windows-10-computer-from-the-command-line">tutorial</a> ## break reminder tools <a href="https://userbase.kde.org/RSIBreak">RSIBreak</a> is for linux, and it does not work well. <a href="https://github.com/hovancik/stretchly">stretchly</a> has <a href="https://web.stretchly.net">an online version</a>. on macOS make sure your browser is allowed to post notifications. “Drink.” on mac app store is a water drinking reminder for macOS. <a href="https://breaktimer.app/">BreakTimer</a> has windows, macOS and linux version. on linux you better use snap or appimage version.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

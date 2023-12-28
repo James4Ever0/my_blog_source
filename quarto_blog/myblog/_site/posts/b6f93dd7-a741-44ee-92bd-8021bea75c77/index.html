@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-05-24">
 <meta name="description" content="This article focuses on video analysis using popular frameworks PyTorch and Keras. It offers a range of resources to perform tasks such as classification and summarization, along with access to a pretrained model zoo for further customization. Additionally, it provides a link to a helpful video feature extractor tool.">
 
-<title>James’s Blog - 视频分析处理 剧本生成</title>
+<title>James’ Blog - 视频分析处理 剧本生成</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -148,35 +143,7 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="视频分析处理-视频摘要-剧本生成" class="level1">
 <h1>视频分析处理 视频摘要 剧本生成</h1>
-<p>自动抠像 最新 2022 较小的性能消耗： https://github.com/hkchengrex/XMem 我fork的项目：https://github.com/ProphetHJK/XMem 我fork后添加了一些小工具，包括绿幕生成，蒙版视频生成，中文教程等</p>
-<p>simple video captioning: https://pythonawesome.com/a-simple-implementation-of-video-captioning/ https://github.com/232525/videocaptioning.pytorch?ref=pythonawesome.com https://github.com/xiadingZ/video-caption.pytorch</p>
-<p>3d cnn for video classification: https://github.com/kcct-fujimotolab/3DCNN</p>
-<p>end-to-end video image classification by facebook: https://github.com/facebookresearch/ClassyVision</p>
-<p>video understanding models and datasets: https://github.com/sujiongming/awesome-video-understanding</p>
-<p>video classification dataset: ​video_type_dict​&nbsp;​=​&nbsp;{​‘360VR’​:&nbsp;​‘VR’​,&nbsp;​‘4k’​:&nbsp;​‘4K’​,&nbsp;​‘Technology’​:&nbsp;​‘科技’​,&nbsp;​‘Sport’​:&nbsp;​‘运动’​,&nbsp;​‘Timelapse’​:&nbsp;​‘延时’​, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​‘Aerial’​:&nbsp;​‘航拍’​,&nbsp;​‘Animals’​:&nbsp;​‘动物’​,&nbsp;​‘Sea’​:&nbsp;​‘大海’​,&nbsp;​‘Beach’​:&nbsp;​‘海滩’​,&nbsp;​‘space’​:&nbsp;​‘太空’​, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​‘stars’​:&nbsp;​‘星空’​,&nbsp;​‘City’​:&nbsp;​‘城市’​,&nbsp;​‘Business’​:&nbsp;​‘商业’​,&nbsp;​‘Underwater’​:&nbsp;​‘水下摄影’​, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​‘Wedding’​:&nbsp;​‘婚礼’​,&nbsp;​‘Archival’​:&nbsp;​‘档案’​,&nbsp;​‘Backgrounds’​:&nbsp;​‘背景’​,&nbsp;​‘Alpha&nbsp;Channel’​:&nbsp;​‘透明通道’​, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​‘Intro’​:&nbsp;​‘开场’​,&nbsp;​‘Celebration’​:&nbsp;​‘庆典’​,&nbsp;​‘Clouds’​:&nbsp;​‘云彩’​,&nbsp;​‘Corporate’​:&nbsp;​‘企业’​, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​‘Explosion’​:&nbsp;​‘爆炸’​,&nbsp;​‘Film’​:&nbsp;​‘电影镜头’​,&nbsp;​‘Green&nbsp;Screen’​:&nbsp;​‘绿幕’​,&nbsp;​‘Military’​:&nbsp;​‘军事’​, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​‘Nature’​:&nbsp;​‘自然’​,&nbsp;​‘News’​:&nbsp;​‘新闻’​,&nbsp;​‘R3d’​:&nbsp;​‘R3d’​,&nbsp;​‘Romantic’​:&nbsp;​‘浪漫’​,&nbsp;​‘Abstract’​:&nbsp;​‘抽象’​} https://github.com/yuanxiaosc/Multimodal-short-video-dataset-and-baseline-classification-model</p>
-<p>rnn for human action recognization: https://github.com/stuarteiffert/RNN-for-Human-Activity-Recognition-using-2D-Pose-Input</p>
-<p>video script introduction and generation: https://sharetxt.live/blog/how-to-generate-a-youtube-video-script-with-ai#:~:text=%20How%20to%20use%20Chibi.ai%20to%20create%20a,scan%20through%20your%20text%20and%20generate…%20More%20</p>
-<p>fight detection using pose estimation and rnn: https://github.com/imsoo/fight_detection</p>
-<p>video summarizer to summarized video based on video feature: https://github.com/Lalit-ai/Video-Summary-Generator</p>
-<p>awesome action recognition: https://github.com/jinwchoi/awesome-action-recognition</p>
-<p>temporal model for video understanding: https://github.com/mit-han-lab/temporal-shift-module https://github.com/mit-han-lab/temporal-shift-module https://github.com/yjxiong/tsn-pytorch</p>
-<p>time space attention for video understanding(timesformer): https://github.com/facebookresearch/TimeSformer</p>
-<p>video understanding by alibaba: https://github.com/alibaba-mmai-research/pytorch-video-understanding</p>
-<p>video object segmentation: https://github.com/yoxu515/aot-benchmark?ref=pythonawesome.com</p>
-<p>video scene segmentation: https://github.com/kakaobrain/bassl?ref=pythonawesome.com</p>
-<p>mmaction detect actions in video: https://pythonawesome.com/an-open-source-toolbox-for-video-understanding-based-on-pytorch/ https://github.com/open-mmlab/mmaction2</p>
-<p>dense video captioning: https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch</p>
-<p>seq2seq video captioning: https://blog.csdn.net/u013010889/article/details/80087601</p>
-<p>2d cnn with LSTM video classification: https://blog.csdn.net/qq_43493208/article/details/104387182</p>
-<p>spp-net for image shape unification: https://github.com/peace195/sppnet https://github.com/yueruchen/sppnet-pytorch</p>
-<p>running pretrained pytorchvideo video classification model from zoo: https://pytorchvideo.org/docs/tutorial_torchhub_inference</p>
-<p>pytorchvideo model zoo: https://pytorchvideo.readthedocs.io/en/latest/model_zoo.html</p>
-<p>(arxiv) end to end generative pretraining multimodal video captioning mv-gpt: https://arxiv.org/abs/2201.08264v1</p>
-<p>video captioning using encoder-decoder: https://github.com/Shreyz-max/Video-Captioning</p>
-<p>video captioning video2text keras implementation: https://github.com/alvinbhou/Video2Text</p>
-<p>video summarization: https://github.com/shruti-jadon/Video-Summarization-using-Keyframe-Extraction-and-Video-Skimming</p>
-<p>pytorch_video video classification: https://pytorchvideo.org/docs/tutorial_classification</p>
-<p>video feature extractor: https://github.com/hobincar/pytorch-video-feature-extractor</p>
+<p>自动抠像 最新 2022 较小的性能消耗： https://github.com/hkchengrex/XMem 我fork的项目：https://github.com/ProphetHJK/XMem 我fork后添加了一些小工具，包括绿幕生成，蒙版视频生成，中文教程等 simple video captioning: https://pythonawesome.com/a-simple-implementation-of-video-captioning/ https://github.com/232525/videocaptioning.pytorch?ref=pythonawesome.com https://github.com/xiadingZ/video-caption.pytorch 3d cnn for video classification: https://github.com/kcct-fujimotolab/3DCNN end-to-end video image classification by facebook: https://github.com/facebookresearch/ClassyVision video understanding models and datasets: https://github.com/sujiongming/awesome-video-understanding video classification dataset: ​video_type_dict​&nbsp;​=​&nbsp;{​‘360VR’​:&nbsp;​‘VR’​,&nbsp;​‘4k’​:&nbsp;​‘4K’​,&nbsp;​‘Technology’​:&nbsp;​‘科技’​,&nbsp;​‘Sport’​:&nbsp;​‘运动’​,&nbsp;​‘Timelapse’​:&nbsp;​‘延时’​, ​‘Aerial’​:&nbsp;​‘航拍’​,&nbsp;​‘Animals’​:&nbsp;​‘动物’​,&nbsp;​‘Sea’​:&nbsp;​‘大海’​,&nbsp;​‘Beach’​:&nbsp;​‘海滩’​,&nbsp;​‘space’​:&nbsp;​‘太空’​, ​‘stars’​:&nbsp;​‘星空’​,&nbsp;​‘City’​:&nbsp;​‘城市’​,&nbsp;​‘Business’​:&nbsp;​‘商业’​,&nbsp;​‘Underwater’​:&nbsp;​‘水下摄影’​, ​‘Wedding’​:&nbsp;​‘婚礼’​,&nbsp;​‘Archival’​:&nbsp;​‘档案’​,&nbsp;​‘Backgrounds’​:&nbsp;​‘背景’​,&nbsp;​‘Alpha&nbsp;Channel’​:&nbsp;​‘透明通道’​, ​‘Intro’​:&nbsp;​‘开场’​,&nbsp;​‘Celebration’​:&nbsp;​‘庆典’​,&nbsp;​‘Clouds’​:&nbsp;​‘云彩’​,&nbsp;​‘Corporate’​:&nbsp;​‘企业’​, ​‘Explosion’​:&nbsp;​‘爆炸’​,&nbsp;​‘Film’​:&nbsp;​‘电影镜头’​,&nbsp;​‘Green&nbsp;Screen’​:&nbsp;​‘绿幕’​,&nbsp;​‘Military’​:&nbsp;​‘军事’​, ​‘Nature’​:&nbsp;​‘自然’​,&nbsp;​‘News’​:&nbsp;​‘新闻’​,&nbsp;​‘R3d’​:&nbsp;​‘R3d’​,&nbsp;​‘Romantic’​:&nbsp;​‘浪漫’​,&nbsp;​‘Abstract’​:&nbsp;​‘抽象’​} https://github.com/yuanxiaosc/Multimodal-short-video-dataset-and-baseline-classification-model rnn for human action recognization: https://github.com/stuarteiffert/RNN-for-Human-Activity-Recognition-using-2D-Pose-Input video script introduction and generation: https://sharetxt.live/blog/how-to-generate-a-youtube-video-script-with-ai#:~:text=%20How%20to%20use%20Chibi.ai%20to%20create%20a,scan%20through%20your%20text%20and%20generate…%20More%20 fight detection using pose estimation and rnn: https://github.com/imsoo/fight_detection video summarizer to summarized video based on video feature: https://github.com/Lalit-ai/Video-Summary-Generator awesome action recognition: https://github.com/jinwchoi/awesome-action-recognition temporal model for video understanding: https://github.com/mit-han-lab/temporal-shift-module https://github.com/mit-han-lab/temporal-shift-module https://github.com/yjxiong/tsn-pytorch time space attention for video understanding(timesformer): https://github.com/facebookresearch/TimeSformer video understanding by alibaba: https://github.com/alibaba-mmai-research/pytorch-video-understanding video object segmentation: https://github.com/yoxu515/aot-benchmark?ref=pythonawesome.com video scene segmentation: https://github.com/kakaobrain/bassl?ref=pythonawesome.com mmaction detect actions in video: https://pythonawesome.com/an-open-source-toolbox-for-video-understanding-based-on-pytorch/ https://github.com/open-mmlab/mmaction2 dense video captioning: https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch seq2seq video captioning: https://blog.csdn.net/u013010889/article/details/80087601 2d cnn with LSTM video classification: https://blog.csdn.net/qq_43493208/article/details/104387182 spp-net for image shape unification: https://github.com/peace195/sppnet https://github.com/yueruchen/sppnet-pytorch running pretrained pytorchvideo video classification model from zoo: https://pytorchvideo.org/docs/tutorial_torchhub_inference pytorchvideo model zoo: https://pytorchvideo.readthedocs.io/en/latest/model_zoo.html (arxiv) end to end generative pretraining multimodal video captioning mv-gpt: https://arxiv.org/abs/2201.08264v1 video captioning using encoder-decoder: https://github.com/Shreyz-max/Video-Captioning video captioning video2text keras implementation: https://github.com/alvinbhou/Video2Text video summarization: https://github.com/shruti-jadon/Video-Summarization-using-Keyframe-Extraction-and-Video-Skimming pytorch_video video classification: https://pytorchvideo.org/docs/tutorial_classification video feature extractor: https://github.com/hobincar/pytorch-video-feature-extractor</p>
 
 
 </section>

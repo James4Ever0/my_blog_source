@@ -4,8 +4,5 @@
 ---
 
 ------
-
 # linux disk detach and reattach, how to maintain stability
-
 use `mount --bind`
-

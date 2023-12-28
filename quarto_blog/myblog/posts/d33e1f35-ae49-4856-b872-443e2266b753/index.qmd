@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# splash: webpage rendering service
-
 where's the animation anyway?
-
 [splash doc](https://splash.readthedocs.io/en/stable/install.html#linux-docker)
-

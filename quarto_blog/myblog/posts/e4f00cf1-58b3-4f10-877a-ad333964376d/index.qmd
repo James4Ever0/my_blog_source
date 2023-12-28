@@ -4,6 +4,3 @@
 ---
 
 ------
-
-# rectangle packing, polygon to rectangle decomposition
-

@@ -4,11 +4,6 @@
 ---
 
 ------
-
-# opencv-python wrappers, without boilerplates
-
 [imutils](https://github.com/pyimagesearch/imutils) by pyimagesearch
-
-[caer](https://github.com/jasmcaus/caer) do image resizing, image processing, video loading. 
+[caer](https://github.com/jasmcaus/caer) do image resizing, image processing, video loading.
 documentation [here](https://caer.readthedocs.io/en/latest/)
-

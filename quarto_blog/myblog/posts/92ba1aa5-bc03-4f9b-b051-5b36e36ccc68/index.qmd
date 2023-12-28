@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# telegram bot: pyrogram
-
 [pyrogram repo](https://github.com/pyrogram/pyrogram)
-
 you can act both with a user account and a bot account
-

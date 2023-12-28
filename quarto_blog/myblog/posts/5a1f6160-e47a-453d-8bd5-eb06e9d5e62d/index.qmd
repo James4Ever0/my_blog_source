@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# RX580 16g used as AI accelerator
-
 codename: `gfx803`
-
 you may have to [build it yourself](https://github.com/tsl0922/pytorch-gfx803)
-

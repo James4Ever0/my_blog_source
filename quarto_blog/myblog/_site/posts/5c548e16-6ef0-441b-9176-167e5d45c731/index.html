@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-06-05">
 <meta name="description" content="This article describes a scraping API that allows users to retrieve data from various sources with certain restrictions. The API can handle up to 58 pages, each containing 30 items, resulting in a maximum of 1740 items. Users can sort the results by region and price, potentially reducing the total number below 3480 by applying additional filters. If the limit is exceeded, an inspiration-based strategy is used but it might not support pausing and resuming data collection.">
 
-<title>James’s Blog - 途家scraping api</title>
+<title>James’ Blog - 途家scraping api</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -145,14 +140,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="途家scraping-api" class="level1">
-<h1>途家scraping api</h1>
-<p>搜索api 先通过fetch的api获得不同的限制条件</p>
-<p>从0开始 最多58页 每页30个 相同条件最多爬1740个 可以倒序排序来翻倍 可合并其他排序来收集更多</p>
-<p>用地区做限制 加上价格限制 或者加更多限制 使得总数少于1740*2=3480 用启发式策略 如果实在超过了预设限制不管了直接开始爬 这种策略可能没法暂停继续爬取</p>
+<p>搜索api 先通过fetch的api获得不同的限制条件 从0开始 最多58页 每页30个 相同条件最多爬1740个 可以倒序排序来翻倍 可合并其他排序来收集更多 用地区做限制 加上价格限制 或者加更多限制 使得总数少于1740*2=3480 用启发式策略 如果实在超过了预设限制不管了直接开始爬 这种策略可能没法暂停继续爬取</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -4,14 +4,11 @@
 ---
 
 ------
-
 # NLP NLG Packages
-
 questgen.ai:
 generate question from essay, imitate interaction
 增加观众互动性 生成问题
 question answering question generator
-
 甲骨 jiagu nlp包 provided by ownthink:
 https://github.com/ownthink/Jiagu
 - 中文分词
@@ -23,14 +20,11 @@ https://github.com/ownthink/Jiagu
 - 新词发现
 - 情感分析
 - 文本聚类
-
 haystack:
 nlp framework
 neural search neural text search
 semantic search
 summarization
 question answering
-
 snownlp:
 chinese segmentation, pinyin, sentiment analysis (情感分析), word tags, keywords, summary, tf-idf similarity, classification, 繁体转简体
-

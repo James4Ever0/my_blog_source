@@ -4,12 +4,6 @@
 ---
 
 ------
-
-# ctf related
-
 [ctfhub](https://www.ctfhub.com/)
-
 [ctftime](https://ctftime.org)
-
 [ctf-tools](https://github.com/ctf-wiki/ctf-tools) by [ctfwiki](https://ctf-wiki.org/)
-

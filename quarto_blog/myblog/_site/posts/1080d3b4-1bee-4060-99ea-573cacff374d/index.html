@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-17">
 <meta name="description" content="This article explains how to remove duplicates from numpy arrays using np.unique(). Additionally, it provides resources on dupandas for custom rules and the pandas drop_duplicates function.">
 
-<title>James’s Blog - numpy and pandas deduplication</title>
+<title>James’ Blog - numpy and pandas deduplication</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,8 +179,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="numpy-and-pandas-deduplication" class="level1">
-<h1>numpy and pandas deduplication</h1>
 <p><a href="https://datascienceparichay.com/article/numpy-remove-duplicates-from-array/#:~:text=Use%20the%20np.unique%20%28%29%20function%20to%20remove%20duplicates,remove%20duplicate%20columns%20from%20a%202-D%20Numpy%20array.">numpy remove duplicates from array</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.unique(ar, axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><a href="https://pypi.org/project/dupandas/#:~:text=dupandas%20is%20a%20python%20package%20to%20perform%20data,Matchers%20that%20can%20handle%20spelling%20differences%20and%20phonetics.">dupandas</a>: remove duplicates with custom rules like levenshtein distance, spelling differences and phonetics (fuzzy maching) for english (most likely?)</p>
@@ -194,7 +187,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.drop_duplicates(subset<span class="op">=</span>[<span class="st">'brand'</span>, <span class="st">'style'</span>], keep<span class="op">=</span><span class="st">'last'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# dash api docset reference search
-
 on non-macos platforms, use zeal instead.
-
 the core problem is that after uninstallation of xcode, one cannot launch the `Apple Doc Helper` or some binary afterwards inside the Apple docset under dash documentation folder. the docset can be copied to this folder automatically by dash but without xcode it cannot be opened.
-

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-08-23">
 <meta name="description" content="This article explores different search techniques, such as collaborative filtering and recommendation engines, along with random and heuristic libraries. It delves into scraping Twitch chat and predicting memes, detecting trending topics or videos using official APIs, recursive searching with filters and updates, topic modeling via Gensim, and identifying fake news in web browsers.">
 
-<title>James’s Blog - 递归搜索 启发式搜索</title>
+<title>James’ Blog - 递归搜索 启发式搜索</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -181,47 +176,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="递归搜索-启发式搜索" class="level1">
-<h1>递归搜索 启发式搜索</h1>
 <section id="collaborative-filtering-recommendation-engine" class="level2">
 <h2 class="anchored" data-anchor-id="collaborative-filtering-recommendation-engine">collaborative filtering, recommendation engine</h2>
-<p><a href="https://neo4j.com/blog/collaborative-filtering-creating-teams/">neo4j tutorial on recommendation engine</a></p>
-</section>
-<section id="random-search-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="random-search-libraries">random search libraries</h2>
-<p><a href="https://github.com/imdadahad/find-random-spotify-songs/blob/master/spotify_client.py">spotify randomizer</a></p>
-</section>
-<section id="heuristic-search-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="heuristic-search-libraries">heuristic search libraries</h2>
-<p><a href="https://github.com/epeguero/twitch-meme-scraper">twitch chat scraper and meme prediction heuristic</a></p>
-</section>
-<section id="how-to-find-trending-topics-or-videos" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-find-trending-topics-or-videos">how to find trending topics or videos?</h2>
-<p>you can check the same set of video and plot their historical stats, or use official ‘trending’ api to find out.</p>
-</section>
-<section id="find-random-videos-of-certain-topic" class="level2">
-<h2 class="anchored" data-anchor-id="find-random-videos-of-certain-topic">find ‘random’ videos of certain topic:</h2>
-<p>search for playlists, collect recommendations</p>
-<p>apply to some video feeding apis or official api like giphy</p>
-<p><a href="https://zhuanlan.zhihu.com/p/384614837">heuristic search, graph search intro</a></p>
-<p>use heuristic recursive search, apply random parameters, find related keywords, apply filters and update weights</p>
-<p><a href="https://blog.csdn.net/pipisorry/article/details/46447561">topic modeling using gensim</a></p>
-<p><a href="https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9">bertopic tutorial</a> can predict topics of new document and get topic similarity</p>
+<p><a href="https://neo4j.com/blog/collaborative-filtering-creating-teams/">neo4j tutorial on recommendation engine</a> ## random search libraries <a href="https://github.com/imdadahad/find-random-spotify-songs/blob/master/spotify_client.py">spotify randomizer</a> ## heuristic search libraries <a href="https://github.com/epeguero/twitch-meme-scraper">twitch chat scraper and meme prediction heuristic</a> ## how to find trending topics or videos? you can check the same set of video and plot their historical stats, or use official ‘trending’ api to find out. ## find ‘random’ videos of certain topic: search for playlists, collect recommendations apply to some video feeding apis or official api like giphy <a href="https://zhuanlan.zhihu.com/p/384614837">heuristic search, graph search intro</a> use heuristic recursive search, apply random parameters, find related keywords, apply filters and update weights <a href="https://blog.csdn.net/pipisorry/article/details/46447561">topic modeling using gensim</a> <a href="https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9">bertopic tutorial</a> can predict topics of new document and get topic similarity</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install bertopic</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>可以事先设定好目标 不管这个搜没搜到 都要奖励搜索成功的那次过程 比如老头环和elden ring的对应关系</p>
-<p>有没有相关的工具？名字是什么？</p>
-<p>recursive text search engine</p>
-<p>Heuristic Text Search Engine</p>
-<p>free pdf: <a href="https://academic.oup.com/jcmc/article/12/3/778/4582966?login=false">Heuristic and Systematic Use of Search Engines</a></p>
-<p>it’s like <a href="https://gpt3demo.com/apps/webgpt">webgpt</a>, which has <a href="https://arxiv.org/pdf/2112.09332.pdf">arxiv pdf paper</a></p>
-<p><a href="https://openai.com/alignment/">openai alignment research</a> is to make artificial general intelligence (AGI) aligned with human values and follow human intent.</p>
-<p>there’s also a <a href="https://github.com/meghu2791/evaluateNeuralFakenewsDetectors">fake news detector inside web browser</a></p>
-<p>搜索一个词 拿到感兴趣的继续搜下一个</p>
-<p>把你搜索的过程记录下来 搜集信息寻找关联的过程记录下来 然后交给ai进行离线训练</p>
-<p>同时可以把你创建内容 组织结构的过程记录下来 交给ai离线训练 适用于<a href="./pyjom schedules.md">template based content generator</a></p>
+<p>可以事先设定好目标 不管这个搜没搜到 都要奖励搜索成功的那次过程 比如老头环和elden ring的对应关系 有没有相关的工具？名字是什么？ recursive text search engine Heuristic Text Search Engine free pdf: <a href="https://academic.oup.com/jcmc/article/12/3/778/4582966?login=false">Heuristic and Systematic Use of Search Engines</a> it’s like <a href="https://gpt3demo.com/apps/webgpt">webgpt</a>, which has <a href="https://arxiv.org/pdf/2112.09332.pdf">arxiv pdf paper</a> <a href="https://openai.com/alignment/">openai alignment research</a> is to make artificial general intelligence (AGI) aligned with human values and follow human intent. there’s also a <a href="https://github.com/meghu2791/evaluateNeuralFakenewsDetectors">fake news detector inside web browser</a> 搜索一个词 拿到感兴趣的继续搜下一个 把你搜索的过程记录下来 搜集信息寻找关联的过程记录下来 然后交给ai进行离线训练 同时可以把你创建内容 组织结构的过程记录下来 交给ai离线训练 适用于<a href="./pyjom schedules.md">template based content generator</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

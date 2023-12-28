@@ -4,14 +4,7 @@
 ---
 
 ------
-
-# Visual Disk Usage Manager, Visual Disk Cleaner
-
 ## linux
-
 for gnome, there's a built in disk usage manager called baobab.
-
 filelight for kde
-
 qdirstat
-

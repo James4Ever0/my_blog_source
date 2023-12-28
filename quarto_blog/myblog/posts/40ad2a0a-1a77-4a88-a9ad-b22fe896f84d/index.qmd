@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# Resolve Host Name Computer Name From IP
-
 many methods have been tried. NetBIOS not working. DHCP server not found. nmap script engine(NSE) uses lua to automate sniffing and attacks.
-

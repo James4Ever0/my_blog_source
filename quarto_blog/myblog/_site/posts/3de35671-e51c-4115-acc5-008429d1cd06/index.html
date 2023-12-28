@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-02-19">
 <meta name="description" content="This article details a method to generate DOCX documents from Python docstrings. It explains the process of installing and using pdoc3, pandoc, and docxcompose to convert, clean, and compose the required files. The step-by-step guide ensures easy understanding and implementation for developers.">
 
-<title>James’s Blog - generate docx document from python docstring</title>
+<title>James’ Blog - generate docx document from python docstring</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,24 +179,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="generate-docx-document-from-python-docstring" class="level1">
-<h1>generate docx document from python docstring</h1>
 <p>install and use <code>pdoc3</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pdoc3</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdoc</span> <span class="at">--html</span> [-o <span class="op">&lt;</span>output_dir<span class="op">&gt;</span>] <span class="op">&lt;</span>python_script_or_module_path<span class="op">&gt;</span> # default output directory of <span class="st">"html"</span> is <span class="kw">`</span><span class="ex">./html</span><span class="kw">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>install and use <code>pandoc</code>, on its <a href="https://pandoc.org/">homepage</a> we find some slideshow backends like <a href="https://revealjs.com/">reveal.js</a>, <a href="https://github.com/paulrouget/dzslides">dzslides</a>, <a href="https://meyerweb.com/eric/tools/s5/">s5</a>, <a href="https://goessner.net/articles/slideous/">slideous</a> and <a href="https://www.w3.org/Talks/Tools/Slidy">slidy</a> (alternative to microsoft powerpoint, may help rendering video, or let’s use libreoffice instead? or some dedicated video editing library like moviepy)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's convert the html version of </span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's convert the html version of</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">-o</span> <span class="op">&lt;</span>output_docx_filename<span class="op">&gt;</span> <span class="op">&lt;</span>input_html_path<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>remove unwanted parts from html (<code>beautifulsoup</code>), and split index from main content (split and concat with <a href="https://github.com/4teamwork/docxcompose">docxcompose</a>)</p>
-<p>for composing docx from hand, use <a href="https://python-docx.readthedocs.io/en/latest/index.html">python-docx</a>. for template based docx generating, use <a href="https://docxtpl.readthedocs.io/en/latest/">docxtpl</a></p>
-<p>to insert page break into converted docx, there are two ways (maybe):</p>
-<ol type="1">
-<li><a href="https://www.techjunkie.com/how-to-use-page-breaks-in-html">change css</a> in the original html code</li>
-<li><a href="https://github.com/4teamwork/docxcompose/issues/89">insert page break</a> while concatenating</li>
-</ol>
+<p>remove unwanted parts from html (<code>beautifulsoup</code>), and split index from main content (split and concat with <a href="https://github.com/4teamwork/docxcompose">docxcompose</a>) for composing docx from hand, use <a href="https://python-docx.readthedocs.io/en/latest/index.html">python-docx</a>. for template based docx generating, use <a href="https://docxtpl.readthedocs.io/en/latest/">docxtpl</a> to insert page break into converted docx, there are two ways (maybe): 1. <a href="https://www.techjunkie.com/how-to-use-page-breaks-in-html">change css</a> in the original html code 2. <a href="https://github.com/4teamwork/docxcompose/issues/89">insert page break</a> while concatenating</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

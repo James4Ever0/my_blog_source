@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-10-10">
 <meta name="description" content="This article addresses the challenges faced while using AMDGPU, ROCM, and PyTorch. It proposes alternative solutions such as Vulkan/OpenGL or DirectML for integrated graphics cards instead of ROCM, and advises checking the Pytorch nightly repo for up-to-date builds.">
 
-<title>James’s Blog - amdgpu, rocm and pytorch</title>
+<title>James’ Blog - amdgpu, rocm and pytorch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -88,12 +88,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -149,20 +144,24 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<hr>
-<section id="amdgpu-rocm-and-pytorch" class="level1">
-<h1>amdgpu, rocm and pytorch</h1>
-<p>rocm is trash to apu. use vulkan or opengl (alternative backends)</p>
-<hr>
-<p>find latest build in pytorch nightly repo</p>
-<p>use sudo before invoking amdgpu related commands, otherwise unavailable</p>
-<hr>
-<p>use directml (pytorch, tensorflow) instead. need windows.</p>
-<p>you need to set the shared graphical memory to a larger value.</p>
-<p>rocm does not work for integrated graphic cards (even if you build it and configured the card name), and supported amd cards are limited.</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>rocm is trash to apu. use vulkan or opengl (alternative backends)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>find latest build in pytorch nightly repo use sudo before invoking amdgpu related commands, otherwise unavailable</td>
+</tr>
+</tbody>
+</table>
+<p>use directml (pytorch, tensorflow) instead. need windows. you need to set the shared graphical memory to a larger value. rocm does not work for integrated graphic cards (even if you build it and configured the card name), and supported amd cards are limited.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

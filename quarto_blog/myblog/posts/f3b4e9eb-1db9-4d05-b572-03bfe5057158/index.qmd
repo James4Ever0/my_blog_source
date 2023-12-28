@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# lua python bridge
-
 [lunatic python](https://labix.org/lunatic-python)
-

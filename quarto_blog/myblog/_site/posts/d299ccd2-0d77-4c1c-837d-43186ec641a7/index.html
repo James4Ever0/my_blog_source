@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-12">
 <meta name="description" content="This article showcases the versatile capabilities of FFmpeg, a powerful tool for speeding up encoding processes and offering features such as V4L2 device video encoding, frame conversion to PNG, re-encoding bypass, H.26 exporting, HDR video conversion, frame extraction, audio/video data retrieval, AVI/FLV to MP3 conversion, and custom audio quality parameters.">
 
-<title>James’s Blog - Exploring FFmpeg’s Advanced Encoding, Conversion, and Audio Functionality</title>
+<title>James’ Blog - Exploring FFmpeg’s Advanced Encoding, Conversion, and Audio Functionality</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -161,100 +156,10 @@ ul.task-list li input[type="checkbox"] {
 <h1>For all snippets, check documentation for details and settings.</h1>
 <section id="speed-up-ffmpeg-encoding" class="level2">
 <h2 class="anchored" data-anchor-id="speed-up-ffmpeg-encoding">speed up ffmpeg encoding</h2>
-<p><a href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a></p>
-<p><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
-</section>
-</section>
-<section id="encode-video-from-a-v4l2-device-using-specified-settings." class="level1">
-<h1>encode video from a V4L2 device, using specified settings.</h1>
-</section>
-<section id="x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-cpu-compared-to-x264" class="level1">
-<h1>x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)</h1>
-<p>ffmpeg -f video4linux2 -framerate 30 -input_format mjpeg -video_size 1920x1080 -i /dev/video6 -c:v libx265 -preset ultrafast -c:a none -crf 20 out.mp4</p>
-</section>
-<section id="convert-a-raw-yuyv422-frame-from-my-usb-microscope-to-png" class="level1">
-<h1>Convert a raw YUYV422 frame from my USB “microscope” to PNG:</h1>
-</section>
-<section id="other-valid-pixel-formats-are-e.g.-rgb24-or-yuv420p" class="level1">
-<h1>other valid pixel formats are e.g.&nbsp;rgb24 or yuv420p</h1>
-<p>ffmpeg -f rawvideo -video_size 2592x1944 -pixel_format yuyv422 -i input_yuyv422_2592x1944.dat -f image2 output.png</p>
-</section>
-<section id="copy-a-portion-of-a-video-copying-and-not-recoding.-might-need-to-use-the-same-container-as-the-input" class="level1">
-<h1>copy a portion of a video, copying and not recoding. Might need to use the same container as the input</h1>
-<p>ffmpeg -i $input -ss $seek_to_seconds -t $output_length -c:v copy -c:a copy $output</p>
-</section>
-<section id="export-and-show-h.264-mvs" class="level1">
-<h1>Export and show h.264 MVs</h1>
-<p>ffplay -flags2 +export_mvs input.mkv -vf codecview=mv=pf+bf+bb</p>
-</section>
-<section id="show-motion-vector-estimate-on-any-input" class="level1">
-<h1>Show motion vector estimate on any input:</h1>
-<p>ffplay $input -vf mestimate=epzs:mb_size=16:search_param=32,codecview=mv=pf+bf+bb</p>
-</section>
-<section id="select-one-frame-every-10-set-presentation-time-stamp-to-10x-0.1pts-deshake-do-not-copy-audio" class="level1">
-<h1>Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio</h1>
-<p>ffmpeg -i MOV_3147.mp4 -vf ‘select=not(mod(n,10))’,setpts=0.1*PTS,deshake=edge=blank:rx=64:ry=64:blocksize=4:contrast=31 -tune grain -crf 17 -an wolken-2-deshake.mkv</p>
-</section>
-<section id="extreme-high-quality-deshake" class="level1">
-<h1>Extreme high quality deshake:</h1>
-<p>ffmpeg -i input.mkv -vf ‘select=not(mod(n,20))’,setpts=0.05<em>PTS,mestimate=hexbs,vidstabdetect=shakiness=10:result=transforms.trf ffmpeg -i input.mkv -vf ‘select=not(mod(n,20))’,setpts=0.05</em>PTS,mestimate=hexbs,vidstabtransform=crop=black:smoothing=0:optzoom=0 # or for pass 2 ffmpeg -i MOV_3147.mp4 -vf ‘select=not(mod(n,20))’,setpts=0.05*PTS,vidstabtransform=crop=black:smoothing=180:optzoom=0:interpol=bicubic -an -vcodec libx265 -crf 16 -tune grain wolken-2-deshake.mkv</p>
-</section>
-<section id="tonemap-a-itu.2020-hdr-high-gamut-ususally-4k-video-to-itu.709-1080p" class="level1">
-<h1>Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)</h1>
-</section>
-<section id="also-see-httpsstevens.liguidesvideoconverting-hdr-to-sdr-with-ffmpeg" class="level1">
-<h1>Also see: https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/</h1>
-<p>ffmpeg -i file.mkv -vf zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable,zscale=t=bt709:m=bt709:r=tv,format=yuv420p -crf 20 -acodec copy output.mkv</p>
-</section>
-<section id="extract-all-frames-as-.jpg" class="level1">
-<h1>Extract all frames as <pattern>.jpg</pattern></h1>
-<p>ffmpeg -r 1 -i file.mp4 -r 1 frames_%05d.jpg</p>
-</section>
-<section id="create-video-from-all-the-frames-missing-any-codec-spec" class="level1">
-<h1>Create video from all the frames (missing any codec spec):</h1>
-<p>ffmpeg -r 30 -i frames_%05d.jpg output.mp4</p>
-<section id="xxx-the-following-where-copied-from" class="level3">
-<h3 class="anchored" data-anchor-id="xxx-the-following-where-copied-from">XXX the following where copied from</h3>
-</section>
-<section id="httpshbish.comffmpeg-one-liners" class="level3">
-<h3 class="anchored" data-anchor-id="httpshbish.comffmpeg-one-liners">https://hbish.com/ffmpeg-one-liners/</h3>
-</section>
-</section>
-<section id="get-infomation-for-a-audiovideo" class="level1">
-<h1>Get infomation for a audio/video</h1>
-<p>ffmpeg -i file.mp3</p>
-</section>
-<section id="convert-video-into-images" class="level1">
-<h1>Convert video into images</h1>
-<p>ffmpeg -i video.avi image_output%d.jpg</p>
-</section>
-<section id="split-audio-files" class="level1">
-<h1>Split audio files</h1>
-</section>
-<section id="generate-a-section-of-the-audio-from-the-30-second-mark-start-for-15-seconds-duration" class="level1">
-<h1>Generate a section of the audio from the 30 second mark (start) for 15 seconds (duration)</h1>
-<p>ffmpeg -f mp3 -i input.mp3 -t 00:00:30 -ss 00:00:15 output.mp3</p>
-</section>
-<section id="covert-avi-to-animated-gif" class="level1">
-<h1>Covert avi to animated gif</h1>
-<p>ffmpeg -i video.avi output.gif</p>
-</section>
-<section id="add-audio-to-a-video-file" class="level1">
-<h1>Add audio to a video file</h1>
-<p>ffmpeg -i music.mp3 -i video.avi output.mpg</p>
-</section>
-<section id="extract-audio-from-video-file-useful-for-extracting-music-from-youtube-videos" class="level1">
-<h1>Extract audio from video file”&gt;## Useful for extracting music from youtube videos</h1>
-</section>
-<section id="avi-to-mp3" class="level1">
-<h1>avi to mp3</h1>
-<p>ffmpeg -i video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</p>
-</section>
-<section id="flv-to-mp3" class="level1">
-<h1>flv to mp3</h1>
-<p>ffmpeg -i video.flv -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</p>
+<p><a href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a> <code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code> # encode video from a V4L2 device, using specified settings. # x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264) ffmpeg -f video4linux2 -framerate 30 -input_format mjpeg -video_size 1920x1080 -i /dev/video6 -c:v libx265 -preset ultrafast -c:a none -crf 20 out.mp4 # Convert a raw YUYV422 frame from my USB “microscope” to PNG: # other valid pixel formats are e.g.&nbsp;rgb24 or yuv420p ffmpeg -f rawvideo -video_size 2592x1944 -pixel_format yuyv422 -i input_yuyv422_2592x1944.dat -f image2 output.png # copy a portion of a video, copying and not recoding. Might need to use the same container as the input ffmpeg -i $input -ss $seek_to_seconds -t $output_length -c:v copy -c:a copy $output # Export and show h.264 MVs ffplay -flags2 +export_mvs input.mkv -vf codecview=mv=pf+bf+bb # Show motion vector estimate on any input: ffplay $input -vf mestimate=epzs:mb_size=16:search_param=32,codecview=mv=pf+bf+bb # Select one frame every 10, set presentation time stamp to 10x (0.1<em>PTS), deshake, do not copy audio ffmpeg -i MOV_3147.mp4 -vf ‘select=not(mod(n,10))’,setpts=0.1</em>PTS,deshake=edge=blank:rx=64:ry=64:blocksize=4:contrast=31 -tune grain -crf 17 -an wolken-2-deshake.mkv # Extreme high quality deshake: ffmpeg -i input.mkv -vf ‘select=not(mod(n,20))’,setpts=0.05<em>PTS,mestimate=hexbs,vidstabdetect=shakiness=10:result=transforms.trf ffmpeg -i input.mkv -vf ‘select=not(mod(n,20))’,setpts=0.05</em>PTS,mestimate=hexbs,vidstabtransform=crop=black:smoothing=0:optzoom=0 # or for pass 2 ffmpeg -i MOV_3147.mp4 -vf ‘select=not(mod(n,20))’,setpts=0.05*PTS,vidstabtransform=crop=black:smoothing=180:optzoom=0:interpol=bicubic -an -vcodec libx265 -crf 16 -tune grain wolken-2-deshake.mkv # Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p) # Also see: https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/ ffmpeg -i file.mkv -vf zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable,zscale=t=bt709:m=bt709:r=tv,format=yuv420p -crf 20 -acodec copy output.mkv # Extract all frames as <pattern>.jpg ffmpeg -r 1 -i file.mp4 -r 1 frames_%05d.jpg # Create video from all the frames (missing any codec spec): ffmpeg -r 30 -i frames_%05d.jpg output.mp4 ### XXX the following where copied from ### https://hbish.com/ffmpeg-one-liners/ # Get infomation for a audio/video ffmpeg -i file.mp3 # Convert video into images ffmpeg -i video.avi image_output%d.jpg # Split audio files # Generate a section of the audio from the 30 second mark (start) for 15 seconds (duration) ffmpeg -f mp3 -i input.mp3 -t 00:00:30 -ss 00:00:15 output.mp3 # Covert avi to animated gif ffmpeg -i video.avi output.gif # Add audio to a video file ffmpeg -i music.mp3 -i video.avi output.mpg # Extract audio from video file”&gt;## Useful for extracting music from youtube videos # avi to mp3 ffmpeg -i video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3 # flv to mp3 ffmpeg -i video.flv -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</pattern></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

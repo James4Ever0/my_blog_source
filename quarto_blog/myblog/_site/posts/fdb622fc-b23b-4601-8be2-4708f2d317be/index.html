@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-05">
 <meta name="description" content="Join the NCTF 2022 competition and get ready to put your skills to the test! The summary outlines essential resources such as binwalk, GitHub repositories, and SQL injection techniques to help you conquer the challenges. Get started today and showcase your talents on the global stage!">
 
-<title>James’s Blog - nctf writeups</title>
+<title>James’ Blog - nctf writeups</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,28 +179,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="nctf-writeups" class="level1">
-<h1>nctf writeups</h1>
 <section id="challenges" class="level2">
 <h2 class="anchored" data-anchor-id="challenges">challenges</h2>
-<p><a href="https://nctf.h4ck.fun">the platform</a></p>
-<p><a href="https://github.com/X1cT34m/NCTF2022">official released source code</a></p>
-<p><a href="https://buuoj.cn/">buuctf</a> online judge</p>
-<p>you may find many writeups <a href="https://oopsdc.com/post/buuctf/">in blog</a> and <a href="https://github.com/Yeuoly/buuctf_pwn">github</a> for buuctf.</p>
-</section>
-<section id="hints-and-tools" class="level2">
-<h2 class="anchored" data-anchor-id="hints-and-tools">hints and tools</h2>
-<p>binwalk</p>
-<p><a href="https://github.com/Arr3stY0u">arr3esty0u github info</a></p>
-<p><a href="https://shg-sec.com/#">shg-sec</a></p>
-<p><a href="https://ctftime.org/event/1727">hack.lu 2022</a></p>
-<p>ayacms rce in nctf 2022? how to identify the cms? and how the fuck did those guys identify the shit from that damn website (bing-upms)?</p>
-<p>answer: they are both busting common web directories. can be induced by common repo structures.</p>
-<p><a href="https://github.com/zieglerk/baby-AES">baby-aes</a> for crypto signin?</p>
-<p><a href="https://www.doyler.net/security-not-included/zsteg-easy-ctf-flags">zsteg</a> for solving that png problem?</p>
-<p><a href="https://www.doyler.net/security-not-included/sqlite-injection">normal sql injection, not for denodb</a></p>
-<p><a href="https://blog.huli.tw">huli: interesting blog where denodb 0day came from</a></p>
-<p>some z3 code, which does not but angr solved the problem</p>
+<p><a href="https://nctf.h4ck.fun">the platform</a> <a href="https://github.com/X1cT34m/NCTF2022">official released source code</a> <a href="https://buuoj.cn/">buuctf</a> online judge you may find many writeups <a href="https://oopsdc.com/post/buuctf/">in blog</a> and <a href="https://github.com/Yeuoly/buuctf_pwn">github</a> for buuctf. ## hints and tools binwalk <a href="https://github.com/Arr3stY0u">arr3esty0u github info</a> <a href="https://shg-sec.com/#">shg-sec</a> <a href="https://ctftime.org/event/1727">hack.lu 2022</a> ayacms rce in nctf 2022? how to identify the cms? and how the fuck did those guys identify the shit from that damn website (bing-upms)? answer: they are both busting common web directories. can be induced by common repo structures. <a href="https://github.com/zieglerk/baby-AES">baby-aes</a> for crypto signin? <a href="https://www.doyler.net/security-not-included/zsteg-easy-ctf-flags">zsteg</a> for solving that png problem? <a href="https://www.doyler.net/security-not-included/sqlite-injection">normal sql injection, not for denodb</a> <a href="https://blog.huli.tw">huli: interesting blog where denodb 0day came from</a> some z3 code, which does not but angr solved the problem</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> z3 <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data1<span class="op">=</span><span class="bn">0x162AEB99F80DD8EF8C82AFADBA2E087A</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data2<span class="op">=</span><span class="bn">0x47C9F2ACA92F6476BE7F0A6DC89F4305</span></span>
@@ -216,51 +192,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>solver<span class="op">=</span>Solver()</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>flag<span class="op">=</span>[Int(<span class="st">'flag</span><span class="sc">%d</span><span class="st">'</span><span class="op">%</span>i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">36</span>)]</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">16</span>):</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    answer.append((data1<span class="op">&gt;&gt;</span><span class="dv">8</span><span class="op">*</span>i)<span class="op">&amp;</span><span class="bn">0xff</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>answer.append((data1<span class="op">&gt;&gt;</span><span class="dv">8</span><span class="op">*</span>i)<span class="op">&amp;</span><span class="bn">0xff</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">16</span>):</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    answer.append((data2<span class="op">&gt;&gt;</span><span class="dv">8</span><span class="op">*</span>i)<span class="op">&amp;</span><span class="bn">0xff</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>answer.append((data2<span class="op">&gt;&gt;</span><span class="dv">8</span><span class="op">*</span>i)<span class="op">&amp;</span><span class="bn">0xff</span>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    answer.append((data3<span class="op">&gt;&gt;</span><span class="dv">8</span><span class="op">*</span>i)<span class="op">&amp;</span><span class="bn">0xff</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>answer.append((data3<span class="op">&gt;&gt;</span><span class="dv">8</span><span class="op">*</span>i)<span class="op">&amp;</span><span class="bn">0xff</span>)</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(answer)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">9</span>):</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    v3<span class="op">=</span>key[<span class="dv">3</span>]</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    v4<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">3</span>]</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    v5<span class="op">=</span>key[<span class="dv">0</span>]</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    v6<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i]</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    v7<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>]</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    v8<span class="op">=</span>key[<span class="dv">1</span>]</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    v9<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">2</span>]</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    v10<span class="op">=</span>(v6 <span class="op">+</span> v4) <span class="op">*</span> (key[<span class="dv">0</span>] <span class="op">+</span> v3)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    v11<span class="op">=</span>key[<span class="dv">2</span>]</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    v12 <span class="op">=</span> v3 <span class="op">*</span> (v6 <span class="op">+</span> v7)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    v13 <span class="op">=</span> (v3 <span class="op">+</span> v11) <span class="op">*</span> (v7 <span class="op">-</span> v4)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    v14 <span class="op">=</span> v4 <span class="op">*</span> (v11 <span class="op">-</span> v5)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    v15 <span class="op">=</span> v5 <span class="op">*</span> (v9 <span class="op">+</span> v4)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    solver.add(v14<span class="op">+</span>v10<span class="op">+</span>v13<span class="op">-</span>v12<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i])</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    solver.add(v6 <span class="op">*</span> (v8 <span class="op">-</span> v3) <span class="op">+</span> v12<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>])</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    solver.add(v15 <span class="op">+</span> v14<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">2</span>])</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    solver.add(v6 <span class="op">*</span> (v8 <span class="op">-</span> v3) <span class="op">+</span> (v8 <span class="op">+</span> v5) <span class="op">*</span> (v9 <span class="op">-</span> v6) <span class="op">+</span> v10 <span class="op">-</span> v15<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">3</span>])</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> solver.check()<span class="op">==</span>sat:</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    m<span class="op">=</span>solver.model()</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    rex <span class="op">=</span> []</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">34</span>):</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        rex.append(m[flag[i]].as_long())</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(rex)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"n0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>v3<span class="op">=</span>key[<span class="dv">3</span>]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>v4<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">3</span>]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>v5<span class="op">=</span>key[<span class="dv">0</span>]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>v6<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>v7<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>v8<span class="op">=</span>key[<span class="dv">1</span>]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>v9<span class="op">=</span>flag[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">2</span>]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>v10<span class="op">=</span>(v6 <span class="op">+</span> v4) <span class="op">*</span> (key[<span class="dv">0</span>] <span class="op">+</span> v3)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>v11<span class="op">=</span>key[<span class="dv">2</span>]</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>v12 <span class="op">=</span> v3 <span class="op">*</span> (v6 <span class="op">+</span> v7)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>v13 <span class="op">=</span> (v3 <span class="op">+</span> v11) <span class="op">*</span> (v7 <span class="op">-</span> v4)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>v14 <span class="op">=</span> v4 <span class="op">*</span> (v11 <span class="op">-</span> v5)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>v15 <span class="op">=</span> v5 <span class="op">*</span> (v9 <span class="op">+</span> v4)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>solver.add(v14<span class="op">+</span>v10<span class="op">+</span>v13<span class="op">-</span>v12<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i])</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>solver.add(v6 <span class="op">*</span> (v8 <span class="op">-</span> v3) <span class="op">+</span> v12<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>])</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>solver.add(v15 <span class="op">+</span> v14<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">2</span>])</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>solver.add(v6 <span class="op">*</span> (v8 <span class="op">-</span> v3) <span class="op">+</span> (v8 <span class="op">+</span> v5) <span class="op">*</span> (v9 <span class="op">-</span> v6) <span class="op">+</span> v10 <span class="op">-</span> v15<span class="op">==</span>answer[<span class="dv">4</span><span class="op">*</span>i<span class="op">+</span><span class="dv">3</span>])</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> solver.check()<span class="op">==</span>sat:</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>solver.model()</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>rex <span class="op">=</span> []</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">34</span>):</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>rex.append(m[flag[i]].as_long())</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rex)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"n0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="writeups" class="level2">
 <h2 class="anchored" data-anchor-id="writeups">writeups</h2>
-<p><a href="https://pupil857.github.io/">saying this is complete for 2022 nctf?</a></p>
-<p><a href="http://mp.weixin.qq.com/s?__biz=Mzg4MjcxMTAwMQ==&amp;mid=2247485772&amp;idx=1&amp;sn=0f5b969f111d79027c59e6e2145698ef&amp;chksm=cf53c9faf82440ec839aa7fc6b35bbc03251c824c5c5407ed9eb51181471d7514d651e3cfe97&amp;mpshare=1&amp;scene=23&amp;srcid=12055uACFGja8KBjcPtP8ErG&amp;sharer_sharetime=1670169963855&amp;sharer_shareid=6eea79ff6da57fc6752ab0bc570bf392#rd">arr3ty0u nctf 2022 writeup</a></p>
-<p><a href="https://www.codetd.com/en/article/9046407">nctf 2019 writeup</a></p>
-<p>don’t know when it is, but i remember i have seen this shit: <a href="https://blog.katastros.com/a?ID=00650-571829f2-3af9-4b1c-a3b7-3ebebca04377">katastros’s nctf writeup</a></p>
-<p><a href="https://www.ctfiot.com/83703.html">ctfiot chamd5 nctf 2022 writeup</a></p>
-<p><a href="http://blog.tolinchan.xyz/2022/12/05/nctf-2022-official-writeup-crypto/">nctf 2022 official crypto writeup</a></p>
+<p><a href="https://pupil857.github.io/">saying this is complete for 2022 nctf?</a> <a href="http://mp.weixin.qq.com/s?__biz=Mzg4MjcxMTAwMQ==&amp;mid=2247485772&amp;idx=1&amp;sn=0f5b969f111d79027c59e6e2145698ef&amp;chksm=cf53c9faf82440ec839aa7fc6b35bbc03251c824c5c5407ed9eb51181471d7514d651e3cfe97&amp;mpshare=1&amp;scene=23&amp;srcid=12055uACFGja8KBjcPtP8ErG&amp;sharer_sharetime=1670169963855&amp;sharer_shareid=6eea79ff6da57fc6752ab0bc570bf392#rd">arr3ty0u nctf 2022 writeup</a> <a href="https://www.codetd.com/en/article/9046407">nctf 2019 writeup</a> don’t know when it is, but i remember i have seen this shit: <a href="https://blog.katastros.com/a?ID=00650-571829f2-3af9-4b1c-a3b7-3ebebca04377">katastros’s nctf writeup</a> <a href="https://www.ctfiot.com/83703.html">ctfiot chamd5 nctf 2022 writeup</a> <a href="http://blog.tolinchan.xyz/2022/12/05/nctf-2022-official-writeup-crypto/">nctf 2022 official crypto writeup</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

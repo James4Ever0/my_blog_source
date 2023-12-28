@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# Movie Scraping 3
-
 https://www.dianyinggou.com
-
 with douban link
-

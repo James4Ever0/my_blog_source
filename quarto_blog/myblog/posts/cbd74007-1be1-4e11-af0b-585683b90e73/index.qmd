@@ -4,11 +4,7 @@
 ---
 
 ------
-
-# MacOS locate fix and alternative
-
 ## the fix
-
 to enable the service:
 ```bash
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
@@ -22,8 +18,5 @@ or, more conveniently:
 sudo ln -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb
 sudo updatedb
 ```
-
 ## alternative
-
 use `mdfind`
-

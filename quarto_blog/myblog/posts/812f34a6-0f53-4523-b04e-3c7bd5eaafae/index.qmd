@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# windows & office activation, install windows in virtualbox
-
 visit: [massgrave](https://massgrave.dev)
-
 [steps before installing windows to virtualbox](https://blog.csdn.net/qq_44323306/article/details/122009436)
-

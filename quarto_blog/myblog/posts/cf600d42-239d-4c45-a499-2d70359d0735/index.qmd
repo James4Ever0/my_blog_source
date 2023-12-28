@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# Sound Effects
-
 spotify/pedalboard
-
 support vst plugins, create sound effects
-

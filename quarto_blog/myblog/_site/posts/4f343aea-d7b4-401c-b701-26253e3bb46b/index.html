@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-08-11">
 <meta name="description" content="This article offers step-by-step instructions on how to create and mount a RAM disk on different operating systems such as Linux, macOS, and Windows. It covers various methods including the use of imdisk and eram tools.">
 
-<title>James’s Blog - ramfs on macos, linux and windows</title>
+<title>James’ Blog - ramfs on macos, linux and windows</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -179,59 +174,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="ramfs-on-macos-linux-and-windows" class="level1">
-<h1>ramfs on macos, linux and windows</h1>
 <section id="linux" class="level2">
 <h2 class="anchored" data-anchor-id="linux">linux</h2>
-<p>simply use /dev/shm</p>
-<p>the only difference is that <a href="https://linuxhint.com/create-ramdisk-linux/">ramfs on linux is unbounded while tmpfs is bounded</a></p>
-<p>create bounded tmpfs:</p>
+<p>simply use /dev/shm the only difference is that <a href="https://linuxhint.com/create-ramdisk-linux/">ramfs on linux is unbounded while tmpfs is bounded</a> create bounded tmpfs:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mount</span> <span class="at">-t</span> tmpfs <span class="at">-o</span> size=2g tmpfs /mnt/tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or yoy labor yourself to mount some additional ramfs:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mount</span> <span class="at">-t</span> ramfs <span class="at">-o</span> size=2g ramfs /mnt/tmp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="macos" class="level2">
 <h2 class="anchored" data-anchor-id="macos">macos</h2>
-<p>/private/tmp is not ramdisk. it is just a directory cleared by startup.</p>
-<p><a href="https://github.com/KizzyCode/ramfs-shell">ram-shell: A simple script to create a in-memory filesystem on macOS</a></p>
-<p><a href="https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.">RAM-backed filesystem mounter for Mac OS X</a></p>
-<p>create and mount ramdisk:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> <span class="co">#!/bin/sh</span></span>
+<p>/private/tmp is not ramdisk. it is just a directory cleared by startup. <a href="https://github.com/KizzyCode/ramfs-shell">ram-shell: A simple script to create a in-memory filesystem on macOS</a> <a href="https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.">RAM-backed filesystem mounter for Mac OS X</a> create and mount ramdisk:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">ramfs_size_mb</span><span class="op">=</span>2100</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">mount_point</span><span class="op">=</span>/tmp/rdisk</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mkramdisk()</span> <span class="kw">{</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">ramfs_size_sectors</span><span class="op">=</span><span class="va">$((${ramfs_size_mb}</span><span class="op">*</span><span class="dv">1024</span><span class="op">*</span><span class="dv">1024</span><span class="op">/</span><span class="dv">512</span><span class="va">))</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="va">ramdisk_dev</span><span class="op">=</span><span class="kw">`</span><span class="ex">hdid</span> <span class="at">-nomount</span> ram://<span class="va">${ramfs_size_sectors}</span><span class="kw">`</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">newfs_hfs</span> <span class="at">-v</span> <span class="st">'ram disk'</span> <span class="va">${ramdisk_dev}</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">${mount_point}</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mount</span> <span class="at">-o</span> noatime <span class="at">-t</span> hfs <span class="va">${ramdisk_dev}</span> <span class="va">${mount_point}</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"remove with:"</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"umount </span><span class="va">${mount_point}</span><span class="st">"</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="bu">echo</span> <span class="st">"diskutil eject </span><span class="va">${ramdisk_dev}</span><span class="st">"</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://www.cnblogs.com/emitial/p/ramfs-on-mac.html">to replace /private/tmp with ramfs and registered as launchd service</a></p>
-<p>calculate sector numbers by hand:</p>
-<p>disk_size(MiB)* 1024KiB/MiB * 1024B/KiB / 512B/sector = #sectors</p>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mkramdisk()</span> <span class="kw">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">ramfs_size_sectors</span><span class="op">=</span><span class="va">$((${ramfs_size_mb}</span><span class="op">*</span><span class="dv">1024</span><span class="op">*</span><span class="dv">1024</span><span class="op">/</span><span class="dv">512</span><span class="va">))</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">ramdisk_dev</span><span class="op">=</span><span class="kw">`</span><span class="ex">hdid</span> <span class="at">-nomount</span> ram://<span class="va">${ramfs_size_sectors}</span><span class="kw">`</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">newfs_hfs</span> <span class="at">-v</span> <span class="st">'ram disk'</span> <span class="va">${ramdisk_dev}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">${mount_point}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mount</span> <span class="at">-o</span> noatime <span class="at">-t</span> hfs <span class="va">${ramdisk_dev}</span> <span class="va">${mount_point}</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"remove with:"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"umount </span><span class="va">${mount_point}</span><span class="st">"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"diskutil eject </span><span class="va">${ramdisk_dev}</span><span class="st">"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="https://www.cnblogs.com/emitial/p/ramfs-on-mac.html">to replace /private/tmp with ramfs and registered as launchd service</a> calculate sector numbers by hand: disk_size(MiB)* 1024KiB/MiB * 1024B/KiB / 512B/sector = #sectors</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hdiutil</span> attach <span class="at">-nomount</span> ram://#sectors</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#get returned value afterwards!</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">newfs_hfs</span> <span class="at">-v</span> <span class="st">'Ramdisk'</span> <span class="op">&lt;</span>returned_disk_device_id<span class="op">&gt;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># maybe you should create apfs case sensitive instead?</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#mount disk</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/Ramdisk</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># may change fs type accordingly when using apfs</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mount</span> <span class="at">-o</span> noatime <span class="at">-t</span> hfs <span class="op">&lt;</span>returned_disk_device_id<span class="op">&gt;</span> ~/Ramdisk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#mount disk</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/Ramdisk</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># may change fs type accordingly when using apfs</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mount</span> <span class="at">-o</span> noatime <span class="at">-t</span> hfs <span class="op">&lt;</span>returned_disk_device_id<span class="op">&gt;</span> ~/Ramdisk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="windows" class="level2">
 <h2 class="anchored" data-anchor-id="windows">windows</h2>
-<p><a href="https://www.geckoandfly.com/21507/ramdisk-virtual-disk-memory/#:~:text=RAMDisk%20is%20a%20program%20that%20takes%20a%20portion,default%20‘ReadyBoost’%20found%20in%20Microsoft%20Windows%20operating%20system.">a curated ramdisk software list</a></p>
-<p>use third-party ramdisk tool like <a href="https://sourceforge.net/projects/imdisk-toolkit/">imdisk</a>, <a href="https://github.com/Zero3K/ERAM">eram</a> with kernel driver installed, secure boot disabled (no uefi maybe?)</p>
+<p><a href="https://www.geckoandfly.com/21507/ramdisk-virtual-disk-memory/#:~:text=RAMDisk%20is%20a%20program%20that%20takes%20a%20portion,default%20‘ReadyBoost’%20found%20in%20Microsoft%20Windows%20operating%20system.">a curated ramdisk software list</a> use third-party ramdisk tool like <a href="https://sourceforge.net/projects/imdisk-toolkit/">imdisk</a>, <a href="https://github.com/Zero3K/ERAM">eram</a> with kernel driver installed, secure boot disabled (no uefi maybe?)</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

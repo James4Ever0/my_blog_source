@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-11-03">
 <meta name="description" content="This article provides a comprehensive guide on Android reverse engineering tools, specifically focusing on IDA, Ghidra, Frida, GDA, and Flowdroid. It explains how to use Frida to attach an existing process and demonstrates its usage with WeChat as an example.">
 
-<title>James’s Blog - Mastering Android Reverse Engineering Tools: IDA, Ghidra, Frida, GDA and Flowdroid</title>
+<title>James’ Blog - Mastering Android Reverse Engineering Tools: IDA, Ghidra, Frida, GDA and Flowdroid</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -186,14 +181,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="安卓反编译" class="level1">
 <h1>安卓反编译</h1>
-<p>ida ghidra frida</p>
-<p><a href="https://github.com/iGio90/frida-java-ext">frida extension/helper methods</a></p>
-<p>attach existing process</p>
+<p>ida ghidra frida <a href="https://github.com/iGio90/frida-java-ext">frida extension/helper methods</a> attach existing process</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> frida-ps</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> frida <span class="at">-n</span> WeChat</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> frida <span class="at">-p</span> <span class="pp">[</span><span class="ss">pid</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="http://www.gda.wiki:9090/index.php">gda</a> 交互式Android反编译 支持<a href="http://www.gda.wiki:9090/dataFlow.php">数据流追踪</a></p>
-<p><a href="https://github.com/secure-software-engineering/FlowDroid">flowdroid</a></p>
+<p><a href="http://www.gda.wiki:9090/index.php">gda</a> 交互式Android反编译 支持<a href="http://www.gda.wiki:9090/dataFlow.php">数据流追踪</a> <a href="https://github.com/secure-software-engineering/FlowDroid">flowdroid</a></p>
 
 
 </section>

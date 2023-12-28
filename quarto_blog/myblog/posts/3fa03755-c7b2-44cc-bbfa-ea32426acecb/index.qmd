@@ -4,10 +4,6 @@
 ---
 
 ------
-
 # waf bypass
-
 [how to bypass waf cheatsheet by hacken.io](https://hacken.io/discover/how-to-bypass-waf-hackenproof-cheat-sheet/)
- 
 [bapp for waf bypass](https://portswigger.net/bappstore/ae2611da3bbc4687953a1f4ba6a4e04c)
-

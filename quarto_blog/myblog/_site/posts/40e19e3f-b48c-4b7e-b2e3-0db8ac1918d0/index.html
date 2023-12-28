@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-25">
 <meta name="description" content="This article explains the process of generating a new public key using an RSA private key. It is important when deploying public keys to avoid duplicates, particularly when utilizing the Git repo sync tool.">
 
-<title>James’s Blog - generate publickey again with rsa private key</title>
+<title>James’ Blog - generate publickey again with rsa private key</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -182,16 +177,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="generate-publickey-again-with-rsa-private-key" class="level1">
-<h1>generate publickey again with rsa private key</h1>
-<p>not possible. use personal access token as password instead.</p>
-<p>cause the deploy public key does not allow duplicate public key, causing trouble for us to use the git repo sync tool.</p>
+<p>not possible. use personal access token as password instead. cause the deploy public key does not allow duplicate public key, causing trouble for us to use the git repo sync tool.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">PRIVATE_KEY_PATH</span><span class="op">=</span>/Users/jamesbrown/.notable/id_rsa_original_backup</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">PUBKEY_PATH</span><span class="op">=</span>/Users/jamesbrown/.notable/id_rsa.pub2</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-y</span> <span class="at">-f</span> <span class="va">$PRIVATE_KEY_PATH</span> <span class="op">&gt;</span> <span class="va">$PUBKEY_PATH</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

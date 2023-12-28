@@ -4,9 +4,5 @@
 ---
 
 ------
-
-# copyright issues circumvention
-
 only mention sources from major leagues (#fans > 5k)
 mention the bgm you are using
-

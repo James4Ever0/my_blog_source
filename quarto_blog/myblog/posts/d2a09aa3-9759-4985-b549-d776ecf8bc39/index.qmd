@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# webpage translator plugin
-
 [traduzir](Traduzir-paginas-web)
-
 [simple-translate](https://github.com/sienori/simple-translate)
-

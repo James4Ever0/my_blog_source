@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-27">
 <meta name="description" content="This article provides detailed instructions on how to route GitHub-related domains through Fastgithub using Clash and configuring DNS settings. It covers various system-specific methods, including launchctl for macOS and systemd for Linux, as well as alternative options like monit and shell scripts.">
 
-<title>James’s Blog - Clash route only github related domains to fastgithub</title>
+<title>James’ Blog - Clash route only github related domains to fastgithub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -147,26 +142,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="clash-route-only-github-related-domains-to-fastgithub" class="level1">
-<h1>Clash route only github related domains to fastgithub</h1>
 <section id="dns" class="level2">
 <h2 class="anchored" data-anchor-id="dns">DNS</h2>
-<p>use clash official DNS settings to resolve issues related to domain resolution, especially when used as a system proxy.</p>
-<p><a href="https://github.com/Dreamacro/clash/wiki/configuration#dns">documentation</a></p>
-<p>to persist program using platform-specific service manager like nssm on windows:</p>
-</section>
-<section id="macos" class="level2">
-<h2 class="anchored" data-anchor-id="macos">macos</h2>
-<p>use launchctl(launchd) or easyd</p>
-</section>
-<section id="linux" class="level2">
-<h2 class="anchored" data-anchor-id="linux">linux</h2>
-<p>create systemd need to change system wide proxy settings in init files</p>
-<p>or use <a href="https://mmonit.com/monit/documentation/monit.html">monit</a>, with control over the service itself.</p>
-<p>or shell script alike <a href="https://github.com/guolisongIsesol/linuxNssm">linuxNSSM</a></p>
+<p>use clash official DNS settings to resolve issues related to domain resolution, especially when used as a system proxy. <a href="https://github.com/Dreamacro/clash/wiki/configuration#dns">documentation</a> to persist program using platform-specific service manager like nssm on windows: ## macos use launchctl(launchd) or easyd ## linux create systemd need to change system wide proxy settings in init files or use <a href="https://mmonit.com/monit/documentation/monit.html">monit</a>, with control over the service itself. or shell script alike <a href="https://github.com/guolisongIsesol/linuxNssm">linuxNSSM</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -4,10 +4,4 @@
 ---
 
 ------
-
-
-
-# A good/bad proposal on v2ray
-
 suggest to enable multiple v2ray client/servers which talk to each other but only visit the network with one single outbound. maybe like the onion router.
-

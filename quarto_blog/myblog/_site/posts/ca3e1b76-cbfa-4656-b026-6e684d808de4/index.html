@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-18">
 <meta name="description" content="Pyro and PyMC3 are programming languages designed for probabilistic programming. PyMC3, in particular, utilizes Beta-Binomial likelihoods, Markov Chain Monte Carlo (MCMC) techniques, and Gamma priors for creating models, sampling data, and calculating statistics.">
 
-<title>James’s Blog - pyro and pymc3 basics</title>
+<title>James’ Blog - pyro and pymc3 basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,96 +179,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="pyro-and-pymc3-basics" class="level1">
-<h1>pyro and pymc3 basics</h1>
-<p><a href="https://github.com/paraschopra/bayesian-neural-network-mnist">using pyro for mnist classification</a> and <a href="https://towardsdatascience.com/making-your-neural-network-say-i-dont-know-bayesian-nns-using-pyro-and-pytorch-b1c24e6ab8cd">tutorial</a> (benefits: knowing if it doesn’t know what’s in front)</p>
-<section id="demonstrate-basic-usage-of-pyro" class="level2">
-<h2 class="anchored" data-anchor-id="demonstrate-basic-usage-of-pyro">demonstrate basic usage of <a href="http://pyro.ai/examples/intro_long.html">pyro</a></h2>
-<p>Pyro is a probabilistic programming language developed by Uber that allows users to define complex probabilistic models and perform Bayesian inference on them. Here is a simple example of how Pyro can be used to define and sample from a simple probabilistic model:</p>
+<p><a href="https://github.com/paraschopra/bayesian-neural-network-mnist">using pyro for mnist classification</a> and <a href="https://towardsdatascience.com/making-your-neural-network-say-i-dont-know-bayesian-nns-using-pyro-and-pytorch-b1c24e6ab8cd">tutorial</a> (benefits: knowing if it doesn’t know what’s in front) ## demonstrate basic usage of <a href="http://pyro.ai/examples/intro_long.html">pyro</a> Pyro is a probabilistic programming language developed by Uber that allows users to define complex probabilistic models and perform Bayesian inference on them. Here is a simple example of how Pyro can be used to define and sample from a simple probabilistic model:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyro</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyro.distributions <span class="im">as</span> dist</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a simple probabilistic model</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model():</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sample a value from a normal distribution</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> pyro.sample(<span class="st">"x"</span>, dist.Normal(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Condition the model on a Bernoulli distribution</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    pyro.sample(<span class="st">"y"</span>, dist.Bernoulli(logits<span class="op">=</span>x), obs<span class="op">=</span>x <span class="op">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the Pyro cache and run the model</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pyro.clear_param_store()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>svi <span class="op">=</span> pyro.infer.SVI(model, pyro.infer.JitTraceEnum_ELBO(), pyro.optim.Adam({<span class="st">"lr"</span>: <span class="fl">0.01</span>}))</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    svi.step()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from the posterior distribution</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>posterior <span class="op">=</span> pyro.infer.Posterior(model)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> posterior.sample((<span class="dv">1000</span>,))</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the mean and standard deviation of the samples</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples.mean())</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples.std())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this example, we define a simple model that samples a value from a normal distribution and conditions it on a Bernoulli distribution. We then use the SVI (stochastic variational inference) algorithm to perform approximate Bayesian inference on the model. Finally, we sample from the posterior distribution and print the mean and standard deviation of the samples.</p>
-<p>This is just a simple example of what you can do with Pyro. There are many more advanced features and techniques available in the library, including support for discrete and continuous latent variables, transformations, and more. You can find more information about Pyro in the documentation and examples available on the Pyro website.</p>
-</section>
-<section id="compare-pyro-to-pymc3" class="level2">
-<h2 class="anchored" data-anchor-id="compare-pyro-to-pymc3">compare pyro to pymc3</h2>
-<p>Pyro and PyMC3 are both probabilistic programming languages that allow users to define complex probabilistic models and perform Bayesian inference on them. Both Pyro and PyMC3 are built on top of PyTorch, a popular machine learning library, and they share many features and capabilities. However, there are also some key differences between the two languages.</p>
-<p>One of the main differences between Pyro and PyMC3 is the way they represent probabilistic models. Pyro uses a language called “PyroScript” to define models, which is a variant of Python that includes special statements for defining random variables and specifying probabilistic dependencies. PyMC3, on the other hand, uses a more traditional approach where models are defined using objects and functions.</p>
-<p>Another difference between the two languages is the type of inference algorithms they support. Pyro includes a variety of inference algorithms, including both variational inference and Monte Carlo methods, while PyMC3 is primarily focused on Markov chain Monte Carlo (MCMC) techniques.</p>
-<p>Overall, both Pyro and PyMC3 are powerful probabilistic programming languages that can be used to define and analyze complex probabilistic models. Which one is the best fit for your needs will depend on your specific requirements and preferences.</p>
-</section>
-<section id="demonstrate-usage-of-pymc3" class="level2">
-<h2 class="anchored" data-anchor-id="demonstrate-usage-of-pymc3">demonstrate usage of pymc3</h2>
-<p>Here is an example of how PyMC3 can be used to define and analyze a simple probabilistic model:</p>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a simple probabilistic model</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> model():</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample a value from a normal distribution</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> pyro.sample(<span class="st">"x"</span>, dist.Normal(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Condition the model on a Bernoulli distribution</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pyro.sample(<span class="st">"y"</span>, dist.Bernoulli(logits<span class="op">=</span>x), obs<span class="op">=</span>x <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the Pyro cache and run the model</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>pyro.clear_param_store()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>svi <span class="op">=</span> pyro.infer.SVI(model, pyro.infer.JitTraceEnum_ELBO(), pyro.optim.Adam({<span class="st">"lr"</span>: <span class="fl">0.01</span>}))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>svi.step()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from the posterior distribution</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>posterior <span class="op">=</span> pyro.infer.Posterior(model)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> posterior.sample((<span class="dv">1000</span>,))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the mean and standard deviation of the samples</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples.mean())</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples.std())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, we define a simple model that samples a value from a normal distribution and conditions it on a Bernoulli distribution. We then use the SVI (stochastic variational inference) algorithm to perform approximate Bayesian inference on the model. Finally, we sample from the posterior distribution and print the mean and standard deviation of the samples. This is just a simple example of what you can do with Pyro. There are many more advanced features and techniques available in the library, including support for discrete and continuous latent variables, transformations, and more. You can find more information about Pyro in the documentation and examples available on the Pyro website. ## compare pyro to pymc3 Pyro and PyMC3 are both probabilistic programming languages that allow users to define complex probabilistic models and perform Bayesian inference on them. Both Pyro and PyMC3 are built on top of PyTorch, a popular machine learning library, and they share many features and capabilities. However, there are also some key differences between the two languages. One of the main differences between Pyro and PyMC3 is the way they represent probabilistic models. Pyro uses a language called “PyroScript” to define models, which is a variant of Python that includes special statements for defining random variables and specifying probabilistic dependencies. PyMC3, on the other hand, uses a more traditional approach where models are defined using objects and functions. Another difference between the two languages is the type of inference algorithms they support. Pyro includes a variety of inference algorithms, including both variational inference and Monte Carlo methods, while PyMC3 is primarily focused on Markov chain Monte Carlo (MCMC) techniques. Overall, both Pyro and PyMC3 are powerful probabilistic programming languages that can be used to define and analyze complex probabilistic models. Which one is the best fit for your needs will depend on your specific requirements and preferences. ## demonstrate usage of pymc3 Here is an example of how PyMC3 can be used to define and analyze a simple probabilistic model:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pymc3 <span class="im">as</span> pm</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a simple model</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> model:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sample a value from a normal distribution</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> pm.Normal(<span class="st">"x"</span>, mu<span class="op">=</span><span class="dv">0</span>, sigma<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Condition the model on a Bernoulli distribution</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> pm.Bernoulli(<span class="st">"y"</span>, p<span class="op">=</span>pm.math.sigmoid(x), observed<span class="op">=</span>x <span class="op">&gt;</span> <span class="dv">0</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from the posterior distribution using the NUTS algorithm</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> model:</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    trace <span class="op">=</span> pm.sample(<span class="dv">1000</span>, tune<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the samples and calculate the mean and standard deviation</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> trace[<span class="st">"x"</span>]</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(samples)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> np.std(samples)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>mean<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard deviation: </span><span class="sc">{</span>std<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this example, we define a simple model that samples a value from a normal distribution and conditions it on a Bernoulli distribution. We then use the NUTS (No-U-Turn Sampler) algorithm to sample from the posterior distribution. Finally, we extract the samples and calculate the mean and standard deviation of the distribution.</p>
-<p>This is just a simple example of what you can do with PyMC3. There are many more advanced features and techniques available in the library, including support for discrete and continuous latent variables, transformations, and more. You can find more information about PyMC3 in the documentation and examples available on the PyMC3 website.</p>
-</section>
-<section id="show-me-the-model-written-in-pymc3-and-how-to-train-it-with-code-assume-data-is-obtained" class="level2">
-<h2 class="anchored" data-anchor-id="show-me-the-model-written-in-pymc3-and-how-to-train-it-with-code-assume-data-is-obtained">show me the model written in pymc3 and how to train it with code, assume data is obtained</h2>
-<p>Here is an example of a simple natural language generator model written in PyMC3:</p>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a simple model</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> model:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample a value from a normal distribution</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> pm.Normal(<span class="st">"x"</span>, mu<span class="op">=</span><span class="dv">0</span>, sigma<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Condition the model on a Bernoulli distribution</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> pm.Bernoulli(<span class="st">"y"</span>, p<span class="op">=</span>pm.math.sigmoid(x), observed<span class="op">=</span>x <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample from the posterior distribution using the NUTS algorithm</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> model:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>trace <span class="op">=</span> pm.sample(<span class="dv">1000</span>, tune<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the samples and calculate the mean and standard deviation</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> trace[<span class="st">"x"</span>]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(samples)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> np.std(samples)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>mean<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard deviation: </span><span class="sc">{</span>std<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, we define a simple model that samples a value from a normal distribution and conditions it on a Bernoulli distribution. We then use the NUTS (No-U-Turn Sampler) algorithm to sample from the posterior distribution. Finally, we extract the samples and calculate the mean and standard deviation of the distribution. This is just a simple example of what you can do with PyMC3. There are many more advanced features and techniques available in the library, including support for discrete and continuous latent variables, transformations, and more. You can find more information about PyMC3 in the documentation and examples available on the PyMC3 website. ## show me the model written in pymc3 and how to train it with code, assume data is obtained Here is an example of a simple natural language generator model written in PyMC3:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pymc3 <span class="im">as</span> pm</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the model</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> model:</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the priors for the model parameters</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> pm.Gamma(<span class="st">'alpha'</span>, alpha<span class="op">=</span><span class="dv">1</span>, beta<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    beta <span class="op">=</span> pm.Gamma(<span class="st">'beta'</span>, alpha<span class="op">=</span><span class="dv">1</span>, beta<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the likelihood function</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    likelihood <span class="op">=</span> pm.BetaBinomial(<span class="st">'likelihood'</span>, alpha<span class="op">=</span>alpha, beta<span class="op">=</span>beta, observed<span class="op">=</span>data)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model to the data using MCMC</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> model:</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    trace <span class="op">=</span> pm.sample(draws<span class="op">=</span><span class="dv">1000</span>, tune<span class="op">=</span><span class="dv">1000</span>, chains<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This model defines a Beta-Binomial distribution as the likelihood function, with alpha and beta as the model parameters. The alpha and beta parameters are given Gamma priors, which are a type of continuous probability distribution.</p>
-<p>To train the model, we can use the sample function from PyMC3 to fit the model to the data using Markov chain Monte Carlo (MCMC) techniques. The draws argument specifies the number of samples to draw from the posterior distribution, the tune argument specifies the number of tuning samples to use, and the chains argument specifies the number of chains to run.</p>
-<p>It is important to note that this is just a simple example of a natural language generator model written in PyMC3. In practice, the model architecture and training process will depend on the specific requirements and goals of your application, as well as the characteristics of the training data.</p>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the model</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> model:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the priors for the model parameters</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> pm.Gamma(<span class="st">'alpha'</span>, alpha<span class="op">=</span><span class="dv">1</span>, beta<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> pm.Gamma(<span class="st">'beta'</span>, alpha<span class="op">=</span><span class="dv">1</span>, beta<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the likelihood function</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>likelihood <span class="op">=</span> pm.BetaBinomial(<span class="st">'likelihood'</span>, alpha<span class="op">=</span>alpha, beta<span class="op">=</span>beta, observed<span class="op">=</span>data)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model to the data using MCMC</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> model:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>trace <span class="op">=</span> pm.sample(draws<span class="op">=</span><span class="dv">1000</span>, tune<span class="op">=</span><span class="dv">1000</span>, chains<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This model defines a Beta-Binomial distribution as the likelihood function, with alpha and beta as the model parameters. The alpha and beta parameters are given Gamma priors, which are a type of continuous probability distribution. To train the model, we can use the sample function from PyMC3 to fit the model to the data using Markov chain Monte Carlo (MCMC) techniques. The draws argument specifies the number of samples to draw from the posterior distribution, the tune argument specifies the number of tuning samples to use, and the chains argument specifies the number of chains to run. It is important to note that this is just a simple example of a natural language generator model written in PyMC3. In practice, the model architecture and training process will depend on the specific requirements and goals of your application, as well as the characteristics of the training data.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

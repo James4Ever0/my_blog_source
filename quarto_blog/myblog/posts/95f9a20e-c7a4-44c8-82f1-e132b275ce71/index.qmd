@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# Enable multiple concurrent RDP sessions on windows
-
 universal termsrv.dll patch
-
 use patched termsrv.dll
-

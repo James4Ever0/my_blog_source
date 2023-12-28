@@ -4,18 +4,9 @@
 ---
 
 ------
-
-# AI tools collections
-
 ## tool repository
-
 i was informed by a post on zhihu.
-
 [futurepedia](https://www.futurepedia.io/)
-
 [creatives](https://www.creaitives.com/tools)
-
 [futuretools](https://www.futuretools.io/)
-
 [getinference](https://airadar.getinference.com/)
-

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-12-21">
 <meta name="description" content="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.">
 
-<title>James’s Blog - Waydroid installation steps</title>
+<title>James’ Blog - Waydroid installation steps</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,77 +179,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="waydroid-installation-steps" class="level1">
-<h1>Waydroid installation steps</h1>
-<p>cursed by the wall.</p>
-<section id="install-waydroid-package-for-ubuntu" class="level2">
-<h2 class="anchored" data-anchor-id="install-waydroid-package-for-ubuntu">install waydroid package (for ubuntu)</h2>
-<p>visit and save <code>https://repo.waydro.id/</code> as <code>waydroid_init_repo.sh</code>, <code>https://repo.waydro.id/waydroid.gpg</code> as <code>waydroid.gpg</code> (using proxy)</p>
-<p>comment out the download part in <code>waydroid_init_repo.sh</code></p>
+<p>cursed by the wall. ## install waydroid package (for ubuntu) visit and save <code>https://repo.waydro.id/</code> as <code>waydroid_init_repo.sh</code>, <code>https://repo.waydro.id/waydroid.gpg</code> as <code>waydroid.gpg</code> (using proxy) comment out the download part in <code>waydroid_init_repo.sh</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># curl --progress-bar --proto '=https' --tlsv1.2 -Sf https://repo.waydro.id/waydroid.gpg --output /usr/share/keyrings/waydroid.gpg</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>move <code>waydroid.gpg</code> to <code>/usr/share/keyrings/waydroid.gpg</code></p>
-<p>execute <code>sudo bash waydroid_init_repo.sh</code> to setup waydroid repository</p>
-<p>on ubuntu you need to use proxy during apt mirror syncing.</p>
-<p>to setup proxy (relay local proxy to host):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">proxy</span> <span class="at">--port</span> <span class="op">&lt;</span>port<span class="op">&gt;</span> --host <span class="op">&lt;</span>host<span class="op">&gt;</span> <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">--plugins</span> proxy.plugin.ProxyPoolPlugin <span class="dt">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">--proxy-pool</span> localhost:<span class="op">&lt;</span>local_proxy_port<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>move <code>waydroid.gpg</code> to <code>/usr/share/keyrings/waydroid.gpg</code> execute <code>sudo bash waydroid_init_repo.sh</code> to setup waydroid repository on ubuntu you need to use proxy during apt mirror syncing. to setup proxy (relay local proxy to host):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">proxy</span> <span class="at">--port</span> <span class="op">&lt;</span>port<span class="op">&gt;</span> --host <span class="op">&lt;</span>host<span class="op">&gt;</span> <span class="dt">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>--plugins proxy.plugin.ProxyPoolPlugin <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>--proxy-pool localhost:<span class="op">&lt;</span>local_proxy_port<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>to use proxy:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> env https_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> http_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> all_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> apt update</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> env https_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> http_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> all_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> apt install waydroid <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>after installation you should comment out the mirror at: <code>/etc/apt/sources.list.d/waydroid.list</code></p>
-</section>
-<section id="initialize-waydroid" class="level2">
-<h2 class="anchored" data-anchor-id="initialize-waydroid">initialize waydroid</h2>
-<p>start waydroid service: <code>sudo systemctl enable --now waydroid-container</code></p>
-<p>the download speed of sourceforge is very slow, unless you use mirror like <code>liquidtelecom</code></p>
-<p>modify the file <code>/usr/lib/waydroid/tools/helpers/http.py</code></p>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> env https_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> http_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> all_proxy=http://<span class="op">&lt;</span>host<span class="op">&gt;</span>:<span class="op">&lt;</span>port<span class="op">&gt;</span> apt install waydroid <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>after installation you should comment out the mirror at: <code>/etc/apt/sources.list.d/waydroid.list</code> ## initialize waydroid start waydroid service: <code>sudo systemctl enable --now waydroid-container</code> the download speed of sourceforge is very slow, unless you use mirror like <code>liquidtelecom</code> modify the file <code>/usr/lib/waydroid/tools/helpers/http.py</code></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>...</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## added part</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_sourceforge_download_url(url: <span class="bu">str</span>):</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    keywords <span class="op">=</span> [<span class="st">"sourceforge.net"</span>, <span class="st">"download"</span>]</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">all</span>([kw <span class="kw">in</span> url <span class="cf">for</span> kw <span class="kw">in</span> keywords])</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> use_liquidtelecom_mirror(url: <span class="bu">str</span>):</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># example: https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#      -&gt;  https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download?use_mirror=liquidtelecom</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    keyword <span class="op">=</span> <span class="st">"use_mirror=liquidtelecom"</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> is_sourceforge_download_url(url):</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> keyword <span class="kw">not</span> <span class="kw">in</span> url:</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            conn_symbol <span class="op">=</span> <span class="st">"?"</span> <span class="cf">if</span> <span class="st">"?"</span> <span class="kw">not</span> <span class="kw">in</span> url <span class="cf">else</span> <span class="st">"&amp;"</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            url <span class="op">+=</span> conn_symbol <span class="op">+</span> keyword</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> url</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">## modified part</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download(args, url, prefix, cache<span class="op">=</span><span class="va">True</span>, loglevel<span class="op">=</span>logging.INFO, allow_404<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> use_liquidtelecom_mirror(url)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>restart service: <code>sudo systemctl restart waydroid-container</code></p>
-<p>run command <code>sudo waydroid init</code></p>
-</section>
-<section id="run-waydroid-in-xorg" class="level2">
-<h2 class="anchored" data-anchor-id="run-waydroid-in-xorg">run waydroid in xorg</h2>
-<p>install weston: <code>apt install weston</code></p>
-<p>configure weston at <code>~/.config/weston.ini</code></p>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## added part</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_sourceforge_download_url(url: <span class="bu">str</span>):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> [<span class="st">"sourceforge.net"</span>, <span class="st">"download"</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="bu">all</span>([kw <span class="kw">in</span> url <span class="cf">for</span> kw <span class="kw">in</span> keywords])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> use_liquidtelecom_mirror(url: <span class="bu">str</span>):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># example: https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#      -&gt;  https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download?use_mirror=liquidtelecom</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>keyword <span class="op">=</span> <span class="st">"use_mirror=liquidtelecom"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> is_sourceforge_download_url(url):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> keyword <span class="kw">not</span> <span class="kw">in</span> url:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>conn_symbol <span class="op">=</span> <span class="st">"?"</span> <span class="cf">if</span> <span class="st">"?"</span> <span class="kw">not</span> <span class="kw">in</span> url <span class="cf">else</span> <span class="st">"&amp;"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>url <span class="op">+=</span> conn_symbol <span class="op">+</span> keyword</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> url</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">## modified part</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download(args, url, prefix, cache<span class="op">=</span><span class="va">True</span>, loglevel<span class="op">=</span>logging.INFO, allow_404<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> use_liquidtelecom_mirror(url)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>restart service: <code>sudo systemctl restart waydroid-container</code> run command <code>sudo waydroid init</code> ## run waydroid in xorg install weston: <code>apt install weston</code> configure weston at <code>~/.config/weston.ini</code></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="dt">core</span><span class="kw">]</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">xwayland</span><span class="op">=</span><span class="cn">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>run <code>weston</code>, launch terminal at top left corner, run <code>waydroid</code></p>
-</section>
-<section id="network-issue" class="level2">
-<h2 class="anchored" data-anchor-id="network-issue">network issue</h2>
-<p>in addition to the <a href="https://docs.waydro.id/debugging/networking-issues">official guide</a>, you also need to <a href="https://github.com/waydroid/waydroid/issues/656#issuecomment-1422650240">enable</a> <code>firewalld</code> or <code>ufw</code> to make it work.</p>
-<p>the wifi switch is irrelevant to network. it won’t be turned on.</p>
+<p>run <code>weston</code>, launch terminal at top left corner, run <code>waydroid</code> ## network issue in addition to the <a href="https://docs.waydro.id/debugging/networking-issues">official guide</a>, you also need to <a href="https://github.com/waydroid/waydroid/issues/656#issuecomment-1422650240">enable</a> <code>firewalld</code> or <code>ufw</code> to make it work. the wifi switch is irrelevant to network. it won’t be turned on.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

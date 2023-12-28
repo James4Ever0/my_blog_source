@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# macOS window click-through
-
 use cmd-click to operate the inactive window without activating it.
-
 linux/windows not having this feature. might need custom hot key for this.
-

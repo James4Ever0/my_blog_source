@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-08-25">
 <meta name="description" content="This article explores techniques for scanning images and documents containing mathematical formulas using non-max suppression and image search libraries such as Chargrid OCR or Image Match, ensuring compliance with copyright laws while minimizing manual formatting.">
 
-<title>James’s Blog - scan this picture and index the whole video/document/ppt/textbook!</title>
+<title>James’ Blog - scan this picture and index the whole video/document/ppt/textbook!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,8 +179,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="scan-this-picture-and-index-the-whole-videodocumentppttextbook" class="level1">
-<h1>scan this picture and index the whole video/document/ppt/textbook!</h1>
 <section id="non-max-suppression-in-combining-similar-bounding-boxes" class="level2">
 <h2 class="anchored" data-anchor-id="non-max-suppression-in-combining-similar-bounding-boxes">non-max suppression in combining similar bounding boxes</h2>
 <p>the lib:</p>
@@ -193,56 +186,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="basically-greek-letters" class="level2">
 <h2 class="anchored" data-anchor-id="basically-greek-letters">basically greek letters</h2>
-<p>maybe you can document another great range of symbols by just enabling the system to search in greek?</p>
-<p>could also search among math symbols, do <a href="https://github.com/chungkwong/MathOCR">math ocr</a>.</p>
-</section>
-<section id="kindly-reminders" class="level2">
-<h2 class="anchored" data-anchor-id="kindly-reminders">kindly reminders</h2>
-<p>when building python c++ libraries without xcode, please add commandline header files like this:</p>
-<p>in order to have this during build: <code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/Headers/Python.h</code></p>
-<p>we need to do:</p>
+<p>maybe you can document another great range of symbols by just enabling the system to search in greek? could also search among math symbols, do <a href="https://github.com/chungkwong/MathOCR">math ocr</a>. ## kindly reminders when building python c++ libraries without xcode, please add commandline header files like this: in order to have this during build: <code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/Headers/Python.h</code> we need to do:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /Library/Developer/CommandLineTools /Applications/Xcode.app/Contents/Developer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="search-by-image-instead-of-cranking-latex-out" class="level2">
 <h2 class="anchored" data-anchor-id="search-by-image-instead-of-cranking-latex-out">search by image instead of cranking latex out</h2>
 <section id="image-search-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="image-search-libraries">image search libraries</h3>
-<p>character level optical char segmentation called <a href="https://github.com/akkshita/chargrid-ocr">chargrid ocr</a></p>
-<p><a href="https://github.com/ProvenanceLabs/image-match">image match used for copyright violation detection, using phash algorithm</a></p>
-</section>
-</section>
-<section id="get-the-latex-out" class="level2">
-<h2 class="anchored" data-anchor-id="get-the-latex-out">get the latex out</h2>
-<section id="first-detect-the-location-of-math-formula" class="level3">
-<h3 class="anchored" data-anchor-id="first-detect-the-location-of-math-formula">first detect the location of math formula</h3>
-<p><a href="https://github.com/MaliParag/ScanSSD">scanning single shot detection for math formulas</a></p>
-<p><a href="https://github.com/MaliParag/TFD-ICDAR2019">dataset for math symbol detection</a></p>
-<p><a href="https://github.com/Binhhp/detector-scan-image">detect different part of document with yolov3</a></p>
-<p><a href="https://github.com/divya1211/math-expression-detection">math expression detection</a></p>
-</section>
-<section id="next-find-the-tool-for-picture-to-latex-conversion" class="level3">
-<h3 class="anchored" data-anchor-id="next-find-the-tool-for-picture-to-latex-conversion">next find the tool for picture to latex conversion</h3>
-<p>新开源的Python工具——Pix2Text (P2T)，目标是 Mathpix 的Python开源替代品，现在可以识别截图中的数学公式并转换为Latex表示，也可以识别图片中的中英文文字。在线Demo： https://huggingface.co/spaces/breezedeus/pix2text 。 Github: https://github.com/breezedeus/pix2text ，Gitee: https://gitee.com/breezedeus/pix2text 。</p>
-<p><a href="https://github.com/DexterLei/Math-OCR">attention based math ocr</a></p>
-<p><a href="https://github.com/yixuanzhou/image2latex">gui of image2latex</a></p>
-<p><a href="https://github.com/ritheshkumar95/im2latex-tensorflow">im2latex-tensorflow</a></p>
-<p><a href="https://github.com/harvardnlp/im2markup/">im2markup with only nvidia support</a> using torch, model for latex conversion can be found <a href="https://im2markup.yuntiandeng.com/model/latex/final-model">here</a></p>
-<p><a href="https://github.com/kingyiusuen/image-to-latex">deeplearning picture to latex</a></p>
-<p><a href="https://github.com/lukas-blecher/LaTeX-OCR">pix2tex</a></p>
-<p><a href="https://pix2tex.readthedocs.io/en/latest/pix2tex.html#pix2tex-api-package">using pix2tex</a></p>
-<p><a href="https://github.com/LinXueyuanStdio/LaTeX_OCR_PRO">中文公式 手写公式识别 需要进一步训练</a></p>
-<p><a href="https://github.com/qs956/Latex_OCR_Pytorch">中文 手写 pytorch版本</a></p>
-</section>
-</section>
-<section id="mask-latex-area-and-get-conventional-things-out" class="level2">
-<h2 class="anchored" data-anchor-id="mask-latex-area-and-get-conventional-things-out">mask latex area and get conventional things out</h2>
-<p><a href="https://github.com/JaidedAI/EasyOCR">easyocr with pytorch support</a></p>
-</section>
-<section id="search-the-formula" class="level2">
-<h2 class="anchored" data-anchor-id="search-the-formula">search the formula</h2>
-<p><a href="https://github.com/AzizAlqasem/FormulaLab">formula search based on sympy</a></p>
-<p>can we render latex to picture with sympy?</p>
-<p><a href="https://github.com/kerryz/latexsymbolsearch">latex search engine</a></p>
+<p>character level optical char segmentation called <a href="https://github.com/akkshita/chargrid-ocr">chargrid ocr</a> <a href="https://github.com/ProvenanceLabs/image-match">image match used for copyright violation detection, using phash algorithm</a> ## get the latex out ### first detect the location of math formula <a href="https://github.com/MaliParag/ScanSSD">scanning single shot detection for math formulas</a> <a href="https://github.com/MaliParag/TFD-ICDAR2019">dataset for math symbol detection</a> <a href="https://github.com/Binhhp/detector-scan-image">detect different part of document with yolov3</a> <a href="https://github.com/divya1211/math-expression-detection">math expression detection</a> ### next find the tool for picture to latex conversion 新开源的Python工具——Pix2Text (P2T)，目标是 Mathpix 的Python开源替代品，现在可以识别截图中的数学公式并转换为Latex表示，也可以识别图片中的中英文文字。在线Demo： https://huggingface.co/spaces/breezedeus/pix2text 。 Github: https://github.com/breezedeus/pix2text ，Gitee: https://gitee.com/breezedeus/pix2text 。 <a href="https://github.com/DexterLei/Math-OCR">attention based math ocr</a> <a href="https://github.com/yixuanzhou/image2latex">gui of image2latex</a> <a href="https://github.com/ritheshkumar95/im2latex-tensorflow">im2latex-tensorflow</a> <a href="https://github.com/harvardnlp/im2markup/">im2markup with only nvidia support</a> using torch, model for latex conversion can be found <a href="https://im2markup.yuntiandeng.com/model/latex/final-model">here</a> <a href="https://github.com/kingyiusuen/image-to-latex">deeplearning picture to latex</a> <a href="https://github.com/lukas-blecher/LaTeX-OCR">pix2tex</a> <a href="https://pix2tex.readthedocs.io/en/latest/pix2tex.html#pix2tex-api-package">using pix2tex</a> <a href="https://github.com/LinXueyuanStdio/LaTeX_OCR_PRO">中文公式 手写公式识别 需要进一步训练</a> <a href="https://github.com/qs956/Latex_OCR_Pytorch">中文 手写 pytorch版本</a> ## mask latex area and get conventional things out <a href="https://github.com/JaidedAI/EasyOCR">easyocr with pytorch support</a> ## search the formula <a href="https://github.com/AzizAlqasem/FormulaLab">formula search based on sympy</a> can we render latex to picture with sympy? <a href="https://github.com/kerryz/latexsymbolsearch">latex search engine</a></p>
 
 
 </section>

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-10-15">
 <meta name="description" content="This text discusses the usage of Docker and pkl for automating Android devices. It covers device discovery, remote control through py-scrcpy-client, emulator support on MacOS M1, and monitoring lock/unlock states on Linux.">
 
-<title>James’s Blog - android remote control, app automation</title>
+<title>James’ Blog - android remote control, app automation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,27 +179,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="android-remote-control-app-automation" class="level1">
-<h1>android remote control, app automation</h1>
-<p>run android in docker, run adb in docker</p>
-<p>device discovery, termux daemon, remote unlock</p>
-<p>unlock requires screenshot and input events.</p>
-<p>https://technastic.com/unlock-android-phone-pin-pattern-adb/</p>
-<p>click ok after input password:</p>
-<p>https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb</p>
-<p>scrcpy client</p>
-<p>https://github.com/leng-yue/py-scrcpy-client https://leng-yue.github.io/py-scrcpy-client/guide.html#bind-events</p>
-<p>you want to use android emulator on macos m1?</p>
-<p>https://github.com/google/android-emulator-m1-preview/releases/tag/0.3</p>
-<p>check android screen lock/unlock state</p>
-<p>https://android.stackexchange.com/questions/191086/adb-commands-to-get-screen-state-and-locked-state</p>
-<p>Bonjour/Avahi/Zeroconf</p>
-<p>logic: if the kill switch is off, when no physical input events happens, or not focused on scrcpy window with keyboard/mouse input events on pc for some time, allow to interact with the phone.</p>
-<p>get physical events:</p>
-<p>warning: this command could be offline for a short period of time after using the scrcpy. must automatically reconnect if the device is not offline.</p>
+<p>run android in docker, run adb in docker device discovery, termux daemon, remote unlock unlock requires screenshot and input events. https://technastic.com/unlock-android-phone-pin-pattern-adb/ click ok after input password: https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb scrcpy client https://github.com/leng-yue/py-scrcpy-client https://leng-yue.github.io/py-scrcpy-client/guide.html#bind-events you want to use android emulator on macos m1? https://github.com/google/android-emulator-m1-preview/releases/tag/0.3 check android screen lock/unlock state https://android.stackexchange.com/questions/191086/adb-commands-to-get-screen-state-and-locked-state Bonjour/Avahi/Zeroconf logic: if the kill switch is off, when no physical input events happens, or not focused on scrcpy window with keyboard/mouse input events on pc for some time, allow to interact with the phone. get physical events: warning: this command could be offline for a short period of time after using the scrcpy. must automatically reconnect if the device is not offline.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">adb</span> <span class="at">-s</span> 192.168.10.3:5555 shell getevent</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to get focused window title: hint: for headless ssh sessions, must set apropriate xorg environment variables, eg: <code>env XAUTHORITY="/run/user/0/gdm/Xauthority" DISPLAY=:1 python3</code></p>
-<p>general method:</p>
+<p>to get focused window title: hint: for headless ssh sessions, must set apropriate xorg environment variables, eg: <code>env XAUTHORITY="/run/user/0/gdm/Xauthority" DISPLAY=:1 python3</code> general method:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pywinctl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pywinctl.getActiveWindowTitle()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>for linux:</p>
@@ -217,7 +194,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xinput</span> test-xi2 <span class="at">--root</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

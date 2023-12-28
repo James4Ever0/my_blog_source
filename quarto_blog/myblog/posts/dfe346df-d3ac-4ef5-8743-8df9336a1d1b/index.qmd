@@ -4,12 +4,6 @@
 ---
 
 ------
-
-# python retry libraries
-
 [retrying](https://github.com/rholder/retrying)
-
 [retry](https://pypi.org/project/retry/)
-
 [retry2](https://pypi.org/project/retry2/)
-

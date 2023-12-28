@@ -4,15 +4,9 @@
 ---
 
 ------
-
-# text-processing.com, free text mining and natural language processing
-
 functions:
-
 - Sentiment Analysis
 - Stemming
 - Part-of-Speech Tagging and Chunking
 - Phrase Extraction & Named Entity Recognition
-
 each method is throttled to 1000 calls per day per IP.
-

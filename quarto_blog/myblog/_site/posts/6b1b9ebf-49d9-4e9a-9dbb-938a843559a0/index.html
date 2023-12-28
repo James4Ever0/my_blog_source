@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2021-12-22">
 <meta name="description" content="The article discusses hacking attempts on lixin.edu.cn and the use of tools such as dirbuster and Kali Linux to find vulnerabilities. It also includes a HTTP request command for changing passwords on the server.">
 
-<title>James’s Blog - The Hack (Get password and tests)</title>
+<title>James’ Blog - The Hack (Get password and tests)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -145,42 +140,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="the-hack-get-password-and-tests" class="level1">
-<h1>The Hack (Get password and tests)</h1>
-<p>dirbuster has found something over “http://oa.lixin.edu.cn//test/” + http://oa.lixin.edu.cn//admin (CODE:301|SIZE:237)<br>
-+ http://oa.lixin.edu.cn//css (CODE:301|SIZE:235)<br>
-+ http://oa.lixin.edu.cn//help (CODE:301|SIZE:236)<br>
-+ http://oa.lixin.edu.cn//images (CODE:301|SIZE:238)<br>
-+ http://oa.lixin.edu.cn//js (CODE:301|SIZE:234)<br>
-+ http://oa.lixin.edu.cn//setup (CODE:301|SIZE:237)<br>
-+ http://oa.lixin.edu.cn//template (CODE:301|SIZE:240)<br>
-+ http://oa.lixin.edu.cn//test (CODE:301|SIZE:236)<br>
-+ http://oa.lixin.edu.cn///admin (CODE:301|SIZE:237)<br>
-+ http://oa.lixin.edu.cn///help (CODE:301|SIZE:236)<br>
-+ http://oa.lixin.edu.cn///images (CODE:301|SIZE:238)<br>
-+ http://oa.lixin.edu.cn///script (CODE:301|SIZE:238)</p>
-<p>suspicious: http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do</p>
-<p>portal (even in the internet): http://202.121.255.3:8080/portal</p>
-<p>Scan this website with kali linux.</p>
-<p>The Intranet Gateway For Campus: (maybe less hops?) https://app.topsec.com.cn</p>
-<p>mitmdump –mode socks5 –listen-port 8050 -w logs.log –flow-detail 3 –set stream_websocket=true</p>
-<p>pdvpn.lixin.edu.cn pdvpn2.lixin.edu.cn vpn.lixin.edu.cn vpn2.lixin.edu.cn</p>
-<p>xxb.lixin.edu.cn/jszl/57078.htm</p>
-<p>201960630:CHENweiyi0519</p>
-<p>https://cas.paas.lixin.edu.cn/cas/login?service=https%3A%2F%2Flxjw.lixin.edu.cn%2Fcas%2Flogin</p>
-<p>https://security-center.paas.lixin.edu.cn/find-pwd</p>
-<p>20039370</p>
-<p>missing puzzle for changing password:</p>
-<p>trial user: 201960249</p>
-<p>found russia hacker’s kali tool site: https://en.kali.tools/all/</p>
-<p>apparently we have some issue with log4j and this could be our way in, the damn server.</p>
-<p>sniffing the whole damn campus is only possible if we know how to get into the same subnet of all people.</p>
-<p>have searched related websites with site:lixin.edu.cn, could get more if keep doing so, using dnsenum.</p>
-<p>to get all site links with proper titles, we need to use playwright.</p>
-<p>nessus scanner has that 16 ips limitation, we need to crack/patch it first.</p>
-<p>to master kali linux, recommend to scrape kali_tools (https://tools.kali.org/) and tutorialspoint (https://www.tutorialspoint.com/kali_linux/index.htm) for kali, or just simply using manpage.</p>
-<p>cisco router is untouched till now. need we to scan it? (intermediate ip addresses)</p>
-<p>curl ‘https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify’<br>
+<p>dirbuster has found something over “http://oa.lixin.edu.cn//test/” + http://oa.lixin.edu.cn//admin (CODE:301|SIZE:237) + http://oa.lixin.edu.cn//css (CODE:301|SIZE:235) + http://oa.lixin.edu.cn//help (CODE:301|SIZE:236) + http://oa.lixin.edu.cn//images (CODE:301|SIZE:238) + http://oa.lixin.edu.cn//js (CODE:301|SIZE:234) + http://oa.lixin.edu.cn//setup (CODE:301|SIZE:237) + http://oa.lixin.edu.cn//template (CODE:301|SIZE:240) + http://oa.lixin.edu.cn//test (CODE:301|SIZE:236) + http://oa.lixin.edu.cn///admin (CODE:301|SIZE:237) + http://oa.lixin.edu.cn///help (CODE:301|SIZE:236) + http://oa.lixin.edu.cn///images (CODE:301|SIZE:238) + http://oa.lixin.edu.cn///script (CODE:301|SIZE:238) suspicious: http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do portal (even in the internet): http://202.121.255.3:8080/portal Scan this website with kali linux. The Intranet Gateway For Campus: (maybe less hops?) https://app.topsec.com.cn mitmdump –mode socks5 –listen-port 8050 -w logs.log –flow-detail 3 –set stream_websocket=true pdvpn.lixin.edu.cn pdvpn2.lixin.edu.cn vpn.lixin.edu.cn vpn2.lixin.edu.cn xxb.lixin.edu.cn/jszl/57078.htm 201960630:CHENweiyi0519 https://cas.paas.lixin.edu.cn/cas/login?service=https%3A%2F%2Flxjw.lixin.edu.cn%2Fcas%2Flogin https://security-center.paas.lixin.edu.cn/find-pwd 20039370 missing puzzle for changing password: trial user: 201960249 found russia hacker’s kali tool site: https://en.kali.tools/all/ apparently we have some issue with log4j and this could be our way in, the damn server. sniffing the whole damn campus is only possible if we know how to get into the same subnet of all people. have searched related websites with site:lixin.edu.cn, could get more if keep doing so, using dnsenum. to get all site links with proper titles, we need to use playwright. nessus scanner has that 16 ips limitation, we need to crack/patch it first. to master kali linux, recommend to scrape kali_tools (https://tools.kali.org/) and tutorialspoint (https://www.tutorialspoint.com/kali_linux/index.htm) for kali, or just simply using manpage. cisco router is untouched till now. need we to scan it? (intermediate ip addresses) curl ‘https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify’<br>
 -H ‘Connection: keep-alive’<br>
 -H ‘sec-ch-ua: “(Not(A:Brand”;v=“8”, “Chromium”;v=“98”, “Google Chrome”;v=“98”’<br>
 -H ‘Accept: application/json, text/plain, <em>/</em>’<br>
@@ -195,8 +155,7 @@ ul.task-list li input[type="checkbox"] {
 -H ‘Referer: https://security-center.paas.lixin.edu.cn/’<br>
 -H ‘Accept-Language: en-US,en;q=0.9’<br>
 –data-raw ‘{“password”:“abcdefABC”,“userId”:““}’<br>
-–compressed</p>
-<p>curl ‘https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword’<br>
+–compressed curl ‘https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword’<br>
 -H ‘Connection: keep-alive’<br>
 -H ‘sec-ch-ua: “(Not(A:Brand”;v=“8”, “Chromium”;v=“98”, “Google Chrome”;v=“98”’<br>
 -H ‘Accept: application/json, text/plain, <em>/</em>’<br>
@@ -214,7 +173,6 @@ ul.task-list li input[type="checkbox"] {
 –compressed</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

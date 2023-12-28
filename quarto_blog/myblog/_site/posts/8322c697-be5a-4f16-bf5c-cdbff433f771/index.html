@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-08-16">
 <meta name="description" content="This article provides a step-by-step guide on how to reset a Windows Server password when it cannot be fixed by `chntpw`. The process involves swapping `Utilman.exe` with `cmd.exe`, accessing the command prompt through widgets, and using the `net user` command to reset the password.">
 
-<title>James’s Blog - reset windows server password</title>
+<title>James’ Blog - reset windows server password</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -150,14 +145,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="reset-windows-server-password" class="level1">
-<h1>reset windows server password</h1>
-<p><code>chntpw</code> does not work this time. it will auto restore the SAM file.</p>
-<p>instead, under directory <code>C:\Windows\System32</code>, swap <code>Utilman.exe</code> (remember to back it up) with <code>cmd.exe</code> then click widgets in login window to popup command prompt, type <code>net user &lt;username&gt; &lt;password&gt;</code> to reset.</p>
-<p><a href="https://www.top-password.com/blog/reset-forgotten-windows-server-2016-password/">reference</a></p>
+<p><code>chntpw</code> does not work this time. it will auto restore the SAM file. instead, under directory <code>C:\Windows\System32</code>, swap <code>Utilman.exe</code> (remember to back it up) with <code>cmd.exe</code> then click widgets in login window to popup command prompt, type <code>net user &lt;username&gt; &lt;password&gt;</code> to reset. <a href="https://www.top-password.com/blog/reset-forgotten-windows-server-2016-password/">reference</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

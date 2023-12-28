@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# Call python in clojure, clojure-python bridge
-
 [libpython-clj](https://github.com/clj-python/libpython-clj) deep python integration in clojure
-
 [embed clojure in python](https://clj-python.github.io/libpython-clj/embedded.html) call clojure in python
-

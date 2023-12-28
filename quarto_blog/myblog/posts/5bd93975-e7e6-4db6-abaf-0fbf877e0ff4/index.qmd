@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# Extract voice from professional sources
-
 You can source audio from audio books, radios, anime voices, soap series, movies, live streaming, broadcasting, tv and so on.
-

@@ -4,17 +4,11 @@
 ---
 
 ------
-
 # Source code semantic search tool audit tool
-
 can be used to analysis bilibili source code or large code base
-
 sourcegraph/sourcegraph:
 in go
-
 github/semantic:
 in haskell
-
 sonarqube:
 code audit tool
-

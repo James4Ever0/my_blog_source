@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-05">
 <meta name="description" content="In this article, you will learn how to troubleshoot and configure Wi-Fi connections on a Raspberry Pi. You will discover how to work with 5G connectivity, adjust frequencies, scan for SSIDs, update login credentials, and recover the DHCPCD service. Additionally, you will set Wi-Fi connection details specifically for use with Docker.">
 
-<title>James’s Blog - raspberry pi tweaks</title>
+<title>James’ Blog - raspberry pi tweaks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -192,13 +187,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="raspberry-pi-tweaks" class="level1">
-<h1>raspberry pi tweaks</h1>
 <p>openai says i should edit <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> like this to connect to 5G wifi:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">network</span><span class="op">=</span>{</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">ssid</span><span class="op">=</span><span class="st">"&lt;SSID&gt;"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">psk</span><span class="op">=</span><span class="st">"&lt;password&gt;"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">frequency</span><span class="op">=</span>5180</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">ssid</span><span class="op">=</span><span class="st">"&lt;SSID&gt;"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">psk</span><span class="op">=</span><span class="st">"&lt;password&gt;"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">frequency</span><span class="op">=</span>5180</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>also set frequency of wifi card like this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ifdown wlan0 <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> ifup wlan0</span>
@@ -210,14 +203,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>default login (maybe not):</p>
 <pre><code>username: pi
 password: raspberry</code></pre>
-<p>in order to start <code>sshd</code>, <code>touch ssh</code> under <code>boot</code> partition</p>
-<p>recover <code>dhcpcd</code> service:</p>
+<p>in order to start <code>sshd</code>, <code>touch ssh</code> under <code>boot</code> partition recover <code>dhcpcd</code> service:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable dhcpcd.service</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dhcpcd.service</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>config the password with <code>proot -S &lt;path_to_rootfs&gt; -b &lt;boot_partition&gt;:/boot -q qemu-arm /usr/bin/bash</code> and <code>passwd</code></p>
-<p>you’ve installed <a href="https://raspap.com/">raspap</a> on this device. you use the default credentials. this shit will not connect to our wifi automatically, thus block your way of running docker containers on it with only macbook.</p>
-<p>seriously? do you really need docker on macos? or just on raspberry pi?</p>
-<p>change apt sources:</p>
+<p>config the password with <code>proot -S &lt;path_to_rootfs&gt; -b &lt;boot_partition&gt;:/boot -q qemu-arm /usr/bin/bash</code> and <code>passwd</code> you’ve installed <a href="https://raspap.com/">raspap</a> on this device. you use the default credentials. this shit will not connect to our wifi automatically, thus block your way of running docker containers on it with only macbook. seriously? do you really need docker on macos? or just on raspberry pi? change apt sources:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sed <span class="at">-i</span> <span class="st">'s|raspbian.raspberrypi.org|mirrors.ustc.edu.cn/raspbian|g'</span> /etc/apt/sources.list</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sed <span class="at">-i</span> <span class="st">'s|mirrordirector.raspbian.org|mirrors.ustc.edu.cn/raspbian|g'</span> /etc/apt/sources.list</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sed <span class="at">-i</span> <span class="st">'s|archive.raspbian.org|mirrors.ustc.edu.cn/raspbian|g'</span> /etc/apt/sources.list</span>
@@ -229,29 +218,23 @@ password: raspberry</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-R</span> 1080 pi@10.42.0.33</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>edit <code>/etc/network/interfaces</code>:</p>
 <pre><code>auto lo
-
 iface lo inet loopback
-
 auto eth0
 iface eth0 inet static
 address 10.42.0.33
 netmask 255.255.255.0
 gateway 10.42.0.1
-
 allow-hotplug wlan0
 auto wlan0
-
 iface wlan0 inet dhcp
 #wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 wpa-ssid "&lt;SSID&gt;"
 wpa-psk "&lt;PASSWORD&gt;"</code></pre>
 <p>install packages:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class="at">-o</span> Acquire::http::proxy=<span class="st">"socks5h://127.0.0.1:1080/"</span>  <span class="at">-o</span> Acquire::Check-Valid-Until=false <span class="at">-o</span> Acquire::Check-Date=false update <span class="at">--allow-releaseinfo-change</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class="at">-o</span> Acquire::http::proxy=<span class="st">"socks5h://127.0.0.1:1080/"</span>  <span class="at">-o</span> Acquire::Check-Valid-Until=false <span class="at">-o</span> Acquire::Check-Date=false upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class="at">-o</span> Acquire::http::proxy=<span class="st">"socks5h://127.0.0.1:1080/"</span>  <span class="at">-o</span> Acquire::Check-Valid-Until=false <span class="at">-o</span> Acquire::Check-Date=false upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-08-07">
 <meta name="description" content="This article offers guidance on preventing computer overheating and battery damage by configuring charge thresholds and recalibration for laptop batteries. It provides platform-specific instructions, such as using tlp/tlpui tools on ThinkPad laptops and considering alternative solutions like UPS+NUC. The advice applies to both Linux and Windows systems.">
 
-<title>James’s Blog - aldente windows &amp; linux alternative</title>
+<title>James’ Blog - aldente windows &amp; linux alternative</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -183,29 +178,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<hr>
-<section id="aldente-windows-linux-alternative" class="level1">
-<h1>aldente windows &amp; linux alternative</h1>
-<p>to increase stability, you need to prevent computer from overheating (throttle). also, replace normal laptop ram with ecc ram (not server-grade reg-ecc)</p>
-<p>but ecc is only supported on Xeon processors.</p>
-<p>moreover, you could just use UPS+NUC instead of laptop, to prevent this bloody battery issue.</p>
-<hr>
-<p>will these charging limits still work if we close the lid? if not, we could possibly damage the battery.</p>
-<hr>
-<p>to prevent damage to computer battery due to overcharging</p>
-<section id="linux" class="level2">
-<h2 class="anchored" data-anchor-id="linux">Linux</h2>
-<p>kernel 5.5 or newer:</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>to increase stability, you need to prevent computer from overheating (throttle). also, replace normal laptop ram with ecc ram (not server-grade reg-ecc) but ecc is only supported on Xeon processors. moreover, you could just use UPS+NUC instead of laptop, to prevent this bloody battery issue.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>will these charging limits still work if we close the lid? if not, we could possibly damage the battery.</td>
+</tr>
+</tbody>
+</table>
+<p>to prevent damage to computer battery due to overcharging ## Linux kernel 5.5 or newer:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> 60 <span class="kw">|</span> <span class="fu">sudo</span> tee /sys/class/power_supply/BAT0/charge_control_end_threshold</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>with <a href="https://unix.stackexchange.com/questions/48534/how-to-adjust-charging-thresholds-of-laptop-battery">platform-specific drivers</a>, look for: <code>/sys/devices/platform/.*/.*(battery|charge|thresh|limit).*</code></p>
-<p>For ThinkPads and selected other laptops <a href="https://linrunner.de/tlp">tlp</a>/tlpui (acts like <a href="https://01.org/powertop/">powertop</a> which turns off usb devices, so be careful when running long-term programs) provides a unified way to configure charge thresholds and recalibrate the battery.</p>
-</section>
-<section id="windows" class="level2">
-<h2 class="anchored" data-anchor-id="windows">Windows</h2>
+<p>with <a href="https://unix.stackexchange.com/questions/48534/how-to-adjust-charging-thresholds-of-laptop-battery">platform-specific drivers</a>, look for: <code>/sys/devices/platform/.*/.*(battery|charge|thresh|limit).*</code> For ThinkPads and selected other laptops <a href="https://linrunner.de/tlp">tlp</a>/tlpui (acts like <a href="https://01.org/powertop/">powertop</a> which turns off usb devices, so be careful when running long-term programs) provides a unified way to configure charge thresholds and recalibrate the battery. ## Windows</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

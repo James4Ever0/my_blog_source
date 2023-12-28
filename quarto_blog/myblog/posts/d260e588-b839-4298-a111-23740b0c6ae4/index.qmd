@@ -4,21 +4,10 @@
 ---
 
 ------
-
-# recaptcha solving, proxy providers
-
 ## proxy service
-
 [proxy-cheap](https://www.proxy-cheap.com/)
-
 ## recaptcha solving service
-
 ### free libraries
-
 [botright](https://github.com/Vinyzu/Botright) can solve recaptcha, hcaptcha, geetest. it shall be used with playwright. [doc](https://botright.readthedocs.io/en/latest/)
-
 ### paid services
-
 [anycaptcha.com](https://anycaptcha.com/) is an AI captcha solving service
-
-

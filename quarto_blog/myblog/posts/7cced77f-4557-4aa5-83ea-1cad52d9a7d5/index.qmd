@@ -4,7 +4,3 @@
 ---
 
 ------
-
-# Macbook M1 create macOS recovery usb
-
-

@@ -3,9 +3,7 @@ target_dir = "quarto_blog/myblog/posts"
 
 import os
 import shutil
-import yaml
-import sys
-from headline_match import parse_content_metadata
+from headline_match import parse_content_metadata, dump_dict_as_yaml
 from beartype import beartype
 from io_utils import load_file, write_file
 
@@ -34,13 +32,7 @@ def fix_metadata_line_wrap_in_content(content: str):
                         for x in v
                     ]
             metadata["categories"] = metadata.get("tags", [])
-            repl = yaml.safe_dump(
-                metadata,
-                width=sys.maxsize,
-                default_style='"',
-                default_flow_style=True,
-                allow_unicode=True,
-            )
+            repl = dump_dict_as_yaml(metadata)
             new_content = (
                 "---\n"
                 + repl

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-12">
 <meta name="description" content="The pydantic schema can be used to describe a class in Python. In this case, the `Description` class is defined as a base model. The summary provided describes the purpose and functionality of the `pyscenedetect` library, which assists with dynamically detecting scenes in videos while accounting for possible issues like splicing and video gradients. A code snippet demonstrating how to use this library and FFmpeg to identify and segment a video into scenes is also provided.">
 
-<title>James’s Blog - use pyscenedetect dynamically in program</title>
+<title>James’ Blog - use pyscenedetect dynamically in program</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,29 +179,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="use-pyscenedetect-dynamically-in-program" class="level1">
-<h1>use pyscenedetect dynamically in program</h1>
-<p>对于单纯拼接起来的视频 这个算法就如同手术刀一样精准</p>
-<p>首尾有可能有一两帧看起来不太对 但是可以通过调节start和end来修正</p>
-<p>警惕频繁转场的视频 它们可能是属于同一个小片段的 但是如果不打乱顺序有可能会触发版权识别问题</p>
-<p>即使选出来了可以使用的片段 对于同一个视频的制作过程 依旧要隔一段时间采样 <strong>比如两个片段间隔至少5秒</strong> 不要单纯的把所有片段一次性提取出来 避免内容重复和版权问题</p>
-<p>当然对于有渐变 转场的视频 可能需要用其他的检测方法</p>
+<p>对于单纯拼接起来的视频 这个算法就如同手术刀一样精准 首尾有可能有一两帧看起来不太对 但是可以通过调节start和end来修正 警惕频繁转场的视频 它们可能是属于同一个小片段的 但是如果不打乱顺序有可能会触发版权识别问题 即使选出来了可以使用的片段 对于同一个视频的制作过程 依旧要隔一段时间采样 <strong>比如两个片段间隔至少5秒</strong> 不要单纯的把所有片段一次性提取出来 避免内容重复和版权问题 当然对于有渐变 转场的视频 可能需要用其他的检测方法</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scenedetect <span class="im">import</span> open_video, SceneManager, split_video_ffmpeg</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scenedetect.detectors <span class="im">import</span> ContentDetector</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scenedetect.video_splitter <span class="im">import</span> split_video_ffmpeg</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split_video_into_scenes(video_path, threshold<span class="op">=</span><span class="fl">27.0</span>):</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Open our video, create a scene manager, and add a detector.</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    video <span class="op">=</span> open_video(video_path)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    scene_manager <span class="op">=</span> SceneManager()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    scene_manager.add_detector(</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        ContentDetector(threshold<span class="op">=</span>threshold))</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    scene_manager.detect_scenes(video, show_progress<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    scene_list <span class="op">=</span> scene_manager.get_scene_list()</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    split_video_ffmpeg(video_path, scene_list, show_progress<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> split_video_into_scenes(video_path, threshold<span class="op">=</span><span class="fl">27.0</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Open our video, create a scene manager, and add a detector.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>video <span class="op">=</span> open_video(video_path)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>scene_manager <span class="op">=</span> SceneManager()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>scene_manager.add_detector(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ContentDetector(threshold<span class="op">=</span>threshold))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>scene_manager.detect_scenes(video, show_progress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>scene_list <span class="op">=</span> scene_manager.get_scene_list()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>split_video_ffmpeg(video_path, scene_list, show_progress<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

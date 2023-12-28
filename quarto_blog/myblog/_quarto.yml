@@ -5,7 +5,8 @@ website:
   title: "James' Blog"
   navbar:
     right:
-      - about.qmd
+      - href: about.qmd
+        text: About
       - icon: github
         href: https://github.com/james4ever0
 format:

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-14">
 <meta name="description" content="This article explains how to connect a HarmonyOS device’s logs to MySQL, providing the necessary login credentials and log file structure. It also provides guidance on decompressing .gz files and understanding their format for analysis.">
 
-<title>James’s Blog - HarmonyOS Device Log to MySQL</title>
+<title>James’ Blog - HarmonyOS Device Log to MySQL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -144,23 +139,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="harmonyos-device-log-to-mysql" class="level1">
-<h1>HarmonyOS Device Log to MySQL</h1>
-<p>mysql path: jdbc:mysql://10.33.163.33:3306/HTS_DB?characterEncoding=UTF-8 root pipeline@123</p>
-<p>Logs Path: /data/data/Local/DeviceTest/20220406163617_hts_project/resources/HTS/android-hts/logs</p>
-<p>under logs: %Y.%m.%d_%H.%M.%S_<serial_number> select the latest folder</serial_number></p>
-<p>under selected folder: device_logcat_test_<serial_number>_<unknowninteger>.txt.gz</unknowninteger></serial_number></p>
-<p>decompress using: (before that os.chdir to the selected folder) gzip -d <file></file></p>
-<p>does the decompression remove the .gz file? it will.</p>
-<p>log format per line: DfxTestLog: A1<testname>_<testname2_contain_test_serial>_DfxTestTime = <value> datai=4</value></testname2_contain_test_serial></testname></p>
-<p>from 1 to 13: A1test1..4 A2test5 A3test1..2 B1test1 B2test4..6 D1test1 M1test1</p>
-<p>Tables:</p>
-<p>Performance_Baseline_Info testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)</p>
-<p>Performance_Daily_Data id features indicators baseValue</p>
-<p>Performance_Device_Info id(to the deviceId_id) model type sn cpu</p>
+<p>mysql path: jdbc:mysql://10.33.163.33:3306/HTS_DB?characterEncoding=UTF-8 root pipeline@123 Logs Path: /data/data/Local/DeviceTest/20220406163617_hts_project/resources/HTS/android-hts/logs under logs: %Y.%m.%d_%H.%M.%S_<serial_number> select the latest folder under selected folder: device_logcat_test_<serial_number><em><unknowninteger>.txt.gz decompress using: (before that os.chdir to the selected folder) gzip -d <file> does the decompression remove the .gz file? it will. log format per line: DfxTestLog: A1<testname></testname></file></unknowninteger></em><testname2_contain_test_serial>_DfxTestTime = <value> datai=4 from 1 to 13: A1test1..4 A2test5 A3test1..2 B1test1 B2test4..6 D1test1 M1test1 Tables: Performance_Baseline_Info testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5) Performance_Daily_Data id features indicators baseValue Performance_Device_Info id(to the deviceId_id) model type sn cpu</value></testname2_contain_test_serial></serial_number></serial_number></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

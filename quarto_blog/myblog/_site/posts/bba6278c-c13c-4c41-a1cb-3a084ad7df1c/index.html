@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-07">
 <meta name="description" content="This article delves into the world of fuzzing tools like AFL and AFL++ for identifying vulnerabilities. It also covers seed generation techniques such as Skyfire and Learn&amp;Fuzz. Furthermore, it explores static and dynamic analysis methods including LSTM, RL, ILF, VUzzer, GreyOne, and discusses efficiency metrics in software testing.">
 
-<title>James’s Blog - 0day exploits, AFL(american fuzzy lop), AFL++</title>
+<title>James’ Blog - 0day exploits, AFL(american fuzzy lop), AFL++</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -159,50 +154,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="day-exploits-aflamerican-fuzzy-lop-afl" class="level1">
-<h1>0day exploits, AFL(american fuzzy lop), AFL++</h1>
-<p><a href="https://github.com/google/oss-fuzz">oss-fuzz</a> supports fuzzing C/C++, Rust, Go, Python and Java/JVM code</p>
-<p><a href="https://blog.csdn.net/Eastmount/article/details/107825286">blog about greyone</a> Discover Vulnerabilities with Flow Sensitive Fuzzing</p>
-<p><a href="https://github.com/google/afl">AFL</a>（American Fuzzy Lop）是由安全研究员Michał Zalewski（<span class="citation" data-cites="lcamtuf">@lcamtuf</span>）开发的一款基于覆盖引导（Coverage-guided）的模糊测试工具，它通过记录输入样本的代码覆盖率，从而调整输入样本以提高覆盖率，增加发现漏洞的概率</p>
-<p><a href="https://countuponsecurity.com/2018/03/07/intro-to-american-fuzzy-lop-fuzzing-in-5-steps/">intro-to-american-fuzzy-lop-fuzzing-in-5-steps</a></p>
-<p><a href="https://labs.nettitude.com/blog/fuzzing-with-american-fuzzy-lop-afl/#:~:text=Fuzzing%20with%20American%20Fuzzy%20Lop%20%28AFL%29%201%201.,2.%20Run%20our%20instrumented%20%E2%80%9Ctar%E2%80%9D%20binary%3A%20%E2%80%93%20~%2Ftar-1.28%2Fsrc%2Ftar">fuzzing-with-american-fuzzy-lop-afl</a></p>
-<p><a href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a> can fuzz c source code, binary targets, network services, gui programs</p>
-<p><a href="https://github.com/WSP-LAB/Montage">Montage</a>: A Neural Network Language Model-Guided JavaScript Engine Fuzzer</p>
-<section id="seed-generation" class="level2">
-<h2 class="anchored" data-anchor-id="seed-generation">seed generation</h2>
-<section id="ai-based" class="level3">
-<h3 class="anchored" data-anchor-id="ai-based">AI based</h3>
-<p>Skyfire (learn a probabilistic CFG grammar) Learn&amp;Fuzz (learn a RNN model of valid inputs) GAN (learn a GAN to generate legitimate seeds) Neuzz (learn a NN to model input -&gt; coverage)</p>
-</section>
-<section id="symbolic-execution" class="level3">
-<h3 class="anchored" data-anchor-id="symbolic-execution">Symbolic Execution</h3>
-<p>Driller QSYM DigFuzz SAVIOR Intriguer Matryoshka HFL</p>
-</section>
-<section id="staticdynamic-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="staticdynamic-analysis">static/dynamic analysis</h3>
-<p>FANS</p>
-</section>
-</section>
-<section id="seed-mutation" class="level2">
-<h2 class="anchored" data-anchor-id="seed-mutation">seed mutation</h2>
-<section id="ai-based-1" class="level3">
-<h3 class="anchored" data-anchor-id="ai-based-1">AI based</h3>
-<p>Mopt LSTM RL ILF</p>
-</section>
-<section id="program-based" class="level3">
-<h3 class="anchored" data-anchor-id="program-based">program based</h3>
-<p>VUzzer GreyOne</p>
-</section>
-</section>
-<section id="efficient-testing" class="level2">
-<h2 class="anchored" data-anchor-id="efficient-testing">efficient testing</h2>
-</section>
-<section id="coverage-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="coverage-metrics">coverage metrics</h2>
+<p><a href="https://github.com/google/oss-fuzz">oss-fuzz</a> supports fuzzing C/C++, Rust, Go, Python and Java/JVM code <a href="https://blog.csdn.net/Eastmount/article/details/107825286">blog about greyone</a> Discover Vulnerabilities with Flow Sensitive Fuzzing <a href="https://github.com/google/afl">AFL</a>（American Fuzzy Lop）是由安全研究员Michał Zalewski（<span class="citation" data-cites="lcamtuf">@lcamtuf</span>）开发的一款基于覆盖引导（Coverage-guided）的模糊测试工具，它通过记录输入样本的代码覆盖率，从而调整输入样本以提高覆盖率，增加发现漏洞的概率 <a href="https://countuponsecurity.com/2018/03/07/intro-to-american-fuzzy-lop-fuzzing-in-5-steps/">intro-to-american-fuzzy-lop-fuzzing-in-5-steps</a> <a href="https://labs.nettitude.com/blog/fuzzing-with-american-fuzzy-lop-afl/#:~:text=Fuzzing%20with%20American%20Fuzzy%20Lop%20%28AFL%29%201%201.,2.%20Run%20our%20instrumented%20%E2%80%9Ctar%E2%80%9D%20binary%3A%20%E2%80%93%20~%2Ftar-1.28%2Fsrc%2Ftar">fuzzing-with-american-fuzzy-lop-afl</a> <a href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a> can fuzz c source code, binary targets, network services, gui programs <a href="https://github.com/WSP-LAB/Montage">Montage</a>: A Neural Network Language Model-Guided JavaScript Engine Fuzzer ## seed generation ### AI based Skyfire (learn a probabilistic CFG grammar) Learn&amp;Fuzz (learn a RNN model of valid inputs) GAN (learn a GAN to generate legitimate seeds) Neuzz (learn a NN to model input -&gt; coverage) ### Symbolic Execution Driller QSYM DigFuzz SAVIOR Intriguer Matryoshka HFL ### static/dynamic analysis FANS ## seed mutation ### AI based Mopt LSTM RL ILF ### program based VUzzer GreyOne ## efficient testing ## coverage metrics</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

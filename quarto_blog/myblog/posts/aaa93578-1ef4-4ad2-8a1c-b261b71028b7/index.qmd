@@ -4,32 +4,21 @@
 ---
 
 ------
-
-# javascript python bridge
-
 [jspybridge](https://github.com/extremeheat/JSPyBridge)
-
 javascript in python:
-
 ```bash
 pip3 install javascript
 ```
-
 ```python
 from javascript import require, globalThis
-
 chalk, fs = require("chalk"), require("fs")
-
 print("Hello", chalk.red("world!"), "it's", globalThis.Date().toLocaleString())
 fs.writeFileSync("HelloWorld.txt", "hi!")
 ```
-
 access python from javascript:
-
 ```bash
 npm i pythonia
 ```
-
 ```javascript
 import { python } from 'pythonia'
 // Import tkinter
@@ -42,4 +31,3 @@ await a.pack()
 await root.mainloop()
 python.exit() // Make sure to exit Python in the end to allow node to exit. You can also use process.exit.
 ```
-

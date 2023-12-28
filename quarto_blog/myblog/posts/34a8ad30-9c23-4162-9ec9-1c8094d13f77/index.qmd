@@ -4,16 +4,10 @@
 ---
 
 ------
-
-# proxy.py forward localhost proxy to public ip address
-
 say if you only have one such proxy on localhost, not exposed on router: `localhost:8981`
-
 you execute the command, using [proxy.py](https://pypi.org/project/proxy.py/):
-
 ```bash
 proxy --port <public_proxy_port> --host <public_proxy_ip_address> \
-    --plugins proxy.plugin.ProxyPoolPlugin \
-    --proxy-pool localhost:8981
+--plugins proxy.plugin.ProxyPoolPlugin \
+--proxy-pool localhost:8981
 ```
-

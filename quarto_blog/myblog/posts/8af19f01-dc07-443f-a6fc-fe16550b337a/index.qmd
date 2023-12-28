@@ -4,10 +4,6 @@
 ---
 
 ------
-
-# async requests with python, used for clash multiple proxy delays
-
-
 ## async client
 [aiohttp](https://pypi.org/project/aiohttp/)
 [aiohttp-requests](https://pypi.org/project/aiohttp-requests/)
@@ -18,7 +14,5 @@
 [asks](https://github.com/theelous3/asks)
 [trip](https://github.com/littlecodersh/trip)
 [request-futures](https://github.com/ross/requests-futures)
-
 ## async non-blocking server
 [trequests](https://github.com/1stvamp/trequests)
-

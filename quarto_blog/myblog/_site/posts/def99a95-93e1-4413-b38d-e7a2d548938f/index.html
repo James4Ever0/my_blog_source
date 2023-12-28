@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-16">
 <meta name="description" content="This guide provides a detailed explanation on how to upload large repositories to GitHub or Gitee, while excluding specific file types like Xonsh and YAML. The guide also covers the process of deploying SSH keys for enhanced security, automating sync processes using Visual Studio Code, and utilizing file locks for various tasks to ensure data integrity.">
 
-<title>James’s Blog - github Gitee 大文件大型repo如何上传</title>
+<title>James’ Blog - github Gitee 大文件大型repo如何上传</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -148,24 +143,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="github-gitee-大文件大型repo如何上传" class="level1">
-<h1>github Gitee 大文件大型repo如何上传</h1>
-<p>using github/gitee apis with watchdog.</p>
-<p>exclude xonsh yaml(.yml) files</p>
-<p>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.</p>
-<p>run git related command after opened the vscode repeatedly, just like notable.</p>
-<p>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.</p>
-<p>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.</p>
-<p>git init is a manual process.</p>
-<p>also you might need five filelocks: one for main loop process running, one for git sync, one for local sync, two for remote sync.</p>
-<p>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.</p>
-<p>首先不能follow symlink</p>
-<p>其次忽略二进制文件 忽略特定后缀以外的文件</p>
-<p>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面</p>
-<p>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
+<p>using github/gitee apis with watchdog. exclude xonsh yaml(.yml) files if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key. run git related command after opened the vscode repeatedly, just like notable. before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder. you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not. git init is a manual process. also you might need five filelocks: one for main loop process running, one for git sync, one for local sync, two for remote sync. use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary. 首先不能follow symlink 其次忽略二进制文件 忽略特定后缀以外的文件 第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面 下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

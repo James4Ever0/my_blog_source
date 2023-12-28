@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-06-16">
 <meta name="description" content="This article explores Python testing methods, logging best practices, and error handling techniques. It also introduces alternative libraries, such as enum class, pytest caching, Redis LRU cache for decorators, build tools, type checking, code static analysis, automation tools like pydoit, SCons, and Rake. The article aims to provide insights into various Python tools and their applications for effective development and maintenance.">
 
-<title>James’s Blog - Incremental testing, build tools, cacheing, logging</title>
+<title>James’ Blog - Incremental testing, build tools, cacheing, logging</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -149,35 +144,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<hr>
-<section id="incremental-testing-build-tools-cacheing-logging" class="level1">
-<h1>Incremental testing, build tools, cacheing, logging</h1>
-<p>how to log error emitted from <code>better-exceptions</code>?</p>
-<hr>
-<p>logging tutorial at <a href="https://betterstack.com/community/guides/logging/python/python-logging-best-practices/">betterstack</a> &amp; <a href="https://docs.python.org/3/howto/logging.html">official</a></p>
-<p>other logging libraries: <a href="https://betterstack.com/community/guides/logging/loguru/">loguru</a> <a href="https://www.structlog.org/en/stable/">structlog</a> (able to show locals/globals around error)</p>
-<hr>
-<p><a href="https://github.com/qix-/better-exceptions">better-exceptions</a></p>
-<hr>
-<p>to ensure the consistency of tests, you need to collect input/output pairs (and compare with expected/actual output), if it is deterministic.</p>
-<hr>
-<p>monkeytype, pytype (by google), runtype (Dispatch)</p>
-<hr>
-<p>better assertion</p>
-<hr>
-<p><a href="https://docs.python.org/3/howto/enum.html#enum-class-differences">enum class</a> in python</p>
-<hr>
-<p>use <a href="https://docs.pytest.org/en/6.2.x/cache.html">cache</a> in pytest</p>
-<p>use redis lru_cache, put decorators to json serializable functions</p>
-<p>use build tools, forcing program to read and write files in the process</p>
-<p>type checking using mypy</p>
-<p>code static analysis</p>
-<p>code formatter like black</p>
-<hr>
-<p>tools:</p>
-<p><a href="https://pydoit.org/dependencies.html">pydoit</a> with “up to date” signals for non-file objectives</p>
-<p><a href="https://scons.org/doc/production/HTML/scons-user.html#idp105549032593992">scons</a></p>
-<p>ruby <a href="https://graceful.dev/courses/the-freebies/modules/rake-and-project-automation/topic/episode-131-rake-rules/">rake</a></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>how to log error emitted from <code>better-exceptions</code>?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>logging tutorial at <a href="https://betterstack.com/community/guides/logging/python/python-logging-best-practices/">betterstack</a> &amp; <a href="https://docs.python.org/3/howto/logging.html">official</a> other logging libraries: <a href="https://betterstack.com/community/guides/logging/loguru/">loguru</a> <a href="https://www.structlog.org/en/stable/">structlog</a> (able to show locals/globals around error)</td>
+</tr>
+</tbody>
+</table>
+<section id="better-exceptions" class="level2">
+<h2 class="anchored" data-anchor-id="better-exceptions"><a href="https://github.com/qix-/better-exceptions">better-exceptions</a></h2>
+</section>
+<section id="to-ensure-the-consistency-of-tests-you-need-to-collect-inputoutput-pairs-and-compare-with-expectedactual-output-if-it-is-deterministic." class="level2">
+<h2 class="anchored" data-anchor-id="to-ensure-the-consistency-of-tests-you-need-to-collect-inputoutput-pairs-and-compare-with-expectedactual-output-if-it-is-deterministic.">to ensure the consistency of tests, you need to collect input/output pairs (and compare with expected/actual output), if it is deterministic.</h2>
+</section>
+<section id="monkeytype-pytype-by-google-runtype-dispatch" class="level2">
+<h2 class="anchored" data-anchor-id="monkeytype-pytype-by-google-runtype-dispatch">monkeytype, pytype (by google), runtype (Dispatch)</h2>
+</section>
+<section id="better-assertion" class="level2">
+<h2 class="anchored" data-anchor-id="better-assertion">better assertion</h2>
+</section>
+<section id="enum-class-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="enum-class-in-python"><a href="https://docs.python.org/3/howto/enum.html#enum-class-differences">enum class</a> in python</h2>
+<p>use <a href="https://docs.pytest.org/en/6.2.x/cache.html">cache</a> in pytest use redis lru_cache, put decorators to json serializable functions use build tools, forcing program to read and write files in the process type checking using mypy code static analysis code formatter like black —- tools: <a href="https://pydoit.org/dependencies.html">pydoit</a> with “up to date” signals for non-file objectives <a href="https://scons.org/doc/production/HTML/scons-user.html#idp105549032593992">scons</a> ruby <a href="https://graceful.dev/courses/the-freebies/modules/rake-and-project-automation/topic/episode-131-rake-rules/">rake</a></p>
 
 
 </section>

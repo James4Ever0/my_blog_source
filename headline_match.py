@@ -3,6 +3,7 @@ from typing import Optional, NewType, cast
 import yaml
 from beartype import beartype
 import orjson
+import sys
 
 JSONDict = NewType("JSONDict", dict)
 
@@ -58,6 +59,16 @@ def remove_metadata(source: str, first_match: str):
     result = replace_metadata(source, first_match, "")
     return result
 
+@beartype
+def dump_dict_as_yaml(mdict:dict):
+    ret = yaml.safe_dump(
+                mdict,
+                width=sys.maxsize,
+                default_style='"',
+                default_flow_style=True,
+                allow_unicode=True,
+            )
+    return ret
 
 @beartype
 def modify_content_metadata(
@@ -66,7 +77,7 @@ def modify_content_metadata(
     metadata: dict,
     first_match: Optional[str],
 ):
-    replaced_metadata_str = yaml.safe_dump(metadata, allow_unicode=True).strip()
+    replaced_metadata_str = dump_dict_as_yaml(metadata).strip()
     replaced_metadata_str = f"""
 {replaced_metadata_str}
 """

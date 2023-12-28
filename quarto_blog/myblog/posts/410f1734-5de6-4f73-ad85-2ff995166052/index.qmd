@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# Cybergod discord channel
-
 join at: https://discord.gg/y9BrdMfA
-
 i plan to intergrate it to my agi-computer-control repo.
-

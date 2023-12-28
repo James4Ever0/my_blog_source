@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# some notes just like me: today i learned (til)
-
 repo here: [til](https://github.com/benthecoder/til)
-

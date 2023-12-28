@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-07">
 <meta name="description" content="This tutorial provides step-by-step instructions for accessing Kali Linux on Chromebook using ttyd, x11vnc, and novnc. It includes detailed setup procedures for each tool, demonstrates novnc’s clipboard sharing feature, and offers the necessary commands to help users make the most of their experience.">
 
-<title>James’s Blog - access kali on chromebook or anywhere</title>
+<title>James’ Blog - access kali on chromebook or anywhere</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,8 +179,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="access-kali-on-chromebook-or-anywhere" class="level1">
-<h1>access kali on chromebook or anywhere</h1>
 <section id="setup-tty" class="level2">
 <h2 class="anchored" data-anchor-id="setup-tty">setup tty</h2>
 <p>i don’t think this will work on android, but let’s see?</p>
@@ -194,9 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup-x11vnc-and-novnc" class="level2">
 <h2 class="anchored" data-anchor-id="setup-x11vnc-and-novnc">setup x11vnc and novnc</h2>
-<p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu,</p>
-<p>in reference of <a href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a></p>
-<p>x11vnc is mirroring the current x11 session. i set it without password.</p>
+<p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu, in reference of <a href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a> x11vnc is mirroring the current x11 session. i set it without password.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#retrieved from fish history</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">x11vnc</span> <span class="at">-threads</span> <span class="at">-forever</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>then launch novnc server</p>
@@ -205,7 +196,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>http://&lt;kali_ip&gt;:10020/vnc.html?host=&lt;kali_ip&gt;&amp;port=10020</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

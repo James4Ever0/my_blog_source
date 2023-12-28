@@ -68,9 +68,9 @@ links:
 widgets:
 - search
 # - recent_comments
-- category
-- tagcloud
-- recent_posts
+# - category
+# - tagcloud
+# - recent_posts
 - links
 #- rss  # uncomment this to show an RSS button in the sidebar
 

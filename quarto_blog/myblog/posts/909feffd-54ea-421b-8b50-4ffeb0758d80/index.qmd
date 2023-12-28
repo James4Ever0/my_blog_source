@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# macos cleanup disk and ram
-
 execute: `sudo purge` may help with ram issue?
-

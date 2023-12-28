@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-12-12">
 <meta name="description" content="This article discusses different methods for accessing package information and improving search skills using tools like the ‘man’ command, GitHub API, and package managers. It also provides tips on utilizing programming language libraries to enhance your search capabilities.">
 
-<title>James’s Blog - download/collect info of hack tools</title>
+<title>James’ Blog - download/collect info of hack tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,87 +179,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="downloadcollect-info-of-hack-tools" class="level1">
-<h1>download/collect info of hack tools</h1>
-<p>what to do when chatgpt is not for everyone?</p>
-<section id="general-introduction" class="level2">
-<h2 class="anchored" data-anchor-id="general-introduction">general introduction</h2>
-<p>this is about <strong>information gathering</strong>, so you might learn how to scrape AI models, AI notebooks, tutorials, code snippets from websites/search engines/social media as well.</p>
-<p>given the name of the hack tool, you may not be able to tell what the tool is (written in python? hosted on github? online tool?) and you want to use search engine to find possible entries. you may take snapshots on these pages and index them.</p>
-<p>if the hack tool is linked to some website/manual, you can index the website. if you find it inside some package index or package manager, you will know how to install the package.</p>
-<p>you may miss the wiki, forum, tutorials. you know where to get them.</p>
-<p>here are few sources where you can learn things from:</p>
-<p><a href="https://www.darknet.org.uk/">darknet.org.uk</a> where you learn hacking and <a href="https://www.darknet.org.uk/category/hacking-tools/">hack tools</a></p>
-<p><a href="https://null-byte.wonderhowto.com/">null byte</a> in <a href="https://www.wonderhowto.com/">wonderhowto</a></p>
-<p>you also have <code>brew</code> <code>sdkman</code> <code>macport</code> <code>pkgsrc</code> <code>chocolatey</code> <code>scoop</code> <code>winget</code> <code>snap</code> <code>portage</code> <code>conda</code> <code>flatpak</code> <code>rpm</code> <code>urpm</code> <code>yum</code> <code>cargo</code> <code>dnf</code> indexes and more to scrape. maybe it is time to improve your searching skill? (<strong>select few web domains you want to learn things from, then perform the query, still you have to deal with keywords generation and site selection</strong>)</p>
-<p><a href="https://launchpad.net/~cyborg-hawk/+archive/ubuntu/stable">cyborg hawx linux</a>, backtrack linux may join the parade.</p>
-<p>for language specific package indexs, we have <code>hackage</code> <code>CPAN</code> <code>CRAN</code> <code>crates.io</code> and more (where are package indexes for <code>C</code> <code>C++</code> <code>Pascal</code> <code>BASIC</code> <code>assembly</code> <code>lisp</code> <code>prolog</code> <code>lua</code> and more? visit <a href="https://awesomeopensource.com/">awesomeopensource</a> then use combined topics to find <a href="https://awesomeopensource.com/projects/c/package-manager">package managers for c</a> and more. you also have <a href="https://libraries.io/">libraries.io</a> to monitor libraries across all package managers). just check <a href="https://mirrors.tuna.tsinghua.edu.cn/">tuna mirror site</a> and get a view on that. you may want a network directory traversal tool akin to <code>find</code> in local filesystem, without downloading anything “binary” but just logging all possible urls for you to inspect. (with file size)</p>
-<p>after all these information collecting, you must categorize them (topic modelling), retrieve info when needed (semantic searching? recommendation? dialog based GPT?). you may find many things not obviously a hack tool but in general fit well into specific needs.</p>
-<p>with all packages being scraped, you need to deduplicate it a little bit, either by name or homepage.</p>
-</section>
-<section id="case-specific" class="level2">
-<h2 class="anchored" data-anchor-id="case-specific">case specific</h2>
-<section id="github" class="level3">
-<h3 class="anchored" data-anchor-id="github">github</h3>
-<p>repo named with “awesome” means this is a collection of handpicked resources</p>
-<p>you will find github links on web, social media, instant messaging and forums</p>
-<p><a href="https://github.com/henson/Scraper">Scraper</a> scrape popular github repositories every day</p>
-<p><a href="https://github.com/csurfer/gitsuggest">gitsuggest</a> recommend github repos</p>
-<p><a href="https://fusebit.io/blog/github-api-list-repositories/?utm_source=cn.bing.com&amp;utm_medium=referral&amp;utm_campaign=none">How to Use the GitHub API to List Repositories</a></p>
-<p><a href="https://pygithub.readthedocs.io/en/latest/introduction.html">PyGithub</a> use python to automate github api v3</p>
-<p>if you want all README pages on github, you first need to collect all github repo urls. you may also collect info on github repos (OSINT). you can retrieve all repos link to given user with github api (quota limited). you can search github on github or search engine with some juicy/promising keywords then collect repo name, username, keywords, repeat the search.</p>
-<p>there are few github repo archives avaliable for download. the github archive program packed many repos to arctic, the list is called <a href="https://archiveprogram.github.com/assets/img/archive-repos.txt">Greatest Hits</a></p>
-<p><a href="https://www.gharchive.org/">gharchive</a> provides many websites for monitoring github repos, though stopped archiving since 2016</p>
-</section>
-<section id="kali-parrot" class="level3">
-<h3 class="anchored" data-anchor-id="kali-parrot">kali, parrot</h3>
-<p>kali tool list pages</p>
+<p>what to do when chatgpt is not for everyone? ## general introduction this is about <strong>information gathering</strong>, so you might learn how to scrape AI models, AI notebooks, tutorials, code snippets from websites/search engines/social media as well. given the name of the hack tool, you may not be able to tell what the tool is (written in python? hosted on github? online tool?) and you want to use search engine to find possible entries. you may take snapshots on these pages and index them. if the hack tool is linked to some website/manual, you can index the website. if you find it inside some package index or package manager, you will know how to install the package. you may miss the wiki, forum, tutorials. you know where to get them. here are few sources where you can learn things from: <a href="https://www.darknet.org.uk/">darknet.org.uk</a> where you learn hacking and <a href="https://www.darknet.org.uk/category/hacking-tools/">hack tools</a> <a href="https://null-byte.wonderhowto.com/">null byte</a> in <a href="https://www.wonderhowto.com/">wonderhowto</a> you also have <code>brew</code> <code>sdkman</code> <code>macport</code> <code>pkgsrc</code> <code>chocolatey</code> <code>scoop</code> <code>winget</code> <code>snap</code> <code>portage</code> <code>conda</code> <code>flatpak</code> <code>rpm</code> <code>urpm</code> <code>yum</code> <code>cargo</code> <code>dnf</code> indexes and more to scrape. maybe it is time to improve your searching skill? (<strong>select few web domains you want to learn things from, then perform the query, still you have to deal with keywords generation and site selection</strong>) <a href="https://launchpad.net/~cyborg-hawk/+archive/ubuntu/stable">cyborg hawx linux</a>, backtrack linux may join the parade. for language specific package indexs, we have <code>hackage</code> <code>CPAN</code> <code>CRAN</code> <code>crates.io</code> and more (where are package indexes for <code>C</code> <code>C++</code> <code>Pascal</code> <code>BASIC</code> <code>assembly</code> <code>lisp</code> <code>prolog</code> <code>lua</code> and more? visit <a href="https://awesomeopensource.com/">awesomeopensource</a> then use combined topics to find <a href="https://awesomeopensource.com/projects/c/package-manager">package managers for c</a> and more. you also have <a href="https://libraries.io/">libraries.io</a> to monitor libraries across all package managers). just check <a href="https://mirrors.tuna.tsinghua.edu.cn/">tuna mirror site</a> and get a view on that. you may want a network directory traversal tool akin to <code>find</code> in local filesystem, without downloading anything “binary” but just logging all possible urls for you to inspect. (with file size) after all these information collecting, you must categorize them (topic modelling), retrieve info when needed (semantic searching? recommendation? dialog based GPT?). you may find many things not obviously a hack tool but in general fit well into specific needs. with all packages being scraped, you need to deduplicate it a little bit, either by name or homepage. ## case specific ### github repo named with “awesome” means this is a collection of handpicked resources you will find github links on web, social media, instant messaging and forums <a href="https://github.com/henson/Scraper">Scraper</a> scrape popular github repositories every day <a href="https://github.com/csurfer/gitsuggest">gitsuggest</a> recommend github repos <a href="https://fusebit.io/blog/github-api-list-repositories/?utm_source=cn.bing.com&amp;utm_medium=referral&amp;utm_campaign=none">How to Use the GitHub API to List Repositories</a> <a href="https://pygithub.readthedocs.io/en/latest/introduction.html">PyGithub</a> use python to automate github api v3 if you want all README pages on github, you first need to collect all github repo urls. you may also collect info on github repos (OSINT). you can retrieve all repos link to given user with github api (quota limited). you can search github on github or search engine with some juicy/promising keywords then collect repo name, username, keywords, repeat the search. there are few github repo archives avaliable for download. the github archive program packed many repos to arctic, the list is called <a href="https://archiveprogram.github.com/assets/img/archive-repos.txt">Greatest Hits</a> <a href="https://www.gharchive.org/">gharchive</a> provides many websites for monitoring github repos, though stopped archiving since 2016 ### kali, parrot kali tool list pages</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://en.kali.tools/all/ <span class="op">&gt;</span> kali_tools_all.html <span class="co"># more tags, more categories, the same as blackarch?</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://www.kali.org/tools/ <span class="op">&gt;</span> kali_official.html</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://en.kali.tools/ <span class="op">&gt;</span> pentest_tools_with_name.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://www.kali.org/tools/kali-meta/">kali meta page on web</a></p>
-<p><a href="http://pkg.kali.org/pkg/kali-meta">kali meta page on package index</a></p>
-<p><a href="https://pkg.kali.org/">kali package index</a></p>
-<p>notice kali official “offsec” provides training courses and materials as apt packages. the list:</p>
+<p><a href="https://www.kali.org/tools/kali-meta/">kali meta page on web</a> <a href="http://pkg.kali.org/pkg/kali-meta">kali meta page on package index</a> <a href="https://pkg.kali.org/">kali package index</a> notice kali official “offsec” provides training courses and materials as apt packages. the list:</p>
 <pre><code>offsec-awae/kali-rolling 2021.1.2 amd64
-  Resources for OffSec's AWAE/WEB-300
-
+Resources for OffSec's AWAE/WEB-300
 offsec-awae-python2/kali-rolling 2021.1.2 amd64
-  Python 2 resources for OffSec's AWAE/WEB-300
-
+Python 2 resources for OffSec's AWAE/WEB-300
 offsec-exp301/kali-rolling 2021.1.2 amd64
-  Resources for OffSec's WUMED/EXP-301
-
+Resources for OffSec's WUMED/EXP-301
 offsec-pen300/kali-rolling 2021.1.2 amd64
-  Resources for OffSec's ETBD/PEN-300
-
+Resources for OffSec's ETBD/PEN-300
 offsec-pwk/kali-rolling 2021.1.2 amd64
-  Resources for OffSec's PWK2/PEN-200</code></pre>
-<p>these two OSes are for pentesting, using <code>apt</code> as package manager. but parrot does not provide tool introductions.</p>
-<p>get all package names:</p>
+Resources for OffSec's PWK2/PEN-200</code></pre>
+<p>these two OSes are for pentesting, using <code>apt</code> as package manager. but parrot does not provide tool introductions. get all package names:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>you can retrieve package information in apt command, like:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> show <span class="op">&lt;</span>package_name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>you will get homepage link and package description if you want package dependencies you will also have it.</p>
-<p>using <code>apt</code> one can retrieve package infos with simple command. find main metapackages like <code>parrot-tools-full</code> (parrot) and <code>kali-linux-everything</code> (kali) first, then retrieve dependency trees.</p>
-<p>parrotos has <a href="https://mirrors.tuna.tsinghua.edu.cn/parrot/index.db">index.db</a> which you can retrieve info from there, or “Packages” for general debian package index, or anything you think is metadata.</p>
-</section>
-<section id="chocolatey" class="level3">
-<h3 class="anchored" data-anchor-id="chocolatey">chocolatey</h3>
-<p>note: deprecated since v2.0, can only be used to list local packages</p>
+<p>you will get homepage link and package description if you want package dependencies you will also have it. using <code>apt</code> one can retrieve package infos with simple command. find main metapackages like <code>parrot-tools-full</code> (parrot) and <code>kali-linux-everything</code> (kali) first, then retrieve dependency trees. parrotos has <a href="https://mirrors.tuna.tsinghua.edu.cn/parrot/index.db">index.db</a> which you can retrieve info from there, or “Packages” for general debian package index, or anything you think is metadata. ### chocolatey note: deprecated since v2.0, can only be used to list local packages</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">choco</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="blackarch" class="level3">
 <h3 class="anchored" data-anchor-id="blackarch">blackarch</h3>
-<p>blackarch is based on archlinux, which has both official repo and user provided packages repo (AUR). the syntax is almost the same for <code>pacman</code> and <code>yaourt</code> to retrieve all available info of packages.</p>
-<p>maybe you want to retrieve package information with pacman.</p>
-<p>list all package information just like apt, description, dependencies, homepage and more.</p>
+<p>blackarch is based on archlinux, which has both official repo and user provided packages repo (AUR). the syntax is almost the same for <code>pacman</code> and <code>yaourt</code> to retrieve all available info of packages. maybe you want to retrieve package information with pacman. list all package information just like apt, description, dependencies, homepage and more.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pacman</span> <span class="at">-Si</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>use some parser?</p>
-<p>for aur repos, use yay or yaourt.</p>
+<p>use some parser? for aur repos, use yay or yaourt.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yaourt</span> <span class="at">-Si</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>you may use dependencies to deduce relationship between packages, use description, man pages, wiki, manual and tutorials to understand the usage of packages.</p>
-<p>download main blackarch tool list:</p>
+<p>you may use dependencies to deduce relationship between packages, use description, man pages, wiki, manual and tutorials to understand the usage of packages. download main blackarch tool list:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://www.blackarch.org/tools.html <span class="op">&gt;</span> tools.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="alpine" class="level3">
@@ -274,72 +216,24 @@ offsec-pwk/kali-rolling 2021.1.2 amd64
 </section>
 <section id="pypipip" class="level3">
 <h3 class="anchored" data-anchor-id="pypipip">pypi/pip</h3>
-<p>i remember you have scraped tsinghua pypi index, containing many python tools.</p>
-<p>retrieve python package info as json: <code>https://pypi.org/pypi/&lt;package-name&gt;/json</code></p>
-<p>visit <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">pypi simple index</a> to get all package names. but the info is clearly on the other page. you retrieve this from pypi. use the below commandline tool?</p>
-<p><code>pypi [information|description] &lt;package_name&gt;</code></p>
-<p>documentation url is provided separately from mainpage.</p>
-<p><a href="https://pypi.org/project/pypi-command-line/">commandline tool for searching in pypi</a></p>
-<p>install it, then run:</p>
+<p>i remember you have scraped tsinghua pypi index, containing many python tools. retrieve python package info as json: <code>https://pypi.org/pypi/&lt;package-name&gt;/json</code> visit <a href="https://pypi.tuna.tsinghua.edu.cn/simple/">pypi simple index</a> to get all package names. but the info is clearly on the other page. you retrieve this from pypi. use the below commandline tool? <code>pypi [information|description] &lt;package_name&gt;</code> documentation url is provided separately from mainpage. <a href="https://pypi.org/project/pypi-command-line/">commandline tool for searching in pypi</a> install it, then run:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pypi</span> search <span class="op">&lt;</span>query<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>it also provides “read-the-docs” to search in documentation of a package, detailed info</p>
-</section>
-<section id="nuget" class="level3">
-<h3 class="anchored" data-anchor-id="nuget">nuget</h3>
-<p>we can search in cli tool (not <code>dotnet nuget</code> (installed with dotnet sdk) but <code>nuget</code> (<a href="https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference">installation guide</a>)) and <a href="https://www.nuget.org/">web interface</a>.</p>
-<p>list all packages:</p>
+<p>it also provides “read-the-docs” to search in documentation of a package, detailed info ### nuget we can search in cli tool (not <code>dotnet nuget</code> (installed with dotnet sdk) but <code>nuget</code> (<a href="https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference">installation guide</a>)) and <a href="https://www.nuget.org/">web interface</a>. list all packages:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nuget</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>get package information:</p>
 <pre><code>nuget list &lt;packageName&gt; -Verbosity detailed</code></pre>
-<p><a href="https://learn.microsoft.com/en-us/nuget/guides/api/query-for-all-published-packages">query all package information without nuget</a></p>
-<p>the web interface seems allowing us to do some traversal on the parameter: <code>https://www.nuget.org/packages?page=&lt;pagenum&gt;&amp;sortBy=relevance</code></p>
-<p>keep in mind the pagenum cannot be too big (like 2000).</p>
-</section>
-<section id="maven" class="level3">
-<h3 class="anchored" data-anchor-id="maven">maven</h3>
-<p>there are tools for interacting with maven search api.</p>
-<p>you can retrieve “pom.xml” to get package info like homepage and description.</p>
-<p>maven central has <a href="https://repo1.maven.org/maven2/archetype-catalog.xml">archtype-catalog</a> for retrieving all avaliable artifact names</p>
-<p>maven search tools:</p>
-<p><a href="https://github.com/erosb/mvn-search">mvn-search</a></p>
-<p><a href="https://github.com/mthmulders/mcs">mcs</a></p>
-</section>
-<section id="homebrew" class="level3">
-<h3 class="anchored" data-anchor-id="homebrew">homebrew</h3>
-<p>reading the source code and according to <a href="https://formulae.brew.sh/docs/api/">brew api docs</a> i found <a href="https://formulae.brew.sh/api/formula.json">this url</a> is for retrieving all formula info on brew index, and <a href="https://formulae.brew.sh/api/cask.json">this</a> for casks.</p>
-<p>also run this command for showing local cached package infos:</p>
+<p><a href="https://learn.microsoft.com/en-us/nuget/guides/api/query-for-all-published-packages">query all package information without nuget</a> the web interface seems allowing us to do some traversal on the parameter: <code>https://www.nuget.org/packages?page=&lt;pagenum&gt;&amp;sortBy=relevance</code> keep in mind the pagenum cannot be too big (like 2000). ### maven there are tools for interacting with maven search api. you can retrieve “pom.xml” to get package info like homepage and description. maven central has <a href="https://repo1.maven.org/maven2/archetype-catalog.xml">archtype-catalog</a> for retrieving all avaliable artifact names maven search tools: <a href="https://github.com/erosb/mvn-search">mvn-search</a> <a href="https://github.com/mthmulders/mcs">mcs</a> ### homebrew reading the source code and according to <a href="https://formulae.brew.sh/docs/api/">brew api docs</a> i found <a href="https://formulae.brew.sh/api/formula.json">this url</a> is for retrieving all formula info on brew index, and <a href="https://formulae.brew.sh/api/cask.json">this</a> for casks. also run this command for showing local cached package infos:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> info <span class="at">--json</span> <span class="at">--all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="npm" class="level3">
 <h3 class="anchored" data-anchor-id="npm">npm</h3>
-<p>there’s a <a href="https://github.com/nice-registry/all-the-package-names">repo</a> storing up-to-date package names on github. after that, use <a href="https://www.npmjs.com/package/npm-description">npm-description</a> to download description for every package.</p>
-<p><a href="https://github.com/nice-registry/all-the-package-repos">all-the-package-repos</a> contains repo information (github, gitlab) of every npm package</p>
-</section>
-<section id="gem" class="level3">
-<h3 class="anchored" data-anchor-id="gem">gem</h3>
-<p>change gem sources first:</p>
+<p>there’s a <a href="https://github.com/nice-registry/all-the-package-names">repo</a> storing up-to-date package names on github. after that, use <a href="https://www.npmjs.com/package/npm-description">npm-description</a> to download description for every package. <a href="https://github.com/nice-registry/all-the-package-repos">all-the-package-repos</a> contains repo information (github, gitlab) of every npm package ### gem change gem sources first:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gem</span> sources <span class="at">--add</span> https://gems.ruby-china.com/ <span class="at">--remove</span> https://rubygems.org/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>gem list -r</code> really works. you just have to wait.</p>
-<p><code>gem info -r</code> list all remote gem infos, but too slow and not working, use only one package at a time.</p>
-</section>
-<section id="manpages" class="level3">
-<h3 class="anchored" data-anchor-id="manpages">manpages</h3>
-<p>you can download man pages before installing package</p>
-<p>use “dman” by bikeshed (not avaliable on kali, maybe on ubuntu?)</p>
+<p><code>gem list -r</code> really works. you just have to wait. <code>gem info -r</code> list all remote gem infos, but too slow and not working, use only one package at a time. ### manpages you can download man pages before installing package use “dman” by bikeshed (not avaliable on kali, maybe on ubuntu?)</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install bikeshed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or browse manpages on web, <a href="https://linux.die.net">tutorials on linux and languages</a></p>
-<p><a href="https://linux.die.net/man/">man pages with different sections (categories)</a></p>
-<p><a href="https://manpages.ubuntu.com/manpages">hierachical manpages of ubuntu</a></p>
-<p><a href="https://manpages.ubuntu.com/dman">dman for ubuntu man pages</a></p>
-<p>location of locally installed man pages: <code>/usr/share/man</code></p>
-</section>
-<section id="vscode-plugin" class="level3">
-<h3 class="anchored" data-anchor-id="vscode-plugin">vscode plugin</h3>
-<p><a href="https://marketplace.visualstudio.com/VSCode">web interface</a> for searching</p>
+<p>or browse manpages on web, <a href="https://linux.die.net">tutorials on linux and languages</a> <a href="https://linux.die.net/man/">man pages with different sections (categories)</a> <a href="https://manpages.ubuntu.com/manpages">hierachical manpages of ubuntu</a> <a href="https://manpages.ubuntu.com/dman">dman for ubuntu man pages</a> location of locally installed man pages: <code>/usr/share/man</code> ### vscode plugin <a href="https://marketplace.visualstudio.com/VSCode">web interface</a> for searching</p>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

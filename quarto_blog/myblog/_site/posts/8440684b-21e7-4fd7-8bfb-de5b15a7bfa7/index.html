@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-11-25">
 <meta name="description" content="The article highlights updates to the hy programming language, introducing features such as automatic reloading and enhanced exception handling. These modifications allow hy to be utilized as an automation tool and overcome constraints with expression wrapping. The improvements also benefit IDE support, particularly in Vim, Emacs, and Neovim’s Nelean plugin.">
 
-<title>James’s Blog - Hy Programming Language Enhancements for Automation and IDE Support</title>
+<title>James’ Blog - Hy Programming Language Enhancements for Automation and IDE Support</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -157,23 +152,16 @@ ul.task-list li input[type="checkbox"] {
 parse
 hyrule
 reloading</code></pre>
-<p><a href="https://docs.hylang.org/en/stable/api.html#lfor">hy docs</a></p>
-<p><a href="https://hyrule.readthedocs.io/en/master/index.html#hyrule.control.block">hyrule docs</a></p>
-<p>hy缺乏基本的补全 vscode目前没法用 我把hy改造成了可以自动reload 自动抓Uncaught exception的模式 如果要取消这些行为 需要加上flag 可以用于hy2py</p>
+<p><a href="https://docs.hylang.org/en/stable/api.html#lfor">hy docs</a> <a href="https://hyrule.readthedocs.io/en/master/index.html#hyrule.control.block">hyrule docs</a> hy缺乏基本的补全 vscode目前没法用 我把hy改造成了可以自动reload 自动抓Uncaught exception的模式 如果要取消这些行为 需要加上flag 可以用于hy2py</p>
 <pre><code>-R
-    disable automatic insertion of reloading decorator
+disable automatic insertion of reloading decorator
 -T
-    disable toplevel try-except
+disable toplevel try-except
 -K
-    disable toplevel show stacktrace
+disable toplevel show stacktrace
 -L
-    disable line-by-line try-except</code></pre>
-<p>一些未知的expression可能不允许被wrap到我们的macro里面 需要被加入到黑名单 已知的系列包括<code>unpack-iterable</code>之类的</p>
-<p>hy的插件目前分为vim版本和EMACS版本 对spacevim spacemacs不怎么友好</p>
-<p><a href="https://github.com/hylang/vim-hy">vim syntax highlight</a></p>
-<p><a href="https://github.com/hylang/hy-mode">emacs hy-mode</a> and <a href="https://github.com/ekaschalk/jedhy">jedhy</a></p>
-<p><a href="https://github.com/sakuraiyuta/hyuga">hyuga</a> for neovim, with <a href="https://www.github.com/sakuraiyuta/vim-lsp-settings/tree/add-lang/hyuga">custom vim-lsp</a></p>
-<p>hy的code autoindentation功能我做了 <a href="https://github.com/Jamea4Ever0/nelean">nelean</a> 目前最新版本有待更新 主要是对字符串的正则进行了优化</p>
+disable line-by-line try-except</code></pre>
+<p>一些未知的expression可能不允许被wrap到我们的macro里面 需要被加入到黑名单 已知的系列包括<code>unpack-iterable</code>之类的 hy的插件目前分为vim版本和EMACS版本 对spacevim spacemacs不怎么友好 <a href="https://github.com/hylang/vim-hy">vim syntax highlight</a> <a href="https://github.com/hylang/hy-mode">emacs hy-mode</a> and <a href="https://github.com/ekaschalk/jedhy">jedhy</a> <a href="https://github.com/sakuraiyuta/hyuga">hyuga</a> for neovim, with <a href="https://www.github.com/sakuraiyuta/vim-lsp-settings/tree/add-lang/hyuga">custom vim-lsp</a> hy的code autoindentation功能我做了 <a href="https://github.com/Jamea4Ever0/nelean">nelean</a> 目前最新版本有待更新 主要是对字符串的正则进行了优化</p>
 
 
 </section>

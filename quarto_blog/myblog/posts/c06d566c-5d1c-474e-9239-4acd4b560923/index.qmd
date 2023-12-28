@@ -4,11 +4,6 @@
 ---
 
 ------
-
-# stop background jobs
-
 ```bash
 jobs | grep -Eo "[0-9][0-9][0-9]+" | xargs -iabc kill -s KILL abc
 ```
-
-

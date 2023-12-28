@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-15">
 <meta name="description" content="This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME’s ATK browsers.">
 
-<title>James’s Blog - Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y</title>
+<title>James’ Blog - Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -151,28 +146,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="pyatspi-dogtail-gnome-accessibility-gui-inspect-tool-for-linux-a11y" class="level1">
-<h1>Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y</h1>
-<p>does appium have linux accessibility implementation?</p>
-<p>windows a11y: https://github.com/blackrosezy/gui-inspect-tool pywinauto</p>
-<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
-<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
-<p>linux a11y: https://github.com/shubhamvasaikar/Auto-GUI-Testing gnome accessibility toolkit(atk)</p>
-<p>https://gitlab.gnome.org/GNOME/pyatspi2 https://gitlab.com/dogtail/dogtail https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</p>
-<p>accessibility implementation in different toolkits: https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</p>
-<p>Toolkits that use the DBus APIs directly GTK4 Sources: gtk4/gtk/a11y</p>
-<p>Qt5 Sources: qtbase/src/gui/accessible/linux</p>
-<p>WebKit Sources: WebKit/Source/WebCore/accessibility/atspi</p>
-<p>Toolkits that use ATK GTK3 Sources: gtk3/gtk/a11y</p>
-<p>gnome-shell / St / via clutter’s cally Sources: mutter/clutter/clutter/cally</p>
-<p>Mozilla Firefox Sources: gecko-dev/accessible/atk</p>
-<p>Chromium Uses both ATK and libatspi?</p>
-<p>Sources:</p>
-<p>chromium/ui/accessibility/platform/<em>auralinux</em> (atk) chromium/ui/accessibility/platform/inspect/<em>auralinux</em> (atspi) chromium/content/browser/accessibility/<em>auralinux</em> (atspi and atk) LibreOffice Sources: LibreOffice/core/vcl/unx/gtk3/a11y</p>
-<p>Java Swing - via java-atk-wrapper Sources: java-atk-wrapper</p>
+<p>does appium have linux accessibility implementation? windows a11y: https://github.com/blackrosezy/gui-inspect-tool pywinauto bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch. a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally. linux a11y: https://github.com/shubhamvasaikar/Auto-GUI-Testing gnome accessibility toolkit(atk) https://gitlab.gnome.org/GNOME/pyatspi2 https://gitlab.com/dogtail/dogtail https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/ accessibility implementation in different toolkits: https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md Toolkits that use the DBus APIs directly GTK4 Sources: gtk4/gtk/a11y Qt5 Sources: qtbase/src/gui/accessible/linux WebKit Sources: WebKit/Source/WebCore/accessibility/atspi Toolkits that use ATK GTK3 Sources: gtk3/gtk/a11y gnome-shell / St / via clutter’s cally Sources: mutter/clutter/clutter/cally Mozilla Firefox Sources: gecko-dev/accessible/atk Chromium Uses both ATK and libatspi? Sources: chromium/ui/accessibility/platform/<em>auralinux</em> (atk) chromium/ui/accessibility/platform/inspect/<em>auralinux</em> (atspi) chromium/content/browser/accessibility/<em>auralinux</em> (atspi and atk) LibreOffice Sources: LibreOffice/core/vcl/unx/gtk3/a11y Java Swing - via java-atk-wrapper Sources: java-atk-wrapper</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

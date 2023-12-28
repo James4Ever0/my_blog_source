@@ -4,9 +4,5 @@
 ---
 
 ------
-
-# MongoDB Cheatsheet
-
 use redability.js reader mode or elinks to render this shit:
 https://www.mongodb.com/developer/products/mongodb/cheat-sheet/
-

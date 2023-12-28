@@ -4,8 +4,4 @@
 ---
 
 ------
-
-# notable tips
-
 do not use slash in note names, which might cause issues for our syncing program.
-

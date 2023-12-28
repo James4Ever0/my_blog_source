@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-02-13">
 <meta name="description" content="This article provides instructions on utilizing proxy.py to establish a localhost proxy that redirects traffic to a publicly accessible IP address, enabling users to expose their sole localhost proxy without modifying router configurations. The process involves specifying the public proxy’s port and IP address, incorporating the ProxyPoolPlugin plugin, and supplying the necessary localhost:8981 proxy pool information.">
 
-<title>James’s Blog - proxy.py forward localhost proxy to public ip address</title>
+<title>James’ Blog - proxy.py forward localhost proxy to public ip address</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,16 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="proxy.py-forward-localhost-proxy-to-public-ip-address" class="level1">
-<h1>proxy.py forward localhost proxy to public ip address</h1>
-<p>say if you only have one such proxy on localhost, not exposed on router: <code>localhost:8981</code></p>
-<p>you execute the command, using <a href="https://pypi.org/project/proxy.py/">proxy.py</a>:</p>
+<p>say if you only have one such proxy on localhost, not exposed on router: <code>localhost:8981</code> you execute the command, using <a href="https://pypi.org/project/proxy.py/">proxy.py</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">proxy</span> <span class="at">--port</span> <span class="op">&lt;</span>public_proxy_port<span class="op">&gt;</span> --host <span class="op">&lt;</span>public_proxy_ip_address<span class="op">&gt;</span> <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--plugins</span> proxy.plugin.ProxyPoolPlugin <span class="dt">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--proxy-pool</span> localhost:8981</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>--plugins proxy.plugin.ProxyPoolPlugin <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>--proxy-pool localhost:8981</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

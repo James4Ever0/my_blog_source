@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-05-06">
 <meta name="description" content="This article provides a solution to troubleshoot input issues with the libwacom library on Arch Linux ARM and Kali Linux. The article suggests modifying the xorg.conf file as referenced in a troubleshooting guide for resolution.">
 
-<title>James’s Blog - Letsketch libwacom</title>
+<title>James’ Blog - Letsketch libwacom</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -148,20 +143,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="letsketch-libwacom" class="level1">
-<h1>Letsketch libwacom</h1>
-<p>working on archlinux arm: libwacom 2.1.0-1</p>
-<p>not working on kali linux: libwacom-bin 2.2.0-1</p>
-<p>full reference:</p>
-<p>https://github.com/DIGImend/digimend-kernel-drivers/issues/514</p>
-<p>sudo nano /etc/X11/xorg.conf</p>
-<p>Section “InputClass” Identifier “Tablet” Driver “wacom” MatchDevicePath “/dev/input/event*” MatchUSBID “6161:4d15” EndSection</p>
-<p>to debug input problems:</p>
-<p>https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20…%20More%20items…%20</p>
-<p>check /etc/logs/Xorg.0.logs</p>
+<p>working on archlinux arm: libwacom 2.1.0-1 not working on kali linux: libwacom-bin 2.2.0-1 full reference: https://github.com/DIGImend/digimend-kernel-drivers/issues/514 sudo nano /etc/X11/xorg.conf Section “InputClass” Identifier “Tablet” Driver “wacom” MatchDevicePath “/dev/input/event*” MatchUSBID “6161:4d15” EndSection to debug input problems: https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20…%20More%20items…%20 check /etc/logs/Xorg.0.logs</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

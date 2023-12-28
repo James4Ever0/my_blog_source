@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-04-03">
 <meta name="description" content="This article discusses an AI model that utilizes GPT, RNN/LSTM, and ViT to process input data from various sources such as screenshots, natural language instructions, and keyboard/mouse events. The model first extracts features using ViT, then encodes instructions with GPT, followed by processing the combined features through LSTM/RNN. Finally, it decodes the output into events utilizing CNNs, RobertaModel, and GPT2LMHeadModel.">
 
-<title>James’s Blog - ask chatgpt how to create an ai model for controlling computer under human instruction</title>
+<title>James’ Blog - ask chatgpt how to create an ai model for controlling computer under human instruction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -184,114 +179,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="ask-chatgpt-how-to-create-an-ai-model-for-controlling-computer-under-human-instruction" class="level1">
-<h1>ask chatgpt how to create an ai model for controlling computer under human instruction</h1>
 <section id="question" class="level2">
 <h2 class="anchored" data-anchor-id="question">question</h2>
-<p>how do i design an ai model using gpt, rnn, lstm, vit to accept computer display screenshots and human instructions as input, keyboard and mouse events as output, trained on random keystrokes and mouse events, also human instructions paired with human demonstrations? show me python code</p>
-</section>
-<section id="answers" class="level2">
-<h2 class="anchored" data-anchor-id="answers">answers</h2>
-<section id="claude" class="level3">
-<h3 class="anchored" data-anchor-id="claude">Claude+</h3>
+<p>how do i design an ai model using gpt, rnn, lstm, vit to accept computer display screenshots and human instructions as input, keyboard and mouse events as output, trained on random keystrokes and mouse events, also human instructions paired with human demonstrations? show me python code ## answers ### Claude+</p>
 <pre><code>That would be an extremely complex AI system to build. Some high level steps would be:
-
 Collect a large dataset of screenshots, human instructions, and corresponding keyboard/mouse interactions. This dataset would be crucial for training.
 Use a CNN to extract visual features from the screenshots. Something like VGG16 or ResNet would work well here.
 Use an RNN/LSTM to encode the sequence of instructions. BERT or RoBERTa would also be good options here.
 Combine the visual and textual features. Options include concatenation, addition, or a more complex fusion method.
-Use a Transformer like GPT-3 or Visual-Transformers to generate the keyboard/mouse interactions from the combined visual+textual features. 
+Use a Transformer like GPT-3 or Visual-Transformers to generate the keyboard/mouse interactions from the combined visual+textual features.
 Train the entire model end-to-end to minimize the difference between the generated interactions and the ground truth interactions from your dataset.
-
-This would likely take a team of ML engineers and researchers to develop, and would require lots of time, data, and compute. 
+This would likely take a team of ML engineers and researchers to develop, and would require lots of time, data, and compute.
 Some sample Python code would be:
-
-import torchvision.models as models 
-import torch 
-import torch.nn as nn 
-from transformers import RobertaModel, GPT2LMHeadModel 
-
-# Feature Extractors 
-cnn = models.resnet50(pretrained=True) 
-roberta = RobertaModel.from_pretrained("roberta-base") 
-
-# Fusion 
-fusion = nn.Sequential(nn.Linear(2048 + 768, 1024), nn.ReLU(), nn.Linear(1024, 512)) 
-
-# Generation Model 
-generator = GPT2LMHeadModel.from_pretrained("gpt2") 
-
-# Forward pass 
-img_features = cnn(img) 
-instruction_features = roberta(instructions)[0] 
-combined_features = fusion(torch.cat((img_features, instruction_features), dim=1)) 
+import torchvision.models as models
+import torch
+import torch.nn as nn
+from transformers import RobertaModel, GPT2LMHeadModel
+# Feature Extractors
+cnn = models.resnet50(pretrained=True)
+roberta = RobertaModel.from_pretrained("roberta-base")
+# Fusion
+fusion = nn.Sequential(nn.Linear(2048 + 768, 1024), nn.ReLU(), nn.Linear(1024, 512))
+# Generation Model
+generator = GPT2LMHeadModel.from_pretrained("gpt2")
+# Forward pass
+img_features = cnn(img)
+instruction_features = roberta(instructions)[0]
+combined_features = fusion(torch.cat((img_features, instruction_features), dim=1))
 preds = generator(inputs_embeds=combined_features)[0]
-
-This is just a brief sample, but hopefully gives you an idea of the components and flow. Let me know if you have any other questions!
-</code></pre>
-</section>
+This is just a brief sample, but hopefully gives you an idea of the components and flow. Let me know if you have any other questions!</code></pre>
 <section id="gpt4" class="level3">
 <h3 class="anchored" data-anchor-id="gpt4">GPT4</h3>
-<p>Designing an AI model that combines GPT, RNN, LSTM, and ViT for the task you described is complex and requires deep understanding of these architectures. However, I’ll provide you with a high-level overview and a basic structure of the code to help you get started.</p>
-<ol type="1">
-<li>First, process the input data:
-<ul>
-<li>For computer display screenshots, use a Vision Transformer (ViT) model to extract features.</li>
-<li>For human instructions, use a GPT model to encode the natural language instructions.</li>
-</ul></li>
-<li>Combine the features from both the ViT and GPT models.</li>
-<li>Use an LSTM or RNN to process the combined features and maintain the temporal context.</li>
-<li>Finally, decode the output of the LSTM/RNN into keyboard and mouse events.</li>
-</ol>
-<p>Here’s a basic structure of the code:</p>
+<p>Designing an AI model that combines GPT, RNN, LSTM, and ViT for the task you described is complex and requires deep understanding of these architectures. However, I’ll provide you with a high-level overview and a basic structure of the code to help you get started. 1. First, process the input data: - For computer display screenshots, use a Vision Transformer (ViT) model to extract features. - For human instructions, use a GPT model to encode the natural language instructions. 2. Combine the features from both the ViT and GPT models. 3. Use an LSTM or RNN to process the combined features and maintain the temporal context. 4. Finally, decode the output of the LSTM/RNN into keyboard and mouse events. Here’s a basic structure of the code:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> GPT2Tokenizer, GPT2Model</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pretrained models</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>gpt_model <span class="op">=</span> GPT2Model.from_pretrained(<span class="st">'gpt2'</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>vit_model <span class="op">=</span> torchvision.models.vit_b_16(pretrained<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> GPT2Tokenizer.from_pretrained(<span class="st">'gpt2'</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomModel(torch.nn.Module):</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, gpt_model, vit_model, hidden_size, output_size):</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(CustomModel, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.gpt_model <span class="op">=</span> gpt_model</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vit_model <span class="op">=</span> vit_model</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rnn <span class="op">=</span> torch.nn.LSTM(input_size<span class="op">=</span>hidden_size, hidden_size<span class="op">=</span>hidden_size, batch_first<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc <span class="op">=</span> torch.nn.Linear(hidden_size, output_size)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, instructions, screenshots):</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Encode instructions using GPT2</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        inputs <span class="op">=</span> tokenizer(instructions, return_tensors<span class="op">=</span><span class="st">"pt"</span>, padding<span class="op">=</span><span class="va">True</span>, truncation<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        gpt_output <span class="op">=</span> <span class="va">self</span>.gpt_model(<span class="op">**</span>inputs)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        gpt_features <span class="op">=</span> gpt_output.last_hidden_state[:, <span class="dv">0</span>, :]</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Encode screenshots using ViT</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        vit_output <span class="op">=</span> <span class="va">self</span>.vit_model(screenshots)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        vit_features <span class="op">=</span> vit_output[<span class="st">"last_hidden_state"</span>][:, <span class="dv">0</span>, :]</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Combine features</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        combined_features <span class="op">=</span> torch.cat((gpt_features, vit_features), dim<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Process combined features through an RNN</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        rnn_output, _ <span class="op">=</span> <span class="va">self</span>.rnn(combined_features.unsqueeze(<span class="dv">1</span>))</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Decode the output into keyboard and mouse events</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>.fc(rnn_output.squeeze(<span class="dv">1</span>))</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> output</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate the custom model</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> CustomModel(gpt_model, vit_model, hidden_size<span class="op">=</span><span class="dv">1024</span>, output_size<span class="op">=</span><span class="dv">256</span>)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Train and evaluate the model using your dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You’ll need to collect a dataset with computer display screenshots, human instructions, and paired keyboard and mouse events. Then, preprocess the data, split it into training and validation sets, and train the model using an appropriate loss function and optimizer.</p>
-<p>Keep in mind that this is just a starting point, and you may need to experiment with different architectures, loss functions, and hyperparameters to achieve the desired performance.</p>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load pretrained models</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>gpt_model <span class="op">=</span> GPT2Model.from_pretrained(<span class="st">'gpt2'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>vit_model <span class="op">=</span> torchvision.models.vit_b_16(pretrained<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>tokenizer <span class="op">=</span> GPT2Tokenizer.from_pretrained(<span class="st">'gpt2'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomModel(torch.nn.Module):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, gpt_model, vit_model, hidden_size, output_size):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">super</span>(CustomModel, <span class="va">self</span>).<span class="fu">__init__</span>()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.gpt_model <span class="op">=</span> gpt_model</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.vit_model <span class="op">=</span> vit_model</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.rnn <span class="op">=</span> torch.nn.LSTM(input_size<span class="op">=</span>hidden_size, hidden_size<span class="op">=</span>hidden_size, batch_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.fc <span class="op">=</span> torch.nn.Linear(hidden_size, output_size)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward(<span class="va">self</span>, instructions, screenshots):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode instructions using GPT2</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> tokenizer(instructions, return_tensors<span class="op">=</span><span class="st">"pt"</span>, padding<span class="op">=</span><span class="va">True</span>, truncation<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>gpt_output <span class="op">=</span> <span class="va">self</span>.gpt_model(<span class="op">**</span>inputs)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>gpt_features <span class="op">=</span> gpt_output.last_hidden_state[:, <span class="dv">0</span>, :]</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Encode screenshots using ViT</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>vit_output <span class="op">=</span> <span class="va">self</span>.vit_model(screenshots)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>vit_features <span class="op">=</span> vit_output[<span class="st">"last_hidden_state"</span>][:, <span class="dv">0</span>, :]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine features</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>combined_features <span class="op">=</span> torch.cat((gpt_features, vit_features), dim<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Process combined features through an RNN</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>rnn_output, _ <span class="op">=</span> <span class="va">self</span>.rnn(combined_features.unsqueeze(<span class="dv">1</span>))</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Decode the output into keyboard and mouse events</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> <span class="va">self</span>.fc(rnn_output.squeeze(<span class="dv">1</span>))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> output</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate the custom model</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> CustomModel(gpt_model, vit_model, hidden_size<span class="op">=</span><span class="dv">1024</span>, output_size<span class="op">=</span><span class="dv">256</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Train and evaluate the model using your dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll need to collect a dataset with computer display screenshots, human instructions, and paired keyboard and mouse events. Then, preprocess the data, split it into training and validation sets, and train the model using an appropriate loss function and optimizer. Keep in mind that this is just a starting point, and you may need to experiment with different architectures, loss functions, and hyperparameters to achieve the desired performance.</p>
 
 
-</section>
 </section>
 </section>
 

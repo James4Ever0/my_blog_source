@@ -4,10 +4,5 @@
 ---
 
 ------
-
-# BDD behavior driven development
-
 [behave doc](https://behave.readthedocs.io/en/stable/tutorial.html#python-step-implementations) [pypi](https://pypi.org/project/behave/)
-
 [pytest-bdd](https://pypi.org/project/pytest-bdd/)
-

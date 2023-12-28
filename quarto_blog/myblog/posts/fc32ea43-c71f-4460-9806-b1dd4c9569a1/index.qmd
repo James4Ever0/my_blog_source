@@ -4,14 +4,7 @@
 ---
 
 ------
-
-# Python DSL
-
 [textX](https://github.com/textX/textX) with syntax highlighter and LSP support, just like Xtext
-
 [ply](https://ply.readthedocs.io/en/latest/ply.html): python lex-yacc
-
 [dhparser](https://pypi.org/project/dhparser/)
-
 [lark](https://github.com/lark-parser/lark)
-

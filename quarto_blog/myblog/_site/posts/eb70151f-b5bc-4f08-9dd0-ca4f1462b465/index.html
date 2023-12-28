@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-06-09">
 <meta name="description" content="This article provides an overview of popular Python libraries and frameworks for stock market analysis, trading software development, and high-frequency/low latency trading. It covers tools such as Altreva Adaptive Modeler, fms, MyTT, funcat, stable-baselines3, crypto trading bots, qlib, FinRL, OpenBBTerminal, Zipline, and Pyalgotrade, which can be used for tasks like data preprocessing, algorithm development, backtesting, and live trading. The article aims to help developers choose the right tool or combination of tools based on their specific needs.">
 
-<title>James’s Blog - quantatitive financial stock market analysis</title>
+<title>James’ Blog - quantatitive financial stock market analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -148,60 +143,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<hr>
-<section id="quantative-financial-stock-market-analysis" class="level1">
-<h1>quantative financial stock market analysis</h1>
-<p><a href="https://github.com/robertmartin8/PyPortfoiloOpt">pyportfolioopt</a></p>
-<p><a href="https://github.com/ampl/amplpyfinance">amplfinance</a></p>
-<hr>
-<p>造模拟炒股软件 走势跟着大盘 收集用户交易数据</p>
-<p>随机假设买卖点 随机假设成交 构成无数虚拟账户交易 或者用某种假设原理拆分不同来源的买卖单</p>
-<p><a href="https://huggingface.co/blog/time-series-transformers">time-series-transformers</a> huggingface blog</p>
-<p>深入浅出Python量化交易 <a href="https://www.wqyunpan.com/resourceDetail.html?id=257365&amp;openId=oUgl9wSv5p1X-HH-MnP4jFvTIlHM&amp;qrcodeId=219912&amp;sign=ZTVkOGM1MGRhZDJjLTE2NjE3NjA4MDQyNzQ=">配套代码</a></p>
-<section id="数据来源" class="level2">
-<h2 class="anchored" data-anchor-id="数据来源">数据来源</h2>
-<p><code>pandas_datareader</code> by yahoo 是国外股票的数据 <code>tushare</code> 国内股票数据</p>
-</section>
-<section id="模型建立" class="level2">
-<h2 class="anchored" data-anchor-id="模型建立">模型建立</h2>
-<p><a href="https://quantecon.org/">open source code for economics modeling in python/julia</a></p>
-<p><a href="https://sinyi-chou.github.io/python-pandas-pipe/#:~:text=Pipe%20is%20a%20method%20in%20pandas.DataFrame%20capable%20of,can%20be%20combined%20with%20method%20chaining%20without%20nesting.">pandas pipe</a> for streamline processing of real time data</p>
-<p><a href="https://zhuanlan.zhihu.com/p/385094015">time series forcast</a></p>
-<p>有类似的软件 我下载到windows上面过 (agent based simulation/agent based modeling) called <a href="">altreva adaptive modeler</a></p>
-<p><a href="https://pythonhosted.org/fms/">fms</a></p>
-<p>还原持仓的对象 每一个账户都要详细分析 分析每个账户什么时候买入 卖出 还有不买入 不卖出 观望的那些人 所有人都要还原</p>
-</section>
-<section id="实盘接口" class="level2">
-<h2 class="anchored" data-anchor-id="实盘接口">实盘接口</h2>
-<p><strong>tools for high frequency trading</strong> <strong>low latency trading tool</strong></p>
-<p><strong>高频交易工具</strong> <strong>低延迟交易工具</strong></p>
-<p>要抢涨停板 网络必须要好 下单速度要快</p>
-<p>joinquant</p>
-<p><a href="https://github.com/shidenggui/easytrader">easytrader</a></p>
-<p><a href="http://www.iguuu.com/e">实盘易 支持多个客户端</a> 服务端要钱的 sdk都是服务端的client</p>
-</section>
-<section id="tools" class="level2">
-<h2 class="anchored" data-anchor-id="tools">tools</h2>
-<p><a href="https://github.com/mpquant/MyTT">mytt 通达信公式转换器</a></p>
-<p><a href="https://github.com/cedricporter/funcat">funcat 通达信公式转换器</a></p>
-</section>
-<section id="models-and-frameworks" class="level2">
-<h2 class="anchored" data-anchor-id="models-and-frameworks">models and frameworks</h2>
-<p>general reinforcement learning: https://github.com/DLR-RM/stable-baselines3</p>
-<p>crypto trading bot, support all crypto trading markets: https://github.com/freqtrade/freqtrade</p>
-<p>qlib by microsoft, quantatitive financial analysis: https://github.com/microsoft/qlib</p>
-<p>reinforcement financial deep learning package: https://github.com/AI4Finance-Foundation/FinRL</p>
-<p>openbb_terminal: https://github.com/OpenBB-finance/OpenBBTerminal</p>
-<p>zipline https://github.com/quantopian/zipline</p>
-<p>pyalgotrade https://github.com/gbeced/pyalgotrade</p>
-<p>quantaxis: https://github.com/yutiansut/QUANTAXIS</p>
-<p>vn.py: https://github.com/vnpy/vnpy https://www.vnpy.com/docs/</p>
-<p>talib: https://github.com/mrjbq7/ta-lib https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd</p>
-<p>superalgos: https://github.com/Superalgos/Superalgos https://superalgos.org</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td># quantative financial stock market analysis</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/robertmartin8/PyPortfoiloOpt">pyportfolioopt</a></td>
+</tr>
+<tr class="odd">
+<td><a href="https://github.com/ampl/amplpyfinance">amplfinance</a></td>
+</tr>
+</tbody>
+</table>
+<p>造模拟炒股软件 走势跟着大盘 收集用户交易数据 随机假设买卖点 随机假设成交 构成无数虚拟账户交易 或者用某种假设原理拆分不同来源的买卖单 <a href="https://huggingface.co/blog/time-series-transformers">time-series-transformers</a> huggingface blog 深入浅出Python量化交易 <a href="https://www.wqyunpan.com/resourceDetail.html?id=257365&amp;openId=oUgl9wSv5p1X-HH-MnP4jFvTIlHM&amp;qrcodeId=219912&amp;sign=ZTVkOGM1MGRhZDJjLTE2NjE3NjA4MDQyNzQ=">配套代码</a> ## 数据来源 <code>pandas_datareader</code> by yahoo 是国外股票的数据 <code>tushare</code> 国内股票数据 ## 模型建立 <a href="https://quantecon.org/">open source code for economics modeling in python/julia</a> <a href="https://sinyi-chou.github.io/python-pandas-pipe/#:~:text=Pipe%20is%20a%20method%20in%20pandas.DataFrame%20capable%20of,can%20be%20combined%20with%20method%20chaining%20without%20nesting.">pandas pipe</a> for streamline processing of real time data <a href="https://zhuanlan.zhihu.com/p/385094015">time series forcast</a> 有类似的软件 我下载到windows上面过 (agent based simulation/agent based modeling) called <a href="">altreva adaptive modeler</a> <a href="https://pythonhosted.org/fms/">fms</a> 还原持仓的对象 每一个账户都要详细分析 分析每个账户什么时候买入 卖出 还有不买入 不卖出 观望的那些人 所有人都要还原 ## 实盘接口 <strong>tools for high frequency trading</strong> <strong>low latency trading tool</strong> <strong>高频交易工具</strong> <strong>低延迟交易工具</strong> 要抢涨停板 网络必须要好 下单速度要快 joinquant <a href="https://github.com/shidenggui/easytrader">easytrader</a> <a href="http://www.iguuu.com/e">实盘易 支持多个客户端</a> 服务端要钱的 sdk都是服务端的client ## tools <a href="https://github.com/mpquant/MyTT">mytt 通达信公式转换器</a> <a href="https://github.com/cedricporter/funcat">funcat 通达信公式转换器</a> ## models and frameworks general reinforcement learning: https://github.com/DLR-RM/stable-baselines3 crypto trading bot, support all crypto trading markets: https://github.com/freqtrade/freqtrade qlib by microsoft, quantatitive financial analysis: https://github.com/microsoft/qlib reinforcement financial deep learning package: https://github.com/AI4Finance-Foundation/FinRL openbb_terminal: https://github.com/OpenBB-finance/OpenBBTerminal zipline https://github.com/quantopian/zipline pyalgotrade https://github.com/gbeced/pyalgotrade quantaxis: https://github.com/yutiansut/QUANTAXIS vn.py: https://github.com/vnpy/vnpy https://www.vnpy.com/docs/ talib: https://github.com/mrjbq7/ta-lib https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd superalgos: https://github.com/Superalgos/Superalgos https://superalgos.org</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

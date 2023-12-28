@@ -4,11 +4,7 @@
 ---
 
 ------
-
-# a comprehensive list of ai tools, may not be free, just for reference?
-
 [source webpage](https://dev-coco.github.io/post/AI-List/)
-
 <table>
 <thead>
 <tr>
@@ -3687,4 +3683,3 @@
 </tr>
 </tbody>
 </table>
-

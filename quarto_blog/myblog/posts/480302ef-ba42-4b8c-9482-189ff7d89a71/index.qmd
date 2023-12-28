@@ -4,16 +4,11 @@
 ---
 
 ------
-
-# pwntools usage example
-
 I created a script for solving a simple problem on RCTF.
-
 ```python
 from pwn import *
 ip = "190.92.234.114"
 port = 23334
-
 mclean =lambda l0: l0.decode().split("=")[1].strip()
 mlist = lambda T: [int(x) for x in T.replace("[","").replace("]", "").replace(" ","").strip().split(",")]
 r = remote(ip, port)
@@ -34,18 +29,14 @@ print()
 print("T?", len(T))
 print()
 print("U?", len(U))
-
 # now crack the x. please observe the original code?
-
 # the shift does not matter so much?
-
 mpos_x = {}
 for i in range(90):
-    t = T[i]
-    u = U[i]
-    pos_x = u//t+1
-    mpos_x.update({pos_x:mpos_x.get(pos_x,0)+1})
-
+t = T[i]
+u = U[i]
+pos_x = u//t+1
+mpos_x.update({pos_x:mpos_x.get(pos_x,0)+1})
 mfinalPos = [(key, elem) for key, elem in mpos_x.items()]
 mfinalPos.sort(key=lambda x: -x[1])
 print("NUM?",mfinalPos[0])
@@ -59,4 +50,3 @@ flag=r.recvline() #EOFERROR?
 print("FLAG?",flag)
 # now answer the shit?
 ```
-

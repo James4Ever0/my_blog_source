@@ -4,8 +4,5 @@
 ---
 
 ------
-
 # Github and Stackoverflow acceleration
-
 https://github.com/dotnetcore/FastGithub
-

@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-09-12">
 <meta name="description" content="The article delves into different approaches for music discovery, such as relying on experts’ recommendations, leveraging machine learning algorithms and utilizing APIs from platforms like Spotify and Last.fm. Additionally, it explores the possibility of building one’s own Shazam-like algorithm or song recognition system in Ubuntu 18.04.">
 
-<title>James’s Blog - song recognition, music recognition api, music discovery, audio search, audio fingerprint</title>
+<title>James’ Blog - song recognition, music recognition api, music discovery, audio search, audio fingerprint</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -85,15 +85,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -150,49 +145,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<section id="song-recognition-music-recognition-api-music-discovery-audio-search-audio-fingerprint" class="level1">
-<h1>song recognition, music recognition api, music discovery, audio search, audio fingerprint</h1>
 <section id="music-discovery" class="level2">
 <h2 class="anchored" data-anchor-id="music-discovery">music discovery</h2>
-<p><a href="https://github.com/shijithpk/music-discovery">find music by combining choices of experts</a></p>
-<p><a href="https://github.com/darkfire5900/Find-The-Beat">build recommendation engine using spotify api</a></p>
-<p><a href="https://github.com/adidottxt/spotify-music-discovery">use machine learning to predict and recommend music</a></p>
-<p><a href="https://github.com/schollz/playlistfromsong">similar song matching using last.fm or spotify</a></p>
-</section>
-<section id="netease-网易云听歌识曲" class="level2">
-<h2 class="anchored" data-anchor-id="netease-网易云听歌识曲">netease 网易云听歌识曲</h2>
-<p><a href="https://github.com/userZheng686/wyySongIdentify">demo</a></p>
-</section>
-<section id="self-hosted" class="level2">
-<h2 class="anchored" data-anchor-id="self-hosted">self-hosted</h2>
-<p><a href="https://github.com/bmoquist/Shazam">shazam</a> algorithm</p>
-<p><a href="https://ourcodeworld.com/articles/read/973/creating-your-own-shazam-identify-songs-with-python-through-audio-fingerprinting-in-ubuntu-18-04#:~:text=To%20start%20recognizing%2C%20simply%20run%20the%20python%20script,the%20algorithm%20will%20surely%20recognize%20the%20correct%20song.">blog: create your on shazam</a></p>
-<p><a href="https://github.com/methi1999/Findit">findit</a> another shazam clone</p>
-</section>
-<section id="audiotag.info" class="level2">
-<h2 class="anchored" data-anchor-id="audiotag.info">audiotag.info</h2>
-<p><a href="https://github.com/adbcode/portify">portify</a> recognize local music and add them to spotify playlist</p>
-<p><a href="https://github.com/whuds/song-classifier/blob/7c6771312e45a0f72f966a77506317d5cc98212a/metadata/code/wav_to_info.py">wav_to_info.py</a></p>
-<p><a href="https://github.com/jndrf/audioidentifier/tree/b110ff7ce25b1a2d758b1b9baac2d809ae928e4e">audio identifier</a></p>
-<p><a href="https://github.com/ChristopherCarignan/NowSpinning/blob/master/NowSpinning.py">nowspinning</a> get song info and cover art</p>
-</section>
-<section id="shazam" class="level2">
-<h2 class="anchored" data-anchor-id="shazam">shazam</h2>
-<p><a href="https://github.com/dotX12/ShazamIO">shazamio</a> reverse engineered shazam api with many supported functions</p>
-<p><a href="https://github.com/marin-m/SongRec">audiorec</a> shazam client for linux, with cli support</p>
-</section>
-<section id="midomi-houndify-soundhound" class="level2">
-<h2 class="anchored" data-anchor-id="midomi-houndify-soundhound">midomi houndify soundhound</h2>
-<p>to get track info from soundhound (no cookie): https://www.midomi.com/api/track?trackID=100282107076607645</p>
-<p>the houndify music recognition api: wss://houndify.midomi.com/</p>
-<p>some lib for midomi found over <a href="https://github.com/Azarattum/AmadeusCore/blob/3bbb39e4d92508f036dd7be68b66681013866cba/src/components/app/models/recognizers/midomi.recognizer.ts">here</a> it can also bridge yandex music recognition api</p>
-<p>houndify also have api for that, but requires credit</p>
-<p>free credits per day: 100</p>
-<p><a href="https://docs.houndify.com/reference/SoundHoundNowCommand#field_SingleTrackResult">soundhound now</a> requires 1 credit</p>
-<p><a href="https://pypi.org/project/Houndify">soundhound python sdk</a></p>
+<p><a href="https://github.com/shijithpk/music-discovery">find music by combining choices of experts</a> <a href="https://github.com/darkfire5900/Find-The-Beat">build recommendation engine using spotify api</a> <a href="https://github.com/adidottxt/spotify-music-discovery">use machine learning to predict and recommend music</a> <a href="https://github.com/schollz/playlistfromsong">similar song matching using last.fm or spotify</a> ## netease 网易云听歌识曲 <a href="https://github.com/userZheng686/wyySongIdentify">demo</a> ## self-hosted <a href="https://github.com/bmoquist/Shazam">shazam</a> algorithm <a href="https://ourcodeworld.com/articles/read/973/creating-your-own-shazam-identify-songs-with-python-through-audio-fingerprinting-in-ubuntu-18-04#:~:text=To%20start%20recognizing%2C%20simply%20run%20the%20python%20script,the%20algorithm%20will%20surely%20recognize%20the%20correct%20song.">blog: create your on shazam</a> <a href="https://github.com/methi1999/Findit">findit</a> another shazam clone ## audiotag.info <a href="https://github.com/adbcode/portify">portify</a> recognize local music and add them to spotify playlist <a href="https://github.com/whuds/song-classifier/blob/7c6771312e45a0f72f966a77506317d5cc98212a/metadata/code/wav_to_info.py">wav_to_info.py</a> <a href="https://github.com/jndrf/audioidentifier/tree/b110ff7ce25b1a2d758b1b9baac2d809ae928e4e">audio identifier</a> <a href="https://github.com/ChristopherCarignan/NowSpinning/blob/master/NowSpinning.py">nowspinning</a> get song info and cover art ## shazam <a href="https://github.com/dotX12/ShazamIO">shazamio</a> reverse engineered shazam api with many supported functions <a href="https://github.com/marin-m/SongRec">audiorec</a> shazam client for linux, with cli support ## midomi houndify soundhound to get track info from soundhound (no cookie): https://www.midomi.com/api/track?trackID=100282107076607645 the houndify music recognition api: wss://houndify.midomi.com/ some lib for midomi found over <a href="https://github.com/Azarattum/AmadeusCore/blob/3bbb39e4d92508f036dd7be68b66681013866cba/src/components/app/models/recognizers/midomi.recognizer.ts">here</a> it can also bridge yandex music recognition api houndify also have api for that, but requires credit free credits per day: 100 <a href="https://docs.houndify.com/reference/SoundHoundNowCommand#field_SingleTrackResult">soundhound now</a> requires 1 credit <a href="https://pypi.org/project/Houndify">soundhound python sdk</a></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

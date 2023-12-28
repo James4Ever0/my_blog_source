@@ -4,15 +4,9 @@
 ---
 
 ------
-
-# Deepfake face swap
-
 deepfacelab leading software for faceswap video generation:
 https://github.com/iperov/DeepFaceLab
-
 faceswap:
 https://github.com/deepfakes/faceswap
-
 arbitrary face swap on one single model:
 https://github.com/neuralchen/SimSwap
-

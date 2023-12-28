@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-08-11">
 <meta name="description" content="This article provides a step-by-step guide on how to troubleshoot and fix issues related to pyjom’s location on macOS. It covers the process of disabling sync-related services, installing pyjom watchdog and syncdog services locally, and offers solutions for common problems encountered during this process.">
 
-<title>James’s Blog - Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog</title>
+<title>James’ Blog - Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">James’s Blog</span>
+    <span class="navbar-title">James’ Blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -119,15 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">about.html</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -182,23 +177,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<section id="copy-symlink-itself-to-change-pyjoms-location-install-easyd-services-for-macos-local-pyjom-watchdog" class="level1">
-<h1>Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /media/root/parrot</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-R</span> <span class="at">-P</span> /media/root/help1/pyjom .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
-<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
-<p>disable all sync related services on macos for debug:</p>
-<p>main issue happens after local vscode launched.</p>
-<p>the issue is such that the proxy setting not right.</p>
-<p>to debug the service:</p>
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs. turned out it is the <code>__pycache__</code> dirs to be blamed disable all sync related services on macos for debug: main issue happens after local vscode launched. the issue is such that the proxy setting not right. to debug the service:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> launchctl debug gui/501/pyjom_local_syncdog <span class="at">--stdout</span> <span class="at">--stderr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to be succint:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> list <span class="kw">|</span> <span class="fu">grep</span> syncdog <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> abc kill <span class="at">-s</span> TERM abc</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># instead of:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#kill -s TERM &lt;service_pid&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># instead of:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#kill -s TERM &lt;service_pid&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>we need to add some code for it. consider adding something alike to that to kali?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"http_proxy"</span>]<span class="op">=</span><span class="st">"http://localhost:7930"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"https_proxy"</span>]<span class="op">=</span><span class="st">"http://localhost:7930"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -207,19 +194,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> unload gui/501/pyjom_local_watchdog<span class="kw">;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> disable gui/501/pyjom_local_watchdog<span class="kw">;</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> remove gui/501/pyjom_local_watchdog<span class="kw">;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> stop gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> kill TERM gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> unload gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> disable gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> remove gui/501/pyjom_local_syncdog</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> stop gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> kill TERM gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> unload gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> disable gui/501/pyjom_local_syncdog<span class="kw">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> remove gui/501/pyjom_local_syncdog</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>install macos pyjom watchdog (local):</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">easyd</span> <span class="at">-l</span> pyjom_local_watchdog <span class="at">-w</span> /Users/jamesbrown/Desktop/works/sync_git_repos <span class="at">--</span> /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>install macos pyjom syncdog (local):</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">easyd</span> <span class="at">-l</span> pyjom_local_syncdog <span class="at">-w</span> /Users/jamesbrown/Desktop/works/sync_git_repos <span class="at">--</span> /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
