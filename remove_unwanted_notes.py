@@ -4,6 +4,8 @@ import sys
 from sentence_transformers import SentenceTransformer
 import traceback
 
+from remove_headline_from_markdown import remove_headline_from_lines
+
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
 )
@@ -36,13 +38,16 @@ from dateparser_utils import (
 )
 from headline_match import (
     modify_content_metadata,
-    parse_content_metadata, JSONDict, purify_dict
+    parse_content_metadata,
+    JSONDict,
+    purify_dict,
 )
 from similarity_utils import SimilarityIndex, sentence_transformer_context
 from io_utils import load_file, write_file
 
 T = TypeVar("T")
 DEFAULT_TOP_K = 7
+NEWLINE = "\n"
 
 REQUIRED_FIELDS = ("tags", "title", "description", "category", "date")
 FIELDS_THAT_NEED_SUMMARY_TO_GENERATE = ("tags", "title", "description", "category")
@@ -55,11 +60,17 @@ def generate_markdown_name():
     return fname
 
 
-def split_by_line(cnt: str):
-    myitems = cnt.split("\n")
+@beartype
+def split_by_line(cnt: str, newline=NEWLINE):
+    myitems = cnt.split(newline)
     myitems = [myit.strip() for myit in myitems]
     myitems = [myit for myit in myitems if len(myit) > 0]
     return myitems
+
+
+@beartype
+def join_lines(lines: list[str], newline=NEWLINE):
+    return newline.join(lines)
 
 
 def load_bad_words(fname: str):
@@ -945,22 +956,44 @@ def remove_and_create_dir(dirpath: str):
         shutil.rmtree(dirpath)
     os.mkdir(dirpath)
 
+@beartype
+def fix_date_and_get_title_in_content(filepath: str, content: str) -> tuple[str, str]:
+    def fix_date_and_get_title():
+        (
+            has_metadata,
+            metadata,
+            _,
+            first_match,
+        ) = parse_content_metadata(content)
 
-def fix_date_in_content(filepath: str, content: str):
-    (
-        has_metadata,
-        metadata,
-        _,
-        first_match,
-    ) = parse_content_metadata(content)
-    if has_metadata:
-        if metadata is not None:
+        @beartype
+        def get_new_content_and_title() -> tuple[str, str]:
+            title = metadata.get("title", "")
             date = generate_date(filepath, metadata)
             metadata["date"] = date
-            content = modify_content_metadata(
+            new_content = modify_content_metadata(
                 content, has_metadata, metadata, first_match
             )
-    return content
+            return new_content, title
+
+        def process_parsed_metadata():
+            title = ""
+            new_content = content
+            if has_metadata:
+                if metadata is not None:
+                    new_content, title = get_new_content_and_title()
+            return new_content, title
+
+        return process_parsed_metadata()
+
+    return fix_date_and_get_title()
+
+
+@beartype
+def remove_headline_from_content(content: str, title: str):
+    lines = split_by_line(content)
+    new_lines = remove_headline_from_lines(lines, title)
+    return join_lines(new_lines)
 
 
 @beartype
@@ -970,11 +1003,13 @@ def fix_date_in_cache_and_write_to_final_dir(
     remove_and_create_dir(final_dir)
     for path in processed_cache_paths:
         content = load_file(path)
-        new_content = fix_date_in_content(path, content)
+        content, title = fix_date_and_get_title_in_content(path, content)
+        content = remove_headline_from_content(content, title)
+
         new_path = os.path.join(final_dir, os.path.basename(path))
-        write_file(new_path, new_content)
+        write_file(new_path, content)
 
-
+@beartype
 def parse_params() -> tuple[SourceIteratorAndTargetGeneratorParam, str, str, int]:
     parser = argparse.ArgumentParser()
     parser.add_argument("--notes-source-dir", type=str, default="notes")

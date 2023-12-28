@@ -1,19 +1,35 @@
 ---
-title: "About"
-image: profile.jpg
+text: "About"
+image: ev3dev.jpeg
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
     - icon: github
       text: Github
-      href: https://github.com
-
+      href: https://github.com/james4ever0
+    - text: Project Cybergod
+      icon: github
+      href: https://github.com/james4ever0/agi_computer_control/
+    - text: Project Pyjom
+      href: https://github.com/james4ever0/pyjom/
+      icon: github
+    - text: Project Prometheus
+      href: https://github.com/james4ever0/prometheous/
+      icon: github
+    - text: Project Pyjom
+      href: https://github.com/james4ever0/pyjom/
+      icon: github
+    - text: Samoyedsun's Blog
+      href: https://samoyedsun.github.io/
+      icon: book
+    - text: Atlant1c's Blog
+      href: http://atlant1c.cn/
+      icon: book
+    - text: Gregoryuan's Blog
+      href: https://www.gregoryuan.com/
+      icon: book
 ---
 
-About this blog
+Hi there, I am James Brown, an independent researcher of Artificial General Intelligence.
+
+I made the [code](https://github.com/James4Ever0/my_blog_source) of this blog open sourced.

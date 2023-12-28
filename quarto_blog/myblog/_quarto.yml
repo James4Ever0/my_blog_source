@@ -2,14 +2,12 @@ project:
   type: website
 
 website:
-  title: "James's Blog"
+  title: "James' Blog"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/james4ever0
 format:
   html:
     theme: cosmo

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sitemap</title>
+</head>
+<body>
+    <h1>Website Sitemap</h1>
+    <ul>
+        <li><a href="/">Home</a></li>
+{% for index, url in datalist %}
+        <li><a href="{{url}}">Page {{index}}</a></li>
+{% endfor %}
+    </ul>
+</body>
+</html>
