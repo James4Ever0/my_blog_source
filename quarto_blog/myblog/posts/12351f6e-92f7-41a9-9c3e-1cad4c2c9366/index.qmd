@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Docker", "MySQL", "Databases", "Volumes", "Pip URLs", "Container Management", "Networking"], "category": "Docker", "date": "2022-12-11 00:21:44", "description": "This article delves into the practicalities of using Docker, addressing various tasks like logging into MySQL, configuring databases, managing volumes, optimizing pip URLs, exporting/importing containers, tweaking port mappings, creating custom networks, assigning IPs, and troubleshooting container communication problems. Comments A and B provide valuable insights and tips for efficient Docker usage.", "tags": *id001, "title": "docker usage issues"}
+{"categories": &id001 ["Docker", "MySQL", "Databases", "Volumes", "Pip URLs", "Container Management", "Networking"], "category": "Docker", "date": "2022-12-11 00:21:44", "description": "This article delves into the practicalities of using Docker, addressing various tasks like logging into MySQL, configuring databases, managing volumes, optimizing pip URLs, exporting/importing containers, tweaking port mappings, creating custom networks, assigning IPs, and troubleshooting container communication problems. Comments A and B provide valuable insights and tips for efficient Docker usage.", "tags": *id001, "title": "Docker Usage Issues"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["reinforcement learning", "AI agents", "GPT-2", "PPO", "algorithms", "efficient instruction processing", "task performance"], "category": "Reinforcement Learning", "date": "2022-12-18 01:15:55", "description": "This article explores the use of reinforcement learning algorithms like GPT-2, PPO, and different types of learning approaches such as unsupervised, supervised, and semi-supervised learning for training AI agents to efficiently process instructions and perform tasks.", "tags": *id001, "title": "let chatgpt describe how to build itself"}
+{"categories": &id001 ["reinforcement learning", "AI agents", "GPT-2", "PPO", "algorithms", "efficient instruction processing", "task performance"], "category": "Reinforcement Learning", "date": "2022-12-18 01:15:55", "description": "This article explores the use of reinforcement learning algorithms like GPT-2, PPO, and different types of learning approaches such as unsupervised, supervised, and semi-supervised learning for training AI agents to efficiently process instructions and perform tasks.", "tags": *id001, "title": "Let Chatgpt Describe How To Build Itself"}
 
 ---
 

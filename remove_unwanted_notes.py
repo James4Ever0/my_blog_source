@@ -4,7 +4,11 @@ import sys
 from sentence_transformers import SentenceTransformer
 import traceback
 
-from remove_headline_from_markdown import remove_headline_from_lines,join_lines_with_state, NEWLINE
+from remove_headline_from_markdown import (
+    remove_headline_from_lines,
+    join_lines_with_state,
+    NEWLINE,
+)
 
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
@@ -954,6 +958,7 @@ def remove_and_create_dir(dirpath: str):
         shutil.rmtree(dirpath)
     os.mkdir(dirpath)
 
+
 @beartype
 def fix_date_and_get_title_in_content(filepath: str, content: str) -> tuple[str, str]:
     def fix_date_and_get_title():
@@ -995,6 +1000,11 @@ def remove_headline_from_content(content: str, title: str):
 
 
 @beartype
+def reformat_title(content: str, title: str):
+    return content.replace(title, title.title(), 1)
+
+
+@beartype
 def fix_date_in_cache_and_write_to_final_dir(
     processed_cache_paths: list[str], final_dir: str
 ):
@@ -1003,9 +1013,11 @@ def fix_date_in_cache_and_write_to_final_dir(
         content = load_file(path)
         content, title = fix_date_and_get_title_in_content(path, content)
         content = remove_headline_from_content(content, title)
+        content = reformat_title(content, title)
 
         new_path = os.path.join(final_dir, os.path.basename(path))
         write_file(new_path, content)
+
 
 @beartype
 def parse_params() -> tuple[SourceIteratorAndTargetGeneratorParam, str, str, int]:

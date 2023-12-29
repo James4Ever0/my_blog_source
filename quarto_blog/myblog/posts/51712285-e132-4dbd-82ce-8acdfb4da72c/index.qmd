@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["animation", "animation tool", "interpolation", "tweening", "video generator"], "category": "2D Animation", "date": "2022-05-14 02:24:10", "description": "This article explores different 2D animation tools such as vPaint, vGC, Synfig, and AnimeEffects. The focus is on their capabilities in tweening, interpolating, and generating animations using vector graphics.", "tags": *id001, "title": "cacani tweening_interpolating alternatives"}
+{"categories": &id001 ["animation", "animation tool", "interpolation", "tweening", "video generator"], "category": "2D Animation", "date": "2022-05-14 02:24:10", "description": "This article explores different 2D animation tools such as vPaint, vGC, Synfig, and AnimeEffects. The focus is on their capabilities in tweening, interpolating, and generating animations using vector graphics.", "tags": *id001, "title": "Cacani Tweening_Interpolating Alternatives"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer"], "category": "3D Rendering", "date": "2022-01-04 07:07:48", "description": "Shapeshifters is a project that employs MMP/PBRT_V3 and a displacement map on a sphere to calculate occlusion and other attributes, utilizing the input provided.", "tags": *id001, "title": "ShapeShifters"}
+{"categories": &id001 ["freelancer"], "category": "3D Rendering", "date": "2022-01-04 07:07:48", "description": "Shapeshifters is a project that employs MMP/PBRT_V3 and a displacement map on a sphere to calculate occlusion and other attributes, utilizing the input provided.", "tags": *id001, "title": "Shapeshifters"}
 
 ---
 

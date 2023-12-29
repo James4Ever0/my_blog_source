@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["autocomplete", "fig", "stub", "terminal"], "category": "Terminal autocomplete", "date": "2022-07-11 15:46:51", "description": "This article discusses terminal autocomplete on Linux and MacOS, focusing on Fig and Warp tools. It explores the possible reasons why Vim might stop working and directs readers to known issues with Warp for further information.", "tags": *id001, "title": "Terminal autocomplete"}
+{"categories": &id001 ["autocomplete", "fig", "stub", "terminal"], "category": "Terminal Autocomplete", "date": "2022-07-11 15:46:51", "description": "This article discusses terminal autocomplete on Linux and MacOS, focusing on Fig and Warp tools. It explores the possible reasons why Vim might stop working and directs readers to known issues with Warp for further information.", "tags": *id001, "title": "Terminal autocomplete"}
 
 ---
 

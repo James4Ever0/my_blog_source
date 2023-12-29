@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["image_scanning", "math_formulas", "non_max_suppression", "ocr", "copyright", "chargrid", "imagematch"], "category": "OCR Techniques", "date": "2022-08-25 00:02:15", "description": "This article explores techniques for scanning images and documents containing mathematical formulas using non-max suppression and image search libraries such as Chargrid OCR or Image Match, ensuring compliance with copyright laws while minimizing manual formatting.", "tags": *id001, "title": "scan this picture and index the whole video/document/ppt/textbook!"}
+{"categories": &id001 ["image_scanning", "math_formulas", "non_max_suppression", "ocr", "copyright", "chargrid", "imagematch"], "category": "OCR Techniques", "date": "2022-08-25 00:02:15", "description": "This article explores techniques for scanning images and documents containing mathematical formulas using non-max suppression and image search libraries such as Chargrid OCR or Image Match, ensuring compliance with copyright laws while minimizing manual formatting.", "tags": *id001, "title": "Scan This Picture And Index The Whole Video/Document/Ppt/Textbook!"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Reinforcement Learning", "Trajectory Prediction", "Model Predictive Control", "ddpg-usv-asmc", "Deep-Reinforcement-Learning-Algorithms-with-PyTorch", "stable-baselines3", "PPO"], "category": "Reinforcement Learning", "date": "2022-12-07 10:01:35", "description": "This article delves into Reinforcement Learning (RL), trajectory prediction, and model predictive control. It highlights related projects such as ddpg-usv-asmc, Deep-Reinforcement-Learning-Algorithms-with-PyTorch, stable-baselines3, and PPO. Additionally, it provides further resources for exploring deep RL.", "tags": *id001, "title": "RL, trajectory prediction, model predictive control"}
+{"categories": &id001 ["Reinforcement Learning", "Trajectory Prediction", "Model Predictive Control", "ddpg-usv-asmc", "Deep-Reinforcement-Learning-Algorithms-with-PyTorch", "stable-baselines3", "PPO"], "category": "Reinforcement Learning", "date": "2022-12-07 10:01:35", "description": "This article delves into Reinforcement Learning (RL), trajectory prediction, and model predictive control. It highlights related projects such as ddpg-usv-asmc, Deep-Reinforcement-Learning-Algorithms-with-PyTorch, stable-baselines3, and PPO. Additionally, it provides further resources for exploring deep RL.", "tags": *id001, "title": "Rl, Trajectory Prediction, Model Predictive Control"}
 
 ---
 

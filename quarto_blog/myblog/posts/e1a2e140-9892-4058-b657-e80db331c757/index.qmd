@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["OpenAI", "Registration", "Chinese Phone Number", "India", "SMS Activation", "Tempumail", "Temporary Email"], "category": "Online security and privacy", "date": "2023-02-09 01:01:23", "description": "This tutorial provides step-by-step instructions on how to create an OpenAI account using a Chinese phone number and temporary email addresses from Tempumail, making it possible to bypass potential restrictions and issues.", "tags": *id001, "title": "openai account registration"}
+{"categories": &id001 ["OpenAI", "Registration", "Chinese Phone Number", "India", "SMS Activation", "Tempumail", "Temporary Email"], "category": "Online security and privacy", "date": "2023-02-09 01:01:23", "description": "This tutorial provides step-by-step instructions on how to create an OpenAI account using a Chinese phone number and temporary email addresses from Tempumail, making it possible to bypass potential restrictions and issues.", "tags": *id001, "title": "Openai Account Registration"}
 
 ---
 

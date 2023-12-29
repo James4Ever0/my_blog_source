@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["SEO", "Semrush alternatives", "open-source tools", "competitive analysis", "keyword research", "backlink research", "content optimization"], "category": "SEO", "date": "2022-12-06 08:17:56", "description": "This article delves into open-source alternatives to Semrush for conducting various SEO tasks such as competitive analysis, keyword research, backlink research, content optimization, rank tracking, and site auditing. It highlights various tools and resources that are freely available online and can be used by businesses and individuals alike.", "tags": *id001, "title": "SEO search engine optimization SEMrush alternative"}
+{"categories": &id001 ["SEO", "Semrush alternatives", "open-source tools", "competitive analysis", "keyword research", "backlink research", "content optimization"], "category": "SEO", "date": "2022-12-06 08:17:56", "description": "This article delves into open-source alternatives to Semrush for conducting various SEO tasks such as competitive analysis, keyword research, backlink research, content optimization, rank tracking, and site auditing. It highlights various tools and resources that are freely available online and can be used by businesses and individuals alike.", "tags": *id001, "title": "Seo Search Engine Optimization Semrush Alternative"}
 
 ---
 

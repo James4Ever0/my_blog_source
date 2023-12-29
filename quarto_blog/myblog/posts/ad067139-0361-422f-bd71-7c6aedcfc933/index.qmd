@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["stock data", "APIs", "TradeX.dll", "BQTradeX", "Quantaxis", "TdxTradeServer", "NewSinaFinance API"], "category": "Stock Data", "date": "2022-10-22 11:22:21", "description": "This article provides resources for acquiring and processing tick-level stock data, such as APIs like TradeX.dll and BQTradeX, and tools like Quantaxis and TdxTradeServer. It specifically focuses on obtaining day, minute, and tick-level data from China's NewSinaFinance API.", "tags": *id001, "title": "股票数据源 tick级别数据源 逐笔交易"}
+{"categories": &id001 ["stock data", "APIs", "TradeX.dll", "BQTradeX", "Quantaxis", "TdxTradeServer", "NewSinaFinance API"], "category": "Stock Data", "date": "2022-10-22 11:22:21", "description": "This article provides resources for acquiring and processing tick-level stock data, such as APIs like TradeX.dll and BQTradeX, and tools like Quantaxis and TdxTradeServer. It specifically focuses on obtaining day, minute, and tick-level data from China's NewSinaFinance API.", "tags": *id001, "title": "股票数据源 Tick级别数据源 逐笔交易"}
 
 ---
 

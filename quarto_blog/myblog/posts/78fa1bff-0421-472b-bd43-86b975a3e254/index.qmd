@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["IoT", "IP address search engines", "Shodan", "Zoomeye", "Fofa", "Censys", "Network reconnaissance"], "category": "IoT", "date": "2022-10-06 10:20:32", "description": "The article delves into the world of IoT and IP address search engines, such as Shodan, Zoomeye, Fofa, and Censys. It also explores various tools available for discovering vulnerable devices/servers and conducting network reconnaissance.", "tags": *id001, "title": "iot search engines, ip search engines, vulnerable device/server discovery"}
+{"categories": &id001 ["IoT", "IP address search engines", "Shodan", "Zoomeye", "Fofa", "Censys", "Network reconnaissance"], "category": "IoT", "date": "2022-10-06 10:20:32", "description": "The article delves into the world of IoT and IP address search engines, such as Shodan, Zoomeye, Fofa, and Censys. It also explores various tools available for discovering vulnerable devices/servers and conducting network reconnaissance.", "tags": *id001, "title": "Iot Search Engines, Ip Search Engines, Vulnerable Device/Server Discovery"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["MBTI", "psychological"], "category": "Education", "date": "2022-06-03 20:14:08", "description": "This article discusses the various challenges faced by students, including difficulties with abstract concepts and traditional classroom settings, balancing school and work, living in poor conditions, dealing with parental pressure, and the impact of technology on relationships and self-identity.", "tags": *id001, "title": "What experiences do ISTP people have?"}
+{"categories": &id001 ["MBTI", "psychological"], "category": "Education", "date": "2022-06-03 20:14:08", "description": "This article discusses the various challenges faced by students, including difficulties with abstract concepts and traditional classroom settings, balancing school and work, living in poor conditions, dealing with parental pressure, and the impact of technology on relationships and self-identity.", "tags": *id001, "title": "What Experiences Do Istp People Have?"}
 
 ---
 

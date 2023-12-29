@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer"], "category": "Biology", "date": "2022-01-20 06:50:17", "description": "In this assignment, students are tasked with categorizing antimicrobial and antibiofilm peptide sequences using feature extraction techniques by the due date of January 25, 2020. Throughout the process, students must submit daily reports and compile a final PDF report for evaluation. The grading criteria and additional opportunities for earning extra credit are specified.", "tags": *id001, "title": "DNA Cancer Prediction"}
+{"categories": &id001 ["freelancer"], "category": "Biology", "date": "2022-01-20 06:50:17", "description": "In this assignment, students are tasked with categorizing antimicrobial and antibiofilm peptide sequences using feature extraction techniques by the due date of January 25, 2020. Throughout the process, students must submit daily reports and compile a final PDF report for evaluation. The grading criteria and additional opportunities for earning extra credit are specified.", "tags": *id001, "title": "Dna Cancer Prediction"}
 
 ---
 

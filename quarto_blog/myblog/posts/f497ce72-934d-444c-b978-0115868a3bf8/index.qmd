@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["banned_words", "online_platform", "internet_media", "querying_and_updating", "tutorial", "content_moderation", "word_filtering"], "category": "Platform Tutorials", "date": "2022-10-12 06:47:37", "description": "The article presents an online platform that allows users to check and modify the list of banned words in internet media. The platform's tutorial link is also provided.", "tags": *id001, "title": "自媒体违禁词获取平台 在线更新违禁词语 censored word online query with latest update"}
+{"categories": &id001 ["banned_words", "online_platform", "internet_media", "querying_and_updating", "tutorial", "content_moderation", "word_filtering"], "category": "Platform Tutorials", "date": "2022-10-12 06:47:37", "description": "The article presents an online platform that allows users to check and modify the list of banned words in internet media. The platform's tutorial link is also provided.", "tags": *id001, "title": "自媒体违禁词获取平台 在线更新违禁词语 Censored Word Online Query With Latest Update"}
 
 ---
 

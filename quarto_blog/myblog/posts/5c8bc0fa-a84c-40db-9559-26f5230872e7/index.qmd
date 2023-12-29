@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "Agent", "Learning", "Historical Data", "Prediction", "World Model", "Superagents"], "category": "Artificial Intelligence", "date": "2023-12-08 16:35:59", "description": "This article delves into the creation of an advanced AI agent that utilizes historical data for learning and forecasting future events to earn rewards. Additionally, the agent interacts with a world model to prevent cheating and establishes a hierarchy of superagents.", "tags": *id001, "title": "How to create cybergod"}
+{"categories": &id001 ["AI", "Agent", "Learning", "Historical Data", "Prediction", "World Model", "Superagents"], "category": "Artificial Intelligence", "date": "2023-12-08 16:35:59", "description": "This article delves into the creation of an advanced AI agent that utilizes historical data for learning and forecasting future events to earn rewards. Additionally, the agent interacts with a world model to prevent cheating and establishes a hierarchy of superagents.", "tags": *id001, "title": "How To Create Cybergod"}
 
 ---
 

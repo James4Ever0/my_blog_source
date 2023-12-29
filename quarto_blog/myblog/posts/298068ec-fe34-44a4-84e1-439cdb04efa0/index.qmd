@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["pyttsx3", "text-to-speech", "library", "cross-platform", "voice", "language", "speech-rate"], "category": "Text to Speech", "date": "2023-01-11 03:53:36", "description": "The 'pyttsx3' library is a cross-platform Text to Speech generator, offering language-specific voice options, adjustable speech rate, and file saving capabilities for playback. It utilizes default engines on Windows and macOS, and requires espeak for Linux.", "tags": *id001, "title": "pyttsx3 cross platform tts generator"}
+{"categories": &id001 ["pyttsx3", "text-to-speech", "library", "cross-platform", "voice", "language", "speech-rate"], "category": "Text to Speech", "date": "2023-01-11 03:53:36", "description": "The 'pyttsx3' library is a cross-platform Text to Speech generator, offering language-specific voice options, adjustable speech rate, and file saving capabilities for playback. It utilizes default engines on Windows and macOS, and requires espeak for Linux.", "tags": *id001, "title": "Pyttsx3 Cross Platform Tts Generator"}
 
 ---
 

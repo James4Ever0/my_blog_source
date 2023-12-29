@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Frida", "Android", "Software framework", "Binary code", "Method calling", "Hooking native methods", "Article links"], "category": "Android Development", "date": "2022-12-07 06:34:06", "description": "The text offers a compilation of articles that guide users on utilizing Frida, an open-source software framework, to interact with Android methods and modify native code through direct function calls and hook implementations.", "tags": *id001, "title": "直接调用安卓方法 frida 直接调用二进制里面的方法"}
+{"categories": &id001 ["Frida", "Android", "Software framework", "Binary code", "Method calling", "Hooking native methods", "Article links"], "category": "Android Development", "date": "2022-12-07 06:34:06", "description": "The text offers a compilation of articles that guide users on utilizing Frida, an open-source software framework, to interact with Android methods and modify native code through direct function calls and hook implementations.", "tags": *id001, "title": "直接调用安卓方法 Frida 直接调用二进制里面的方法"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Python", "Nmap", "Network Scanning", "Libraries", "Resources"], "category": "Python", "date": "2022-12-02 15:15:29", "description": "This article provides an overview of several Python libraries and resources available for working with the Nmap network scanning tool. It covers python3-nmap, nmapthon, and python-nmap, along with their respective documentation, allowing readers to choose the best option for their needs.", "tags": *id001, "title": "Exploring Python Libraries and Resources for Nmap Network Scanning"}
+{"categories": &id001 ["Python", "Nmap", "Network Scanning", "Libraries", "Resources"], "category": "Python", "date": "2022-12-02 15:15:29", "description": "This article provides an overview of several Python libraries and resources available for working with the Nmap network scanning tool. It covers python3-nmap, nmapthon, and python-nmap, along with their respective documentation, allowing readers to choose the best option for their needs.", "tags": *id001, "title": "Exploring Python Libraries And Resources For Nmap Network Scanning"}
 
 ---
 

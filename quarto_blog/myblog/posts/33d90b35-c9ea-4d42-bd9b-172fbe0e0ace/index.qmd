@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "Designing AI Systems", "Distance-based Agents", "LangChain", "Autogen", "Agency", "Self-Improvement"], "category": "AI System Design Guidelines", "date": "2023-09-17 13:01:57", "description": "This text provides guidelines for designing AI systems, advocating for an agent-based approach rather than a role-based one. It highlights the usage of tools like LangChain, Autogen, Agently, and ModelScope-Agent, as well as emphasizing the importance of thinking like an expert, setting example goals, and allowing the AI to self-improve.", "tags": *id001, "title": "guidelines on designing ai systems"}
+{"categories": &id001 ["AI", "Designing AI Systems", "Distance-based Agents", "LangChain", "Autogen", "Agency", "Self-Improvement"], "category": "AI System Design Guidelines", "date": "2023-09-17 13:01:57", "description": "This text provides guidelines for designing AI systems, advocating for an agent-based approach rather than a role-based one. It highlights the usage of tools like LangChain, Autogen, Agently, and ModelScope-Agent, as well as emphasizing the importance of thinking like an expert, setting example goals, and allowing the AI to self-improve.", "tags": *id001, "title": "Guidelines On Designing Ai Systems"}
 
 ---
 

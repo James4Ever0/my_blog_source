@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ramfs", "system manage"], "category": "RAM Disk", "date": "2022-08-11 11:28:39", "description": "This article offers step-by-step instructions on how to create and mount a RAM disk on different operating systems such as Linux, macOS, and Windows. It covers various methods including the use of imdisk and eram tools.", "tags": *id001, "title": "ramfs on macos, linux and windows"}
+{"categories": &id001 ["ramfs", "system manage"], "category": "RAM Disk", "date": "2022-08-11 11:28:39", "description": "This article offers step-by-step instructions on how to create and mount a RAM disk on different operating systems such as Linux, macOS, and Windows. It covers various methods including the use of imdisk and eram tools.", "tags": *id001, "title": "Ramfs On Macos, Linux And Windows"}
 
 ---
 

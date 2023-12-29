@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Windows activation", "Microsoft Office activation", "VirtualBox installation", "Blog post", "Massgrave.dev", "Installation guide", "Technical instructions"], "category": "Software activation", "date": "2023-10-06 12:53:28", "description": "This article provides instructions for activating Windows and Microsoft Office, as well as installing them in a VirtualBox environment. It also includes a link to a blog post with more detailed steps. The website mentioned is massgrave.dev.", "tags": *id001, "title": "windows & office activation, install windows in virtualbox"}
+{"categories": &id001 ["Windows activation", "Microsoft Office activation", "VirtualBox installation", "Blog post", "Massgrave.dev", "Installation guide", "Technical instructions"], "category": "Software activation", "date": "2023-10-06 12:53:28", "description": "This article provides instructions for activating Windows and Microsoft Office, as well as installing them in a VirtualBox environment. It also includes a link to a blog post with more detailed steps. The website mentioned is massgrave.dev.", "tags": *id001, "title": "Windows & Office Activation, Install Windows In Virtualbox"}
 
 ---
 

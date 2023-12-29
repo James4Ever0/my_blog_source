@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["crop the crap", "picture in picture", "video analysis"], "category": "Fake Content Detection", "date": "2022-06-13 10:27:30", "description": "This article delves into the difficulties of detecting picture-in-picture (PiP) videos, a common technique used in generating fake content. It highlights a Chinese patent related to PiP detection and an international research paper that explores this topic.", "tags": *id001, "title": "video picture in picture detection"}
+{"categories": &id001 ["crop the crap", "picture in picture", "video analysis"], "category": "Fake Content Detection", "date": "2022-06-13 10:27:30", "description": "This article delves into the difficulties of detecting picture-in-picture (PiP) videos, a common technique used in generating fake content. It highlights a Chinese patent related to PiP detection and an international research paper that explores this topic.", "tags": *id001, "title": "Video Picture In Picture Detection"}
 
 ---
 

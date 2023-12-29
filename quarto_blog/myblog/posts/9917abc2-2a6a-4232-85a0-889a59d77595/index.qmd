@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Giphy", "API Keys", "SDK", "Implementation Details", "Documentation", "Libraries", "Services"], "category": "API", "date": "2022-09-11 04:28:27", "description": "This article discusses Giphy's API and SDK keys, implementation details, and provides access to documentation and libraries for using their gif services. The comments offer insights on how to effectively integrate Giphy's offerings into various projects.", "tags": *id001, "title": "random giphy gifs"}
+{"categories": &id001 ["Giphy", "API Keys", "SDK", "Implementation Details", "Documentation", "Libraries", "Services"], "category": "API", "date": "2022-09-11 04:28:27", "description": "This article discusses Giphy's API and SDK keys, implementation details, and provides access to documentation and libraries for using their gif services. The comments offer insights on how to effectively integrate Giphy's offerings into various projects.", "tags": *id001, "title": "Random Giphy Gifs"}
 
 ---
 

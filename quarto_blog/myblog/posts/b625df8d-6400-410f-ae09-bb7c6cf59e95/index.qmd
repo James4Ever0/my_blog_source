@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["text-processing.com", "free tools", "text mining", "NLP", "Sentiment Analysis", "Stemming", "daily limit"], "category": "text-mining", "date": "2023-02-14 09:02:35", "description": "text-processing.com is a platform providing free access to various text mining and NLP tools such as Sentiment Analysis, Stemming, Part-of-Speech Tagging, Chunking, Phrase Extraction, and Named Entity Recognition. Users can utilize these features up to 1000 calls per IP address every day.", "tags": *id001, "title": "text-processing.com, free text mining and natural language processing"}
+{"categories": &id001 ["text-processing.com", "free tools", "text mining", "NLP", "Sentiment Analysis", "Stemming", "daily limit"], "category": "text-mining", "date": "2023-02-14 09:02:35", "description": "text-processing.com is a platform providing free access to various text mining and NLP tools such as Sentiment Analysis, Stemming, Part-of-Speech Tagging, Chunking, Phrase Extraction, and Named Entity Recognition. Users can utilize these features up to 1000 calls per IP address every day.", "tags": *id001, "title": "Text-Processing.Com, Free Text Mining And Natural Language Processing"}
 
 ---
 

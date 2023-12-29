@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["data capturing", "web pages", "browser extensions", "privacy", "Comprehensive Research series", "Chrome", "Firefox"], "category": "Data Capture", "date": "2023-04-05 11:30:25", "description": "This article discusses methods for capturing data from web pages and chat messages while ensuring privacy. It covers browser extensions like the 'Comprehensive Research' series, copying tabs as Markdown in Chrome and Firefox, addressing an Android issue, and providing file path information.", "tags": *id001, "title": "comprehensive page dump from multiple devices"}
+{"categories": &id001 ["data capturing", "web pages", "browser extensions", "privacy", "Comprehensive Research series", "Chrome", "Firefox"], "category": "Data Capture", "date": "2023-04-05 11:30:25", "description": "This article discusses methods for capturing data from web pages and chat messages while ensuring privacy. It covers browser extensions like the 'Comprehensive Research' series, copying tabs as Markdown in Chrome and Firefox, addressing an Android issue, and providing file path information.", "tags": *id001, "title": "Comprehensive Page Dump From Multiple Devices"}
 
 ---
 

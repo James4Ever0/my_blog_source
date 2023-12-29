@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["auto post", "auto publishing", "bot", "media manage", "pyjom", "stub"], "category": "Cross-Platform Publishing", "date": "2022-08-14 16:49:02", "description": "Discover how to automatically post your content on various platforms like Toutiao, WordPress, Zhihu, Jiathisay, Juejin, CSDN, and Typecho with just one click. Boost your personal productivity by syncing effortlessly across multiple content platforms.", "tags": *id001, "title": "自动内容发布 多平台发布 管理多个自媒体平台 automatic content posting in multiple platforms"}
+{"categories": &id001 ["auto post", "auto publishing", "bot", "media manage", "pyjom", "stub"], "category": "Cross-Platform Publishing", "date": "2022-08-14 16:49:02", "description": "Discover how to automatically post your content on various platforms like Toutiao, WordPress, Zhihu, Jiathisay, Juejin, CSDN, and Typecho with just one click. Boost your personal productivity by syncing effortlessly across multiple content platforms.", "tags": *id001, "title": "自动内容发布 多平台发布 管理多个自媒体平台 Automatic Content Posting In Multiple Platforms"}
 
 ---
 

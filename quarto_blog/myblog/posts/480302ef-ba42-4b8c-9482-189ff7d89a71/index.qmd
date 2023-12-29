@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["rctf", "python", "pwntools", "solving", "remote server", "data processing", "x value"], "category": "pwntools", "date": "2022-12-10 12:02:38", "description": "This Python script utilizes pwntools to tackle a RCTF problem. It establishes a connection with a remote server, processes data received, and outputs values Q, T, U, and NUM. The script employs frequency analysis on the data to identify the most frequently occurring positions of a specific x value, ultimately cracking it.", "tags": *id001, "title": "pwntools usage example"}
+{"categories": &id001 ["rctf", "python", "pwntools", "solving", "remote server", "data processing", "x value"], "category": "pwntools", "date": "2022-12-10 12:02:38", "description": "This Python script utilizes pwntools to tackle a RCTF problem. It establishes a connection with a remote server, processes data received, and outputs values Q, T, U, and NUM. The script employs frequency analysis on the data to identify the most frequently occurring positions of a specific x value, ultimately cracking it.", "tags": *id001, "title": "Pwntools Usage Example"}
 
 ---
 

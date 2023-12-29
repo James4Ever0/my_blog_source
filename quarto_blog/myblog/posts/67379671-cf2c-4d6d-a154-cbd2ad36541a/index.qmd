@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["image blur detection", "image quality assessment", "Laplacian transform", "Fourier transform", "Convolutional Neural Networks", "deep learning", "traditional methods"], "category": "Image Processing", "date": "2022-09-23 12:26:27", "description": "This article dives into the world of image blur detection, exploring both traditional and deep learning-based methods. Traditional techniques make use of Laplacian and Fourier transforms, while deep learning approaches harness the power of Convolutional Neural Networks (CNNs) to classify or score images for blur identification.", "tags": *id001, "title": "image blur detection, image quality assessment"}
+{"categories": &id001 ["image blur detection", "image quality assessment", "Laplacian transform", "Fourier transform", "Convolutional Neural Networks", "deep learning", "traditional methods"], "category": "Image Processing", "date": "2022-09-23 12:26:27", "description": "This article dives into the world of image blur detection, exploring both traditional and deep learning-based methods. Traditional techniques make use of Laplacian and Fourier transforms, while deep learning approaches harness the power of Convolutional Neural Networks (CNNs) to classify or score images for blur identification.", "tags": *id001, "title": "Image Blur Detection, Image Quality Assessment"}
 
 ---
 

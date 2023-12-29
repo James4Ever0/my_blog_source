@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["dialog extractor", "ideas", "speech recognization", "video editor", "video extractor"], "category": "Media repurposing tools", "date": "2022-02-16 12:55:38", "description": "This article discusses a media repurpose tool that can record, scan objects, and transplant pictures from various platforms. It is capable of sharing dialogs and information across different platforms and streaming services. Using OCR technology to filter out textual information, the tool also finds new titles from danmaku or comments. The project is open-source and will receive regular tutorial updates.", "tags": *id001, "title": "Media repurpose tool"}
+{"categories": &id001 ["dialog extractor", "ideas", "speech recognization", "video editor", "video extractor"], "category": "Media repurposing tools", "date": "2022-02-16 12:55:38", "description": "This article discusses a media repurpose tool that can record, scan objects, and transplant pictures from various platforms. It is capable of sharing dialogs and information across different platforms and streaming services. Using OCR technology to filter out textual information, the tool also finds new titles from danmaku or comments. The project is open-source and will receive regular tutorial updates.", "tags": *id001, "title": "Media Repurpose Tool"}
 
 ---
 

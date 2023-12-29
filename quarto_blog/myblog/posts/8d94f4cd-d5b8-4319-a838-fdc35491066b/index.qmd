@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ChatGPT", "DALL-E 2", "registration", "resources", "discord chats", "search engines", "paid sources"], "category": "Account Registration", "date": "2022-12-05 07:56:29", "description": "This article provides various resources for registering OpenAI's ChatGPT and DALL-E 2 accounts. The resources include discord chats, search engines, paid sources, SMS platforms, tutorials, and warnings about possible blocking during the registration process.", "tags": *id001, "title": "openai codex chatgpt dalle-2 account registration"}
+{"categories": &id001 ["ChatGPT", "DALL-E 2", "registration", "resources", "discord chats", "search engines", "paid sources"], "category": "Account Registration", "date": "2022-12-05 07:56:29", "description": "This article provides various resources for registering OpenAI's ChatGPT and DALL-E 2 accounts. The resources include discord chats, search engines, paid sources, SMS platforms, tutorials, and warnings about possible blocking during the registration process.", "tags": *id001, "title": "Openai Codex Chatgpt Dalle-2 Account Registration"}
 
 ---
 

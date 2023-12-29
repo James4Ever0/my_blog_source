@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["APi", "freelancer"], "category": "Data Scraping", "date": "2022-06-05 14:34:19", "description": "This article describes a scraping API that allows users to retrieve data from various sources with certain restrictions. The API can handle up to 58 pages, each containing 30 items, resulting in a maximum of 1740 items. Users can sort the results by region and price, potentially reducing the total number below 3480 by applying additional filters. If the limit is exceeded, an inspiration-based strategy is used but it might not support pausing and resuming data collection.", "tags": *id001, "title": "途家scraping api"}
+{"categories": &id001 ["APi", "freelancer"], "category": "Data Scraping", "date": "2022-06-05 14:34:19", "description": "This article describes a scraping API that allows users to retrieve data from various sources with certain restrictions. The API can handle up to 58 pages, each containing 30 items, resulting in a maximum of 1740 items. Users can sort the results by region and price, potentially reducing the total number below 3480 by applying additional filters. If the limit is exceeded, an inspiration-based strategy is used but it might not support pausing and resuming data collection.", "tags": *id001, "title": "途家Scraping Api"}
 
 ---
 

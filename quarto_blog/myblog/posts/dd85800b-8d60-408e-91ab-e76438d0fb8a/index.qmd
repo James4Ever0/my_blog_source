@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["OpenCV", "Fast algorithm", "Corner detection", "Image processing", "FAST object", "fast_true.png", "fast_false.png"], "category": "Computer Vision", "date": "2022-09-17 07:54:53", "description": "This code utilizes OpenCV's Fast algorithm to detect corners in an image, initializing the FAST object with default values and saving the results as 'fast_true.png' and 'fast_false.png'. The Fast algorithm is a feature detection method that helps locate feature points or interest points in an image which can be useful for various computer vision tasks.", "tags": *id001, "title": "opencv corner detection"}
+{"categories": &id001 ["OpenCV", "Fast algorithm", "Corner detection", "Image processing", "FAST object", "fast_true.png", "fast_false.png"], "category": "Computer Vision", "date": "2022-09-17 07:54:53", "description": "This code utilizes OpenCV's Fast algorithm to detect corners in an image, initializing the FAST object with default values and saving the results as 'fast_true.png' and 'fast_false.png'. The Fast algorithm is a feature detection method that helps locate feature points or interest points in an image which can be useful for various computer vision tasks.", "tags": *id001, "title": "Opencv Corner Detection"}
 
 ---
 

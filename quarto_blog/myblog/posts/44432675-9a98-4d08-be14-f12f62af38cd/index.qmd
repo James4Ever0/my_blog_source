@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["mpython3", "Python scripts", "Environment variables", "JAVA_HOME", "PYTHONPATH", "Library version mixing"], "category": "Python Programming", "date": "2022-11-04 13:45:04", "description": "This article provides a guide on using the &grave;mpython3&grave; command to execute Python scripts. It explains how to set environment variables such as JAVA_HOME and PYTHONPATH beforehand, ensuring correct compatibility with different library versions.", "tags": *id001, "title": "mixing different version of python libraries and pass environment variables beforehand"}
+{"categories": &id001 ["mpython3", "Python scripts", "Environment variables", "JAVA_HOME", "PYTHONPATH", "Library version mixing"], "category": "Python Programming", "date": "2022-11-04 13:45:04", "description": "This article provides a guide on using the &grave;mpython3&grave; command to execute Python scripts. It explains how to set environment variables such as JAVA_HOME and PYTHONPATH beforehand, ensuring correct compatibility with different library versions.", "tags": *id001, "title": "Mixing Different Version Of Python Libraries And Pass Environment Variables Beforehand"}
 
 ---
 

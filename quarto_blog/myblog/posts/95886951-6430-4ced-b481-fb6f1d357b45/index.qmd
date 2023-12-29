@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["linux", "restore", "restore session", "service"], "category": "Window Management", "date": "2022-07-27 00:06:40", "description": "This article outlines various methods to restore Linux window sessions using tools such as wmctrl, devilspie, and launch_on_workspace. It also provides links to helpful online resources for starting applications in specific workspaces and explains how to manually restore a session by enabling auto-save-session in org.gnome.gnome-session through dconf-editor.", "tags": *id001, "title": "Linux restore window sessions"}
+{"categories": &id001 ["linux", "restore", "restore session", "service"], "category": "Window Management", "date": "2022-07-27 00:06:40", "description": "This article outlines various methods to restore Linux window sessions using tools such as wmctrl, devilspie, and launch_on_workspace. It also provides links to helpful online resources for starting applications in specific workspaces and explains how to manually restore a session by enabling auto-save-session in org.gnome.gnome-session through dconf-editor.", "tags": *id001, "title": "Linux Restore Window Sessions"}
 
 ---
 

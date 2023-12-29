@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["virtual phone numbers", "public accounts", "anonymous accounts", "service providers", "bilibili", "cookies", "ad posting"], "category": "Account Management", "date": "2022-12-13 10:25:06", "description": "This article explores the concept of using virtual phone numbers and anonymous accounts to interact with service providers, access websites like bilibili, store cookies, and monetize these accounts through ad posting. It also highlights the use of Bugmenot for aid in accessing such services.", "tags": *id001, "title": "virtual phone numbers and public/anonymous accounts"}
+{"categories": &id001 ["virtual phone numbers", "public accounts", "anonymous accounts", "service providers", "bilibili", "cookies", "ad posting"], "category": "Account Management", "date": "2022-12-13 10:25:06", "description": "This article explores the concept of using virtual phone numbers and anonymous accounts to interact with service providers, access websites like bilibili, store cookies, and monetize these accounts through ad posting. It also highlights the use of Bugmenot for aid in accessing such services.", "tags": *id001, "title": "Virtual Phone Numbers And Public/Anonymous Accounts"}
 
 ---
 

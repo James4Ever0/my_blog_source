@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["im2latex", "tensorflow", "pytorch", "installation", "hardware damage", "safety precautions", "guide"], "category": "Installation Instructions", "date": "2022-08-26 14:07:07", "description": "In this article, you will learn how to install and use im2latex with TensorFlow and PyTorch. Additionally, the article covers important safety precautions and potential hardware damage considerations when running 'im2latex-tensorflow'. By following these instructions, you can ensure a safe and successful implementation of im2latex in your TensorFlow or PyTorch projects.", "tags": *id001, "title": "on building the lua torch library"}
+{"categories": &id001 ["im2latex", "tensorflow", "pytorch", "installation", "hardware damage", "safety precautions", "guide"], "category": "Installation Instructions", "date": "2022-08-26 14:07:07", "description": "In this article, you will learn how to install and use im2latex with TensorFlow and PyTorch. Additionally, the article covers important safety precautions and potential hardware damage considerations when running 'im2latex-tensorflow'. By following these instructions, you can ensure a safe and successful implementation of im2latex in your TensorFlow or PyTorch projects.", "tags": *id001, "title": "On Building The Lua Torch Library"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["npm", "NODE_PATH", "environment variable", "global package installation", "operating systems", "ZSH", "Bash", "Fish", "Windows", "Termux", "Kali", "MacOS"], "category": "npm", "date": "2022-12-10 13:29:15", "description": "This article provides a comprehensive guide on how to set the NODE_PATH environment variable for npm global package installation across different operating systems. It explains the process in detail for ZSH, Bash, Fish, Windows, Termux, Kali, and MacOS, ensuring proper importing of packages from specific paths without any issues.", "tags": *id001, "title": "nodejs NODE_PATH for npm global package installation"}
+{"categories": &id001 ["npm", "NODE_PATH", "environment variable", "global package installation", "operating systems", "ZSH", "Bash", "Fish", "Windows", "Termux", "Kali", "MacOS"], "category": "npm", "date": "2022-12-10 13:29:15", "description": "This article provides a comprehensive guide on how to set the NODE_PATH environment variable for npm global package installation across different operating systems. It explains the process in detail for ZSH, Bash, Fish, Windows, Termux, Kali, and MacOS, ensuring proper importing of packages from specific paths without any issues.", "tags": *id001, "title": "Nodejs Node_Path For Npm Global Package Installation"}
 
 ---
 

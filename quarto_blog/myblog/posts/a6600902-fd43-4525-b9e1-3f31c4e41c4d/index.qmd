@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["bilibili", "courses", "resources", "stub"], "category": "Bilibili", "date": "2022-06-17 07:34:01", "description": "This article provides information and links about the 'bilibili up主启航计划', a program on the video-sharing platform bilibili. It covers various aspects of the program, including its objectives, eligibility criteria, benefits, and resources for potential participants.", "tags": *id001, "title": "bilibili up主启航计划"}
+{"categories": &id001 ["bilibili", "courses", "resources", "stub"], "category": "Bilibili", "date": "2022-06-17 07:34:01", "description": "This article provides information and links about the 'Bilibili Up主启航计划', a program on the video-sharing platform bilibili. It covers various aspects of the program, including its objectives, eligibility criteria, benefits, and resources for potential participants.", "tags": *id001, "title": "bilibili up主启航计划"}
 
 ---
 

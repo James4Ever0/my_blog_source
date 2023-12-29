@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["MacBook", "winter", "cold", "fingerless gloves", "trousers", "protection", "productivity"], "category": "Technology", "date": "2023-01-14 07:06:12", "description": "The MacBook is found to be uncomfortable to use in cold weather. Users suggest using fingerless gloves or wearing trousers under wrists as protective measures.", "tags": *id001, "title": "macbook is freezing cold to use at winter"}
+{"categories": &id001 ["MacBook", "winter", "cold", "fingerless gloves", "trousers", "protection", "productivity"], "category": "Technology", "date": "2023-01-14 07:06:12", "description": "The MacBook is found to be uncomfortable to use in cold weather. Users suggest using fingerless gloves or wearing trousers under wrists as protective measures.", "tags": *id001, "title": "Macbook Is Freezing Cold To Use At Winter"}
 
 ---
 

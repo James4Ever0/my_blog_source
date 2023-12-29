@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["RX580", "16g", "AI accelerator", "gfx803", "GitHub", "DIY build", "Graphics card"], "category": "AI Accelerators", "date": "2023-12-09 13:47:07", "description": "This article discusses the process of using an RX580 16g graphics card with the codename &grave;gfx803&grave; as an AI accelerator. The user is provided with a GitHub link to build it themselves.", "tags": *id001, "title": "RX580 16g used as AI accelerator"}
+{"categories": &id001 ["RX580", "16g", "AI accelerator", "gfx803", "GitHub", "DIY build", "Graphics card"], "category": "AI Accelerators", "date": "2023-12-09 13:47:07", "description": "This article discusses the process of using an RX580 16g graphics card with the codename &grave;gfx803&grave; as an AI accelerator. The user is provided with a GitHub link to build it themselves.", "tags": *id001, "title": "Rx580 16G Used As Ai Accelerator"}
 
 ---
 

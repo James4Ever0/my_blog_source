@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["launchd", "macos", "relocation", "service", "system manage"], "category": "Troubleshooting", "date": "2022-08-11 06:41:13", "description": "This article provides a step-by-step guide on how to troubleshoot and fix issues related to pyjom's location on macOS. It covers the process of disabling sync-related services, installing pyjom watchdog and syncdog services locally, and offers solutions for common problems encountered during this process.", "tags": *id001, "title": "Copy Symlink itself to change pyjom's location, install easyd services for macos local pyjom watchdog"}
+{"categories": &id001 ["launchd", "macos", "relocation", "service", "system manage"], "category": "Troubleshooting", "date": "2022-08-11 06:41:13", "description": "This article provides a step-by-step guide on how to troubleshoot and fix issues related to pyjom's location on macOS. It covers the process of disabling sync-related services, installing pyjom watchdog and syncdog services locally, and offers solutions for common problems encountered during this process.", "tags": *id001, "title": "Copy Symlink Itself To Change Pyjom'S Location, Install Easyd Services For Macos Local Pyjom Watchdog"}
 
 ---
 

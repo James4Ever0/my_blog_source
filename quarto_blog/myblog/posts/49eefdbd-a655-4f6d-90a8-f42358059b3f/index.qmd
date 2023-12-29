@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["collaborative programming", "Live Share", "Crossclip", "CodeShare", "clipboard syncing", "code sharing", "instant messaging"], "category": "Collaborative Programming", "date": "2023-02-26 09:20:23", "description": "This text dives into the world of collaborative programming tools, showcasing various options such as Live Share, Crossclip, and CodeShare. These tools enable seamless clipboard syncing, code sharing, and instant messaging across different platforms, making collaboration between developers easier and more efficient.", "tags": *id001, "title": "Live Share Plugin, Clipboard syncing, peer programming, collaboration, multi-user editing"}
+{"categories": &id001 ["collaborative programming", "Live Share", "Crossclip", "CodeShare", "clipboard syncing", "code sharing", "instant messaging"], "category": "Collaborative Programming", "date": "2023-02-26 09:20:23", "description": "This text dives into the world of collaborative programming tools, showcasing various options such as Live Share, Crossclip, and CodeShare. These tools enable seamless clipboard syncing, code sharing, and instant messaging across different platforms, making collaboration between developers easier and more efficient.", "tags": *id001, "title": "Live Share Plugin, Clipboard Syncing, Peer Programming, Collaboration, Multi-User Editing"}
 
 ---
 

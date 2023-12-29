@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["graph database", "neo4j", "reference"], "category": "Neo4j Cypher Cheatsheet", "date": "2022-06-03 08:03:26", "description": "This Neo4j Cypher Cheatsheet provides a comprehensive overview of essential graph query operations and advanced features, focusing on user management, transaction handling, and large dataset queries. It is specifically designed for Enterprise Edition users with role-based privilege management.", "tags": *id001, "title": "Neo4j Refcard"}
+{"categories": &id001 ["graph database", "neo4j", "reference"], "category": "Neo4j Cypher Cheatsheet", "date": "2022-06-03 08:03:26", "description": "This Neo4j Cypher Cheatsheet provides a comprehensive overview of essential graph query operations and advanced features, focusing on user management, transaction handling, and large dataset queries. It is specifically designed for Enterprise Edition users with role-based privilege management.", "tags": *id001, "title": "Neo4J Refcard"}
 
 ---
 

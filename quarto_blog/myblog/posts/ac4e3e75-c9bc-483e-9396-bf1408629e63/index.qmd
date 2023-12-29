@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["MakeHuman", "Blender", "lip sync", "mocap", "VRM files", "real-time human body tracking", "import/export"], "category": "3D Modeling", "date": "2022-09-06 16:11:07", "description": "This article delves into the world of MakeHuman, a popular software for model making. It covers various techniques and tools used in Blender to achieve lip sync and mocap effects. Additionally, it highlights several libraries useful for real-time human body tracking and VRM file import/export.", "tags": *id001, "title": "metahuman makehuman blender lipsync 动捕 视频转动画 人物模型 捏脸 vroid模型 vrm"}
+{"categories": &id001 ["MakeHuman", "Blender", "lip sync", "mocap", "VRM files", "real-time human body tracking", "import/export"], "category": "3D Modeling", "date": "2022-09-06 16:11:07", "description": "This article delves into the world of MakeHuman, a popular software for model making. It covers various techniques and tools used in Blender to achieve lip sync and mocap effects. Additionally, it highlights several libraries useful for real-time human body tracking and VRM file import/export.", "tags": *id001, "title": "Metahuman Makehuman Blender Lipsync 动捕 视频转动画 人物模型 捏脸 Vroid模型 Vrm"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["API", "audio source", "information gathering", "scraping", "soul", "text source", "video source"], "category": "Man-in-the-middle proxy", "date": "2022-07-08 15:57:27", "description": "This article provides instructions on how to set up a man-in-the-middle (MITM) proxy on an Android device using mitmproxy and access various API endpoints for Soul app data, such as user profiles, recent moments, hot instant moments, and audio playlists.", "tags": *id001, "title": "Soul API"}
+{"categories": &id001 ["API", "audio source", "information gathering", "scraping", "soul", "text source", "video source"], "category": "Man-in-the-middle proxy", "date": "2022-07-08 15:57:27", "description": "This article provides instructions on how to set up a man-in-the-middle (MITM) proxy on an Android device using mitmproxy and access various API endpoints for Soul app data, such as user profiles, recent moments, hot instant moments, and audio playlists.", "tags": *id001, "title": "Soul Api"}
 
 ---
 

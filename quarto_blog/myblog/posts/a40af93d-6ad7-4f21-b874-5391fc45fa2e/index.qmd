@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["linux", "hard disk detection", "reset-usb.sh script", "USB controllers", "Kali Linux", "improvements", "sub-scripts"], "category": "Linux", "date": "2022-12-15 16:33:24", "description": "The reset-usb.sh script is a solution to hard disk detection issues in Linux, specifically addressing USB controller problems. It works by utilizing sub-scripts and a for loop to unbind and rebind the controllers, with suggested enhancements for Kali Linux.", "tags": *id001, "title": "reset usb"}
+{"categories": &id001 ["linux", "hard disk detection", "reset-usb.sh script", "USB controllers", "Kali Linux", "improvements", "sub-scripts"], "category": "Linux", "date": "2022-12-15 16:33:24", "description": "The reset-usb.sh script is a solution to hard disk detection issues in Linux, specifically addressing USB controller problems. It works by utilizing sub-scripts and a for loop to unbind and rebind the controllers, with suggested enhancements for Kali Linux.", "tags": *id001, "title": "Reset Usb"}
 
 ---
 

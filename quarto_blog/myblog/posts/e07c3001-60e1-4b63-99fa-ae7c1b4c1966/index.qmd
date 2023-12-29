@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["RSI", "Smartwatch", "WearOS", "Apple", "Customization", "3D printed cases", "Shapeways"], "category": "Smartwatches", "date": "2023-04-04 01:23:42", "description": "RSIBreak is a smartwatch app designed to prevent RSI injuries. It is compatible with WearOS and Apple alternatives, offering customization options such as 3D printed cases from Shapeways or DIY solutions on macOS. Additionally, alternatives like BreakTimer are available for various platforms.", "tags": *id001, "title": "RSIBreak, Break Reminder"}
+{"categories": &id001 ["RSI", "Smartwatch", "WearOS", "Apple", "Customization", "3D printed cases", "Shapeways"], "category": "Smartwatches", "date": "2023-04-04 01:23:42", "description": "RSIBreak is a smartwatch app designed to prevent RSI injuries. It is compatible with WearOS and Apple alternatives, offering customization options such as 3D printed cases from Shapeways or DIY solutions on macOS. Additionally, alternatives like BreakTimer are available for various platforms.", "tags": *id001, "title": "Rsibreak, Break Reminder"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Discord", "Cybergod", "Invitation Link", "Agicomputercontrol", "Repository", "Integration"], "category": "Discord Channels", "date": "2023-11-30 15:55:25", "description": "This text discusses a Discord channel named 'Cybergod' which can be joined using the invitation link https://discord.gg/y9BrdMfA. It is set to be integrated into an agi-computer-control repository, suggesting collaboration and communication among its members.", "tags": *id001, "title": "Cybergod discord channel"}
+{"categories": &id001 ["Discord", "Cybergod", "Invitation Link", "Agicomputercontrol", "Repository", "Integration"], "category": "Discord Channels", "date": "2023-11-30 15:55:25", "description": "This text discusses a Discord channel named 'Cybergod' which can be joined using the invitation link https://discord.gg/y9BrdMfA. It is set to be integrated into an agi-computer-control repository, suggesting collaboration and communication among its members.", "tags": *id001, "title": "Cybergod Discord Channel"}
 
 ---
 

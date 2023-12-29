@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Github", "spider collections", "web scraping tools", "learnspider", "Zhihu.com", "resource limitations", "recommendations"], "category": "Web Scraping", "date": "2023-01-18 02:35:47", "description": "This article discusses different spider collections and web scraping tools found on Github. It points out the drawbacks of certain existing resources and suggests a particular one (learnspider) for practical use. Additionally, it introduces another collection specifically designed for Zhihu.com.", "tags": *id001, "title": "spider, web scraping, captcha bypass"}
+{"categories": &id001 ["Github", "spider collections", "web scraping tools", "learnspider", "Zhihu.com", "resource limitations", "recommendations"], "category": "Web Scraping", "date": "2023-01-18 02:35:47", "description": "This article discusses different spider collections and web scraping tools found on Github. It points out the drawbacks of certain existing resources and suggests a particular one (learnspider) for practical use. Additionally, it introduces another collection specifically designed for Zhihu.com.", "tags": *id001, "title": "Spider, Web Scraping, Captcha Bypass"}
 
 ---
 

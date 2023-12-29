@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["free proxies", "Clash", "SSR", "Proxy", "ShadowSocks", "V2Ray", "Fanqiang"], "category": "Proxies", "date": "2022-12-11 11:15:17", "description": "This article provides insights into accessing free proxies using tools like Clash, SSR, Proxy, ShadowSocks, V2Ray, and Fanqiang. It recommends searching GitHub for updated repositories and utilizing resources such as proxyscan.io, Telegram bots, self-hosted options, or cloud/CI alternatives. Additionally, Lantern is suggested to be used alongside Clash-ctl controllers.", "tags": *id001, "title": "free proxies: openit proxy pool has been seized, what to do"}
+{"categories": &id001 ["free proxies", "Clash", "SSR", "Proxy", "ShadowSocks", "V2Ray", "Fanqiang"], "category": "Proxies", "date": "2022-12-11 11:15:17", "description": "This article provides insights into accessing free proxies using tools like Clash, SSR, Proxy, ShadowSocks, V2Ray, and Fanqiang. It recommends searching GitHub for updated repositories and utilizing resources such as proxyscan.io, Telegram bots, self-hosted options, or cloud/CI alternatives. Additionally, Lantern is suggested to be used alongside Clash-ctl controllers.", "tags": *id001, "title": "Free Proxies: Openit Proxy Pool Has Been Seized, What To Do"}
 
 ---
 

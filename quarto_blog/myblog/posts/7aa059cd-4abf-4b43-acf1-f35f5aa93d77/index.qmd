@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["lip sync", "motion driven video", "talking head", "video generator", "wombo.ai"], "category": "Artificial Intelligence", "date": "2022-05-13 21:50:48", "description": "The VToonify framework offers a method for creating high-quality artistic portrait videos with a cartoon style, using StyleGAN layers and features to preserve frame details. It is compatible with existing image cartoonization models.", "tags": *id001, "title": "the singing bot"}
+{"categories": &id001 ["lip sync", "motion driven video", "talking head", "video generator", "wombo.ai"], "category": "Artificial Intelligence", "date": "2022-05-13 21:50:48", "description": "The VToonify framework offers a method for creating high-quality artistic portrait videos with a cartoon style, using StyleGAN layers and features to preserve frame details. It is compatible with existing image cartoonization models.", "tags": *id001, "title": "The Singing Bot"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Bilibili", "Promote content", "Monetize content", "GIFs", "QR codes", "JSON data", "Android intents"], "category": "Content Promotion", "date": "2022-10-18 15:52:52", "description": "This article discusses various methods to promote and monetize content on Bilibili, including utilizing GIFs, QR codes, and modifying JSON data for Android intents using Frida. The techniques covered can help creators increase engagement and generate income through their work on the platform.", "tags": *id001, "title": "Monetizing Bilibili Content with GIFs, QR Codes, and JSON Modification"}
+{"categories": &id001 ["Bilibili", "Promote content", "Monetize content", "GIFs", "QR codes", "JSON data", "Android intents"], "category": "Content Promotion", "date": "2022-10-18 15:52:52", "description": "This article discusses various methods to promote and monetize content on Bilibili, including utilizing GIFs, QR codes, and modifying JSON data for Android intents using Frida. The techniques covered can help creators increase engagement and generate income through their work on the platform.", "tags": *id001, "title": "Monetizing Bilibili Content With Gifs, Qr Codes, And Json Modification"}
 
 ---
 

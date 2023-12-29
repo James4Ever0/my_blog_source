@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["extension", "publish", "stub", "tips", "vscode"], "category": "Extensions", "date": "2022-03-30 07:13:54", "description": "This article provides instructions on creating or managing a Visual Studio Code (VSCode) extension for the publisher 'medialang'. It outlines the VSCode extension create command and includes a vsce token for authentication purposes.", "tags": *id001, "title": "vscode extension create publisher"}
+{"categories": &id001 ["extension", "publish", "stub", "tips", "vscode"], "category": "Extensions", "date": "2022-03-30 07:13:54", "description": "This article provides instructions on creating or managing a Visual Studio Code (VSCode) extension for the publisher 'medialang'. It outlines the VSCode extension create command and includes a vsce token for authentication purposes.", "tags": *id001, "title": "Vscode Extension Create Publisher"}
 
 ---
 

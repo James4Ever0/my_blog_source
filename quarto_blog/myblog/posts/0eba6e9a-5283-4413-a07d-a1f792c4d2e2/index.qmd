@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["schedule"], "category": "Data Backup", "date": "2022-08-18 03:56:00", "description": "The article discusses backup schedules for a system, covering both offline backups to disk and online backups to cloud disks. It also provides guidance on setting up notification systems and determining timetables for regular intervals of execution.", "tags": *id001, "title": "backup schedules"}
+{"categories": &id001 ["schedule"], "category": "Data Backup", "date": "2022-08-18 03:56:00", "description": "The article discusses Backup Schedules for a system, covering both offline backups to disk and online backups to cloud disks. It also provides guidance on setting up notification systems and determining timetables for regular intervals of execution.", "tags": *id001, "title": "backup schedules"}
 
 ---
 

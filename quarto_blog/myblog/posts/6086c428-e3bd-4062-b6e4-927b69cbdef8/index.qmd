@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Windows 10", "performance", "Winget", "KMS activator", "telemetry", "system drive", "run dialog"], "category": "Windows 10 Performance", "date": "2023-02-08 01:02:43", "description": "This article offers tips on boosting Windows 10 performance using tools like Winget and KMS activator, along with steps such as disabling telemetry and cleaning the system drive. It also explains how to create custom commands for the run dialog by leveraging silent run support through a configuration file.", "tags": *id001, "title": "Windows 10 system debloating, windows operating system optimization, winget, windows commandline package manager"}
+{"categories": &id001 ["Windows 10", "performance", "Winget", "KMS activator", "telemetry", "system drive", "run dialog"], "category": "Windows 10 Performance", "date": "2023-02-08 01:02:43", "description": "This article offers tips on boosting Windows 10 performance using tools like Winget and KMS activator, along with steps such as disabling telemetry and cleaning the system drive. It also explains how to create custom commands for the run dialog by leveraging silent run support through a configuration file.", "tags": *id001, "title": "Windows 10 System Debloating, Windows Operating System Optimization, Winget, Windows Commandline Package Manager"}
 
 ---
 

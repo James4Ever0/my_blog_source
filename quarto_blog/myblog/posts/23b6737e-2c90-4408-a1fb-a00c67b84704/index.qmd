@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["frame interpolation", "slow motion", "video generator", "video interpolation"], "category": "Software", "date": "2022-04-19 08:50:32", "description": "slowmoVideo is a software that leverages GPU and optical flow technology to generate slow-motion effects by interpolating frames. With clear optical flow boundaries, it can also potentially support instance segmentation. To utilize CUDA support, OpenCV must be built with opencv_contrib and -DWITH_CUDA=ON.", "tags": *id001, "title": "Optical Flow, slow motion and more"}
+{"categories": &id001 ["frame interpolation", "slow motion", "video generator", "video interpolation"], "category": "Software", "date": "2022-04-19 08:50:32", "description": "slowmoVideo is a software that leverages GPU and optical flow technology to generate slow-motion effects by interpolating frames. With clear optical flow boundaries, it can also potentially support instance segmentation. To utilize CUDA support, OpenCV must be built with opencv_contrib and -DWITH_CUDA=ON.", "tags": *id001, "title": "Optical Flow, Slow Motion And More"}
 
 ---
 

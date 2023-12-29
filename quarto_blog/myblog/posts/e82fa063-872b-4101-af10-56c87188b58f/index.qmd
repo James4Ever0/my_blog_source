@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["dark reader", "PDF", "custom stylesheets", "improve dark theme", "source code search"], "category": "Browser Extensions", "date": "2022-12-25 21:55:23", "description": "The Dark Reader PDF extension enhances the dark theme experience by identifying and applying custom style sheets to improve readability, particularly when accessing PDF files.", "tags": *id001, "title": "dark reader pdf dark theme"}
+{"categories": &id001 ["dark reader", "PDF", "custom stylesheets", "improve dark theme", "source code search"], "category": "Browser Extensions", "date": "2022-12-25 21:55:23", "description": "The Dark Reader PDF extension enhances the dark theme experience by identifying and applying custom style sheets to improve readability, particularly when accessing PDF files.", "tags": *id001, "title": "Dark Reader Pdf Dark Theme"}
 
 ---
 

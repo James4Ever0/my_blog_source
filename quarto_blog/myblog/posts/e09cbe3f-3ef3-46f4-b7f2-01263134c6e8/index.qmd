@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["fire prevention", "distributed computing", "smart switches", "safety measures", "firebots", "firerolls", "human safety"], "category": "fire_prevention", "date": "2023-09-09 03:21:23", "description": "This article discusses the importance of fire prevention in distributed computing, highlighting the use of smart switches and safety measures to protect data and devices. Additionally, it touches upon the concepts of firebots and firerolls, as well as considering human safety.", "tags": *id001, "title": "fire prevention and smart switches"}
+{"categories": &id001 ["fire prevention", "distributed computing", "smart switches", "safety measures", "firebots", "firerolls", "human safety"], "category": "fire_prevention", "date": "2023-09-09 03:21:23", "description": "This article discusses the importance of fire prevention in distributed computing, highlighting the use of smart switches and safety measures to protect data and devices. Additionally, it touches upon the concepts of firebots and firerolls, as well as considering human safety.", "tags": *id001, "title": "Fire Prevention And Smart Switches"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Android", "OpenCL", "Oneplus Ace2V", "LLama.cpp", "LD_LIBRARY_PATH", "Environment Variables", "Solution"], "category": "Software Troubleshooting", "date": "2023-12-09 12:09:24", "description": "This article provides a solution to the OpenCL platform not found issue on Android when running llama.cpp on Oneplus Ace2V by instructing users to set the LD_LIBRARY_PATH environment variable.", "tags": *id001, "title": "How to fix OpenCL platform not found issue on android"}
+{"categories": &id001 ["Android", "OpenCL", "Oneplus Ace2V", "LLama.cpp", "LD_LIBRARY_PATH", "Environment Variables", "Solution"], "category": "Software Troubleshooting", "date": "2023-12-09 12:09:24", "description": "This article provides a solution to the OpenCL platform not found issue on Android when running llama.cpp on Oneplus Ace2V by instructing users to set the LD_LIBRARY_PATH environment variable.", "tags": *id001, "title": "How To Fix Opencl Platform Not Found Issue On Android"}
 
 ---
 

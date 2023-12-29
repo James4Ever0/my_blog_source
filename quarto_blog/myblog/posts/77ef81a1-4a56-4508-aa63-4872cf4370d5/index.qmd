@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["edusrc", "bluecms", "zero-day exploits", "vulnerabilities", "school management systems", "security issues"], "category": "Security", "date": "2022-11-29 23:15:03", "description": "A list of potential zero-day exploits and vulnerabilities in school management systems, including links to resources for understanding and mitigating the 'edusrc 0day' and 'bluecms 0day' issues.", "tags": *id001, "title": "Discovering Zero-Day Exploits and Vulnerabilities in School Management Systems"}
+{"categories": &id001 ["edusrc", "bluecms", "zero-day exploits", "vulnerabilities", "school management systems", "security issues"], "category": "Security", "date": "2022-11-29 23:15:03", "description": "A list of potential zero-day exploits and vulnerabilities in school management systems, including links to resources for understanding and mitigating the 'edusrc 0day' and 'bluecms 0day' issues.", "tags": *id001, "title": "Discovering Zero-Day Exploits And Vulnerabilities In School Management Systems"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Tencent JCE", "TCP protocol", "Protobuf", "jcestruct", "data transmission", "TcpCommunication module", "Python programming"], "category": "Network communication", "date": "2022-11-03 05:36:01", "description": "Tencent JCE is a TCP protocol that shares similarities with Protobuf. It utilizes jcestruct for implementation and can be employed by executing 'python -m jce' along with the data. Through TCP communication, the transmitted data can be acquired and deciphered using Python's TcpCommunication module.", "tags": *id001, "title": "tencent jce"}
+{"categories": &id001 ["Tencent JCE", "TCP protocol", "Protobuf", "jcestruct", "data transmission", "TcpCommunication module", "Python programming"], "category": "Network communication", "date": "2022-11-03 05:36:01", "description": "Tencent JCE is a TCP protocol that shares similarities with Protobuf. It utilizes jcestruct for implementation and can be employed by executing 'python -m jce' along with the data. Through TCP communication, the transmitted data can be acquired and deciphered using Python's TcpCommunication module.", "tags": *id001, "title": "Tencent Jce"}
 
 ---
 

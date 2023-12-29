@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer"], "category": "Database Management", "date": "2022-07-14 07:47:35", "description": "This article explains how to connect a HarmonyOS device's logs to MySQL, providing the necessary login credentials and log file structure. It also provides guidance on decompressing .gz files and understanding their format for analysis.", "tags": *id001, "title": "HarmonyOS Device Log to MySQL"}
+{"categories": &id001 ["freelancer"], "category": "Database Management", "date": "2022-07-14 07:47:35", "description": "This article explains how to connect a HarmonyOS device's logs to MySQL, providing the necessary login credentials and log file structure. It also provides guidance on decompressing .gz files and understanding their format for analysis.", "tags": *id001, "title": "Harmonyos Device Log To Mysql"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ebooks", "free ebooks", "foreign languages", "non-educational content", "LibGen.is", "book search engine", "Amazon Kindle"], "category": "Search Engines", "date": "2023-01-15 09:59:37", "description": "LibGen.is is a Russian ebook search engine that offers the latest free ebooks in various languages and genres, including non-educational content. It can be useful for finding books on popular topics or those from Amazon Kindle.", "tags": *id001, "title": "library genesis, getting latest ebooks for free"}
+{"categories": &id001 ["ebooks", "free ebooks", "foreign languages", "non-educational content", "LibGen.is", "book search engine", "Amazon Kindle"], "category": "Search Engines", "date": "2023-01-15 09:59:37", "description": "LibGen.is is a Russian ebook search engine that offers the latest free ebooks in various languages and genres, including non-educational content. It can be useful for finding books on popular topics or those from Amazon Kindle.", "tags": *id001, "title": "Library Genesis, Getting Latest Ebooks For Free"}
 
 ---
 

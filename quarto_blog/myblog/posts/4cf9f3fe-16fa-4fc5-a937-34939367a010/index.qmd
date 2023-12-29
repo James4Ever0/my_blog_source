@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Python", "FFmpeg", "Wrapper", "GitHub", "Scripting", "Multimedia", "Command-line"], "category": "Python Libraries", "date": "2022-05-31 14:12:49", "description": "This article discusses a Python wrapper for the widely-used FFmpeg command-line tool. The wrapper, found on GitHub, simplifies the integration of FFmpeg's capabilities into Python scripts.", "tags": *id001, "title": "A Python Wrapper for FFmpeg: Simplifying Command-Line Functionality"}
+{"categories": &id001 ["Python", "FFmpeg", "Wrapper", "GitHub", "Scripting", "Multimedia", "Command-line"], "category": "Python Libraries", "date": "2022-05-31 14:12:49", "description": "This article discusses a Python wrapper for the widely-used FFmpeg command-line tool. The wrapper, found on GitHub, simplifies the integration of FFmpeg's capabilities into Python scripts.", "tags": *id001, "title": "A Python Wrapper For Ffmpeg: Simplifying Command-Line Functionality"}
 
 ---
 

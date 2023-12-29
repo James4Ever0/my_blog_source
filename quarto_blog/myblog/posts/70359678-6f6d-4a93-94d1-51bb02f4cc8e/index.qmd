@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["emotion", "ideas", "social media"], "category": "Emotion Manipulation", "date": "2022-04-14 14:23:27", "description": "The article explores the manipulation of emotions through different means like graphics, motion, text, and voice. It proposes using random swaps, funny images, specialized model training with grouped content, and a database for synchronization. Emotion analysis can be done using emotional/keyword frequency indicators, feature extraction, and video expression acceleration.", "tags": *id001, "title": "Emotion manipulation"}
+{"categories": &id001 ["emotion", "ideas", "social media"], "category": "Emotion Manipulation", "date": "2022-04-14 14:23:27", "description": "The article explores the manipulation of emotions through different means like graphics, motion, text, and voice. It proposes using random swaps, funny images, specialized model training with grouped content, and a database for synchronization. Emotion analysis can be done using emotional/keyword frequency indicators, feature extraction, and video expression acceleration.", "tags": *id001, "title": "Emotion Manipulation"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["package manager", "self-signed certificate", "system manage"], "category": "Web Development", "date": "2022-08-15 07:44:43", "description": "This article addresses the issue of slow download speeds caused by self-signed certificates in language-specific package managers like npm and yarn. It proposes solutions such as using cnpm, a version of the npm command-line interface that uses a different registry, and configuring binary distribution file mirrors to improve performance.", "tags": *id001, "title": "issues related to fastgithub and other self-signed certificates in language-specific package managers"}
+{"categories": &id001 ["package manager", "self-signed certificate", "system manage"], "category": "Web Development", "date": "2022-08-15 07:44:43", "description": "This article addresses the issue of slow download speeds caused by self-signed certificates in language-specific package managers like npm and yarn. It proposes solutions such as using cnpm, a version of the npm command-line interface that uses a different registry, and configuring binary distribution file mirrors to improve performance.", "tags": *id001, "title": "Issues Related To Fastgithub And Other Self-Signed Certificates In Language-Specific Package Managers"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "Tools Collections", "Futurepedia", "Creatives", "Futuretools", "Zhihu", "Getinference"], "category": "AI tools collections", "date": "2022-12-30 19:55:25", "description": "This article highlights various AI tools collections, including Futurepedia, Creatives, and Futuretools. It also refers to a Zhihu post and Getinference.", "tags": *id001, "title": "AI tools collections"}
+{"categories": &id001 ["AI", "Tools Collections", "Futurepedia", "Creatives", "Futuretools", "Zhihu", "Getinference"], "category": "Ai Tools Collections", "date": "2022-12-30 19:55:25", "description": "This article highlights various AI tools collections, including Futurepedia, Creatives, and Futuretools. It also refers to a Zhihu post and Getinference.", "tags": *id001, "title": "AI tools collections"}
 
 ---
 

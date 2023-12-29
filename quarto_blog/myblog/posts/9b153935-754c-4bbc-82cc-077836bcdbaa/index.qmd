@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["chrome", "chromium", "snap", "policies", "directories", "modification", "management"], "category": "Chromium Policies", "date": "2023-12-01 11:37:37", "description": "This article provides a step-by-step guide on how to modify Chrome and Chromium policies from the Snap Store by accessing specific directories: &grave;/var/snap/chromium/current/policies/&grave; for Chrome and &grave;/var/snap/chromium/current/policies/managed/&grave; for Chromium.", "tags": *id001, "title": "Modify chrome/chromium policies from snap store"}
+{"categories": &id001 ["chrome", "chromium", "snap", "policies", "directories", "modification", "management"], "category": "Chromium Policies", "date": "2023-12-01 11:37:37", "description": "This article provides a step-by-step guide on how to modify Chrome and Chromium policies from the Snap Store by accessing specific directories: &grave;/var/snap/chromium/current/policies/&grave; for Chrome and &grave;/var/snap/chromium/current/policies/managed/&grave; for Chromium.", "tags": *id001, "title": "Modify Chrome/Chromium Policies From Snap Store"}
 
 ---
 

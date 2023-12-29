@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["chatbot", "chatbot framework", "opqbot", "pyjom", "qq", "reverse engineering", "stub"], "category": "Opqbot", "date": "2022-08-13 08:54:17", "description": "Opqbot, a tool for logging into Gitter.im using a device JSON file, has been discussed in terms of compatibility and login issues. Additionally, alternative QQ protocol analysis tools have been mentioned as options.", "tags": *id001, "title": "gitter developer tokens and qq opqbot, reverse engineering qq protocols and more"}
+{"categories": &id001 ["chatbot", "chatbot framework", "opqbot", "pyjom", "qq", "reverse engineering", "stub"], "category": "Opqbot", "date": "2022-08-13 08:54:17", "description": "Opqbot, a tool for logging into Gitter.im using a device JSON file, has been discussed in terms of compatibility and login issues. Additionally, alternative QQ protocol analysis tools have been mentioned as options.", "tags": *id001, "title": "Gitter Developer Tokens And Qq Opqbot, Reverse Engineering Qq Protocols And More"}
 
 ---
 

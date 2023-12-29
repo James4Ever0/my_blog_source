@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Mac", "Kali Linux", "ZeroTier One", "Freezing issue", "Script modification", "Tuntap", "N2N Kali"], "category": "Troubleshooting", "date": "2022-09-07 16:43:35", "description": "The article delves into a Mac freezing issue that occurs when Kali is offline. Suspecting modified scripts, the user pinpoints ZeroTier One as the primary culprit, specifically mentioning &grave;load_tuntap_launch_n2n_kali_root.sh&grave;, &grave;nginx_with_kali_finder.sh&grave;, and &grave;launch.sh&grave; as potential problem areas.", "tags": *id001, "title": "what is causing my mac to freeze when kali is offline"}
+{"categories": &id001 ["Mac", "Kali Linux", "ZeroTier One", "Freezing issue", "Script modification", "Tuntap", "N2N Kali"], "category": "Troubleshooting", "date": "2022-09-07 16:43:35", "description": "The article delves into a Mac freezing issue that occurs when Kali is offline. Suspecting modified scripts, the user pinpoints ZeroTier One as the primary culprit, specifically mentioning &grave;load_tuntap_launch_n2n_kali_root.sh&grave;, &grave;nginx_with_kali_finder.sh&grave;, and &grave;launch.sh&grave; as potential problem areas.", "tags": *id001, "title": "What Is Causing My Mac To Freeze When Kali Is Offline"}
 
 ---
 

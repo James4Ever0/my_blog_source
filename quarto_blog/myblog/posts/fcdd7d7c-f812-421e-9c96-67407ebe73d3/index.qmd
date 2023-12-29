@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["anime", "face landmark", "facial", "facial expression detection", "image segmentation", "pyjom", "smile"], "category": "Computer Vision", "date": "2022-05-11 03:48:39", "description": "The article discusses a method for detecting and segregating anime heads through processes such as object detection, segmentation, and their potential use in facial recognition. Additionally, it explores the possibility of analyzing character attributes including position, clothing type, gender, and subtitle recognition.", "tags": *id001, "title": "Anime smile detection_ segmentation"}
+{"categories": &id001 ["anime", "face landmark", "facial", "facial expression detection", "image segmentation", "pyjom", "smile"], "category": "Computer Vision", "date": "2022-05-11 03:48:39", "description": "The article discusses a method for detecting and segregating anime heads through processes such as object detection, segmentation, and their potential use in facial recognition. Additionally, it explores the possibility of analyzing character attributes including position, clothing type, gender, and subtitle recognition.", "tags": *id001, "title": "Anime Smile Detection_ Segmentation"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"category": "Generative Adversarial Networks (GANs)", "created": "2022-05-29T03:52:26.000Z", "date": "2022-05-29 03:52:26", "description": "This article delves into various methods and tools, including CoNR, digan, MoCoGAN, TRPG Replay Generator, Montage.ai, and TikTok montages, that employ techniques such as GANs and thin-plate spline motion models to create videos from images or portraits.", "modified": "2022-09-17T11:33:37.205Z", "tags": ["motion driven video", "music to video", "video generator"], "title": "GAN Generating video Motion Driven Still Image to Video"}
+{"category": "Generative Adversarial Networks (GANs)", "created": "2022-05-29T03:52:26.000Z", "date": "2022-05-29 03:52:26", "description": "This article delves into various methods and tools, including CoNR, digan, MoCoGAN, TRPG Replay Generator, Montage.ai, and TikTok montages, that employ techniques such as GANs and thin-plate spline motion models to create videos from images or portraits.", "modified": "2022-09-17T11:33:37.205Z", "tags": ["motion driven video", "music to video", "video generator"], "title": "Gan Generating Video Motion Driven Still Image To Video"}
 
 ---
 

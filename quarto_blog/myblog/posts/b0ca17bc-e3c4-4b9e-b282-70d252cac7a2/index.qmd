@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["color scheme", "stub", "tips", "vim"], "category": "Text Editors", "date": "2022-07-24 17:17:40", "description": "This text provides a guide on how to create a personalized color scheme for Vim, a widely-used text editor. It offers recommendations on utilizing documentation resources for syntax highlighting and also includes details about terminal color codes and keywords specific to vertical splitters and the bottom line in Vim.", "tags": *id001, "title": "Vim Custom color scheme"}
+{"categories": &id001 ["color scheme", "stub", "tips", "vim"], "category": "Text Editors", "date": "2022-07-24 17:17:40", "description": "This text provides a guide on how to create a personalized color scheme for Vim, a widely-used text editor. It offers recommendations on utilizing documentation resources for syntax highlighting and also includes details about terminal color codes and keywords specific to vertical splitters and the bottom line in Vim.", "tags": *id001, "title": "Vim Custom Color Scheme"}
 
 ---
 

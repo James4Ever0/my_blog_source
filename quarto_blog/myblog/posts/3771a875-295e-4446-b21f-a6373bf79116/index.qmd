@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["pty", "ssh", "system manage", "terminal", "tmux"], "category": "Error Resolution", "date": "2022-08-13 06:09:37", "description": "This article discusses two different approaches to fixing the 'not a terminal' error when attaching to a tmux session. Comment A offers alternative command options specific to Kali Linux, while Comment B provides instructions on how to configure the OpenSSH SSH client for pseudo-terminal allocation.", "tags": *id001, "title": "force pty allocation when spinning up tmux over ssh"}
+{"categories": &id001 ["pty", "ssh", "system manage", "terminal", "tmux"], "category": "Error Resolution", "date": "2022-08-13 06:09:37", "description": "This article discusses two different approaches to fixing the 'not a terminal' error when attaching to a tmux session. Comment A offers alternative command options specific to Kali Linux, while Comment B provides instructions on how to configure the OpenSSH SSH client for pseudo-terminal allocation.", "tags": *id001, "title": "Force Pty Allocation When Spinning Up Tmux Over Ssh"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Qzone automation", "Modules and tools", "Replacing qzone module", "Logging in via QR code", "Uploading files with Playwright", "AnimeAPI for shuoshuo", "Automating activities"], "category": "Automation", "date": "2022-10-31 16:02:13", "description": "This article explores different methods for automating Qzone activities using various modules and tools. It covers replacing the qzone module, logging in via QR code, uploading files with Playwright, and utilizing the AnimeAPI for more than just sending shuoshuo.", "tags": *id001, "title": "qzone send shuoshuo"}
+{"categories": &id001 ["Qzone automation", "Modules and tools", "Replacing qzone module", "Logging in via QR code", "Uploading files with Playwright", "AnimeAPI for shuoshuo", "Automating activities"], "category": "Automation", "date": "2022-10-31 16:02:13", "description": "This article explores different methods for automating Qzone activities using various modules and tools. It covers replacing the qzone module, logging in via QR code, uploading files with Playwright, and utilizing the AnimeAPI for more than just sending shuoshuo.", "tags": *id001, "title": "Qzone Send Shuoshuo"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cybersecurity", "tools", "resources", "information gathering", "vulnerabilities", "security analysis", "risk management"], "category": "Cybersecurity", "date": "2022-12-07 09:57:39", "description": "This article highlights several cybersecurity tools and resources, including theHarvester, Shodan, Metagoofil, Searchcode, SpiderFoot, and Babel X. These tools aid in information gathering and exploiting vulnerabilities for security analysis and risk management.", "tags": *id001, "title": "useful sources on cyber attack"}
+{"categories": &id001 ["cybersecurity", "tools", "resources", "information gathering", "vulnerabilities", "security analysis", "risk management"], "category": "Cybersecurity", "date": "2022-12-07 09:57:39", "description": "This article highlights several cybersecurity tools and resources, including theHarvester, Shodan, Metagoofil, Searchcode, SpiderFoot, and Babel X. These tools aid in information gathering and exploiting vulnerabilities for security analysis and risk management.", "tags": *id001, "title": "Useful Sources On Cyber Attack"}
 
 ---
 

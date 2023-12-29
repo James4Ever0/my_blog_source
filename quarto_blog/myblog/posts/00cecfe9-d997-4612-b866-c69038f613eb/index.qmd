@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["command-line", "JSON filtering", "HTML formatting", "jq", "jqterm", "htmlq", "pup"], "category": "Command-line Tools", "date": "2022-09-28 00:07:55", "description": "This text discusses command-line tools for filtering and formatting JSON/HTML, including jq, jqterm, htmlq, and pup. These tools are essential for hackers to efficiently manipulate data, search, and extract information using regular expressions and filters.", "tags": *id001, "title": "Mastering Command-Line Tools for JSON/HTML Filtering and Formatting"}
+{"categories": &id001 ["command-line", "JSON filtering", "HTML formatting", "jq", "jqterm", "htmlq", "pup"], "category": "Command-line Tools", "date": "2022-09-28 00:07:55", "description": "This text discusses command-line tools for filtering and formatting JSON/HTML, including jq, jqterm, htmlq, and pup. These tools are essential for hackers to efficiently manipulate data, search, and extract information using regular expressions and filters.", "tags": *id001, "title": "Mastering Command-Line Tools For Json/Html Filtering And Formatting"}
 
 ---
 

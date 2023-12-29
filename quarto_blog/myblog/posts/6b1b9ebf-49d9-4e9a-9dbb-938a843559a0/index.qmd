@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer", "hack"], "category": "hacking", "date": "2021-12-22 05:45:58", "description": "The article discusses hacking attempts on lixin.edu.cn and the use of tools such as dirbuster and Kali Linux to find vulnerabilities. It also includes a HTTP request command for changing passwords on the server.", "tags": *id001, "title": "The Hack (Get password and tests)"}
+{"categories": &id001 ["freelancer", "hack"], "category": "hacking", "date": "2021-12-22 05:45:58", "description": "The article discusses hacking attempts on lixin.edu.cn and the use of tools such as dirbuster and Kali Linux to find vulnerabilities. It also includes a HTTP request command for changing passwords on the server.", "tags": *id001, "title": "The Hack (Get Password And Tests)"}
 
 ---
 

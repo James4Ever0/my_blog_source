@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["model training", "pyjom", "speech synthesis", "stub", "voice changer", "vst"], "category": "Live Streaming", "date": "2022-05-28 16:14:51", "description": "This article discusses strategies for improving live streaming voice quality using software tools such as OBS, Cantabile, and Voicemeeter Banana. It also highlights MoeTTS for language mixing and custom data training, providing download links and suggesting learning from experienced content creators.", "tags": *id001, "title": "变声软件 Morphvox alternatives"}
+{"categories": &id001 ["model training", "pyjom", "speech synthesis", "stub", "voice changer", "vst"], "category": "Live Streaming", "date": "2022-05-28 16:14:51", "description": "This article discusses strategies for improving live streaming voice quality using software tools such as OBS, Cantabile, and Voicemeeter Banana. It also highlights MoeTTS for language mixing and custom data training, providing download links and suggesting learning from experienced content creators.", "tags": *id001, "title": "变声软件 Morphvox Alternatives"}
 
 ---
 

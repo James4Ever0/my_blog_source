@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Chocolatey", "cache", "clean", "PowerShell", "script", "instructions"], "category": "Chocolatey", "date": "2023-11-06 14:19:58", "description": "This text provides instructions on how to clean up Chocolatey's cache by running a PowerShell script called 'choco-cleaner.ps1'.", "tags": *id001, "title": "How to Clean Up Chocolatey's Cache with the choco-cleaner.ps1 Script"}
+{"categories": &id001 ["Chocolatey", "cache", "clean", "PowerShell", "script", "instructions"], "category": "Chocolatey", "date": "2023-11-06 14:19:58", "description": "This text provides instructions on how to clean up Chocolatey's cache by running a PowerShell script called 'choco-cleaner.ps1'.", "tags": *id001, "title": "How To Clean Up Chocolatey'S Cache With The Choco-Cleaner.Ps1 Script"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["circumvention", "clash", "github", "network"], "category": "Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts", "date": "2022-07-27 16:45:37", "description": "This article provides detailed instructions on how to route GitHub-related domains through Fastgithub using Clash and configuring DNS settings. It covers various system-specific methods, including launchctl for macOS and systemd for Linux, as well as alternative options like monit and shell scripts.", "tags": *id001, "title": "Clash route only github related domains to fastgithub"}
+{"categories": &id001 ["circumvention", "clash", "github", "network"], "category": "Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts", "date": "2022-07-27 16:45:37", "description": "This article provides detailed instructions on how to route GitHub-related domains through Fastgithub using Clash and configuring DNS settings. It covers various system-specific methods, including launchctl for macOS and systemd for Linux, as well as alternative options like monit and shell scripts.", "tags": *id001, "title": "Clash Route Only Github Related Domains To Fastgithub"}
 
 ---
 

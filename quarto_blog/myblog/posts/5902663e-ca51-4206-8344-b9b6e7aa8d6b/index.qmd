@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["macos", "ntfs", "system manage", "tips", "usage"], "category": "Volume Management", "date": "2022-08-08 05:19:14", "description": "This article provides a step-by-step guide on how to mount NTFS volumes on MacOS using a command-line tool, along with troubleshooting tips for fixing issues when the app is not functioning properly. The instructions cover the process of unmounting and remounting a specific volume to ensure smooth performance.", "tags": *id001, "title": "MacOS mount ntfs volumes"}
+{"categories": &id001 ["macos", "ntfs", "system manage", "tips", "usage"], "category": "Volume Management", "date": "2022-08-08 05:19:14", "description": "This article provides a step-by-step guide on how to mount NTFS volumes on MacOS using a command-line tool, along with troubleshooting tips for fixing issues when the app is not functioning properly. The instructions cover the process of unmounting and remounting a specific volume to ensure smooth performance.", "tags": *id001, "title": "Macos Mount Ntfs Volumes"}
 
 ---
 

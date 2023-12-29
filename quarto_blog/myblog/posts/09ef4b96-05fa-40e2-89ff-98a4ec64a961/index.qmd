@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["anonymous payment methods", "disguised email addresses", "magnet links", "password-protected content", "viruses"], "category": "Online Security and Privacy", "date": "2022-11-28 19:15:29", "description": "This article delves into the creation of anonymous payment methods and the usage of masked email addresses for activities such as generating magnet links, producing password-protected adult content or software with viruses. It offers insights into techniques to protect privacy and carry out potentially sensitive transactions.", "tags": *id001, "title": "Mastering Anonymous Payment Methods and Disguised Email Addresses"}
+{"categories": &id001 ["anonymous payment methods", "disguised email addresses", "magnet links", "password-protected content", "viruses"], "category": "Online Security and Privacy", "date": "2022-11-28 19:15:29", "description": "This article delves into the creation of anonymous payment methods and the usage of masked email addresses for activities such as generating magnet links, producing password-protected adult content or software with viruses. It offers insights into techniques to protect privacy and carry out potentially sensitive transactions.", "tags": *id001, "title": "Mastering Anonymous Payment Methods And Disguised Email Addresses"}
 
 ---
 

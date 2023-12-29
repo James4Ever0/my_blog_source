@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["censorship", "circumention", "colorization", "decolorization", "hue tweaks", "NSFW", "pyjom", "video generation", "video processing"], "category": "Image Processing", "date": "2022-05-28 08:12:37", "description": "This article explores the utilization of AI techniques, specifically PaddleGAN, for colorizing images and videos. Additionally, it highlights other tools and GitHub repositories available for image colorization.", "tags": *id001, "title": "AI上色"}
+{"categories": &id001 ["censorship", "circumention", "colorization", "decolorization", "hue tweaks", "NSFW", "pyjom", "video generation", "video processing"], "category": "Image Processing", "date": "2022-05-28 08:12:37", "description": "This article explores the utilization of AI techniques, specifically PaddleGAN, for colorizing images and videos. Additionally, it highlights other tools and GitHub repositories available for image colorization.", "tags": *id001, "title": "Ai上色"}
 
 ---
 

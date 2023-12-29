@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["algorithms", "self-study"], "category": "Python Programming", "date": "2022-05-31 05:22:14", "description": "This article offers a collection of resources for learning algorithms, compilers, and programming. It includes introductions to the Algorithms book in Python, official CLRS 4th edition Python code, alternative Python implementations of CLRS, SICP in Python, and unofficial Python versions of the Algorithms 4th edition.", "tags": *id001, "title": "Algorithms Compilers SICP CLRS CT4S"}
+{"categories": &id001 ["algorithms", "self-study"], "category": "Python Programming", "date": "2022-05-31 05:22:14", "description": "This article offers a collection of resources for learning algorithms, compilers, and programming. It includes introductions to the Algorithms book in Python, official CLRS 4th edition Python code, alternative Python implementations of CLRS, SICP in Python, and unofficial Python versions of the Algorithms 4th edition.", "tags": *id001, "title": "Algorithms Compilers Sicp Clrs Ct4S"}
 
 ---
 

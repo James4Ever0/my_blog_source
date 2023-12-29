@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "Social Media Engagement", "Image Generation", "Content Creation", "Colorization", "Abstract Creation", "Text Rephrasing"], "category": "AI", "date": "2023-02-19 04:10:46", "description": "AI tools are revolutionizing social media, image generation, and content creation by offering features such as colorization, abstract art, and text rephrasing. Tools like Hootsuite, Crystal Knows, Hama.app, MovieToEmoji, and Summari help with tasks ranging from music production to personalized videos, enhancing user engagement and productivity.", "tags": *id001, "title": "a comprehensive list of ai tools, may not be free, just for reference?"}
+{"categories": &id001 ["AI", "Social Media Engagement", "Image Generation", "Content Creation", "Colorization", "Abstract Creation", "Text Rephrasing"], "category": "AI", "date": "2023-02-19 04:10:46", "description": "AI tools are revolutionizing social media, image generation, and content creation by offering features such as colorization, abstract art, and text rephrasing. Tools like Hootsuite, Crystal Knows, Hama.app, MovieToEmoji, and Summari help with tasks ranging from music production to personalized videos, enhancing user engagement and productivity.", "tags": *id001, "title": "A Comprehensive List Of Ai Tools, May Not Be Free, Just For Reference?"}
 
 ---
 

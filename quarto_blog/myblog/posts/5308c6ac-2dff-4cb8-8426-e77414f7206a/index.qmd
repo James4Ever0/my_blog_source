@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["botnet", "crypto mining", "hacking", "tutorial", "virus"], "category": "Hacking", "date": "2022-07-11 15:43:20", "description": "This article delves into the realm of hacking tools and techniques used in Capture The Flag (CTF) events and professional scenarios. It highlights resources such as Hack The Box and GitHub repositories, which aid in skill improvement across various domains like assembly, automation, persistence, vision, and experience.", "tags": *id001, "title": "Hacking tutorials, tools"}
+{"categories": &id001 ["botnet", "crypto mining", "hacking", "tutorial", "virus"], "category": "Hacking", "date": "2022-07-11 15:43:20", "description": "This article delves into the realm of hacking tools and techniques used in Capture The Flag (CTF) events and professional scenarios. It highlights resources such as Hack The Box and GitHub repositories, which aid in skill improvement across various domains like assembly, automation, persistence, vision, and experience.", "tags": *id001, "title": "Hacking Tutorials, Tools"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["quantum computer", "open source software", "hardware project", "CAD", "3D printing", "PCB manufacturing", "profitable project"], "category": "Quantum Computing", "date": "2022-12-10 08:15:03", "description": "This article explores the idea of building a quantum computer at home using open-source software and hardware, along with skills such as CAD, 3D printing, and PCB manufacturing. However, it encourages readers to consider alternative projects with more potential for profit.", "tags": *id001, "title": "make a quantum computer at home"}
+{"categories": &id001 ["quantum computer", "open source software", "hardware project", "CAD", "3D printing", "PCB manufacturing", "profitable project"], "category": "Quantum Computing", "date": "2022-12-10 08:15:03", "description": "This article explores the idea of building a quantum computer at home using open-source software and hardware, along with skills such as CAD, 3D printing, and PCB manufacturing. However, it encourages readers to consider alternative projects with more potential for profit.", "tags": *id001, "title": "Make A Quantum Computer At Home"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["RSA", "public key generation", "Git repo sync", "deploying public keys", "duplicate prevention"], "category": "Security", "date": "2022-09-25 03:09:54", "description": "This article explains the process of generating a new public key using an RSA private key. It is important when deploying public keys to avoid duplicates, particularly when utilizing the Git repo sync tool.", "tags": *id001, "title": "generate publickey again with rsa private key"}
+{"categories": &id001 ["RSA", "public key generation", "Git repo sync", "deploying public keys", "duplicate prevention"], "category": "Security", "date": "2022-09-25 03:09:54", "description": "This article explains the process of generating a new public key using an RSA private key. It is important when deploying public keys to avoid duplicates, particularly when utilizing the Git repo sync tool.", "tags": *id001, "title": "Generate Publickey Again With Rsa Private Key"}
 
 ---
 

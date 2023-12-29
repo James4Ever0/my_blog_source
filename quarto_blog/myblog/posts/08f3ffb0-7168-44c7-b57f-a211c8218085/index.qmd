@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["macos", "terminal", "trash", "cli", "trash-cli", "cmdutils", "cmd-recycle"], "category": "Trash Management", "date": "2023-08-19 18:09:18", "description": "Learn how to empty the trash on MacOS using a terminal and discover an alternative cross-platform CLI tool called 'trash-cli' for managing your personal recycle bin. Additionally, explore other related tools such as cmdutils, cmd-recycle, and nircmd for Windows.", "tags": *id001, "title": "recycle bin, trash can cli alternative"}
+{"categories": &id001 ["macos", "terminal", "trash", "cli", "trash-cli", "cmdutils", "cmd-recycle"], "category": "Trash Management", "date": "2023-08-19 18:09:18", "description": "Learn how to empty the trash on MacOS using a terminal and discover an alternative cross-platform CLI tool called 'trash-cli' for managing your personal recycle bin. Additionally, explore other related tools such as cmdutils, cmd-recycle, and nircmd for Windows.", "tags": *id001, "title": "Recycle Bin, Trash Can Cli Alternative"}
 
 ---
 

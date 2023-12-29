@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ADB", "Android", "WiFi", "Security", "Password Protection", "Enabling", "Disabling"], "category": "Security", "date": "2022-11-04 01:10:42", "description": "This article provides step-by-step instructions on how to enable and disable ADB over WiFi on Android devices. It also emphasizes the importance of implementing password protection for security reasons.", "tags": *id001, "title": "adb wifi always on"}
+{"categories": &id001 ["ADB", "Android", "WiFi", "Security", "Password Protection", "Enabling", "Disabling"], "category": "Security", "date": "2022-11-04 01:10:42", "description": "This article provides step-by-step instructions on how to enable and disable ADB over WiFi on Android devices. It also emphasizes the importance of implementing password protection for security reasons.", "tags": *id001, "title": "Adb Wifi Always On"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["CACANi software", "Themida unpacker", "unlicense", "manual unpacking", "dissatisfaction", "software review", "tedious process"], "category": "CACANi Software", "date": "2022-12-05 08:04:25", "description": "A user shares their disappointment with the CACANi software and looks for ways to unpack Themida or obtain an unlicense. They explain that manually unpacking Themida is a cumbersome task.", "tags": *id001, "title": "themida unpacker"}
+{"categories": &id001 ["CACANi software", "Themida unpacker", "unlicense", "manual unpacking", "dissatisfaction", "software review", "tedious process"], "category": "CACANi Software", "date": "2022-12-05 08:04:25", "description": "A user shares their disappointment with the CACANi software and looks for ways to unpack Themida or obtain an unlicense. They explain that manually unpacking Themida is a cumbersome task.", "tags": *id001, "title": "Themida Unpacker"}
 
 ---
 

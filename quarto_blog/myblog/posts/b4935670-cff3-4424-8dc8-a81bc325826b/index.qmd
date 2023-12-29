@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["TensorFlow.js", "Code documentation", "Client-side compute resources", "Precomputed vector spaces", "Searching", "Local storage", "Customization"], "category": "TensorFlow.js", "date": "2023-12-01 11:26:49", "description": "This article discusses the utilization of TensorFlow.js for code documentation and client-side computations, leveraging precomputed vector spaces for search functionality, and employing local storage for customization purposes.", "tags": *id001, "title": "Document your code with AI, and use client-side compute resources"}
+{"categories": &id001 ["TensorFlow.js", "Code documentation", "Client-side compute resources", "Precomputed vector spaces", "Searching", "Local storage", "Customization"], "category": "TensorFlow.js", "date": "2023-12-01 11:26:49", "description": "This article discusses the utilization of TensorFlow.js for code documentation and client-side computations, leveraging precomputed vector spaces for search functionality, and employing local storage for customization purposes.", "tags": *id001, "title": "Document Your Code With Ai, And Use Client-Side Compute Resources"}
 
 ---
 

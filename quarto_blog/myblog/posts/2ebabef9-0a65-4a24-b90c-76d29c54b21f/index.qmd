@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["graph database", "pyjom", "self-learning", "syntax"], "category": "Neo4j", "date": "2022-06-03 02:05:00", "description": "This article explains the use of Neo4j for indexing, querying relationships, and creating recommendation systems using customer ratings and cosine similarity calculations. The comments provide code examples, update node properties, and cover static/dynamic value access in maps and lists for sorting and filtering items by topics or properties.", "tags": *id001, "title": "Neo4j learning notes"}
+{"categories": &id001 ["graph database", "pyjom", "self-learning", "syntax"], "category": "Neo4j", "date": "2022-06-03 02:05:00", "description": "This article explains the use of Neo4j for indexing, querying relationships, and creating recommendation systems using customer ratings and cosine similarity calculations. The comments provide code examples, update node properties, and cover static/dynamic value access in maps and lists for sorting and filtering items by topics or properties.", "tags": *id001, "title": "Neo4J Learning Notes"}
 
 ---
 

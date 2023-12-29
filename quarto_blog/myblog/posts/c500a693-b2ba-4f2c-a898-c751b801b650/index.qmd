@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["DARPA", "machine learning", "software exploits", "assembly", "Python", "Neural Machine Translation", "natural language descriptions"], "category": "Machine Learning", "date": "2022-12-07 06:39:45", "description": "The DARPA competition utilizes machine learning to generate software exploits in assembly and Python using Neural Machine Translation for natural language descriptions. This includes modifying Java bytecode and filtering HTML requests.", "tags": *id001, "title": "Cyber Grand Challenge DARPA machine automated cyber attack"}
+{"categories": &id001 ["DARPA", "machine learning", "software exploits", "assembly", "Python", "Neural Machine Translation", "natural language descriptions"], "category": "Machine Learning", "date": "2022-12-07 06:39:45", "description": "The DARPA competition utilizes machine learning to generate software exploits in assembly and Python using Neural Machine Translation for natural language descriptions. This includes modifying Java bytecode and filtering HTML requests.", "tags": *id001, "title": "Cyber Grand Challenge Darpa Machine Automated Cyber Attack"}
 
 ---
 

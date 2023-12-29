@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["bilibili", "community rules", "courses", "creater's rules", "intro", "rules"], "category": "Recommendation Algorithms", "date": "2022-06-10 07:15:32", "description": "This article discusses the process of submitting and recommending videos on platforms like Bilibili. It explores video processing, content moderation, and recommendation algorithms based on scene characteristics, user behavior, and content quality.", "tags": *id001, "title": "bilibili up主 入站了解 运作机制"}
+{"categories": &id001 ["bilibili", "community rules", "courses", "creater's rules", "intro", "rules"], "category": "Recommendation Algorithms", "date": "2022-06-10 07:15:32", "description": "This article discusses the process of submitting and recommending videos on platforms like Bilibili. It explores video processing, content moderation, and recommendation algorithms based on scene characteristics, user behavior, and content quality.", "tags": *id001, "title": "Bilibili Up主 入站了解 运作机制"}
 
 ---
 

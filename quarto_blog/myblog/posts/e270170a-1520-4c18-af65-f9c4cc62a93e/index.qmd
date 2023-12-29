@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Dubbo", "Python", "XML-RPC", "remote procedure call", "numpy arrays", "tutorials", "Dubbo services"], "category": "Remote Procedure Call Technologies", "date": "2022-12-13 12:08:27", "description": "This article compares Dubbo and Python's XML-RPC as remote procedure call technologies, discussing their capabilities in handling native structures like numpy arrays. It also provides tutorial links for detecting if Dubbo services are functioning normally, along with warnings against ads when opening specific URLs.", "tags": *id001, "title": "dubbo and python xmlrpc"}
+{"categories": &id001 ["Dubbo", "Python", "XML-RPC", "remote procedure call", "numpy arrays", "tutorials", "Dubbo services"], "category": "Remote Procedure Call Technologies", "date": "2022-12-13 12:08:27", "description": "This article compares Dubbo and Python's XML-RPC as remote procedure call technologies, discussing their capabilities in handling native structures like numpy arrays. It also provides tutorial links for detecting if Dubbo services are functioning normally, along with warnings against ads when opening specific URLs.", "tags": *id001, "title": "Dubbo And Python Xmlrpc"}
 
 ---
 

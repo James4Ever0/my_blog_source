@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["WeChat Pay", "Alipay", "payment systems", "sending money", "receiving money", "QR codes", "mobile payments"], "category": "Payment Systems", "date": "2022-09-01 18:24:19", "description": "WeChat Pay and Alipay are popular payment systems in China that facilitate sending and receiving money, as well as scanning and generating QR codes for transactions.", "tags": *id001, "title": "Understanding WeChat Pay and Alipay: The Popular Payment Systems in China"}
+{"categories": &id001 ["WeChat Pay", "Alipay", "payment systems", "sending money", "receiving money", "QR codes", "mobile payments"], "category": "Payment Systems", "date": "2022-09-01 18:24:19", "description": "WeChat Pay and Alipay are popular payment systems in China that facilitate sending and receiving money, as well as scanning and generating QR codes for transactions.", "tags": *id001, "title": "Understanding Wechat Pay And Alipay: The Popular Payment Systems In China"}
 
 ---
 

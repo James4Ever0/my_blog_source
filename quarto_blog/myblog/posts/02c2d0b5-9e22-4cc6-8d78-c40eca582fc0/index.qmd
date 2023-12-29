@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["docprompting", "ColBERT", "RoBERTa", "search engine update", "file lists", "index scanning", "minibatches"], "category": "Search Engines", "date": "2022-12-13 18:09:13", "description": "This article discusses an efficient method for updating a search engine using advanced tools such as docprompting, ColBERT, and RoBERTa. The process involves managing file lists, scanning new files based on the index, merging, saving, and removing old indexes while also handling large datasets in minibatches when necessary.", "tags": *id001, "title": "lazero search engine update logic"}
+{"categories": &id001 ["docprompting", "ColBERT", "RoBERTa", "search engine update", "file lists", "index scanning", "minibatches"], "category": "Search Engines", "date": "2022-12-13 18:09:13", "description": "This article discusses an efficient method for updating a search engine using advanced tools such as docprompting, ColBERT, and RoBERTa. The process involves managing file lists, scanning new files based on the index, merging, saving, and removing old indexes while also handling large datasets in minibatches when necessary.", "tags": *id001, "title": "Lazero Search Engine Update Logic"}
 
 ---
 

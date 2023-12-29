@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["circumvention", "deduplicate", "paraphraser", "social media", "伪原创"], "category": "strategies for defeating deduplicate algorithms", "date": "2022-04-09 19:39:01", "description": "This article explores various tactics to bypass deduplicate algorithms, including employing paraphrasing techniques or video manipulation methods to maintain consistency and effectiveness in the content.", "tags": *id001, "title": "Minor changes will defeat deduplicate algorithm while maintain overall fluency"}
+{"categories": &id001 ["circumvention", "deduplicate", "paraphraser", "social media", "伪原创"], "category": "strategies for defeating deduplicate algorithms", "date": "2022-04-09 19:39:01", "description": "This article explores various tactics to bypass deduplicate algorithms, including employing paraphrasing techniques or video manipulation methods to maintain consistency and effectiveness in the content.", "tags": *id001, "title": "Minor Changes Will Defeat Deduplicate Algorithm While Maintain Overall Fluency"}
 
 ---
 

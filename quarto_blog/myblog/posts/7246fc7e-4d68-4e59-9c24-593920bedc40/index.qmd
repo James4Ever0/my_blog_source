@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Java", "Python", "jpype", "pyjnius", "lingua", "text analysis", "language detection"], "category": "Python programming", "date": "2022-09-08 12:48:25", "description": "This article discusses the process of calling Java code from Python using jpype or pyjnius libraries, allowing for seamless integration between the two languages. Additionally, it covers the usage of the com.github.pemistahl.lingua.api library to detect the language within a given text.", "tags": *id001, "title": "calling java from python"}
+{"categories": &id001 ["Java", "Python", "jpype", "pyjnius", "lingua", "text analysis", "language detection"], "category": "Python programming", "date": "2022-09-08 12:48:25", "description": "This article discusses the process of calling Java code from Python using jpype or pyjnius libraries, allowing for seamless integration between the two languages. Additionally, it covers the usage of the com.github.pemistahl.lingua.api library to detect the language within a given text.", "tags": *id001, "title": "Calling Java From Python"}
 
 ---
 

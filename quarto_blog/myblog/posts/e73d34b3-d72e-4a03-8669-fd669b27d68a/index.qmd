@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cookie", "credential", "information gathering", "playwright", "scraping", "stub", "tips"], "category": "Playwright", "date": "2022-06-19 09:41:38", "description": "This blog post delves into Playwright's handling of request headers and cookies, with a focus on the context.cookies() method as an effective solution for addressing cookie-related challenges.", "tags": *id001, "title": "playwright intercept request header cookie"}
+{"categories": &id001 ["cookie", "credential", "information gathering", "playwright", "scraping", "stub", "tips"], "category": "Playwright", "date": "2022-06-19 09:41:38", "description": "This blog post delves into Playwright's handling of request headers and cookies, with a focus on the context.cookies() method as an effective solution for addressing cookie-related challenges.", "tags": *id001, "title": "Playwright Intercept Request Header Cookie"}
 
 ---
 

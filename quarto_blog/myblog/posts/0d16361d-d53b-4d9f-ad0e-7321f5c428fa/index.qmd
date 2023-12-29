@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Neo4j", "graph database", "systemd service", "Linux", "installation guide", "configuration file", "tutorial"], "category": "Installation", "date": "2023-01-05 00:03:35", "description": "This instruction offers a configuration file to simplify the installation and management of Neo4j, a graph database, as a systemd service on Linux-based systems.", "tags": *id001, "title": "install neo4j as systemd service"}
+{"categories": &id001 ["Neo4j", "graph database", "systemd service", "Linux", "installation guide", "configuration file", "tutorial"], "category": "Installation", "date": "2023-01-05 00:03:35", "description": "This instruction offers a configuration file to simplify the installation and management of Neo4j, a graph database, as a systemd service on Linux-based systems.", "tags": *id001, "title": "Install Neo4J As Systemd Service"}
 
 ---
 

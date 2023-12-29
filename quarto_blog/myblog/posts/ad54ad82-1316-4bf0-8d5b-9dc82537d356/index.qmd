@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["advocates", "general idea", "idea", "policy", "pyjom", "social media"], "category": "viral_strategies", "date": "2022-05-13 15:26:30", "description": "This article explores tactics for creating viral content by merging videos and essays, targeting the largest audience through native languages. It recommends sharing this content on platforms like QQ using images or links.", "tags": *id001, "title": "Attractive Dynamic plus attractive video"}
+{"categories": &id001 ["advocates", "general idea", "idea", "policy", "pyjom", "social media"], "category": "viral_strategies", "date": "2022-05-13 15:26:30", "description": "This article explores tactics for creating viral content by merging videos and essays, targeting the largest audience through native languages. It recommends sharing this content on platforms like QQ using images or links.", "tags": *id001, "title": "Attractive Dynamic Plus Attractive Video"}
 
 ---
 

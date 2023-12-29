@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["semantic search", "Python libraries", "command line tools", "Slashdot", "SourceForge", "AI-assisted search", "medevel.com"], "category": "Semantic Search", "date": "2022-09-26 15:04:21", "description": "This article explores semantic search techniques using Python libraries, examines command line tools for platforms like Slashdot and SourceForge, delves into AI-assisted search libraries, and provides a curated list of search engines from medevel.com/os.", "tags": *id001, "title": "commandline search engine bridger"}
+{"categories": &id001 ["semantic search", "Python libraries", "command line tools", "Slashdot", "SourceForge", "AI-assisted search", "medevel.com"], "category": "Semantic Search", "date": "2022-09-26 15:04:21", "description": "This article explores semantic search techniques using Python libraries, examines command line tools for platforms like Slashdot and SourceForge, delves into AI-assisted search libraries, and provides a curated list of search engines from medevel.com/os.", "tags": *id001, "title": "Commandline Search Engine Bridger"}
 
 ---
 

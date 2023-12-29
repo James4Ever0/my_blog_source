@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Termux", "certificate", "fastgithub", "openssl-tools", "add-trusted-certificate", "curl", "chromebook"], "category": "Termux", "date": "2022-12-09 18:55:52", "description": "This article provides detailed instructions on how to add a certificate to Termux for fastgithub, including steps for installing OpenSSL tools and using the add-trusted-certificate command. Additionally, an alternative method is explained for chromebooks involving nginx and configuring proxy settings.", "tags": *id001, "title": "add certificate to termux, especially for fastgithub"}
+{"categories": &id001 ["Termux", "certificate", "fastgithub", "openssl-tools", "add-trusted-certificate", "curl", "chromebook"], "category": "Termux", "date": "2022-12-09 18:55:52", "description": "This article provides detailed instructions on how to add a certificate to Termux for fastgithub, including steps for installing OpenSSL tools and using the add-trusted-certificate command. Additionally, an alternative method is explained for chromebooks involving nginx and configuring proxy settings.", "tags": *id001, "title": "Add Certificate To Termux, Especially For Fastgithub"}
 
 ---
 

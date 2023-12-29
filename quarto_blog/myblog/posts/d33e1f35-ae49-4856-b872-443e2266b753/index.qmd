@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["webpage rendering", "animation capabilities", "Splash service", "documentation", "Splash documentation"], "category": "Webpage Rendering", "date": "2022-11-12 05:06:55", "description": "Splash is a webpage rendering service offering animation capabilities, further detailed in the Splash documentation.", "tags": *id001, "title": "splash: webpage rendering service"}
+{"categories": &id001 ["webpage rendering", "animation capabilities", "Splash service", "documentation", "Splash documentation"], "category": "Webpage Rendering", "date": "2022-11-12 05:06:55", "description": "Splash is a webpage rendering service offering animation capabilities, further detailed in the Splash documentation.", "tags": *id001, "title": "Splash: Webpage Rendering Service"}
 
 ---
 

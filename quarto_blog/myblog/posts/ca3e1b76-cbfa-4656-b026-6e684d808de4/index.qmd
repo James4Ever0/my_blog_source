@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["probabilistic programming", "Pyro", "PyMC3", "Beta-Binomial likelihoods", "MCMC techniques", "Gamma priors", "model creation"], "category": "Probabilistic Programming", "date": "2022-12-18 19:35:17", "description": "Pyro and PyMC3 are programming languages designed for probabilistic programming. PyMC3, in particular, utilizes Beta-Binomial likelihoods, Markov Chain Monte Carlo (MCMC) techniques, and Gamma priors for creating models, sampling data, and calculating statistics.", "tags": *id001, "title": "pyro and pymc3 basics"}
+{"categories": &id001 ["probabilistic programming", "Pyro", "PyMC3", "Beta-Binomial likelihoods", "MCMC techniques", "Gamma priors", "model creation"], "category": "Probabilistic Programming", "date": "2022-12-18 19:35:17", "description": "Pyro and PyMC3 are programming languages designed for probabilistic programming. PyMC3, in particular, utilizes Beta-Binomial likelihoods, Markov Chain Monte Carlo (MCMC) techniques, and Gamma priors for creating models, sampling data, and calculating statistics.", "tags": *id001, "title": "Pyro And Pymc3 Basics"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Pyro", "Text generation", "PyTorch", "Object detection", "Image watermark removal", "Hidden states", "Custom datasets"], "category": "Natural Language Generation", "date": "2022-12-16 13:08:20", "description": "This article discusses the use of Pyro and PyTorch for tasks such as text generation, object detection, and image watermark removal. The first comment focuses on the importance of hidden states in generating text using Pyro, while the second comment emphasizes training custom datasets and employing RNN/Transformer models for natural language generation with PyTorch.", "tags": *id001, "title": "chatgpt on pyro and pytorch"}
+{"categories": &id001 ["Pyro", "Text generation", "PyTorch", "Object detection", "Image watermark removal", "Hidden states", "Custom datasets"], "category": "Natural Language Generation", "date": "2022-12-16 13:08:20", "description": "This article discusses the use of Pyro and PyTorch for tasks such as text generation, object detection, and image watermark removal. The first comment focuses on the importance of hidden states in generating text using Pyro, while the second comment emphasizes training custom datasets and employing RNN/Transformer models for natural language generation with PyTorch.", "tags": *id001, "title": "Chatgpt On Pyro And Pytorch"}
 
 ---
 

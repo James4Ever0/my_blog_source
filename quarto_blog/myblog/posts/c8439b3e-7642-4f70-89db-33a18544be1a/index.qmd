@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["polygons", "rectangles", "conversion tools", "rectirization", "extractrect", "rectlinear polygon decomposition", "image processing"], "category": "Rectangularization Methods", "date": "2022-09-07 04:42:13", "description": "This article explores the techniques of transforming polygons into rectangles using tools like rectirization, extractrect, and rectlinear polygon decomposition. These methods are useful in various applications such as computer vision, robotics, and digital mapping.", "tags": *id001, "title": "rectangle related calculation"}
+{"categories": &id001 ["polygons", "rectangles", "conversion tools", "rectirization", "extractrect", "rectlinear polygon decomposition", "image processing"], "category": "Rectangularization Methods", "date": "2022-09-07 04:42:13", "description": "This article explores the techniques of transforming polygons into rectangles using tools like rectirization, extractrect, and rectlinear polygon decomposition. These methods are useful in various applications such as computer vision, robotics, and digital mapping.", "tags": *id001, "title": "Rectangle Related Calculation"}
 
 ---
 

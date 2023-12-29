@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["schedule"], "category": "Hacking Tutorials", "date": "2022-08-17 19:13:02", "description": "This article provides insights on locating free hacking tutorials and optimizing hacking schedules. It covers various indexing tools, search engines, GitHub coin mining, SEO enhancements, and utilizes popular hacking tools such as Frida, Cutter, Radare2, and solves CTF challenges.", "tags": *id001, "title": "hacking schedules"}
+{"categories": &id001 ["schedule"], "category": "Hacking Tutorials", "date": "2022-08-17 19:13:02", "description": "This article provides insights on locating free hacking tutorials and optimizing Hacking Schedules. It covers various indexing tools, search engines, GitHub coin mining, SEO enhancements, and utilizes popular hacking tools such as Frida, Cutter, Radare2, and solves CTF challenges.", "tags": *id001, "title": "hacking schedules"}
 
 ---
 

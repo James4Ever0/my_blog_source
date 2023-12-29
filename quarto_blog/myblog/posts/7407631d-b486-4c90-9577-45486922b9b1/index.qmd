@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["popular topic discovery", "pyjom", "SEO", "text analysis", "topic analysis", "trend analysis"], "category": "Search Engine Optimization", "date": "2022-07-14 02:40:43", "description": "This article explores SEO strategies for targeting low competition keywords, maximizing conversion rates and trade-off prices. It also covers black hat practices and alternative methods without a website. Additionally, the article delves into utilizing n-gram analysis in Python to cluster keywords for video content optimization by analyzing click rates and play counts.", "tags": *id001, "title": "SEO 蓝海词 竞争度"}
+{"categories": &id001 ["popular topic discovery", "pyjom", "SEO", "text analysis", "topic analysis", "trend analysis"], "category": "Search Engine Optimization", "date": "2022-07-14 02:40:43", "description": "This article explores SEO strategies for targeting low competition keywords, maximizing conversion rates and trade-off prices. It also covers black hat practices and alternative methods without a website. Additionally, the article delves into utilizing n-gram analysis in Python to cluster keywords for video content optimization by analyzing click rates and play counts.", "tags": *id001, "title": "Seo 蓝海词 竞争度"}
 
 ---
 

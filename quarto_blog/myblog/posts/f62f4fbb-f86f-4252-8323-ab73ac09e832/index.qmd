@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["chatbot", "conversation", "information gathering", "pyjom", "scraping", "video generator"], "category": "Bot Development", "date": "2022-05-24 05:30:47", "description": "This article provides insights on creating QQ-style chat interfaces using Vue, and offers a list of useful GitHub repositories for WeChat API, bot development, and reverse engineering tools. It emphasizes the significance of implementing content filtering and classification to prevent any potential controversies.", "tags": *id001, "title": "QQ 微信 信息提取 bot搭建"}
+{"categories": &id001 ["chatbot", "conversation", "information gathering", "pyjom", "scraping", "video generator"], "category": "Bot Development", "date": "2022-05-24 05:30:47", "description": "This article provides insights on creating QQ-style chat interfaces using Vue, and offers a list of useful GitHub repositories for WeChat API, bot development, and reverse engineering tools. It emphasizes the significance of implementing content filtering and classification to prevent any potential controversies.", "tags": *id001, "title": "Qq 微信 信息提取 Bot搭建"}
 
 ---
 

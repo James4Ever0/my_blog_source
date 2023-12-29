@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["cheatsheet", "database", "mongodb", "reference"], "category": "Database", "date": "2022-06-03 08:08:56", "description": "This reference link leads to a MongoDB cheatsheet, which can be accessed via the given URL: https://www.mongodb.com/developer/products/mongodb/cheat-sheet/. The cheatsheet provides a quick and easy way to remember essential commands and concepts related to MongoDB.", "tags": *id001, "title": "MongoDB Cheatsheet"}
+{"categories": &id001 ["cheatsheet", "database", "mongodb", "reference"], "category": "Database", "date": "2022-06-03 08:08:56", "description": "This reference link leads to a MongoDB cheatsheet, which can be accessed via the given URL: https://www.mongodb.com/developer/products/mongodb/cheat-sheet/. The cheatsheet provides a quick and easy way to remember essential commands and concepts related to MongoDB.", "tags": *id001, "title": "Mongodb Cheatsheet"}
 
 ---
 

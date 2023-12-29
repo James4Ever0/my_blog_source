@@ -1,5 +1,5 @@
 ---
-{"category": "Text-to-Video Projects", "created": "2022-12-08T15:55:56.145Z", "date": "2022-12-08 15:55:56", "description": "Text-to-video projects like make-a-video, Maria, OFA, GEN-2, CogVideo, Nuwa, MoCoGAN, tgan-pytorch, Redditube, and Ningyov employ multimodal techniques with distinctive features, leveraging deep learning for diverse video generation tasks.", "modified": "2022-12-13T16:06:03.701Z", "tags": ["text-to-video", "make-a-video", "Maria", "OFA", "GEN-2", "CogVideo", "Nuwa", "MoCoGAN", "tgan-pytorch", "Redditube", "Ningyov", "multimodal", "deep learning", "video generation"], "title": "make-a-video and its related text to video projects"}
+{"category": "Text-to-Video Projects", "created": "2022-12-08T15:55:56.145Z", "date": "2022-12-08 15:55:56", "description": "Text-to-video projects like make-a-video, Maria, OFA, GEN-2, CogVideo, Nuwa, MoCoGAN, tgan-pytorch, Redditube, and Ningyov employ multimodal techniques with distinctive features, leveraging deep learning for diverse video generation tasks.", "modified": "2022-12-13T16:06:03.701Z", "tags": ["text-to-video", "make-a-video", "Maria", "OFA", "GEN-2", "CogVideo", "Nuwa", "MoCoGAN", "tgan-pytorch", "Redditube", "Ningyov", "multimodal", "deep learning", "video generation"], "title": "Make-A-Video And Its Related Text To Video Projects"}
 
 ---
 

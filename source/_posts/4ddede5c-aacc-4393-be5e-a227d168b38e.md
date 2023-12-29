@@ -1,5 +1,5 @@
 ---
-{"category": "Advanced AI-powered video editors", "created": "2022-12-28T12:20:53.313Z", "date": "2022-12-28 12:20:53", "description": "AI tools like Animoto enable the creation of targeted audience strategies with human input, while advanced AI-powered video editors such as Adobe Premiere Pro, DaVinci Resolve, and Final Cut Pro provide personalized marketing campaigns and messaging.", "modified": "2022-12-28T18:34:47.377Z", "tags": ["AI", "Animoto", "Targeted audience strategies", "Video editors", "Adobe Premiere Pro", "DaVinci Resolve", "Final Cut Pro"], "title": "how to use ai to generate video, distribute them and advertise"}
+{"category": "Advanced AI-powered video editors", "created": "2022-12-28T12:20:53.313Z", "date": "2022-12-28 12:20:53", "description": "AI tools like Animoto enable the creation of targeted audience strategies with human input, while advanced AI-powered video editors such as Adobe Premiere Pro, DaVinci Resolve, and Final Cut Pro provide personalized marketing campaigns and messaging.", "modified": "2022-12-28T18:34:47.377Z", "tags": ["AI", "Animoto", "Targeted audience strategies", "Video editors", "Adobe Premiere Pro", "DaVinci Resolve", "Final Cut Pro"], "title": "How To Use Ai To Generate Video, Distribute Them And Advertise"}
 
 ---
 

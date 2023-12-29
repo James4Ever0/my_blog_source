@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["python", "windows", "encoding", "utf-8", "-X utf8=1", "sys.flags.utf8_mode", "solution"], "category": "Python programming", "date": "2023-07-05 09:39:32", "description": "The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the &grave;-X utf8=1&grave; flag or setting &grave;sys.flags.utf8_mode&grave;. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.", "tags": *id001, "title": "python encoding issue"}
+{"categories": &id001 ["python", "windows", "encoding", "utf-8", "-X utf8=1", "sys.flags.utf8_mode", "solution"], "category": "Python programming", "date": "2023-07-05 09:39:32", "description": "The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the &grave;-X utf8=1&grave; flag or setting &grave;sys.flags.utf8_mode&grave;. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.", "tags": *id001, "title": "Python Encoding Issue"}
 
 ---
 

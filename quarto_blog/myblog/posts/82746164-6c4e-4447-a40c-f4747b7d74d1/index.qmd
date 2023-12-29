@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AMDGPU", "ROCM", "PyTorch", "Vulkan", "OpenGL", "DirectML", "TensorFlow"], "category": "PyTorch", "date": "2023-10-10 17:13:14", "description": "This article addresses the challenges faced while using AMDGPU, ROCM, and PyTorch. It proposes alternative solutions such as Vulkan/OpenGL or DirectML for integrated graphics cards instead of ROCM, and advises checking the Pytorch nightly repo for up-to-date builds.", "tags": *id001, "title": "amdgpu, rocm and pytorch"}
+{"categories": &id001 ["AMDGPU", "ROCM", "PyTorch", "Vulkan", "OpenGL", "DirectML", "TensorFlow"], "category": "PyTorch", "date": "2023-10-10 17:13:14", "description": "This article addresses the challenges faced while using AMDGPU, ROCM, and PyTorch. It proposes alternative solutions such as Vulkan/OpenGL or DirectML for integrated graphics cards instead of ROCM, and advises checking the Pytorch nightly repo for up-to-date builds.", "tags": *id001, "title": "Amdgpu, Rocm And Pytorch"}
 
 ---
 

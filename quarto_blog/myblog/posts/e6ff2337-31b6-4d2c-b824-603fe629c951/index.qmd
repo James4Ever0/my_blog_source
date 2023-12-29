@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Android", "packet capture", "SSL pinning", "Frida scripts", "JustTrustMe Xposed", "SSLUnpinning Xposed", "apk-mitm", "PCAPdroid-API", "HTTP proxy", "ADB"], "category": "Android Security", "date": "2022-11-04 01:22:07", "description": "This article explores Android packet capture methods, including disabling SSL pinning and utilizing tools like Frida scripts, JustTrustMe Xposed, SSLUnpinning Xposed, apk-mitm, or PCAPdroid-API. Additionally, it provides step-by-step instructions for setting up an HTTP proxy via ADB.", "tags": *id001, "title": "android packet capture"}
+{"categories": &id001 ["Android", "packet capture", "SSL pinning", "Frida scripts", "JustTrustMe Xposed", "SSLUnpinning Xposed", "apk-mitm", "PCAPdroid-API", "HTTP proxy", "ADB"], "category": "Android Security", "date": "2022-11-04 01:22:07", "description": "This article explores Android packet capture methods, including disabling SSL pinning and utilizing tools like Frida scripts, JustTrustMe Xposed, SSLUnpinning Xposed, apk-mitm, or PCAPdroid-API. Additionally, it provides step-by-step instructions for setting up an HTTP proxy via ADB.", "tags": *id001, "title": "Android Packet Capture"}
 
 ---
 

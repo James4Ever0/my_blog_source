@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "Pyjom", "Updates", "Platforms", "Viral trends", "Baidu API"], "category": "AI", "date": "2023-02-12 02:15:26", "description": "pyjom's updates focus on improving user experience by fixing timeouts, enabling features for popular platforms, monitoring viral trends, and leveraging data from the Baidu API to enhance its capabilities.", "tags": *id001, "title": "Issues while developing pyjom"}
+{"categories": &id001 ["AI", "Pyjom", "Updates", "Platforms", "Viral trends", "Baidu API"], "category": "AI", "date": "2023-02-12 02:15:26", "description": "pyjom's updates focus on improving user experience by fixing timeouts, enabling features for popular platforms, monitoring viral trends, and leveraging data from the Baidu API to enhance its capabilities.", "tags": *id001, "title": "Issues While Developing Pyjom"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["web scraping", "data extraction", "websites", "proxies", "cookies", "data storage", "categorization"], "category": "Web Scraping", "date": "2022-12-13 18:15:41", "description": "Web scraping is the process of extracting data from websites by selecting targets and utilizing proxies or cookies for access, storing the content in compatible formats, categorizing it, and linking it for efficient retrieval.", "tags": *id001, "title": "web scraping logic"}
+{"categories": &id001 ["web scraping", "data extraction", "websites", "proxies", "cookies", "data storage", "categorization"], "category": "Web Scraping", "date": "2022-12-13 18:15:41", "description": "Web scraping is the process of extracting data from websites by selecting targets and utilizing proxies or cookies for access, storing the content in compatible formats, categorizing it, and linking it for efficient retrieval.", "tags": *id001, "title": "Web Scraping Logic"}
 
 ---
 

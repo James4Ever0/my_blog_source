@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["3d-models", "3d-video", "image-processing", "machine-learning", "tool"], "category": "3D Modeling", "date": "2022-08-22 21:45:24", "description": "This text discusses a method to create 3D models from multiple similar images and generate a 3D video using the tool '3d-moments'. The process involves analyzing the images to extract depth information, which is then used to build a 3D model. This technology has various applications in industries like gaming, architecture, and film making.", "tags": *id001, "title": "Generating 3D Models from Images with the 3d-Moments Tool"}
+{"categories": &id001 ["3d-models", "3d-video", "image-processing", "machine-learning", "tool"], "category": "3D Modeling", "date": "2022-08-22 21:45:24", "description": "This text discusses a method to create 3D models from multiple similar images and generate a 3D video using the tool '3d-moments'. The process involves analyzing the images to extract depth information, which is then used to build a 3D model. This technology has various applications in industries like gaming, architecture, and film making.", "tags": *id001, "title": "Generating 3D Models From Images With The 3D-Moments Tool"}
 
 ---
 

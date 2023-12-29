@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["search engines", "formulas", "textbooks", "latex2sympy", "Mathpix", "im2markup", "online tools"], "category": "search_engines", "date": "2022-08-27 15:40:04", "description": "This article explores different search engines for finding formulas and textbooks, specifically highlighting latex2sympy, Mathpix, and im2markup.", "tags": *id001, "title": "the formula search engine, latex enabled, textbook search engine"}
+{"categories": &id001 ["search engines", "formulas", "textbooks", "latex2sympy", "Mathpix", "im2markup", "online tools"], "category": "search_engines", "date": "2022-08-27 15:40:04", "description": "This article explores different search engines for finding formulas and textbooks, specifically highlighting latex2sympy, Mathpix, and im2markup.", "tags": *id001, "title": "The Formula Search Engine, Latex Enabled, Textbook Search Engine"}
 
 ---
 

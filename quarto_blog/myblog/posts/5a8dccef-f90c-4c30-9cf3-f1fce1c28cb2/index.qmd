@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["automatic software test", "iOS", "software testing"], "category": "iOS device control", "date": "2022-02-24 13:46:29", "description": "This article explores the process of controlling iOS devices with AirTest, which requires macOS for compiling IPA files and jailbroken devices. It also introduces iOS Tagent as a possible alternative solution and provides links to taobao-iphone-device and apowermirror as potential tools.", "tags": *id001, "title": "IOS airtest control windows"}
+{"categories": &id001 ["automatic software test", "iOS", "software testing"], "category": "iOS device control", "date": "2022-02-24 13:46:29", "description": "This article explores the process of controlling iOS devices with AirTest, which requires macOS for compiling IPA files and jailbroken devices. It also introduces iOS Tagent as a possible alternative solution and provides links to taobao-iphone-device and apowermirror as potential tools.", "tags": *id001, "title": "Ios Airtest Control Windows"}
 
 ---
 

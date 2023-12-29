@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Deep Audio Prior", "DAP", "Audio watermarks", "FFmpeg", "Sound separation", "Watermarker removal", "Music sounds"], "category": "Audio Processing", "date": "2022-09-13 00:28:28", "description": "This article explains a technique to remove audio watermarks from recordings using Deep Audio Prior (DAP) and FFmpeg. DAP separates the sounds with watermarkers, creating individual music sounds and the corresponding watermarker, allowing for easy removal of the watermark.", "tags": *id001, "title": "audio watermark removal"}
+{"categories": &id001 ["Deep Audio Prior", "DAP", "Audio watermarks", "FFmpeg", "Sound separation", "Watermarker removal", "Music sounds"], "category": "Audio Processing", "date": "2022-09-13 00:28:28", "description": "This article explains a technique to remove audio watermarks from recordings using Deep Audio Prior (DAP) and FFmpeg. DAP separates the sounds with watermarkers, creating individual music sounds and the corresponding watermarker, allowing for easy removal of the watermark.", "tags": *id001, "title": "Audio Watermark Removal"}
 
 ---
 

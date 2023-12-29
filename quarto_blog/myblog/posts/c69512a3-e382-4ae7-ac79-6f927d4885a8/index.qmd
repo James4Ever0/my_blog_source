@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Linux", "Resource Utilization", "Monitoring Tools", "htop", "s-tui", "RAM", "CPU/GPU Temperatures"], "category": "System Monitoring", "date": "2023-08-13 07:14:25", "description": "This resource utilization monitor tool is specifically designed for Linux systems, providing features such as htop to track RAM usage and processes, along with s-tui for monitoring CPU/GPU temperatures. It is a helpful tool for keeping an eye on system resources in real-time.", "tags": *id001, "title": "resource utilization monitor tool"}
+{"categories": &id001 ["Linux", "Resource Utilization", "Monitoring Tools", "htop", "s-tui", "RAM", "CPU/GPU Temperatures"], "category": "System Monitoring", "date": "2023-08-13 07:14:25", "description": "This Resource Utilization Monitor Tool is specifically designed for Linux systems, providing features such as htop to track RAM usage and processes, along with s-tui for monitoring CPU/GPU temperatures. It is a helpful tool for keeping an eye on system resources in real-time.", "tags": *id001, "title": "resource utilization monitor tool"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Windows Server", "Password reset", "chntpw", "Utilman.exe", "cmd.exe", "net user command", "Command prompt"], "category": "Password Reset", "date": "2023-08-16 15:23:39", "description": "This article provides a step-by-step guide on how to reset a Windows Server password when it cannot be fixed by &grave;chntpw&grave;. The process involves swapping &grave;Utilman.exe&grave; with &grave;cmd.exe&grave;, accessing the command prompt through widgets, and using the &grave;net user&grave; command to reset the password.", "tags": *id001, "title": "reset windows server password"}
+{"categories": &id001 ["Windows Server", "Password reset", "chntpw", "Utilman.exe", "cmd.exe", "net user command", "Command prompt"], "category": "Password Reset", "date": "2023-08-16 15:23:39", "description": "This article provides a step-by-step guide on how to reset a Windows Server password when it cannot be fixed by &grave;chntpw&grave;. The process involves swapping &grave;Utilman.exe&grave; with &grave;cmd.exe&grave;, accessing the command prompt through widgets, and using the &grave;net user&grave; command to reset the password.", "tags": *id001, "title": "Reset Windows Server Password"}
 
 ---
 

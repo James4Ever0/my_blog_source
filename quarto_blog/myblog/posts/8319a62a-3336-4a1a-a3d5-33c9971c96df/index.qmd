@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI", "media search engine", "search engine", "self-hosted"], "category": "Neural Search Engines", "date": "2022-05-29 05:18:28", "description": "Jina is a neural search engine that enables users to efficiently search for images, videos, and audios. It leverages popular libraries like openclip, haystack, towhee, and Milvus to provide pre-trained models and workflows through Jina Hub. Additionally, VCED offers tutorials in machine learning topics.", "tags": *id001, "title": "Jina: Neural Search Engine for Images, Videos, Audios"}
+{"categories": &id001 ["AI", "media search engine", "search engine", "self-hosted"], "category": "Neural Search Engines", "date": "2022-05-29 05:18:28", "description": "Jina is a neural search engine that enables users to efficiently search for images, videos, and audios. It leverages popular libraries like openclip, haystack, towhee, and Milvus to provide pre-trained models and workflows through Jina Hub. Additionally, VCED offers tutorials in machine learning topics.", "tags": *id001, "title": "Jina: Neural Search Engine For Images, Videos, Audios"}
 
 ---
 

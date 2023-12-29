@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Capture the Flag", "CTF competitions", "ctfhub.com", "ctftime.org", "ctf-tools", "ctf-wiki.org", "resources for CTF participants"], "category": "ctf competitions", "date": "2022-12-05 08:55:47", "description": "This article highlights three valuable resources for participants in Capture the Flag (CTF) competitions: ctfhub.com, ctftime.org, and ctf-tools from ctf-wiki.org. These websites and tools offer useful information and assistance to help competitors navigate and excel in CTF events.", "tags": *id001, "title": "ctf related"}
+{"categories": &id001 ["Capture the Flag", "CTF competitions", "ctfhub.com", "ctftime.org", "ctf-tools", "ctf-wiki.org", "resources for CTF participants"], "category": "ctf competitions", "date": "2022-12-05 08:55:47", "description": "This article highlights three valuable resources for participants in Capture the Flag (CTF) competitions: ctfhub.com, ctftime.org, and ctf-tools from ctf-wiki.org. These websites and tools offer useful information and assistance to help competitors navigate and excel in CTF events.", "tags": *id001, "title": "Ctf Related"}
 
 ---
 

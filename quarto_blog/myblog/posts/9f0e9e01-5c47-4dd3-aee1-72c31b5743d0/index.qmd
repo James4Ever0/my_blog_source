@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Audio-Visual", "Active Speaker Detection", "Leaderboard", "SPL+", "Speech Recognition", "Advancements in Technology", "Identifying Speakers"], "category": "Speaker Detection", "date": "2022-09-17 11:20:08", "description": "This article explores the advancements in audio-visual active speaker detection technology, discussing recent developments and potential references to a leaderboard and SPL+. The article delves into the identification of speakers within an audiovisual context and how these technologies are evolving.", "tags": *id001, "title": "audio-visual active speaker detection"}
+{"categories": &id001 ["Audio-Visual", "Active Speaker Detection", "Leaderboard", "SPL+", "Speech Recognition", "Advancements in Technology", "Identifying Speakers"], "category": "Speaker Detection", "date": "2022-09-17 11:20:08", "description": "This article explores the advancements in Audio-Visual Active Speaker Detection technology, discussing recent developments and potential references to a leaderboard and SPL+. The article delves into the identification of speakers within an audiovisual context and how these technologies are evolving.", "tags": *id001, "title": "audio-visual active speaker detection"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["image sources", "images", "information gathering", "jokes", "text sources", "video sources"], "category": "Programming Humor", "date": "2022-05-31 06:20:30", "description": "This article discusses a collection of programmer jokes, including a list from Runoob and Telegram channels dedicated to programming humor.", "tags": *id001, "title": "程序员笑话 可当文案 jokes about programmers"}
+{"categories": &id001 ["image sources", "images", "information gathering", "jokes", "text sources", "video sources"], "category": "Programming Humor", "date": "2022-05-31 06:20:30", "description": "This article discusses a collection of programmer jokes, including a list from Runoob and Telegram channels dedicated to programming humor.", "tags": *id001, "title": "程序员笑话 可当文案 Jokes About Programmers"}
 
 ---
 

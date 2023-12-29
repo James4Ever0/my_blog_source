@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ideas", "producer", "pyjom", "structure"], "category": "Audio Processing", "date": "2022-05-07 11:09:20", "description": "The 'pyjom producer' is a process designed for analyzing audio and video separately. Audio can be processed in chunks or split tracks, allowing for more efficient analysis. However, to analyze the video, it needs to be iterated frame by frame.", "tags": *id001, "title": "pyjom producer"}
+{"categories": &id001 ["ideas", "producer", "pyjom", "structure"], "category": "Audio Processing", "date": "2022-05-07 11:09:20", "description": "The 'Pyjom Producer' is a process designed for analyzing audio and video separately. Audio can be processed in chunks or split tracks, allowing for more efficient analysis. However, to analyze the video, it needs to be iterated frame by frame.", "tags": *id001, "title": "pyjom producer"}
 
 ---
 

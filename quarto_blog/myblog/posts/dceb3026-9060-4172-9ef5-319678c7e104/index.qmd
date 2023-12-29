@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["credential", "remote control", "stub", "test", "VNC"], "category": "Kali Linux", "date": "2022-08-09 18:42:03", "description": "This article provides detailed instructions on how to install and run x11vnc on a Kali Linux system. However, it also recommends using Nomachine instead due to its NX-based foundation. The article includes a password and various example command lines for proper execution.", "tags": *id001, "title": "x11vnc test on kali"}
+{"categories": &id001 ["credential", "remote control", "stub", "test", "VNC"], "category": "Kali Linux", "date": "2022-08-09 18:42:03", "description": "This article provides detailed instructions on how to install and run x11vnc on a Kali Linux system. However, it also recommends using Nomachine instead due to its NX-based foundation. The article includes a password and various example command lines for proper execution.", "tags": *id001, "title": "X11Vnc Test On Kali"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Numpy", "Duplicate removal", "Arrays", "np.unique()", "Pandas", "Drop_duplicates", "Dupandas"], "category": "Numpy", "date": "2022-09-17 06:49:15", "description": "This article explains how to remove duplicates from numpy arrays using np.unique(). Additionally, it provides resources on dupandas for custom rules and the pandas drop_duplicates function.", "tags": *id001, "title": "numpy and pandas deduplication"}
+{"categories": &id001 ["Numpy", "Duplicate removal", "Arrays", "np.unique()", "Pandas", "Drop_duplicates", "Dupandas"], "category": "Numpy", "date": "2022-09-17 06:49:15", "description": "This article explains how to remove duplicates from numpy arrays using np.unique(). Additionally, it provides resources on dupandas for custom rules and the pandas drop_duplicates function.", "tags": *id001, "title": "Numpy And Pandas Deduplication"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["network", "online", "stub", "system avaliablity", "白嫖"], "category": "Network Switching", "date": "2022-08-12 16:27:39", "description": "This text provides a detailed guide on automatic network switching for CMCC (China Mobile Communications Group) network, discussing how to avoid bandwidth limitations and automate the process using Kali Linux, with instructions for various devices such as macOS and Linux. It also explains different connection methods based on CMCC availability and offers manual internet switching options to save power.", "tags": *id001, "title": "Automatic CMCC network switching"}
+{"categories": &id001 ["network", "online", "stub", "system avaliablity", "白嫖"], "category": "Network Switching", "date": "2022-08-12 16:27:39", "description": "This text provides a detailed guide on automatic network switching for CMCC (China Mobile Communications Group) network, discussing how to avoid bandwidth limitations and automate the process using Kali Linux, with instructions for various devices such as macOS and Linux. It also explains different connection methods based on CMCC availability and offers manual internet switching options to save power.", "tags": *id001, "title": "Automatic Cmcc Network Switching"}
 
 ---
 

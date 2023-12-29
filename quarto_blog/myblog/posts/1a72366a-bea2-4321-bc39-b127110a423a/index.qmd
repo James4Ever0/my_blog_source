@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["API", "chatbot", "information gathering", "MITM", "project", "pyjom", "scraping", "social media"], "category": "Security", "date": "2022-05-28 16:15:24", "description": "This article provides guidance on creating a chat environment for conducting Man-in-the-Middle (MITM) attacks, along with suggesting tools and APIs to access data from various social media platforms like Reddit, Tumblr, Discord, Twitter, Facebook, and Instagram. By following the instructions in this article, you'll be able to effectively execute MITM attacks and gather valuable information from these popular social media networks.", "tags": *id001, "title": "IM MITM 聊天软件MITM"}
+{"categories": &id001 ["API", "chatbot", "information gathering", "MITM", "project", "pyjom", "scraping", "social media"], "category": "Security", "date": "2022-05-28 16:15:24", "description": "This article provides guidance on creating a chat environment for conducting Man-in-the-Middle (MITM) attacks, along with suggesting tools and APIs to access data from various social media platforms like Reddit, Tumblr, Discord, Twitter, Facebook, and Instagram. By following the instructions in this article, you'll be able to effectively execute MITM attacks and gather valuable information from these popular social media networks.", "tags": *id001, "title": "Im Mitm 聊天软件Mitm"}
 
 ---
 

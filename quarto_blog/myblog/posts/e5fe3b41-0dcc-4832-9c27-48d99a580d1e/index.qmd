@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["MITM attacks", "Delayed MITM", "Image embeddings", "Reverse search", "Topic detection", "Strangers communication", "Unknowingly discussing topics"], "category": "Security", "date": "2022-10-14 11:09:39", "description": "Yukio explores delayed MITM attacks, utilizing image embeddings and reverse search to identify instances where strangers inadvertently discuss the same topic prior to disconnecting.", "tags": *id001, "title": "mitmchat"}
+{"categories": &id001 ["MITM attacks", "Delayed MITM", "Image embeddings", "Reverse search", "Topic detection", "Strangers communication", "Unknowingly discussing topics"], "category": "Security", "date": "2022-10-14 11:09:39", "description": "Yukio explores delayed MITM attacks, utilizing image embeddings and reverse search to identify instances where strangers inadvertently discuss the same topic prior to disconnecting.", "tags": *id001, "title": "Mitmchat"}
 
 ---
 

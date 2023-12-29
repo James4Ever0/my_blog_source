@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["GitHub", "repository", "TIL", "learning", "insights", "benthecoder"], "category": "GitHub", "date": "2022-12-07 07:11:04", "description": "This article discusses a GitHub repository called 'Today I Learned' (TIL), where users share their daily learnings and insights. The repository, accessible at [this link](https://github.com/benthecoder/til), encourages continuous learning and knowledge sharing among its community.", "tags": *id001, "title": "some notes just like me: today i learned (til)"}
+{"categories": &id001 ["GitHub", "repository", "TIL", "learning", "insights", "benthecoder"], "category": "GitHub", "date": "2022-12-07 07:11:04", "description": "This article discusses a GitHub repository called 'Today I Learned' (TIL), where users share their daily learnings and insights. The repository, accessible at [this link](https://github.com/benthecoder/til), encourages continuous learning and knowledge sharing among its community.", "tags": *id001, "title": "Some Notes Just Like Me: Today I Learned (Til)"}
 
 ---
 

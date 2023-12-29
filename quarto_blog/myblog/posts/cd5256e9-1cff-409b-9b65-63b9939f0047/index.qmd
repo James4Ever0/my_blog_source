@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["API", "bilibili", "stub"], "category": "API Development", "date": "2022-07-09 15:30:05", "description": "Bilibili APIs allow developers to create tools and applications in various languages like Python for tasks such as video uploading, user account management, and more.", "tags": *id001, "title": "哔哩哔哩 接口 Bilibili APIs"}
+{"categories": &id001 ["API", "bilibili", "stub"], "category": "API Development", "date": "2022-07-09 15:30:05", "description": "Bilibili APIs allow developers to create tools and applications in various languages like Python for tasks such as video uploading, user account management, and more.", "tags": *id001, "title": "哔哩哔哩 接口 Bilibili Apis"}
 
 ---
 

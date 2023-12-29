@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["hack", "patch", "RDP", "remote control", "windows"], "category": "Windows", "date": "2022-07-01 12:02:25", "description": "This text provides instructions on how to enable the capability for multiple simultaneous Remote Desktop Protocol (RDP) sessions on Windows systems. This can be achieved by utilizing a modified termsrv.dll file, which allows users to connect and access resources concurrently.", "tags": *id001, "title": "Enable multiple concurrent RDP sessions on windows"}
+{"categories": &id001 ["hack", "patch", "RDP", "remote control", "windows"], "category": "Windows", "date": "2022-07-01 12:02:25", "description": "This text provides instructions on how to enable the capability for multiple simultaneous Remote Desktop Protocol (RDP) sessions on Windows systems. This can be achieved by utilizing a modified termsrv.dll file, which allows users to connect and access resources concurrently.", "tags": *id001, "title": "Enable Multiple Concurrent Rdp Sessions On Windows"}
 
 ---
 

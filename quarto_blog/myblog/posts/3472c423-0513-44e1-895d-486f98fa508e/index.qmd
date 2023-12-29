@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ssh", "windows", "tutorial", "server setup", "key-based authentication", "sshd config", "security"], "category": "Networking", "date": "2023-02-15 05:09:15", "description": "This article provides a step-by-step guide on how to install and configure an SSH server on Windows, secure it with key-based authentication, and customize the SSHD configuration.", "tags": *id001, "title": "setup ssh server on windows, enable key based authentication to windows ssh server"}
+{"categories": &id001 ["ssh", "windows", "tutorial", "server setup", "key-based authentication", "sshd config", "security"], "category": "Networking", "date": "2023-02-15 05:09:15", "description": "This article provides a step-by-step guide on how to install and configure an SSH server on Windows, secure it with key-based authentication, and customize the SSHD configuration.", "tags": *id001, "title": "Setup Ssh Server On Windows, Enable Key Based Authentication To Windows Ssh Server"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["big model training", "deepspeed", "hardware specs", "pytorch"], "category": "Training Large Language Models", "date": "2022-04-28 02:22:06", "description": "This article delves into the hardware requirements and training methods for large language models, specifically focusing on GPT-2. It explores dynamic quantization techniques, optimization tools, and NVIDIA Tesla M40 GPUs as key components in this process. Additionally, the author shares their personal experience installing these GPUs for deep learning applications.", "tags": *id001, "title": "gpt-2 ram requirements"}
+{"categories": &id001 ["big model training", "deepspeed", "hardware specs", "pytorch"], "category": "Training Large Language Models", "date": "2022-04-28 02:22:06", "description": "This article delves into the hardware requirements and training methods for large language models, specifically focusing on GPT-2. It explores dynamic quantization techniques, optimization tools, and NVIDIA Tesla M40 GPUs as key components in this process. Additionally, the author shares their personal experience installing these GPUs for deep learning applications.", "tags": *id001, "title": "Gpt-2 Ram Requirements"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["NCTF", "2022 competition", "guide", "binwalk", "GitHub repositories", "SQL injection", "challenges"], "category": "Web Application Security", "date": "2022-12-05 08:00:02", "description": "Join the NCTF 2022 competition and get ready to put your skills to the test! The summary outlines essential resources such as binwalk, GitHub repositories, and SQL injection techniques to help you conquer the challenges. Get started today and showcase your talents on the global stage!", "tags": *id001, "title": "nctf writeups"}
+{"categories": &id001 ["NCTF", "2022 competition", "guide", "binwalk", "GitHub repositories", "SQL injection", "challenges"], "category": "Web Application Security", "date": "2022-12-05 08:00:02", "description": "Join the NCTF 2022 competition and get ready to put your skills to the test! The summary outlines essential resources such as binwalk, GitHub repositories, and SQL injection techniques to help you conquer the challenges. Get started today and showcase your talents on the global stage!", "tags": *id001, "title": "Nctf Writeups"}
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["video_filters", "improve_video_quality", "stabilization", "color_correction", "neural_networks", "noise_reduction", "clarity_enhancement"], "category": "Video Processing", "date": "2022-09-17 06:50:26", "description": "Video filters enhance the quality of footage by performing tasks such as stabilization, color correction, and utilizing neural networks to minimize noise, improve clarity, and resolve problems like flickering or rain in videos.", "tags": *id001, "title": "ffmpeg中英文对照 ffmpeg filter reference translated"}
+{"categories": &id001 ["video_filters", "improve_video_quality", "stabilization", "color_correction", "neural_networks", "noise_reduction", "clarity_enhancement"], "category": "Video Processing", "date": "2022-09-17 06:50:26", "description": "Video filters enhance the quality of footage by performing tasks such as stabilization, color correction, and utilizing neural networks to minimize noise, improve clarity, and resolve problems like flickering or rain in videos.", "tags": *id001, "title": "Ffmpeg中英文对照 Ffmpeg Filter Reference Translated"}
 
 ---
 

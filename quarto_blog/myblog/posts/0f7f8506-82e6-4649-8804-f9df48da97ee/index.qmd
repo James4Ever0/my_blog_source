@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["object tracking", "OpenCV algorithms", "Meanshift", "CAMshift", "Optical Flow", "identifying objects", "avoiding duplicate processes"], "category": "Video Object Tracking", "date": "2022-09-17 06:41:49", "description": "This text discusses object tracking in video using OpenCV algorithms such as Meanshift, CAMshift, and Optical Flow. It emphasizes identifying the object first before starting tracking and avoiding duplicate processes when detection overlaps with an existing object.", "tags": *id001, "title": "object tracking, video"}
+{"categories": &id001 ["object tracking", "OpenCV algorithms", "Meanshift", "CAMshift", "Optical Flow", "identifying objects", "avoiding duplicate processes"], "category": "Video Object Tracking", "date": "2022-09-17 06:41:49", "description": "This text discusses object tracking in video using OpenCV algorithms such as Meanshift, CAMshift, and Optical Flow. It emphasizes identifying the object first before starting tracking and avoiding duplicate processes when detection overlaps with an existing object.", "tags": *id001, "title": "Object Tracking, Video"}
 
 ---
 

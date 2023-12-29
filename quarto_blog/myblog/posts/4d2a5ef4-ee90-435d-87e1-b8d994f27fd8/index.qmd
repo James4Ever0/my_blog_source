@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["AI competition platforms", "Notebook support", "阿里天池", "Datafountain", "和鲸社区", "Kaggle", "Aistudio"], "category": "AI Competitions", "date": "2022-12-13 16:02:10", "description": "Popular AI competition platforms that support notebooks include 阿里天池, Datafountain, 和鲸社区, Kaggle, and Aistudio.", "tags": *id001, "title": "popular ai competition platforms (may with notebook support)"}
+{"categories": &id001 ["AI competition platforms", "Notebook support", "阿里天池", "Datafountain", "和鲸社区", "Kaggle", "Aistudio"], "category": "AI Competitions", "date": "2022-12-13 16:02:10", "description": "Popular AI competition platforms that support notebooks include 阿里天池, Datafountain, 和鲸社区, Kaggle, and Aistudio.", "tags": *id001, "title": "Popular Ai Competition Platforms (May With Notebook Support)"}
 
 ---
 

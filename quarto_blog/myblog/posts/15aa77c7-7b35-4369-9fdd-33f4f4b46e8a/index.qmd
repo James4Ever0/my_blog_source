@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["information gathering", "scraping", "video sources", "youtube"], "category": "Video Downloaders", "date": "2022-08-07 18:32:21", "description": "This article compares two popular YouTube video download tools, 'youtube-dl' and its updated fork 'yt-dlp.' The original tool, 'youtube-dl,' is compared to its improved version in terms of speed. The article highlights the differences between these two tools and provides information on which one might be more suitable for users depending on their needs.", "tags": *id001, "title": "youtube download and its fork"}
+{"categories": &id001 ["information gathering", "scraping", "video sources", "youtube"], "category": "Video Downloaders", "date": "2022-08-07 18:32:21", "description": "This article compares two popular YouTube video download tools, 'youtube-dl' and its updated fork 'yt-dlp.' The original tool, 'youtube-dl,' is compared to its improved version in terms of speed. The article highlights the differences between these two tools and provides information on which one might be more suitable for users depending on their needs.", "tags": *id001, "title": "Youtube Download And Its Fork"}
 
 ---
 

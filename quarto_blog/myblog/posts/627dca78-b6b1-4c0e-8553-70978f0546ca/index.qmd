@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["midi generation", "music analysis", "music generation", "singing", "track spliting"], "category": "Music Generation", "date": "2022-05-29 04:27:55", "description": "This article showcases various open-source tools for live coding, music generation, and audio processing. Tools mentioned include Supercollider, TidalCycles, Haskell, Sonic Pi, and MIDI conversion resources like LSTM music generation, GPT2 chord to melody, multi-instrument music generation, and musicautobot.", "tags": *id001, "title": "supercollider"}
+{"categories": &id001 ["midi generation", "music analysis", "music generation", "singing", "track spliting"], "category": "Music Generation", "date": "2022-05-29 04:27:55", "description": "This article showcases various open-source tools for live coding, music generation, and audio processing. Tools mentioned include Supercollider, TidalCycles, Haskell, Sonic Pi, and MIDI conversion resources like LSTM music generation, GPT2 chord to melody, multi-instrument music generation, and musicautobot.", "tags": *id001, "title": "Supercollider"}
 
 ---
 

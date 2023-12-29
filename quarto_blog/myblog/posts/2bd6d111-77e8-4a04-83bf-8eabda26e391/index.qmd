@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["mobile apps", "JavaScript", "HTML", "CSS", "Apache Cordova", "re-com library", "Reagent", "ClojureScript"], "category": "Mobile App Development", "date": "2022-10-27 09:58:02", "description": "Discover the process of creating mobile apps using JavaScript, HTML, and CSS with Apache Cordova framework or delve into re-com library for Reagent that utilizes ClojureScript components.", "tags": *id001, "title": "use javascript/html/css to create mobile app, simplifying the processing of creating app"}
+{"categories": &id001 ["mobile apps", "JavaScript", "HTML", "CSS", "Apache Cordova", "re-com library", "Reagent", "ClojureScript"], "category": "Mobile App Development", "date": "2022-10-27 09:58:02", "description": "Discover the process of creating mobile apps using JavaScript, HTML, and CSS with Apache Cordova framework or delve into re-com library for Reagent that utilizes ClojureScript components.", "tags": *id001, "title": "Use Javascript/Html/Css To Create Mobile App, Simplifying The Processing Of Creating App"}
 
 ---
 

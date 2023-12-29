@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["macos", "recovery", "stub"], "category": "Recovery USB", "date": "2022-07-27 00:12:15", "description": "This text offers step-by-step guidance on how to create a macOS recovery USB for Macbook M1 devices, which can be useful in situations where system troubleshooting or reinstallation is required.", "tags": *id001, "title": "Macbook M1 create macOS recovery usb"}
+{"categories": &id001 ["macos", "recovery", "stub"], "category": "Recovery USB", "date": "2022-07-27 00:12:15", "description": "This text offers step-by-step guidance on how to create a macOS recovery USB for Macbook M1 devices, which can be useful in situations where system troubleshooting or reinstallation is required.", "tags": *id001, "title": "Macbook M1 Create Macos Recovery Usb"}
 
 ---
 

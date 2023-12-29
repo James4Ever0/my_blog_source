@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["idea", "media recognization", "pyjom"], "category": "Python", "date": "2022-08-10 11:16:10", "description": "The article explores the use of Python to detect media file corruption. It proposes a method to identify potential corrupted files by suggesting binary file name extensions for error checking with media readers. This can be achieved by testing with a text file having a media file extension.", "tags": *id001, "title": "Python suggest binary file name extension"}
+{"categories": &id001 ["idea", "media recognization", "pyjom"], "category": "Python", "date": "2022-08-10 11:16:10", "description": "The article explores the use of Python to detect media file corruption. It proposes a method to identify potential corrupted files by suggesting binary file name extensions for error checking with media readers. This can be achieved by testing with a text file having a media file extension.", "tags": *id001, "title": "Python Suggest Binary File Name Extension"}
 
 ---
 

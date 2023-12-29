@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Lua Python Bridge", "Lunatic Python", "Language integration", "Communication", "Programming languages", "Software tools"], "category": "Lua Python Bridge", "date": "2022-11-12 05:41:44", "description": "This article discusses the Lua Python Bridge, focusing on the 'Lunatic Python' tool that allows for easy communication between the Lua and Python programming languages.", "tags": *id001, "title": "lua python bridge"}
+{"categories": &id001 ["Lua Python Bridge", "Lunatic Python", "Language integration", "Communication", "Programming languages", "Software tools"], "category": "Lua Python Bridge", "date": "2022-11-12 05:41:44", "description": "This article discusses the Lua Python Bridge, focusing on the 'Lunatic Python' tool that allows for easy communication between the Lua and Python programming languages.", "tags": *id001, "title": "Lua Python Bridge"}
 
 ---
 

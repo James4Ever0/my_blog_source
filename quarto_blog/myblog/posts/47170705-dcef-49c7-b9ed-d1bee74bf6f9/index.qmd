@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["proxy", "websites", "Ultraviolet", "Titanium Network", "Holy Unblocker", "GitHub", "Web development"], "category": "Web Development", "date": "2023-04-03 08:51:11", "description": "Introducing a new method for proxying websites directly within another website using the Ultraviolet project from Titanium Network, demonstrated through Holy Unblocker's website. Includes links to holyub-alike websites and related GitHub topics.", "tags": *id001, "title": "Webproxy, clash, proxy.py"}
+{"categories": &id001 ["proxy", "websites", "Ultraviolet", "Titanium Network", "Holy Unblocker", "GitHub", "Web development"], "category": "Web Development", "date": "2023-04-03 08:51:11", "description": "Introducing a new method for proxying websites directly within another website using the Ultraviolet project from Titanium Network, demonstrated through Holy Unblocker's website. Includes links to holyub-alike websites and related GitHub topics.", "tags": *id001, "title": "Webproxy, Clash, Proxy.Py"}
 
 ---
 

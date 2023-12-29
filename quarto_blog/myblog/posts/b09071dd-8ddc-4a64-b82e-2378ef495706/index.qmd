@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["face changer", "video generator"], "category": "Artificial Intelligence", "date": "2022-05-31 03:54:32", "description": "The text focuses on Deepfake face swap technologies, covering notable software like DeepFaceLab, Faceswap, and SimSwap. These tools facilitate advanced video generation with face swaps and single model transformations.", "tags": *id001, "title": "Deepfake face swap"}
+{"categories": &id001 ["face changer", "video generator"], "category": "Artificial Intelligence", "date": "2022-05-31 03:54:32", "description": "The text focuses on Deepfake Face Swap technologies, covering notable software like DeepFaceLab, Faceswap, and SimSwap. These tools facilitate advanced video generation with face swaps and single model transformations.", "tags": *id001, "title": "Deepfake face swap"}
 
 ---
 

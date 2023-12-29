@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["package_managers", "rare_languages", "JVM_alternatives", "Kotlin", "Scala", "Groovy", "Clojure", "language_integration", "Conan", "CLibs", "Vcpkg", "javac_doc", "GraalVM", "polyglot"], "category": "Package Managers", "date": "2022-12-13 22:20:07", "description": "The text explores package managers for less common languages, such as Conan, CLibs, and Vcpkg. It also delves into JVM alternatives like Kotlin, Scala, Groovy, and Clojure. Furthermore, it covers tools like javac doc and GraalVM's polyglot, which facilitate language integration.", "tags": *id001, "title": "rare package managers, alternative jvm languages and java study hints"}
+{"categories": &id001 ["package_managers", "rare_languages", "JVM_alternatives", "Kotlin", "Scala", "Groovy", "Clojure", "language_integration", "Conan", "CLibs", "Vcpkg", "javac_doc", "GraalVM", "polyglot"], "category": "Package Managers", "date": "2022-12-13 22:20:07", "description": "The text explores package managers for less common languages, such as Conan, CLibs, and Vcpkg. It also delves into JVM alternatives like Kotlin, Scala, Groovy, and Clojure. Furthermore, it covers tools like javac doc and GraalVM's polyglot, which facilitate language integration.", "tags": *id001, "title": "Rare Package Managers, Alternative Jvm Languages And Java Study Hints"}
 
 ---
 

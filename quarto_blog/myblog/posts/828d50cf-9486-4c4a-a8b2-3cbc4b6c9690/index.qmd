@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["commandline", "emergency", "kali", "linux", "remedy", "system manage"], "category": "Linux", "date": "2022-05-06 19:03:48", "description": "This text provides a solution for accessing the Linux command line (tty) when Xorg fails. It describes how to boot into the command line by entering '3' after the longest line of boot commands, and suggests using SSH to collect logs even if there are interface issues.", "tags": *id001, "title": "Boot into Linux commandline (tty)"}
+{"categories": &id001 ["commandline", "emergency", "kali", "linux", "remedy", "system manage"], "category": "Linux", "date": "2022-05-06 19:03:48", "description": "This text provides a solution for accessing the Linux command line (tty) when Xorg fails. It describes how to boot into the command line by entering '3' after the longest line of boot commands, and suggests using SSH to collect logs even if there are interface issues.", "tags": *id001, "title": "Boot Into Linux Commandline (Tty)"}
 
 ---
 

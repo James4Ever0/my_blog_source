@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["ntfy", "service", "message queues", "dashboard"], "category": "Software as a Service (SaaS)", "date": "2023-09-21 01:58:06", "description": "Ntfy is a service that enables users to publish messages through message queues and monitor statuses on a dashboard, providing an efficient way to manage and track notifications.", "tags": *id001, "title": "Introducing Ntfy: A Service for Publishing Messages and Monitoring Statuses on a Dashboard"}
+{"categories": &id001 ["ntfy", "service", "message queues", "dashboard"], "category": "Software as a Service (SaaS)", "date": "2023-09-21 01:58:06", "description": "Ntfy is a service that enables users to publish messages through message queues and monitor statuses on a dashboard, providing an efficient way to manage and track notifications.", "tags": *id001, "title": "Introducing Ntfy: A Service For Publishing Messages And Monitoring Statuses On A Dashboard"}
 
 ---
 

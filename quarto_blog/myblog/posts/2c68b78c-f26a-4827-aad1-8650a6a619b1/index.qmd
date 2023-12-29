@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["network", "self-hosted", "stub", "webapp"], "category": "Web Applications", "date": "2022-07-11 15:49:38", "description": "This article delves into the world of self-hosted web applications, offering a comprehensive list of open-source options like search engines. It empowers readers to explore and choose from various alternatives that suit their needs and preferences.", "tags": *id001, "title": "Self hosted web applications"}
+{"categories": &id001 ["network", "self-hosted", "stub", "webapp"], "category": "Web Applications", "date": "2022-07-11 15:49:38", "description": "This article delves into the world of self-hosted web applications, offering a comprehensive list of open-source options like search engines. It empowers readers to explore and choose from various alternatives that suit their needs and preferences.", "tags": *id001, "title": "Self Hosted Web Applications"}
 
 ---
 

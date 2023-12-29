@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["code refactoring", "programming language understanding", "sed alternative", "semantic editing", "stub"], "category": "Code Refactoring", "date": "2022-05-28 13:57:18", "description": "Code Batch Change Tool, or Code Refactor Tool, is a novel sed-like tool designed for refactoring and rewriting code in multiple programming languages. It offers language independence through platforms like comby.dev and language-specific tools, including jscodeshift for JavaScript and various Python options such as Redbaron, Bowler, refactor, and Google's Pasta.", "tags": *id001, "title": "Code Batch Change Tool, Code Refactor Tool (the new sed)"}
+{"categories": &id001 ["code refactoring", "programming language understanding", "sed alternative", "semantic editing", "stub"], "category": "Code Refactoring", "date": "2022-05-28 13:57:18", "description": "Code Batch Change Tool, or Code Refactor Tool, is a novel sed-like tool designed for refactoring and rewriting code in multiple programming languages. It offers language independence through platforms like comby.dev and language-specific tools, including jscodeshift for JavaScript and various Python options such as Redbaron, Bowler, refactor, and Google's Pasta.", "tags": *id001, "title": "Code Batch Change Tool, Code Refactor Tool (The New Sed)"}
 
 ---
 

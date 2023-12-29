@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["Lenovo TB-7304N", "Bootloader unlocking", "Lenovo support", "IMEI number", "Serial number", "Xiaomi Max", "Relevant websites"], "category": "Unlocking Bootloader", "date": "2022-09-27 16:09:16", "description": "This article discusses the challenges of unlocking the bootloader on a Lenovo TB-7304N device and offers guidance on contacting Lenovo for support. The device has a 7-inch screen similar to the Xiaomi Max, and it includes an IMEI number (865486031642692) and serial number (HGCFWF7D). Additionally, it provides links to helpful websites for more information.", "tags": *id001, "title": "lenovo tb-7304n  unlock bootloader"}
+{"categories": &id001 ["Lenovo TB-7304N", "Bootloader unlocking", "Lenovo support", "IMEI number", "Serial number", "Xiaomi Max", "Relevant websites"], "category": "Unlocking Bootloader", "date": "2022-09-27 16:09:16", "description": "This article discusses the challenges of unlocking the bootloader on a Lenovo TB-7304N device and offers guidance on contacting Lenovo for support. The device has a 7-inch screen similar to the Xiaomi Max, and it includes an IMEI number (865486031642692) and serial number (HGCFWF7D). Additionally, it provides links to helpful websites for more information.", "tags": *id001, "title": "Lenovo Tb-7304N  Unlock Bootloader"}
 
 ---
 

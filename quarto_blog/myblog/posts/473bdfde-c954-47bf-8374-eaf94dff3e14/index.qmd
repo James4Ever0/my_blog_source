@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["anime", "website", "anime themes", "videos", "themes", "popular", "information"], "category": "Anime", "date": "2022-10-10 06:44:35", "description": "Discover the world of popular anime videos and their captivating themes on the comprehensive website, 'anime themes'. Dive into an extensive collection of information that will enhance your appreciation for these beloved animated series.", "tags": *id001, "title": "anime video sites"}
+{"categories": &id001 ["anime", "website", "anime themes", "videos", "themes", "popular", "information"], "category": "Anime", "date": "2022-10-10 06:44:35", "description": "Discover the world of popular anime videos and their captivating themes on the comprehensive website, 'anime themes'. Dive into an extensive collection of information that will enhance your appreciation for these beloved animated series.", "tags": *id001, "title": "Anime Video Sites"}
 
 ---
 

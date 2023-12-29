@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["find file", "locate file", "macos", "tips"], "category": "Software Troubleshooting", "date": "2022-08-07 05:34:18", "description": "This article compares two methods for fixing and updating the locate command in MacOS. Comment A utilizes a launch daemon and terminal commands, while Comment B suggests repairing it using &grave;mdfind&grave; terminal commands.", "tags": *id001, "title": "MacOS locate fix and alternative"}
+{"categories": &id001 ["find file", "locate file", "macos", "tips"], "category": "Software Troubleshooting", "date": "2022-08-07 05:34:18", "description": "This article compares two methods for fixing and updating the locate command in MacOS. Comment A utilizes a launch daemon and terminal commands, while Comment B suggests repairing it using &grave;mdfind&grave; terminal commands.", "tags": *id001, "title": "Macos Locate Fix And Alternative"}
 
 ---
 

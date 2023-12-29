@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["fan", "hardware", "linux", "security", "system manage", "thermal"], "category": "Linux", "date": "2022-08-11 04:25:28", "description": "This article explains how to troubleshoot and resolve a fan issue on a Linux machine by installing i8kctl and thermald, configuring pwmconfig with Expect for fan control, and allowing sufficient time for the fans to reach full speed.", "tags": *id001, "title": "Linux Fan Not Spinning, GPU Fan Not Spinning"}
+{"categories": &id001 ["fan", "hardware", "linux", "security", "system manage", "thermal"], "category": "Linux", "date": "2022-08-11 04:25:28", "description": "This article explains how to troubleshoot and resolve a fan issue on a Linux machine by installing i8kctl and thermald, configuring pwmconfig with Expect for fan control, and allowing sufficient time for the fans to reach full speed.", "tags": *id001, "title": "Linux Fan Not Spinning, Gpu Fan Not Spinning"}
 
 ---
 

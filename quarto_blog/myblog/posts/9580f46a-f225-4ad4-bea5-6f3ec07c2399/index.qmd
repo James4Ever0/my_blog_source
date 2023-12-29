@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["DeepL API", "anti-scraping measures", "request structure analysis", "naming conventions", "bypassing systems", "challenges", "abusing the system"], "category": "API Scraping", "date": "2022-09-06 08:52:42", "description": "The comments discuss efforts to circumvent DeepL API's anti-scraping mechanisms by examining request structures and identifying consistent naming conventions. Despite these potential vulnerabilities, the commenters ultimately decide against abusing the system due to its complexity.", "tags": *id001, "title": "deepl免费翻译 免费白嫖"}
+{"categories": &id001 ["DeepL API", "anti-scraping measures", "request structure analysis", "naming conventions", "bypassing systems", "challenges", "abusing the system"], "category": "API Scraping", "date": "2022-09-06 08:52:42", "description": "The comments discuss efforts to circumvent DeepL API's anti-scraping mechanisms by examining request structures and identifying consistent naming conventions. Despite these potential vulnerabilities, the commenters ultimately decide against abusing the system due to its complexity.", "tags": *id001, "title": "Deepl免费翻译 免费白嫖"}
 
 ---
 

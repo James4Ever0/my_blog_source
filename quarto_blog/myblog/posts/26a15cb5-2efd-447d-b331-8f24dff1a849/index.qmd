@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["courses", "entrepreneurship", "social media"], "category": "Digital Marketing", "date": "2022-06-09 16:22:06", "description": "This article discusses the importance of improving digital marketing strategies using techniques like website analytics, SEO, and mentions Jumpcut.com as a platform that offers courses in these areas to help businesses enhance their online presence.", "tags": *id001, "title": "Jumpcut analysis, social media marketing, blackhat SEO"}
+{"categories": &id001 ["courses", "entrepreneurship", "social media"], "category": "Digital Marketing", "date": "2022-06-09 16:22:06", "description": "This article discusses the importance of improving digital marketing strategies using techniques like website analytics, SEO, and mentions Jumpcut.com as a platform that offers courses in these areas to help businesses enhance their online presence.", "tags": *id001, "title": "Jumpcut Analysis, Social Media Marketing, Blackhat Seo"}
 
 ---
 

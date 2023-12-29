@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["OpenTimelineIO", "unified format", "media editors", "Final Cut Pro", "Adobe Premiere", "Kdenlive", "Python interface"], "category": "Video Editing Software", "date": "2023-01-15 03:38:39", "description": "OpenTimelineIO is a versatile and widely compatible format designed to facilitate seamless communication between different media editing software. With adapters available for popular editors like Final Cut Pro, Adobe Premiere, and Kdenlive, it provides a unified interface using Python. However, some adapters for certain systems are still incomplete.", "tags": *id001, "title": "opentimelineio: unified format for media editors?"}
+{"categories": &id001 ["OpenTimelineIO", "unified format", "media editors", "Final Cut Pro", "Adobe Premiere", "Kdenlive", "Python interface"], "category": "Video Editing Software", "date": "2023-01-15 03:38:39", "description": "OpenTimelineIO is a versatile and widely compatible format designed to facilitate seamless communication between different media editing software. With adapters available for popular editors like Final Cut Pro, Adobe Premiere, and Kdenlive, it provides a unified interface using Python. However, some adapters for certain systems are still incomplete.", "tags": *id001, "title": "Opentimelineio: Unified Format For Media Editors?"}
 
 ---
 

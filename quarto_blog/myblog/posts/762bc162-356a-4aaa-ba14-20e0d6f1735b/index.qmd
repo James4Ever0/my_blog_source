@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["color", "palette", "extraction", "images", "generative", "matplotlib", "colormaps", "haishoku"], "category": "Color Palette Extraction", "date": "2022-10-11 10:57:34", "description": "Color palette extraction is a process of obtaining colors from images. Generative methods, like matplotlib colormaps, and extractive methods, such as haishoku, can be used for this purpose. Python and Node.js offer various resources to decide colors based on foreground/background or image colors.", "tags": *id001, "title": "palette extraction from images 色彩搭配提取"}
+{"categories": &id001 ["color", "palette", "extraction", "images", "generative", "matplotlib", "colormaps", "haishoku"], "category": "Color Palette Extraction", "date": "2022-10-11 10:57:34", "description": "Color palette extraction is a process of obtaining colors from images. Generative methods, like matplotlib colormaps, and extractive methods, such as haishoku, can be used for this purpose. Python and Node.js offer various resources to decide colors based on foreground/background or image colors.", "tags": *id001, "title": "Palette Extraction From Images 色彩搭配提取"}
 
 ---
 

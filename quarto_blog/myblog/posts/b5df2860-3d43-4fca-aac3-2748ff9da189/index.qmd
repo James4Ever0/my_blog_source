@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["BFG Repo Cleaner", "GitHub", "Sensitive data removal", "jar file", "brew installation", "alternative tools", "conversion cheat sheet"], "category": "Data Security", "date": "2022-11-08 16:24:06", "description": "This article provides step-by-step instructions on how to remove sensitive data from a GitHub repository using BFG Repo Cleaner. It highlights the benefits of using BFG over other tools and offers a conversion cheat sheet for those who prefer using Git Filter-Repo.", "tags": *id001, "title": "Remove bad/large files from git repo history"}
+{"categories": &id001 ["BFG Repo Cleaner", "GitHub", "Sensitive data removal", "jar file", "brew installation", "alternative tools", "conversion cheat sheet"], "category": "Data Security", "date": "2022-11-08 16:24:06", "description": "This article provides step-by-step instructions on how to remove sensitive data from a GitHub repository using BFG Repo Cleaner. It highlights the benefits of using BFG over other tools and offers a conversion cheat sheet for those who prefer using Git Filter-Repo.", "tags": *id001, "title": "Remove Bad/Large Files From Git Repo History"}
 
 ---
 

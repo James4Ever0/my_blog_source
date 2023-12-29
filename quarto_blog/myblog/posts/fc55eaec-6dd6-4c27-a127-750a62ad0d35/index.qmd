@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["NLP", "stub", "text corrector"], "category": "Natural Language Processing", "date": "2022-07-18 03:45:56", "description": "This article discusses a model design for correcting sentence word order, using fixed length input sequences and outputting word order tokens for decoding final word sequences. The model can handle both misplaced sentences or correct ones, focusing on English grammar improvement.", "tags": *id001, "title": "Sentence Word order corrector"}
+{"categories": &id001 ["NLP", "stub", "text corrector"], "category": "Natural Language Processing", "date": "2022-07-18 03:45:56", "description": "This article discusses a model design for correcting sentence word order, using fixed length input sequences and outputting word order tokens for decoding final word sequences. The model can handle both misplaced sentences or correct ones, focusing on English grammar improvement.", "tags": *id001, "title": "Sentence Word Order Corrector"}
 
 ---
 

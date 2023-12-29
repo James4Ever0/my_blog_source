@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["freelancer"], "category": "Education", "date": "2022-02-18 12:16:35", "description": "This article offers login details and website links for accessing English course materials from platforms such as imman.ireadabc.com and 91reading.com. It provides usernames, passwords, and download access to lesson resources.", "tags": *id001, "title": "English Courseware scraping"}
+{"categories": &id001 ["freelancer"], "category": "Education", "date": "2022-02-18 12:16:35", "description": "This article offers login details and website links for accessing English course materials from platforms such as imman.ireadabc.com and 91reading.com. It provides usernames, passwords, and download access to lesson resources.", "tags": *id001, "title": "English Courseware Scraping"}
 
 ---
 

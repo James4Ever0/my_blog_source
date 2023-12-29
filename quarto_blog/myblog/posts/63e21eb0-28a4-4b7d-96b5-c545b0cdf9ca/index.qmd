@@ -1,5 +1,5 @@
 ---
-{"categories": &id001 ["journaling", "note taking", "security", "sync", "system manage"], "category": "SSH keys", "date": "2022-01-10 19:21:38", "description": "This article explains how to set up personal SSH keys for Gitee, a code hosting platform. It also discusses a Gitee note repository and the availability of GitJournal download which can be installed using Anbox.", "tags": *id001, "title": "Setup Gitee SSH Keys for GitJournal"}
+{"categories": &id001 ["journaling", "note taking", "security", "sync", "system manage"], "category": "SSH keys", "date": "2022-01-10 19:21:38", "description": "This article explains how to set up personal SSH keys for Gitee, a code hosting platform. It also discusses a Gitee note repository and the availability of GitJournal download which can be installed using Anbox.", "tags": *id001, "title": "Setup Gitee Ssh Keys For Gitjournal"}
 
 ---
 
