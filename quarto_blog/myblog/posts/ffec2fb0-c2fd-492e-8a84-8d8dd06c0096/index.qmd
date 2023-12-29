@@ -216,6 +216,7 @@ it is first fine-tuned on supervised datasets, then train some reward model, the
 ### details on webgpt environment
 
 guess: create states by performing actions, then generate templates to allow model filling blanks.
+
 ```
 Our text-based web-browsing environment is written mostly in Python with some JavaScript. For a
 high-level overview, see Section 2. Further details are as follows:

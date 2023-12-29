@@ -22,6 +22,7 @@ n2n test commands, using compatible v3 protocol to communicate:
 supernode v3: n2n.laiyx.win:10090
 
 warning: it is useless to add multiple supernodes.
+
 ```
 -l nton.eu.org:10090 -l n2n.lu8.win:10090 -l n2n.haoren.eu.org:10090 -l
 supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.eu.org:10090 -l n2n.eriol.cn:10090 -l n2n.x0x.cn:10090 -l n2n.vvcd.win:10090
@@ -29,12 +30,14 @@ supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.
 ```
 
 kali:
+
 ```bash
 sudo edge -c <name> -k <password> -a 192.168.100.1 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto
 
 ```
 
 macos, since we use sudo you might consider doing it with system service:
+
 ```bash
 sudo edge -c <name> -k <password> -a 192.168.100.2 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto
 
@@ -85,18 +88,21 @@ maybe it will affect the client when mounting the remote filesystem using sshfs 
 before serving, make sure the path `/media/root/help/pyjom` exists by running our mount script
 
 create htpasswd file:
+
 ```bash
 htpasswd -bc webdav_htpasswd <username> <password>
 
 ```
 
 use rclone:
+
 ```bash
 rclone serve webdav /media/root/help/pyjom --addr 0.0.0.0:8468 --key /root/.local/share/code-server/localhost.key --cert /root/.local/share/code-server/localhost.crt --htpasswd /root/Desktop/works/sync_git_repos/remote_deploys/webdav_htpasswd -L
 
 ```
 
 before mounting, use `rclone config` to setup remote associated with a name. make sure the hostname is `localhost` instead of ip address to avoid certificate issues. do not install rclone from brew since it does not support fuse. instead, install from [here](https://rclone.org/downloads/)
+
 ```bash
 rclone mount webdav_local_nginx:/ /Volume/CaseSensitive/pyjom_remote_mountpoint --ca-cert /Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/certificates/localhost.crt
 
@@ -107,6 +113,7 @@ after mounting, seems zsh on macos is not working very well with macfuse. bash w
 ## encryption and invalid HTTPS certificates
 
 use `nginx` to redirect remote server as localhost, since the host name on the certificate is localhost we cannot let chrome to trust anything other than that
+
 ```c
 worker_processes auto;
 error_log error.log;
@@ -121,6 +128,7 @@ proxy_pass REMOTE_HOST:7576;
 ```
 
 ## code-server(browser) color fixes
+
 ```css
 .cursor{
 background: white;
@@ -156,6 +164,7 @@ some drawbacks of this SSH FS plugin is that it cannot use the plugins from remo
 ## syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?)
 
 to mount the filesystem via sshfs:
+
 ```bash
 sshfs root@192.168.10.4:/media/root/help/pyjom /Volumes/CaseSensitive/pyjom_remote_mountpoint -o follow_symlinks
 

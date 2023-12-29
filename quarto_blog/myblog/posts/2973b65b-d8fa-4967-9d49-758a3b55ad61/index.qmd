@@ -10,6 +10,7 @@ it is funny that macOS still supports AMD GPUs, means any intel Mac (not M-serie
 ----
 
 calling python code from swift using pythonkit:
+
 ```swift
 func downloadVideo(link: String){
 let sys = Python.import("sys")
@@ -76,12 +77,14 @@ In general, the graphics of the Turing, Pascal, and Maxwell series will never be
 using [tensorflow metal plugin](https://developer.apple.com/metal/tensorflow-plugin/), which sets up miniforge and install tensorflow-metal within.
 
 install without miniforge(works!)
+
 ```bash
 pip3 install tensorflow-macos tensorflow-metal
 
 ```
 
 validation:
+
 ```bash
 python3 -c "import tensorflow as tf; physical_devices = tf.config.list_physical_devices('GPU'); print('Num GPUs:', len(physical_devices)); print(physical_devices)"
 
@@ -90,6 +93,7 @@ python3 -c "import tensorflow as tf; physical_devices = tf.config.list_physical_
 ## pytorch with m1 support, using MPS (Metal performance shader)
 
 install from nightly release channel, with minimum system version requirements 12.3 (which this machine had been qualified after system update, now 12.5)
+
 ```bash
 # MPS acceleration is available on MacOS 12.3+
 pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu
@@ -97,6 +101,7 @@ pip3 install --pre torch torchvision torchaudio --extra-index-url https://downlo
 ```
 
 validation
+
 ```bash
 python3 -c "import torch; print('MPS avaliable:',torch.backends.mps.is_available()); print('Built with MPS:',torch.backends.mps.is_built())"
 
@@ -107,6 +112,7 @@ python3 -c "import torch; print('MPS avaliable:',torch.backends.mps.is_available
 use [pythonkit](https://github.com/pvieito/PythonKit.git)
 
 ## automatic machine learning using CreateML
+
 ```swift
 import CreateML
 
@@ -123,12 +129,14 @@ CoreML models can be created by CreateML and some customization can be done via 
 [onnxruntime](https://onnxruntime.ai/) can run onnx models on CoreML, via c#, since that library is maintained by microsoft.
 
 to install c# on macos:
+
 ```bash
 brew install dotnet-sdk
 
 ```
 
 to install and launch [dotnet repl](https://github.com/jonsequitur/dotnet-repl):
+
 ```bash
 dotnet tool install -g dotnet-repl
 dotnet repl

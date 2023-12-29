@@ -22,12 +22,14 @@ Ktor-Exposed: Ktor-Exposed is an ORM library that is built on top of Exposed and
 ## use exposed in kotlin
 
 To use Exposed in Kotlin, you will need to add the Exposed library to your project dependencies. If you are using Gradle, you can add the following dependency to your build.gradle file:
+
 ```
 implementation 'org.jetbrains.exposed:exposed:0.24.1'
 
 ```
 
 Next, you will need to create a database connection and configure the Exposed library to use it. Here is an example of how you might do this using a MySQL database:
+
 ```kotlin
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -80,6 +82,7 @@ Yes, Spring can use YAML (YAML Ain't Markup Language) or JSON (JavaScript Object
 Spring provides support for using YAML and JSON as an alternative to traditional property files for defining application configuration. To use YAML or JSON for configuration, you will need to include the spring-boot-configuration-processor dependency in your project and use the @ConfigurationProperties annotation to bind your configuration to a Java bean.
 
 Here is an example of how you might use YAML for configuration in a Spring Boot application:
+
 ```yaml
 # application.yml
 server:
@@ -90,6 +93,7 @@ version: 1.0.0
 greeting: Hello, world!
 
 ```
+
 ```kotlin
 @ConfigurationProperties("app")
 class AppProperties {
@@ -101,6 +105,7 @@ lateinit var greeting: String
 ```
 
 You can then inject the AppProperties bean into your application and use the configuration values like this:
+
 ```kotlin
 @RestController
 class HelloController(private val appProperties: AppProperties) {
@@ -117,6 +122,7 @@ You can use a similar approach to use JSON for configuration in your Spring Boot
 Aspect-Oriented Programming (AOP) is a programming paradigm that aims to modularize cross-cutting concerns, such as logging, security, and transaction management, into distinct aspects that can be applied to multiple parts of an application.
 
 In Kotlin, you can use the Spring Framework's AOP support to implement aspect-oriented programming. Here is an example of how you might use AOP to log the execution of a method in Kotlin:
+
 ```kotlin
 import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Before
@@ -138,6 +144,7 @@ logger.info("Method execution")
 In this example, the @Aspect annotation indicates that this class represents an aspect, and the @Before annotation specifies a pointcut (a point in the code where the aspect should be applied) and an advice (the action that should be taken when the pointcut is reached). In this case, the pointcut matches any method execution in the com.example.service package, and the advice logs a message.
 
 To use this aspect in your application, you will need to enable AOP support in your Spring configuration. You can do this by adding the @EnableAspectJAutoProxy annotation to your configuration class, like this:
+
 ```kotlin
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.EnableAspectJAutoProxy
@@ -154,6 +161,7 @@ With these changes in place, the aspect will be applied to all matching method e
 To use Spring MVC (Model-View-Controller) in Kotlin, you will need to create a Spring Boot application and add the spring-boot-starter-web dependency to your project.
 
 Here is an example of how you might set up a simple Spring MVC application in Kotlin:
+
 ```kotlin
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -187,6 +195,7 @@ To use JSP (Java Server Pages) with Spring in Kotlin, you will need to create a 
 By default, Spring Boot will look for JSP files in the src/main/webapp/WEB-INF/jsp directory. You will need to create this directory structure and add your JSP files to it.
 
 Here is an example of a simple JSP file that displays a message:
+
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -202,6 +211,7 @@ Here is an example of a simple JSP file that displays a message:
 ```
 
 To render this JSP file in your Spring MVC application, you will need to create a controller that maps a request to the JSP file. Here is an example of how you might do this in Kotlin:
+
 ```kotlin
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping

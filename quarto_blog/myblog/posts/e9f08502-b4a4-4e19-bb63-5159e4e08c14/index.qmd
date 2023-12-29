@@ -26,6 +26,7 @@ we need to know if this will successifully launch after reboot since `/tmp` may 
 default redis server port: 6379
 
 install redis-server service:
+
 ```bash
 easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server
 

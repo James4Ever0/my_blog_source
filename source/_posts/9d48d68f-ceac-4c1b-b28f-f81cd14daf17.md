@@ -6,6 +6,7 @@
 when installing global ackages, we do not need to specify NODE_PATH. but it is not configured beforehand thus when you want to import packages from there you will face issue.
 
 for zsh/bash/fish:
+
 ```bash
 export NODE_PATH=<NODE_PATH>
 

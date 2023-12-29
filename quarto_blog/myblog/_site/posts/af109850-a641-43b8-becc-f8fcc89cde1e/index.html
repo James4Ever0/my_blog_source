@@ -192,7 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="kindly-reminders" class="level2">
 <h2 class="anchored" data-anchor-id="kindly-reminders">kindly reminders</h2>
 <p>when building python c++ libraries without xcode, please add commandline header files like this:</p>
-<p>in order to have this during build: <code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/Headers/Python.h</code> we need to do:</p>
+<p>in order to have this during build:</p>
+<p><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/Headers/Python.h</code> we need to do:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /Library/Developer/CommandLineTools /Applications/Xcode.app/Contents/Developer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>

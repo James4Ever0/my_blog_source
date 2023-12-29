@@ -6,6 +6,7 @@
 ------
 
 openai says i should edit `/etc/wpa_supplicant/wpa_supplicant.conf` like this to connect to 5G wifi:
+
 ```bash
 network={
 ssid="<SSID>"
@@ -16,6 +17,7 @@ frequency=5180
 ```
 
 also set frequency of wifi card like this:
+
 ```bash
 sudo ifdown wlan0 && sudo ifup wlan0
 sudo iw dev wlan0 set freq 5180
@@ -23,18 +25,21 @@ sudo iw dev wlan0 set freq 5180
 ```
 
 unplug ethernet, then we are golden.
+
 ```bash
 traceroute baidu.com
 
 ```
 
 how to check avaliable wifi ssids without `network-manager`:
+
 ```bash
 sudo iwlist wlan0 scan | grep ESSID
 
 ```
 
 default login (maybe not):
+
 ```
 username: pi
 password: raspberry
@@ -44,6 +49,7 @@ password: raspberry
 in order to start `sshd`, `touch ssh` under `boot` partition
 
 recover `dhcpcd` service:
+
 ```bash
 sudo systemctl enable dhcpcd.service
 sudo systemctl restart dhcpcd.service
@@ -57,6 +63,7 @@ you've installed [raspap](https://raspap.com/) on this device. you use the defau
 seriously? do you really need docker on macos? or just on raspberry pi?
 
 change apt sources:
+
 ```bash
 sudo sed -i 's|raspbian.raspberrypi.org|mirrors.ustc.edu.cn/raspbian|g' /etc/apt/sources.list
 sudo sed -i 's|mirrordirector.raspbian.org|mirrors.ustc.edu.cn/raspbian|g' /etc/apt/sources.list
@@ -66,6 +73,7 @@ sudo sed -i 's|archive.raspberrypi.org/debian|mirrors.ustc.edu.cn/archive.raspbe
 ```
 
 using nmcli to scan and connect wifi
+
 ```bash
 sudo nmcli dev wifi rescan
 sudo nmcli dev wifi connect <SSID> password <PASSWORD>
@@ -73,12 +81,14 @@ sudo nmcli dev wifi connect <SSID> password <PASSWORD>
 ```
 
 sharing network:
+
 ```bash
 ssh -R 1080 pi@10.42.0.33
 
 ```
 
 edit `/etc/network/interfaces`:
+
 ```
 auto lo
 iface lo inet loopback
@@ -97,6 +107,7 @@ wpa-psk "<PASSWORD>"
 ```
 
 install packages:
+
 ```bash
 sudo apt-get -o Acquire::http::proxy="socks5h://127.0.0.1:1080/"  -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update --allow-releaseinfo-change
 sudo apt-get -o Acquire::http::proxy="socks5h://127.0.0.1:1080/"  -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false upgrade -y

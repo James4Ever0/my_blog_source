@@ -6,6 +6,7 @@
 ------
 
 save this under `/lib/systemd/system/neo4j.service`
+
 ```config
 [Unit]
 Description=Neo4j Graph Database

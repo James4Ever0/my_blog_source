@@ -12,6 +12,7 @@ how do i design an ai model using gpt, rnn, lstm, vit to accept computer display
 ## answers
 
 ### Claude+
+
 ```
 That would be an extremely complex AI system to build. Some high level steps would be:
 Collect a large dataset of screenshots, human instructions, and corresponding keyboard/mouse interactions. This dataset would be crucial for training.
@@ -59,6 +60,7 @@ Designing an AI model that combines GPT, RNN, LSTM, and ViT for the task you des
 4. Finally, decode the output of the LSTM/RNN into keyboard and mouse events.
 
 Here's a basic structure of the code:
+
 ```python
 import torch
 import torchvision

@@ -10,6 +10,7 @@ ida ghidra frida
 [frida extension/helper methods](https://github.com/iGio90/frida-java-ext)
 
 attach existing process
+
 ```bash
 sudo frida-ps
 sudo frida -n WeChat

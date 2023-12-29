@@ -38,6 +38,7 @@ logic: if the kill switch is off, when no physical input events happens, or not 
 get physical events:
 
 warning: this command could be offline for a short period of time after using the scrcpy. must automatically reconnect if the device is not offline.
+
 ```bash
 adb -s 192.168.10.3:5555 shell getevent
 
@@ -48,6 +49,7 @@ to get focused window title:
 hint: for headless ssh sessions, must set apropriate xorg environment variables, eg: `env XAUTHORITY="/run/user/0/gdm/Xauthority" DISPLAY=:1 python3`
 
 general method:
+
 ```python
 import pywinctl
 pywinctl.getActiveWindowTitle()
@@ -55,6 +57,7 @@ pywinctl.getActiveWindowTitle()
 ```
 
 for linux:
+
 ```bash
 watch -n 2 xdotool getactivewindow getwindowname
 
@@ -65,6 +68,7 @@ for macos: (allow permission first, deprecated since it will not get the window 
 https://alvinalexander.com/mac-os-x/applescript-unix-mac-osx-foreground-application-result/
 
 (where is the window name?)
+
 ```bash
 sleep 3 && osascript -e 'tell application "System Events"' -e 'set frontApp to name of first application process whose frontmost is true' -e 'end tell'
 
@@ -77,12 +81,14 @@ download keylogger here:
 https://hackernoon.com/writing-an-keylogger-for-macos-in-python-24adfa22722
 
 https://github.com/beatsbears/pkl?ref=hackernoon.com
+
 ```bash
 python pkl_nowriting.py
 
 ```
 
 input events on linux:
+
 ```bash
 xinput test-xi2 --root
 

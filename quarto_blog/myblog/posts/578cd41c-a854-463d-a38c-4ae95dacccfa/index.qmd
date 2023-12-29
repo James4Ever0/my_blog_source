@@ -60,6 +60,7 @@ chinese summarize generator:
 测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。
 
 先安装依赖库，然后再利用tr4进行摘要提取。
+
 ```python
 from textrank4zh import TextRank4Keyword, TextRank4Sentence
 content = "" # 这里是python采集下来的content html内容

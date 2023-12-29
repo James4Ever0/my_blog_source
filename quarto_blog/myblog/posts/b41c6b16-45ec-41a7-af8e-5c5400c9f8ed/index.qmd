@@ -4,6 +4,7 @@
 ---
 
 ------
+
 ```python
 def scanImageWithWindowSizeAutoResize(
 image,

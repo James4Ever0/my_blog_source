@@ -8,6 +8,7 @@
 # hy lisp embedded in python, resumeable exception
 
 jython only supports upto python2.7. these libraries may need substantial changes to be compatible with jython:
+
 ```
 hy
 parse
@@ -21,6 +22,7 @@ reloading
 [hyrule docs](https://hyrule.readthedocs.io/en/master/index.html#hyrule.control.block)
 
 hy缺乏基本的补全 vscode目前没法用 我把hy改造成了可以自动reload 自动抓Uncaught exception的模式 如果要取消这些行为 需要加上flag 可以用于hy2py
+
 ```
 -R
 disable automatic insertion of reloading decorator

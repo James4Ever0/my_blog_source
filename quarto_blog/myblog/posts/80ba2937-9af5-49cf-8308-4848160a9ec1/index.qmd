@@ -6,12 +6,14 @@
 ------
 
 ## view full logs
+
 ```bash
 journalctl -u <serviceName>.service
 
 ```
 
 ## create, install, restart, reload
+
 ```bash
 cd /etc/systemd/system
 create <serviceName>.service
@@ -26,6 +28,7 @@ systemctl start <serviceName>.service
 maybe we should add some autorestart configs at it?
 
 frpc_service.service
+
 ```js
 [Unit]
 Description=frpc service, expose ssh, webdav and code-server ports
@@ -45,6 +48,7 @@ WantedBy=multi-user.target
 ```
 
 pyjom_webdav_rclone_service.service
+
 ```js
 [Unit]
 Description=rclone webdav served on pyjom, after the disk is mounted
@@ -58,6 +62,7 @@ WantedBy=multi-user.target
 ```
 
 tempthrottle.service
+
 ```js
 [Unit]
 Description=temperature control, cpu temperature under 60 celsius
@@ -71,6 +76,7 @@ WantedBy=multi-user.target
 ```
 
 clash_fastgithub.service
+
 ```js
 [Unit]
 Description=Clash Fastgithub Proxy
@@ -85,6 +91,7 @@ WantedBy=multi-user.target
 ```
 
 tujia_scraper_qq_bot.service
+
 ```js
 [Unit]
 Description=two crucial services: tujia scraper, qq bot
@@ -102,6 +109,7 @@ WantedBy=graphical.target
 ```
 
 sync_git_repos_syncdog.service
+
 ```js
 [Unit]
 Description=syncdog (server), to sync things to the cloud (github)

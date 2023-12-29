@@ -12,12 +12,14 @@ simply use /dev/shm
 the only difference is that [ramfs on linux is unbounded while tmpfs is bounded](https://linuxhint.com/create-ramdisk-linux/)
 
 create bounded tmpfs:
+
 ```bash
 mount -t tmpfs -o size=2g tmpfs /mnt/tmp
 
 ```
 
 or yoy labor yourself to mount some additional ramfs:
+
 ```bash
 mount -t ramfs -o size=2g ramfs /mnt/tmp
 
@@ -32,6 +34,7 @@ mount -t ramfs -o size=2g ramfs /mnt/tmp
 [RAM-backed filesystem mounter for Mac OS X](https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.)
 
 create and mount ramdisk:
+
 ```bash
 #!/bin/sh
 ramfs_size_mb=2100
@@ -54,6 +57,7 @@ echo "diskutil eject ${ramdisk_dev}"
 calculate sector numbers by hand:
 
 disk_size(MiB)* 1024KiB/MiB * 1024B/KiB / 512B/sector = #sectors
+
 ```bash
 hdiutil attach -nomount ram://#sectors
 #get returned value afterwards!

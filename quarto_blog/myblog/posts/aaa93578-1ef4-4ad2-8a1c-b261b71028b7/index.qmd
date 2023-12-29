@@ -8,10 +8,12 @@
 [jspybridge](https://github.com/extremeheat/JSPyBridge)
 
 javascript in python:
+
 ```bash
 pip3 install javascript
 
 ```
+
 ```python
 from javascript import require, globalThis
 chalk, fs = require("chalk"), require("fs")
@@ -21,10 +23,12 @@ fs.writeFileSync("HelloWorld.txt", "hi!")
 ```
 
 access python from javascript:
+
 ```bash
 npm i pythonia
 
 ```
+
 ```javascript
 import { python } from 'pythonia'
 // Import tkinter

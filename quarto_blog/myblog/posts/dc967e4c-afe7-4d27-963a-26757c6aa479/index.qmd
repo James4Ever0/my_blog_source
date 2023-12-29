@@ -34,6 +34,7 @@ use heuristic recursive search, apply random parameters, find related keywords, 
 [topic modeling using gensim](https://blog.csdn.net/pipisorry/article/details/46447561)
 
 [bertopic tutorial](https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9) can predict topics of new document and get topic similarity
+
 ```bash
 pip3 install bertopic
 

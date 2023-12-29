@@ -10,6 +10,7 @@
 The basic idea behind the Elo rating system is that each player is assigned a rating, and the difference between the ratings of two players determines the expected outcome of a match between them. If a higher-rated player wins, their rating will increase, while the rating of the lower-rated player will decrease. If the lower-rated player wins, the opposite will happen. The amount of change in the ratings depends on the difference between the ratings and the result of the match.
 
 Here is an example of how the Elo rating system can be implemented in Python:
+
 ```python
 def elo_rating(rating1, rating2, k, result):
 # Calculate the expected score for each player

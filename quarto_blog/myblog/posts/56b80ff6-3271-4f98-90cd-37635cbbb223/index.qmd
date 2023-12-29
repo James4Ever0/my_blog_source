@@ -6,6 +6,7 @@
 ------
 
 ## search commands on commandline
+
 ```bash
 man -k <keywords>
 apt search <keywords>
@@ -123,6 +124,7 @@ txtai store to sqlite: [Build an Embeddings index from a data source](https://gi
 [surfraw](https://github.com/kisom/surfraw), or just [s](https://github.com/zquestz/s), is for some common parameter prefixes for searching on common websites. will open GUI browser or cli browser if configured with one.
 
 surfraw supported:
+
 ```
 W               -- Activate Surfraw defined web-browser
 acronym         -- Look for acronyms definitions (www.acronymfinder.com)
@@ -252,6 +254,7 @@ yubnub          -- Use the social command-line for the web (yubnub.org)
 ```
 
 S supported:
+
 ```
 500px
 8tracks

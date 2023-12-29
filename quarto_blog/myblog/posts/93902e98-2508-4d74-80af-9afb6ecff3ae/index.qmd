@@ -10,6 +10,7 @@
 [huggingface space](https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis)
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [text-to-video-ms-1.7b](https://huggingface.co/damo-vilab/text-to-video-ms-1.7b) | unknown | unknown | damo-vilab |
@@ -17,6 +18,7 @@ model weights:
 | [text-to-video-ms-1.7b-legacy](https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy) | unknown | unknown | damo-vilab |
 
 can also use from modelscope:
+
 ```python
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks

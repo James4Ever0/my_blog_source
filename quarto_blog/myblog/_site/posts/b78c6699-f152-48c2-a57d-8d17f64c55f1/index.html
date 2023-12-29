@@ -338,7 +338,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>提供全站 知乎 微博 IT之家 百度 虎扑 直播吧 少数派 36氪 吾爱破解 天涯 小众软件 反斗限免 哔哩哔哩 抖音 技术期刊 v2ex GitHub的热榜</p>
 <p>API：<code>https://api.rebang.today/v1/items?tab=&lt;TAB_NAME&gt;&amp;page=&lt;PAGE_NUM&gt;</code> (potential parameters: sub_tab, date_type (default:now))</p>
 <p>知乎有个专门的热榜，地址：<code>https://www.zhihu.com/billboard</code></p>
-<p><a href="https://www.zhihu.com/roundtable">知乎圆桌</a> <a href="https://www.zhihu.com/explore">知乎发现</a> | name | tab | | — | — | | 全站热榜 | top-all | | 微博 | weibo | | V2EX | v2ex | | 知乎 | zhihu | | 哔哩哔哩 | bilibili| | GitHub | github| | 抖音 | douyin| | 技术期刊 |journal-tech| | 虎扑| hupu| | 少数派 | sspai| | 百度 | baidu| | 36氪 | 36kr| | 天涯 | tianya| | 吾爱破解 | 52pojie| | IT之家 | ithome| |全站24小时 | top-daylong| |直播吧 | zhibo8| |小众软件 |appinn| |反斗限免| apprcn|</p>
+<p><a href="https://www.zhihu.com/roundtable">知乎圆桌</a> <a href="https://www.zhihu.com/explore">知乎发现</a></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>name</th>
+<th>tab</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>全站热榜</td>
+<td>top-all</td>
+</tr>
+<tr class="even">
+<td>微博</td>
+<td>weibo</td>
+</tr>
+<tr class="odd">
+<td>V2EX</td>
+<td>v2ex</td>
+</tr>
+<tr class="even">
+<td>知乎</td>
+<td>zhihu</td>
+</tr>
+<tr class="odd">
+<td>哔哩哔哩</td>
+<td>bilibili</td>
+</tr>
+<tr class="even">
+<td>GitHub</td>
+<td>github</td>
+</tr>
+<tr class="odd">
+<td>抖音</td>
+<td>douyin</td>
+</tr>
+<tr class="even">
+<td>技术期刊</td>
+<td>journal-tech</td>
+</tr>
+<tr class="odd">
+<td>虎扑</td>
+<td>hupu</td>
+</tr>
+<tr class="even">
+<td>少数派</td>
+<td>sspai</td>
+</tr>
+<tr class="odd">
+<td>百度</td>
+<td>baidu</td>
+</tr>
+<tr class="even">
+<td>36氪</td>
+<td>36kr</td>
+</tr>
+<tr class="odd">
+<td>天涯</td>
+<td>tianya</td>
+</tr>
+<tr class="even">
+<td>吾爱破解</td>
+<td>52pojie</td>
+</tr>
+<tr class="odd">
+<td>IT之家</td>
+<td>ithome</td>
+</tr>
+<tr class="even">
+<td>全站24小时</td>
+<td>top-daylong</td>
+</tr>
+<tr class="odd">
+<td>直播吧</td>
+<td>zhibo8</td>
+</tr>
+<tr class="even">
+<td>小众软件</td>
+<td>appinn</td>
+</tr>
+<tr class="odd">
+<td>反斗限免</td>
+<td>apprcn</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="番茄数据" class="level4">
 <h4 class="anchored" data-anchor-id="番茄数据"><a href="https://www.tomatodata.cn/news/1355.html">番茄数据</a></h4>
@@ -464,7 +550,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can decide whether to copy a video or not when it is posted for only a few days.</p>
 <p>Dataset creation:</p>
 <p>Monitoring video right at the time it is posted, monitor for a few days, calculate features, then wait for a month or two (it must stablize then), judge the video is viral or not by view counts.</p>
-<p>Using multiple machine learning techniques, there are some top features matters the most for viral video forecasting (though you can derive your own by collecting more data (like the follower-view theory if applied), and beware if your video all sucks, you may not get an accurate model out of your data alone): | Rank | Feature Name | Importance| |—|—|—| | 1 | views_acc | 12%| | 2 | views_1 | 11%| | 3 | ageRatioReviews_1 | 9% | | 4 | video_duration| 9% | | 5 | comments_1| 5%| | 6 | channel_uploads|5%| | 7 | ageRatioLikes_1 | 4%| | 8 | comments_acc | 4% | | 9 | channel_views| 4% | | 10 | comments_sentiment_compound |3%|</p>
+<p>Using multiple machine learning techniques, there are some top features matters the most for viral video forecasting (though you can derive your own by collecting more data (like the follower-view theory if applied), and beware if your video all sucks, you may not get an accurate model out of your data alone):</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Rank</th>
+<th>Feature Name</th>
+<th>Importance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>views_acc</td>
+<td>12%</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>views_1</td>
+<td>11%</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>ageRatioReviews_1</td>
+<td>9%</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>video_duration</td>
+<td>9%</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>comments_1</td>
+<td>5%</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>channel_uploads</td>
+<td>5%</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>ageRatioLikes_1</td>
+<td>4%</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>comments_acc</td>
+<td>4%</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>channel_views</td>
+<td>4%</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>comments_sentiment_compound</td>
+<td>3%</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="viralcaster" class="level4">
 <h4 class="anchored" data-anchor-id="viralcaster"><a href="https://github.com/jjbreen/ViralCaster">ViralCaster</a></h4>

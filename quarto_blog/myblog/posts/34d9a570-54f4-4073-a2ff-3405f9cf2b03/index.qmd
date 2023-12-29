@@ -16,6 +16,7 @@ use `eye` to create bias and input matrix, extract node values. use random spars
 the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses.
 
 ------
+
 ```python
 import torch
 large_number = 1_000_000
@@ -28,6 +29,7 @@ sparse_eye = torch.sparse_coo_tensor(index_arr, val_arr, (large_number, large_nu
 ```
 
 alternatively:
+
 ```python
 import torch
 import tensorly.contrib.sparse as tsl_sp

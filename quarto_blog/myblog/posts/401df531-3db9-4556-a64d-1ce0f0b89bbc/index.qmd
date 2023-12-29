@@ -60,6 +60,7 @@ check other programming language whether it jas similar capabilities
 either bytecode or modify the source code
 
 ## bookmarks
+
 ```html
 https://docs.python.org/3/library/code.html
 https://docs.python.org/3/library/cmd.html
@@ -114,6 +115,7 @@ https://github.com/gleb-sevruk/pycrunch-trace/issues
 ```
 
 contextlib usage detail, to make customized "with" statements:
+
 ```python
 from contextlib import AbstractContextManager
 class suppress2(AbstractContextManager):
@@ -165,6 +167,7 @@ to execute code grouped by lowest level of indentation, we can def those lines o
 my solution is down here, with concrete examples.
 
 hereby we recommend to insert a conditional return statement to ensure we will exit this buggy code at the best time. maybe we could put it into a dictionary somehow, tuples within string or something.
+
 ```python
 import dill
 from contextlib import suppress

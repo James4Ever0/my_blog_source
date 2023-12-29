@@ -14,6 +14,7 @@ codegeex is not there yet. maybe you can fine-tune it a little bit?
 Pyro is a probabilistic programming language built on top of PyTorch, which can be used for creating probabilistic models and conducting Bayesian inference. One way you can use Pyro to create a natural language generator is by defining a probabilistic model of the language generation process, and using Monte Carlo sampling or variational inference to generate text.
 
 Here is a basic example of how you might do this using Pyro:
+
 ```python
 import torch
 import pyro
@@ -55,6 +56,7 @@ I hope this helps! Let me know if you have any questions.
 To use Pyro to create a natural language generator with a loss function like Adam, you will need to define a probabilistic model that takes in some input data and generates text, and then define a loss function that compares the generated text to some target text. You can then use an optimization algorithm like Adam to minimize the loss function and optimize the parameters of your model.
 
 Here is an example of how you might do this using Pyro:
+
 ```python
 import torch
 import pyro
@@ -181,6 +183,7 @@ For more detailed information on how to implement object detection using PyTorch
 To put a series of images into a single CNN using PyTorch, you can use the PyTorch Dataset and DataLoader classes. These classes allow you to create a custom dataset and load the data in small batches for training or inference.
 
 Here is an example of how you can create a custom dataset for a series of images and use it with a CNN in PyTorch:
+
 ```python
 import os
 import torch

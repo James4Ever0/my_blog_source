@@ -10,6 +10,7 @@ better use nomachine instead, which is based on nx
 password: 472831
 
 commands:
+
 ```bash
 # necessary env for gui target, though may not suitable for xvfb
 export XAUTHORITY=/root/.Xauthority

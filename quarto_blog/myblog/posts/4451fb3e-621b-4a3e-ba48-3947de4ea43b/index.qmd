@@ -26,6 +26,7 @@ kupfer plugin window list
 use xdotool and wmctrl
 
 Window List command (wmctrl):
+
 ```bash
 $ wmctrl -lx
 0x0540043e  0 google-chrome.Google-chrome  ubunzeus Search for window title? - Ask Ubuntu - Google Chrome
@@ -35,6 +36,7 @@ $ wmctrl -lx
 ```
 
 Command to switch to specific window (xdotool)
+
 ```bash
 $ xdotool windowactivate 0x0540043e
 
@@ -43,6 +45,7 @@ $ xdotool windowactivate 0x0540043e
 The above command will switch to the Windows with the ID 0x0540043e, which is specific from the list for this Askubuntu message entry.
 
 They are both in the repository:
+
 ```bash
 $ sudo apt install wmctrl xdotool
 

@@ -44,6 +44,7 @@ To use LDA for paraphrasing, you would first need to train a LDA model on a larg
 Once you have trained the LDA model, you can then use it to generate paraphrases of a given text by identifying the topics present in the text and then replacing words with synonyms or related words that express the same topics in a different way. This process can be repeated multiple times to generate multiple paraphrases of the same text.
 
 Here is a brief example of how LDA could be used for paraphrasing in Python:
+
 ```python
 from gensim import corpora, models
 # Load the text you want to paraphrase
@@ -71,6 +72,7 @@ To use LSA for paraphrasing in Python, you would first need to create a matrix o
 Once you have the matrix of word vectors, you can use singular value decomposition (SVD) to decompose the matrix into three matrices, which represent the different factors that contribute to the meaning of the words in the text. The gensim library includes a implementation of SVD that you can use for this purpose.
 
 Once you have the three matrices, you can then use them to identify the most closely related words for each word in the text, and generate paraphrases by replacing words with their closest semantic equivalents. Here is an example of how this could be done in Python:
+
 ```python
 from gensim import corpora, models, matutils
 # Load the text you want to paraphrase
@@ -105,6 +107,7 @@ The transformer is a type of neural network architecture that has been used for 
 During training, the transformer would learn to identify the underlying meaning of words and phrases in the text and then generate paraphrases by replacing words with synonyms or related words that express the same meaning in a different way.
 
 Here is a brief example of how a transformer could be used for paraphrasing in Python:
+
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 # Load the text you want to paraphrase
@@ -131,6 +134,7 @@ To generate a catchy title from a set of keywords using a language model, you wo
 Once the language model has been trained, you can then use it to generate a catchy title from a set of keywords by providing the keywords as input to the model and then selecting the generated title that is the most catchy and relevant to the keywords.
 
 Here is a brief example of how this could be done in Python:
+
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 # Load the keywords you want to use to generate the title

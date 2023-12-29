@@ -22,6 +22,7 @@ to manage python versions and environments, [pyenv](https://github.com/pyenv/pye
 ----
 
 javascript code for extracting model list from huggingface personal homepage:
+
 ```javascript
 var arr = [];
 for (var i of document.getElementsByTagName("h4")) {var t = i.innerText; var tlist = t.split("/"); var t0 = tlist[0]; var t1 = tlist[1]; arr.push(`| [${t1}](https://huggingface.co/${t}) | unknown | unknown | ${t0} |`)};
@@ -137,6 +138,7 @@ gpu is mandatory, better than deepspeed and [Hugging Face Accelerate](https://gi
 ----
 
 model weights of open source chatgpt alternatives:
+
 | weight path | model size | model name | author |
 | -- | -- | -- | -- |
 | [openchatgpt-neox-125m](https://huggingface.co/mrsteyk/openchatgpt-neox-125m) | 125m | gpt-neox | mrsteyk |
@@ -145,6 +147,7 @@ model weights of open source chatgpt alternatives:
 ### LLaMA
 
 it's public.
+
 | weight path | model name | author |
 | -- | -- | -- |
 | [llama-13b-hf-int4](https://huggingface.co/decapoda-research/llama-13b-hf-int4) | 13b |decapoda-research |
@@ -165,6 +168,7 @@ v2 is censored.
 ----
 
 model weights:
+
 | weight path | model size | model name | author |
 | -- | -- | -- | -- |
 | [ChatYuan-large-v1](https://huggingface.co/ClueAI/ChatYuan-large-v1) | unknown | unknown | ClueAI |
@@ -179,6 +183,7 @@ LLaMA trained on [custom instruction dataset](https://huggingface.co/datasets/sw
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [deepshard-13B-ft](https://huggingface.co/swype/deepshard-13B-ft) | 13b | deepshard | swype |
@@ -197,6 +202,7 @@ Using 7GB VRAM, train ChatGLM with [P-tuning](https://github.com/THUDM/ChatGLM-6
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [chatglm-6b-int4-slim](https://huggingface.co/silver/chatglm-6b-int4-slim) | 6b | chatglm | silver |
@@ -217,6 +223,7 @@ model weights:
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [BELLE-LLAMA-7B-0.6M](https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-0.6M) | 7B | LLaMA | BelleGroup |
@@ -236,6 +243,7 @@ trained on ChatGPT self-chatting data
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [baize-lora-30B](https://huggingface.co/project-baize/baize-lora-30B) | 30b | baize | project-baize |
@@ -250,6 +258,7 @@ model arch is gpt-j, trained on alpaca dataset
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [dolly-v1-6b](https://huggingface.co/databricks/dolly-v1-6b) | 6b | dolly | databricks |
@@ -262,6 +271,7 @@ model weights:
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- |
 | [vicuna](https://huggingface.co/chavinlo/vicuna) | unknown | Vicuna | chavinlo |
@@ -301,6 +311,7 @@ fine-tuning:
 ----
 
 community model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [alpaca-lora-7b](https://huggingface.co/tloen/alpaca-lora-7b) | 7b | Alpaca | tloen |
@@ -340,6 +351,7 @@ released [openchatkit](https://github.com/togethercomputer/OpenChatKit) with ret
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [GPT-NeoXT-Chat-Base-20B](https://huggingface.co/togethercomputer/GPT-NeoXT-Chat-Base-20B) | 20B | GPT-NeoXT | togethercomputer |
@@ -348,6 +360,7 @@ model weights:
 ----
 
 moderation model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [GPT-JT-Moderation-6B](https://huggingface.co/togethercomputer/GPT-JT-Moderation-6B) | 6B | GPT-JT | togethercomputer |
@@ -359,6 +372,7 @@ inspired by RWKV
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [SpikeGPT-BookCorpus](https://huggingface.co/ridger/SpikeGPT-BookCorpus) | unknown | SpikeGPT | ridger |
@@ -384,6 +398,7 @@ now we have [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp) (4bit quantizatio
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [RWKV-7B-alpaca-finetuned](https://huggingface.co/BlueSunflower/RWKV-7B-alpaca-finetuned) | 7b | RWKV | BlueSunflower |
@@ -414,6 +429,7 @@ encrypted alpaca model weights released by point-network: [point-alpaca](https:/
 LLaMA trained on massive collection of clean assistant dialog data, with model weights
 
 you need to install nomic to run the model:
+
 ```bash
 pip3 install nomic
 
@@ -428,6 +444,7 @@ researchers of open-assistant like [andreaskoepf](https://huggingface.co/andreas
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [oasst-llama-13b-2-epochs](https://huggingface.co/dvruette/oasst-llama-13b-2-epochs) | 13b | llama | dvruette |
@@ -455,6 +472,7 @@ model weights:
 ----
 
 reward model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [reward-model-deberta-v3-large](https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large) | unknown | deberta-v3 | OpenAssistant |
@@ -474,6 +492,7 @@ open sourced [model weights](https://huggingface.co/cerebras) and [training code
 ----
 
 model weights:
+
 | weight path | weight size | model name | author |
 | -- | -- | -- | -- |
 | [cerebras-gpt-6.7b-lora](https://huggingface.co/samwit/cerebras-gpt-6.7b-lora) | 6.7b | cerebras-gpt | samwit |

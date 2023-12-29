@@ -18,6 +18,7 @@
 [get url anchor text](https://programming.bogdanbucur.eu/how-to-get-the-url-anchor-with-javascript/)
 
 you can still use query string when visiting github.io
+
 ```javascript
 function getQueryStringValues(key) {
 var arrParamValues = [];

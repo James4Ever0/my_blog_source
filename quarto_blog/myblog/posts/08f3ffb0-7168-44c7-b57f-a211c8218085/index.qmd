@@ -16,6 +16,7 @@
 [cmd-recycle](https://github.com/kizzx2/cmd-recycle/)
 
 [nircmd](http://www.nirsoft.net/utils/nircmd.html)
+
 ```cmd
 nircmd moverecyclebin *.tmp
 
@@ -24,6 +25,7 @@ nircmd moverecyclebin *.tmp
 ## macos
 
 do this manually:
+
 ```bash
 # i don't trust this.
 #rm -rf ~/.Trash/*

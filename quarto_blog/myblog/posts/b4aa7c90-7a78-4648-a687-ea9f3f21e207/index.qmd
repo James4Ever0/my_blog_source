@@ -4,6 +4,7 @@
 ---
 
 ------
+
 ```bash
 cd /media/root/parrot
 cp -R -P /media/root/help1/pyjom .
@@ -21,10 +22,12 @@ main issue happens after local vscode launched.
 the issue is such that the proxy setting not right.
 
 to debug the service:
+
 ```bash
 sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr
 
 ```
+
 ```bash
 # to be succint:
 launchctl list | grep syncdog | awk '{print $1}' | xargs -I abc kill -s TERM abc
@@ -35,11 +38,13 @@ launchctl list | grep syncdog | awk '{print $1}' | xargs -I abc kill -s TERM abc
 ```
 
 we need to add some code for it. consider adding something alike to that to kali?
+
 ```python
 os.environ["http_proxy"]="http://localhost:7930"
 os.environ["https_proxy"]="http://localhost:7930"
 
 ```
+
 ```bash
 launchctl stop gui/501/pyjom_local_watchdog;
 launchctl kill TERM gui/501/pyjom_local_watchdog;
@@ -55,12 +60,14 @@ launchctl remove gui/501/pyjom_local_syncdog
 ```
 
 install macos pyjom watchdog (local):
+
 ```bash
 easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py
 
 ```
 
 install macos pyjom syncdog (local):
+
 ```bash
 easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py
 

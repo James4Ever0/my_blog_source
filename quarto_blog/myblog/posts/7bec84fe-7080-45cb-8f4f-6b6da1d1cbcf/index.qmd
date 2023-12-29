@@ -12,6 +12,7 @@ qq seems to release mac qq with electron, lot more easier for reverse engineerin
 opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的
 
 login error:
+
 ```
 2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0
 2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0
@@ -82,14 +83,17 @@ by the way we could always use go-cqhttp, without the ability to collect red pac
 qq add group/friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.
 
 tokens:
+
 ```
 74eb7eb14aa36d1b9c2c663bc49335e8becd5318
 
 ```
+
 ```
 2d391bd7639362032d09abfc5a9cc6368b7664d5
 
 ```
+
 ```
 bdf52599d992665509ee5b0b533d5eed08452def
 

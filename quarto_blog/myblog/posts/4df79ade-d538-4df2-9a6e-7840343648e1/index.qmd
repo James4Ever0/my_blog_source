@@ -6,6 +6,7 @@
 ------
 
 even if you configure `/etc/docker/daemon.json` like this (note: you still need to do this):
+
 ```json
 { "registry-mirrors":
 ["https://mirror.baidubce.com"]
@@ -14,6 +15,7 @@ even if you configure `/etc/docker/daemon.json` like this (note: you still need 
 ```
 
 it is not fully working until:
+
 ```bash
 sudo -E docker pull mirror.baidubce.com/significantgravitas/auto-gpt
 

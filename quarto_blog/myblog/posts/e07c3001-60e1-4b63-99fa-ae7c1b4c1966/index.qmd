@@ -28,6 +28,7 @@ if you want to do it on your own, you have to know how to send notifications on 
 ----
 
 on macOS:
+
 ```bash
 osascript -e 'display notification "This message should be showing on the notification" with title "Coding Tips"'
 
@@ -40,12 +41,14 @@ osascript -e 'display notification "This message should be showing on the notifi
 ----
 
 on linux:
+
 ```bash
 notify-send "Dinner ready!"
 
 ```
 
 using `remind`:
+
 ```bash
 remind "I'm still here" now
 remind "Time to wake up!" in 5 minutes
@@ -58,6 +61,7 @@ remind "It's Friday pints time!" at 17:00
 ----
 
 on windows:
+
 ```cmd
 msg /SERVER:DestinationPC * /TIME:60 “This is the message to be sent to a PC named DestinationPC and closes in 60 seconds."
 
