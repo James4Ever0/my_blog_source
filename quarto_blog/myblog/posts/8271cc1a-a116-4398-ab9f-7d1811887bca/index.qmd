@@ -4,17 +4,27 @@
 ---
 
 ------
+
 [opencv bilateral filter python](https://www.codespeedy.com/bilateral-filter-in-opencv-in-python/)
 ```python
 import cv2 as cv
 img = cv.imread('image.jpg')
 bilateral = cv.bilateralFilter(img, 15, 75, 75)
 cv2.imwrite('img_bilateral.jpg', bilateral)
+
 ```
+
 https://github.com/xujingzhou/VideoBeautify
+
 python美颜瘦脸
+
 https://github.com/Sharpiless/opencv-pyqt-makeup-software
+
 https://github.com/geeklili/Opencv_PIL
+
 https://github.com/PerpetualSmile/BeautyCamera
+
 JavaScript 美颜
+
 https://github.com/KikyoMiao/beauty
+

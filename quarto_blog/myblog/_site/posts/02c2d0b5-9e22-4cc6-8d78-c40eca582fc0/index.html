@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -145,7 +145,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p><a href="https://github.com/shuyanzhou/docprompting">docprompting</a> generate code from doc retrieval, using <a href="https://github.com/tldr-pages/tldr">tldr</a> and <a href="https://conala-corpus.github.io/">CoNaLa</a> for training code generation from prompt <a href="https://medium.com/@varun030403/colbert-a-complete-guide-1552468335ae">ColBERT</a> and <a href="https://medium.com/dataseries/roberta-robustly-optimized-bert-pretraining-approach-d033464bd946">RoBERTa</a> for document retrieval and embedding the update process shall be atomic. when the update is successful, there should be a file created under index directory. always check the newest index first. cleanup unusable/incompatible indexs. if there’s no previous compatible index present, make index from group up, clean up incompatible index if necessary. if previous compatible index is found, decompose it into small groups, waiting for merge and update. first checksum all files along with file names. if file is present with matched checksum, don’t touch it, or either remove it from index, create new index or replace index. next create or merge file list. then we scan those new files then act accordingly to our index. finally we merge our index, save to a different place, place the flag, remove the flag of old index then remove old index completely. if merge is not possible for huge datasource, we perform search in minibatches.</p>
+<p><a href="https://github.com/shuyanzhou/docprompting">docprompting</a> generate code from doc retrieval, using <a href="https://github.com/tldr-pages/tldr">tldr</a> and <a href="https://conala-corpus.github.io/">CoNaLa</a> for training code generation from prompt</p>
+<p><a href="https://medium.com/@varun030403/colbert-a-complete-guide-1552468335ae">ColBERT</a> and <a href="https://medium.com/dataseries/roberta-robustly-optimized-bert-pretraining-approach-d033464bd946">RoBERTa</a> for document retrieval and embedding</p>
+<p>the update process shall be atomic. when the update is successful, there should be a file created under index directory. always check the newest index first. cleanup unusable/incompatible indexs.</p>
+<p>if there’s no previous compatible index present, make index from group up, clean up incompatible index if necessary. if previous compatible index is found, decompose it into small groups, waiting for merge and update.</p>
+<p>first checksum all files along with file names. if file is present with matched checksum, don’t touch it, or either remove it from index, create new index or replace index.</p>
+<p>next create or merge file list.</p>
+<p>then we scan those new files then act accordingly to our index.</p>
+<p>finally we merge our index, save to a different place, place the flag, remove the flag of old index then remove old index completely. if merge is not possible for huge datasource, we perform search in minibatches.</p>
 
 
 

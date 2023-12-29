@@ -4,7 +4,12 @@
 ---
 
 ------
+
 ## linux
+
 for gnome, there's a built in disk usage manager called baobab.
+
 filelight for kde
+
 qdirstat
+

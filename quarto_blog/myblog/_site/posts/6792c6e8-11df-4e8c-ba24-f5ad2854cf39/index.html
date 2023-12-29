@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -85,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -139,190 +173,193 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<table class="table">
-<tbody>
-<tr class="odd">
-<td># pyjom dev schedules</td>
-</tr>
-<tr class="even">
-<td>## 整活</td>
-</tr>
-<tr class="odd">
-<td>- [ ] 应 急 诈 骗 食 品 (派蒙加Rick Ashley 如何混合？）</td>
-</tr>
-<tr class="even">
-<td>## recommendation</td>
-</tr>
-<tr class="odd">
-<td>- [ ] use txtai to do NLU and recommend things to people</td>
-</tr>
-<tr class="even">
-<td>## topic discovery/acquiring</td>
-</tr>
-<tr class="odd">
-<td>### trending topics</td>
-</tr>
-<tr class="even">
-<td>- [ ] baidu search trending</td>
-</tr>
-<tr class="odd">
-<td>- [ ] sogou trending</td>
-</tr>
-<tr class="even">
-<td>- [ ] bilibili trending</td>
-</tr>
-<tr class="odd">
-<td>- [ ] wechat trending</td>
-</tr>
-<tr class="even">
-<td>- [ ] toutiao trending</td>
-</tr>
-<tr class="odd">
-<td>- [ ] tencent trending</td>
-</tr>
-<tr class="even">
-<td>- [ ] netease trending</td>
-</tr>
-<tr class="odd">
-<td>- [ ] youtube trending</td>
-</tr>
-<tr class="even">
-<td>- [ ] reddit trending</td>
-</tr>
-<tr class="odd">
-<td>- [ ] twitch trending</td>
-</tr>
-<tr class="even">
-<td>### popular topics</td>
-</tr>
-<tr class="odd">
-<td>- [ ] baijiahao popular topics</td>
-</tr>
-<tr class="even">
-<td>- [ ] bilibili popular topics</td>
-</tr>
-<tr class="odd">
-<td>- [ ] douyin popular topics</td>
-</tr>
-<tr class="even">
-<td>### personal/customized topics</td>
-</tr>
-<tr class="odd">
-<td>- [ ] tencent qq customized (can associate with mail)</td>
-</tr>
-<tr class="even">
-<td>- [ ] wechat customized</td>
-</tr>
-<tr class="odd">
-<td>- [ ] bilibili per user customized</td>
-</tr>
-<tr class="even">
-<td>## dog/cat video generation</td>
-</tr>
-<tr class="odd">
-<td>### make render engine runnable</td>
-</tr>
-<tr class="even">
-<td>issues:</td>
-</tr>
-<tr class="odd">
-<td>- [x] video length too long (10 mins)</td>
-</tr>
-<tr class="even">
-<td>it was the speed calculation error.</td>
-</tr>
-<tr class="odd">
-<td>- [x] bgm somehow not in sync (too broad bpm/clip ranges?)</td>
-</tr>
-<tr class="even">
-<td>- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)</td>
-</tr>
-<tr class="odd">
-<td>```bash</td>
-</tr>
-<tr class="even">
-<td>pip3 install pyloudnorm</td>
-</tr>
-<tr class="odd">
-<td>```</td>
-</tr>
-<tr class="even">
-<td>```python</td>
-</tr>
-<tr class="odd">
-<td>import soundfile as sf</td>
-</tr>
-<tr class="even">
-<td>import pyloudnorm as pyln</td>
-</tr>
-<tr class="odd">
-<td>data, rate = sf.read(“0055014.wav”) # load audio (with shape (samples, channels))</td>
-</tr>
-<tr class="even">
-<td>print(data.shape)</td>
-</tr>
-<tr class="odd">
-<td>meter = pyln.Meter(rate) # create BS.1770 meter</td>
-</tr>
-<tr class="even">
-<td>loudness = meter.integrated_loudness(data) # measure loudness</td>
-</tr>
-<tr class="odd">
-<td>print(loudness)</td>
-</tr>
-<tr class="even">
-<td>```</td>
-</tr>
-<tr class="odd">
-<td>- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</td>
-</tr>
-<tr class="even">
-<td>- [ ] video too repetitive (small corpus?)</td>
-</tr>
-<tr class="odd">
-<td>- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)</td>
-</tr>
-<tr class="even">
-<td>- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</td>
-</tr>
-</tbody>
-</table>
+<hr>
+<section id="pyjom-dev-schedules" class="level1">
+<h1>pyjom dev schedules</h1>
+<section id="整活" class="level2">
+<h2 class="anchored" data-anchor-id="整活">整活</h2>
 <ul class="task-list">
-<li><input type="checkbox" checked="">remove all watermarks, subtitles and crop video boundaries accordingly</li>
-<li><input type="checkbox">source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</li>
-<li><input type="checkbox">find 500 songs without duplicate at once</li>
-<li><input type="checkbox">find 500 songs no duplicate twice</li>
-<li><input type="checkbox">find 500 animal videos without duplicate</li>
-<li><input type="checkbox">find 500 animal videos no duplicate twice</li>
-<li><input type="checkbox">generate appropriate title, cover, info and tags</li>
-<li><input type="checkbox">collect feedback after the post</li>
-<li><input type="checkbox">find some shocking fonts for cover and subtitle, english and chinese</li>
-<li><input type="checkbox" checked="">make that karaoke effect</li>
-<li><input type="checkbox" checked="">make ass with karaoke effect with lrc files</li>
-<li><input type="checkbox" checked="">make lyrics sync logic fluent, according to what have learned from karaoke effects</li>
-<li><input type="checkbox">make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect? ## text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators) ### generator models subarchitecture (subcategories of template based generators) #### flipcard #### slideshow (video and audio, might also include the dog&amp;cat video!) #### narrator #### summarized video ________________________ ### policy evasion, NSFW filters</li>
-<li><input type="checkbox">remove all hints from image, video, audio and script that may lead to copyright issues ________________________ ### analyze the media content and metadata, relationships</li>
-<li><input type="checkbox">analyze danmaku</li>
-<li><input type="checkbox">paraphrase the script</li>
-<li><input type="checkbox">cut the crap and understand each clip’s meaning ________________________ ### process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects ________________________ ### process the audio clips, like changing voice, adding sound effects, separating audio/music tracks, ducking ________________________ ### index, retrieve and align video and audio content according to our collected database ________________________ ### retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation ________________________ ## qq managing</li>
-<li><input type="checkbox">mitm chats in friends</li>
-<li><input type="checkbox">mitm chats in groups</li>
-<li><input type="checkbox">source and send pictures to qzone</li>
-<li><input type="checkbox">source and send pictures to chat</li>
-<li><input type="checkbox">reduce posting frequency by group size and feedback</li>
-<li><input type="checkbox">post relative video link relative to group topic ## personal info collecting and email/sms bulk sending</li>
-<li><input type="checkbox">avoid mail being trashed or turned into junk</li>
-<li><input type="checkbox">collect and make mail templates for mail posting ## voice changer</li>
-<li><input type="checkbox">vst based voice changer</li>
-<li><input type="checkbox">train or find a decent voice generator 御姐音语料库 小受音语料库 请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢 ## 直播 live streaming</li>
-<li><input type="checkbox">source the video 如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</li>
-<li><input type="checkbox">prepare some space for storing live streaming data</li>
-<li><input type="checkbox">source the audio</li>
-<li><input type="checkbox">automatic interactions</li>
-<li><input type="checkbox">handle the vtuber model’s actions</li>
+<li><input type="checkbox">应 急 诈 骗 食 品 (派蒙加Rick Ashley 如何混合？）</li>
+</ul>
+</section>
+<section id="recommendation" class="level2">
+<h2 class="anchored" data-anchor-id="recommendation">recommendation</h2>
+<ul class="task-list">
+<li><input type="checkbox">use txtai to do NLU and recommend things to people</li>
+</ul>
+</section>
+<section id="topic-discoveryacquiring" class="level2">
+<h2 class="anchored" data-anchor-id="topic-discoveryacquiring">topic discovery/acquiring</h2>
+<section id="trending-topics" class="level3">
+<h3 class="anchored" data-anchor-id="trending-topics">trending topics</h3>
+<ul class="task-list">
+<li><p><input type="checkbox">baidu search trending</p></li>
+<li><p><input type="checkbox">sogou trending</p></li>
+<li><p><input type="checkbox">bilibili trending</p></li>
+<li><p><input type="checkbox">wechat trending</p></li>
+<li><p><input type="checkbox">toutiao trending</p></li>
+<li><p><input type="checkbox">tencent trending</p></li>
+<li><p><input type="checkbox">netease trending</p></li>
+<li><p><input type="checkbox">youtube trending</p></li>
+<li><p><input type="checkbox">reddit trending</p></li>
+<li><p><input type="checkbox">twitch trending</p></li>
+</ul>
+</section>
+<section id="popular-topics" class="level3">
+<h3 class="anchored" data-anchor-id="popular-topics">popular topics</h3>
+<ul class="task-list">
+<li><p><input type="checkbox">baijiahao popular topics</p></li>
+<li><p><input type="checkbox">bilibili popular topics</p></li>
+<li><p><input type="checkbox">douyin popular topics</p></li>
+</ul>
+</section>
+<section id="personalcustomized-topics" class="level3">
+<h3 class="anchored" data-anchor-id="personalcustomized-topics">personal/customized topics</h3>
+<ul class="task-list">
+<li><p><input type="checkbox">tencent qq customized (can associate with mail)</p></li>
+<li><p><input type="checkbox">wechat customized</p></li>
+<li><p><input type="checkbox">bilibili per user customized</p></li>
+</ul>
+</section>
+</section>
+<section id="dogcat-video-generation" class="level2">
+<h2 class="anchored" data-anchor-id="dogcat-video-generation">dog/cat video generation</h2>
+<section id="make-render-engine-runnable" class="level3">
+<h3 class="anchored" data-anchor-id="make-render-engine-runnable">make render engine runnable</h3>
+<p>issues:</p>
+<ul class="task-list">
+<li><input type="checkbox" checked="">video length too long (10 mins)</li>
+</ul>
+<p>it was the speed calculation error.</p>
+<ul class="task-list">
+<li><p><input type="checkbox" checked="">bgm somehow not in sync (too broad bpm/clip ranges?)</p></li>
+<li><p><input type="checkbox">to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install pyloudnorm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> soundfile <span class="im">as</span> sf</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyloudnorm <span class="im">as</span> pyln</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data, rate <span class="op">=</span> sf.read(<span class="st">"0055014.wav"</span>) <span class="co"># load audio (with shape (samples, channels))</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.shape)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>meter <span class="op">=</span> pyln.Meter(rate) <span class="co"># create BS.1770 meter</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>loudness <span class="op">=</span> meter.integrated_loudness(data) <span class="co"># measure loudness</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loudness)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><p><input type="checkbox">place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</p></li>
+<li><p><input type="checkbox">video too repetitive (small corpus?)</p></li>
+<li><p><input type="checkbox" checked="">do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)</p></li>
+<li><p><input type="checkbox">do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</p></li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><p><input type="checkbox" checked="">remove all watermarks, subtitles and crop video boundaries accordingly</p></li>
+<li><p><input type="checkbox">source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</p></li>
+<li><p><input type="checkbox">find 500 songs without duplicate at once</p></li>
+<li><p><input type="checkbox">find 500 songs no duplicate twice</p></li>
+<li><p><input type="checkbox">find 500 animal videos without duplicate</p></li>
+<li><p><input type="checkbox">find 500 animal videos no duplicate twice</p></li>
+<li><p><input type="checkbox">generate appropriate title, cover, info and tags</p></li>
+<li><p><input type="checkbox">collect feedback after the post</p></li>
+<li><p><input type="checkbox">find some shocking fonts for cover and subtitle, english and chinese</p></li>
+<li><p><input type="checkbox" checked="">make that karaoke effect</p></li>
+<li><p><input type="checkbox" checked="">make ass with karaoke effect with lrc files</p></li>
+<li><p><input type="checkbox" checked="">make lyrics sync logic fluent, according to what have learned from karaoke effects</p></li>
+<li><p><input type="checkbox">make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?</p></li>
+</ul>
+</section>
+</section>
+<section id="text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever.-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators" class="level2">
+<h2 class="anchored" data-anchor-id="text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever.-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators">text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)</h2>
+<section id="generator-models-subarchitecture-subcategories-of-template-based-generators" class="level3">
+<h3 class="anchored" data-anchor-id="generator-models-subarchitecture-subcategories-of-template-based-generators">generator models subarchitecture (subcategories of template based generators)</h3>
+<section id="flipcard" class="level4">
+<h4 class="anchored" data-anchor-id="flipcard">flipcard</h4>
+</section>
+<section id="slideshow-video-and-audio-might-also-include-the-dogcat-video" class="level4">
+<h4 class="anchored" data-anchor-id="slideshow-video-and-audio-might-also-include-the-dogcat-video">slideshow (video and audio, might also include the dog&amp;cat video!)</h4>
+</section>
+<section id="narrator" class="level4">
+<h4 class="anchored" data-anchor-id="narrator">narrator</h4>
+</section>
+<section id="summarized-video" class="level4">
+<h4 class="anchored" data-anchor-id="summarized-video">summarized video</h4>
+<hr>
+</section>
+</section>
+<section id="policy-evasion-nsfw-filters" class="level3">
+<h3 class="anchored" data-anchor-id="policy-evasion-nsfw-filters">policy evasion, NSFW filters</h3>
+<ul class="task-list">
+<li><input type="checkbox">remove all hints from image, video, audio and script that may lead to copyright issues</li>
+</ul>
+<hr>
+</section>
+<section id="analyze-the-media-content-and-metadata-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="analyze-the-media-content-and-metadata-relationships">analyze the media content and metadata, relationships</h3>
+<ul class="task-list">
+<li><p><input type="checkbox">analyze danmaku</p></li>
+<li><p><input type="checkbox">paraphrase the script</p></li>
+<li><p><input type="checkbox">cut the crap and understand each clip’s meaning</p></li>
+</ul>
+<hr>
+</section>
+<section id="process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects" class="level3">
+<h3 class="anchored" data-anchor-id="process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects">process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects</h3>
+<hr>
+</section>
+<section id="process-the-audio-clips-like-changing-voice-adding-sound-effects-separating-audiomusic-tracks-ducking" class="level3">
+<h3 class="anchored" data-anchor-id="process-the-audio-clips-like-changing-voice-adding-sound-effects-separating-audiomusic-tracks-ducking">process the audio clips, like changing voice, adding sound effects, separating audio/music tracks, ducking</h3>
+<hr>
+</section>
+<section id="index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database" class="level3">
+<h3 class="anchored" data-anchor-id="index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database">index, retrieve and align video and audio content according to our collected database</h3>
+<hr>
+</section>
+<section id="retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation" class="level3">
+<h3 class="anchored" data-anchor-id="retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation">retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation</h3>
+<hr>
+</section>
+</section>
+<section id="qq-managing" class="level2">
+<h2 class="anchored" data-anchor-id="qq-managing">qq managing</h2>
+<ul class="task-list">
+<li><p><input type="checkbox">mitm chats in friends</p></li>
+<li><p><input type="checkbox">mitm chats in groups</p></li>
+<li><p><input type="checkbox">source and send pictures to qzone</p></li>
+<li><p><input type="checkbox">source and send pictures to chat</p></li>
+<li><p><input type="checkbox">reduce posting frequency by group size and feedback</p></li>
+<li><p><input type="checkbox">post relative video link relative to group topic</p></li>
+</ul>
+</section>
+<section id="personal-info-collecting-and-emailsms-bulk-sending" class="level2">
+<h2 class="anchored" data-anchor-id="personal-info-collecting-and-emailsms-bulk-sending">personal info collecting and email/sms bulk sending</h2>
+<ul class="task-list">
+<li><p><input type="checkbox">avoid mail being trashed or turned into junk</p></li>
+<li><p><input type="checkbox">collect and make mail templates for mail posting</p></li>
+</ul>
+</section>
+<section id="voice-changer" class="level2">
+<h2 class="anchored" data-anchor-id="voice-changer">voice changer</h2>
+<ul class="task-list">
+<li><p><input type="checkbox">vst based voice changer</p></li>
+<li><p><input type="checkbox">train or find a decent voice generator 御姐音语料库 小受音语料库</p></li>
+</ul>
+<p>请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢</p>
+</section>
+<section id="直播-live-streaming" class="level2">
+<h2 class="anchored" data-anchor-id="直播-live-streaming">直播 live streaming</h2>
+<ul class="task-list">
+<li><input type="checkbox">source the video</li>
+</ul>
+<p>如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</p>
+<ul class="task-list">
+<li><p><input type="checkbox">prepare some space for storing live streaming data</p></li>
+<li><p><input type="checkbox">source the audio</p></li>
+<li><p><input type="checkbox">automatic interactions</p></li>
+<li><p><input type="checkbox">handle the vtuber model’s actions</p></li>
 </ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -4,6 +4,10 @@
 ---
 
 ------
+
 # captcha for turing test
+
 captchas are used for public automated turing tests
+
 however, it is not behavior based but rather like capability/skill based.
+

@@ -4,6 +4,7 @@
 ---
 
 ------
+
 save this under `/lib/systemd/system/neo4j.service`
 ```config
 [Unit]
@@ -16,4 +17,6 @@ ExecStop=/usr/bin/neo4j stop
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
+
 ```
+

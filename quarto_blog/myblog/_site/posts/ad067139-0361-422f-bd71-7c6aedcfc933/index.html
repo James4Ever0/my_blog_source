@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -179,13 +179,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>和股票有关的程序必须运行在服务器上面 要有ecc 网速要快 ## 交易接口 <a href="https://www.55188.com/thread-8939286-1-1.html">现在哪些券商的TradeX.dll接口还能用</a> 需要注册论坛账号 达到要求才能浏览内容 <a href="https://github.com/James4Ever0/Order9">trade.dll tradex.dll</a> <a href="https://github.com/296083197/ts/blob/master/TradeX-B/TradeXDemo-B/TradeX.h">tradex.dll header file</a> <a href="https://github.com/sunwind/BQTradeX">bqtradex</a> A simple tradex api mock dll, for easily internal debug your app <a href="https://github.com/yutiansut/QUANTAXIS">Quantaxis</a> <a href="https://github.com/corefan/TdxTradeServer">tdxtradeserver</a> <a href="https://github.com/southtop/TradeX-API">tradex-api</a> <a href="https://github.com/fswzb/tdxapi2">tdxapi2</a> <a href="https://github.com/fswzb/alphaquant">alphaquant</a> ## 数据来源 逐笔数据是计算涨速的关键因素 <a href="https://github.com/fswzb/Ashare">ashare</a> <a href="https://github.com/yutiansut/QUANTAXIS">quantaxis</a> secretely using pytdx and tdxtradeserver as backends <a href="https://github.com/akfamily/akshare">akshare</a> 获取涨速</p>
+<p>和股票有关的程序必须运行在服务器上面 要有ecc 网速要快</p>
+<section id="交易接口" class="level2">
+<h2 class="anchored" data-anchor-id="交易接口">交易接口</h2>
+<p><a href="https://www.55188.com/thread-8939286-1-1.html">现在哪些券商的TradeX.dll接口还能用</a> 需要注册论坛账号 达到要求才能浏览内容</p>
+<p><a href="https://github.com/James4Ever0/Order9">trade.dll tradex.dll</a></p>
+<p><a href="https://github.com/296083197/ts/blob/master/TradeX-B/TradeXDemo-B/TradeX.h">tradex.dll header file</a></p>
+<p><a href="https://github.com/sunwind/BQTradeX">bqtradex</a> A simple tradex api mock dll, for easily internal debug your app</p>
+<p><a href="https://github.com/yutiansut/QUANTAXIS">Quantaxis</a></p>
+<p><a href="https://github.com/corefan/TdxTradeServer">tdxtradeserver</a></p>
+<p><a href="https://github.com/southtop/TradeX-API">tradex-api</a></p>
+<p><a href="https://github.com/fswzb/tdxapi2">tdxapi2</a></p>
+<p><a href="https://github.com/fswzb/alphaquant">alphaquant</a></p>
+</section>
+<section id="数据来源" class="level2">
+<h2 class="anchored" data-anchor-id="数据来源">数据来源</h2>
+<p>逐笔数据是计算涨速的关键因素</p>
+<p><a href="https://github.com/fswzb/Ashare">ashare</a></p>
+<p><a href="https://github.com/yutiansut/QUANTAXIS">quantaxis</a> secretely using pytdx and tdxtradeserver as backends</p>
+<p><a href="https://github.com/akfamily/akshare">akshare</a></p>
+<p>获取涨速</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> akshare <span class="im">as</span> ak</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>stock_zh_a_spot_em_df <span class="op">=</span> ak.stock_zh_a_spot_em()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stock_zh_a_spot_em_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="">qstock</a> <a href="https://efinance.readthedocs.io/en/latest/index.html">efinance</a> <a href="http://baostock.com/baostock/index.php/A%E8%82%A1K%E7%BA%BF%E6%95%B0%E6%8D%AE">baostock</a> <a href="https://gitee.com/better319/pytdx/">pytdx</a> and <a href="https://rainx.gitbooks.io/pytdx/content/pytdx_hq.html">docs</a>, must connect to tdx server before operate <a href="https://github.com/liewhite/pytdx2">pytdx2</a> fixed some problems <a href="https://github.com/TianShengBingFeiNiuRen/moo-tdx-api/tree/master/Lib/site-packages/mootdx/financial">mootdx</a> actually using pytdx as backend <a href="https://github.com/yssource/abquant-data/blob/develop/abquant/data/tdx_api.py">abquant-data</a> using pytdx as backend 计算涨速等数据 <a href="https://github.com/uname-yang/pysnowball">pysnowball</a>雪球数据源 chromedriver based <a href="https://github.com/1dot75cm/xueqiu">xueqiu api</a> <a href="https://blog.crackcreed.com/diy-xue-qiu-app-shu-ju-api/">获取雪球cookie</a> <a href="https://github.com/easyQuant/trade_bundle/blob/master/index.py">雪球tick级别数据获取</a> <a href="https://github.com/fangshi1991/zipline_chstock">zipline_chstock</a> 本地化zipline，并对其进行部分加工，适用于国内 day,minute 和tick数据的回测 <a href="https://github.com/knotgd/option_data/blob/55dad688b0e351b7aae43919a2beac50c536aa3a/core/constant.py">新浪财经api</a></p>
+<p><a href="">qstock</a></p>
+<p><a href="https://efinance.readthedocs.io/en/latest/index.html">efinance</a></p>
+<p><a href="http://baostock.com/baostock/index.php/A%E8%82%A1K%E7%BA%BF%E6%95%B0%E6%8D%AE">baostock</a></p>
+<p><a href="https://gitee.com/better319/pytdx/">pytdx</a> and <a href="https://rainx.gitbooks.io/pytdx/content/pytdx_hq.html">docs</a>, must connect to tdx server before operate</p>
+<p><a href="https://github.com/liewhite/pytdx2">pytdx2</a> fixed some problems</p>
+<p><a href="https://github.com/TianShengBingFeiNiuRen/moo-tdx-api/tree/master/Lib/site-packages/mootdx/financial">mootdx</a> actually using pytdx as backend</p>
+<p><a href="https://github.com/yssource/abquant-data/blob/develop/abquant/data/tdx_api.py">abquant-data</a> using pytdx as backend</p>
+<p>计算涨速等数据</p>
+<p><a href="https://github.com/uname-yang/pysnowball">pysnowball</a>雪球数据源</p>
+<p>chromedriver based <a href="https://github.com/1dot75cm/xueqiu">xueqiu api</a></p>
+<p><a href="https://blog.crackcreed.com/diy-xue-qiu-app-shu-ju-api/">获取雪球cookie</a></p>
+<p><a href="https://github.com/easyQuant/trade_bundle/blob/master/index.py">雪球tick级别数据获取</a></p>
+<p><a href="https://github.com/fangshi1991/zipline_chstock">zipline_chstock</a> 本地化zipline，并对其进行部分加工，适用于国内 day,minute 和tick数据的回测</p>
+<p><a href="https://github.com/knotgd/option_data/blob/55dad688b0e351b7aae43919a2beac50c536aa3a/core/constant.py">新浪财经api</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

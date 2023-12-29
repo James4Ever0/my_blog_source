@@ -4,7 +4,12 @@
 ---
 
 ------
+
 If present in current categories, choose a number.
+
 otherwise, provide a name. number will be automatically assigned.
+
 [retrieval based attention net](https://github.com/lucidrains/RETRO-pytorch)
+
 regression test in stock market, which can also apply to bilibili
+

@@ -4,7 +4,7 @@ import sys
 from sentence_transformers import SentenceTransformer
 import traceback
 
-from remove_headline_from_markdown import remove_headline_from_lines
+from remove_headline_from_markdown import remove_headline_from_lines,join_lines_with_state, NEWLINE
 
 sys.path.append(
     "/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control"
@@ -47,8 +47,6 @@ from io_utils import load_file, write_file
 
 T = TypeVar("T")
 DEFAULT_TOP_K = 7
-NEWLINE = "\n"
-
 REQUIRED_FIELDS = ("tags", "title", "description", "category", "date")
 FIELDS_THAT_NEED_SUMMARY_TO_GENERATE = ("tags", "title", "description", "category")
 DATE_MITIGATION_FIELDS = ("created", "modified")
@@ -993,7 +991,7 @@ def fix_date_and_get_title_in_content(filepath: str, content: str) -> tuple[str,
 def remove_headline_from_content(content: str, title: str):
     lines = split_by_line(content)
     new_lines = remove_headline_from_lines(lines, title)
-    return join_lines(new_lines)
+    return join_lines_with_state(new_lines)
 
 
 @beartype

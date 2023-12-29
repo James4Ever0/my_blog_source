@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -181,7 +181,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="notice" class="level2">
 <h2 class="anchored" data-anchor-id="notice">notice</h2>
-<p>when using this, first extract topic from recent chats or group name, then send message. or you just use the default topic. whatever. ## client</p>
+<p>when using this, first extract topic from recent chats or group name, then send message.</p>
+<p>or you just use the default topic. whatever.</p>
+</section>
+<section id="client" class="level2">
+<h2 class="anchored" data-anchor-id="client">client</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> requests</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> r <span class="op">=</span> requests.get(<span class="st">"http://localhost:8735/chat"</span>,params<span class="op">=</span>{<span class="st">"topic"</span>:<span class="st">"python"</span>,<span class="st">"message"</span>:<span class="st">"吃了没有"</span>})</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> r.json()</span>

@@ -4,6 +4,10 @@
 ---
 
 ------
+
 design a model to accept fixed length word type sequence and output word order token. the token is used to decode the final word sequence, just like the convolution but different.
+
 input can be both misplaced sentences or correct sentences
+
 looking for english word order correctifier.(grammar)
+

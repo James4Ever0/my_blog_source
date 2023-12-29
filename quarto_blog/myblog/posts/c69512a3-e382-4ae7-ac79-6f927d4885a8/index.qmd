@@ -4,5 +4,8 @@
 ---
 
 ------
+
 ## linux
+
 [htop](https://htop.dev/) for ram and processes. [s-tui](https://github.com/amanusk/s-tui) for cpu/gpu temperatures
+

@@ -4,13 +4,20 @@
 ---
 
 ------
+
 packages like `EdgeGPT` may update overnight. mirrors won't keep up. you need to fetch from the official package index.
+
 ----
+
 to set the index:
 ```bash
 pip set global.index-url https://pypi.org/simple
+
 ```
+
 to use the index temporarily:
 ```bash
 pip install <package> -i https://pypi.org/simple
+
 ```
+

@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -183,15 +183,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="peewee">peewee</h2>
 <section id="docs" class="level3">
 <h3 class="anchored" data-anchor-id="docs">docs</h3>
-<p><a href="http://docs.peewee-orm.com/">official doc</a> ## milvus ### docs <a href="https://milvus.io/docs">official doc</a> ## neo4j ### OGM, object-graph mapping <a href="https://github.com/neo4jrb/activegraph">activegraph</a> <a href="https://github.com/bratushka/cypher">cypher</a> <a href="https://github.com/neo4j-contrib/neomodel">neomodel</a> <a href="https://github.com/adam-cowley/neode">neode</a> ### docs <a href="https://neo4j.com/docs/graph-data-science/current/operations-reference/algorithm-references/">graph data science</a> <a href="https://neo4j.com/docs/python-manual/current/get-started/">python driver doc</a> ### drivers <a href="https://github.com/neo4j/neo4j-python-driver">neo4j python driver</a> <a href="https://github.com/neo4j/graph-data-science-client">neo4j python graph data science driver</a> ### wrappers <a href="https://github.com/emehrkay/Pypher">pypher</a> cypher builder in python <a href="https://neo4j.com/blog/express-cypher-queries-pure-python-pypher/">intro</a> <a href="https://github.com/pawamoy/neopy">neopy</a> <a href="https://github.com/stellasia/pygds">pygds</a> a python wrapper to call Neo4j Graph Data Science procedures from python using the Neo4j python driver ## mindsdb since mindsdb is sql-based it is time to create monkey patches for sqlalchemy core?</p>
+<p><a href="http://docs.peewee-orm.com/">official doc</a></p>
+</section>
+</section>
+<section id="milvus" class="level2">
+<h2 class="anchored" data-anchor-id="milvus">milvus</h2>
+<section id="docs-1" class="level3">
+<h3 class="anchored" data-anchor-id="docs-1">docs</h3>
+<p><a href="https://milvus.io/docs">official doc</a></p>
+</section>
+</section>
+<section id="neo4j" class="level2">
+<h2 class="anchored" data-anchor-id="neo4j">neo4j</h2>
+<section id="ogm-object-graph-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="ogm-object-graph-mapping">OGM, object-graph mapping</h3>
+<p><a href="https://github.com/neo4jrb/activegraph">activegraph</a></p>
+<p><a href="https://github.com/bratushka/cypher">cypher</a></p>
+<p><a href="https://github.com/neo4j-contrib/neomodel">neomodel</a></p>
+<p><a href="https://github.com/adam-cowley/neode">neode</a></p>
+</section>
+<section id="docs-2" class="level3">
+<h3 class="anchored" data-anchor-id="docs-2">docs</h3>
+<p><a href="https://neo4j.com/docs/graph-data-science/current/operations-reference/algorithm-references/">graph data science</a></p>
+<p><a href="https://neo4j.com/docs/python-manual/current/get-started/">python driver doc</a></p>
+</section>
+<section id="drivers" class="level3">
+<h3 class="anchored" data-anchor-id="drivers">drivers</h3>
+<p><a href="https://github.com/neo4j/neo4j-python-driver">neo4j python driver</a></p>
+<p><a href="https://github.com/neo4j/graph-data-science-client">neo4j python graph data science driver</a></p>
+</section>
+<section id="wrappers" class="level3">
+<h3 class="anchored" data-anchor-id="wrappers">wrappers</h3>
+<p><a href="https://github.com/emehrkay/Pypher">pypher</a> cypher builder in python <a href="https://neo4j.com/blog/express-cypher-queries-pure-python-pypher/">intro</a></p>
+<p><a href="https://github.com/pawamoy/neopy">neopy</a></p>
+<p><a href="https://github.com/stellasia/pygds">pygds</a> a python wrapper to call Neo4j Graph Data Science procedures from python using the Neo4j python driver</p>
+</section>
+</section>
+<section id="mindsdb" class="level2">
+<h2 class="anchored" data-anchor-id="mindsdb">mindsdb</h2>
+<p>since mindsdb is sql-based it is time to create monkey patches for sqlalchemy core?</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> text</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># write the SQL query inside the text() block</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> text(<span class="st">'SELECT * from BOOKS WHERE BOOKS.book_price &gt; 50'</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> engine.execute(sql)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="tools" class="level3">
 <h3 class="anchored" data-anchor-id="tools">tools</h3>
-<p><a href="https://github.com/mindsdb/lightwood">Lightwood</a> is an AutoML framework that enables you to generate and customize machine learning pipelines declarative syntax called JSON-AI <a href="https://lightwood.io/">doc</a> ### docs <a href="https://docs.mindsdb.com/">official doc</a> ### wrappers <a href="https://docs.sqlalchemy.org/en/20/tutorial/engine.html">sqlalchemy 2.0 doc</a> <a href="https://pypika.readthedocs.io/en/latest/">pypika</a> sql query builder <a href="https://github.com/mindsdb/mindsdb_native">mindsdb native</a> <a href="https://github.com/mindsdb/mindsdb_python_sdk">mindsdb python sdk</a></p>
+<p><a href="https://github.com/mindsdb/lightwood">Lightwood</a> is an AutoML framework that enables you to generate and customize machine learning pipelines declarative syntax called JSON-AI <a href="https://lightwood.io/">doc</a></p>
+</section>
+<section id="docs-3" class="level3">
+<h3 class="anchored" data-anchor-id="docs-3">docs</h3>
+<p><a href="https://docs.mindsdb.com/">official doc</a></p>
+</section>
+<section id="wrappers-1" class="level3">
+<h3 class="anchored" data-anchor-id="wrappers-1">wrappers</h3>
+<p><a href="https://docs.sqlalchemy.org/en/20/tutorial/engine.html">sqlalchemy 2.0 doc</a></p>
+<p><a href="https://pypika.readthedocs.io/en/latest/">pypika</a> sql query builder</p>
+<p><a href="https://github.com/mindsdb/mindsdb_native">mindsdb native</a></p>
+<p><a href="https://github.com/mindsdb/mindsdb_python_sdk">mindsdb python sdk</a></p>
 
 
 </section>

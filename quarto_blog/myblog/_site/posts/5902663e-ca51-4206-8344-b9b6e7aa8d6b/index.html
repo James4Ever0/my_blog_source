@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -177,7 +177,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>macos mount ntfs read-only by default. code from <a href="https://mounty.app/">mounty.app</a> mounty is somehow not working so manual remount is needed. one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
+<p>macos mount ntfs read-only by default.</p>
+<p>code from <a href="https://mounty.app/">mounty.app</a></p>
+<p>mounty is somehow not working so manual remount is needed.</p>
+<p>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> umount /Volumes/Toshiba3000</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mkdir /Volumes/Toshiba3000<span class="kw">;</span> <span class="fu">sudo</span> mount <span class="at">-t</span> ntfs <span class="at">-o</span> rw,auto,nobrowse /dev/<span class="op">&lt;</span>diskIdentifier<span class="op">&gt;</span> /Volumes/Toshiba3000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 

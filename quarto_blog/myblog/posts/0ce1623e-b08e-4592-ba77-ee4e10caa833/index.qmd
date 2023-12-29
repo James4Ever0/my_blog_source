@@ -4,9 +4,16 @@
 ---
 
 ------
+
 ## linux
+
 [cpufrequtils](http://kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html)
+
 [throttling cpu frequencies by temperature incrementally](https://github.com/Sepero/temp-throttle)
+
 the desired temperature is 60.
+
 usually when one throttles the CPU temperature, the GPU cannot be overheated.
+
 it is turning my core i7 into a pentium 3! but not entirely cumbersome.
+

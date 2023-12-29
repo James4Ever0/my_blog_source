@@ -4,6 +4,10 @@
 ---
 
 ------
+
 cookie not found on request event handler.
+
 cookie can be obtained via context.cookies()
+
 router
+

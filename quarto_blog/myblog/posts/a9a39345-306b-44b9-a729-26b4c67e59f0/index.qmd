@@ -4,7 +4,10 @@
 ---
 
 ------
+
 alpharetta uses tesla-450 driver
 ```bash
 update-glx --config nvidia
+
 ```
+

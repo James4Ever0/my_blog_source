@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -189,31 +189,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<table class="table">
-<colgroup>
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>make specialized (in RPA) tokenizer and embedding for this new model. add new words to the tokenizer.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>you can just boot ubuntu/kali/parrot iso without installing. but that would make us embarrasing. we need to check for the option.</td>
-</tr>
-</tbody>
-</table>
-<p>use ChatGPT-derived projects for localized propaganda on CyberGod and The Frozen Forest. ## obs remote control using <a href="https://github.com/obsproject/obs-websocket">obs-websocket</a> you can use python to do real scripting. but first spin up obs first (with websocket related commandline arguments) you can also write and load scripts for obs, run on custom intervals and conditions. ## audio recording your OS may go slient if you want to record audio from “speakers” —- using pyaudio, on macos, you need blackhole for sending all audio to oblivion, thus able to be recorded. on Linux, you need audio loopback device. run: <code>sudo modprobe snd-aloop</code> you use <code>hw:1:0</code> or “Analog Device Output” for slient output/speaker, and use <code>hw:1:1</code> or “Analog Device Input” for recording. ## benchmarks it is always a mystery for us to develop the right ML model. however, we can setup guidelines of good performance over specific task. automate the benchmark, setup metrics. there could be more room for trials and imagination. ## encoding use hfft/rfft to transform multipart inputs (special bits, different part of mouse coords (x, y, dx, dy)) if you want to use complex number as RNN input, you may need to swap ViT for ComplexConv2D, but maybe you just need a few. —- libraries that handle complex neural networks: <a href="https://github.com/wavefrontshaping/complexPyTorch">complexPyTorch</a> <a href="https://github.com/soumickmj/pytorch-complex">pytorch-complex</a> ## multimodal do our model have to output multimodal data? if you combine some “special” bits along with token embeding by ihfft, you may have to retrain the entire damn network. also in order to make way for special bits, you may have to introduce extra linear layer. —- some may prefer “LoRA”? by only introducing few tunable params and changing the overall output? —- we may not annotate anything in our dataset. in contrast, we will set goals and make multiple interfaces for our model to explore. —- you can add special task specific embedding before passing to main model, then minus that task specific embedding after passing to classification model. ## file sharing and communication make sure you don’t share important files as read/write on VM. —- you may host some “execution server” on UTM VMs. you may expose your very large hard disk using WebDAV server. i think x11vnc and other vnc server may suffice for linux, but we always want to listen to the real operational data, including human operation/intervention, not just those in VNC protocols. —- WebDAV servers: <a href="https://github.com/mar10/wsgidav">wsgidav</a> (python)</p>
+<hr>
+<p>make specialized (in RPA) tokenizer and embedding for this new model. add new words to the tokenizer.</p>
+<hr>
+<p>you can just boot ubuntu/kali/parrot iso without installing.</p>
+<p>but that would make us embarrasing. we need to check for the option.</p>
+<hr>
+<p>use ChatGPT-derived projects for localized propaganda on CyberGod and The Frozen Forest.</p>
+<section id="obs-remote-control" class="level2">
+<h2 class="anchored" data-anchor-id="obs-remote-control">obs remote control</h2>
+<p>using <a href="https://github.com/obsproject/obs-websocket">obs-websocket</a> you can use python to do real scripting. but first spin up obs first (with websocket related commandline arguments)</p>
+<p>you can also write and load scripts for obs, run on custom intervals and conditions.</p>
+</section>
+<section id="audio-recording" class="level2">
+<h2 class="anchored" data-anchor-id="audio-recording">audio recording</h2>
+<p>your OS may go slient if you want to record audio from “speakers”</p>
+<hr>
+<p>using pyaudio, on macos, you need blackhole for sending all audio to oblivion, thus able to be recorded.</p>
+<p>on Linux, you need audio loopback device.</p>
+<p>run: <code>sudo modprobe snd-aloop</code></p>
+<p>you use <code>hw:1:0</code> or “Analog Device Output” for slient output/speaker, and use <code>hw:1:1</code> or “Analog Device Input” for recording.</p>
+</section>
+<section id="benchmarks" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarks">benchmarks</h2>
+<p>it is always a mystery for us to develop the right ML model. however, we can setup guidelines of good performance over specific task.</p>
+<p>automate the benchmark, setup metrics. there could be more room for trials and imagination.</p>
+</section>
+<section id="encoding" class="level2">
+<h2 class="anchored" data-anchor-id="encoding">encoding</h2>
+<p>use hfft/rfft to transform multipart inputs (special bits, different part of mouse coords (x, y, dx, dy))</p>
+<p>if you want to use complex number as RNN input, you may need to swap ViT for ComplexConv2D, but maybe you just need a few.</p>
+<hr>
+<p>libraries that handle complex neural networks:</p>
+<p><a href="https://github.com/wavefrontshaping/complexPyTorch">complexPyTorch</a></p>
+<p><a href="https://github.com/soumickmj/pytorch-complex">pytorch-complex</a></p>
+</section>
+<section id="multimodal" class="level2">
+<h2 class="anchored" data-anchor-id="multimodal">multimodal</h2>
+<p>do our model have to output multimodal data?</p>
+<p>if you combine some “special” bits along with token embeding by ihfft, you may have to retrain the entire damn network. also in order to make way for special bits, you may have to introduce extra linear layer.</p>
+<hr>
+<p>some may prefer “LoRA”? by only introducing few tunable params and changing the overall output?</p>
+<hr>
+<p>we may not annotate anything in our dataset. in contrast, we will set goals and make multiple interfaces for our model to explore.</p>
+<hr>
+<p>you can add special task specific embedding before passing to main model, then minus that task specific embedding after passing to classification model.</p>
+</section>
+<section id="file-sharing-and-communication" class="level2">
+<h2 class="anchored" data-anchor-id="file-sharing-and-communication">file sharing and communication</h2>
+<p>make sure you don’t share important files as read/write on VM.</p>
+<hr>
+<p>you may host some “execution server” on UTM VMs. you may expose your very large hard disk using WebDAV server. i think x11vnc and other vnc server may suffice for linux, but we always want to listen to the real operational data, including human operation/intervention, not just those in VNC protocols.</p>
+<hr>
+<p>WebDAV servers:</p>
+<p><a href="https://github.com/mar10/wsgidav">wsgidav</a> (python)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsgidav</span> <span class="at">--host</span><span class="op">=</span>192.168.64.1 <span class="at">--port</span><span class="op">=</span>8081 <span class="at">--root</span><span class="op">=</span><span class="st">"/Volumes/Toshiba XG3/works/agi_computer_control"</span>  <span class="at">--auth</span><span class="op">=</span>anonymous</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><a href="https://github.com/svtslv/webdav-cli">webdav-cli</a> （nodejs)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">webdav-cli</span> <span class="at">--host</span><span class="op">=</span>192.168.64.1 <span class="at">--port</span><span class="op">=</span>8081 <span class="at">--username</span><span class="op">=</span>root <span class="at">--password</span><span class="op">=</span>root <span class="at">--path</span><span class="op">=</span><span class="st">"/Volumes/Toshiba XG3/works/agi_computer_control"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="video-recording" class="level2">
 <h2 class="anchored" data-anchor-id="video-recording">video recording</h2>
+<p>for Ubuntu ARM VM, <code>mss</code> failed on wayland but <code>pyautogui</code> works in both cases. write one python script to pipe raw images to ffmpeg for better compression ratio by shell. the final video is not “time-accurate”. it is frame by frame, matched with timestamps.</p>
+<hr>
+<p>forcing ubuntu to use xorg by: <code>sudo vim /etc/gdm3/custom.conf</code></p>
 </section>
-<section id="for-ubuntu-arm-vm-mss-failed-on-wayland-but-pyautogui-works-in-both-cases.-write-one-python-script-to-pipe-raw-images-to-ffmpeg-for-better-compression-ratio-by-shell.-the-final-video-is-not-time-accurate.-it-is-frame-by-frame-matched-with-timestamps." class="level2">
-<h2 class="anchored" data-anchor-id="for-ubuntu-arm-vm-mss-failed-on-wayland-but-pyautogui-works-in-both-cases.-write-one-python-script-to-pipe-raw-images-to-ffmpeg-for-better-compression-ratio-by-shell.-the-final-video-is-not-time-accurate.-it-is-frame-by-frame-matched-with-timestamps.">for Ubuntu ARM VM, <code>mss</code> failed on wayland but <code>pyautogui</code> works in both cases. write one python script to pipe raw images to ffmpeg for better compression ratio by shell. the final video is not “time-accurate”. it is frame by frame, matched with timestamps.</h2>
-<p>forcing ubuntu to use xorg by: <code>sudo vim /etc/gdm3/custom.conf</code> ## resize UTM VM disks you need to first resize the virtio disk in utm setting, then resize partition by using gparted, then <a href="https://www.albertyw.com/note/resizing-ubuntu-utm#:~:text=For%20an%20Ubuntu%20guest%20OS%20running%20a%20default,be%20corrected%20by%20w%20%28rite%29%20warning%20More%20items">update the device mapper</a></p>
+<section id="resize-utm-vm-disks" class="level2">
+<h2 class="anchored" data-anchor-id="resize-utm-vm-disks">resize UTM VM disks</h2>
+<p>you need to first resize the virtio disk in utm setting, then resize partition by using gparted, then <a href="https://www.albertyw.com/note/resizing-ubuntu-utm#:~:text=For%20an%20Ubuntu%20guest%20OS%20running%20a%20default,be%20corrected%20by%20w%20%28rite%29%20warning%20More%20items">update the device mapper</a></p>
 
 
 </section>

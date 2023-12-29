@@ -4,8 +4,14 @@
 ---
 
 ------
+
 need macos to compile ipa
+
 need jailbreak
+
 iOS Tagent
+
 https://github.com/alibaba/taobao-iphone-device
+
 apowermirror
+

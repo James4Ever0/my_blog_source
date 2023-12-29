@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -177,12 +177,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>淘宝视频 哇偶视频似乎取消了视频上方的搜索接口 首页的视频推荐似乎更好看一些 推荐算法更先进 逛逛被单独分了一个专栏 在那里可以搜索视频 “您的分享过于频繁，请稍后重试” 出现这种情况需要更换qq号 how about let’s use appium for unlocking phone, airtest for actual testing? appium can only unlock phone by removing password. password with ampersand needs to be quoted/escaped. that might need another supervisor ### appium <a href="https://appium.github.io/appium/docs/en/2.0/quickstart/test-py/">write a test in python</a> <a href="http://appium.io/docs/en/writing-running-appium/caps/index.html#uiautomator2">appium desired capabilities</a> <a href="https://github.com/appium/appium-uiautomator2-driver">uiautomator2</a> <a href="https://github.com/appium/appium-android-driver/blob/master/docs/UNLOCK.md">unlock android phone</a> ### airtest <a href="https://airtest.doc.io.netease.com/en/tutorial/1_quick_start_guide/">intro</a> <a href="https://airtest.doc.io.netease.com/en/tutorial/3_Poco_introduction/">poco introduction</a> ## autojs autox.js <a href="https://blog.csdn.net/snailuncle2/article/details/115278704">autojs code collection</a> set up accessibility servicr for autox either by the switch inside settings (with root) or run this command:</p>
+<p>淘宝视频 哇偶视频似乎取消了视频上方的搜索接口</p>
+<p>首页的视频推荐似乎更好看一些 推荐算法更先进</p>
+<p>逛逛被单独分了一个专栏 在那里可以搜索视频</p>
+<p>“您的分享过于频繁，请稍后重试”</p>
+<p>出现这种情况需要更换qq号</p>
+<p>how about let’s use appium for unlocking phone, airtest for actual testing?</p>
+<p>appium can only unlock phone by removing password.</p>
+<p>password with ampersand needs to be quoted/escaped.</p>
+<p>that might need another supervisor</p>
+<section id="appium" class="level3">
+<h3 class="anchored" data-anchor-id="appium">appium</h3>
+<p><a href="https://appium.github.io/appium/docs/en/2.0/quickstart/test-py/">write a test in python</a></p>
+<p><a href="http://appium.io/docs/en/writing-running-appium/caps/index.html#uiautomator2">appium desired capabilities</a></p>
+<p><a href="https://github.com/appium/appium-uiautomator2-driver">uiautomator2</a></p>
+<p><a href="https://github.com/appium/appium-android-driver/blob/master/docs/UNLOCK.md">unlock android phone</a></p>
+</section>
+<section id="airtest" class="level3">
+<h3 class="anchored" data-anchor-id="airtest">airtest</h3>
+<p><a href="https://airtest.doc.io.netease.com/en/tutorial/1_quick_start_guide/">intro</a></p>
+<p><a href="https://airtest.doc.io.netease.com/en/tutorial/3_Poco_introduction/">poco introduction</a></p>
+</section>
+<section id="autojs-autox.js" class="level2">
+<h2 class="anchored" data-anchor-id="autojs-autox.js">autojs autox.js</h2>
+<p><a href="https://blog.csdn.net/snailuncle2/article/details/115278704">autojs code collection</a></p>
+<p>set up accessibility servicr for autox either by the switch inside settings (with root) or run this command:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">adb</span> shell settings put secure enabled_accessibility_services packagname/servicename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">am</span> start <span class="at">-n</span> org.autojs.autoxjs.v6/org.autojs.autojs.external.shortcut.ShortcutActivity <span class="at">-a</span> android.intent.action.MAIN <span class="at">-e</span> path <span class="st">"/storage/emulated/0/脚本/show_toast.js"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>现在autojs是付费的 但这两个都不能替代appium或者airtest autox <a href="https://github.com/kkevsekk1/AutoX/tree/84a1f59135433f40747d18ac0805f1b4682bd032">repo</a> <a href="https://github.com/kkevsekk1/Auto.js-VSCode-Extension">vscode plugin</a> <a href="https://github.com/feifadaima/https-github.com-hyb1996-NoRootScriptDroid/blob/eb4fff77db555ba391aeb39c61d3334f33be38d7/app/src/main/assets/sample/%E5%BA%94%E7%94%A8/%E5%8F%91%E9%80%81%E6%84%8F%E5%9B%BE-QQ%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E5%88%86%E4%BA%AB.js">发送意图-QQ文本消息分享</a> <a href="https://github.com/zmjjcghome/myAutoX/commit/f98c239ac3051fbd2a87d5913cf42125b9380af6#diff-905b728531cb73538660fa67cdc67dcc170d2e7cc9e7b73ba9b23eb3162aed53">腾讯相关autojs</a> ### frida <a href="https://github.com/frida/frida-java-bridge/issues/67">hook current application context</a> ### xposed <a href="https://github.com/orgs/Xposed-Modules-Repo/repositories">xposed new repo</a> <a href="https://github.com/w2016561536/android_virtual_cam">android virtual cam</a> xposed安卓虚拟摄像头 android virtual camera on xposed hook #### broadcast, indirect intent, start activity <a href="https://github.com/tsuzcx/qq_apk/blob/dfa4bbb676ea1d1dc583317281980df86420ecb4/com.tencent.mobileqq/classes.jar/com/tencent/mobileqq/mini/share/MiniProgramOpenSdkUtil.java">highly suspected source of ‘token’, the miniapp json generator</a> the <code>MiniArkShareModelBuilder</code> <code>transformArkShareJson</code> <code>ShareQQArkHelper</code> <code>MiniProgramShareUtils</code> <code>MiniProgramShareUtils.newShareInfoRequest</code> <code>ShareManager</code> <code>MiniProgramShareUtils.shareToChatDirectly</code> <a href="https://github.com/waterwitness/qooq/blob/e723920ac555e99d5325b1d4024552383713c28d/classes2/com/tencent/mobileqq/utils/JumpParser.java">qq jumpparser</a> <a href="https://open.mobile.qq.com/api/mqq/index">mqqapi doc</a> <a href="https://github.com/Kingcool759/Mydemo/blob/193b3807bcd309f28e45f03351f4d396e0ff726d/app/src/main/java/com/example/mydemo/blog/Case57.java">mqqapi example</a> <a href="https://github.com/testacount1/HL4A/blob/fc2bd4289321fec27462aac2ac918d6b91646fe7/%E5%AE%89%E5%8D%93/src/main/java/%E6%94%BE%E8%AF%BE%E5%90%8E%E4%B9%90%E5%9B%AD%E9%83%A8/%E5%AE%89%E5%8D%93/%E5%B7%A5%E5%85%B7/%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7.java">mqqapi 聊天 加群 名片</a> <a href="https://github.com/zhouzhuo810/BlogBackup/blob/98542d8f153012d38c0dff1d905a777f364566a7/source/_posts/Android%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81-%E5%BE%AE%E4%BF%A1QQ%E5%88%86%E4%BA%AB%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E5%AD%97.md">Android常用代码-微信QQ分享文件和文字</a> <a href="https://www.jianshu.com/p/85aeae988443">常用的URL Scheme</a> <a href="http://www.atmcu.com/277.html">Android am help 帮助信息</a> <a href="https://blog.csdn.net/jack123lian/article/details/78796250">adb shell am start -d 启动应用之uri被*吃了</a> <a href="https://www.jianshu.com/p/ab4bb360df36">am start 启动activity 命令</a> <a href="https://github.com/ac-pm/Inspeckage">inspeckage</a> Android Package Inspector - dynamic analysis with api hooks, start unexported activities and more. (Xposed Module) <a href="https://segmentfault.com/a/1190000040065334">找出APP的SchemeURL（抓取APP意图/intent）的常用方法</a> <a href="https://www.coolapk.com/apk/xyz.hanks.launchactivity">隐式启动</a> 这是一款开发者辅助工具，帮助开发者发现手机上的应用的快捷启动，原理是利用 Android 提供的隐式启动 Activity 来快速启动某个应用的某个界面，如快速发微博、发朋友圈、扫一扫，快速切换 vpn 等 <a href="https://segmentfault.com/a/1190000040065447">adb/安卓/按键精灵/autojs/uniapp/ec打开SchemeURL的方法及常用SchemeURL整理</a> <a href="https://474b.com/file/18365508-385607560">Intent 拦截者_1.1.apk</a> <a href="https://github.com/Xposed-Modules-Repo/com.zwk.xintent/releases">com.zwk.xintent</a> (intent traffic monitoring tool) release <a href="https://github.com/2Y2s1mple/xintent">orginal repo</a> use <code>am broadcast</code> to send indirect intent <a href="https://riptutorial.com/android/example/18033/generating-a--boot-complete--broadcast">sending a boot-complete broadcast</a> <a href="https://resources.infosecinstitute.com/topic/android-hacking-security-part-3-exploiting-broadcast-receivers/">exploiting broadcast receivers</a> <a href="https://blog.csdn.net/yelangjueqi/article/details/43231425">usage of am</a> and common android shell commands ## 腾讯微视 https://h5.weishi.qq.com/webapp/json/weishi/WSH5GetPlayPage?t=0.7532600494918984&amp;g_tk=&amp;feedid=71yYpleeM1HghTttk&amp;recommendtype=0&amp;datalvl=&amp;qua=&amp;uin=&amp;format=json&amp;inCharset=utf-8&amp;outCharset=utf-8 ## 淘宝短视频 <a href="https://blog.csdn.net/tiandaochouqin_W/article/details/118225639?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-118225639-blog-115668447.wap_blog_relevant_default&amp;depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-118225639-blog-115668447.wap_blog_relevant_default">淘宝x-sign算法分析</a> <a href="https://blog.csdn.net/junges/article/details/103036012?spm=1001.2101.3001.6650.4&amp;utm_medium=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-103036012-blog-115668447.wap_blog_relevant_default&amp;depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-103036012-blog-115668447.wap_blog_relevant_default">淘宝抓包解决方案</a> <a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1582470">逆向闲鱼apk 抓包</a> post content on we.taobao.com 淘宝直播 https://zhuanlan.zhihu.com/p/91192587 packet capture + batch m3u8 download 5 666:/鱼里家庭布偶猫舍的场间简直太火爆了，快来看！ 可爱的宝宝找家咯 ,快来场间 https://m.tb.cn/h.fJErCBC?sm=b4d048 ———————口——————— ！们那之学有为上家得人多啊 淘宝网页无法播放直播 http://huodong.m.taobao.com/act/talent/live.html?id=359158835379&amp;type=508&amp;livesource=share&amp;cp_origin=taobaozhibo%7Ca2141.8001249%7C%7B%22account_id%22%3A%221897661676%22%2C%22app_key%22%3A%2221646297%22%2C%22feed_id%22%3A%22359158835379%22%2C%22os%22%3A%22android%22%2C%22spm-cnt%22%3A%22a2141.8001249%22%7D&amp;sourceType=talent&amp;suid=07ebc365-efc6-4e9c-9c14-c58c1bb8e522&amp;ut_sk=1.W4yy2CtIMUMDAA1l3Dnx4jNG_21646297_1651743901078.Copy.zhibo&amp;un=42ad1253bebcb796f3ba5a7177d3a823&amp;share_crt_v=1&amp;un_site=0&amp;spm=a2159r.13376460.0.0&amp;sp_abtk=common_zhibo_commonInfo&amp;sp_tk=5Lus6YKj5LmL5a2m5pyJ5Li65LiK5a625b6X5Lq65aSa&amp;cpp=1&amp;shareurl=true&amp;short_name=h.fJErCBC&amp;bxsign=scdS6H1ZsIpmAMTuhs-TbALYgOScV_BU6U9ueNABqjzLXd9JSLZYxA6vuaR_tN9PI3n6qDUMtmf-5O_pZZqgnoLHg4WsX64s_Gkx–xc0vfG_87x3Boc1-uCbsYXCZO3Wtc 最新版只有微淘入口 淘宝逛逛 有用户名 ID 67信生对在然有为上子是去你嘻 https://m.tb.cn/h.fJE9C6B?sm=ee59f9 怕鱼的小猫咪~~ this video is flipable 淘宝网页版 https://main.m.taobao.com/index.html https://market.m.taobao.com/app/tb-source-app/video-fullpage/pages/index?wh_weex=true&amp;wx_navbar_hidden=true&amp;contentId=346882467812&amp;source=guess-guangguang&amp;type=guangguang_cainixihuan&amp;id=346882467812 https://market.m.taobao.com/app/tb-source-app/video-fullpage/pages/index?wh_weex=true&amp;wx_navbar_hidden=true&amp;origin=VideoInteract%7Ca310p.13800399.0.0%7C%7B”contentId”%3A”346882467812”%7D&amp;contentId=346882467812&amp;source=guess-guangguang&amp;type=guangguang_cainixihuan&amp;spm=a2141.1.guessitemtab_1.3&amp;accountId=0&amp;videoUrl=https%3A%2F%2Fcloud.video.taobao.com%2Fplay%2Fu%2Fnull%2Fp%2F1%2Fe%2F6%2Ft%2F1%2F346882467812.mp4&amp;coverImage=https%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi2%2F604321789%2FO1CN01rVTgs31P5PIQ7r2JR_!!604321789.jpg&amp;id=346882467812&amp;sourceType=other&amp;suid=7f31e56f-2878-4462-9a5a-acd7d5deeec5&amp;ut_sk=1.W4yy2CtIMUMDAA1l3Dnx4jNG_21646297_1651742283972.Copy.tblive-video&amp;un=42ad1253bebcb796f3ba5a7177d3a823&amp;share_crt_v=1&amp;un_site=0&amp;sp_abtk=common_tblive-video_commonInfo&amp;sp_tk=55Sf5a%2B55Zyo54S25pyJ5Li65LiK5a2Q5piv5Y675L2g&amp;cpp=1&amp;shareurl=true&amp;short_name=h.fJE9C6B&amp;bxsign=scdwHO4PyMrtSLzA7OBHe89rxDFffyg-UVrE4mtFb42ts8qjhHx_6DhU0VAdOy3PgJcoggVVt1dw63IPVDTdXhIGiWlqtdNZredQE5O2V8o1AhV8XE7zhYjf5gApjy90rf1&amp;sm=ee59f9&amp;app=chrome</p>
+<p>现在autojs是付费的 但这两个都不能替代appium或者airtest</p>
+<p>autox <a href="https://github.com/kkevsekk1/AutoX/tree/84a1f59135433f40747d18ac0805f1b4682bd032">repo</a> <a href="https://github.com/kkevsekk1/Auto.js-VSCode-Extension">vscode plugin</a></p>
+<p><a href="https://github.com/feifadaima/https-github.com-hyb1996-NoRootScriptDroid/blob/eb4fff77db555ba391aeb39c61d3334f33be38d7/app/src/main/assets/sample/%E5%BA%94%E7%94%A8/%E5%8F%91%E9%80%81%E6%84%8F%E5%9B%BE-QQ%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E5%88%86%E4%BA%AB.js">发送意图-QQ文本消息分享</a></p>
+<p><a href="https://github.com/zmjjcghome/myAutoX/commit/f98c239ac3051fbd2a87d5913cf42125b9380af6#diff-905b728531cb73538660fa67cdc67dcc170d2e7cc9e7b73ba9b23eb3162aed53">腾讯相关autojs</a></p>
+<section id="frida" class="level3">
+<h3 class="anchored" data-anchor-id="frida">frida</h3>
+<p><a href="https://github.com/frida/frida-java-bridge/issues/67">hook current application context</a></p>
+</section>
+<section id="xposed" class="level3">
+<h3 class="anchored" data-anchor-id="xposed">xposed</h3>
+<p><a href="https://github.com/orgs/Xposed-Modules-Repo/repositories">xposed new repo</a></p>
+<p><a href="https://github.com/w2016561536/android_virtual_cam">android virtual cam</a> xposed安卓虚拟摄像头 android virtual camera on xposed hook</p>
+<section id="broadcast-indirect-intent-start-activity" class="level4">
+<h4 class="anchored" data-anchor-id="broadcast-indirect-intent-start-activity">broadcast, indirect intent, start activity</h4>
+<p><a href="https://github.com/tsuzcx/qq_apk/blob/dfa4bbb676ea1d1dc583317281980df86420ecb4/com.tencent.mobileqq/classes.jar/com/tencent/mobileqq/mini/share/MiniProgramOpenSdkUtil.java">highly suspected source of ‘token’, the miniapp json generator</a> the <code>MiniArkShareModelBuilder</code> <code>transformArkShareJson</code> <code>ShareQQArkHelper</code> <code>MiniProgramShareUtils</code> <code>MiniProgramShareUtils.newShareInfoRequest</code> <code>ShareManager</code> <code>MiniProgramShareUtils.shareToChatDirectly</code></p>
+<p><a href="https://github.com/waterwitness/qooq/blob/e723920ac555e99d5325b1d4024552383713c28d/classes2/com/tencent/mobileqq/utils/JumpParser.java">qq jumpparser</a></p>
+<p><a href="https://open.mobile.qq.com/api/mqq/index">mqqapi doc</a></p>
+<p><a href="https://github.com/Kingcool759/Mydemo/blob/193b3807bcd309f28e45f03351f4d396e0ff726d/app/src/main/java/com/example/mydemo/blog/Case57.java">mqqapi example</a></p>
+<p><a href="https://github.com/testacount1/HL4A/blob/fc2bd4289321fec27462aac2ac918d6b91646fe7/%E5%AE%89%E5%8D%93/src/main/java/%E6%94%BE%E8%AF%BE%E5%90%8E%E4%B9%90%E5%9B%AD%E9%83%A8/%E5%AE%89%E5%8D%93/%E5%B7%A5%E5%85%B7/%E9%93%BE%E6%8E%A5%E5%B7%A5%E5%85%B7.java">mqqapi 聊天 加群 名片</a></p>
+<p><a href="https://github.com/zhouzhuo810/BlogBackup/blob/98542d8f153012d38c0dff1d905a777f364566a7/source/_posts/Android%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81-%E5%BE%AE%E4%BF%A1QQ%E5%88%86%E4%BA%AB%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E5%AD%97.md">Android常用代码-微信QQ分享文件和文字</a></p>
+<p><a href="https://www.jianshu.com/p/85aeae988443">常用的URL Scheme</a></p>
+<p><a href="http://www.atmcu.com/277.html">Android am help 帮助信息</a></p>
+<p><a href="https://blog.csdn.net/jack123lian/article/details/78796250">adb shell am start -d 启动应用之uri被*吃了</a></p>
+<p><a href="https://www.jianshu.com/p/ab4bb360df36">am start 启动activity 命令</a></p>
+<p><a href="https://github.com/ac-pm/Inspeckage">inspeckage</a> Android Package Inspector - dynamic analysis with api hooks, start unexported activities and more. (Xposed Module)</p>
+<p><a href="https://segmentfault.com/a/1190000040065334">找出APP的SchemeURL（抓取APP意图/intent）的常用方法</a></p>
+<p><a href="https://www.coolapk.com/apk/xyz.hanks.launchactivity">隐式启动</a> 这是一款开发者辅助工具，帮助开发者发现手机上的应用的快捷启动，原理是利用 Android 提供的隐式启动 Activity 来快速启动某个应用的某个界面，如快速发微博、发朋友圈、扫一扫，快速切换 vpn 等</p>
+<p><a href="https://segmentfault.com/a/1190000040065447">adb/安卓/按键精灵/autojs/uniapp/ec打开SchemeURL的方法及常用SchemeURL整理</a></p>
+<p><a href="https://474b.com/file/18365508-385607560">Intent 拦截者_1.1.apk</a></p>
+<p><a href="https://github.com/Xposed-Modules-Repo/com.zwk.xintent/releases">com.zwk.xintent</a> (intent traffic monitoring tool) release <a href="https://github.com/2Y2s1mple/xintent">orginal repo</a></p>
+<p>use <code>am broadcast</code> to send indirect intent</p>
+<p><a href="https://riptutorial.com/android/example/18033/generating-a--boot-complete--broadcast">sending a boot-complete broadcast</a></p>
+<p><a href="https://resources.infosecinstitute.com/topic/android-hacking-security-part-3-exploiting-broadcast-receivers/">exploiting broadcast receivers</a></p>
+<p><a href="https://blog.csdn.net/yelangjueqi/article/details/43231425">usage of am</a> and common android shell commands</p>
+</section>
+</section>
+</section>
+<section id="腾讯微视" class="level2">
+<h2 class="anchored" data-anchor-id="腾讯微视">腾讯微视</h2>
+<p>https://h5.weishi.qq.com/webapp/json/weishi/WSH5GetPlayPage?t=0.7532600494918984&amp;g_tk=&amp;feedid=71yYpleeM1HghTttk&amp;recommendtype=0&amp;datalvl=&amp;qua=&amp;uin=&amp;format=json&amp;inCharset=utf-8&amp;outCharset=utf-8</p>
+</section>
+<section id="淘宝短视频" class="level2">
+<h2 class="anchored" data-anchor-id="淘宝短视频">淘宝短视频</h2>
+<p><a href="https://blog.csdn.net/tiandaochouqin_W/article/details/118225639?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-118225639-blog-115668447.wap_blog_relevant_default&amp;depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-1-118225639-blog-115668447.wap_blog_relevant_default">淘宝x-sign算法分析</a></p>
+<p><a href="https://blog.csdn.net/junges/article/details/103036012?spm=1001.2101.3001.6650.4&amp;utm_medium=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-103036012-blog-115668447.wap_blog_relevant_default&amp;depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-103036012-blog-115668447.wap_blog_relevant_default">淘宝抓包解决方案</a></p>
+<p><a href="https://www.52pojie.cn/forum.php?mod=viewthread&amp;tid=1582470">逆向闲鱼apk 抓包</a></p>
+<p>post content on we.taobao.com</p>
+<p>淘宝直播</p>
+<p>https://zhuanlan.zhihu.com/p/91192587</p>
+<p>packet capture + batch m3u8 download</p>
+<p>5 666:/鱼里家庭布偶猫舍的场间简直太火爆了，快来看！</p>
+<p>可爱的宝宝找家咯 ,快来场间 https://m.tb.cn/h.fJErCBC?sm=b4d048</p>
+<p>———————口———————</p>
+<p>！们那之学有为上家得人多啊</p>
+<p>淘宝网页无法播放直播</p>
+<p>http://huodong.m.taobao.com/act/talent/live.html?id=359158835379&amp;type=508&amp;livesource=share&amp;cp_origin=taobaozhibo%7Ca2141.8001249%7C%7B%22account_id%22%3A%221897661676%22%2C%22app_key%22%3A%2221646297%22%2C%22feed_id%22%3A%22359158835379%22%2C%22os%22%3A%22android%22%2C%22spm-cnt%22%3A%22a2141.8001249%22%7D&amp;sourceType=talent&amp;suid=07ebc365-efc6-4e9c-9c14-c58c1bb8e522&amp;ut_sk=1.W4yy2CtIMUMDAA1l3Dnx4jNG_21646297_1651743901078.Copy.zhibo&amp;un=42ad1253bebcb796f3ba5a7177d3a823&amp;share_crt_v=1&amp;un_site=0&amp;spm=a2159r.13376460.0.0&amp;sp_abtk=common_zhibo_commonInfo&amp;sp_tk=5Lus6YKj5LmL5a2m5pyJ5Li65LiK5a625b6X5Lq65aSa&amp;cpp=1&amp;shareurl=true&amp;short_name=h.fJErCBC&amp;bxsign=scdS6H1ZsIpmAMTuhs-TbALYgOScV_BU6U9ueNABqjzLXd9JSLZYxA6vuaR_tN9PI3n6qDUMtmf-5O_pZZqgnoLHg4WsX64s_Gkx–xc0vfG_87x3Boc1-uCbsYXCZO3Wtc</p>
+<p>最新版只有微淘入口</p>
+<p>淘宝逛逛 有用户名 ID</p>
+<p>67信生对在然有为上子是去你嘻 https://m.tb.cn/h.fJE9C6B?sm=ee59f9 怕鱼的小猫咪~~</p>
+<p>this video is flipable</p>
+<p>淘宝网页版</p>
+<p>https://main.m.taobao.com/index.html</p>
+<p>https://market.m.taobao.com/app/tb-source-app/video-fullpage/pages/index?wh_weex=true&amp;wx_navbar_hidden=true&amp;contentId=346882467812&amp;source=guess-guangguang&amp;type=guangguang_cainixihuan&amp;id=346882467812</p>
+<p>https://market.m.taobao.com/app/tb-source-app/video-fullpage/pages/index?wh_weex=true&amp;wx_navbar_hidden=true&amp;origin=VideoInteract%7Ca310p.13800399.0.0%7C%7B”contentId”%3A”346882467812”%7D&amp;contentId=346882467812&amp;source=guess-guangguang&amp;type=guangguang_cainixihuan&amp;spm=a2141.1.guessitemtab_1.3&amp;accountId=0&amp;videoUrl=https%3A%2F%2Fcloud.video.taobao.com%2Fplay%2Fu%2Fnull%2Fp%2F1%2Fe%2F6%2Ft%2F1%2F346882467812.mp4&amp;coverImage=https%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi2%2F604321789%2FO1CN01rVTgs31P5PIQ7r2JR_!!604321789.jpg&amp;id=346882467812&amp;sourceType=other&amp;suid=7f31e56f-2878-4462-9a5a-acd7d5deeec5&amp;ut_sk=1.W4yy2CtIMUMDAA1l3Dnx4jNG_21646297_1651742283972.Copy.tblive-video&amp;un=42ad1253bebcb796f3ba5a7177d3a823&amp;share_crt_v=1&amp;un_site=0&amp;sp_abtk=common_tblive-video_commonInfo&amp;sp_tk=55Sf5a%2B55Zyo54S25pyJ5Li65LiK5a2Q5piv5Y675L2g&amp;cpp=1&amp;shareurl=true&amp;short_name=h.fJE9C6B&amp;bxsign=scdwHO4PyMrtSLzA7OBHe89rxDFffyg-UVrE4mtFb42ts8qjhHx_6DhU0VAdOy3PgJcoggVVt1dw63IPVDTdXhIGiWlqtdNZredQE5O2V8o1AhV8XE7zhYjf5gApjy90rf1&amp;sm=ee59f9&amp;app=chrome</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

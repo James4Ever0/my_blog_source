@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -141,27 +141,203 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-MySQL Reference Card Version: 0.1 Author: ProgM4c Attribute Types Numbers Name Coded on Name Coded on TINYINT 1 byte FLOAT(W, D) 4 bytes SMALLINT 2 bytes DOUBLE(W, D) 8 bytes MEDIUMINT 3 bytes W: width(number of digits with the ‘.’) D: number of decimals INT 4 bytes BIGINT 8 bytes Parameters: • UNSIGNED • ZEROFILL Coded on: • SIGNED : • UNSIGNED: Strings (between ’ ‘) Name Size CHAR(M) String with fixed size, 1 &lt;= M &lt;= 255 VARCHAR(M) String with variable size, 1 &lt;= M &lt;= 255 TINYTEXT Max length = 255 TEXT Max length = 65535 MEDIUMTEXT Max length = 16777215 LONGTEXT Max length = 4294967295 DECIMAL(M, D) Simulate a floating point number in a string format Date and Time Name Format DATE AAAA-MM-JJ DATETIME AAAA-MM-JJ HH:MM:SS TIMESTAMP AAAAMMJJHHMMSS TIMESTAMP(M) First M characters of a TIMESTAMP TIME HH:MM:SS YEAR AAAA ENUM: take one value in the defined list (can be NULL) syntax: attr_name ENUM(’value1’, ‘value2’, …) {NULL | NOT NULL} Database queries create a database CREATE DATABASE [IF NOT EXISTS] <db_name>; delete a database DROP DATABSE [IF EXISTS] <db_name>; rename a database ALTER DATABASE <db_name> RENAME <db_new_name>; list databases SHOW DATABASES; select a database USE <db_name>; Table queries show a table SHOW TABLES; rename a table ALTER TABLE <table_name> RENAME <new_name>; describe a table DESCRIBE
+<p>MySQL Reference Card</p>
+<p>Version: 0.1</p>
+<p>Author: ProgM4c</p>
+<p>Attribute Types</p>
+<p>Numbers</p>
+<p>Name</p>
+<p>Coded on</p>
+<p>Name</p>
+<p>Coded on</p>
+<p>TINYINT</p>
+<p>1 byte</p>
+<p>FLOAT(W, D)</p>
+<p>4 bytes</p>
+<p>SMALLINT</p>
+<p>2 bytes</p>
+<p>DOUBLE(W, D)</p>
+<p>8 bytes</p>
+<p>MEDIUMINT</p>
+<p>3 bytes</p>
+<p>W: width(number of digits with the ‘.’)</p>
+<p>D: number of decimals</p>
+<p>INT</p>
+<p>4 bytes</p>
+<p>BIGINT</p>
+<p>8 bytes</p>
+<p>Parameters:</p>
+<p>• UNSIGNED</p>
+<p>• ZEROFILL</p>
+<p>Coded on:</p>
+<p>• SIGNED :</p>
+<p>• UNSIGNED:</p>
+<p>Strings (between ’ ’)</p>
+<p>Name</p>
+<p>Size</p>
+<p>CHAR(M)</p>
+<p>String with fixed size, 1 &lt;= M &lt;= 255</p>
+<p>VARCHAR(M)</p>
+<p>String with variable size, 1 &lt;= M &lt;= 255</p>
+<p>TINYTEXT</p>
+<p>Max length = 255</p>
+<p>TEXT</p>
+<p>Max length = 65535</p>
+<p>MEDIUMTEXT</p>
+<p>Max length = 16777215</p>
+<p>LONGTEXT</p>
+<p>Max length = 4294967295</p>
+<p>DECIMAL(M, D)</p>
+<p>Simulate a floating point number in a string format</p>
+<p>Date and Time</p>
+<p>Name</p>
+<p>Format</p>
+<p>DATE</p>
+<p>AAAA-MM-JJ</p>
+<p>DATETIME</p>
+<p>AAAA-MM-JJ HH:MM:SS</p>
+<p>TIMESTAMP</p>
+<p>AAAAMMJJHHMMSS</p>
+<p>TIMESTAMP(M)</p>
+<p>First M characters of a TIMESTAMP</p>
+<p>TIME</p>
+<p>HH:MM:SS</p>
+<p>YEAR</p>
+<p>AAAA</p>
+<p>ENUM: take one value in the defined list (can be NULL)</p>
+<p>syntax:</p>
+<p>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}</p>
+<p>Database queries</p>
+<p>create a database</p>
+<p>CREATE DATABASE [IF NOT EXISTS] <db_name>;</db_name></p>
+<p>delete a database</p>
+<p>DROP DATABSE [IF EXISTS] <db_name>;</db_name></p>
+<p>rename a database</p>
+<p>ALTER DATABASE <db_name> RENAME <db_new_name>;</db_new_name></db_name></p>
+<p>list databases</p>
+<p>SHOW DATABASES;</p>
+<p>select a database</p>
+<p>USE <db_name>;</db_name></p>
+<p>Table queries</p>
+<p>show a table</p>
+<p>SHOW TABLES;</p>
+<p>rename a table</p>
+<p>ALTER TABLE <table_name> RENAME <new_name>;</new_name></table_name></p>
+<p>describe a table</p>
+DESCRIBE
+
+<p>;</p><p>delete a table</p><p>DROP TABLE <table_name>;</table_name></p><p>type of constraints</p><p>• NOT NULL</p><p>• UNIQUE</p><p>• PRIMARY KEY = NOT NULL + UNIQUE</p><p>• FOREIGN KEY</p><p>• CHECK</p><p>• DEFAULT</p><p>• AUTO_INCREMENT</p><p>create a table</p><p>CREATE TABLE <table_name> (</table_name></p><p><attr1> <datatype1>(size) <constraints>,</constraints></datatype1></attr1></p><p><attr1> <datatype1>(size) <constraints>,</constraints></datatype1></attr1></p><p>…</p><p>PRIMARY KEY(<pk>)</pk></p><p>);</p><p>add / delete a constraints</p><p>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)</attr1></const_name></table_name></p><p>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];</const_name></const_name></table_name></p><p>Modify table structure</p><p>add / delete attribute</p><p>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];</other_attr></type></attr></table_name></p><p>ALTER TABLE <table_name> DROP <attr> ;</attr></table_name></p><p>add / delete default value to an column</p><p>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};</default_value></attr></table_name></p><p>change definition of an attribute without/with renaming it</p><p>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;</new_type></attr_name></table_name></p><p>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;</new_type></attr_new_name></attr_name></table_name></p><p>Inserting data</p><p>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);</val2></val1></col2></col1></table_name></p><p>Modifying data</p><p>UPDATE <table_name></table_name></p><p>SET <field1> = <val1>, <field2> = <val2>, …</val2></field2></val1></field1></p><p>WHERE <condition>;</condition></p><p>Deleting data</p><p>DELETE FROM <table_name> WHERE <condition>;</condition></table_name></p><p>Retrieving data</p><p>Select statement</p><p>SELECT [ DISTINCT ] attributs</p><p>[ INTO OUTFILE fichier ]</p><p>[ FROM relation ]</p><p>[ WHERE condition ]</p><p>[ GROUP BY attributs [ ASC | DESC ] ]</p><p>[ HAVING condition ]</p><p>[ ORDER BY attributs ]</p><p>[ LIMIT [a,] b ]</p><p>operators in a where clause</p><p>=</p><p>Equal</p><p>&lt;&gt;</p><p>Not equal.&nbsp;Note:&nbsp;In some versions of SQL this operator may be written as !=</p><blockquote class="blockquote">
+
+</blockquote><p>Greater than</p><p>&lt;</p><p>Less than</p><blockquote class="blockquote">
+<p>=</p>
+</blockquote><p>Greater than or equal</p><p>&lt;=</p><p>Less than or equal</p><p>BETWEEN</p><p>Between an inclusive range</p><p>LIKE</p><p>Search for a pattern (‘%’ any sequence of characters ’_’ any character)</p><p>[NOT] IN</p><p>To specify multiple possible values for a column</p><p>IS [NOT] NULL</p><p>To check if the value of a column is NULL or not</p><p>AND OR NOT</p><p>Filter records based on more than once condition</p><p>Sub-requests</p>
+SELECT * FROM
+
+<table>
 
 
-; delete a table DROP TABLE <table_name>; type of constraints • NOT NULL • UNIQUE • PRIMARY KEY = NOT NULL + UNIQUE • FOREIGN KEY • CHECK • DEFAULT • AUTO_INCREMENT create a table CREATE TABLE <table_name> ( <attr1> <datatype1>(size) <constraints>, <attr1> <datatype1>(size) <constraints>, … PRIMARY KEY(<pk>) ); add / delete a constraints ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …) ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>]; Modify table structure add / delete attribute ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>]; ALTER TABLE <table_name> DROP <attr> ; add / delete default value to an column ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT}; change definition of an attribute without/with renaming it ALTER TABLE <table_name> MODIFY <attr_name> <new_type>; ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>; Inserting data INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …); Modifying data UPDATE <table_name> SET <field1> = <val1>, <field2> = <val2>, … WHERE <condition>; Deleting data DELETE FROM <table_name> WHERE <condition>; Retrieving data Select statement SELECT [ DISTINCT ] attributs [ INTO OUTFILE fichier ] [ FROM relation ] [ WHERE condition ] [ GROUP BY attributs [ ASC | DESC ] ] [ HAVING condition ] [ ORDER BY attributs ] [ LIMIT [a,] b ] operators in a where clause = Equal &lt;&gt; Not equal.&nbsp;Note:&nbsp;In some versions of SQL this operator may be written as != &gt; Greater than &lt; Less than &gt;= Greater than or equal &lt;= Less than or equal BETWEEN Between an inclusive range LIKE Search for a pattern (‘%’ any sequence of characters ’_’ any character) [NOT] IN To specify multiple possible values for a column IS [NOT] NULL To check if the value of a column is NULL or not AND OR NOT Filter records based on more than once condition Sub-requests SELECT * FROM
 
-</condition></table_name></condition></val2></field2></val1></field1></table_name></val2></val1></col2></col1></table_name></new_type></attr_new_name></attr_name></table_name></new_type></attr_name></table_name></default_value></attr></table_name></attr></table_name></other_attr></type></attr></table_name></const_name></const_name></table_name></attr1></const_name></table_name></pk></constraints></datatype1></attr1></constraints></datatype1></attr1></table_name></table_name><table></table>
-WHERE prix &gt; (SELECT MIN(prix) FROM tab2) SELECT * FROM
 
-<table></table>
-WHERE nom NOT IN (SELECT nom FROM tab2) SELECT * FROM
 
-<table></table>
-WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs) SELECT * FROM
 
-<table></table>
-WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1) SQL aliases on column / table SELECT <column> AS <col_alias> FROM
 
-</col_alias></column><table></table>
-(alias a result) SELECT <column> FROM
 
-</column><table></table><p>AS <new_name> (alias a table name) SQL functions AVG() - (moyenne) COUNT() - (nombre d’élément) MAX() - (maximum) MIN() - (minimum) SUM() - (somme) UCASE() LCASE() LEN() NOW() FORMAT()</new_name></p><table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table><p>WHERE prix &gt; (SELECT MIN(prix) FROM tab2)</p>
+SELECT * FROM
+
+<table>
+</table><p>WHERE nom NOT IN (SELECT nom FROM tab2)</p>
+SELECT * FROM
+
+<table>
+</table><p>WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)</p>
+SELECT * FROM
+
+<table>
+</table><p>WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)</p><p>SQL aliases on column / table</p>
+SELECT <column> AS <col_alias> FROM
+
+</col_alias></column><table>
+
+</table><p>(alias a result)</p>
+SELECT <column> FROM
+
+</column><table>
+</table><p>AS <new_name> (alias a table name)</new_name></p><p>SQL functions</p><p>AVG() - (moyenne)</p><p>COUNT() - (nombre d’élément)</p><p>MAX() - (maximum)</p><p>MIN() - (minimum)</p><p>SUM() - (somme)</p><p>UCASE()</p><p>LCASE()</p><p>LEN()</p><p>NOW()</p><p>FORMAT()</p><table>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -404,4 +580,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</table></new_name></table_name></db_name></db_new_name></db_name></db_name></db_name></main></div></body></html>
+</table></main></div></body></html>

@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -177,7 +177,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>离散区间的获得可以用边界条件判定 即最近n个连续的概率大于多少 容忍值为多少 最近n个小于多少直接作为结束边界的条件 也可以用convolution Gaussian blur 离散区间交并补可以转化为连续区间交并补 更简单省事 如果要做下面的运算 建议用第三方库 比如wolfram swi-prolog的clpr sympy 连续区间交并补 先排序 设置首末端的操作 然后进行相应区间选取 进行下一步操作直到结束 输出总的结果 ## combining similar/nearby bounding boxes, suppressing near duplicate bounding boxes over short time <a href="./textbook!.md">see here</a> you can merge a group of things, then analyze them over time using object tracker, tweening them. ## Discrete Interval Set Union Solvers you may want to filter out short intervals. mind the lopen/ropen interval after intersection or difference operation. you may also want to quantize these intervals, set them to nearest possible points. 用到某采样率 还是根本不用吧 就是属于那个区间的离散点上面执行相应的操作变化 但是那个区间如何划分 怎么把离散点归类到不同区间里面 完全是其他的逻辑需要做的事情 一般同类别的区间不能相交 但是之后再考虑吧 怎么用呢 所有的全部弄到一个列表里面 还是选取最小的那个来用？ category with different groups -&gt; subcategories first the sample set:</p>
+<p>离散区间的获得可以用边界条件判定 即最近n个连续的概率大于多少 容忍值为多少 最近n个小于多少直接作为结束边界的条件 也可以用convolution Gaussian blur</p>
+<p>离散区间交并补可以转化为连续区间交并补 更简单省事</p>
+<p>如果要做下面的运算 建议用第三方库 比如wolfram swi-prolog的clpr sympy</p>
+<p>连续区间交并补 先排序 设置首末端的操作 然后进行相应区间选取 进行下一步操作直到结束 输出总的结果</p>
+<section id="combining-similarnearby-bounding-boxes-suppressing-near-duplicate-bounding-boxes-over-short-time" class="level2">
+<h2 class="anchored" data-anchor-id="combining-similarnearby-bounding-boxes-suppressing-near-duplicate-bounding-boxes-over-short-time">combining similar/nearby bounding boxes, suppressing near duplicate bounding boxes over short time</h2>
+<p><a href="./textbook!.md">see here</a></p>
+<p>you can merge a group of things, then analyze them over time using object tracker, tweening them.</p>
+</section>
+<section id="discrete-interval-set-union-solvers" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-interval-set-union-solvers">Discrete Interval Set Union Solvers</h2>
+<p>you may want to filter out short intervals. mind the lopen/ropen interval after intersection or difference operation.</p>
+<p>you may also want to quantize these intervals, set them to nearest possible points. 用到某采样率 还是根本不用吧 就是属于那个区间的离散点上面执行相应的操作变化 但是那个区间如何划分 怎么把离散点归类到不同区间里面 完全是其他的逻辑需要做的事情 一般同类别的区间不能相交 但是之后再考虑吧 怎么用呢 所有的全部弄到一个列表里面 还是选取最小的那个来用？</p>
+<p>category with different groups -&gt; subcategories</p>
+<p>first the sample set:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> sympy</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure every subset is ordered.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">mSet</span> = [<span class="er">(</span><span class="ex">1.0,1.1,1.2</span><span class="kw">)</span><span class="ex">,</span><span class="er">(</span><span class="ex">2.4,2.5,2.6</span><span class="kw">)</span><span class="ex">]</span></span>
@@ -210,9 +224,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="with-less-sympy">with less sympy</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all the same</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
 <section id="continual-interval-set-union-solvers" class="level2">
 <h2 class="anchored" data-anchor-id="continual-interval-set-union-solvers">Continual Interval Set Union Solvers</h2>
-<p>you must be able to explicitly point out different group index of different category. maybe you can just do it in all-new subcategories? ### less exponential solution here?</p>
+<p>you must be able to explicitly point out different group index of different category. maybe you can just do it in all-new subcategories?</p>
+<section id="less-exponential-solution-here" class="level3">
+<h3 class="anchored" data-anchor-id="less-exponential-solution-here">less exponential solution here?</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env python</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -*- coding: utf-8 -*-</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># basically the same example.</span></span>
@@ -294,6 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="ex">finalCats.update</span><span class="er">(</span><span class="ex">{key:</span> value}<span class="kw">)</span></span>
 <span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="st">"______________FINAL CATS______________"</span><span class="kw">)</span></span>
 <span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="ex">print</span><span class="er">(</span><span class="ex">finalCats</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="sympy-solution" class="level3">
 <h3 class="anchored" data-anchor-id="sympy-solution">sympy solution</h3>
 <p>sympy seems to provide support for discrete and continuous interval? will that save any damn time anyway? i’m afraid no? maybe there’s a way!</p>

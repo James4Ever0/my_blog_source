@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -187,13 +187,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setup-x11vnc-and-novnc" class="level2">
 <h2 class="anchored" data-anchor-id="setup-x11vnc-and-novnc">setup x11vnc and novnc</h2>
-<p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu, in reference of <a href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a> x11vnc is mirroring the current x11 session. i set it without password.</p>
+<p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu,</p>
+<p>in reference of <a href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a></p>
+<p>x11vnc is mirroring the current x11 session. i set it without password.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#retrieved from fish history</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">x11vnc</span> <span class="at">-threads</span> <span class="at">-forever</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>then launch novnc server</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">novnc</span>  <span class="at">--vnc</span> localhost:5900 <span class="at">--listen</span> 10020</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>use this url to access from chromebook:</p>
-<pre><code>http://&lt;kali_ip&gt;:10020/vnc.html?host=&lt;kali_ip&gt;&amp;port=10020</code></pre>
+<pre><code>http://&lt;kali_ip&gt;:10020/vnc.html?host=&lt;kali_ip&gt;&amp;port=10020
+</code></pre>
 
 
 </section>

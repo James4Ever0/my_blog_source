@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -179,7 +179,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p><a href="https://github.com/theubermanishere/elo-rating-system">Elo rating system</a> is a method for calculating the relative skill levels of players in two-player games such as chess. It is named after its creator Arpad Elo, a Hungarian-American physics professor. The basic idea behind the Elo rating system is that each player is assigned a rating, and the difference between the ratings of two players determines the expected outcome of a match between them. If a higher-rated player wins, their rating will increase, while the rating of the lower-rated player will decrease. If the lower-rated player wins, the opposite will happen. The amount of change in the ratings depends on the difference between the ratings and the result of the match. Here is an example of how the Elo rating system can be implemented in Python:</p>
+<p><a href="https://github.com/theubermanishere/elo-rating-system">Elo rating system</a> is a method for calculating the relative skill levels of players in two-player games such as chess. It is named after its creator Arpad Elo, a Hungarian-American physics professor.</p>
+<p>The basic idea behind the Elo rating system is that each player is assigned a rating, and the difference between the ratings of two players determines the expected outcome of a match between them. If a higher-rated player wins, their rating will increase, while the rating of the lower-rated player will decrease. If the lower-rated player wins, the opposite will happen. The amount of change in the ratings depends on the difference between the ratings and the result of the match.</p>
+<p>Here is an example of how the Elo rating system can be implemented in Python:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> elo_rating(rating1, rating2, k, result):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the expected score for each player</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>expect1 <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> <span class="dv">10</span> <span class="op">**</span> ((rating2 <span class="op">-</span> rating1) <span class="op">/</span> <span class="dv">400</span>))</span>
@@ -194,7 +196,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>rating1 <span class="op">=</span> rating1 <span class="op">+</span> k <span class="op">*</span> (<span class="dv">0</span> <span class="op">-</span> expect1)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>rating2 <span class="op">=</span> rating2 <span class="op">+</span> k <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> expect2)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> rating1, rating2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This function takes four arguments: rating1: The current rating of player 1. rating2: The current rating of player 2. k: The “k-factor”, which determines the amount of change in the ratings. A higher k-factor means more change. result: The result of the match, where 1 indicates a win for player 1 and 0 indicates a win for player 2. The function returns a tuple containing the updated ratings for both players.</p>
+<p>This function takes four arguments:</p>
+<p>rating1: The current rating of player 1.</p>
+<p>rating2: The current rating of player 2.</p>
+<p>k: The “k-factor”, which determines the amount of change in the ratings. A higher k-factor means more change.</p>
+<p>result: The result of the match, where 1 indicates a win for player 1 and 0 indicates a win for player 2.</p>
+<p>The function returns a tuple containing the updated ratings for both players.</p>
 
 
 

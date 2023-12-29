@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -188,12 +188,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>motion verctor estimation, motion vector export, ffmpeg advanced usage</h1>
 <section id="use-cases" class="level2">
 <h2 class="anchored" data-anchor-id="use-cases">use cases</h2>
-<p>to detect hard-coded subtitles, crop the region and detect sudden changes can also use pyscenedetect to do the job ## pyav <a href="https://pyav.org/docs/stable/">docs</a></p>
+<p>to detect hard-coded subtitles, crop the region and detect sudden changes</p>
+<p>can also use pyscenedetect to do the job</p>
+</section>
+<section id="pyav" class="level2">
+<h2 class="anchored" data-anchor-id="pyav">pyav</h2>
+<p><a href="https://pyav.org/docs/stable/">docs</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install av</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="removedetect-silence" class="level2">
 <h2 class="anchored" data-anchor-id="removedetect-silence">remove/detect silence</h2>
-<p>… silencedetect A-&gt;A Detect silence. … silenceremove A-&gt;A Remove silence. ## frame interpolate</p>
+<p>… silencedetect A-&gt;A Detect silence.</p>
+<p>… silenceremove A-&gt;A Remove silence.</p>
+</section>
+<section id="frame-interpolate" class="level2">
+<h2 class="anchored" data-anchor-id="frame-interpolate">frame interpolate</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-y</span> <span class="at">-i</span> <span class="st">"/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif"</span> <span class="dt">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>-vf <span class="st">"minterpolate,scale=w=iw*2:h=ih*2:flags=lanczos,hqdn3d"</span> <span class="dt">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>-r 60 ffmpeg_samoyed.mp4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -232,17 +241,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="extract-motion-vectors" class="level2">
 <h2 class="anchored" data-anchor-id="extract-motion-vectors">extract motion vectors</h2>
-<p>ffmpeg can produce motion vector estimation but it is not exportable, only for internal use. mp4 format provides motion vector information thus maybe we need not to use GPU to get those ‘optical flow’ data. ### extract by using ffmpeg apis <a href="https://github.com/LukasBommes/mv-extractor">mv-extractor</a> Extract frames and motion vectors from H.264 and MPEG-4 encoded video. ### extract from mp4 file <a href="https://github.com/vadimkantorov/mpegflow">mpegflow</a> for easy extraction of motion vectors stored in video files <a href="https://github.com/jishnujayakumar/MV-Tractus">mv-tractus</a>: A simple tool to extract motion vectors from h264 encoded videos. ## <a href="https://write.corbpie.com/taking-screenshot-with-ffmpeg/#:~:text=To%20take%20a%20screenshot%20or%20save%20a%20frame,means%20the%20frame%20number%20at%20the%20time%20specified.">take screenshot at time:</a></p>
+<p>ffmpeg can produce motion vector estimation but it is not exportable, only for internal use.</p>
+<p>mp4 format provides motion vector information thus maybe we need not to use GPU to get those ‘optical flow’ data.</p>
+<section id="extract-by-using-ffmpeg-apis" class="level3">
+<h3 class="anchored" data-anchor-id="extract-by-using-ffmpeg-apis">extract by using ffmpeg apis</h3>
+<p><a href="https://github.com/LukasBommes/mv-extractor">mv-extractor</a> Extract frames and motion vectors from H.264 and MPEG-4 encoded video.</p>
+</section>
+<section id="extract-from-mp4-file" class="level3">
+<h3 class="anchored" data-anchor-id="extract-from-mp4-file">extract from mp4 file</h3>
+<p><a href="https://github.com/vadimkantorov/mpegflow">mpegflow</a> for easy extraction of motion vectors stored in video files</p>
+<p><a href="https://github.com/jishnujayakumar/MV-Tractus">mv-tractus</a>: A simple tool to extract motion vectors from h264 encoded videos.</p>
+</section>
+</section>
+<section id="take-screenshot-at-time" class="level2">
+<h2 class="anchored" data-anchor-id="take-screenshot-at-time"><a href="https://write.corbpie.com/taking-screenshot-with-ffmpeg/#:~:text=To%20take%20a%20screenshot%20or%20save%20a%20frame,means%20the%20frame%20number%20at%20the%20time%20specified.">take screenshot at time:</a></h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-ss</span> 01:10:35 <span class="at">-i</span> invideo.mp4 <span class="at">-vframes</span> 1 <span class="at">-q:v</span> 3 screenshot.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="video-denoise-filters" class="level2">
 <h2 class="anchored" data-anchor-id="video-denoise-filters">video denoise filters:</h2>
-<p>dctdnoiz fftdnoiz hqdn3d nlmeans owdenoise removegrain vaguedenoiser nlmeans_opencl yaepblur ## super-resolution, resampling: ### deeplearning model, tensorflow</p>
+<p>dctdnoiz fftdnoiz hqdn3d nlmeans owdenoise removegrain vaguedenoiser nlmeans_opencl yaepblur</p>
+</section>
+<section id="super-resolution-resampling" class="level2">
+<h2 class="anchored" data-anchor-id="super-resolution-resampling">super-resolution, resampling:</h2>
+<section id="deeplearning-model-tensorflow" class="level3">
+<h3 class="anchored" data-anchor-id="deeplearning-model-tensorflow">deeplearning model, tensorflow</h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> LD_LIBRARY_PATH=/root/anaconda3/pkgs/cudatoolkit-10.0.130-0/lib/:/root/anaconda3/pkgs/cudnn-7.6.5-cuda10.0_0/lib/:<span class="va">$LD_LIBRARY_PATH</span> <span class="dt">\</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ffmpeg <span class="at">-i</span> <span class="st">"/root/Desktop/works/pyjom/samples/video/LiEIfnsvn.mp4"</span> <span class="dt">\</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>-y <span class="at">-vf</span> <span class="dt">\</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">"sr=dnn_backend=tensorflow:model=./sr/espcn.pb,yaepblur"</span> <span class="dt">\</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>supertest.mp4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="use-standard-scale-method" class="level3">
 <h3 class="anchored" data-anchor-id="use-standard-scale-method">use standard scale method:</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-y</span> <span class="at">-i</span> <span class="st">"/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif"</span><span class="dt">\</span></span>
@@ -251,7 +279,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="options" class="level3">
 <h3 class="anchored" data-anchor-id="options">options:</h3>
-<p>‘fast_bilinear’ Select fast bilinear scaling algorithm. ‘bilinear’ Select bilinear scaling algorithm. ‘bicubic’ Select bicubic scaling algorithm. ‘experimental’ Select experimental scaling algorithm. ‘neighbor’ Select nearest neighbor rescaling algorithm. ‘area’ Select averaging area rescaling algorithm. ‘bicublin’ Select bicubic scaling algorithm for the luma component, bilinear for chroma components. ‘gauss’ Select Gaussian rescaling algorithm. ‘sinc’ Select sinc rescaling algorithm. ‘lanczos’ Select Lanczos rescaling algorithm. The default width (alpha) is 3 and can be changed by setting param0. ‘spline’ Select natural bicubic spline rescaling algorithm. ‘print_info’ Enable printing/debug logging. ‘accurate_rnd’ Enable accurate rounding. ‘full_chroma_int’ Enable full chroma interpolation. ‘full_chroma_inp’ Select full chroma input. ‘bitexact’ Enable bitexact output.</p>
+<p>‘fast_bilinear’</p>
+<p>Select fast bilinear scaling algorithm.</p>
+<p>‘bilinear’</p>
+<p>Select bilinear scaling algorithm.</p>
+<p>‘bicubic’</p>
+<p>Select bicubic scaling algorithm.</p>
+<p>‘experimental’</p>
+<p>Select experimental scaling algorithm.</p>
+<p>‘neighbor’</p>
+<p>Select nearest neighbor rescaling algorithm.</p>
+<p>‘area’</p>
+<p>Select averaging area rescaling algorithm.</p>
+<p>‘bicublin’</p>
+<p>Select bicubic scaling algorithm for the luma component, bilinear for chroma components.</p>
+<p>‘gauss’</p>
+<p>Select Gaussian rescaling algorithm.</p>
+<p>‘sinc’</p>
+<p>Select sinc rescaling algorithm.</p>
+<p>‘lanczos’</p>
+<p>Select Lanczos rescaling algorithm. The default width (alpha) is 3 and can be changed by setting param0.</p>
+<p>‘spline’</p>
+<p>Select natural bicubic spline rescaling algorithm.</p>
+<p>‘print_info’</p>
+<p>Enable printing/debug logging.</p>
+<p>‘accurate_rnd’</p>
+<p>Enable accurate rounding.</p>
+<p>‘full_chroma_int’</p>
+<p>Enable full chroma interpolation.</p>
+<p>‘full_chroma_inp’</p>
+<p>Select full chroma input.</p>
+<p>‘bitexact’</p>
+<p>Enable bitexact output.</p>
 
 
 </section>

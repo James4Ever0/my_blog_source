@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -175,7 +175,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>媒体的意义和AI类似 别人知道的就不要发了 有可能出错 别人不知道的就发 有可能有用 在兴趣圈周围探索 拓宽视野 ## 网页转文章 readbility.js <a href="https://github.com/Nixes/PageScraper">pagescraper</a> in php <code>elinks -dump &lt;url&gt;</code> 可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭 文章洗稿 基于标题和context生成段落： https://github.com/yangjianxin1/CPM bert mask: https://huggingface.co/fnlp/bart-base-chinese https://huggingface.co/hfl/chinese-macbert-base chinese paraphrase: https://github.com/ZhuiyiTechnology/roformer https://github.com/ZhuiyiTechnology/simbert <a href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a> https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main https://huggingface.co/facebook/m2m100_418M https://github.com/jiangnanboy/chinese_sentence_paraphrase chinese summarize generator: 一般抽取式的提取 都需要有gpt生成器在中间插入一些句子 <a href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a> <a href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a> <a href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a> 一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。 1，tr算法提取摘要再人工重组新的文章。 正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。 测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。 先安装依赖库，然后再利用tr4进行摘要提取。</p>
+<p>媒体的意义和AI类似 别人知道的就不要发了 有可能出错 别人不知道的就发 有可能有用 在兴趣圈周围探索 拓宽视野</p>
+<section id="网页转文章" class="level2">
+<h2 class="anchored" data-anchor-id="网页转文章">网页转文章</h2>
+<p>readbility.js</p>
+<p><a href="https://github.com/Nixes/PageScraper">pagescraper</a> in php</p>
+<p><code>elinks -dump &lt;url&gt;</code></p>
+<p>可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭</p>
+<p>文章洗稿 基于标题和context生成段落：</p>
+<p>https://github.com/yangjianxin1/CPM</p>
+<p>bert mask:</p>
+<p>https://huggingface.co/fnlp/bart-base-chinese</p>
+<p>https://huggingface.co/hfl/chinese-macbert-base</p>
+<p>chinese paraphrase:</p>
+<p>https://github.com/ZhuiyiTechnology/roformer</p>
+<p>https://github.com/ZhuiyiTechnology/simbert</p>
+<p><a href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a></p>
+<p>https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main</p>
+<p>https://huggingface.co/facebook/m2m100_418M</p>
+<p>https://github.com/jiangnanboy/chinese_sentence_paraphrase</p>
+<p>chinese summarize generator:</p>
+<p>一般抽取式的提取 都需要有gpt生成器在中间插入一些句子</p>
+<p><a href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a></p>
+<p><a href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a></p>
+<p><a href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a></p>
+<p>一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。</p>
+<p>1，tr算法提取摘要再人工重组新的文章。</p>
+<p>正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。</p>
+<p>测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。</p>
+<p>先安装依赖库，然后再利用tr4进行摘要提取。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> textrank4zh <span class="im">import</span> TextRank4Keyword, TextRank4Sentence</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> <span class="st">""</span> <span class="co"># 这里是python采集下来的content html内容</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> re.sub(<span class="st">'&lt;.*?&gt;'</span>,<span class="st">''</span>,content)</span>
@@ -186,9 +214,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 可修改num值，设置摘要长度。</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> tr4s.get_key_sentences(num<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>zy <span class="op">=</span> zy <span class="op">+</span> item.sentence</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>2，利用google翻译双向翻译洗稿 之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。 后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。 自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
+<p>2，利用google翻译双向翻译洗稿</p>
+<p>之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。</p>
+<p>后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。</p>
+<p>自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -202,11 +202,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> iwlist wlan0 scan <span class="kw">|</span> <span class="fu">grep</span> ESSID</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>default login (maybe not):</p>
 <pre><code>username: pi
-password: raspberry</code></pre>
-<p>in order to start <code>sshd</code>, <code>touch ssh</code> under <code>boot</code> partition recover <code>dhcpcd</code> service:</p>
+password: raspberry
+</code></pre>
+<p>in order to start <code>sshd</code>, <code>touch ssh</code> under <code>boot</code> partition</p>
+<p>recover <code>dhcpcd</code> service:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl enable dhcpcd.service</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart dhcpcd.service</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>config the password with <code>proot -S &lt;path_to_rootfs&gt; -b &lt;boot_partition&gt;:/boot -q qemu-arm /usr/bin/bash</code> and <code>passwd</code> you’ve installed <a href="https://raspap.com/">raspap</a> on this device. you use the default credentials. this shit will not connect to our wifi automatically, thus block your way of running docker containers on it with only macbook. seriously? do you really need docker on macos? or just on raspberry pi? change apt sources:</p>
+<p>config the password with <code>proot -S &lt;path_to_rootfs&gt; -b &lt;boot_partition&gt;:/boot -q qemu-arm /usr/bin/bash</code> and <code>passwd</code></p>
+<p>you’ve installed <a href="https://raspap.com/">raspap</a> on this device. you use the default credentials. this shit will not connect to our wifi automatically, thus block your way of running docker containers on it with only macbook.</p>
+<p>seriously? do you really need docker on macos? or just on raspberry pi?</p>
+<p>change apt sources:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sed <span class="at">-i</span> <span class="st">'s|raspbian.raspberrypi.org|mirrors.ustc.edu.cn/raspbian|g'</span> /etc/apt/sources.list</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sed <span class="at">-i</span> <span class="st">'s|mirrordirector.raspbian.org|mirrors.ustc.edu.cn/raspbian|g'</span> /etc/apt/sources.list</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sed <span class="at">-i</span> <span class="st">'s|archive.raspbian.org|mirrors.ustc.edu.cn/raspbian|g'</span> /etc/apt/sources.list</span>
@@ -229,7 +234,8 @@ auto wlan0
 iface wlan0 inet dhcp
 #wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 wpa-ssid "&lt;SSID&gt;"
-wpa-psk "&lt;PASSWORD&gt;"</code></pre>
+wpa-psk "&lt;PASSWORD&gt;"
+</code></pre>
 <p>install packages:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class="at">-o</span> Acquire::http::proxy=<span class="st">"socks5h://127.0.0.1:1080/"</span>  <span class="at">-o</span> Acquire::Check-Valid-Until=false <span class="at">-o</span> Acquire::Check-Date=false update <span class="at">--allow-releaseinfo-change</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get <span class="at">-o</span> Acquire::http::proxy=<span class="st">"socks5h://127.0.0.1:1080/"</span>  <span class="at">-o</span> Acquire::Check-Valid-Until=false <span class="at">-o</span> Acquire::Check-Date=false upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

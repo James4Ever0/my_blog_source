@@ -4,4 +4,6 @@
 ---
 
 ------
+
 use `/var/snap/chromium/current/policies/` if chrome, `/var/snap/chromium/current/policies/managed/` if chromium
+

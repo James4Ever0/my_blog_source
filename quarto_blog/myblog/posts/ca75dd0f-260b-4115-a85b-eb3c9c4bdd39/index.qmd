@@ -4,13 +4,24 @@
 ---
 
 ------
+
 llm generate images for content
+
 llm generate tags & categories for content
+
 llm generate embedding for content
+
 llm generate query words
+
 llm generate query image/audio
+
 system perform full text search
+
 system perform vector search
+
 llm generate relevance or preference
+
 llm generate potential query for content
+
 system update relevance based on llm preference
+

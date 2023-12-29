@@ -4,6 +4,7 @@
 ---
 
 ------
+
 ## search commands on commandline
 ```bash
 man -k <keywords>
@@ -12,60 +13,115 @@ brew search <keywords>
 npm search <keywords>
 searchsploit <keywords>
 msfconsole -x "search <keywords>; exit"
+
 ```
+
 ## nosql/nosqlite key-value json like document store databases, sqlite high level wrappers
+
 [this guy](https://github.com/coleifer/) makes database related libraries.
+
 ________________________________________
+
 [lsm-db](https://lsm-db.readthedocs.io/en/latest/) fast key-value store using sqlite 4
+
 [unqlite](https://github.com/coleifer/unqlite-python) Python bindings for the UnQLite embedded NoSQL database
+
 [tinydb](https://github.com/msiemens/tinydb) json-oriented, mongo alike database, which is a in-memory database
+
 [litedb](https://github.com/JonathanVusich/litedb) NoSQL Python database written for ease of use/performance.
+
 [pylite](https://github.com/dariubs/pylite) sqlite3 lightweight wrapper
+
 ## reason to develop this
+
 you are short of brain power. short of time to perspect and investigate.
+
 many platforms now have recommendation engines, but they do not have powerful semantic search tools. what a pity. maybe i am interested in some 'unseen' stuff, but i want to get the thing that i currently need! fail to do so will limit my productivity.
+
 ## sentence embeddings
+
 difference between 'symmetric' and 'asymmetric' retrieval questions from sbert.net:
+
 symmetric means similar, asymmetric usually means question to answer.
+
 [top 4 sentence embedding techniques using python](https://www.analyticsvidhya.com/blog/2020/08/top-4-sentence-embedding-techniques-using-python/)
+
 [sentence to vector](https://github.com/prabha88978/Sentence-To-Vector)
+
 tutorial: [sentence vector word2vec](https://www.baeldung.com/cs/sentence-vectors-word2vec)
+
 [sentence2vec based on word2vec](https://github.com/stanleyfok/sentence2vec)
+
 ## similarity search and clustering
+
 facebook [faiss](https://github.com/facebookresearch/faiss/watchers)
+
 [hnswlib](https://github.com/nmslib/hnswlib) Header-only C++/python library for fast approximate nearest neighbors
+
 spotify [annoy](https://github.com/spotify/annoy) Approximate Nearest Neighbors in C++/Python optimized for memory usage and loading/saving to disk
+
 ## problems
+
 - [ ] enable copy/pasting/selection in console
+
 - [ ] make reversible/auto-cleanup feature when copy and pasting
+
 - [x] reverse stemming and keywords highlighting
+
 - [ ] memory efficient embedding querying/storage via sql or binary format
+
 txtai store to sqlite: [Build an Embeddings index from a data source](https://github.com/neuml/txtai/blob/master/examples/03_Build_an_Embeddings_index_from_a_data_source.ipynb)
+
 - [ ] make "complete" excerpt by looking ahead and backward to find the closest sentence start/stop and/or use gpt completion method instead? still need punctual or sentence start/stop index identification.
+
 ## offline
+
 ### terminal interface builder
+
 [rich](https://pypi.org/project/rich/) and [tutorial](https://python.plainenglish.io/build-your-own-search-engine-in-python-part-1-2-the-engine-3b060e49eb84)
+
 [textual](https://github.com/Textualize/textual)
+
 [urwid](https://github.com/urwid/urwid)
+
 [plie](https://plie.readthedocs.io/en/master/renderer.html)
+
 ### ai assisted search engine libraries
+
 [jina-ai](https://github.com/jina-ai/jina) and docarray
+
 [txtai](https://github.com/neuml/txtai)
+
 [typesense](https://github.com/typesense/typesense)
+
 [zinc](https://github.com/zinclabs/zinc) search
+
 [fuzzy search](https://pypi.org/project/fuzzy-search/)
+
 [fuzzy](https://pypi.org/project/Fuzzy/) phonic toolkit
+
 ### traditional search engine libraries
+
 [luceneplusplus](https://github.com/luceneplusplus/LucenePlusPlus) lucene in c++
+
 [pythonql](https://github.com/pythonql/pythonql) as extension of python syntax, able to search data in python data structure.
+
 [jq](https://github.com/stedolan/jq) and [pyjq](https://pypi.org/project/pyjq/) as json search engine, [jqterm](https://jqterm.com/?query=.) as jq repl
+
 [fq](https://github.com/wader/fq) jq for binary formats
+
 [a curated search engine list](https://medevel.com/os-fulltext-search-solutions/)
+
 [scout](https://scout.readthedocs.io/en/latest/server.html) sqlite based full text search
+
 [whoosh](https://pypi.org/project/Whoosh/) with bm25 support
+
 [python-searchengine](https://github.com/bartdegoede/python-searchengine) and [the tutorial](https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/)
+
 ## online
+
 [surfraw](https://github.com/kisom/surfraw), or just [s](https://github.com/zquestz/s), is for some common parameter prefixes for searching on common websites. will open GUI browser or cli browser if configured with one.
+
 surfraw supported:
 ```
 W               -- Activate Surfraw defined web-browser
@@ -192,7 +248,9 @@ yahoo           -- Search Yahoo categories (www.yahoo.com)
 yandex          -- Search the web using Yandex (yandex.ru)
 youtube         -- Search YouTube (www.youtube.com)
 yubnub          -- Use the social command-line for the web (yubnub.org)
+
 ```
+
 S supported:
 ```
 500px
@@ -312,4 +370,6 @@ yandex
 youtube
 zdf
 zhihu
+
 ```
+

@@ -4,8 +4,14 @@
 ---
 
 ------
+
 Linux support in alpha, currently MacOS only:
+
 [fig](https://github.com/withfig/autocomplete)
+
 [warp](https://app.warp.dev/get_warp)
+
 why my vim stops working?
+
 [warp known issues](https://docs.warp.dev/help/known-issues)
+

@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -144,7 +144,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>B站允许最多10个标签 不能发布太频繁, B站官方限制<strong>30秒一稿</strong> <a href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">some upload api</a> this api does not analyze the video content. it only predict tags from metadata: <code>https://member.bilibili.com/x/web/archive/tags</code> <a href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">how to get upload_id</a> 只有PC网页端有这个 手机端没有 可能是新功能 b站最新更新了这两个接口 需要传入upload_id 具体参数抓包获取 分区推荐 POST： https://member.bilibili.com/x/vupre/web/archive/types/predict 标签推荐 GET（可能有延迟 需要请求两次 因为第一次标签数量较少）： https://member.bilibili.com/x/vupre/web/tag/recommend 获取活动标签: https://member.bilibili.com/x/vupre/web/topic/type?type_id=21&amp;pn=0&amp;ps=200&amp;title=20210210_298667075925_waou_5s&amp;t=1667530591393</p>
+<p>B站允许最多10个标签</p>
+<p>不能发布太频繁, B站官方限制<strong>30秒一稿</strong></p>
+<p><a href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">some upload api</a></p>
+<p>this api does not analyze the video content. it only predict tags from metadata:</p>
+<p><code>https://member.bilibili.com/x/web/archive/tags</code></p>
+<p><a href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">how to get upload_id</a></p>
+<p>只有PC网页端有这个 手机端没有 可能是新功能</p>
+<p>b站最新更新了这两个接口 需要传入upload_id 具体参数抓包获取</p>
+<p>分区推荐 POST：</p>
+<p>https://member.bilibili.com/x/vupre/web/archive/types/predict</p>
+<p>标签推荐 GET（可能有延迟 需要请求两次 因为第一次标签数量较少）：</p>
+<p>https://member.bilibili.com/x/vupre/web/tag/recommend</p>
+<p>获取活动标签:</p>
+<p>https://member.bilibili.com/x/vupre/web/topic/type?type_id=21&amp;pn=0&amp;ps=200&amp;title=20210210_298667075925_waou_5s&amp;t=1667530591393</p>
 
 
 

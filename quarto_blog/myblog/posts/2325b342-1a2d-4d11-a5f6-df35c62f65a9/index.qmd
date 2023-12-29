@@ -4,9 +4,13 @@
 ---
 
 ------
+
 windows has encoding issue on python intepreter.
+
 run like this:
 ```bash
 python -X utf8=1 <args>
 # flag: sys.flags.utf8_mode
+
 ```
+

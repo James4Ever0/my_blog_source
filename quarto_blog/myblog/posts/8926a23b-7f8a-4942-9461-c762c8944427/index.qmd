@@ -4,9 +4,16 @@
 ---
 
 ------
+
 # Image Restoration Upscaling Inpainting 图像修复 超分辨率
+
 [sota image inpainting: lama-cleaner](https://github.com/Sanster/lama-cleaner) still needs manual labeling on inpainting area
+
 https://github.com/DmitryUlyanov/deep-image-prior
+
 nas image prior
+
 https://arxiv.org/abs/2008.11713
+
 [mmediting](https://github.com/open-mmlab/mmediting): OpenMMLab Image and Video Restoration, Editing and Generation Toolbox
+

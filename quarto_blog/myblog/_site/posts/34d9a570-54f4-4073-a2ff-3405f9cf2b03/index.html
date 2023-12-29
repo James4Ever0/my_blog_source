@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -178,21 +178,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<table class="table">
-<colgroup>
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>use <code>tensorly</code> to create random sparse tensor and eye sparse tensor with ease, which could be numpy only, and requires the <code>sparse</code> package. <code>scipy</code>, <code>pytorch</code>, <code>tensorflow</code>, <code>jax</code> all support sparse tensor construction but advanced apis are not. use <code>eye</code> to create bias and input matrix, extract node values. use random sparse tensor to initialize weight matrix. use self matrix multiplication to perform propagation.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses.</td>
-</tr>
-</tbody>
-</table>
+<hr>
+<p>use <code>tensorly</code> to create random sparse tensor and eye sparse tensor with ease, which could be numpy only, and requires the <code>sparse</code> package.</p>
+<p><code>scipy</code>, <code>pytorch</code>, <code>tensorflow</code>, <code>jax</code> all support sparse tensor construction but advanced apis are not.</p>
+<p>use <code>eye</code> to create bias and input matrix, extract node values. use random sparse tensor to initialize weight matrix. use self matrix multiplication to perform propagation.</p>
+<hr>
+<p>the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses.</p>
+<hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>large_number <span class="op">=</span> <span class="dv">1_000_000</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>torch.arange(large_number).unsqueeze(<span class="dv">0</span>).repeat(<span class="dv">2</span>, <span class="dv">1</span>)</span>

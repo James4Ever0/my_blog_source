@@ -4,6 +4,10 @@
 ---
 
 ------
+
 there are multiple spider collections on github, most of them are rudimentary and project specific, may not always suit your needs.
+
 [learnspider](http://learnspider.evilrecluse.top/) in which you can find simple captcha js code and many antimeasure of scrapers for practice. for solutions: [learning_spider](https://github.com/RecluseXU/learning_spider)
+
 [spider collections](https://github.com/srx-2000/spider_collection) covers zhihu.com
+

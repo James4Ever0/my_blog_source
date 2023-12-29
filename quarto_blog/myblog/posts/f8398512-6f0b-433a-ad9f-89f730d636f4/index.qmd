@@ -4,17 +4,29 @@
 ---
 
 ------
+
 离散区间的获得可以用边界条件判定 即最近n个连续的概率大于多少 容忍值为多少 最近n个小于多少直接作为结束边界的条件 也可以用convolution Gaussian blur
+
 离散区间交并补可以转化为连续区间交并补 更简单省事
+
 如果要做下面的运算 建议用第三方库 比如wolfram swi-prolog的clpr sympy
+
 连续区间交并补 先排序 设置首末端的操作 然后进行相应区间选取 进行下一步操作直到结束 输出总的结果
+
 ## combining similar/nearby bounding boxes, suppressing near duplicate bounding boxes over short time
+
 [see here](./textbook!.md)
+
 you can merge a group of things, then analyze them over time using object tracker, tweening them.
+
 ## Discrete Interval Set Union Solvers
+
 you may want to filter out short intervals. mind the lopen/ropen interval after intersection or difference operation.
+
 you may also want to quantize these intervals, set them to nearest possible points. 用到某采样率 还是根本不用吧 就是属于那个区间的离散点上面执行相应的操作变化 但是那个区间如何划分 怎么把离散点归类到不同区间里面 完全是其他的逻辑需要做的事情 一般同类别的区间不能相交 但是之后再考虑吧 怎么用呢 所有的全部弄到一个列表里面 还是选取最小的那个来用？
+
 category with different groups -> subcategories
+
 first the sample set:
 ```bash
 import sympy
@@ -37,23 +49,33 @@ unionInterval += newInterval
 return False
 assert not checkOverlap(mSetIntervals)
 assert not checkOverlap(mSet2Intervals)
+
 ```
+
 then pool and sort all the boundaries of converted intervals:
 ```bash
 mPoints = mSetIntervalBoundaries + mSet2IntervalBoundaries
 mPoints = list(set(mPoints))
 mPoints.sort()
+
 ```
+
 ### with sympy
 ```bash
 # all the same
+
 ```
+
 ### with less sympy
 ```bash
 # all the same
+
 ```
+
 ## Continual Interval Set Union Solvers
+
 you must be able to explicitly point out different group index of different category. maybe you can just do it in all-new subcategories?
+
 ### less exponential solution here?
 ```bash
 #!/usr/bin/env python
@@ -137,8 +159,11 @@ value = mergeOverlappedInIntervalTupleList(value)
 finalCats.update({key: value})
 print("______________FINAL CATS______________")
 print(finalCats)
+
 ```
+
 ### sympy solution
+
 sympy seems to provide support for discrete and continuous interval? will that save any damn time anyway? i'm afraid no? maybe there's a way!
 ```python
 #!/usr/bin/env python
@@ -244,4 +269,6 @@ finalCats.update({"empty":finalCats[()]})
 del finalCats[()]
 print("_____FINAL CATS_____")
 print(finalCats)
+
 ```
+

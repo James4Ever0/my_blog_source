@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -182,25 +182,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="jax" class="level2">
 <h2 class="anchored" data-anchor-id="jax"><a href="https://github.com/google/jax">jax</a></h2>
-<a href="https://jax.readthedocs.io/en/latest/">docs</a> autograd and xla (Accelerated Linear Algebra)
+<p><a href="https://jax.readthedocs.io/en/latest/">docs</a></p>
+<p>autograd and xla (Accelerated Linear Algebra)</p>
 <details>
-With its updated version of Autograd, JAX can automatically differentiate native Python and NumPy functions. It can differentiate through loops, branches, recursion, and closures, and it can take derivatives of derivatives of derivatives. It supports reverse-mode differentiation (a.k.a. backpropagation) via grad as well as forward-mode differentiation, and the two can be composed arbitrarily to any order. XLA (Accelerated Linear Algebra) is a domain-specific compiler for linear algebra that can accelerate TensorFlow models with potentially no source code changes.
+<p>With its updated version of Autograd, JAX can automatically differentiate native Python and NumPy functions. It can differentiate through loops, branches, recursion, and closures, and it can take derivatives of derivatives of derivatives. It supports reverse-mode differentiation (a.k.a. backpropagation) via grad as well as forward-mode differentiation, and the two can be composed arbitrarily to any order.</p>
+<p>XLA (Accelerated Linear Algebra) is a domain-specific compiler for linear algebra that can accelerate TensorFlow models with potentially no source code changes.</p>
 </details>
 </section>
 <section id="pyro" class="level2">
 <h2 class="anchored" data-anchor-id="pyro"><a href="http://pyro.ai/#install">pyro</a></h2>
-<p>probabilistic programming <a href="https://docs.pyro.ai/en/stable/getting_started.html">getting started</a> <a href="http://pyro.ai/examples/">examples</a> <a href="https://github.com/pyro-ppl/pyro/tree/dev/examples">sample code</a> ## <a href="https://num.pyro.ai/">numpyro</a> <a href="https://num.pyro.ai/en/stable/getting_started.html">getting started</a> pyro implementation in numpy, alpha stage ## <a href="https://scikit-learn.org/stable/index.html">scikit-learn</a> machine learning in python ## <a href="https://github.com/cjlin1/libsvm">libsvm</a> install official python bindings:</p>
+<p>probabilistic programming</p>
+<p><a href="https://docs.pyro.ai/en/stable/getting_started.html">getting started</a></p>
+<p><a href="http://pyro.ai/examples/">examples</a></p>
+<p><a href="https://github.com/pyro-ppl/pyro/tree/dev/examples">sample code</a></p>
+</section>
+<section id="numpyro" class="level2">
+<h2 class="anchored" data-anchor-id="numpyro"><a href="https://num.pyro.ai/">numpyro</a></h2>
+<p><a href="https://num.pyro.ai/en/stable/getting_started.html">getting started</a></p>
+<p>pyro implementation in numpy, alpha stage</p>
+</section>
+<section id="scikit-learn" class="level2">
+<h2 class="anchored" data-anchor-id="scikit-learn"><a href="https://scikit-learn.org/stable/index.html">scikit-learn</a></h2>
+<p>machine learning in python</p>
+</section>
+<section id="libsvm" class="level2">
+<h2 class="anchored" data-anchor-id="libsvm"><a href="https://github.com/cjlin1/libsvm">libsvm</a></h2>
+<p>install official python bindings:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-U</span> libsvm-official</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><a href="https://github.com/ocampor/libsvm">third-party python libsvm package</a> installed by:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install libsvm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="opennlp" class="level2">
 <h2 class="anchored" data-anchor-id="opennlp"><a href="https://opennlp.apache.org/">opennlp</a></h2>
-<p><a href="https://opennlp.apache.org/docs/2.0.0/manual/opennlp.html">hands-on docs</a> <a href="https://opennlp.apache.org/models.html">model zoo</a> opennlp uses onnx runtime(maybe?), may support m1 inference. opennlp is written in java. after installing openjdk on macos with homebrew, run this to ensure openjdk is detected:</p>
+<p><a href="https://opennlp.apache.org/docs/2.0.0/manual/opennlp.html">hands-on docs</a></p>
+<p><a href="https://opennlp.apache.org/models.html">model zoo</a></p>
+<p>opennlp uses onnx runtime(maybe?), may support m1 inference.</p>
+<p>opennlp is written in java. after installing openjdk on macos with homebrew, run this to ensure openjdk is detected:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ln <span class="at">-sfn</span> <span class="va">$(</span><span class="ex">brew</span> <span class="at">--prefix</span><span class="va">)</span>/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>opennlp has a language detector for 103 languages, including chinese. opennlp has a sentence detector (separator) which could be trained on chinese (maybe?) in order to use opennlp with less code written, here’s how to <a href="https://kotlinlang.org/docs/java-interop.html">invoke java from kotlin</a> ## <a href="https://deeplearning4j.konduit.ai/">dl4j</a> found on <a href="https://manningbooks.medium.com/more-sensitive-suggestions-1c1c39cbdc12">mannings article about better search engine suggestions</a>. in this example it is used with lucene, which has image retrieval (LIRE) capability. lucene is also avaliable as <a href="https://lucenenet.apache.org/">lucene.net</a> in dotnet/c#. to install lucene.net:</p>
+<p>opennlp has a language detector for 103 languages, including chinese. opennlp has a sentence detector (separator) which could be trained on chinese (maybe?)</p>
+<p>in order to use opennlp with less code written, here’s how to <a href="https://kotlinlang.org/docs/java-interop.html">invoke java from kotlin</a></p>
+</section>
+<section id="dl4j" class="level2">
+<h2 class="anchored" data-anchor-id="dl4j"><a href="https://deeplearning4j.konduit.ai/">dl4j</a></h2>
+<p>found on <a href="https://manningbooks.medium.com/more-sensitive-suggestions-1c1c39cbdc12">mannings article about better search engine suggestions</a>. in this example it is used with lucene, which has image retrieval (LIRE) capability. lucene is also avaliable as <a href="https://lucenenet.apache.org/">lucene.net</a> in dotnet/c#.</p>
+<p>to install lucene.net:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> add package Lucene.Net <span class="at">--prerelease</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>deep learning library for java ## <a href="https://xgboost.readthedocs.io/en/stable/">xgboost</a> gradient boost is used to train decision trees and classification models. ## <a href="https://lightgbm.readthedocs.io/en/v3.3.2/">lightgbm</a> Light Gradient Boosting Machine have official commandline tools. installation on macos:</p>
+<p>deep learning library for java</p>
+</section>
+<section id="xgboost" class="level2">
+<h2 class="anchored" data-anchor-id="xgboost"><a href="https://xgboost.readthedocs.io/en/stable/">xgboost</a></h2>
+<p>gradient boost is used to train decision trees and classification models.</p>
+</section>
+<section id="lightgbm" class="level2">
+<h2 class="anchored" data-anchor-id="lightgbm"><a href="https://lightgbm.readthedocs.io/en/v3.3.2/">lightgbm</a></h2>
+<p>Light Gradient Boosting Machine</p>
+<p>have official commandline tools. installation on macos:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install lightgbm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>install python package on macos:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install cmake</span>
@@ -208,7 +244,22 @@ With its updated version of Autograd, JAX can automatically differentiate native
 </section>
 <section id="pymc" class="level2">
 <h2 class="anchored" data-anchor-id="pymc"><a href="https://www.pymc.io/welcome.html">pymc</a></h2>
-<p><a href="https://www.pymc.io/projects/examples/en/latest/gallery.html">examples</a> if want to enable jax sampling, install <code>numpyro</code> or <code>blackjax</code> via <code>pip</code> difference between pymc3 (old) and pymc (pymc4): pymc is optimized and faster than pymc3 pymc3 use theano as backend while pymc use aesara (forked theano) <a href="https://www.pymc.io/projects/docs/en/stable/learn.html">docs</a> with live demo of pymc PyMC is a probabilistic programming library for Python that allows users to build Bayesian models with a simple Python API and fit them using Markov chain Monte Carlo (MCMC) methods. ## <a href="https://github.com/fastai/fastai">fastai</a> a high level torch wrapper including “out of the box” support for vision, text, tabular, and collab (collaborative filtering) models. <a href="https://docs.fast.ai/">docs</a> <a href="https://course.fast.ai/">courses</a> on the twitter list related to opennlp shown up on its official website, fastai has been spotted. fastai does not support macos. or is it? fastai is on top of pytorch. initial support starts with 2.7.8 and now it is currently 2.7.9 searching ‘samoyed’ like <a href="https://github.com/search?q=org%3Afastai+samoyed&amp;type=code">this</a> in github we get a <a href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof.tgz">dataset for pets classification called imagewoof</a> from <a href="https://github.com/fastai/course20/blob/master/index.ipynb">fastai 2020 tutorial series</a>. more image classes like subcategories of cats may be found in <a href="https://image-net.org/index">imagenet</a>.</p>
+<p><a href="https://www.pymc.io/projects/examples/en/latest/gallery.html">examples</a></p>
+<p>if want to enable jax sampling, install <code>numpyro</code> or <code>blackjax</code> via <code>pip</code></p>
+<p>difference between pymc3 (old) and pymc (pymc4):</p>
+<p>pymc is optimized and faster than pymc3</p>
+<p>pymc3 use theano as backend while pymc use aesara (forked theano)</p>
+<p><a href="https://www.pymc.io/projects/docs/en/stable/learn.html">docs</a> with live demo of pymc</p>
+<p>PyMC is a probabilistic programming library for Python that allows users to build Bayesian models with a simple Python API and fit them using Markov chain Monte Carlo (MCMC) methods.</p>
+</section>
+<section id="fastai" class="level2">
+<h2 class="anchored" data-anchor-id="fastai"><a href="https://github.com/fastai/fastai">fastai</a></h2>
+<p>a high level torch wrapper including “out of the box” support for vision, text, tabular, and collab (collaborative filtering) models.</p>
+<p><a href="https://docs.fast.ai/">docs</a></p>
+<p><a href="https://course.fast.ai/">courses</a></p>
+<p>on the twitter list related to opennlp shown up on its official website, fastai has been spotted.</p>
+<p>fastai does not support macos. or is it? fastai is on top of pytorch. initial support starts with 2.7.8 and now it is currently 2.7.9</p>
+<p>searching ‘samoyed’ like <a href="https://github.com/search?q=org%3Afastai+samoyed&amp;type=code">this</a> in github we get a <a href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof.tgz">dataset for pets classification called imagewoof</a> from <a href="https://github.com/fastai/course20/blob/master/index.ipynb">fastai 2020 tutorial series</a>. more image classes like subcategories of cats may be found in <a href="https://image-net.org/index">imagenet</a>.</p>
 
 
 </section>

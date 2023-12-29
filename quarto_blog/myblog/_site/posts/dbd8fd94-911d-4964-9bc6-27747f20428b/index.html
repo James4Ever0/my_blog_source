@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -183,9 +183,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="补帧-插帧-提高帧数-黑白相片上色-慢动作视频-照片优化-提高清晰度-模糊变清晰-人像美颜" class="level1">
 <h1>补帧 插帧 提高帧数 黑白相片上色 慢动作视频 照片优化 提高清晰度 模糊变清晰 人像美颜</h1>
-<p>超分辨率 super resolution <a href="https://github.com/nihui/realcugan-ncnn-vulkan">realcugan</a> <a href="https://github.com/bilibili/ailab/tree/main/Real-CUGAN">bilibili official real cugan</a> avisynth的替代品：<a href="http://vapoursynth.com/doc/pythonreference.html#grammar">vapoursynth</a>（in Python） FrameServer vapoursynth is somehow installed on python 3.10(brew). do not know what depends on that. <a href="https://github.com/dubhater/vapoursynth-mvtools">mvtools for vapoursynth</a> motion compensation 效果好 速度慢 <a href="https://github.com/baowenbo/DAIN">dain</a> <a href="https://github.com/MegEngine/ECCV2022-RIFE">rife</a> 速度快 画质会变差 <a href="https://github.com/megvii-research/ECCV2022-RIFE">another repo link with more stars</a> <a href="https://gist.github.com/Mr-Z-2697/5dab5352e078cdde96453216ad7a7f92">vapoursynth rife filter usage</a> just a gist <a href="https://vsdb.top/plugins/rife">vsrife using cuda</a> <a href="https://vsdb.top/plugins/rife">rife plugin for vapoursynth using vulkan</a> <a href="https://github.com/avinashpaliwal/Super-SloMo/">nvidia super slomo</a> 比较吃显存 需要NVIDIA SDK 速度快 <a href="https://github.com/martkartasev/sepconv">sepconv</a> 看起来比较模糊 但是还是比直接overlay要好 <a href="https://github.com/sniklaus/sepconv-slomo">pytorch sepconv slomo</a> <a href="https://github.com/baowenbo/MEMC-Net">memc-net</a>比较清晰 FFmpeg自带插帧的filter：</p>
+<p>超分辨率 super resolution <a href="https://github.com/nihui/realcugan-ncnn-vulkan">realcugan</a> <a href="https://github.com/bilibili/ailab/tree/main/Real-CUGAN">bilibili official real cugan</a></p>
+<p>avisynth的替代品：<a href="http://vapoursynth.com/doc/pythonreference.html#grammar">vapoursynth</a>（in Python） FrameServer</p>
+<p>vapoursynth is somehow installed on python 3.10(brew). do not know what depends on that.</p>
+<p><a href="https://github.com/dubhater/vapoursynth-mvtools">mvtools for vapoursynth</a> motion compensation</p>
+<p>效果好 速度慢 <a href="https://github.com/baowenbo/DAIN">dain</a></p>
+<p><a href="https://github.com/MegEngine/ECCV2022-RIFE">rife</a> 速度快 画质会变差 <a href="https://github.com/megvii-research/ECCV2022-RIFE">another repo link with more stars</a></p>
+<p><a href="https://gist.github.com/Mr-Z-2697/5dab5352e078cdde96453216ad7a7f92">vapoursynth rife filter usage</a> just a gist</p>
+<p><a href="https://vsdb.top/plugins/rife">vsrife using cuda</a></p>
+<p><a href="https://vsdb.top/plugins/rife">rife plugin for vapoursynth using vulkan</a></p>
+<p><a href="https://github.com/avinashpaliwal/Super-SloMo/">nvidia super slomo</a> 比较吃显存 需要NVIDIA SDK 速度快</p>
+<p><a href="https://github.com/martkartasev/sepconv">sepconv</a> 看起来比较模糊 但是还是比直接overlay要好</p>
+<p><a href="https://github.com/sniklaus/sepconv-slomo">pytorch sepconv slomo</a></p>
+<p><a href="https://github.com/baowenbo/MEMC-Net">memc-net</a>比较清晰</p>
+<p>FFmpeg自带插帧的filter：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> input.60fps.hevc <span class="at">-filter</span> <span class="st">"minterpolate='fps=120'"</span> output.120fps.hevc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&amp;channel=0">ai黑白上色可以把原视频洗稿</a>：image colorization <a href="https://github.com/emilwallner/Coloring-greyscale-images">coloring grayscale images</a> Coloring black and white images with deep learning memc (motion estimation/motion compensation) 在CSDN上看到的算法名称和内容 内置超分辨率算法: Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K / ACNet 内置超分辨率引擎: Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan 内置插帧算法: RIFE / CAIN / DAIN 内置插帧引擎: rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan</p>
+<p><a href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&amp;channel=0">ai黑白上色可以把原视频洗稿</a>：image colorization</p>
+<p><a href="https://github.com/emilwallner/Coloring-greyscale-images">coloring grayscale images</a></p>
+<p>Coloring black and white images with deep learning</p>
+<p>memc (motion estimation/motion compensation)</p>
+<p>在CSDN上看到的算法名称和内容</p>
+<p>内置超分辨率算法:</p>
+<p>Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K / ACNet</p>
+<p>内置超分辨率引擎:</p>
+<p>Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan</p>
+<p>SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA</p>
+<p>RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan</p>
+<p>内置插帧算法:</p>
+<p>RIFE / CAIN / DAIN</p>
+<p>内置插帧引擎:</p>
+<p>rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan</p>
 
 
 </section>

@@ -6,5 +6,8 @@
 ------
 ```bash
 pylint --enable=unspecified-exception your_python_file.py
+
 ```
+
 However it is recommend to build microservices and log failures
+

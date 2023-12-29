@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -181,7 +181,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="soul-apis" class="level1">
 <h1>Soul APIs</h1>
-<p><a href="https://www.freesion.com/article/9811692393/">soul绕过ssl双向验证</a> justTRUSTME(xposed)加上反编译SDK获取证书密码 <a href="https://blog.csdn.net/qq_38316655/article/details/104176882">backup blog</a> <a href="https://www.trickster.dev/post/setting-up-mitmproxy-with-android/">use adb to setup mitmproxy on android</a></p>
+<p><a href="https://www.freesion.com/article/9811692393/">soul绕过ssl双向验证</a> justTRUSTME(xposed)加上反编译SDK获取证书密码 <a href="https://blog.csdn.net/qq_38316655/article/details/104176882">backup blog</a></p>
+<p><a href="https://www.trickster.dev/post/setting-up-mitmproxy-with-android/">use adb to setup mitmproxy on android</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Library/Android/sdk/platform-tools/</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the hash of the mitmproxy-ca certificate.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">openssl</span> x509 <span class="at">-inform</span> PEM <span class="at">-subject_hash_old</span> <span class="at">-in</span> ~/.mitmproxy/mitmproxy-ca.pem <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span></span>
@@ -208,8 +209,33 @@ global_http_proxy_exclusion_list=
 global_http_proxy_host=
 global_http_proxy_port=0
 global_proxy_pac_url=
-http_proxy=:0</code></pre>
-<p>灵魂测试卡片信息，获取签名<em> https://api.soulapp.cn/html/measureResult/info/v2?userIdEcpt=加密用户ID 用户头像和签名等信息</em> https://api-h5.soulapp.cn/html/v2/user/info?userIdEcpt=加密用户ID 单条瞬间展开信息<em> https://api-h5.soulapp.cn/html/v3/post/detail?postIdEcpt=加密瞬间ID 单条瞬间展开页面</em> https://w3.soulapp-inc.cn/activity/#/web/topic/detail?postIdEcpt=加密瞬间ID 用户发布瞬间信息，只有最新的10条<em> https://api-h5.soulapp.cn/html/v2/post/homepage?userIdEcpt=加密用户ID 用户发布瞬间页面，只有最新的10条</em> https://w3.soulapp-inc.cn/activity/#/web/user?userIdEcpt=加密用户ID 获取热门瞬间，只有最新的30条<em> https://api-h5.soulapp.cn/html/v2/post/hot?pageIndex=1（前3页） 获取标签的瞬间信息，只有最新的30条</em> https://api-h5.soulapp.cn/html/v2/tag/post?tagIdEcpt=加密标签ID 获取标签的瞬间页面，只有最新的30条<em> https://w3.soulapp-inc.cn/activity/#/web/tag?tagIdEcpt=加密标签ID 随机播放音频信息，随机几首</em> https://api-h5.soulapp.cn/html/v2/post/orimusicList/recommend 设置超萌捏脸页面<em> https://app.soulapp.cn/avator/#/avatar/create?sex=1&amp;version=3.10.0 注销账号页面</em> https://app.soulapp.cn/app/#/account https://app.soulapp.cn/app/#/destroy</p>
+http_proxy=:0
+</code></pre>
+<p>灵魂测试卡片信息，获取签名*</p>
+<p>https://api.soulapp.cn/html/measureResult/info/v2?userIdEcpt=加密用户ID</p>
+<p>用户头像和签名等信息*</p>
+<p>https://api-h5.soulapp.cn/html/v2/user/info?userIdEcpt=加密用户ID</p>
+<p>单条瞬间展开信息*</p>
+<p>https://api-h5.soulapp.cn/html/v3/post/detail?postIdEcpt=加密瞬间ID</p>
+<p>单条瞬间展开页面*</p>
+<p>https://w3.soulapp-inc.cn/activity/#/web/topic/detail?postIdEcpt=加密瞬间ID</p>
+<p>用户发布瞬间信息，只有最新的10条*</p>
+<p>https://api-h5.soulapp.cn/html/v2/post/homepage?userIdEcpt=加密用户ID</p>
+<p>用户发布瞬间页面，只有最新的10条*</p>
+<p>https://w3.soulapp-inc.cn/activity/#/web/user?userIdEcpt=加密用户ID</p>
+<p>获取热门瞬间，只有最新的30条*</p>
+<p>https://api-h5.soulapp.cn/html/v2/post/hot?pageIndex=1（前3页）</p>
+<p>获取标签的瞬间信息，只有最新的30条*</p>
+<p>https://api-h5.soulapp.cn/html/v2/tag/post?tagIdEcpt=加密标签ID</p>
+<p>获取标签的瞬间页面，只有最新的30条*</p>
+<p>https://w3.soulapp-inc.cn/activity/#/web/tag?tagIdEcpt=加密标签ID</p>
+<p>随机播放音频信息，随机几首*</p>
+<p>https://api-h5.soulapp.cn/html/v2/post/orimusicList/recommend</p>
+<p>设置超萌捏脸页面*</p>
+<p>https://app.soulapp.cn/avator/#/avatar/create?sex=1&amp;version=3.10.0</p>
+<p>注销账号页面*</p>
+<p>https://app.soulapp.cn/app/#/account</p>
+<p>https://app.soulapp.cn/app/#/destroy</p>
 
 
 </section>

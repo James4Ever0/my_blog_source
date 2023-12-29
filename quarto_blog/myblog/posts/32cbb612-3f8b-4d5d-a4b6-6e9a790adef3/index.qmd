@@ -4,9 +4,14 @@
 ---
 
 ------
+
 see attachments.
+
 it is in a different folder.
+
 sync on macbook:
 ```bash
 bash -c 'cd /Users/jamesbrown/.notable/attachments; git pull origin main; git add .; git commit -m "init commit"; git push origin main'
+
 ```
+

@@ -4,6 +4,10 @@
 ---
 
 ------
+
 # execute script before & after system events like startup, suspend & shutdown
+
 for startup use `@reboot` with `crontab -e`
+
 for others, write scripts under `/lib/systemd/system-*`
+

@@ -4,10 +4,13 @@
 ---
 
 ------
+
 ## view full logs
 ```bash
 journalctl -u <serviceName>.service
+
 ```
+
 ## create, install, restart, reload
 ```bash
 cd /etc/systemd/system
@@ -15,9 +18,13 @@ create <serviceName>.service
 systemctl enable <serviceName>.service
 systemctl daemon-reload
 systemctl start <serviceName>.service
+
 ```
+
 ## sample systemd service config files
+
 maybe we should add some autorestart configs at it?
+
 frpc_service.service
 ```js
 [Unit]
@@ -34,7 +41,9 @@ RestartSec=10
 KillMode=process
 [Install]
 WantedBy=multi-user.target
+
 ```
+
 pyjom_webdav_rclone_service.service
 ```js
 [Unit]
@@ -45,7 +54,9 @@ ExecStart=/usr/bin/python3 mount_help_and_serve_pyjom.py
 WorkingDirectory=/root/Desktop/works/restore_sessions
 [Install]
 WantedBy=multi-user.target
+
 ```
+
 tempthrottle.service
 ```js
 [Unit]
@@ -56,7 +67,9 @@ ExecStart=/usr/bin/python3 tempthrottle_daemon.py
 WorkingDirectory=/root/Desktop/works/restore_sessions
 [Install]
 WantedBy=multi-user.target
+
 ```
+
 clash_fastgithub.service
 ```js
 [Unit]
@@ -68,7 +81,9 @@ Restart=always
 ExecStart=/usr/bin/clash -d /etc/clash
 [Install]
 WantedBy=multi-user.target
+
 ```
+
 tujia_scraper_qq_bot.service
 ```js
 [Unit]
@@ -83,7 +98,9 @@ ExecStart=/usr/bin/python3 main_daemon.py
 WorkingDirectory=/root/Desktop/works/restore_sessions
 [Install]
 WantedBy=graphical.target
+
 ```
+
 sync_git_repos_syncdog.service
 ```js
 [Unit]
@@ -96,4 +113,6 @@ ExecStart=/usr/bin/python3 syncdog_test.py
 WorkingDirectory=/root/Desktop/works/sync_git_repos
 [Install]
 WantedBy=multi-user.target
+
 ```
+

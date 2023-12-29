@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -175,20 +175,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p>if you install p2p server nodes on primary server (with hard-to-crack password and proper configs (no brute-forcing)?) you might want to add that (n2n) server node at home. ## p2p network <a href="https://github.com/ehang-io/nps/">nps</a> also supports p2p (deprecated! does not pass the connectivity test) <a href="https://github.com/gnbdev/opengnb">opengnb</a> p2p network, faster than n2n v3, can run without public ip <a href="https://github.com/ginuerzh/gost">gost</a> as an frp alternative turned out n2n is necessary, since the speed comparasion strongly disencourage the usage of frp directly. n2n test commands, using compatible v3 protocol to communicate: supernode v3: n2n.laiyx.win:10090 warning: it is useless to add multiple supernodes.</p>
+<p>if you install p2p server nodes on primary server (with hard-to-crack password and proper configs (no brute-forcing)?) you might want to add that (n2n) server node at home.</p>
+<section id="p2p-network" class="level2">
+<h2 class="anchored" data-anchor-id="p2p-network">p2p network</h2>
+<p><a href="https://github.com/ehang-io/nps/">nps</a> also supports p2p</p>
+<p>(deprecated! does not pass the connectivity test) <a href="https://github.com/gnbdev/opengnb">opengnb</a> p2p network, faster than n2n v3, can run without public ip</p>
+<p><a href="https://github.com/ginuerzh/gost">gost</a> as an frp alternative</p>
+<p>turned out n2n is necessary, since the speed comparasion strongly disencourage the usage of frp directly.</p>
+<p>n2n test commands, using compatible v3 protocol to communicate:</p>
+<p>supernode v3: n2n.laiyx.win:10090</p>
+<p>warning: it is useless to add multiple supernodes.</p>
 <pre><code>-l nton.eu.org:10090 -l n2n.lu8.win:10090 -l n2n.haoren.eu.org:10090 -l
-supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.eu.org:10090 -l n2n.eriol.cn:10090 -l n2n.x0x.cn:10090 -l n2n.vvcd.win:10090</code></pre>
+supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.eu.org:10090 -l n2n.eriol.cn:10090 -l n2n.x0x.cn:10090 -l n2n.vvcd.win:10090
+</code></pre>
 <p>kali:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> edge <span class="at">-c</span> <span class="op">&lt;</span>name<span class="op">&gt;</span> -k <span class="op">&lt;</span>password<span class="op">&gt;</span> -a 192.168.100.1 <span class="at">-f</span> <span class="at">-l</span> n2n.laiyx.win:10090 <span class="at">-Er</span> <span class="at">-A3</span> <span class="at">-e</span> auto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>macos, since we use sudo you might consider doing it with system service:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> edge <span class="at">-c</span> <span class="op">&lt;</span>name<span class="op">&gt;</span> -k <span class="op">&lt;</span>password<span class="op">&gt;</span> -a 192.168.100.2 <span class="at">-f</span> <span class="at">-l</span> n2n.laiyx.win:10090 <span class="at">-Er</span> <span class="at">-A3</span> <span class="at">-e</span> auto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="http://www.supernode.ml/">public shared n2n supernodes</a> you could test the speed and decide to use it or not. in kali discovery service, when local connection is not avaliable, usually the p2p network is preferred than direct frp tunneling. brew has <a href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">tinc</a> as a package! <a href="https://tinc-vpn.org/documentation/tinc.conf.5">tinc conf</a> <a href="https://chanix.github.io/TincCookbook/examples/1-HowToInstallTincOnUbuntu1604.html">tinc setup with core server</a> <a href="https://zhuanlan.zhihu.com/p/419173153">remote access with vps using tinc</a> <a href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">install and config tinc on linux</a> tinc is somehow complex and it may requires some tinkering on <code>tinc-up</code> or using docker. <a href="https://www.jianshu.com/p/559c1e582724">install n2n without macports</a> use <a href="https://github.com/ntop/n2n">n2n</a> to send udp packages among clients, try to create direct link between devices which will speed up ssh connection speed. supernode creation could be used along with frpc somehow brew does not have n2n as a package. macports has it, which requires xcode (huge!) to be installed. <a href="https://peervpn.net/">peervpn tutorial</a> ## daemonize (launch at startup) on macos, when crontab is created, cron will be automatically launched by launchd. cronjobs may need to launch with the <code>$(which env)</code> prefix. the problem of internet disconnetion will most not likely to interfere with the server since frpc has auto reconnection and the update hook is the filesystem watchdog, which will not run when no changes made (including the offline period) the watchdog may be replaced by some mirror fuse system, which will report every access request to our dedicated server. we have seen this behavior (filesystem mirroring) in our gitfuse code. but does that support symlink? should we really take care of that? or should we forget that and just use inotify instead? maybe it will affect the client when mounting the remote filesystem using sshfs or rclone, but that has to be verified. ## serve and mount remote filesystem before serving, make sure the path <code>/media/root/help/pyjom</code> exists by running our mount script create htpasswd file:</p>
+<p><a href="http://www.supernode.ml/">public shared n2n supernodes</a></p>
+<p>you could test the speed and decide to use it or not.</p>
+<p>in kali discovery service, when local connection is not avaliable, usually the p2p network is preferred than direct frp tunneling.</p>
+<p>brew has <a href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">tinc</a> as a package!</p>
+<p><a href="https://tinc-vpn.org/documentation/tinc.conf.5">tinc conf</a></p>
+<p><a href="https://chanix.github.io/TincCookbook/examples/1-HowToInstallTincOnUbuntu1604.html">tinc setup with core server</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/419173153">remote access with vps using tinc</a></p>
+<p><a href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">install and config tinc on linux</a></p>
+<p>tinc is somehow complex and it may requires some tinkering on <code>tinc-up</code> or using docker.</p>
+<p><a href="https://www.jianshu.com/p/559c1e582724">install n2n without macports</a></p>
+<p>use <a href="https://github.com/ntop/n2n">n2n</a> to send udp packages among clients, try to create direct link between devices which will speed up ssh connection speed. supernode creation could be used along with frpc</p>
+<p>somehow brew does not have n2n as a package. macports has it, which requires xcode (huge!) to be installed.</p>
+<p><a href="https://peervpn.net/">peervpn tutorial</a></p>
+</section>
+<section id="daemonize-launch-at-startup" class="level2">
+<h2 class="anchored" data-anchor-id="daemonize-launch-at-startup">daemonize (launch at startup)</h2>
+<p>on macos, when crontab is created, cron will be automatically launched by launchd.</p>
+<p>cronjobs may need to launch with the <code>$(which env)</code> prefix.</p>
+<p>the problem of internet disconnetion will most not likely to interfere with the server since frpc has auto reconnection and the update hook is the filesystem watchdog, which will not run when no changes made (including the offline period)</p>
+<p>the watchdog may be replaced by some mirror fuse system, which will report every access request to our dedicated server.</p>
+<p>we have seen this behavior (filesystem mirroring) in our gitfuse code. but does that support symlink? should we really take care of that? or should we forget that and just use inotify instead?</p>
+<p>maybe it will affect the client when mounting the remote filesystem using sshfs or rclone, but that has to be verified.</p>
+</section>
+<section id="serve-and-mount-remote-filesystem" class="level2">
+<h2 class="anchored" data-anchor-id="serve-and-mount-remote-filesystem">serve and mount remote filesystem</h2>
+<p>before serving, make sure the path <code>/media/root/help/pyjom</code> exists by running our mount script</p>
+<p>create htpasswd file:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">htpasswd</span> <span class="at">-bc</span> webdav_htpasswd <span class="op">&lt;</span>username<span class="op">&gt;</span> <span class="op">&lt;</span>password<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>use rclone:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> serve webdav /media/root/help/pyjom <span class="at">--addr</span> 0.0.0.0:8468 <span class="at">--key</span> /root/.local/share/code-server/localhost.key <span class="at">--cert</span> /root/.local/share/code-server/localhost.crt <span class="at">--htpasswd</span> /root/Desktop/works/sync_git_repos/remote_deploys/webdav_htpasswd <span class="at">-L</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>before mounting, use <code>rclone config</code> to setup remote associated with a name. make sure the hostname is <code>localhost</code> instead of ip address to avoid certificate issues. do not install rclone from brew since it does not support fuse. instead, install from <a href="https://rclone.org/downloads/">here</a></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rclone</span> mount webdav_local_nginx:/ /Volume/CaseSensitive/pyjom_remote_mountpoint <span class="at">--ca-cert</span> /Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/certificates/localhost.crt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>after mounting, seems zsh on macos is not working very well with macfuse. bash works. does bash/fish works with sshfs as well? maybe that will save efforts. ## encryption and invalid HTTPS certificates use <code>nginx</code> to redirect remote server as localhost, since the host name on the certificate is localhost we cannot let chrome to trust anything other than that</p>
+<p>after mounting, seems zsh on macos is not working very well with macfuse. bash works. does bash/fish works with sshfs as well? maybe that will save efforts.</p>
+</section>
+<section id="encryption-and-invalid-https-certificates" class="level2">
+<h2 class="anchored" data-anchor-id="encryption-and-invalid-https-certificates">encryption and invalid HTTPS certificates</h2>
+<p>use <code>nginx</code> to redirect remote server as localhost, since the host name on the certificate is localhost we cannot let chrome to trust anything other than that</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>worker_processes <span class="kw">auto</span><span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>error_log error<span class="op">.</span>log<span class="op">;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>events <span class="op">{</span> <span class="op">}</span></span>
@@ -198,6 +238,7 @@ supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>proxy_pass REMOTE_HOST<span class="op">:</span><span class="dv">7576</span><span class="op">;</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="code-serverbrowser-color-fixes" class="level2">
 <h2 class="anchored" data-anchor-id="code-serverbrowser-color-fixes">code-server(browser) color fixes</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.cursor</span>{</span>
@@ -213,9 +254,31 @@ supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.
 </section>
 <section id="connectors-other-than-frp" class="level2">
 <h2 class="anchored" data-anchor-id="connectors-other-than-frp">connectors other than frp</h2>
-<p>code-server recommends <a href="https://coder.com/docs/code-server/latest/guide#external-authentication">some other methods</a> like <a href="https://github.com/cloudflare/cloudflared#installing-cloudflared">cloudflared</a> and <a href="https://dashboard.ngrok.com/login">ngrok</a>. 花生壳可能也有用 但是可能不好用 ## methods try out <a href="https://github.com/coder/code-server">code-server</a> by <a href="https://coder.com/">coder</a>, might work? also we use builtin vscode connectors, using ssh. currently we only have <a href="https://www.idonglei.com/free-frp">one</a>, which uses direct ip address instead of a hijacked domain. maybe it is time to consider some faster server providers. use a universal ssh as workspace extension called <a href="https://marketplace.visualstudio.com/items?itemName=Kelvin.vscode-sshfs">SSH FS</a> ## drawbacks of SSH FS extension some drawbacks of this SSH FS plugin is that it cannot use the plugins from remote machine, also having issue whe jumping to remote files from terminal output. to run code-insider instead of code-oss, maybe we could spin up the official ssh connector, which can only be automated by publickey authentication. ## syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?) to mount the filesystem via sshfs:</p>
+<p>code-server recommends <a href="https://coder.com/docs/code-server/latest/guide#external-authentication">some other methods</a> like <a href="https://github.com/cloudflare/cloudflared#installing-cloudflared">cloudflared</a> and <a href="https://dashboard.ngrok.com/login">ngrok</a>. 花生壳可能也有用 但是可能不好用</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">methods</h2>
+<p>try out <a href="https://github.com/coder/code-server">code-server</a> by <a href="https://coder.com/">coder</a>, might work?</p>
+<p>also we use builtin vscode connectors, using ssh.</p>
+<p>currently we only have <a href="https://www.idonglei.com/free-frp">one</a>, which uses direct ip address instead of a hijacked domain. maybe it is time to consider some faster server providers.</p>
+<p>use a universal ssh as workspace extension called <a href="https://marketplace.visualstudio.com/items?itemName=Kelvin.vscode-sshfs">SSH FS</a></p>
+</section>
+<section id="drawbacks-of-ssh-fs-extension" class="level2">
+<h2 class="anchored" data-anchor-id="drawbacks-of-ssh-fs-extension">drawbacks of SSH FS extension</h2>
+<p>some drawbacks of this SSH FS plugin is that it cannot use the plugins from remote machine, also having issue whe jumping to remote files from terminal output. to run code-insider instead of code-oss, maybe we could spin up the official ssh connector, which can only be automated by publickey authentication.</p>
+</section>
+<section id="syncing-updating-and-viewing-using-watchdog-and-sshfsdeprecated-since-it-shares-connection-with-vscode-remote-and-maybe-slower-than-rclone-serve-webdav" class="level2">
+<h2 class="anchored" data-anchor-id="syncing-updating-and-viewing-using-watchdog-and-sshfsdeprecated-since-it-shares-connection-with-vscode-remote-and-maybe-slower-than-rclone-serve-webdav">syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?)</h2>
+<p>to mount the filesystem via sshfs:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sshfs</span> root@192.168.10.4:/media/root/help/pyjom /Volumes/CaseSensitive/pyjom_remote_mountpoint <span class="at">-o</span> follow_symlinks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to make sure the changes are updated regularly, we need a filesystem watchdog on kali, which will trigger the action of syncing, utilizing inotify. shall that be adopted on macos? maybe. but my extra editors can be vim or nvim, so it is not so hard to predict. but if it can monitor the file read events, we don’t need those legacy editor program hooks. at least we need to see the output, so we need to mount the remote filesystem as sshfs, then use ffplay to view it. ## solution for now, two viable ways: one using code-server, the other using code-server-insider provided by code-insider. when using builtin code-server-insider, remember it will not share the plugins installed by code-insider. the remote executable location is at <code>/root/.vscode-server-insiders/bin/12b08be500f8a307f30e92cbc3ee39ba115eab69/bin/code-server-insider</code> or something. must set the local setting <code>remote.SSH.useLocalServer</code> to false. when using code-server, one can connect to the workspace using browser, instead of vscode builtin remote connector.</p>
+<p>to make sure the changes are updated regularly, we need a filesystem watchdog on kali, which will trigger the action of syncing, utilizing inotify. shall that be adopted on macos? maybe. but my extra editors can be vim or nvim, so it is not so hard to predict. but if it can monitor the file read events, we don’t need those legacy editor program hooks.</p>
+<p>at least we need to see the output, so we need to mount the remote filesystem as sshfs, then use ffplay to view it.</p>
+</section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">solution</h2>
+<p>for now, two viable ways:</p>
+<p>one using code-server, the other using code-server-insider provided by code-insider. when using builtin code-server-insider, remember it will not share the plugins installed by code-insider. the remote executable location is at <code>/root/.vscode-server-insiders/bin/12b08be500f8a307f30e92cbc3ee39ba115eab69/bin/code-server-insider</code> or something. must set the local setting <code>remote.SSH.useLocalServer</code> to false.</p>
+<p>when using code-server, one can connect to the workspace using browser, instead of vscode builtin remote connector.</p>
 
 
 </section>

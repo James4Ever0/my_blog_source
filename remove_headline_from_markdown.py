@@ -4,10 +4,13 @@
 from beartype import beartype
 from typing import NewType, cast
 
-# from enum import Enum, auto
+from enum import Enum, auto
 
-# METADATA_SPLITER = "---"
+METADATA_SPLITER = "---"
+CODEBLOCK_MARKER = "```"
+FORM_MARKER = "|"
 HEADLINE_MARKER = "# "
+NEWLINE = "\n"
 
 StringWithoutHeadlineMarker = NewType('StringWithoutHeadlineMarker', str)
 
@@ -49,30 +52,40 @@ def remove_headline_from_lines(lines: list[str], title: str) -> list[str]:
     return strip_title_and_process_lines()
 
 
-# class ReaderState(Enum):
-#     init = auto()
-#     within_metadata = auto()
-#     out_of_metadata = auto()
-#     headline_found = auto()
-#     headline_not_found = auto()
+class ReaderState(Enum):
+    init = auto()
+    within_metadata = auto()
+    content = auto()
+    within_codeblock = auto()
+    within_form = auto()
 
-
-# @beartype
-# def remove_headline_from_lines(lines: list[str]) -> list[str]:
-#     new_lines = []
-#     state = ReaderState.init
-#     for it in lines:
-#         if state == ReaderState.init:
-#             if it == METADATA_SPLITER:
-#                 state = ReaderState.within_metadata
-#         elif state == ReaderState.within_metadata:
-#             if it == METADATA_SPLITER:
-#                 state = ReaderState.out_of_metadata
-#         elif state == ReaderState.out_of_metadata:
-#             if it.startswith(HEADLINE_MARKER):
-#                 state = ReaderState.headline_found
-#                 continue
-#             elif it.strip():
-#                 state = ReaderState.headline_not_found
-#         new_lines.append(it)
-#     return new_lines
+@beartype
+def join_lines_with_state(lines: list[str]) -> str:
+    new_lines = []
+    state = ReaderState.init
+    for line in lines:
+        it = line.strip()
+        if state == ReaderState.init:
+            if it == METADATA_SPLITER:
+                state = ReaderState.within_metadata
+        elif state == ReaderState.within_metadata:
+            if it == METADATA_SPLITER:
+                state = ReaderState.content
+        elif state == ReaderState.content:
+            if it.startswith(CODEBLOCK_MARKER):
+                state = ReaderState.within_codeblock
+            elif it.startswith(FORM_MARKER):
+                state = ReaderState.within_form
+            if state != ReaderState.content:
+                new_lines.append(NEWLINE)
+        elif state == ReaderState.within_codeblock:
+            if it.startswith(CODEBLOCK_MARKER):
+                state = ReaderState.content
+        elif state == ReaderState.within_form:
+            if not it.startswith(FORM_MARKER):
+                state = ReaderState.content
+        if state == ReaderState.content:
+            new_lines.append(NEWLINE)
+        new_lines.append(line)
+        new_lines.append(NEWLINE)
+    return "".join(new_lines)

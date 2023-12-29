@@ -4,7 +4,9 @@
 ---
 
 ------
+
 # register new file to android gallery
+
 code in beanshell:
 ```java
 import android.net.Uri;
@@ -12,4 +14,6 @@ Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 Uri contentUri = Uri.parse("file:///storage/emulated/0/Movies/output0_higher.mp4");
 mediaScanIntent.setData(contentUri);
 ctx.sendBroadcast(mediaScanIntent);
+
 ```
+

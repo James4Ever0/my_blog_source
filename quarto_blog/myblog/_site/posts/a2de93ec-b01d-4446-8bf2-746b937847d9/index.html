@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -143,7 +143,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>unmount the disk before scanning! ntfsundelete autopsy disk drill recuperabit(good for small files) recoverpy korczis/foremost could also try to retrieve from android phones (/data/data/tv.danmaku.bili) https://roubert.name/joakim/androidfilerecovery/ apt-get install testdisk pv extundelete adb shell ls /dev/block Now let us dump the content of that /dev/block/mmcblk0 that we found to the computer. With adb shell we can become superuser and execute cat to dump the content like this: $ ./adb shell su -c “cat /dev/block/mmcblk0” | pv &gt; mmcblk0.raw Pipe Viwer (pv) is optional, but I like to see the transfer progress information it provides. (And of course you can change mmcblk0.raw to some other directory/filename if you want to.) Addition: André Paixão wrote to me that he just got an empty file with the command above. He solved it by using adbd insecure. Addition: Daniel Jeliński wrote to me that he ran into issues with LF encoding. The solution that worked for him was: ./adb shell su -c “cat /dev/block/mmcblk0” | pv | sed ‘s/^M$//’ &gt; mmcblk0.raw …where ^M is what you get by pressing Ctrl+V followed by Ctrl+M. Addition: Marc also ran into the LF problems, but solved it this way: ./adb shell “su -c ‘stty raw; cat /dev/block/mmcblk0’” | pv &gt; mmcblk0.raw Addition: Tim de Waal wrote to me that he prefers using netcat/gzip instead: On the Android device (adb shell with su), run: dd if=/dev/block/mmcblk0 | gzip -9 | nc -l 5555 On the computer, run: nc [AndroidIP] 5555 | pv -b &gt; mmcblk0.img.gz testdisk mmcblk0.raw</p>
+<p>unmount the disk before scanning!</p>
+<p>ntfsundelete</p>
+<p>autopsy</p>
+<p>disk drill</p>
+<p>recuperabit(good for small files)</p>
+<p>recoverpy</p>
+<p>korczis/foremost</p>
+<p>could also try to retrieve from android phones (/data/data/tv.danmaku.bili)</p>
+<p>https://roubert.name/joakim/androidfilerecovery/</p>
+<p>apt-get install testdisk pv extundelete</p>
+<p>adb shell ls /dev/block</p>
+<p>Now let us dump the content of that /dev/block/mmcblk0 that we found to the computer. With adb shell we can become superuser and execute cat to dump the content like this:</p>
+<p>$ ./adb shell su -c “cat /dev/block/mmcblk0” | pv &gt; mmcblk0.raw</p>
+<p>Pipe Viwer (pv) is optional, but I like to see the transfer progress information it provides.</p>
+<p>(And of course you can change mmcblk0.raw to some other directory/filename if you want to.)</p>
+<p>Addition: André Paixão wrote to me that he just got an empty file with the command above. He solved it by using adbd insecure.</p>
+<p>Addition: Daniel Jeliński wrote to me that he ran into issues with LF encoding. The solution that worked for him was:</p>
+<p>./adb shell su -c “cat /dev/block/mmcblk0” | pv | sed ‘s/^M$//’ &gt; mmcblk0.raw</p>
+<p>…where ^M is what you get by pressing Ctrl+V followed by Ctrl+M.</p>
+<p>Addition: Marc also ran into the LF problems, but solved it this way:</p>
+<p>./adb shell “su -c ‘stty raw; cat /dev/block/mmcblk0’” | pv &gt; mmcblk0.raw</p>
+<p>Addition: Tim de Waal wrote to me that he prefers using netcat/gzip instead:</p>
+<p>On the Android device (adb shell with su), run:</p>
+<p>dd if=/dev/block/mmcblk0 | gzip -9 | nc -l 5555</p>
+<p>On the computer, run:</p>
+<p>nc [AndroidIP] 5555 | pv -b &gt; mmcblk0.img.gz</p>
+<p>testdisk mmcblk0.raw</p>
 
 
 

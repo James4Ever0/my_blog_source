@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -180,7 +180,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://blog.csdn.net/fclwd/article/details/79894251">npm报错：unable to verify the first certificate</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> config set strict-ssl false</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> config set ca=<span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>npm download binary files from github will raise error since the download speed is low. use <code>cnpm</code> instead, since it will route all github binary requests to mirrored cnpm cdn.</p>
+<p>npm download binary files from github will raise error since the download speed is low.</p>
+<p>use <code>cnpm</code> instead, since it will route all github binary requests to mirrored cnpm cdn.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> i <span class="at">-g</span> cnpm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>set some binary distribution file mirror to <code>https://registry.npmmirror.com</code> in <code>~/.npmrc</code> and <code>~/.yarnrc</code>:</p>
 <pre class="config"><code>canvas_binary_host_mirror=https://registry.npmmirror.com/-/binary/canvas/
@@ -189,7 +190,8 @@ nodejs_org_mirror=https://registry.npmmirror.com/-/binary/node/
 electron_mirror=https://registry.npmmirror.com/-/binary/electron/
 electron_builder_binaries_mirror=https://registry.npmmirror.com/-/binary/electron-builder-binaries/
 chromedriver_cdnurl=https://registry.npmmirror.com/-/binary/chromedriver/
-registry=https://registry.npmmirror.com</code></pre>
+registry=https://registry.npmmirror.com
+</code></pre>
 
 
 </section>

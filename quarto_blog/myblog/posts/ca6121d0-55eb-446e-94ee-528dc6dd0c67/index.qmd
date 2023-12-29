@@ -4,6 +4,10 @@
 ---
 
 ------
+
 [a russian ebook search engine](http://libgen.is/)
+
 don't get confused. it is always in foreign language. always not "educational" or "scanned".
+
 query like "national geographic" will be perfect. books from amazon kindle will also be potentially good.
+

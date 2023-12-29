@@ -4,6 +4,10 @@
 ---
 
 ------
+
 sometimes we install a single package which brings about tons of dependencies in python, `pip-autoremove` comes in handy.
+
 install it by `pip3 install pip-autoremove`
+
 though be careful these dependencies might not be used in other existing packages, they are sometimes still being used in your code!
+

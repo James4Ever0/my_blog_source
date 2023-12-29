@@ -4,6 +4,10 @@
 ---
 
 ------
+
 Neuraldiff:
+
 https://github.com/dichotomies/NeuralDiff?ref=pythonawesome.com
+
 https://pythonawesome.com/official-pytorch-implementation-of-neuraldiff-segmenting-3d-objects-that-move-in-egocentric-videos/
+

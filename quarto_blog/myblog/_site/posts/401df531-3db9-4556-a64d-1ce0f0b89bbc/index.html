@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -179,7 +179,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="python-bytecode-time-travel-debugging-resurrection-ante-mortem-debugging-interactive-debugging-resume-after-exception-python-ignore-all-exceptions-and-continue-execute-next-line-in-given-section-of-code" class="level1">
 <h1>Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code</h1>
-<p><a href="http://xahlee.info/comp/why_i_hate_exceptions.html">why i hate exceptions</a> ## lisp-style resumption error-handling semantics <a href="https://norvig.com/python-lisp.html">python for lisp programmers</a> <a href="https://gigamonkeys.com/book/">practical common lisp</a> <a href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/lisp/code/syntax/infix/infix.cl">arithmatic infix</a> <a href="https://lisp-journey.gitlab.io/blog/debugging-in-common-lisp/#inspect-and-describe">common lisp debugging</a> <a href="https://awesome-cl.com/#apl">common lisp related libraries</a> <a href="https://slime.common-lisp.dev/">slime</a> <a href="https://portacle.github.io/">portacle</a> <a href="https://www.reddit.com/r/lisp/comments/d0vv00/is_the_common_lisp_style_of_interactive_debugging/">talk on reddit</a> ## ruby <a href="https://github.com/conradirwin/pry-rescue">pry-rescue</a> may not resume execution? ## java <a href="https://www.appsloveworld.com/eclipse/100/12/eclipse-edit-the-source-and-continue-debugging">eclipse hot code swap fix</a> <a href="https://code.visualstudio.com/docs/java/java-debugging">hot code replace in vscode for java</a> ## python <a href="https://github.com/albertz/PythonHotswap/blob/master/FuncModify.py">bytecode hack, pyhotswap</a> <a href="https://python-cl-conditions.readthedocs.io/en/latest/">python lisp-style exception as condition handling</a> dump different level of reloading call history reload code blocks which are syntatically different, if black formatter fails after dedent then there shall be error decide to reload extra parts of functions in the next run if selected load newly added functions, remove old functions, execute added lines, reload entire module and update namespace depending on condition check other programming language whether it jas similar capabilities <a href="https://newbedev.org/guide/ruby-continue-in-same-loop-iteration-after-an-exception">visit this thread of ruby in archive.org</a> <a href="https://wallabyjs.com/purchase/#select-wallaby">wallabyjs</a> either bytecode or modify the source code ## bookmarks</p>
+<p><a href="http://xahlee.info/comp/why_i_hate_exceptions.html">why i hate exceptions</a></p>
+<section id="lisp-style-resumption-error-handling-semantics" class="level2">
+<h2 class="anchored" data-anchor-id="lisp-style-resumption-error-handling-semantics">lisp-style resumption error-handling semantics</h2>
+<p><a href="https://norvig.com/python-lisp.html">python for lisp programmers</a></p>
+<p><a href="https://gigamonkeys.com/book/">practical common lisp</a></p>
+<p><a href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/lisp/code/syntax/infix/infix.cl">arithmatic infix</a></p>
+<p><a href="https://lisp-journey.gitlab.io/blog/debugging-in-common-lisp/#inspect-and-describe">common lisp debugging</a></p>
+<p><a href="https://awesome-cl.com/#apl">common lisp related libraries</a></p>
+<p><a href="https://slime.common-lisp.dev/">slime</a></p>
+<p><a href="https://portacle.github.io/">portacle</a></p>
+<p><a href="https://www.reddit.com/r/lisp/comments/d0vv00/is_the_common_lisp_style_of_interactive_debugging/">talk on reddit</a></p>
+</section>
+<section id="ruby" class="level2">
+<h2 class="anchored" data-anchor-id="ruby">ruby</h2>
+<p><a href="https://github.com/conradirwin/pry-rescue">pry-rescue</a> may not resume execution?</p>
+</section>
+<section id="java" class="level2">
+<h2 class="anchored" data-anchor-id="java">java</h2>
+<p><a href="https://www.appsloveworld.com/eclipse/100/12/eclipse-edit-the-source-and-continue-debugging">eclipse hot code swap fix</a></p>
+<p><a href="https://code.visualstudio.com/docs/java/java-debugging">hot code replace in vscode for java</a></p>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">python</h2>
+<p><a href="https://github.com/albertz/PythonHotswap/blob/master/FuncModify.py">bytecode hack, pyhotswap</a></p>
+<p><a href="https://python-cl-conditions.readthedocs.io/en/latest/">python lisp-style exception as condition handling</a></p>
+<p>dump different level of reloading call history</p>
+<p>reload code blocks which are syntatically different, if black formatter fails after dedent then there shall be error</p>
+<p>decide to reload extra parts of functions in the next run if selected</p>
+<p>load newly added functions, remove old functions, execute added lines, reload entire module and update namespace depending on condition</p>
+<p>check other programming language whether it jas similar capabilities</p>
+<p><a href="https://newbedev.org/guide/ruby-continue-in-same-loop-iteration-after-an-exception">visit this thread of ruby in archive.org</a></p>
+<p><a href="https://wallabyjs.com/purchase/#select-wallaby">wallabyjs</a></p>
+<p>either bytecode or modify the source code</p>
+</section>
+<section id="bookmarks" class="level2">
+<h2 class="anchored" data-anchor-id="bookmarks">bookmarks</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://docs.python.org/3/library/code.html</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>https://docs.python.org/3/library/cmd.html</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>https://docs.python.org/3/library/threading.html#threading.settrace</span>
@@ -260,7 +295,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>(exctb))</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="bu">breakpoint</span>()</span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> exctype <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> <span class="bu">issubclass</span>(exctype, <span class="va">self</span>._exceptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>python grammar sugar: brackets https://pypi.org/project/brackets/ does that work in eval()? use contextlib.suppress to replace try…except: pass might investigate source code of the suppress object. https://opensource.com/article/18/5/how-retrieve-source-code-python-functions to execute code grouped by lowest level of indentation, we can def those lines of code and pass the code by dill.source.getsource(functionName) and eval within given global/local variables. my solution is down here, with concrete examples. hereby we recommend to insert a conditional return statement to ensure we will exit this buggy code at the best time. maybe we could put it into a dictionary somehow, tuples within string or something.</p>
+<p>python grammar sugar: brackets</p>
+<p>https://pypi.org/project/brackets/</p>
+<p>does that work in eval()?</p>
+<p>use contextlib.suppress to replace try…except: pass</p>
+<p>might investigate source code of the suppress object.</p>
+<p>https://opensource.com/article/18/5/how-retrieve-source-code-python-functions</p>
+<p>to execute code grouped by lowest level of indentation, we can def those lines of code and pass the code by dill.source.getsource(functionName) and eval within given global/local variables.</p>
+<p>my solution is down here, with concrete examples.</p>
+<p>hereby we recommend to insert a conditional return statement to ensure we will exit this buggy code at the best time. maybe we could put it into a dictionary somehow, tuples within string or something.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dill</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> contextlib <span class="im">import</span> suppress</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> traceback</span>
@@ -407,6 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="co"># breakpoint()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

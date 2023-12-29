@@ -4,4 +4,6 @@
 ---
 
 ------
+
 Use the original transcript for paraphrasing, while using danmaku for joke generation.
+

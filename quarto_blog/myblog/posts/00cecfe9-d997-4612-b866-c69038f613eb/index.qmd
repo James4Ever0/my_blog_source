@@ -4,11 +4,20 @@
 ---
 
 ------
+
 # commandline json/html filter and formatters
+
 for hackers, filtering matters.
+
 [jq](https://stedolan.github.io/jq/)
+
 [jqterm](https://jqterm.com/?query=.) online jq repl
+
 [htmlq](https://github.com/mgdm/htmlq) is for querying html with selectors, extracting text from html
+
 [pup](https://github.com/ericchiang/pup) download from [release](https://github.com/EricChiang/pup/releases/tag/v0.4.0)
+
 one must collect a handful set of regular expression/filters to do hacking
+
 searching, regex, two most important things for hackers. it's not about blindly collecting data. it's power and knowledge.
+

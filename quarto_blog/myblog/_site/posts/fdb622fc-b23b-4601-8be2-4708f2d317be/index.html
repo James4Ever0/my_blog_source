@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -181,7 +181,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="challenges" class="level2">
 <h2 class="anchored" data-anchor-id="challenges">challenges</h2>
-<p><a href="https://nctf.h4ck.fun">the platform</a> <a href="https://github.com/X1cT34m/NCTF2022">official released source code</a> <a href="https://buuoj.cn/">buuctf</a> online judge you may find many writeups <a href="https://oopsdc.com/post/buuctf/">in blog</a> and <a href="https://github.com/Yeuoly/buuctf_pwn">github</a> for buuctf. ## hints and tools binwalk <a href="https://github.com/Arr3stY0u">arr3esty0u github info</a> <a href="https://shg-sec.com/#">shg-sec</a> <a href="https://ctftime.org/event/1727">hack.lu 2022</a> ayacms rce in nctf 2022? how to identify the cms? and how the fuck did those guys identify the shit from that damn website (bing-upms)? answer: they are both busting common web directories. can be induced by common repo structures. <a href="https://github.com/zieglerk/baby-AES">baby-aes</a> for crypto signin? <a href="https://www.doyler.net/security-not-included/zsteg-easy-ctf-flags">zsteg</a> for solving that png problem? <a href="https://www.doyler.net/security-not-included/sqlite-injection">normal sql injection, not for denodb</a> <a href="https://blog.huli.tw">huli: interesting blog where denodb 0day came from</a> some z3 code, which does not but angr solved the problem</p>
+<p><a href="https://nctf.h4ck.fun">the platform</a></p>
+<p><a href="https://github.com/X1cT34m/NCTF2022">official released source code</a></p>
+<p><a href="https://buuoj.cn/">buuctf</a> online judge</p>
+<p>you may find many writeups <a href="https://oopsdc.com/post/buuctf/">in blog</a> and <a href="https://github.com/Yeuoly/buuctf_pwn">github</a> for buuctf.</p>
+</section>
+<section id="hints-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="hints-and-tools">hints and tools</h2>
+<p>binwalk</p>
+<p><a href="https://github.com/Arr3stY0u">arr3esty0u github info</a></p>
+<p><a href="https://shg-sec.com/#">shg-sec</a></p>
+<p><a href="https://ctftime.org/event/1727">hack.lu 2022</a></p>
+<p>ayacms rce in nctf 2022? how to identify the cms? and how the fuck did those guys identify the shit from that damn website (bing-upms)?</p>
+<p>answer: they are both busting common web directories. can be induced by common repo structures.</p>
+<p><a href="https://github.com/zieglerk/baby-AES">baby-aes</a> for crypto signin?</p>
+<p><a href="https://www.doyler.net/security-not-included/zsteg-easy-ctf-flags">zsteg</a> for solving that png problem?</p>
+<p><a href="https://www.doyler.net/security-not-included/sqlite-injection">normal sql injection, not for denodb</a></p>
+<p><a href="https://blog.huli.tw">huli: interesting blog where denodb 0day came from</a></p>
+<p>some z3 code, which does not but angr solved the problem</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> z3 <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data1<span class="op">=</span><span class="bn">0x162AEB99F80DD8EF8C82AFADBA2E087A</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data2<span class="op">=</span><span class="bn">0x47C9F2ACA92F6476BE7F0A6DC89F4305</span></span>
@@ -227,7 +244,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="writeups" class="level2">
 <h2 class="anchored" data-anchor-id="writeups">writeups</h2>
-<p><a href="https://pupil857.github.io/">saying this is complete for 2022 nctf?</a> <a href="http://mp.weixin.qq.com/s?__biz=Mzg4MjcxMTAwMQ==&amp;mid=2247485772&amp;idx=1&amp;sn=0f5b969f111d79027c59e6e2145698ef&amp;chksm=cf53c9faf82440ec839aa7fc6b35bbc03251c824c5c5407ed9eb51181471d7514d651e3cfe97&amp;mpshare=1&amp;scene=23&amp;srcid=12055uACFGja8KBjcPtP8ErG&amp;sharer_sharetime=1670169963855&amp;sharer_shareid=6eea79ff6da57fc6752ab0bc570bf392#rd">arr3ty0u nctf 2022 writeup</a> <a href="https://www.codetd.com/en/article/9046407">nctf 2019 writeup</a> don’t know when it is, but i remember i have seen this shit: <a href="https://blog.katastros.com/a?ID=00650-571829f2-3af9-4b1c-a3b7-3ebebca04377">katastros’s nctf writeup</a> <a href="https://www.ctfiot.com/83703.html">ctfiot chamd5 nctf 2022 writeup</a> <a href="http://blog.tolinchan.xyz/2022/12/05/nctf-2022-official-writeup-crypto/">nctf 2022 official crypto writeup</a></p>
+<p><a href="https://pupil857.github.io/">saying this is complete for 2022 nctf?</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=Mzg4MjcxMTAwMQ==&amp;mid=2247485772&amp;idx=1&amp;sn=0f5b969f111d79027c59e6e2145698ef&amp;chksm=cf53c9faf82440ec839aa7fc6b35bbc03251c824c5c5407ed9eb51181471d7514d651e3cfe97&amp;mpshare=1&amp;scene=23&amp;srcid=12055uACFGja8KBjcPtP8ErG&amp;sharer_sharetime=1670169963855&amp;sharer_shareid=6eea79ff6da57fc6752ab0bc570bf392#rd">arr3ty0u nctf 2022 writeup</a></p>
+<p><a href="https://www.codetd.com/en/article/9046407">nctf 2019 writeup</a></p>
+<p>don’t know when it is, but i remember i have seen this shit: <a href="https://blog.katastros.com/a?ID=00650-571829f2-3af9-4b1c-a3b7-3ebebca04377">katastros’s nctf writeup</a></p>
+<p><a href="https://www.ctfiot.com/83703.html">ctfiot chamd5 nctf 2022 writeup</a></p>
+<p><a href="http://blog.tolinchan.xyz/2022/12/05/nctf-2022-official-writeup-crypto/">nctf 2022 official crypto writeup</a></p>
 
 
 </section>

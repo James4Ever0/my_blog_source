@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -181,7 +181,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="extensions" class="level2">
 <h2 class="anchored" data-anchor-id="extensions">extensions</h2>
-<p><a href="https://www.osgeo.cn/peewee/peewee/sqlite_ext.html#sqlite-ext">peewee extension docs</a> ## full-text search <a href="https://peewee-orm.com/blog/using-sqlite-full-text-search-with-python/">official doc on full-text search</a> <a href="https://www.osgeo.cn/peewee/peewee/sqlite_ext.html#FTSModel">how to use ftsmodel</a> Peewee包括 SQLite extension module 它提供了许多特定于sqlite的功能，例如 full-text search ， json extension support 还有更多。如果您想使用这些出色的功能，请使用 SqliteExtDatabase 从 playhouse.sqlite_ext 模块：</p>
+<p><a href="https://www.osgeo.cn/peewee/peewee/sqlite_ext.html#sqlite-ext">peewee extension docs</a></p>
+</section>
+<section id="full-text-search" class="level2">
+<h2 class="anchored" data-anchor-id="full-text-search">full-text search</h2>
+<p><a href="https://peewee-orm.com/blog/using-sqlite-full-text-search-with-python/">official doc on full-text search</a></p>
+<p><a href="https://www.osgeo.cn/peewee/peewee/sqlite_ext.html#FTSModel">how to use ftsmodel</a></p>
+<p>Peewee包括 SQLite extension module 它提供了许多特定于sqlite的功能，例如 full-text search ， json extension support 还有更多。如果您想使用这些出色的功能，请使用 SqliteExtDatabase 从 playhouse.sqlite_ext 模块：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> playhouse.sqlite_ext <span class="im">import</span> SqliteExtDatabase</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sqlite_db <span class="op">=</span> SqliteExtDatabase(<span class="st">'my_app.db'</span>, pragmas<span class="op">=</span>{</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">'journal_mode'</span>: <span class="st">'wal'</span>,  <span class="co"># WAL-mode.</span></span>
@@ -190,7 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="enhancement-proposals" class="level2">
 <h2 class="anchored" data-anchor-id="enhancement-proposals">enhancement proposals</h2>
-<p><a href="https://github.com/coleifer/peewee/issues/2639">enhancement for doing get/update/create at the same time</a> <a href="https://github.com/coleifer/peewee/issues/2637">enhancement to simplify the BaseModel boilerplate code</a></p>
+<p><a href="https://github.com/coleifer/peewee/issues/2639">enhancement for doing get/update/create at the same time</a></p>
+<p><a href="https://github.com/coleifer/peewee/issues/2637">enhancement to simplify the BaseModel boilerplate code</a></p>
 
 
 </section>

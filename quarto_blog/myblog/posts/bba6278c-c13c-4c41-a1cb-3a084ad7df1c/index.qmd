@@ -4,37 +4,72 @@
 ---
 
 ------
+
 [oss-fuzz](https://github.com/google/oss-fuzz) supports fuzzing C/C++, Rust, Go, Python and Java/JVM code
+
 [blog about greyone](https://blog.csdn.net/Eastmount/article/details/107825286) Discover Vulnerabilities with Flow Sensitive Fuzzing
+
 [AFL](https://github.com/google/afl)（American Fuzzy Lop）是由安全研究员Michał Zalewski（@lcamtuf）开发的一款基于覆盖引导（Coverage-guided）的模糊测试工具，它通过记录输入样本的代码覆盖率，从而调整输入样本以提高覆盖率，增加发现漏洞的概率
+
 [intro-to-american-fuzzy-lop-fuzzing-in-5-steps](https://countuponsecurity.com/2018/03/07/intro-to-american-fuzzy-lop-fuzzing-in-5-steps/)
+
 [fuzzing-with-american-fuzzy-lop-afl](https://labs.nettitude.com/blog/fuzzing-with-american-fuzzy-lop-afl/#:~:text=Fuzzing%20with%20American%20Fuzzy%20Lop%20%28AFL%29%201%201.,2.%20Run%20our%20instrumented%20%E2%80%9Ctar%E2%80%9D%20binary%3A%20%E2%80%93%20~%2Ftar-1.28%2Fsrc%2Ftar)
+
 [AFL++](https://github.com/AFLplusplus/AFLplusplus) can fuzz c source code, binary targets, network services, gui programs
+
 [Montage](https://github.com/WSP-LAB/Montage): A Neural Network Language Model-Guided JavaScript Engine Fuzzer
+
 ## seed generation
+
 ### AI based
+
 Skyfire (learn a probabilistic CFG grammar)
+
 Learn&Fuzz (learn a RNN model of valid inputs)
+
 GAN (learn a GAN to generate legitimate seeds)
+
 Neuzz (learn a NN to model input -> coverage)
+
 ### Symbolic Execution
+
 Driller
+
 QSYM
+
 DigFuzz
+
 SAVIOR
+
 Intriguer
+
 Matryoshka
+
 HFL
+
 ### static/dynamic analysis
+
 FANS
+
 ## seed mutation
+
 ### AI based
+
 Mopt
+
 LSTM
+
 RL
+
 ILF
+
 ### program based
+
 VUzzer
+
 GreyOne
+
 ## efficient testing
+
 ## coverage metrics
+

@@ -4,6 +4,10 @@
 ---
 
 ------
+
 set up python with appropriate version on client's computer by script, not by "PyInstaller" which takes huge amount of time to compile and huge disk space (visually).
+
 take notes while doing work.
+
 ask for appropriate compensation for any work.
+

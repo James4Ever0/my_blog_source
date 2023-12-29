@@ -4,16 +4,25 @@
 ---
 
 ------
+
 com.github.kr328.clipboard.ClipboardProxy.getPrimaryClip
+
 Magisk Module:
+
 Riru - Clipboard Whitelist
+
 will white list clipboard manager app.
+
 https://github.com/Kr328/Riru-ClipboardWhitelist
+
 https://t.me/kr328_riru_modules
+
 script.sh:
 ```bash
 scrcpy -K -S 2>&1 | python3 reader.py
+
 ```
+
 reader.py:
 ```python
 import os
@@ -58,4 +67,6 @@ if data is not None:
 setClipboard(data)
 #        with open("target.out","wb"
 #        os.system(fetch_clipboard)
+
 ```
+

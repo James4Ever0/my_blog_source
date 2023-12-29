@@ -4,8 +4,11 @@
 ---
 
 ------
+
 better use nomachine instead, which is based on nx
+
 password: 472831
+
 commands:
 ```bash
 # necessary env for gui target, though may not suitable for xvfb
@@ -15,4 +18,6 @@ export DISPLAY=:1
 joker list | grep x11vnc | awk '{print $1}' | xargs -iabc kill -s KILL abc
 # launch new vnc
 joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd
+
 ```
+

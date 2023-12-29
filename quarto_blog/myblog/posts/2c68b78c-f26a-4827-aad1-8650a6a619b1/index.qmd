@@ -4,5 +4,8 @@
 ---
 
 ------
+
 common web applications could be big, like search engines. this is a list of open-sourced self hosted services:
+
 https://github.com/awesome-selfhosted/awesome-selfhosted
+

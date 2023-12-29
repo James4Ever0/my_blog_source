@@ -4,7 +4,12 @@
 ---
 
 ------
+
 ## alternatives
+
 miniconda
+
 miniforge, better apple m1 support
+
 mamba, multithreaded
+

@@ -96,4 +96,6 @@ resized, top, bottom, left, right, cv2.BORDER_REPLICATE, value=BLACK
 else:
 raise Exception("unknown border_type: %s" % border_type)
 return padded
+
 ```
+

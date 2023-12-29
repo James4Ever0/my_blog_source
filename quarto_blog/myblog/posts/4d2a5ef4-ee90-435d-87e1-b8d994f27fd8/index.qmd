@@ -4,9 +4,16 @@
 ---
 
 ------
+
 i've seen these platforms from [a personal competition solution collection](https://github.com/DLLXW/data-science-competition)
+
 [阿里天池](https://tianchi.aliyun.com/)
+
 [datafountain](https://www.datafountain.cn/)
+
 [和鲸社区](https://www.heywhale.com/)
+
 kaggle
+
 aistudio
+

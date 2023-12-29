@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -181,7 +181,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="docker-container-storage-quota" class="level1">
 <h1>Docker container storage quota</h1>
-<p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option. change data-root to somewhere else in <code>/etc/docker/daemon.json</code> edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
+<p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.</p>
+<p>change data-root to somewhere else in <code>/etc/docker/daemon.json</code></p>
+<p>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--storage-opt</span> size=10M <span class="at">--rm</span> <span class="at">-it</span> alpine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>when using <a href="https://docs.docker.com/storage/storagedriver/device-mapper-driver">devmapper</a> make sure size is greater than 10G (default)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">--storage-opt</span> size=11G <span class="at">--r</span><span class="st">'m -it alpine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

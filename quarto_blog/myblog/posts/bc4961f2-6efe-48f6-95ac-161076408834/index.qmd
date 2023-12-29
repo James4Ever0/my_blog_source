@@ -4,42 +4,79 @@
 ---
 
 ------
+
 ## email
+
 ### email OSINT
+
 OSINT/recon 其实就是社工 但是一般人喜欢把社工库和社工分开 因为社工库是社工收集来的数据集合 而社工则是一个过程
+
 loading/transforming leaked txt files will be time-consuming. use pypy to speedup the process. use database specific batch processing method to import the data.
+
 [entity fragmentation in followthmoney](https://followthemoney.readthedocs.io/en/latest/fragments.html) is kind of for "entity recognition in multiple social platforms", suitable for finding patterns/clients in large leaked databases.
+
 #### email collector
+
 [socialscan](https://github.com/iojw/socialscan) Python library for accurately querying username and email usage on online platforms
+
 [Zen](https://github.com/s0md3v/Zen) collect email on github
+
 [maigret](https://github.com/soxoj/maigret) a powerful fork of [sherlock](https://github.com/sherlock-project/sherlock) (customizable, finding accounts by username, but only [having 300+ sites](https://github.com/sherlock-project/sherlock/blob/master/sites.md) ) with 2000+ sites
+
 [emailAll](https://github.com/Taonn/EmailAll) collect email by passing domain
+
 [emailfinder](https://github.com/Josue87/EmailFinder) find email by domain
+
 [theHarvestor](https://github.com/laramies/theHarvester) email, subdomain and names collector
+
 [gitscan](https://github.com/sea-god/gitscan/blob/master/gitscan.py) scan for email and password (if possible) with predefined domains and rules by searching github
+
 [ghunt](https://github.com/mxrch/ghunt) needs companion browser plugin to get credentials. can collect info on given email
+
 [EMAGNET](https://github.com/wuseman/EMAGNET) collect database leaks, email and password from recent pastebin records
+
 #### leaked email and data
+
 occrp (anti corruption & crime) aleph is a bad source for getting email (anonymous/unauthorized user can only get hundreds, having no clue what the email relates to). however, it has a tool called [follow the money](https://followthemoney.readthedocs.io/) which works with csv files and exports cypher to neo4j
+
 ##### leaks on github
+
 search for leaked database on github
+
 [linkedin database leak 2021](https://github.com/guptaofficial17/Linkedin-Leak-2021/blob/main/Leak/Leak.txt) (hate mega since it has download quota)
+
 ##### leaks from forums
+
 you typically find links to these databases on `anonfiles.com` (or else), so query like `site:anonfiles.com email rar` in duckduckgo (no DMCA censorship)
+
 [breachedforum's index](https://breached.vc/Announcement-Database-Index) contains "credits only" threads which requires 4-8 credits to unlock. to get credits you need to create thread (which will earn 0 credit) and get 1 credit per reply. post to trivial threads like manga.
+
 in [leakbase](https://leakbase.cc/) you earn credits and download leaked databases easier. it has [official telegram bot](https://t.me/leakbase_official) claims to leak free databases everyday.
+
 ##### telegram bots
+
 find telegram bots collection in [privacy.club](https://www.privacys.club/) (only OSINT bots) and [here](https://www.ff98sha.me/archives/147) (with many other bots)
+
 [摆烂bot](https://t.me/bailansgbot) 永久免费
+
 [SGKmainNEWbot](https://t.me/SGKmainNEWbot?start=IVT1073A377)
+
 [sgkmainbot](https://t.me/sgkmainbot?start=IVT7FBE782B)
+
 (gone?) [FreeSGKbot](https://t.me/FreeSGKbot?start=SGKETRAYJU)
+
 [FreeSGKbot4](https://t.me/s/FreeSGKbot4?before=123)
+
 [KernelBugXBot](https://t.me/KernelBugXBot)
+
 ##### download links
+
 although i find many leaked databases as torrent, but those torrent search engines usually collect video/movies instead of anything related to leaked database.
+
 [44.65GB QQ 微博社工库](http://4563.org/?p=201481) or [qq8e/qq](https://github.com/qq8e/qq) 基本上传的就是这个了 或许可以在QQ群里面找到一些别的社工库 使用这个数据库的还有 [q绑](http://qb.shegongk.com/) (有反调试 带去水印工具 但是其实这个到处都有吧) [aiuys's retrofit](https://privacy.aiuys.com/) 后台是[privacy](https://github.com/Chordp/privacy) (只是部分的可以导入 其他的自行处理)
+
 Using aMule on macOS, Kad is firewalled (2.2.1 works well [said by people](http://bugs.amule.org/view.php?id=1368), but I'd not use macOS), reason unclear. Maybe on Linux or Windows it will be different.
+
 Some (dead) links of other databases in ed2k emule format:
 ```
 ed2k://|file|2010.06-江西移动全库-408万-access.7z|1329999527|5231E1EC5EE1123C6E694AD6399F9807|h=DORZC7XFNG63ZWX6C3RSN3Q7CWZXG5G4|/
@@ -79,84 +116,163 @@ ed2k://|file|2011.12-淘宝买家卖家邮箱-2500万-txt.zip|135534861|F40C3C9F
 ed2k://|file|2012.10-QQ精准客户名单-4500万-txt.rar|131416815|134F81AA90B27F55818E7A521D3CB35B|h=NRF2HAH2IXDT635UV6NDEGSA2HSOSSHZ|/
 ed2k://|file|2012.06-LinkedIn-16737万-txt.rar|7503170474|A50C488915FC70E1DE644AA5F3432D6F|h=E2NEXLXOOA6PONPKUGVRVIMEU54EC6P4|/
 ed2k://|file|2013.06-Myspace.com-36021万-txt.7z|12419587039|A1B14F88891885D636DE9F642A3E06DF|h=3QBXWEHRBUSUEWJOSHCF47B7HEC4Q5BM|/
+
 ```
+
 #### check registration account with email
+
 [reg007 counterpart](https://github.com/CreditTone/regchecker) only check if that account "exists", but no actual account shown. [search for reg007 on github](https://github.com/search?p=1&q=reg007.com&type=Code) you will get a bunch of links relating to OSINT.
+
 [holehe](https://github.com/megadose/holehe) only check if an email address is registered as account elsewhere using "forget my password" APIs.
+
 [sreg](https://github.com/n0tr00t/Sreg) is found from a collection of [security tools](https://github.com/jay900323/securitytools), which is a deprecated tool for getting registration status with phone/email/username on multiple chinese platforms.
+
 #### (email) account verifier
+
 Usually it only verify existance of given email, like [emailhippo](https://tools.verifyemailaddress.io/) (100 requests free per day per ip), or [mailforguess](https://github.com/WildSiphon/Mailfoguess) checking "gmail","laposte","protonmail","yahoo" emails
+
 Some of them verify email with password: [verify email address and password with API of my.com](https://github.com/MachineKillin/Email-Account-Generator-Checker/blob/main/main.py)
+
 [h8mail](https://github.com/khast3x/h8mail) email osint tool, can chase and link to social profile, with many API-key required free services
+
 [mosint](https://github.com/alpkeskin/mosint) automated email osint tool, requires many API keys.
+
 [ignorant](https://github.com/megadose/ignorant) checks if a phone number is used for snapchat/instagram
+
 ### email connectors/client
+
 [proton mail unofficial client in python](https://github.com/ShellCode33/ProtonMail)
+
 ### email registration
+
 #### [yandexmail account creator](https://github.com/hendrikbgr/YandexMail-Account-Creator)
+
 before it was using 2captcha, now using [5sim](https://5sim.net/) to receive sms
+
 only login such account through pop3 and imap to prevent revocation
+
 #### [outlook email generator](https://github.com/MatrixTM/OutlookGen)
+
 using 2captcha and anycaptcha for captcha solving (paid)
+
 #### [protonmail email generator](https://github.com/baum1810/protonmail-generator)
+
 using noptcha or [nopecha](https://nopecha.com/) browser extension (free for 100 captcha solves per day) solving hcaptcha, recaptcha. this extension cannot be used with proxy.
+
 #### [muumuu (which reminds me of someone) email registration using 2captcha, selenium and pyautogui](https://github.com/KenshiroSugiyama/automation_email_create/blob/main/create.py)
+
 I place the list under `/root/.muumuu_emails`
+
 the [muumuu mail](https://muumuu-mail.com/) is programmatically connectable using account and password. seems it is using default ports for these services. [POP3](pop3.muumuu-mail.com) is for both sending and receiving. [IMAP](imap4.muumuu-mail.com) is for receiving. [SMTP](smtp.muumuu-mail.com) is for sending.
+
 this guy's code is full of hacks. seems only being able to run on his own computer and will break on slightest errors.
+
 he stored potential password combinations and also registered accounts (need testing, some may not work) on [this google doc](https://docs.google.com/spreadsheets/d/1GPpVKAA1okFjpifE494Ax4laHYQ5XaMvIZ6CQByPD_Y/edit#gid=0). you can download the sheet named "Sheet1" by [this api](https://docs.google.com/spreadsheets/d/1GPpVKAA1okFjpifE494Ax4laHYQ5XaMvIZ6CQByPD_Y/gviz/tq?tqx=out:csv&sheet=Sheet1), which adds double quotes and takes more space than exported from web interfaces, method described [here](https://chewett.co.uk/blog/2445/how-to-use-an-api-to-download-a-google-docs-sheets-spreadsheet-as-csv/).
+
 ### receiving-only email services
+
 #### temp email
+
 [tempumail](https://tempumail.com/mailbox) get free temp edu email
+
 #### [erine.email](https://erine.email)
+
 email proxy for resending email to you, which I used for github registration (but with a very high block rate without proxy)
+
 ### email aliasing for sending
+
 icloud's "hide my email" service seems only provide few email aliases. but according to [3rd party icloud alias generator](https://github.com/rtunazzz/hidemyemail-generator) (cannot be used for chinese version of icloud) you can generate at least 10 aliases. or use [hidemyemail-api](https://github.com/liej6799/hidemyemail-api) to login with pyicloud and get aliases as API service. account registered from web without logged in any apple device (maybe virtualbox -> macos has a shot?) will not have email service.
+
 to send email from alias, you can try setting "FROM" address as your alias via smtp protocol, but the credential shall stay the same. the working approach could be platform specific
+
 yahoo provides the most email alias up to 500, but 10 for send only emails. however to get one yahoo account one needs offshore phone numbers.
+
 ### email collection, email scraping
+
 searching for "site:pastebin.com @yahoo.com" to get some email addresses, also searching in github might help as well.
+
 [mailcat](https://github.com/sharsil/mailcat) find email address by nickname (check if deliverable?)
+
 [theharvestor: email harvestor](https://awesomeopensource.com/project/laramies/theHarvester)
+
 [email collector](https://awesomeopensource.com/project/Taonn/EmailAll)
+
 [domain and email collector](https://awesomeopensource.com/project/bit4woo/teemo)
+
 ### email marketing
+
 use other's links/contents to increase diversity and increase anonymity. put your related contents among them.
+
 email marketing is quantity over quality. know your customers' preferences and behaviors (language, country, life schedule (by year? month? week? time in a day?)) by linking their accounts on other platforms, telemetry.
+
 email bulk senders are equipped with email templates, statistics (like opened or not, click data monitoring)
+
 vary your email style and content unless you want to get blocked/trashed by servers
+
 #### email templates
+
 [premail](https://github.com/premail/premail) is an easy-to-use component-based build system for [MJML](https://mjml.io/), the email templating language
+
 ## SMS
+
 ### sending SMS
+
 发送短信 邮件 第一步是收集目标的邮箱和手机号码 收集目标ID 可从社工库中获取 可以根据社工的metadata决定推送内容类别
+
 #### SMS flooding
+
 smsboom by whalefall 远程获取的api 不知道是干啥的 有待研究
+
 这个的原理是收集了大量发验证码到目标的手机号的api
+
 repo转移到了openethan下面
+
 考虑破解这些网站 获取它们的短信验证所需要的credential
+
 https://github.com/WhaleFell/SMSBoom
+
 #### sending SMS with content
+
 send sms 1 per day per ip (you might use tor to do ip switching):
+
 https://textbelt.com/
+
 https://github.com/HACK3RY2J/Anon-SMS
+
 https://github.com/typpo/textbelt
+
 freesms: (don't work for my phone number as recipient though, but I found [some interesting projects](https://github.com/search?q=afreesms.com&type=code) on github relating to free SMS sending, [some using OCR](https://github.com/seadog007/FreeSMS-OCR) to crack captcha and access API)
+
 https://www.afreesms.com/freesms/
+
 yoy might want phone number lists for sending ads via free sms providers
+
 shows [number]@139.com is the only email2sms gateway in china
+
 https://email2sms.info
+
 list of email2sms providers:
+
 https://www.howtogeek.com/howto/27051/use-email-to-send-text-messages-sms-to-mobile-phones-for-free/
+
 http://www.mutube.com/projects/open-email-to-sms/gateway-list/
+
 http://en.wikipedia.org/wiki/List_of_carriers_providing_Email_or_Web_to_SMS
+
 ### receiving SMS
+
 #### paid sms receiving
+
 [5sim](https://5sim.net/) paid sms receive service worldwide
+
 #### free sms receiving
+
 [sms auto regist](https://github.com/linabellbiu/sms-auto-regist) is written in go, utilizing `yunjiema.top` for sms receiving
+
 online sms receivers are not so reliable (not even usable for yahoo registration), and those found from google searches (like [free receive sms](https://www.freereceivesms.com/) (这个网站有反js调试 [打开debugger自动暂停执行](http://learnspider.evilrecluse.top/)), which has simple interface for fetching data, and you can [search this site on github](https://github.com/search?q=freereceivesms.com&type=code) to get more sources and potential API adaptors like [disposable phonebook](https://github.com/anroots/disposable-phonebook/blob/769bc2b23071ba4c854a00a5012cf5c2b7a2036f/dphonebook/lib/providers/free_receive_sms_com.py)) have chances to get registered yahoo accounts.
+
 ## account registration helpers: verification, captcha solving, proxies
+
 [account generator helper](https://github.com/Dionis1902/AccountGeneratorHelper) including:
 ```
 Temp email services
@@ -164,6 +280,10 @@ Receive SMS
 Generate data
 Proxy parser
 Captcha solving
+
 ```
+
 ### proxies
+
 [Proxy-Cheap](https://www.proxy-cheap.com/) pay by data amount
+

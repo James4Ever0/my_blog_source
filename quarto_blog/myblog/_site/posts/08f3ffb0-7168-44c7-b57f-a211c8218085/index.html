@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -179,15 +179,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p><a href="https://github.com/sindresorhus/trash">trash-cli</a> (with <a href="https://github.com/sindresorhus/trash-cli">python binding</a>) may work cross-platform, but manage its own recycle bin instead of the system if using windows or macos. <a href="https://github.com/sindresorhus/empty-trash-cli">empty-trash-cli</a> ## windows <a href="http://www.maddogsw.com/cmdutils/">cmdutils</a> which has <code>recycle</code> and <code>bin</code> commands <a href="https://github.com/kizzx2/cmd-recycle/">cmd-recycle</a> <a href="http://www.nirsoft.net/utils/nircmd.html">nircmd</a></p>
-<pre class="cmd"><code>nircmd moverecyclebin *.tmp</code></pre>
+<p><a href="https://github.com/sindresorhus/trash">trash-cli</a> (with <a href="https://github.com/sindresorhus/trash-cli">python binding</a>) may work cross-platform, but manage its own recycle bin instead of the system if using windows or macos.</p>
+<p><a href="https://github.com/sindresorhus/empty-trash-cli">empty-trash-cli</a></p>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">windows</h2>
+<p><a href="http://www.maddogsw.com/cmdutils/">cmdutils</a> which has <code>recycle</code> and <code>bin</code> commands</p>
+<p><a href="https://github.com/kizzx2/cmd-recycle/">cmd-recycle</a></p>
+<p><a href="http://www.nirsoft.net/utils/nircmd.html">nircmd</a></p>
+<pre class="cmd"><code>nircmd moverecyclebin *.tmp
+</code></pre>
+</section>
 <section id="macos" class="level2">
 <h2 class="anchored" data-anchor-id="macos">macos</h2>
 <p>do this manually:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># i don't trust this.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#rm -rf ~/.Trash/*</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">osascript</span> <span class="at">-e</span> <span class="st">'tell app "Finder" to empty'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://hasseg.org/trash/">trash</a> rmtrash in <a href="http://www.nightproductions.net/cli.htm">nightproductions’s cli tools</a></p>
+<p><a href="https://hasseg.org/trash/">trash</a></p>
+<p>rmtrash in <a href="http://www.nightproductions.net/cli.htm">nightproductions’s cli tools</a></p>
 
 
 </section>

@@ -4,6 +4,10 @@
 ---
 
 ------
+
 [latex2sympy](https://github.com/augustt198/latex2sympy) convert latex to sympy using antlr
+
 [mathpix]() has stunning accuracy but is not free. they offer timely licensed docker images.
+
 [im2markup]() is by far the most accurate one. it is attention based and can be trained on multiple markup languages.
+

@@ -4,7 +4,12 @@
 ---
 
 ------
+
 i use this adapter to transfer files (you know that) to kali.
+
 read only support. if write then the filesystem will break.
+
 [apfs-fuse](https://github.com/sgan81/apfs-fuse) read-only, single executable, no kernel module
+
 [linux-apfs-rw](https://github.com/linux-apfs/linux-apfs-rw) kernel module, read/write support
+

@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -179,7 +179,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <hr>
-<p><a href="https://speechbrain.github.io/">speechbrain</a> has features of Speech Recognition, Speaker Recognition, Speech Enhancement, Speech Processing, Multi Microphone Processing, Text-to-Speech, and also supports Spoken Language Understanding, Language Modeling, Diarization, Speech Translation, Language Identification, Voice Activity Detection, Sound classification, Grapheme-to-Phoneme, and many others. ## 概述 视频里面的语言分为图片上面打出来的字幕以及人说的话 涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类 ## 音频识别 online speech recognition pip install SpeechRecognition offline, need to provide language id: https://pypi.org/project/automatic-speech-recognition/ use paddlespeech if possible, for chinese and english ## 图片语言识别 use google cloud to detect language type in image: https://github.com/deduced/ml-ocr-lang-detection Detects and Recognizes text and font language in an image https://github.com/JAIJANYANI/Language-Detection-in-Image 图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语 可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况 wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用 ImageIdentify[pictureObj] 这个方法还支持subcategory分类 支持多输出 具体看文档 https://www.imageidentify.com/about/how-it-works wolfram支持cloud deploy 到wolfram cloud不过那样可能不行 ## 文本语言识别分类 <a href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin supporting detecting different languages: <a href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a href="https://pypi.org/project/pycld2/">python binding</a></p>
+<p><a href="https://speechbrain.github.io/">speechbrain</a> has features of Speech Recognition, Speaker Recognition, Speech Enhancement, Speech Processing, Multi Microphone Processing, Text-to-Speech, and also supports Spoken Language Understanding, Language Modeling, Diarization, Speech Translation, Language Identification, Voice Activity Detection, Sound classification, Grapheme-to-Phoneme, and many others.</p>
+<section id="概述" class="level2">
+<h2 class="anchored" data-anchor-id="概述">概述</h2>
+<p>视频里面的语言分为图片上面打出来的字幕以及人说的话</p>
+<p>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
+</section>
+<section id="音频识别" class="level2">
+<h2 class="anchored" data-anchor-id="音频识别">音频识别</h2>
+<p>online speech recognition</p>
+<p>pip install SpeechRecognition</p>
+<p>offline, need to provide language id:</p>
+<p>https://pypi.org/project/automatic-speech-recognition/</p>
+<p>use paddlespeech if possible, for chinese and english</p>
+</section>
+<section id="图片语言识别" class="level2">
+<h2 class="anchored" data-anchor-id="图片语言识别">图片语言识别</h2>
+<p>use google cloud to detect language type in image:</p>
+<p>https://github.com/deduced/ml-ocr-lang-detection</p>
+<p>Detects and Recognizes text and font language in an image</p>
+<p>https://github.com/JAIJANYANI/Language-Detection-in-Image</p>
+<p>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语</p>
+<p>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况</p>
+<p>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用</p>
+<p>ImageIdentify[pictureObj]</p>
+<p>这个方法还支持subcategory分类 支持多输出 具体看文档</p>
+<p>https://www.imageidentify.com/about/how-it-works</p>
+<p>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
+</section>
+<section id="文本语言识别分类" class="level2">
+<h2 class="anchored" data-anchor-id="文本语言识别分类">文本语言识别分类</h2>
+<p><a href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin</p>
+<p>supporting detecting different languages:</p>
+<p><a href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a href="https://pypi.org/project/pycld2/">python binding</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> pycld2 <span class="im">as</span> cld2</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> text_content <span class="op">=</span> <span class="st">""" A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus.</span></span>
@@ -187,15 +219,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> _, _, _, detected_language <span class="op">=</span> cld2.detect(text_content,  returnVectors<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(detected_language)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>((<span class="dv">0</span>, <span class="dv">323</span>, <span class="st">'FRENCH'</span>, <span class="st">'fr'</span>), (<span class="dv">323</span>, <span class="dv">64</span>, <span class="st">'ENGLISH'</span>, <span class="st">'en'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run <a href="https://pypi.org/project/gcld3/">official cld3 python bindings</a> additional Python language related library from geeksforgeeks: <a href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
+<p><a href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run</p>
+<p><a href="https://pypi.org/project/gcld3/">official cld3 python bindings</a></p>
+<p>additional Python language related library from geeksforgeeks:</p>
+<p><a href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> textblob <span class="im">import</span> TextBlob</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"это компьютерный портал для гиков. It was a beautiful day ."</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lang <span class="op">=</span> TextBlob(text)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lang.detect_language())</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ru</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><a href="https://github.com/saffsd/langid.py">langid</a> performs good in short text <a href="https://cran.r-project.org/package=textcat">textcat (r package)</a> google language detection library in python: langdetect javascript: https://github.com/wooorm/franc python version of franc: pyfranc wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
+<p><a href="https://github.com/saffsd/langid.py">langid</a> performs good in short text</p>
+<p><a href="https://cran.r-project.org/package=textcat">textcat (r package)</a></p>
+<p>google language detection library in python: langdetect</p>
+<p>javascript:</p>
+<p>https://github.com/wooorm/franc</p>
+<p>python version of franc:</p>
+<p>pyfranc</p>
+<p>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

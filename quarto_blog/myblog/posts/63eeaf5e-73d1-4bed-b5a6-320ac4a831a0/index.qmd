@@ -4,36 +4,67 @@
 ---
 
 ------
+
 [tune-a-video](https://github.com/showlab/Tune-A-Video) first recognize video content, then tweak it to fit the need
+
 [textdiffuser](https://github.com/microsoft/unilm/tree/master/textdiffuser)
+
 ------
+
 [ComfyUI](https://github.com/comfyanonymous/ComfyUI): A powerful and modular stable diffusion GUI.
+
 ----
+
 [civitai](https://civitai.com/) is a place for sharing stable diffusion models like [anything v5](https://civitai.com/models/9409/anything-v5-or-anything-diffusion-original) and [surreality](https://civitai.com/models/21666/surreality) and ai arts.
+
 ----
+
 now you can use [controlnet](https://github.com/Mikubill/sd-webui-controlnet) to enhance the generation, give the figure skeleton. [huggingface introduction](https://huggingface.co/blog/controlnet)
+
 [karlo](https://github.com/kakaobrain/karlo): dalle2 replicate, [karlo huggingface space](https://huggingface.co/spaces/kakaobrain/karlo), text to image (can be used for semantic search)
+
 [dalle2-laion](https://github.com/LAION-AI/dalle2-laion)
+
 [DiT](https://github.com/facebookresearch/DiT) diffusion with transformer
+
 [custom diffusion](https://github.com/adobe-research/custom-diffusion) rlhf?
+
 [scribble-diffusion](https://github.com/replicate/scribble-diffusion) turn sketch into drawings
+
 [stable diffusion on macos](https://github.com/apple/ml-stable-diffusion)
+
 [video generation ebsynth](https://github.com/jamriska/ebsynth)
+
 字体普遍画的很拉 需要用专门的ocr强化训练字体
+
 fontdiffusion?
+
 [font-diffusion](https://github.com/antonin-wattel/font-diffusion)
+
 [stable diffusion font generating](https://github.com/qwegat/StableDiffusionFontGenerating)
+
 [fontdesign gan](https://github.com/uchidalab/fontdesign_gan)
+
 [handwrite](https://github.com/builtree/handwrite)
+
 [deep fonts](https://github.com/erikbern/deep-fonts)
+
 [diffusionbee](https://github.com/divamgupta/diffusionbee-stable-diffusion-ui) stable diffusion for macos m1
+
 QQ搜索 [异次元的我](https://h5.tu.qq.com/web/ai-2d/cartoon/guest?parent_trace_id=e96b4d5c-5ca6-f76c-b035-af0d2ddbaed6&current_channel=link&root_channel=qq_sousuo&level=1&result_video=undefined&result_poster=undefined&mid=&result_mode=image&result_image_downgrading=https%3A%2F%2Factivity.tu.qq.com%2Fmqq%2Fai_painting_anime%2Fshare%2F8bbf62a0-6da0-11ed-8069-5254002d809c.jpg) 免费画画 AI合成 (seems this can only be opened within qq, currently)
+
 [novel-ai-bot](https://github.com/koishijs/novelai-bot)
+
 https://huggingface.co/hakurei/waifu-diffusion，这个ai是可以本地部署的，电脑配置可以的朋友们试试
+
 novelai 有泄露的模型
+
 imagen
+
 dreambooth
+
 [dalle-mini](https://github.com/borisdayma/dalle-mini), with [space](https://huggingface.co/spaces/dalle-mini/dalle-mini) hosted on huggingface
+
 [中文版DALL-E](https://huggingface.co/spaces/PaddlePaddle/ERNIE-ViLG) is not open sourced (yet). it provides api for evaluation
 ```python
 import numpy as np
@@ -368,11 +399,20 @@ gr.HTML('''
 </div>
 ''')
 block.queue(concurrency_count=128).launch()
+
 ```
+
 [text to image minimal example](https://github.com/AssemblyAI-Examples/MinImagen)
+
 https://github.com/jina-ai/discoart
+
 dalle-2
+
 [stable diffusion as dalle2 alternative](https://github.com/CompVis/stable-diffusion)
+
 nvidia provided ai paint tool
+
 text to image:
+
 https://github.com/lucidrains/imagen-pytorch
+

@@ -4,7 +4,10 @@
 ---
 
 ------
+
 # Chocolatey cleanup cache
 ```cmd
 powershell choco-cleaner.ps1
+
 ```
+

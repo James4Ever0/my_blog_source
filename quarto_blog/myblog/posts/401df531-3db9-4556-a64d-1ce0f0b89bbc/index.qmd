@@ -4,33 +4,61 @@
 ---
 
 ------
+
 # Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code
+
 [why i hate exceptions](http://xahlee.info/comp/why_i_hate_exceptions.html)
+
 ## lisp-style resumption error-handling semantics
+
 [python for lisp programmers](https://norvig.com/python-lisp.html)
+
 [practical common lisp](https://gigamonkeys.com/book/)
+
 [arithmatic infix](http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/lisp/code/syntax/infix/infix.cl)
+
 [common lisp debugging](https://lisp-journey.gitlab.io/blog/debugging-in-common-lisp/#inspect-and-describe)
+
 [common lisp related libraries](https://awesome-cl.com/#apl)
+
 [slime](https://slime.common-lisp.dev/)
+
 [portacle](https://portacle.github.io/)
+
 [talk on reddit](https://www.reddit.com/r/lisp/comments/d0vv00/is_the_common_lisp_style_of_interactive_debugging/)
+
 ## ruby
+
 [pry-rescue](https://github.com/conradirwin/pry-rescue) may not resume execution?
+
 ## java
+
 [eclipse hot code swap fix](https://www.appsloveworld.com/eclipse/100/12/eclipse-edit-the-source-and-continue-debugging)
+
 [hot code replace in vscode for java](https://code.visualstudio.com/docs/java/java-debugging)
+
 ## python
+
 [bytecode hack, pyhotswap](https://github.com/albertz/PythonHotswap/blob/master/FuncModify.py)
+
 [python lisp-style exception as condition handling](https://python-cl-conditions.readthedocs.io/en/latest/)
+
 dump different level of reloading call history
+
 reload code blocks which are syntatically different, if black formatter fails after dedent then there shall be error
+
 decide to reload extra parts of functions in the next run if selected
+
 load newly added functions, remove old functions, execute added lines, reload entire module and update namespace depending on condition
+
 check other programming language whether it jas similar capabilities
+
 [visit this thread of ruby in archive.org](https://newbedev.org/guide/ruby-continue-in-same-loop-iteration-after-an-exception)
+
 [wallabyjs](https://wallabyjs.com/purchase/#select-wallaby)
+
 either bytecode or modify the source code
+
 ## bookmarks
 ```html
 https://docs.python.org/3/library/code.html
@@ -82,7 +110,9 @@ https://derpops.bike/python/computers/kubernetes/2017/10/26/interactive-debuggin
 https://bytes.com/topic/python/answers/46053-resume-after-exception
 https://pytrace.com/
 https://github.com/gleb-sevruk/pycrunch-trace/issues
+
 ```
+
 contextlib usage detail, to make customized "with" statements:
 ```python
 from contextlib import AbstractContextManager
@@ -115,15 +145,25 @@ print("EXCTB",exctb) # exception
 print(dir(exctb))
 breakpoint()
 return exctype is not None and issubclass(exctype, self._exceptions)
+
 ```
+
 python grammar sugar: brackets
+
 https://pypi.org/project/brackets/
+
 does that work in eval()?
+
 use contextlib.suppress to replace try...except: pass
+
 might investigate source code of the suppress object.
+
 https://opensource.com/article/18/5/how-retrieve-source-code-python-functions
+
 to execute code grouped by lowest level of indentation, we can def those lines of code and pass the code by dill.source.getsource(functionName) and eval within given global/local variables.
+
 my solution is down here, with concrete examples.
+
 hereby we recommend to insert a conditional return statement to ensure we will exit this buggy code at the best time. maybe we could put it into a dictionary somehow, tuples within string or something.
 ```python
 import dill
@@ -270,4 +310,6 @@ mySuperFunction(1,2,3)
 # print(dir(mySuperFunction))
 anotherShit()
 # breakpoint()
+
 ```
+

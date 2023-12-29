@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -178,7 +178,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="video-delogoinpainting" class="level1">
 <h1>Video delogo/inpainting</h1>
-<p>propainter remove watermark with tracking, entity segmentation you can use <a href="https://github.com/LAION-AI/LAION-5B-WatermarkDetection">clip</a> for watermark detection, but you don’t know where. fuck. you better train it yourself. <a href="https://wandb.ai/arkseal/laion-watermark-detection/artifacts/model/model/f88165bb9d2cbccc51b5">watermark detection model</a></p>
+<p>propainter remove watermark with tracking, entity segmentation</p>
+<p>you can use <a href="https://github.com/LAION-AI/LAION-5B-WatermarkDetection">clip</a> for watermark detection, but you don’t know where. fuck. you better train it yourself.</p>
+<p><a href="https://wandb.ai/arkseal/laion-watermark-detection/artifacts/model/model/f88165bb9d2cbccc51b5">watermark detection model</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timm</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># all other pytorch imports</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Not used but necessary when running on images</span></span>
@@ -209,12 +211,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Do whatever you want with the watermark simlarity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks" class="level2">
 <h2 class="anchored" data-anchor-id="image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks">image local contrast enhancement, for removing hard-to-detect watermarks</h2>
-<p>maybe you can use the same trick (context preserving sliding window) from your search engine to here (image preprocessing)! paddleocr识别效果最好 可以识别水印位置 以及文字 <a href="https://github.com/Tejesh-Raut/Image-Linear-Contrast-Stretching-HE-AHE-CLAHE-Gray-Scale-Transformation">Linear Contrast Stretching, HE, AHE, CLAHE of an image using matlab</a> Histogram Equalization (HE) Adaptive Histogram Equalization (AHE) Contrast Limited Adaptive Histogram Equalisation (CLAHE) experiment path: <code>pyjom/tests/remove_subtle_watermark_local_contrast_ocr</code> <a href="https://cn.bing.com/search?q=image+local+contrast&amp;qs=n&amp;form=QBRE&amp;sp=-1&amp;pq=image+local+contrast&amp;sc=2-20&amp;sk=&amp;cvid=55BB4B6B6AE74F8FA6271F34C6201403&amp;ghsh=0&amp;ghacc=0&amp;ghpl=">bing query for image local contrast</a> <a href="https://darktable-org.github.io/luadocs/lua.scripts.manual/scripts/examples/api_version">darktable lua api and scripting</a> <a href="https://docs.darktable.org/usermanual/development/en/module-reference/processing-modules/local-contrast/">darktable local contrast</a> darktable is an open-sourced photography postprocessing software configurations:</p>
+<p>maybe you can use the same trick (context preserving sliding window) from your search engine to here (image preprocessing)!</p>
+<p>paddleocr识别效果最好 可以识别水印位置 以及文字</p>
+<p><a href="https://github.com/Tejesh-Raut/Image-Linear-Contrast-Stretching-HE-AHE-CLAHE-Gray-Scale-Transformation">Linear Contrast Stretching, HE, AHE, CLAHE of an image using matlab</a></p>
+<p>Histogram Equalization (HE)</p>
+<p>Adaptive Histogram Equalization (AHE)</p>
+<p>Contrast Limited Adaptive Histogram Equalisation (CLAHE)</p>
+<p>experiment path:</p>
+<p><code>pyjom/tests/remove_subtle_watermark_local_contrast_ocr</code></p>
+<p><a href="https://cn.bing.com/search?q=image+local+contrast&amp;qs=n&amp;form=QBRE&amp;sp=-1&amp;pq=image+local+contrast&amp;sc=2-20&amp;sk=&amp;cvid=55BB4B6B6AE74F8FA6271F34C6201403&amp;ghsh=0&amp;ghacc=0&amp;ghpl=">bing query for image local contrast</a></p>
+<p><a href="https://darktable-org.github.io/luadocs/lua.scripts.manual/scripts/examples/api_version">darktable lua api and scripting</a></p>
+<p><a href="https://docs.darktable.org/usermanual/development/en/module-reference/processing-modules/local-contrast/">darktable local contrast</a> darktable is an open-sourced photography postprocessing software</p>
+<p>configurations:</p>
 <pre class="log"><code>details: 443
 highlights: 36
 shadows: 25
-midtone range: 0.16</code></pre>
-<p><a href="https://imagej.net/plugins/clahe">imagej clahe local contrast enhancement</a> <a href="https://github.com/tunai/l2uwe">l2uwe</a> L^2UWE: A Framework for the Efficient Enhancement of Low-Light Underwater Images Using Local Contrast and Multi-Scale Fusion written in matlab <a href="https://github.com/pengyan510/glcae">glcae</a> Global and Local Contrast Adaptive Enhancement for Non-uniform Illumination Color Images in python <a href="https://github.com/tahanimadmad/CNN-Based-X-ray-Morphological-Decomposition-">CNN-Based-X-ray-Morphological-Decomposition</a> <a href="https://github.com/search?p=2&amp;q=image+local+contrast&amp;type=Repositories">github query for local image contrast</a> <a href="https://github.com/Auggen21/image_processing_basics">image processing basics</a> Image Reading, writing, histogram, histogram equalization, local histogram equalization, low pass filter, high pass filter, geometrical transformation <a href="https://github.com/Dinista/Contrast-Normalization">contrast normalization</a> is an implementation that applies local contrast normalization to images in matlab <a href="https://github.com/topics/contrast-enhancement?l=python">contrast enhancement</a> as a github topic <a href="https://github.com/VincentStimper/mclahe">mclahe</a> NumPy and Tensorflow implementation of the Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) procedure <a href="https://github.com/AIM-Harvard/DeepContrast">deepcontrast</a> A deep learning-based fully-automatic intravenous contrast detection tool for head-and-neck and chest CT scans. <a href="https://github.com/swz30/MIRNetv2">mirnetv2</a> (TPAMI 2022) Learning Enriched Features for Fast Image Restoration and Enhancement. Results on Defocus Deblurring, Denoising, Super-resolution, and image enhancement <a href="https://github.com/lafith/pymusica">pymusica</a> is a contrast enhancement approach involving non linear mapping of Laplacian pyramid. <a href="https://github.com/Mamdasn/imWeightedThresholdedheq">imWeightedThresholdedheq</a> attempts to enhance contrast of a given image or video by employing a method called weighted thresholded histogram equalization (WTHE). <a href="https://www.geeksforgeeks.org/wand-local_contrast-function-python/">imagemagick wand local_contrast function</a> <a href="https://github.com/dimimal/dual_gamma_clahe">dual gamma clahe</a> Automatic Contrast-Limited Adaptive Histogram Equalization With Dual Gamma Correction <a href="https://github.com/Mamdasn/imhblpce">imhblpce</a> attempts to enhance contrast of a given image by employing a method called HBLPCE. <a href="https://ww2.mathworks.cn/help/images/ref/localcontrast.html">matlab localcontrast for image</a> ## global contrast enhancement <a href="https://github.com/Mamdasn/im2dhisteq">im2dhiseq</a> attempts to enhance contrast of a given image by equalizing its two dimensional histogram. ## previous research deeplearning_inpainting: https://github.com/Sanster/lama-cleaner ffmpeg delogo: https://www.jianshu.com/p/2eb1811b5fc6 https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/ opencv inpainting/blurring with edge blending opencv morphlogical operations: https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/</p>
+midtone range: 0.16
+</code></pre>
+<p><a href="https://imagej.net/plugins/clahe">imagej clahe local contrast enhancement</a></p>
+<p><a href="https://github.com/tunai/l2uwe">l2uwe</a> L^2UWE: A Framework for the Efficient Enhancement of Low-Light Underwater Images Using Local Contrast and Multi-Scale Fusion written in matlab</p>
+<p><a href="https://github.com/pengyan510/glcae">glcae</a> Global and Local Contrast Adaptive Enhancement for Non-uniform Illumination Color Images in python</p>
+<p><a href="https://github.com/tahanimadmad/CNN-Based-X-ray-Morphological-Decomposition-">CNN-Based-X-ray-Morphological-Decomposition</a></p>
+<p><a href="https://github.com/search?p=2&amp;q=image+local+contrast&amp;type=Repositories">github query for local image contrast</a></p>
+<p><a href="https://github.com/Auggen21/image_processing_basics">image processing basics</a> Image Reading, writing, histogram, histogram equalization, local histogram equalization, low pass filter, high pass filter, geometrical transformation</p>
+<p><a href="https://github.com/Dinista/Contrast-Normalization">contrast normalization</a> is an implementation that applies local contrast normalization to images in matlab</p>
+<p><a href="https://github.com/topics/contrast-enhancement?l=python">contrast enhancement</a> as a github topic</p>
+<p><a href="https://github.com/VincentStimper/mclahe">mclahe</a> NumPy and Tensorflow implementation of the Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) procedure</p>
+<p><a href="https://github.com/AIM-Harvard/DeepContrast">deepcontrast</a> A deep learning-based fully-automatic intravenous contrast detection tool for head-and-neck and chest CT scans.</p>
+<p><a href="https://github.com/swz30/MIRNetv2">mirnetv2</a> (TPAMI 2022) Learning Enriched Features for Fast Image Restoration and Enhancement. Results on Defocus Deblurring, Denoising, Super-resolution, and image enhancement</p>
+<p><a href="https://github.com/lafith/pymusica">pymusica</a> is a contrast enhancement approach involving non linear mapping of Laplacian pyramid.</p>
+<p><a href="https://github.com/Mamdasn/imWeightedThresholdedheq">imWeightedThresholdedheq</a> attempts to enhance contrast of a given image or video by employing a method called weighted thresholded histogram equalization (WTHE).</p>
+<p><a href="https://www.geeksforgeeks.org/wand-local_contrast-function-python/">imagemagick wand local_contrast function</a></p>
+<p><a href="https://github.com/dimimal/dual_gamma_clahe">dual gamma clahe</a> Automatic Contrast-Limited Adaptive Histogram Equalization With Dual Gamma Correction</p>
+<p><a href="https://github.com/Mamdasn/imhblpce">imhblpce</a> attempts to enhance contrast of a given image by employing a method called HBLPCE.</p>
+<p><a href="https://ww2.mathworks.cn/help/images/ref/localcontrast.html">matlab localcontrast for image</a></p>
+</section>
+<section id="global-contrast-enhancement" class="level2">
+<h2 class="anchored" data-anchor-id="global-contrast-enhancement">global contrast enhancement</h2>
+<p><a href="https://github.com/Mamdasn/im2dhisteq">im2dhiseq</a> attempts to enhance contrast of a given image by equalizing its two dimensional histogram.</p>
+</section>
+<section id="previous-research" class="level2">
+<h2 class="anchored" data-anchor-id="previous-research">previous research</h2>
+<p>deeplearning_inpainting:</p>
+<p>https://github.com/Sanster/lama-cleaner</p>
+<p>ffmpeg delogo:</p>
+<p>https://www.jianshu.com/p/2eb1811b5fc6</p>
+<p>https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html</p>
+<p>https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/</p>
+<p>opencv inpainting/blurring with edge blending</p>
+<p>opencv morphlogical operations:</p>
+<p>https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/</p>
 
 
 </section>

@@ -4,7 +4,9 @@
 ---
 
 ------
+
 using [jpype](https://jpype.readthedocs.io/en/latest/userguide.html?highlight=jar#class-paths) or [pyjnius](https://github.com/kivy/pyjnius)
+
 sample code for jpype:
 ```python
 from jpype import *
@@ -24,7 +26,9 @@ print(strResult, type(strResult))
 import math
 print("CALLING MATH: %d" % math.sqrt(4))
 shutdownJVM()
+
 ```
+
 sample for pyjnius:
 ```python
 import jnius_config
@@ -39,4 +43,6 @@ print(result, type(result))
 # breakpoint()
 strResult = result.toString()
 print(strResult, type(strResult))
+
 ```
+

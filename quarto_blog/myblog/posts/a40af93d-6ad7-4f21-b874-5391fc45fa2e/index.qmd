@@ -4,15 +4,21 @@
 ---
 
 ------
+
 the same for `/sys/bus/usb/drivers/*`.
+
 ----
+
 in case kali failed to detect presence of hard disks, shall you pop up a dialog for us to decide whether to reset to usb or not.
+
 ## reset-usb.sh
 ```bash
 #!/bin/bash
 reset-ahci-controllers.sh
 reset-xhci-controllers.sh
+
 ```
+
 ## reset-ahci-controllers.sh
 ```bash
 #!/bin/bash
@@ -34,7 +40,9 @@ echo -n "${i}" > unbind
 echo -n "${i}" > bind
 done
 done
+
 ```
+
 ## reset-xhci-controllers.sh
 ```bash
 #!/bin/bash
@@ -56,4 +64,6 @@ echo -n "${i}" > unbind
 echo -n "${i}" > bind
 done
 done
+
 ```
+

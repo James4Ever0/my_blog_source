@@ -4,6 +4,10 @@
 ---
 
 ------
+
 Use `tensorflow.js` for the query and llm.
+
 Use precomputed vector space for searching.
+
 Use local storage for customization.
+

@@ -4,5 +4,8 @@
 ---
 
 ------
+
 https://mathematica.stackexchange.com/questions/11350/xkcd-style-plots
+
 https://blog.wolfram.com/2012/10/05/automating-xkcd-diagrams-transforming-serious-to-funny/
+

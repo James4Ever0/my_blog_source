@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -179,7 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /media/root/parrot</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-R</span> <span class="at">-P</span> /media/root/help1/pyjom .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs. turned out it is the <code>__pycache__</code> dirs to be blamed disable all sync related services on macos for debug: main issue happens after local vscode launched. the issue is such that the proxy setting not right. to debug the service:</p>
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
+<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
+<p>disable all sync related services on macos for debug:</p>
+<p>main issue happens after local vscode launched.</p>
+<p>the issue is such that the proxy setting not right.</p>
+<p>to debug the service:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> launchctl debug gui/501/pyjom_local_syncdog <span class="at">--stdout</span> <span class="at">--stderr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to be succint:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">launchctl</span> list <span class="kw">|</span> <span class="fu">grep</span> syncdog <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> abc kill <span class="at">-s</span> TERM abc</span>

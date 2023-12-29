@@ -4,5 +4,8 @@
 ---
 
 ------
+
 You need to update to latest magisk by patching the unmodified kernel and [install shizuku](https://github.com/RikkaApps/Shizuku/blob/master/README.md)
+
 enable [whitelist mode](https://shizuku.rikka.app/)
+

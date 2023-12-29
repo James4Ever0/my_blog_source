@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/james4ever0" rel="" target=""><i class="bi bi-github" role="img">
@@ -181,7 +181,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="im2latex-tensorflow-sucks-looking-for-alternatives" class="level2">
 <h2 class="anchored" data-anchor-id="im2latex-tensorflow-sucks-looking-for-alternatives">im2latex-tensorflow sucks, looking for alternatives</h2>
-<p><strong>training on gpu is intensive and will occasionally burn hardware if not careful, doing this on kaggle or modify the software to stop training when gpu goes hot, but we are using trainer here</strong> <a href="http://nlp.seas.harvard.edu/code/">harvard nlp showcase</a> for those doesn’t provide pretrained models: <a href="https://github.com/guillaumegenthial/im2latex">im2latex</a> in tensorflow, with makefile support, run on tensorflow v1 and python3 <a href="https://github.com/luopeixiang/im2latex">im2latex</a> in pytorch, more recent. the dataset has relocated to <a href="https://zenodo.org/record/56198#.YwtB9PcRU5t">here</a> according to <a href="https://im2markup.yuntiandeng.com/">official website</a> ## install or run python2.7 to run <a href="https://github.com/ArminKaramzade/im2latex">im2latex-tensorflow</a> you may need to adapt our modified code to load the weights and test the result against our image. it is reported the performance is poor. maybe it does not worth trying. download tensorflow 0.12.0 for macos <a href="https://pypi.org/project/tensorflow/0.12.0/#files">here</a> visit <a href="https://docs.conda.io/en/latest/miniconda.html">here</a> to get all miniconda installers to install on macos, download the installer <a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg">here</a> some tutorial <a href="https://blog.balasundar.com/install-older-versions-of-python-using-miniconda-on-mac-m1">here</a> about libmagic as bonus tips</p>
+<p><strong>training on gpu is intensive and will occasionally burn hardware if not careful, doing this on kaggle or modify the software to stop training when gpu goes hot, but we are using trainer here</strong></p>
+<p><a href="http://nlp.seas.harvard.edu/code/">harvard nlp showcase</a></p>
+<p>for those doesn’t provide pretrained models:</p>
+<p><a href="https://github.com/guillaumegenthial/im2latex">im2latex</a> in tensorflow, with makefile support, run on tensorflow v1 and python3</p>
+<p><a href="https://github.com/luopeixiang/im2latex">im2latex</a> in pytorch, more recent. the dataset has relocated to <a href="https://zenodo.org/record/56198#.YwtB9PcRU5t">here</a> according to <a href="https://im2markup.yuntiandeng.com/">official website</a></p>
+</section>
+<section id="install-or-run-python2.7-to-run-im2latex-tensorflow" class="level2">
+<h2 class="anchored" data-anchor-id="install-or-run-python2.7-to-run-im2latex-tensorflow">install or run python2.7 to run <a href="https://github.com/ArminKaramzade/im2latex">im2latex-tensorflow</a></h2>
+<p>you may need to adapt our modified code to load the weights and test the result against our image.</p>
+<p>it is reported the performance is poor. maybe it does not worth trying.</p>
+<p>download tensorflow 0.12.0 for macos <a href="https://pypi.org/project/tensorflow/0.12.0/#files">here</a></p>
+<p>visit <a href="https://docs.conda.io/en/latest/miniconda.html">here</a> to get all miniconda installers</p>
+<p>to install on macos, download the installer <a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg">here</a></p>
+<p>some tutorial <a href="https://blog.balasundar.com/install-older-versions-of-python-using-miniconda-on-mac-m1">here</a> about libmagic as bonus tips</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">CONDA_SUBDIR</span><span class="op">=</span>osx-64 <span class="ex">conda</span> create <span class="at">-n</span> py27 python=2.7  <span class="co"># include other packages here</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure that future package installs in this env stick to 'osx-64'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate py27</span>
@@ -189,7 +202,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>after that, do this to get pip on python2.7 (rosetta2)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://bootstrap.pypa.io/pip/2.7/get-pip.py <span class="at">-o</span> get-pip.py</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> get-pip.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>install tensorflow version below 1, and doing this can be far more easier on linux. maybe we should do this in conda virtual enviorment to prevent conflicts. ## we are doing this for the original lua implementation of <a href="https://github.com/harvardnlp/im2markup">im2markup</a> <strong>it works!</strong> download libcudnn5 for torch remember to activate torch enviorment by exporting the path to some shell script difference between cudamalloc and cudamallocasync, and that’s some copying and pasting about some generalized template of memory manager function qt4 uses CRLF so convert all text files using dos2unix need to hack qt4 files to build qt4 hack luarocks to allow install from local spec file and download repo from github via https hack some lua torch file to be compatible with cuda11 about c++ tweaks: add ‘+’ to force type inference force type conversion by using brackets some macro to disable some blocks of code</p>
+<p>install tensorflow version below 1, and doing this can be far more easier on linux. maybe we should do this in conda virtual enviorment to prevent conflicts.</p>
+</section>
+<section id="we-are-doing-this-for-the-original-lua-implementation-of-im2markup" class="level2">
+<h2 class="anchored" data-anchor-id="we-are-doing-this-for-the-original-lua-implementation-of-im2markup">we are doing this for the original lua implementation of <a href="https://github.com/harvardnlp/im2markup">im2markup</a></h2>
+<p><strong>it works!</strong></p>
+<p>download libcudnn5 for torch</p>
+<p>remember to activate torch enviorment by exporting the path to some shell script</p>
+<p>difference between cudamalloc and cudamallocasync, and that’s some copying and pasting about some generalized template of memory manager function</p>
+<p>qt4 uses CRLF so convert all text files using dos2unix</p>
+<p>need to hack qt4 files to build qt4</p>
+<p>hack luarocks to allow install from local spec file and download repo from github via https</p>
+<p>hack some lua torch file to be compatible with cuda11</p>
+<p>about c++ tweaks:</p>
+<p>add ‘+’ to force type inference</p>
+<p>force type conversion by using brackets</p>
+<p>some macro to disable some blocks of code</p>
 
 
 </section>

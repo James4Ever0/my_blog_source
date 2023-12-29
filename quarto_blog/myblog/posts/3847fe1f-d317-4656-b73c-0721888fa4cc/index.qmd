@@ -4,7 +4,12 @@
 ---
 
 ------
+
 ## with processor flags output
+
 https://github.com/yrp604/rappel
+
 ## msf provided repl
+
 msf-nasm_shell
+

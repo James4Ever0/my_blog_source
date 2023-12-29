@@ -4,6 +4,7 @@
 ---
 
 ------
+
 I created a script for solving a simple problem on RCTF.
 ```python
 from pwn import *
@@ -49,4 +50,6 @@ r.sendline(data.encode())
 flag=r.recvline() #EOFERROR?
 print("FLAG?",flag)
 # now answer the shit?
+
 ```
+

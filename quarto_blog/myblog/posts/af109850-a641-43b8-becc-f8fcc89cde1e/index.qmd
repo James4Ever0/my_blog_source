@@ -4,20 +4,31 @@
 ---
 
 ------
+
 ## non-max suppression in combining similar bounding boxes
+
 the lib:
 ```python
 from imutils.object_detection import non_max_suppression
+
 ```
+
 ## basically greek letters
+
 maybe you can document another great range of symbols by just enabling the system to search in greek?
+
 could also search among math symbols, do [math ocr](https://github.com/chungkwong/MathOCR).
+
 ## kindly reminders
+
 when building python c++ libraries without xcode, please add commandline header files like this:
+
 in order to have this during build:
 ```/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/Headers/Python.h```
 we need to do:
+
 ```bash
+
 ln -s /Library/Developer/CommandLineTools /Applications/Xcode.app/Contents/Developer
 ```
 ## search by image instead of cranking latex out
@@ -47,3 +58,4 @@ character level optical char segmentation called [chargrid ocr](https://github.c
 [formula search based on sympy](https://github.com/AzizAlqasem/FormulaLab)
 can we render latex to picture with sympy?
 [latex search engine](https://github.com/kerryz/latexsymbolsearch)
+

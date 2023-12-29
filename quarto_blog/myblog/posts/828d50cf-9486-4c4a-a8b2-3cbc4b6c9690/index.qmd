@@ -4,8 +4,14 @@
 ---
 
 ------
+
 when xorg fails, one must use commandline to debug problems.
+
 put '3' after the longest line of boot commands.
+
 use ssh to collect logs even if the main interface is stuck somehow (like libinput faliure)
+
 reference:
+
 https://www.linuxandubuntu.com/home/how-to-boot-into-linux-command-line/amp
+

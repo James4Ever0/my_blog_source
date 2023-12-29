@@ -4,5 +4,8 @@
 ---
 
 ------
+
 no consecutive clip sequences have then same file source.
+
 no identical clips in render sequence.
+

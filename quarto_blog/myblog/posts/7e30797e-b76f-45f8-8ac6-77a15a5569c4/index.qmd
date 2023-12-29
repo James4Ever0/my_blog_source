@@ -4,5 +4,8 @@
 ---
 
 ------
+
 attach to virtual phone number providers, login bilibili or other websites with that phone number, register cookies, then monetize that account like posting ads
+
 you can also use [bugmenot](https://bugmenot.com)
+

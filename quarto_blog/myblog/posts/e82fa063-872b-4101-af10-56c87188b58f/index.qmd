@@ -4,4 +4,6 @@
 ---
 
 ------
+
 in order to make pdf dark theme more natural, you can search for "PDF" in dark reader's source code and inject custom style sheets.
+

@@ -4,4 +4,6 @@
 ---
 
 ------
+
 Find which request sets the cookie, then do all other requests using DIRECT, route only that request to GLOBAL.
+
