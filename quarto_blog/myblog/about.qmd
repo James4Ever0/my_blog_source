@@ -32,4 +32,6 @@ about:
 
 Hi there, I am James Brown, an independent researcher of Artificial General Intelligence.
 
+The titles and categories of this blog are partially generated using LLM.
+
 I made the [code](https://github.com/James4Ever0/my_blog_source) of this blog open sourced.
