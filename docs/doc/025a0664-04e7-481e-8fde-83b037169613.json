@@ -1,0 +1,10 @@
+{
+    "summary": "\"Converts input date string to datetime object\"",
+    "details": [
+        {
+            "comment": "\"Converts input date string to datetime object\"",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/test_parse.py\":0-8",
+            "content": "from parse import parse\ninput_date_string = \"2022-11-28-22-01-29\"\n# Define the format to parse the input string\ninput_format = \"{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}\"\n# Parse the input string using the specified format\nparsed = parse(input_format, input_date_string)\nprint(type(parsed))"
+        }
+    ]
+}

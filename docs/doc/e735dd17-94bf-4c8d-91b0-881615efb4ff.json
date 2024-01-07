@@ -1,0 +1,10 @@
+{
+    "summary": "Deletes all .md files in source/_posts, syncs new .md files from notes folder, and then runs update_posts.sh after setting TOKENIZERS_PARALLELISM environment variable.",
+    "details": [
+        {
+            "comment": "Deletes all .md files in source/_posts, syncs new .md files from notes folder, and then runs update_posts.sh after setting TOKENIZERS_PARALLELISM environment variable.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/copy_and_process_notes.sh\":0-10",
+            "content": "rm -rf source/_posts/*.md\nrclone sync /root/Desktop/works/notes_ssh_keys/notes notes --include \"*.md\"\n# cp /root/Desktop/works/notes_ssh_keys/notes/*.md source/_posts\n# before that, run:\n# bash \"/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control/setup_openai_local_service.sh\"\nexport TOKENIZERS_PARALLELISM=false\nbash update_posts.sh"
+        }
+    ]
+}

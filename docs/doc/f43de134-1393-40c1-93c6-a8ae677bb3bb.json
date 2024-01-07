@@ -1,0 +1,10 @@
+{
+    "summary": "Deletes db.json, generates static files with Hexo, starts a local web server on port 8021 for serving the generated files.",
+    "details": [
+        {
+            "comment": "Deletes db.json, generates static files with Hexo, starts a local web server on port 8021 for serving the generated files.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/serve.sh\":0-3",
+            "content": "rm db.json\nhexo generate\ncd public\npython3 -m http.server 8021"
+        }
+    ]
+}

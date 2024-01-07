@@ -1,0 +1,1 @@
+python3 generate_urls_for_submission.py > urls.txt

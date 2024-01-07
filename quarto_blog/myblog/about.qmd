@@ -28,6 +28,9 @@ about:
     - text: Gregoryuan's Blog
       href: https://www.gregoryuan.com/
       icon: book
+    - text: Yubingtao's Blog
+      href: https://yubingtao.netlify.app/
+      icon: book
 ---
 
 Hi there, I am James Brown, an independent researcher of Artificial General Intelligence.

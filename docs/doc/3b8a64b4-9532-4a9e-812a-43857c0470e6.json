@@ -1,0 +1,10 @@
+{
+    "summary": "Updates target hash in the database for files present in cache directory.",
+    "details": [
+        {
+            "comment": "Updates target hash in the database for files present in cache directory.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/update_target_hash.py\":0-21",
+            "content": "import os\nimport tinydb\nimport sys\nsys.path.append(\n    \"/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control\"\n)\nfrom cache_db_context import hash_file\ncache_path = \"cache/\"\ndb_path = \"cache_db.json\"\ndb = tinydb.TinyDB(db_path)\nfor fname in os.listdir(cache_path):\n    fpath = os.path.join(cache_path, fname)\n    q = tinydb.Query().target.path == fpath\n    it = db.get(q)\n    if it is not None:\n        new_it = it.copy()\n        new_it['target']['hash'] = hash_file(fpath)\n        db.upsert(new_it, cond = q)"
+        }
+    ]
+}

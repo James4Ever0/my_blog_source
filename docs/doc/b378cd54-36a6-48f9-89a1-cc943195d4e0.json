@@ -1,0 +1,10 @@
+{
+    "summary": "Creating a Quarto project with the name \"myblog\"",
+    "details": [
+        {
+            "comment": "Creating a Quarto project with the name \"myblog\"",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/quarto_blog/init.sh\":0-0",
+            "content": "quarto create project blog myblog"
+        }
+    ]
+}

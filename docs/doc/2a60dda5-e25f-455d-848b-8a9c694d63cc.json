@@ -1,0 +1,10 @@
+{
+    "summary": "Reads and cleans \"public/tags/index.html\" file, removing empty lines and excess whitespace.",
+    "details": [
+        {
+            "comment": "Reads and cleans \"public/tags/index.html\" file, removing empty lines and excess whitespace.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/fix_public_tags_index.py\":0-8",
+            "content": "filepath = \"public/tags/index.html\"\nwith open(filepath, \"r\") as f:\n    content = f.read()\n    lines = content.split(\"\\n\")\n    lines = [it.strip() for it in lines if it.strip()]\nwith open(filepath, \"w+\") as f:\n    for line in lines:\n        f.write(line+\"\\n\")"
+        }
+    ]
+}

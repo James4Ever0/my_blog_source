@@ -1,0 +1,10 @@
+{
+    "summary": "Loading the English language model with word vectors, using a smaller model is not suitable, and predefined list of tags for text analysis.",
+    "details": [
+        {
+            "comment": "Loading the English language model with word vectors, using a smaller model is not suitable, and predefined list of tags for text analysis.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/recommend_tag.py\":0-24",
+            "content": "import spacy\n# Load the English language model with word vectors\n# nlp = spacy.load(\"en_core_web_trf\") # no similarity.\nnlp = spacy.load(\"en_core_web_md\") # this is much better. small model is shit.\n# nlp = spacy.load(\"en_core_web_sm\") # small we bave.\n# Predefined list of tags\ntags = [\"dogs\", \"cats\", \"computer\", \"tech\", \"life\"]\n# Sample text document\ntext = \"\u6211\u7231\u6211\u7684\u5ba0\u7269\u72d7\uff0c\u5e76\u4e14\u7ecf\u5e38\u548c\u5b83\u5728\u4e00\u8d77\u3002\" # does not work with chinese.\n# text = \"I love my pet dog and spend a lot of time with it.\"\n# Process the text using spaCy\ndoc = nlp(text)\n# Calculate similarity between the document and each tag\ntag_similarities = [(tag, nlp(tag).similarity(doc)) for tag in tags]\n# Find the closest tags based on similarity\ntag_similarities.sort(key=lambda item: item[1], reverse=True)\nclosest_tags = tag_similarities[:3]\n# Display the closest tags\nprint(\"Closest tags:\", closest_tags)"
+        }
+    ]
+}

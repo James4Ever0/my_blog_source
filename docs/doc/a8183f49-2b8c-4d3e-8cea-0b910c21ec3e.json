@@ -1,0 +1,10 @@
+{
+    "summary": "Executing Python script to generate URLs and storing them in urls.txt file.",
+    "details": [
+        {
+            "comment": "Executing Python script to generate URLs and storing them in urls.txt file.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/generate_urls.sh\":0-0",
+            "content": "python3 generate_urls_for_submission.py > urls.txt"
+        }
+    ]
+}

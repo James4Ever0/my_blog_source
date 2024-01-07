@@ -1,0 +1,15 @@
+{
+    "summary": "The Jinja2 template was loaded, rendered with data from a file, and successfully written to the specified file.",
+    "details": [
+        {
+            "comment": "Loading and rendering a Jinja2 template with data from a file.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/create_sitemap.py\":0-30",
+            "content": "template_path = \"sitemap_template.xml.j2\"\n# template_path = \"sitemap_template.html.j2\"\noutput_file_path = \"sitemap.xml\"\n# output_file_path = \"sitemap.html\"\nurls_path = \"urls.txt\"\nbase_url = \"https://james4ever0.github.io\"\nfrom jinja2 import Environment, FileSystemLoader\n# Load the template from file\nfile_loader = FileSystemLoader(\n    \".\"\n)  # Replace 'path_to_templates_directory' with the actual path\nenv = Environment(loader=file_loader)\ntemplate = env.get_template(\n    template_path\n)  # Replace 'sitemap_template.html' with the actual template file name\nwith open(urls_path, \"r\") as f:\n    content = f.read()\n    lines = content.split(\"\\n\")\n    lines = [it.strip() for it in lines if it.strip()]\n# Data to be rendered\ndatalist = [(item, \"2023-12-28T09:21:02+00:00\", \"1.00\") for item in lines]\n# datalist = [(str(index), item.replace(base_url, \"\")) for index, item in enumerate(lines)]\n# Render the template with the data\nrendered_template = template.render(datalist=datalist)\n# Write the rendered output to a file\nwith open(output_file_path, \"w\") as output_file:"
+        },
+        {
+            "comment": "Template has been successfully rendered and written to the specified file.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/create_sitemap.py\":31-33",
+            "content": "    output_file.write(rendered_template)\nprint(\"Template rendered and written to file successfully.\")"
+        }
+    ]
+}

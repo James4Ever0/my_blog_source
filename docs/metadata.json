@@ -1,0 +1,140 @@
+{
+    "url": {
+        "full": "https://github.com/james4ever0/my_blog_source",
+        "partial": "james4ever0/my_blog_source"
+    },
+    "file_mapping": {
+        "0": {
+            "filepath": "/README.md",
+            "entry_id": 0,
+            "language_id": "markdown"
+        },
+        "1": {
+            "filepath": "/annotate_keyword_callable.py",
+            "entry_id": 4,
+            "language_id": "python"
+        },
+        "2": {
+            "filepath": "/cleanup_cache.py",
+            "entry_id": 8,
+            "language_id": "python"
+        },
+        "3": {
+            "filepath": "/copy_and_process_notes.sh",
+            "entry_id": 12,
+            "language_id": "shell"
+        },
+        "4": {
+            "filepath": "/create_sitemap.py",
+            "entry_id": 16,
+            "language_id": "python"
+        },
+        "5": {
+            "filepath": "/dateparser_utils.py",
+            "entry_id": 22,
+            "language_id": "python"
+        },
+        "6": {
+            "filepath": "/fix_public_tags_index.py",
+            "entry_id": 30,
+            "language_id": "python"
+        },
+        "7": {
+            "filepath": "/generate_urls.sh",
+            "entry_id": 34,
+            "language_id": "shell"
+        },
+        "8": {
+            "filepath": "/generate_urls_for_submission.py",
+            "entry_id": 38,
+            "language_id": "python"
+        },
+        "9": {
+            "filepath": "/headline_match.py",
+            "entry_id": 42,
+            "language_id": "python"
+        },
+        "10": {
+            "filepath": "/io_utils.py",
+            "entry_id": 52,
+            "language_id": "python"
+        },
+        "11": {
+            "filepath": "/publish.sh",
+            "entry_id": 56,
+            "language_id": "shell"
+        },
+        "12": {
+            "filepath": "/recommend_tag.py",
+            "entry_id": 60,
+            "language_id": "python"
+        },
+        "13": {
+            "filepath": "/remove_headline_from_markdown.py",
+            "entry_id": 64,
+            "language_id": "python"
+        },
+        "14": {
+            "filepath": "/remove_unwanted_notes.py",
+            "entry_id": 72,
+            "language_id": "python"
+        },
+        "15": {
+            "filepath": "/serve.sh",
+            "entry_id": 134,
+            "language_id": "shell"
+        },
+        "16": {
+            "filepath": "/similarity_utils.py",
+            "entry_id": 138,
+            "language_id": "python"
+        },
+        "17": {
+            "filepath": "/sitemap_template.html.j2",
+            "entry_id": 154,
+            "language_id": "jinja"
+        },
+        "18": {
+            "filepath": "/sitemap_template.xml.j2",
+            "entry_id": 158,
+            "language_id": "jinja"
+        },
+        "19": {
+            "filepath": "/sync_quarto.sh",
+            "entry_id": 162,
+            "language_id": "shell"
+        },
+        "20": {
+            "filepath": "/sync_to_quarto.py",
+            "entry_id": 166,
+            "language_id": "python"
+        },
+        "21": {
+            "filepath": "/test_parse.py",
+            "entry_id": 172,
+            "language_id": "python"
+        },
+        "22": {
+            "filepath": "/update_posts.sh",
+            "entry_id": 176,
+            "language_id": "shell"
+        },
+        "23": {
+            "filepath": "/update_target_hash.py",
+            "entry_id": 180,
+            "language_id": "python"
+        },
+        "24": {
+            "filepath": "/quarto_blog/init.sh",
+            "entry_id": 184,
+            "language_id": "shell"
+        },
+        "25": {
+            "filepath": "/quarto_blog/preview.sh",
+            "entry_id": 188,
+            "language_id": "shell"
+        }
+    },
+    "project_name": "my_blog_source",
+    "split_count": 2
+}

@@ -1,0 +1,10 @@
+{
+    "summary": "Imports necessary modules and sets up variables for file paths, database path, and an empty whitelist.\nChecks each file in the source directory and queries the database to see if it exists. If so, adds its target path to the whitelist.\nIterates through cache directory files, removing any not found in the whitelist.",
+    "details": [
+        {
+            "comment": "Imports necessary modules and sets up variables for file paths, database path, and an empty whitelist.\nChecks each file in the source directory and queries the database to see if it exists. If so, adds its target path to the whitelist.\nIterates through cache directory files, removing any not found in the whitelist.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/cleanup_cache.py\":0-25",
+            "content": "import os\nimport tinydb\nimport sys\nsys.path.append(\n    \"/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control\"\n)\nfrom cache_db_context import hash_file\ncache_dir = \"cache/\"\nsource_dir= \"notes\"\ndb_path = \"cache_db.json\"\ndb = tinydb.TinyDB(db_path)\nwhitelist = []\nfor fname in os.listdir(source_dir):\n    fpath = os.path.join(source_dir, fname)\n    q = tinydb.Query().source.path == fpath\n    it = db.get(q)\n    if it is not None:\n        white_target = it['target']['path']\n        whitelist.append(white_target)\nfor fname in os.listdir(cache_dir):\n    fpath = os.path.join(cache_dir, fname)\n    if fpath not in whitelist:\n        os.remove(fpath)"
+        }
+    ]
+}

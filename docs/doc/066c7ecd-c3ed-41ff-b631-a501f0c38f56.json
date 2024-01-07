@@ -1,0 +1,10 @@
+{
+    "summary": "This code is an introduction to a blog source code with a link to a demo video, mentioning the usage command and the dependency on specific scripts from Prometheous.",
+    "details": [
+        {
+            "comment": "This code is an introduction to a blog source code with a link to a demo video, mentioning the usage command and the dependency on specific scripts from Prometheous.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/README.md\":0-16",
+            "content": "# my blog source code\n## intro\ni use llm to generate metadata for my posts.\nhere is the program in action:\n[![Demo video is at: demo.mp4](https://github.com/James4Ever0/my_blog_source/raw/main/demo.png)](https://github.com/James4Ever0/my_blog_source/raw/main/demo.mp4)\n## usage\nyou need to run `bash copy_and_process_notes.sh`\nbe ware of missing python script dependencies. they are coming from `document_agi_computer_control/` within [prometheous](https://github.com/james4ever0/prometheous)\nanything other than that can be found on internet."
+        }
+    ]
+}

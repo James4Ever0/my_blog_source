@@ -1,0 +1,10 @@
+{
+    "summary": "Code executes script sync_to_quarto.py, then navigates to quarto_blog folder, and runs preview.sh script.",
+    "details": [
+        {
+            "comment": "Code executes script sync_to_quarto.py, then navigates to quarto_blog folder, and runs preview.sh script.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/sync_quarto.sh\":0-2",
+            "content": "python3 sync_to_quarto.py\ncd quarto_blog\nbash preview.sh"
+        }
+    ]
+}

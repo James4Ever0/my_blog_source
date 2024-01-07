@@ -60,6 +60,10 @@ links:
     intro: Gregoryuan's Blog
     url: https://www.gregoryuan.com/
     icon: "fa fa-book"
+  - title: Yubingtao's Blog
+    intro: Yubingtao's Blog
+    url: https://yubingtao.netlify.app/
+    icon: "fa fa-book"
   # - title: "My LinkedIn"
   #   url: http://www.linkedin.com/in/hahack
   #   intro: "My Linkin account."

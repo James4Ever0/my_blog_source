@@ -1,0 +1,20 @@
+{
+    "summary": "The code parses date strings in various formats, outputs as Hexo-compatible format, and runs tests to ensure functionality; reports success or failure.",
+    "details": [
+        {
+            "comment": "Code converts a date string using custom formats into a datetime object.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/dateparser_utils.py\":0-35",
+            "content": "# plan to use \"humanize\" or \"arrow\" package instead\nfrom typing import Iterable\nimport dateparser\nfrom parse import parse, Result\nfrom datetime import datetime\nfrom beartype import beartype\nCUSTOM_DATE_FORMATS = (\n    \"{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}\",\n    \"{year:d}-{month:d}-{day:d} {hour:d}:{minute:d}:{second:d}+{tz_hour:d}:{tz_minute:d}\",\n    \"{year:d}-{month:d}-{day:d} {hour:d}:{minute:d}:{second:d}-{tz_hour:d}:{tz_minute:d}\",\n)\n@beartype\ndef convert_parse_result_to_datetime_obj(parsed: Result):\n    datetime_obj = datetime(\n        year=parsed[\"year\"],\n        month=parsed[\"month\"],\n        day=parsed[\"day\"],\n        hour=parsed[\"hour\"],\n        minute=parsed[\"minute\"],\n        second=parsed[\"second\"],\n    )\n    return datetime_obj\n@beartype\ndef parse_date_with_single_format(input_format: str, input_date_string: str):\n    # Parse the input string using the specified format\n    parsed = parse(input_format, input_date_string)\n    if isinstance(parsed, Result):\n        # Reconstruct the ISO-formatted date and time string"
+        },
+        {
+            "comment": "Code is parsing a date string in multiple formats using the `parse_date_with_multiple_formats` function. If none of the custom formats match, it tries with default format and returns the result. The code then formats the datetime object as a hexo-compatible format using the `format_datetime` function. Finally, it runs some test cases where it attempts to parse various date strings in different formats and prints the results.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/dateparser_utils.py\":36-71",
+            "content": "        return convert_parse_result_to_datetime_obj(parsed)\n@beartype\ndef parse_date_with_multiple_formats(\n    custom_formats: Iterable[str], it: str, settings: dict = {\"STRICT_PARSING\": True}\n):\n    for fmt in custom_formats:\n        result = parse_date_with_single_format(fmt, it)\n        if result:\n            return result\n    result = dateparser.parse(it, settings=settings)  # type: ignore\n    return result\n@beartype\ndef format_datetime(dt: datetime, fmt: str):\n    return dt.strftime(fmt)\n@beartype\ndef render_datetime_as_hexo_format(dt: datetime):\n    return format_datetime(dt, \"%Y-%m-%d %H:%M:%S\")\ndef test_main():\n    candidates = [\n        \"2023-09-12T15:17:04.131Z\",\n        \"2022-07-10T00:16:40+08:00\",\n        \"2022-11-03 14:24:39+08:00\",\n        \"2022-11-28-22-01-29\",  # problematic.\n        # \"2022-11-28T22:01:29\",\n        \"Windows 10 system debloating, windows operating system optimization, winget, windows commandline package manager\",\n    ]\n    for it in candidates:\n        print(\"parsing:\", it)\n        result = parse_date_with_multiple_formats(CUSTOM_DATE_FORMATS, it)"
+        },
+        {
+            "comment": "Checking if result is None, reports parsing failure or success with formatted output.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/dateparser_utils.py\":72-82",
+            "content": "        if result is None:\n            report = \"Could not parse: \" + it\n        else:\n            parse_result = render_datetime_as_hexo_format(result)\n            report = \"Parsed: \" + parse_result\n        print(report)\n        print(\"-\" * 30)\nif __name__ == \"__main__\":\n    test_main()"
+        }
+    ]
+}

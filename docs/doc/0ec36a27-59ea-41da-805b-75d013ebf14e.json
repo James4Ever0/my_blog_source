@@ -1,0 +1,10 @@
+{
+    "summary": "Generates URLs for blog submission by iterating through the \"quarto_blog/myblog/posts\" directory and printing the base URL with each file path.",
+    "details": [
+        {
+            "comment": "Generates URLs for blog submission by iterating through the \"quarto_blog/myblog/posts\" directory and printing the base URL with each file path.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/generate_urls_for_submission.py\":0-3",
+            "content": "base_url = \"https://james4ever0.github.io/blog_quarto\"\nimport os\nfor path in os.listdir(\"quarto_blog/myblog/posts\"):\n    print(f\"{base_url}/posts/{path}/\")"
+        }
+    ]
+}

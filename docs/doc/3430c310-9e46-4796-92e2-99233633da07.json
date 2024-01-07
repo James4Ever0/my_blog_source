@@ -1,0 +1,10 @@
+{
+    "summary": "This code defines a function myfunction that takes two integer arguments and returns an integer. It then annotates the same function using Callable to indicate its signature as taking two integers and returning an integer.",
+    "details": [
+        {
+            "comment": "This code defines a function myfunction that takes two integer arguments and returns an integer. It then annotates the same function using Callable to indicate its signature as taking two integers and returning an integer.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/annotate_keyword_callable.py\":1-7",
+            "content": "from typing import Callable\ndef myfunction(a: int, b: int = 1) -> int:\n    return 1\n# Annotating myfunction as Callable\nmyfunction: Callable[[int, int], int]"
+        }
+    ]
+}

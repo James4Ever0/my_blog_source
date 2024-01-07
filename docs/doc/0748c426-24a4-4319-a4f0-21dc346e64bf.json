@@ -1,0 +1,10 @@
+{
+    "summary": "load_file function reads the contents of a file using UTF-8 encoding and returns it.\nwrite_file function writes content to a file using UTF-8 encoding.",
+    "details": [
+        {
+            "comment": "load_file function reads the contents of a file using UTF-8 encoding and returns it.\nwrite_file function writes content to a file using UTF-8 encoding.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/io_utils.py\":1-10",
+            "content": "UTF8 = \"utf-8\"\ndef load_file(fname: str):\n    with open(fname, \"r\", encoding=UTF8) as f:\n        cnt = f.read()\n    return cnt\ndef write_file(fname: str, content: str):\n    with open(fname, \"w+\", encoding=UTF8) as f:\n        f.write(content)"
+        }
+    ]
+}

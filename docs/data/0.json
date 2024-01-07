@@ -1,0 +1,537 @@
+{
+    "0": {
+        "file_id": 0,
+        "content": "/README.md",
+        "type": "filepath"
+    },
+    "1": {
+        "file_id": 0,
+        "content": "This code is an introduction to a blog source code with a link to a demo video, mentioning the usage command and the dependency on specific scripts from Prometheous.",
+        "type": "summary"
+    },
+    "2": {
+        "file_id": 0,
+        "content": "# my blog source code\n## intro\ni use llm to generate metadata for my posts.\nhere is the program in action:\n[![Demo video is at: demo.mp4](https://github.com/James4Ever0/my_blog_source/raw/main/demo.png)](https://github.com/James4Ever0/my_blog_source/raw/main/demo.mp4)\n## usage\nyou need to run `bash copy_and_process_notes.sh`\nbe ware of missing python script dependencies. they are coming from `document_agi_computer_control/` within [prometheous](https://github.com/james4ever0/prometheous)\nanything other than that can be found on internet.",
+        "type": "code",
+        "location": "/README.md:1-17"
+    },
+    "3": {
+        "file_id": 0,
+        "content": "This code is an introduction to a blog source code with a link to a demo video, mentioning the usage command and the dependency on specific scripts from Prometheous.",
+        "type": "comment"
+    },
+    "4": {
+        "file_id": 1,
+        "content": "/annotate_keyword_callable.py",
+        "type": "filepath"
+    },
+    "5": {
+        "file_id": 1,
+        "content": "This code defines a function myfunction that takes two integer arguments and returns an integer. It then annotates the same function using Callable to indicate its signature as taking two integers and returning an integer.",
+        "type": "summary"
+    },
+    "6": {
+        "file_id": 1,
+        "content": "from typing import Callable\ndef myfunction(a: int, b: int = 1) -> int:\n    return 1\n# Annotating myfunction as Callable\nmyfunction: Callable[[int, int], int]",
+        "type": "code",
+        "location": "/annotate_keyword_callable.py:2-8"
+    },
+    "7": {
+        "file_id": 1,
+        "content": "This code defines a function myfunction that takes two integer arguments and returns an integer. It then annotates the same function using Callable to indicate its signature as taking two integers and returning an integer.",
+        "type": "comment"
+    },
+    "8": {
+        "file_id": 2,
+        "content": "/cleanup_cache.py",
+        "type": "filepath"
+    },
+    "9": {
+        "file_id": 2,
+        "content": "Imports necessary modules and sets up variables for file paths, database path, and an empty whitelist.\nChecks each file in the source directory and queries the database to see if it exists. If so, adds its target path to the whitelist.\nIterates through cache directory files, removing any not found in the whitelist.",
+        "type": "summary"
+    },
+    "10": {
+        "file_id": 2,
+        "content": "import os\nimport tinydb\nimport sys\nsys.path.append(\n    \"/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control\"\n)\nfrom cache_db_context import hash_file\ncache_dir = \"cache/\"\nsource_dir= \"notes\"\ndb_path = \"cache_db.json\"\ndb = tinydb.TinyDB(db_path)\nwhitelist = []\nfor fname in os.listdir(source_dir):\n    fpath = os.path.join(source_dir, fname)\n    q = tinydb.Query().source.path == fpath\n    it = db.get(q)\n    if it is not None:\n        white_target = it['target']['path']\n        whitelist.append(white_target)\nfor fname in os.listdir(cache_dir):\n    fpath = os.path.join(cache_dir, fname)\n    if fpath not in whitelist:\n        os.remove(fpath)",
+        "type": "code",
+        "location": "/cleanup_cache.py:1-26"
+    },
+    "11": {
+        "file_id": 2,
+        "content": "Imports necessary modules and sets up variables for file paths, database path, and an empty whitelist.\nChecks each file in the source directory and queries the database to see if it exists. If so, adds its target path to the whitelist.\nIterates through cache directory files, removing any not found in the whitelist.",
+        "type": "comment"
+    },
+    "12": {
+        "file_id": 3,
+        "content": "/copy_and_process_notes.sh",
+        "type": "filepath"
+    },
+    "13": {
+        "file_id": 3,
+        "content": "Deletes all .md files in source/_posts, syncs new .md files from notes folder, and then runs update_posts.sh after setting TOKENIZERS_PARALLELISM environment variable.",
+        "type": "summary"
+    },
+    "14": {
+        "file_id": 3,
+        "content": "rm -rf source/_posts/*.md\nrclone sync /root/Desktop/works/notes_ssh_keys/notes notes --include \"*.md\"\n# cp /root/Desktop/works/notes_ssh_keys/notes/*.md source/_posts\n# before that, run:\n# bash \"/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control/setup_openai_local_service.sh\"\nexport TOKENIZERS_PARALLELISM=false\nbash update_posts.sh",
+        "type": "code",
+        "location": "/copy_and_process_notes.sh:1-11"
+    },
+    "15": {
+        "file_id": 3,
+        "content": "Deletes all .md files in source/_posts, syncs new .md files from notes folder, and then runs update_posts.sh after setting TOKENIZERS_PARALLELISM environment variable.",
+        "type": "comment"
+    },
+    "16": {
+        "file_id": 4,
+        "content": "/create_sitemap.py",
+        "type": "filepath"
+    },
+    "17": {
+        "file_id": 4,
+        "content": "The Jinja2 template was loaded, rendered with data from a file, and successfully written to the specified file.",
+        "type": "summary"
+    },
+    "18": {
+        "file_id": 4,
+        "content": "template_path = \"sitemap_template.xml.j2\"\n# template_path = \"sitemap_template.html.j2\"\noutput_file_path = \"sitemap.xml\"\n# output_file_path = \"sitemap.html\"\nurls_path = \"urls.txt\"\nbase_url = \"https://james4ever0.github.io\"\nfrom jinja2 import Environment, FileSystemLoader\n# Load the template from file\nfile_loader = FileSystemLoader(\n    \".\"\n)  # Replace 'path_to_templates_directory' with the actual path\nenv = Environment(loader=file_loader)\ntemplate = env.get_template(\n    template_path\n)  # Replace 'sitemap_template.html' with the actual template file name\nwith open(urls_path, \"r\") as f:\n    content = f.read()\n    lines = content.split(\"\\n\")\n    lines = [it.strip() for it in lines if it.strip()]\n# Data to be rendered\ndatalist = [(item, \"2023-12-28T09:21:02+00:00\", \"1.00\") for item in lines]\n# datalist = [(str(index), item.replace(base_url, \"\")) for index, item in enumerate(lines)]\n# Render the template with the data\nrendered_template = template.render(datalist=datalist)\n# Write the rendered output to a file\nwith open(output_file_path, \"w\") as output_file:",
+        "type": "code",
+        "location": "/create_sitemap.py:1-31"
+    },
+    "19": {
+        "file_id": 4,
+        "content": "Loading and rendering a Jinja2 template with data from a file.",
+        "type": "comment"
+    },
+    "20": {
+        "file_id": 4,
+        "content": "    output_file.write(rendered_template)\nprint(\"Template rendered and written to file successfully.\")",
+        "type": "code",
+        "location": "/create_sitemap.py:32-34"
+    },
+    "21": {
+        "file_id": 4,
+        "content": "Template has been successfully rendered and written to the specified file.",
+        "type": "comment"
+    },
+    "22": {
+        "file_id": 5,
+        "content": "/dateparser_utils.py",
+        "type": "filepath"
+    },
+    "23": {
+        "file_id": 5,
+        "content": "The code parses date strings in various formats, outputs as Hexo-compatible format, and runs tests to ensure functionality; reports success or failure.",
+        "type": "summary"
+    },
+    "24": {
+        "file_id": 5,
+        "content": "# plan to use \"humanize\" or \"arrow\" package instead\nfrom typing import Iterable\nimport dateparser\nfrom parse import parse, Result\nfrom datetime import datetime\nfrom beartype import beartype\nCUSTOM_DATE_FORMATS = (\n    \"{year:d}-{month:d}-{day:d}-{hour:d}-{minute:d}-{second:d}\",\n    \"{year:d}-{month:d}-{day:d} {hour:d}:{minute:d}:{second:d}+{tz_hour:d}:{tz_minute:d}\",\n    \"{year:d}-{month:d}-{day:d} {hour:d}:{minute:d}:{second:d}-{tz_hour:d}:{tz_minute:d}\",\n)\n@beartype\ndef convert_parse_result_to_datetime_obj(parsed: Result):\n    datetime_obj = datetime(\n        year=parsed[\"year\"],\n        month=parsed[\"month\"],\n        day=parsed[\"day\"],\n        hour=parsed[\"hour\"],\n        minute=parsed[\"minute\"],\n        second=parsed[\"second\"],\n    )\n    return datetime_obj\n@beartype\ndef parse_date_with_single_format(input_format: str, input_date_string: str):\n    # Parse the input string using the specified format\n    parsed = parse(input_format, input_date_string)\n    if isinstance(parsed, Result):\n        # Reconstruct the ISO-formatted date and time string",
+        "type": "code",
+        "location": "/dateparser_utils.py:1-36"
+    },
+    "25": {
+        "file_id": 5,
+        "content": "Code converts a date string using custom formats into a datetime object.",
+        "type": "comment"
+    },
+    "26": {
+        "file_id": 5,
+        "content": "        return convert_parse_result_to_datetime_obj(parsed)\n@beartype\ndef parse_date_with_multiple_formats(\n    custom_formats: Iterable[str], it: str, settings: dict = {\"STRICT_PARSING\": True}\n):\n    for fmt in custom_formats:\n        result = parse_date_with_single_format(fmt, it)\n        if result:\n            return result\n    result = dateparser.parse(it, settings=settings)  # type: ignore\n    return result\n@beartype\ndef format_datetime(dt: datetime, fmt: str):\n    return dt.strftime(fmt)\n@beartype\ndef render_datetime_as_hexo_format(dt: datetime):\n    return format_datetime(dt, \"%Y-%m-%d %H:%M:%S\")\ndef test_main():\n    candidates = [\n        \"2023-09-12T15:17:04.131Z\",\n        \"2022-07-10T00:16:40+08:00\",\n        \"2022-11-03 14:24:39+08:00\",\n        \"2022-11-28-22-01-29\",  # problematic.\n        # \"2022-11-28T22:01:29\",\n        \"Windows 10 system debloating, windows operating system optimization, winget, windows commandline package manager\",\n    ]\n    for it in candidates:\n        print(\"parsing:\", it)\n        result = parse_date_with_multiple_formats(CUSTOM_DATE_FORMATS, it)",
+        "type": "code",
+        "location": "/dateparser_utils.py:37-72"
+    },
+    "27": {
+        "file_id": 5,
+        "content": "Code is parsing a date string in multiple formats using the `parse_date_with_multiple_formats` function. If none of the custom formats match, it tries with default format and returns the result. The code then formats the datetime object as a hexo-compatible format using the `format_datetime` function. Finally, it runs some test cases where it attempts to parse various date strings in different formats and prints the results.",
+        "type": "comment"
+    },
+    "28": {
+        "file_id": 5,
+        "content": "        if result is None:\n            report = \"Could not parse: \" + it\n        else:\n            parse_result = render_datetime_as_hexo_format(result)\n            report = \"Parsed: \" + parse_result\n        print(report)\n        print(\"-\" * 30)\nif __name__ == \"__main__\":\n    test_main()",
+        "type": "code",
+        "location": "/dateparser_utils.py:73-83"
+    },
+    "29": {
+        "file_id": 5,
+        "content": "Checking if result is None, reports parsing failure or success with formatted output.",
+        "type": "comment"
+    },
+    "30": {
+        "file_id": 6,
+        "content": "/fix_public_tags_index.py",
+        "type": "filepath"
+    },
+    "31": {
+        "file_id": 6,
+        "content": "Reads and cleans \"public/tags/index.html\" file, removing empty lines and excess whitespace.",
+        "type": "summary"
+    },
+    "32": {
+        "file_id": 6,
+        "content": "filepath = \"public/tags/index.html\"\nwith open(filepath, \"r\") as f:\n    content = f.read()\n    lines = content.split(\"\\n\")\n    lines = [it.strip() for it in lines if it.strip()]\nwith open(filepath, \"w+\") as f:\n    for line in lines:\n        f.write(line+\"\\n\")",
+        "type": "code",
+        "location": "/fix_public_tags_index.py:1-9"
+    },
+    "33": {
+        "file_id": 6,
+        "content": "Reads and cleans \"public/tags/index.html\" file, removing empty lines and excess whitespace.",
+        "type": "comment"
+    },
+    "34": {
+        "file_id": 7,
+        "content": "/generate_urls.sh",
+        "type": "filepath"
+    },
+    "35": {
+        "file_id": 7,
+        "content": "Executing Python script to generate URLs and storing them in urls.txt file.",
+        "type": "summary"
+    },
+    "36": {
+        "file_id": 7,
+        "content": "python3 generate_urls_for_submission.py > urls.txt",
+        "type": "code",
+        "location": "/generate_urls.sh:1-1"
+    },
+    "37": {
+        "file_id": 7,
+        "content": "Executing Python script to generate URLs and storing them in urls.txt file.",
+        "type": "comment"
+    },
+    "38": {
+        "file_id": 8,
+        "content": "/generate_urls_for_submission.py",
+        "type": "filepath"
+    },
+    "39": {
+        "file_id": 8,
+        "content": "Generates URLs for blog submission by iterating through the \"quarto_blog/myblog/posts\" directory and printing the base URL with each file path.",
+        "type": "summary"
+    },
+    "40": {
+        "file_id": 8,
+        "content": "base_url = \"https://james4ever0.github.io/blog_quarto\"\nimport os\nfor path in os.listdir(\"quarto_blog/myblog/posts\"):\n    print(f\"{base_url}/posts/{path}/\")",
+        "type": "code",
+        "location": "/generate_urls_for_submission.py:1-4"
+    },
+    "41": {
+        "file_id": 8,
+        "content": "Generates URLs for blog submission by iterating through the \"quarto_blog/myblog/posts\" directory and printing the base URL with each file path.",
+        "type": "comment"
+    },
+    "42": {
+        "file_id": 9,
+        "content": "/headline_match.py",
+        "type": "filepath"
+    },
+    "43": {
+        "file_id": 9,
+        "content": "The code includes a regex pattern for detecting and handling metadata in markdown, with functions to remove or replace it, and a function that dumps dictionaries as YAML. The function accepts markdown content, a first match string, and optional metadata, updates the content accordingly, and returns it.",
+        "type": "summary"
+    },
+    "44": {
+        "file_id": 9,
+        "content": "import re  # prefer regex over re? re.subn sucks.\nfrom typing import Optional, NewType, cast\nimport yaml\nfrom beartype import beartype\nimport orjson\nimport sys\nJSONDict = NewType(\"JSONDict\", dict)\n# Multiline regular expression to match the pattern\nmetadata_pattern = r\"\"\"^---$\n(.*?)\n^---$\n\"\"\"\n# Compile the regular expression\nmetadata_regex = re.compile(\n    metadata_pattern, re.MULTILINE | re.DOTALL | re.VERBOSE | re.UNICODE\n)\n@beartype\ndef purify_dict(obj: dict) -> JSONDict:\n    bytes_repr = orjson.dumps(obj)\n    new_obj = orjson.loads(bytes_repr)\n    return new_obj\n@beartype\ndef parse_content_metadata(markdown_content: str):\n    # Match the pattern in the Markdown content\n    matches = metadata_regex.findall(markdown_content)\n    has_metadata = len(matches) > 0\n    first_match = None\n    if has_metadata:\n        first_match = matches[0]\n        metadata = yaml.safe_load(\n            first_match\n        )  # this could parse string as datetime object.\n        assert isinstance(metadata, dict), \"error processing metadata\"",
+        "type": "code",
+        "location": "/headline_match.py:1-40"
+    },
+    "45": {
+        "file_id": 9,
+        "content": "Imports various libraries and defines a regular expression pattern for matching metadata in Markdown content.",
+        "type": "comment"
+    },
+    "46": {
+        "file_id": 9,
+        "content": "        content_without_metadata = remove_metadata(markdown_content, first_match)\n    else:\n        metadata = {}\n        content_without_metadata = markdown_content\n    purified_metadata = purify_dict(metadata)\n    return has_metadata, purified_metadata, content_without_metadata, first_match\n@beartype\ndef replace_metadata(source: str, first_match: str, replace_str: str, count=1):\n    # ref: https://github.com/thesimj/envyaml/commit/2418c7b0857d586f04a09a48697ab7c94a605ccb\n    result = source.replace(first_match, replace_str, count)\n    return result\n@beartype\ndef remove_metadata(source: str, first_match: str):\n    result = replace_metadata(source, first_match, \"\")\n    return result\n@beartype\ndef dump_dict_as_yaml(mdict:dict):\n    ret = yaml.safe_dump(\n                mdict,\n                width=sys.maxsize,\n                default_style='\"',\n                default_flow_style=True,\n                allow_unicode=True,\n            )\n    return ret\n@beartype\ndef modify_content_metadata(\n    markdown_content: str,\n    has_metadata: bool,",
+        "type": "code",
+        "location": "/headline_match.py:41-76"
+    },
+    "47": {
+        "file_id": 9,
+        "content": "The code contains several functions for handling metadata within markdown content. The `remove_metadata` function replaces the first match with an empty string to remove it from the source, while `replace_metadata` replaces the first match with a specified replace_str. The `dump_dict_As_yaml` function dumps a dictionary as YAML and `modify_content_metadata` handles the main logic of detecting if the markdown has metadata and then purifying it or removing it accordingly.",
+        "type": "comment"
+    },
+    "48": {
+        "file_id": 9,
+        "content": "    metadata: dict,\n    first_match: Optional[str],\n):\n    replaced_metadata_str = dump_dict_as_yaml(metadata).strip()\n    replaced_metadata_str = f\"\"\"\n{replaced_metadata_str}\n\"\"\"\n    if has_metadata:\n        result = replace_metadata(\n            markdown_content, cast(str, first_match), replaced_metadata_str\n        )\n    else:\n        result = \"\\n\".join([replaced_metadata_str, markdown_content])\n    return result\ndef test_main():\n    # Sample Markdown content\n    markdown_content = \"\"\"\ncontent\n---\ntitle: Sample Title\ntags: [Tag1, Tag2]\n---\ncontent\ncontent\n---\ntitle: Sample Title\ntags: Tag1, Tag3\n---\n\"\"\"\n    (\n        has_metadata,\n        metadata,\n        content_without_metadata,\n        first_match,\n    ) = parse_content_metadata(markdown_content)\n    updated_content = modify_content_metadata(\n        markdown_content, has_metadata, {\"new_title\": \"Sample Title\"}, first_match\n    )\n    print(updated_content)\n    print(\"-\" * 20)\n    print(content_without_metadata)\n    print(\"-\" * 20)\n    print(metadata)\nif __name__ == \"__main__\":",
+        "type": "code",
+        "location": "/headline_match.py:77-125"
+    },
+    "49": {
+        "file_id": 9,
+        "content": "This function takes markdown content, a first match string, and optional metadata as input. It replaces the metadata with the new metadata (if any) and joins it with the markdown content. If there is no existing metadata, it inserts the new metadata before the markdown content. Finally, it returns the updated content. The provided test case demonstrates this functionality.",
+        "type": "comment"
+    },
+    "50": {
+        "file_id": 9,
+        "content": "    test_main()",
+        "type": "code",
+        "location": "/headline_match.py:126-126"
+    },
+    "51": {
+        "file_id": 9,
+        "content": "The code is calling the function test_main.",
+        "type": "comment"
+    },
+    "52": {
+        "file_id": 10,
+        "content": "/io_utils.py",
+        "type": "filepath"
+    },
+    "53": {
+        "file_id": 10,
+        "content": "load_file function reads the contents of a file using UTF-8 encoding and returns it.\nwrite_file function writes content to a file using UTF-8 encoding.",
+        "type": "summary"
+    },
+    "54": {
+        "file_id": 10,
+        "content": "UTF8 = \"utf-8\"\ndef load_file(fname: str):\n    with open(fname, \"r\", encoding=UTF8) as f:\n        cnt = f.read()\n    return cnt\ndef write_file(fname: str, content: str):\n    with open(fname, \"w+\", encoding=UTF8) as f:\n        f.write(content)",
+        "type": "code",
+        "location": "/io_utils.py:2-11"
+    },
+    "55": {
+        "file_id": 10,
+        "content": "load_file function reads the contents of a file using UTF-8 encoding and returns it.\nwrite_file function writes content to a file using UTF-8 encoding.",
+        "type": "comment"
+    },
+    "56": {
+        "file_id": 11,
+        "content": "/publish.sh",
+        "type": "filepath"
+    },
+    "57": {
+        "file_id": 11,
+        "content": "This script runs a Python file, copies files to the specified directory, commits changes to Git, and pushes to the main branch.",
+        "type": "summary"
+    },
+    "58": {
+        "file_id": 11,
+        "content": "python3 fix_public_tags_index.py\n# TODO: detect & remove headline from the markdown post.\ncp -R public/* /media/root/Prima/hexo_blog_demo/publish/blog\ncp -R quarto_blog/myblog/_site/* /media/root/Prima/hexo_blog_demo/publish/blog_quarto\ncd /media/root/Prima/hexo_blog_demo/publish/blog\ngit add .\ngit commit -m \"update blog\"\ngit push -u origin main\ncd /media/root/Prima/hexo_blog_demo/publish/blog_quarto\ngit add .\ngit commit -m \"update blog\"\ngit push -u origin main",
+        "type": "code",
+        "location": "/publish.sh:1-16"
+    },
+    "59": {
+        "file_id": 11,
+        "content": "This script runs a Python file, copies files to the specified directory, commits changes to Git, and pushes to the main branch.",
+        "type": "comment"
+    },
+    "60": {
+        "file_id": 12,
+        "content": "/recommend_tag.py",
+        "type": "filepath"
+    },
+    "61": {
+        "file_id": 12,
+        "content": "Loading the English language model with word vectors, using a smaller model is not suitable, and predefined list of tags for text analysis.",
+        "type": "summary"
+    },
+    "62": {
+        "file_id": 12,
+        "content": "import spacy\n# Load the English language model with word vectors\n# nlp = spacy.load(\"en_core_web_trf\") # no similarity.\nnlp = spacy.load(\"en_core_web_md\") # this is much better. small model is shit.\n# nlp = spacy.load(\"en_core_web_sm\") # small we bave.\n# Predefined list of tags\ntags = [\"dogs\", \"cats\", \"computer\", \"tech\", \"life\"]\n# Sample text document\ntext = \"我爱我的宠物狗，并且经常和它在一起。\" # does not work with chinese.\n# text = \"I love my pet dog and spend a lot of time with it.\"\n# Process the text using spaCy\ndoc = nlp(text)\n# Calculate similarity between the document and each tag\ntag_similarities = [(tag, nlp(tag).similarity(doc)) for tag in tags]\n# Find the closest tags based on similarity\ntag_similarities.sort(key=lambda item: item[1], reverse=True)\nclosest_tags = tag_similarities[:3]\n# Display the closest tags\nprint(\"Closest tags:\", closest_tags)",
+        "type": "code",
+        "location": "/recommend_tag.py:1-25"
+    },
+    "63": {
+        "file_id": 12,
+        "content": "Loading the English language model with word vectors, using a smaller model is not suitable, and predefined list of tags for text analysis.",
+        "type": "comment"
+    },
+    "64": {
+        "file_id": 13,
+        "content": "/remove_headline_from_markdown.py",
+        "type": "filepath"
+    },
+    "65": {
+        "file_id": 13,
+        "content": "The code defines functions for removing headlines and processing lines based on state, using a strip_headline_marker function and an enum to track reader's state while reading input line by line. It appends new lines when transitioning states and joins the lines back together with newlines.",
+        "type": "summary"
+    },
+    "66": {
+        "file_id": 13,
+        "content": "# usually a few lines away from metadata. just find it.\n# no you should remove those lines that most containing the title.\nfrom beartype import beartype\nfrom typing import NewType, cast\nfrom enum import Enum, auto\nMETADATA_SPLITER = \"---\"\nCODEBLOCK_MARKER = \"```\"\nFORM_MARKER = \"|\"\nHEADLINE_MARKER = \"# \"\nNEWLINE = \"\\n\"\nStringWithoutHeadlineMarker = NewType('StringWithoutHeadlineMarker', str)\n@beartype\ndef strip_headline_marker(line: str) -> StringWithoutHeadlineMarker:\n    return cast(StringWithoutHeadlineMarker, line.strip(HEADLINE_MARKER))\n@beartype\ndef is_empty_string(line: str) -> bool:\n    return line.strip() == \"\"\n@beartype\ndef remove_headline_from_lines(lines: list[str], title: str) -> list[str]:\n    @beartype\n    def is_headline_line(line: str, stripped_title: StringWithoutHeadlineMarker):\n        stripped_line = strip_headline_marker(line)\n        if not is_empty_string(stripped_line):\n            if stripped_line == stripped_title:\n                return True\n        return False\n    @beartype\n    def process_lines(stripped_title: StringWithoutHeadlineMarker):",
+        "type": "code",
+        "location": "/remove_headline_from_markdown.py:1-38"
+    },
+    "67": {
+        "file_id": 13,
+        "content": "This code defines functions for removing the headline from a given list of lines. It uses the `strip_headline_marker` function to remove any characters following the '#' in each line, then checks if the remaining string is equal to the specified title. If a matching line is found, it will be removed from the list of lines. The functions are decorated with `@beartype`, possibly for type annotation or validation purposes.",
+        "type": "comment"
+    },
+    "68": {
+        "file_id": 13,
+        "content": "        new_lines = []\n        for line in lines:\n            if is_headline_line(line, stripped_title):\n                continue\n            new_lines.append(line)\n        return new_lines\n    def strip_title_and_process_lines():\n        stripped_title = strip_headline_marker(title)\n        if is_empty_string(stripped_title):\n            return lines\n        return process_lines(stripped_title)\n    return strip_title_and_process_lines()\nclass ReaderState(Enum):\n    init = auto()\n    within_metadata = auto()\n    content = auto()\n    within_codeblock = auto()\n    within_form = auto()\n@beartype\ndef join_lines_with_state(lines: list[str]) -> str:\n    new_lines = []\n    state = ReaderState.init\n    for line in lines:\n        it = line.strip()\n        if state == ReaderState.init:\n            if it == METADATA_SPLITER:\n                state = ReaderState.within_metadata\n        elif state == ReaderState.within_metadata:\n            if it == METADATA_SPLITER:\n                state = ReaderState.content\n        elif state == ReaderState.content:",
+        "type": "code",
+        "location": "/remove_headline_from_markdown.py:39-74"
+    },
+    "69": {
+        "file_id": 13,
+        "content": "The code defines a function to remove headline from markdown and returns a stripped markdown without the specified headline. It also includes functions to strip the title marker, process lines based on state, and an enum for tracking the reader's state while processing lines.",
+        "type": "comment"
+    },
+    "70": {
+        "file_id": 13,
+        "content": "            if it.startswith(CODEBLOCK_MARKER):\n                state = ReaderState.within_codeblock\n            elif it.startswith(FORM_MARKER):\n                state = ReaderState.within_form\n            if state != ReaderState.content:\n                new_lines.append(NEWLINE)\n        elif state == ReaderState.within_codeblock:\n            if it.startswith(CODEBLOCK_MARKER):\n                state = ReaderState.content\n        elif state == ReaderState.within_form:\n            if not it.startswith(FORM_MARKER):\n                state = ReaderState.content\n        if state == ReaderState.content:\n            new_lines.append(NEWLINE)\n        new_lines.append(line)\n        new_lines.append(NEWLINE)\n    return \"\".join(new_lines)",
+        "type": "code",
+        "location": "/remove_headline_from_markdown.py:75-91"
+    },
+    "71": {
+        "file_id": 13,
+        "content": "Code reads input line by line and determines the state of each line based on markers. It appends new lines when transitioning states, and joins the lines back together with newlines.",
+        "type": "comment"
+    },
+    "72": {
+        "file_id": 14,
+        "content": "/remove_unwanted_notes.py",
+        "type": "filepath"
+    },
+    "73": {
+        "file_id": 14,
+        "content": "The code consists of functions for importing content, generating prompts and summaries using database data, error handling, and date extraction. It also features a retry decorator and utilizes SentenceTransformer model to filter notes based on tags and categories similarity indices. The code processes text content by removing bad words, creating/removing directories, fixing date formats, and gets titles from content. It parses command line arguments, sets default values, and outputs to the final directory after processing notes.",
+        "type": "summary"
+    },
+    "74": {
+        "file_id": 14,
+        "content": "import argparse\nimport shutil\nimport sys\nfrom sentence_transformers import SentenceTransformer\nimport traceback\nfrom remove_headline_from_markdown import (\n    remove_headline_from_lines,\n    join_lines_with_state,\n    NEWLINE,\n)\nsys.path.append(\n    \"/media/root/Toshiba XG3/works/prometheous/document_agi_computer_control\"\n)\nimport datetime\nimport inspect\nimport os\nimport re\nimport uuid\nfrom functools import lru_cache\nfrom typing import Callable, Iterable, Optional, TypeVar, Union\nimport pydantic\nfrom beartype import beartype\nfrom cache_db_context import (  # type:ignore\n    SourceIteratorAndTargetGeneratorParam,\n    TargetGeneratorParameter,\n    iterate_source_dir_and_generate_to_target_dir,\n)\nfrom custom_doc_writer import (  # type:ignore\n    assemble_prompt_components,\n    llm_context,\n    process_content_and_return_result,\n    assemble_prompt_components,\n)\nfrom dateparser_utils import (\n    parse_date_with_multiple_formats,\n    render_datetime_as_hexo_format,\n    CUSTOM_DATE_FORMATS,\n)\nfrom headline_match import (\n    modify_content_metadata,",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:1-44"
+    },
+    "75": {
+        "file_id": 14,
+        "content": "Code imports various modules and functions from other files for the purpose of processing content, removing unwanted notes, generating prompts, parsing dates, and manipulating file directories. The code seems to involve a complex set of operations that work together to achieve its intended functionality.",
+        "type": "comment"
+    },
+    "76": {
+        "file_id": 14,
+        "content": "    parse_content_metadata,\n    JSONDict,\n    purify_dict,\n)\nfrom similarity_utils import SimilarityIndex, sentence_transformer_context\nfrom io_utils import load_file, write_file\nT = TypeVar(\"T\")\nDEFAULT_TOP_K = 7\nREQUIRED_FIELDS = (\"tags\", \"title\", \"description\", \"category\", \"date\")\nFIELDS_THAT_NEED_SUMMARY_TO_GENERATE = (\"tags\", \"title\", \"description\", \"category\")\nDATE_MITIGATION_FIELDS = (\"created\", \"modified\")\ndef generate_markdown_name():\n    file_id = str(uuid.uuid4())\n    fname = f\"{file_id}.md\"\n    return fname\n@beartype\ndef split_by_line(cnt: str, newline=NEWLINE):\n    myitems = cnt.split(newline)\n    myitems = [myit.strip() for myit in myitems]\n    myitems = [myit for myit in myitems if len(myit) > 0]\n    return myitems\n@beartype\ndef join_lines(lines: list[str], newline=NEWLINE):\n    return newline.join(lines)\ndef load_bad_words(fname: str):\n    cnt = load_file(fname)\n    mybadwords = split_by_line(cnt)\n    return mybadwords\n# should change the schema according to the need, only generate what is needed the most.",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:45-84"
+    },
+    "77": {
+        "file_id": 14,
+        "content": "This code defines functions to process and generate markdown files. It includes functions for splitting and joining lines, generating a markdown file name, loading bad words from a file, and possibly handling the file content schema based on need.",
+        "type": "comment"
+    },
+    "78": {
+        "file_id": 14,
+        "content": "# if filename is not date, use as title\n# if filename is date, perform title generation\n# TODO: constraint string generation\n# validation not working. and the llm does not pay attention to the constraints by the name\n# string_without_comma_period = Annotated[str, pydantic.Field(regex=r'^[^,^.]*$')]\n# string_without_comma_period_and_space = Annotated[str, pydantic.Field(regex=r'^[^,^ ^.]*$')]\n# suspicious chars being used in string, like the comma\nclass Categories(pydantic.BaseModel):\n    categories: list[str]\nclass Tags(pydantic.BaseModel):\n    tags: list[str]\nclass Category(pydantic.BaseModel):\n    category: str\nclass Title(pydantic.BaseModel):\n    title: str\nclass Description(pydantic.BaseModel):\n    description: str\n@beartype\ndef call_llm_once(init_prompt: str, prompt: str) -> str:\n    with llm_context(init_prompt) as model:\n        ret = model.run(prompt)\n        return ret\nfrom retrying import retry\n@beartype\ndef call_llm_once_and_parse(\n    init_prompt: str, prompt: str, pydantic_type: type[T], retry_times: int = 3",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:87-129"
+    },
+    "79": {
+        "file_id": 14,
+        "content": "This code defines a few Pydantic models, and a function call_llm_once that uses the Large Language Model (LLM) to process prompts with an optional initial prompt. The LLM is called within the context of the init_prompt, and it returns a response that can be parsed into the specified pydantic_type. There's also a retry decorator applied to the call_llm_once function which allows for retrying if needed.",
+        "type": "comment"
+    },
+    "80": {
+        "file_id": 14,
+        "content": ") -> T:\n    def generate_fix_init_prompt():\n        identity = \"You are a professional JSON response fixer. You can fix data failed to parsed as JSON.\"\n        task = \"You will be given the data to be fixed, the error message during parsing the data and return fixed response according to the schema, and a few hints.\"\n        fix_init_prompt = generate_init_prompt_with_schema(\n            identity, task, pydantic_type\n        )\n        return fix_init_prompt\n    @beartype\n    def generate_fix_prompt(response: str, error: str):\n        prompt_context_dict = {\n            \"Invalid data to be fixed\": response,\n            \"Parsing error message\": error,\n            \"Hint\": \"Check for quote issues, like using both double quotes inslde and around the string, or invalid format according to the schema.\",\n        }\n        fix_prompt = generate_json_prompt(prompt_context_dict)\n        return fix_prompt\n    @beartype\n    def fix_invalid_response(response: str, error: str):\n        fix_init_prompt = generate_fix_init_prompt()",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:130-151"
+    },
+    "81": {
+        "file_id": 14,
+        "content": "This function generates a prompt for a JSON response fixer to fix the invalid data and parsing error message, providing hints for any potential issues like quote problems or incorrect format according to the schema.",
+        "type": "comment"
+    },
+    "82": {
+        "file_id": 14,
+        "content": "        fix_prompt = generate_fix_prompt(response, error)\n        fix_response = call_llm_once(fix_init_prompt, fix_prompt)\n        ret = pydantic_type.parse_raw(fix_response)  # type:ignore\n        return ret\n    @retry(stop_max_attempt_number=retry_times)\n    def try_once():\n        response = call_llm_once(init_prompt, prompt)\n        try:\n            ret = pydantic_type.parse_raw(response)  # type: ignore\n        except:\n            error = traceback.format_exc(limit=1)\n            ret = fix_invalid_response(response, error)\n        return ret\n    return try_once()\n@lru_cache(maxsize=20)\ndef cached_getsource(obj):\n    source = inspect.getsource(obj)\n    return source\n@beartype\ndef generate_init_prompt_with_schema(identity: str, task: str, pydantic_schema):\n    schema_str = cached_getsource(pydantic_schema)\n    init_prompt = f\"\"\"{identity.strip()}\n{task.strip()}\nRespond strictly in following pydantic schema:\n```python\n{schema_str.strip()}\n```\n\"\"\"\n    return init_prompt\n@beartype\ndef generate_blogger_init_prompt_with_schema(task: str, schema_class: type):",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:152-191"
+    },
+    "83": {
+        "file_id": 14,
+        "content": "The code defines a function `generate_init_prompt_with_schema` that generates an initial prompt with a Pydantic schema included. It also includes functions to generate other prompts, retry functions, and cache getsource for generating LLM calls.",
+        "type": "comment"
+    },
+    "84": {
+        "file_id": 14,
+        "content": "    identity = \"You are a professional blogger.\"\n    init_prompt = generate_init_prompt_with_schema(identity, task, schema_class)\n    return init_prompt\ndef generate_item_recommended_init_prompt(\n    item_name: str, schema_class: type[T], max_num: Optional[int] = None\n):\n    components = [\n        f\"\"\"You will be given an article summary.\nYou will produce recommended {item_name}.\"\"\",\n        f\"\"\"You can most generate {max_num} {item_name}.\"\"\" if max_num else \"\",\n    ]\n    task = assemble_prompt_components(components)\n    init_prompt = generate_blogger_init_prompt_with_schema(task, schema_class)\n    return init_prompt, schema_class\ndef generate_description_recommended_init_script():\n    return generate_item_recommended_init_prompt(\"description\", Description)\ndef generate_title_recommended_init_script():\n    return generate_item_recommended_init_prompt(\"title\", Title)\n@beartype\ndef generate_category_recommender_init_prompt(max_num: int = DEFAULT_TOP_K):\n    return generate_item_recommended_init_prompt(\n        \"categories\", Categories, max_num=max_num",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:192-221"
+    },
+    "85": {
+        "file_id": 14,
+        "content": "This code defines functions that generate initial prompts for an AI model to perform tasks such as recommending descriptions, titles, or categories for a given input. The `generate_item_recommended_init_prompt` function takes the item name and schema class as parameters and returns an initial prompt for the task. The other functions use this function to generate specific prompts for recommended descriptions, titles, and categories.",
+        "type": "comment"
+    },
+    "86": {
+        "file_id": 14,
+        "content": "    )\n@beartype\ndef generate_tag_recommender_init_prompt(max_num: int = DEFAULT_TOP_K):\n    return generate_item_recommended_init_prompt(\"tags\", Tags, max_num=max_num)\n@beartype\ndef generate_item_chooser_init_prompt(\n    item_name: str, objective: str, schema_class: type[T]\n):\n    task = f\"\"\"You will be given an article summary, similar {item_name} in database, and your recommended {item_name}.\nYou would prefer {item_name} in database if they match the summary.\nYou will choose {objective} that best matches the summary.\"\"\"\n    init_prompt = generate_blogger_init_prompt_with_schema(task, schema_class)\n    return init_prompt, schema_class\ndef generate_category_chooser_init_prompt():\n    return generate_item_chooser_init_prompt(\n        \"categories\", \"a single category\", Category\n    )\ndef generate_tag_chooser_init_prompt():\n    return generate_item_chooser_init_prompt(\"tags\", \"tags\", Tags)\ndef generate_prompt_context_from_prompt_context_dict(\n    prompt_context_dict: dict[str, str]\n):\n    prompt_context = \"\"\n    for k, v in prompt_context_dict.items():",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:222-255"
+    },
+    "87": {
+        "file_id": 14,
+        "content": "This code contains several functions for generating different types of prompts for AI models. The `generate_tag_recommender_init_prompt` function generates an init prompt for recommending tags, while the `generate_item_chooser_init_prompt` function can generate prompts for choosing items (categories or tags) based on a given summary and recommended item. The code also includes functions to generate category chooser and tag chooser prompts, as well as a function to convert prompt context from a dictionary of key-value pairs to a string.",
+        "type": "comment"
+    },
+    "88": {
+        "file_id": 14,
+        "content": "        prompt_context += f\"{k.strip().title()}:\\n{v.strip()}\\n\"\n    return prompt_context.strip()\ndef generate_json_prompt(prompt_context_dict: dict[str, str]):\n    prompt_context = generate_prompt_context_from_prompt_context_dict(\n        prompt_context_dict\n    )\n    # i miss ollama json format restrictions. can i have that?\n    prompt = f\"\"\"{prompt_context}\nResponse in JSON format (curly bracket key-value pairs):\n\"\"\"\n    return prompt\ndef generate_summary_prompt_context_dict(summary: str):\n    return {\"summary\": summary}\ndef generate_json_prompt_with_summary(summary: str):\n    prompt_context_dict = generate_summary_prompt_context_dict(summary)\n    ret = generate_json_prompt(prompt_context_dict)\n    return ret\n@beartype\ndef generate_similar_and_recommended_items_prompt_context_dict(\n    items_name: str, similar_items: list[str], recommended_items: list[str]\n):\n    ret = {\n        f\"similar {items_name} in database\": str(similar_items),\n        f\"your recommended {items_name}\": str(recommended_items),\n    }\n    return ret",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:256-290"
+    },
+    "89": {
+        "file_id": 14,
+        "content": "The code defines several functions for generating a prompt in JSON format. The `generate_prompt_context_from_prompt_context_dict` function takes a dictionary of prompt context and returns the formatted prompt context as a string. The `generate_json_prompt` function combines the prompt context with instructions to return a JSON response. The `generate_summary_prompt_context_dict` function creates a dictionary for the summary prompt context, and the `generate_json_prompt_with_summary` function generates a JSON prompt including the summary. Finally, the `generate_similar_and_recommended_items_prompt_context_dict` function creates a dictionary for similar and recommended items in a database.",
+        "type": "comment"
+    },
+    "90": {
+        "file_id": 14,
+        "content": "@beartype\ndef generate_items_chooser_json_prompt(\n    items_name: str,\n    summary: str,\n    similar_items: list[str],\n    recommended_items: list[str],\n):\n    prompt_context_dict = generate_summary_prompt_context_dict(summary)\n    prompt_context_dict.update(\n        generate_similar_and_recommended_items_prompt_context_dict(\n            items_name, similar_items, recommended_items\n        )\n    )\n    ret = generate_json_prompt(prompt_context_dict)\n    return ret\n@beartype\ndef generate_categories_chooser_json_prompt(\n    summary: str, similar_categories: list[str], recommended_categories: list[str]\n):\n    items_name = \"categories\"\n    return generate_items_chooser_json_prompt(\n        items_name, summary, similar_categories, recommended_categories\n    )\n@beartype\ndef generate_tags_chooser_json_prompt(\n    summary: str, similar_tags: list[str], recommended_tags: list[str]\n):\n    items_name = \"tags\"\n    return generate_items_chooser_json_prompt(\n        items_name, summary, similar_tags, recommended_tags\n    )\n@beartype",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:293-330"
+    },
+    "91": {
+        "file_id": 14,
+        "content": "These functions generate JSON prompts for item, category, and tag choosers. They create a context dictionary by combining summary prompt context and similar/recommended items prompt context. The generated JSON prompt is returned.",
+        "type": "comment"
+    },
+    "92": {
+        "file_id": 14,
+        "content": "def generate_recommended_items(\n    summary: str, init_prompt_generator: Callable[[], tuple[str, type[T]]]\n) -> T:\n    init_prompt, data_class = init_prompt_generator()\n    prompt = generate_json_prompt_with_summary(summary)\n    response = call_llm_once_and_parse(init_prompt, prompt, data_class)\n    return response\n@beartype\ndef generate_chosen_item(\n    summary: str,\n    recommended_items: list[str],\n    similar_items: list[str],\n    init_prompt_generator: Callable[[], tuple[str, type[T]]],\n) -> T:\n    init_prompt, data_class = init_prompt_generator()\n    prompt = generate_categories_chooser_json_prompt(\n        summary, similar_items, recommended_items\n    )\n    response = call_llm_once_and_parse(init_prompt, prompt, data_class)\n    return response\n@beartype\ndef generate_recommended_categories(summary: str):\n    response = generate_recommended_items(\n        summary, generate_category_recommender_init_prompt\n    )\n    return response.categories\n@beartype\ndef generate_chosen_category(\n    summary: str, recommended_categories: list[str], similar_categories: list[str]",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:331-365"
+    },
+    "93": {
+        "file_id": 14,
+        "content": "The code defines three functions:\n1. `generate_recommended_items` generates recommended items using the provided prompt generator and summary.\n2. `generate_chosen_item` generates a chosen item based on the given summary, recommended items, similar items, and prompt generator.\n3. `generate_recommended_categories` generates recommended categories from the provided summary using the category recommender prompt generator.\n4. `generate_chosen_category` selects a chosen category from the recommended categories and similar categories based on the provided summary.",
+        "type": "comment"
+    },
+    "94": {
+        "file_id": 14,
+        "content": "):\n    response = generate_chosen_item(\n        summary,\n        recommended_categories,\n        similar_categories,\n        generate_category_chooser_init_prompt,\n    )\n    return response.category\n@beartype\ndef generate_recommended_tags(summary: str):\n    response = generate_recommended_items(summary, generate_tag_recommender_init_prompt)\n    return response.tags\n@beartype\ndef generate_chosen_tags(\n    summary: str, recommended_tags: list[str], similar_tags: list[str]\n):\n    response = generate_chosen_item(\n        summary,\n        recommended_tags,\n        similar_tags,\n        generate_tag_chooser_init_prompt,\n    )\n    return response.tags\n@beartype\ndef generate_item(\n    items_similarity_index: SimilarityIndex,\n    summary: str,\n    item_recommender: Callable[[str], list[str]],\n    item_chooser: Callable[[str, list[str], list[str]], T],\n    top_k: int = DEFAULT_TOP_K,\n) -> T:\n    recommended_items = item_recommender(summary)\n    similar_items = items_similarity_index.search(recommended_items, top_k=top_k)\n    ret = item_chooser(summary, recommended_items, similar_items)",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:366-405"
+    },
+    "95": {
+        "file_id": 14,
+        "content": "This code defines functions for generating recommended items and tags based on a given summary. It uses an item recommender to suggest items and a similarity index to find similar items. The chosen item or tag is determined by the item chooser function.",
+        "type": "comment"
+    },
+    "96": {
+        "file_id": 14,
+        "content": "    return ret\n@beartype\ndef generate_category(\n    categories_similarity_index: SimilarityIndex,\n    summary: str,\n    top_k: int = DEFAULT_TOP_K,\n):\n    ret = generate_item(\n        categories_similarity_index,\n        summary,\n        generate_recommended_categories,\n        generate_chosen_category,\n        top_k=top_k,\n    )\n    return ret\n@beartype\ndef generate_tags(\n    tags_similarity_index: SimilarityIndex, summary: str, top_k: int = DEFAULT_TOP_K\n):\n    ret = generate_item(\n        tags_similarity_index,\n        summary,\n        generate_recommended_tags,\n        generate_chosen_tags,\n        top_k=top_k,\n    )\n    return ret\n@beartype\ndef generate_title(summary: str):\n    response = generate_recommended_items(\n        summary, generate_title_recommended_init_script\n    )\n    return response.title\n@beartype\ndef generate_description(summary: str):\n    response = generate_recommended_items(\n        summary, generate_description_recommended_init_script\n    )\n    return response.description\n@beartype\ndef generate_summary_prompt_base(word_limit: int):",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:406-456"
+    },
+    "97": {
+        "file_id": 14,
+        "content": "The code defines five functions: `generate_category`, `generate_tags`, `generate_title`, `generate_description`, and `generate_summary_prompt_base`. These functions are decorated with `@beartype` which suggests they are related to type hinting. The functions take various input parameters like summary, top_k, etc., and return the generated results. The code also includes helper function calls within the main function definitions.",
+        "type": "comment"
+    },
+    "98": {
+        "file_id": 14,
+        "content": "    init_prompt = f\"\"\"You are reading text from file in chunks. You would understand what the text is about and return brief summary (under {word_limit} words).\"\"\"\n    return init_prompt\n@beartype\ndef generate_previous_comment_component(previous_comment: str = \"\"):\n    comp = (\n        f\"\"\"Previous comment:\n{previous_comment}\"\"\"\n        if previous_comment.strip()\n        else \"\"\n    )\n    return comp\n@beartype\ndef generate_content_component(content: str, programming_language=\"\"):\n    comp = f\"\"\"Content:\n```{programming_language}\n{content}\n```\"\"\"\n    return comp\n@beartype\ndef generate_summary_prompt_generator(programming_language: str):\n    @beartype\n    def prompt_generator(content: str, location: str, previous_comment: str = \"\"):\n        components = [\n            generate_content_component(content, programming_language),\n            generate_previous_comment_component(previous_comment),\n        ]\n        ret = assemble_prompt_components(components)\n        return ret\n    return prompt_generator\n@beartype\ndef generate_summary(",
+        "type": "code",
+        "location": "/remove_unwanted_notes.py:457-496"
+    },
+    "99": {
+        "file_id": 14,
+        "content": "Function `generate_summary` takes in a chunk of text, the programming language used, and an optional previous comment, and returns a summary of the text under the given word limit. The function calls other helper functions to generate components for the prompt, which include the content, previous comment (if provided), and then assembles them together into a final prompt for summarization.",
+        "type": "comment"
+    }
+}

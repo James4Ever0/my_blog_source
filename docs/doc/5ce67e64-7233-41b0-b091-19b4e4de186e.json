@@ -1,0 +1,10 @@
+{
+    "summary": "Updating API key and base URL, enabling better exceptions, then running the script.",
+    "details": [
+        {
+            "comment": "Updating API key and base URL, enabling better exceptions, then running the script.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/update_posts.sh\":1-5",
+            "content": "export OPENAI_API_KEY='any'\nexport OPENAI_API_BASE=http://0.0.0.0:8000\nexport BETTER_EXCEPTIONS=1\npython3 remove_unwanted_notes.py"
+        }
+    ]
+}

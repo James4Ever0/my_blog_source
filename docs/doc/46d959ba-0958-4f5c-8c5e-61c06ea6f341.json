@@ -1,0 +1,10 @@
+{
+    "summary": "This code is an HTML template for a website sitemap, including basic meta tags, title, and a list of pages with their respective URLs.",
+    "details": [
+        {
+            "comment": "This code is an HTML template for a website sitemap, including basic meta tags, title, and a list of pages with their respective URLs.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/sitemap_template.html.j2\":0-16",
+            "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Website Sitemap</title>\n</head>\n<body>\n    <h1>Website Sitemap</h1>\n    <ul>\n        <li><a href=\"/\">Home</a></li>\n{% for index, url in datalist %}\n        <li><a href=\"{{url}}\">Page {{index}}</a></li>\n{% endfor %}\n    </ul>\n</body>\n</html>"
+        }
+    ]
+}

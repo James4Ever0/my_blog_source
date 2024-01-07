@@ -1,0 +1,10 @@
+{
+    "summary": "This code generates an XML sitemap file in the specified format for SEO purposes, using data from a \"datalist\" variable.",
+    "details": [
+        {
+            "comment": "This code generates an XML sitemap file in the specified format for SEO purposes, using data from a \"datalist\" variable.",
+            "location": "\"/media/root/Prima/hexo_blog_demo/blog_template/docs/src/sitemap_template.xml.j2\":0-15",
+            "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset\n      xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"\n      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n      xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9\n            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">\n<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->\n{% for url_loc, lastmod, priority in datalist %}\n<url>\n  <loc>{{url_loc}}</loc>\n  <lastmod>{{lastmod}}</lastmod>\n  <priority>{{priority}}</priority>\n</url>\n{% endfor %}\n</urlset>"
+        }
+    ]
+}
