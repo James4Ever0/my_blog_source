@@ -16,3 +16,4 @@ themes
 *.txt
 *.log
 *.{html,xml}
+docs

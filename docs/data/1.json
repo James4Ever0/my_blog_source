@@ -396,7 +396,7 @@
     },
     "173": {
         "file_id": 21,
-        "content": "\"Converts input date string to datetime object\"",
+        "content": "Converts input date string to datetime object",
         "type": "summary"
     },
     "174": {
@@ -407,7 +407,7 @@
     },
     "175": {
         "file_id": 21,
-        "content": "\"Converts input date string to datetime object\"",
+        "content": "Converts input date string to datetime object",
         "type": "comment"
     },
     "176": {
